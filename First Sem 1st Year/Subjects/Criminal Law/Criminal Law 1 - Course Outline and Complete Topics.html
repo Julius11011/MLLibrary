@@ -1,0 +1,2084 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Criminal Law comprehensive review notes and study materials.">
+  <title>Criminal Law 1 Course Outline and Complete Topics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0f172a;
+      --bg-secondary: #1e293b;
+      --bg-tertiary: #334155;
+      --bg-card: rgba(30, 41, 59, 0.75);
+      --bg-card-hover: rgba(51, 65, 85, 0.85);
+      --border-color: rgba(148, 163, 184, 0.18);
+      --border-focus: #38bdf8;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --accent-gold: #fbbf24;
+      --accent-gold-dark: #d97706;
+      --accent-blue: #38bdf8;
+      --accent-indigo: #818cf8;
+      --accent-emerald: #34d399;
+      --accent-rose: #fb7185;
+      --highlight-reading: rgba(56, 189, 248, 0.28);
+      --font-body: 'Merriweather', Georgia, serif;
+      --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-heading: 'Cinzel', serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --sidebar-width: 320px;
+      --header-height: 72px;
+      --content-max-width: 880px;
+      --base-font-size: 17px;
+      --line-height: 1.85;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+      --glass-blur: blur(14px);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #ffffff;
+      --bg-tertiary: #e2e8f0;
+      --bg-card: rgba(255, 255, 255, 0.9);
+      --bg-card-hover: rgba(241, 245, 249, 0.98);
+      --border-color: rgba(203, 213, 225, 0.85);
+      --border-focus: #0284c7;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --accent-gold: #b45309;
+      --accent-gold-dark: #92400e;
+      --accent-blue: #0284c7;
+      --accent-indigo: #4f46e5;
+      --accent-emerald: #059669;
+      --accent-rose: #e11d48;
+      --highlight-reading: rgba(2, 132, 199, 0.18);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+    }
+
+    [data-theme="sepia"] {
+      --bg-primary: #fbf0d9;
+      --bg-secondary: #f4e4c1;
+      --bg-tertiary: #ecd6a7;
+      --bg-card: rgba(244, 228, 193, 0.9);
+      --bg-card-hover: rgba(236, 214, 167, 0.98);
+      --border-color: rgba(180, 150, 110, 0.45);
+      --border-focus: #9a6700;
+      --text-primary: #2d241e;
+      --text-secondary: #4a3b32;
+      --text-muted: #786455;
+      --accent-gold: #a75d00;
+      --accent-gold-dark: #8c4c00;
+      --accent-blue: #2c6e91;
+      --accent-indigo: #5d4a82;
+      --accent-emerald: #2e7d32;
+      --accent-rose: #c2185b;
+      --highlight-reading: rgba(200, 150, 50, 0.28);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: var(--base-font-size);
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      line-height: var(--line-height);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.25s ease, color 0.25s ease;
+      overflow-x: hidden;
+    }
+
+    /* Top Reading Progress Bar */
+    #readingProgressBar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue));
+      z-index: 999;
+      transition: width 0.1s ease;
+    }
+
+    /* Top Sticky Navigation Bar */
+    header.app-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--header-height);
+      background-color: rgba(15, 23, 42, 0.88);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      gap: 1rem;
+    }
+
+    [data-theme="light"] header.app-header {
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    [data-theme="sepia"] header.app-header {
+      background-color: rgba(251, 240, 217, 0.92);
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0f172a;
+      font-weight: 800;
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      box-shadow: 0 2px 8px rgba(251, 191, 36, 0.35);
+      text-decoration: none;
+    }
+
+    .brand-titles {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: var(--font-ui);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 300px;
+    }
+
+    .brand-subtitle {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      color: var(--accent-gold);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Global TTS Controls Toolbar */
+    .tts-toolbar {
+      display: flex;
+      align-items: center;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      padding: 0.35rem 0.65rem;
+      border-radius: 40px;
+      gap: 0.45rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .tts-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-primary);
+      cursor: pointer;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      font-size: 0.95rem;
+    }
+
+    .tts-btn:hover {
+      background-color: var(--bg-tertiary);
+      color: var(--accent-gold);
+    }
+
+    .tts-btn.primary {
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+      color: #0f172a;
+      font-weight: 700;
+      box-shadow: 0 2px 6px rgba(251, 191, 36, 0.4);
+    }
+
+    .tts-btn.primary:hover {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
+
+    .tts-status-badge {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.55rem;
+      border-radius: 20px;
+      background-color: var(--bg-tertiary);
+      color: var(--text-muted);
+      min-width: 90px;
+      text-align: center;
+    }
+
+    .tts-status-badge.speaking {
+      background-color: rgba(56, 189, 248, 0.2);
+      color: var(--accent-blue);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      animation: pulseGlow 1.5s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      from { box-shadow: 0 0 4px rgba(56, 189, 248, 0.2); }
+      to { box-shadow: 0 0 10px rgba(56, 189, 248, 0.5); }
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .control-select {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 0.4rem 0.65rem;
+      border-radius: 8px;
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .control-select:focus {
+      border-color: var(--border-focus);
+    }
+
+    .icon-btn {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+
+    .icon-btn:hover {
+      background-color: var(--bg-tertiary);
+      border-color: var(--border-focus);
+    }
+
+    /* Main Application Layout */
+    .app-layout {
+      display: flex;
+      flex: 1;
+      position: relative;
+    }
+
+    /* Sticky Sidebar Navigation */
+    aside.app-sidebar {
+      width: var(--sidebar-width);
+      height: calc(100vh - var(--header-height));
+      position: sticky;
+      top: var(--header-height);
+      background-color: var(--bg-secondary);
+      border-right: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      overflow-y: auto;
+      z-index: 50;
+      transition: transform 0.3s ease;
+    }
+
+    .sidebar-header {
+      padding: 1.25rem 1rem 0.75rem 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .sidebar-search {
+      position: relative;
+      width: 100%;
+    }
+
+    .sidebar-search input {
+      width: 100%;
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.5rem 0.75rem 0.5rem 2rem;
+      color: var(--text-primary);
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .sidebar-search input:focus {
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+    }
+
+    .sidebar-search .search-icon {
+      position: absolute;
+      left: 0.65rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    .toc-container {
+      padding: 0.75rem 0.5rem;
+      flex: 1;
+    }
+
+    .toc-nav ul {
+      list-style: none;
+    }
+
+    .toc-nav li {
+      margin-bottom: 0.2rem;
+    }
+
+    .toc-link {
+      display: block;
+      padding: 0.45rem 0.75rem;
+      border-radius: 6px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      font-weight: 500;
+      line-height: 1.4;
+      transition: all 0.2s ease;
+      border-left: 2px solid transparent;
+    }
+
+    .toc-link:hover {
+      background-color: var(--bg-tertiary);
+      color: var(--text-primary);
+    }
+
+    .toc-link.active {
+      background-color: rgba(56, 189, 248, 0.12);
+      color: var(--accent-blue);
+      border-left-color: var(--accent-blue);
+      font-weight: 600;
+    }
+
+    .toc-link.level-2 {
+      padding-left: 1.25rem;
+      font-size: 0.78rem;
+    }
+
+    .toc-link.level-3 {
+      padding-left: 1.75rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Main Content Container */
+    main.app-content {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      padding: 2.5rem 2rem;
+      overflow-y: visible;
+    }
+
+    .content-wrapper {
+      max-width: var(--content-max-width);
+      width: 100%;
+    }
+
+    /* Document Header Banner */
+    .document-hero {
+      background: linear-gradient(145deg, var(--bg-card), var(--bg-secondary));
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2.25rem 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .document-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue), var(--accent-indigo));
+    }
+
+    .doc-badge {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      background: rgba(251, 191, 36, 0.15);
+      color: var(--accent-gold);
+      border: 1px solid rgba(251, 191, 36, 0.3);
+      margin-bottom: 0.85rem;
+    }
+
+    .doc-main-title {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+    }
+
+    .doc-subtitle {
+      font-family: var(--font-ui);
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .doc-meta-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    /* Section & Content Styling */
+    section.doc-section {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2.25rem;
+      box-shadow: var(--shadow-md);
+      transition: border-color 0.2s ease;
+    }
+
+    section.doc-section:hover {
+      border-color: rgba(148, 163, 184, 0.35);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+      line-height: 1.4;
+    }
+
+    .section-title.level-2 {
+      font-size: 1.2rem;
+      color: var(--text-primary);
+    }
+
+    .section-title.level-3 {
+      font-size: 1.05rem;
+      color: var(--accent-blue);
+    }
+
+    .section-listen-btn {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.3rem 0.7rem;
+      border-radius: 20px;
+      background-color: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: all 0.2s ease;
+    }
+
+    .section-listen-btn:hover {
+      background-color: var(--accent-gold);
+      color: #0f172a;
+      border-color: var(--accent-gold);
+    }
+
+    /* Read Units & Paragraphs */
+    .read-unit {
+      position: relative;
+      margin-bottom: 1.15rem;
+      padding: 0.4rem 0.7rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .read-unit:hover {
+      background-color: rgba(148, 163, 184, 0.08);
+    }
+
+    .read-unit.is-speaking {
+      background-color: var(--highlight-reading) !important;
+      border-left: 3px solid var(--accent-blue);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
+    }
+
+    .bullet-point {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+    }
+
+    .bullet-dot {
+      color: var(--accent-gold);
+      font-weight: bold;
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+
+    .bullet-num {
+      color: var(--accent-blue);
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .bullet-content {
+      flex: 1;
+    }
+
+    .reader-quote {
+      border-left: 4px solid var(--accent-gold);
+      padding: 0.75rem 1.25rem;
+      background-color: rgba(251, 191, 36, 0.06);
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: var(--text-secondary);
+      margin: 1.25rem 0;
+    }
+
+    .reader-code {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1rem;
+      overflow-x: auto;
+      line-height: 1.5;
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+      margin: 1.25rem 0;
+    }
+
+    .reader-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-ui);
+      font-size: 0.88rem;
+    }
+
+    .reader-table th, .reader-table td {
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border-color);
+      text-align: left;
+    }
+
+    .reader-table th {
+      background-color: var(--bg-secondary);
+      color: var(--accent-gold);
+      font-weight: 600;
+    }
+
+    .reader-table tr:nth-child(even) {
+      background-color: rgba(148, 163, 184, 0.04);
+    }
+
+    /* Case Elements Badges */
+    .case-element {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .case-badge {
+      font-family: var(--font-ui);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+      flex-shrink: 0;
+      margin-top: 0.25rem;
+    }
+
+    .badge-facts { background: rgba(56, 189, 248, 0.18); color: var(--accent-blue); border: 1px solid rgba(56, 189, 248, 0.35); }
+    .badge-issue { background: rgba(251, 191, 36, 0.18); color: var(--accent-gold); border: 1px solid rgba(251, 191, 36, 0.35); }
+    .badge-held { background: rgba(52, 211, 153, 0.18); color: var(--accent-emerald); border: 1px solid rgba(52, 211, 153, 0.35); }
+    .badge-doctrine { background: rgba(251, 113, 133, 0.18); color: var(--accent-rose); border: 1px solid rgba(251, 113, 133, 0.35); }
+
+    .legal-citation {
+      font-weight: 600;
+      color: var(--accent-gold);
+      border-bottom: 1px dotted rgba(251, 191, 36, 0.5);
+    }
+
+    .section-divider {
+      border: 0;
+      height: 1px;
+      background: var(--border-color);
+      margin: 1.5rem 0;
+    }
+
+    /* Floating TTS Trigger on Selection */
+    #floatingTtsTrigger {
+      position: absolute;
+      display: none;
+      z-index: 1000;
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+      color: #0f172a;
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 20px;
+      padding: 0.4rem 0.85rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      cursor: pointer;
+      transform: translateX(-50%);
+      transition: transform 0.15s ease, filter 0.15s ease;
+    }
+
+    #floatingTtsTrigger:hover {
+      transform: translateX(-50%) scale(1.05);
+      filter: brightness(1.1);
+    }
+
+    /* Footer */
+    footer.app-footer {
+      background-color: var(--bg-secondary);
+      border-top: 1px solid var(--border-color);
+      padding: 1.5rem;
+      text-align: center;
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: auto;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 900px) {
+      aside.app-sidebar {
+        position: fixed;
+        left: 0;
+        top: var(--header-height);
+        transform: translateX(-100%);
+        box-shadow: var(--shadow-lg);
+      }
+
+      aside.app-sidebar.open {
+        transform: translateX(0);
+      }
+
+      .brand-title {
+        max-width: 180px;
+      }
+
+      .tts-status-badge {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="readingProgressBar"></div>
+
+  <!-- App Header -->
+  <header class="app-header">
+    <div class="brand-section">
+      <button class="icon-btn" id="toggleSidebarBtn" title="Toggle Table of Contents">☰</button>
+      <a href="#" class="brand-logo" title="MLC Law Reader">⚖</a>
+      <div class="brand-titles">
+        <span class="brand-title">Criminal Law 1 Course Outline and Complete Topics</span>
+        <span class="brand-subtitle">Criminal Law • Interactive Reader</span>
+      </div>
+    </div>
+
+    <!-- TTS Toolbar -->
+    <div class="tts-toolbar">
+      <button class="tts-btn" id="ttsPrevBtn" title="Previous Paragraph (P)">⏮</button>
+      <button class="tts-btn primary" id="ttsPlayPauseBtn" title="Play / Pause (Space)">
+        <span id="ttsPlayIcon">▶</span>
+        <span id="ttsPauseIcon" style="display:none;">⏸</span>
+      </button>
+      <button class="tts-btn" id="ttsStopBtn" title="Stop (Esc)">⏹</button>
+      <button class="tts-btn" id="ttsNextBtn" title="Next Paragraph (N)">⏭</button>
+      <span class="tts-status-badge" id="ttsStatus">Ready</span>
+    </div>
+
+    <!-- Right Controls -->
+    <div class="header-actions">
+      <select class="control-select" id="ttsSpeedSelect" title="Reading Speed (Deliberate Study Pace)">
+        <option value="0.75">0.75x (Slow)</option>
+        <option value="0.85">0.85x (Very Clear)</option>
+        <option value="0.9" selected>0.9x (Deliberate)</option>
+        <option value="1.0">1.0x (Normal)</option>
+        <option value="1.15">1.15x</option>
+        <option value="1.25">1.25x</option>
+        <option value="1.5">1.5x</option>
+      </select>
+      <select class="control-select" id="ttsVoiceSelect" title="Speech Voice (Neural Natural Voices First)" style="max-width: 155px;">
+        <option value="default">Natural Voice (Auto)</option>
+      </select>
+      <button class="icon-btn" id="fontDecBtn" title="Decrease Font Size ( - )">A-</button>
+      <button class="icon-btn" id="fontIncBtn" title="Increase Font Size ( + )">A+</button>
+      <select class="control-select" id="themeSelect" title="Visual Theme">
+        <option value="dark">🌙 Dark</option>
+        <option value="sepia">📜 Sepia</option>
+        <option value="light">☀️ Light</option>
+      </select>
+    </div>
+  </header>
+
+  <!-- Layout Container -->
+  <div class="app-layout">
+    <!-- Table of Contents Sidebar -->
+    <aside class="app-sidebar" id="appSidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-search">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="sidebarSearch" placeholder="Search topics, cases... ( / )" autocomplete="off">
+        </div>
+      </div>
+      <div class="toc-container">
+        <nav class="toc-nav">
+          <ul id="tocList">
+            <li><a href="#sec-intro" class="toc-link level-1">Criminal Law 1 Course Outline and Complete Topics</a></li>
+            <li><a href="#sec-1-criminal-law-1-course-outline-complete" class="toc-link level-2">CRIMINAL LAW 1: COURSE OUTLINE &amp; COMPLETE</a></li>
+            <li><a href="#sec-2-topic-guide" class="toc-link level-2">TOPIC GUIDE</a></li>
+            <li><a href="#sec-3-course-overview-administrative-information" class="toc-link level-2">COURSE OVERVIEW &amp; ADMINISTRATIVE INFORMATION</a></li>
+            <li><a href="#sec-4-i-general-principles-of-criminal-law" class="toc-link level-2">I. GENERAL PRINCIPLES OF CRIMINAL LAW</a></li>
+            <li><a href="#sec-5-1-classical-vs-positivist-classical-theory-jus-puniendi-base" class="toc-link level-3">1. Classical vs. Positivist: Classical Theory (Jus Puniendi based on human free will, moral culpability, and</a></li>
+            <li><a href="#sec-6-2-retributive-vs-restorative-retributive-justice-vindicative" class="toc-link level-3">2. Retributive vs. Restorative: Retributive Justice (Vindicative justice, eye-for-an-eye, proportional</a></li>
+            <li><a href="#sec-7-c-crime-sources-of-criminal-law" class="toc-link level-2">C. Crime &amp; Sources of Criminal Law</a></li>
+            <li><a href="#sec-8-d-characteristics-of-criminal-law" class="toc-link level-2">D. Characteristics of Criminal Law</a></li>
+            <li><a href="#sec-9-ii-felonies-and-criminal-liability" class="toc-link level-2">II. FELONIES AND CRIMINAL LIABILITY</a></li>
+            <li><a href="#sec-10-2-mala-in-se-vs-mala-prohibita-mala-in-se-inherently-immoral" class="toc-link level-3">2. Mala In Se vs. Mala Prohibita: Mala in se (inherently immoral, evil in itself; criminal intent is necessary;</a></li>
+            <li><a href="#sec-11-c-incurring-criminal-liability-art-4-rpc" class="toc-link level-2">C. Incurring Criminal Liability (Art. 4, RPC)</a></li>
+            <li><a href="#sec-12-d-stages-of-execution-art-6-rpc" class="toc-link level-2">D. Stages of Execution (Art. 6, RPC)</a></li>
+            <li><a href="#sec-13-iii-circumstances-affecting-criminal-liability" class="toc-link level-2">III. CIRCUMSTANCES AFFECTING CRIMINAL LIABILITY</a></li>
+            <li><a href="#sec-14-c-mitigating-circumstances-art-13-rpc" class="toc-link level-2">C. Mitigating Circumstances (Art. 13, RPC)</a></li>
+            <li><a href="#sec-15-d-aggravating-circumstances-art-14-rpc" class="toc-link level-2">D. Aggravating Circumstances (Art. 14, RPC)</a></li>
+            <li><a href="#sec-16-1-instigation-vs-entrapment-instigation-law-enforcer-instiga" class="toc-link level-3">1. Instigation vs. Entrapment: Instigation (law enforcer instigates person to commit crime; complete defense,</a></li>
+            <li><a href="#sec-17-iv-persons-criminally-liable-articles-16-20-rpc" class="toc-link level-2">IV. PERSONS CRIMINALLY LIABLE (Articles 16 – 20, RPC)</a></li>
+            <li><a href="#sec-18-v-penalties-articles-21-88-rpc" class="toc-link level-2">V. PENALTIES (Articles 21 – 88, RPC)</a></li>
+            <li><a href="#sec-19-c-application-graduation-of-penalties" class="toc-link level-2">C. Application &amp; Graduation of Penalties</a></li>
+            <li><a href="#sec-20-4-continued-vs-continuing-continued-crime-delito-continuado" class="toc-link level-3">4. Continued vs. Continuing: Continued Crime (delito continuado  —  series of acts animated by a single</a></li>
+            <li><a href="#sec-21-d-indeterminate-sentence-law-act-no-4103-as-amended" class="toc-link level-2">D. Indeterminate Sentence Law (Act No. 4103, as Amended)</a></li>
+            <li><a href="#sec-22-vi-extinction-of-criminal-liability-articles-89-99-rpc" class="toc-link level-2">VI. EXTINCTION OF CRIMINAL LIABILITY (Articles 89 – 99, RPC)</a></li>
+            <li><a href="#sec-23-vii-civil-liability-arising-from-crimes-articles-100-113-rpc" class="toc-link level-2">VII. CIVIL LIABILITY ARISING FROM CRIMES (Articles 100 – 113, RPC)</a></li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="app-content" id="mainContentArea">
+      <div class="content-wrapper" id="contentWrapper">
+        <!-- Hero Header -->
+        <div class="document-hero">
+          <span class="doc-badge">Criminal Law</span>
+          <h1 class="doc-main-title">Criminal Law 1 Course Outline and Complete Topics</h1>
+          <p class="doc-subtitle">Criminal Law comprehensive review notes and study materials.</p>
+          <div class="doc-meta-bar">
+            <div class="meta-item"><span>📑</span> <span>24 Sections</span></div>
+            <div class="meta-item"><span>🔊</span> <span id="totalUnitsCounter">459 Read Units</span></div>
+            <div class="meta-item"><span>⏱</span> <span>~100 min read</span></div>
+            <div class="meta-item"><span>🎙</span> <span>Intelligent Natural Speech</span></div>
+          </div>
+          
+        </div>
+
+        <!-- Document Sections -->
+        
+        <section class="doc-section" id="sec-intro">
+          <header class="section-header">
+            <h2 class="section-title level-1">Criminal Law 1 Course Outline and Complete Topics</h2>
+            <button class="section-listen-btn" onclick="readSection('sec-intro')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Criminal Law 1 • Complete Course Outline &amp; Topic Guide</p>
+        <p class="read-unit" data-unit-type="paragraph">MANILA LAW COLLEGE • Criminal Law 1 (Book I, RPC)</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-1-criminal-law-1-course-outline-complete">
+          <header class="section-header">
+            <h3 class="section-title level-2">CRIMINAL LAW 1: COURSE OUTLINE &amp; COMPLETE</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-1-criminal-law-1-course-outline-complete')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-2-topic-guide">
+          <header class="section-header">
+            <h3 class="section-title level-2">TOPIC GUIDE</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-2-topic-guide')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><strong>Book I of the Revised Penal Code (Articles 1 – 113, Act No. 3815 as Amended) &amp; Related Special Penal</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Laws</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Manila Law College • First Semester, AY 2026-2027</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Instructor: ATTY. SHANDER A. MATIENZO</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-3-course-overview-administrative-information">
+          <header class="section-header">
+            <h3 class="section-title level-2">COURSE OVERVIEW &amp; ADMINISTRATIVE INFORMATION</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-3-course-overview-administrative-information')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><strong>Course Description: This three-unit course introduces law students to the fundamental principles, doctrines, and</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">statutory provisions of Philippine Criminal Law under Book I (Articles 1 – 113) of the Revised Penal Code (Act No.</p>
+        <p class="read-unit" data-unit-type="paragraph">3815), as amended, alongside relevant special penal statutes.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Assessment Component</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Weight Percentage</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Attendance &amp; Class Demeanor</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>10%</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Recitation / Class Discussions / Quizzes</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>30%</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Mid-Term Examination</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>30%</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Final Examination</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>30%</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Basic References &amp; Statutory Anchors</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Commentaries: Any standard commentary or textbook on Criminal Law (Book I, Articles 1 – 113 of the</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Revised Penal Code, as amended) by recognized legal authors: Reyes, Boado, Campanilla, or Ortega.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Primary Statute: Act No. 3815 (The Revised Penal Code of the Philippines, as amended).</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Fundamental Law: The 1987 Philippine Constitution (specifically Article III: Bill of Rights).</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Special Laws: Special Penal Statutes &amp; Supreme Court En Banc / Division Landmark Decisions.</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-4-i-general-principles-of-criminal-law">
+          <header class="section-header">
+            <h3 class="section-title level-2">I. GENERAL PRINCIPLES OF CRIMINAL LAW</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-4-i-general-principles-of-criminal-law')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><strong>A. Definitions &amp; Nature</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>1. Definition: Criminal law is that branch or division of law which defines crimes, treats of their nature, and</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">provides for their punishment (Reyes, citing 12 Cyc. 129).</p>
+        <p class="read-unit" data-unit-type="paragraph">Criminal Law 1 • Complete Course Outline &amp; Topic Guide</p>
+        <p class="read-unit" data-unit-type="paragraph">MANILA LAW COLLEGE • Criminal Law 1 (Book I, RPC)</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>2. Substantive &amp; Public Character: It is substantive because it defines the State&#x27;s right to inflict punishment</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">and the liability of the offenders. It is public law because it deals with the relation of the individual with the</p>
+        <p class="read-unit" data-unit-type="paragraph">State.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>B. Theories of Criminal Law</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-5-1-classical-vs-positivist-classical-theory-jus-puniendi-base">
+          <header class="section-header">
+            <h4 class="section-title level-3">1. Classical vs. Positivist: Classical Theory (Jus Puniendi based on human free will, moral culpability, and</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-5-1-classical-vs-positivist-classical-theory-jus-puniendi-base')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">retribution; penalty is strictly proportional to the gravity of the crime) vs. Positivist Theory (Criminal is</p>
+        <p class="read-unit" data-unit-type="paragraph">regarded as a sick individual; crime is a social phenomenon; penalties are reformative and protective of</p>
+        <p class="read-unit" data-unit-type="paragraph">society).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-6-2-retributive-vs-restorative-retributive-justice-vindicative">
+          <header class="section-header">
+            <h4 class="section-title level-3">2. Retributive vs. Restorative: Retributive Justice (Vindicative justice, eye-for-an-eye, proportional</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-6-2-retributive-vs-restorative-retributive-justice-vindicative')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">punishment) vs. Restorative Justice (Restoration of victims, rehabilitation of offenders, community</p>
+        <p class="read-unit" data-unit-type="paragraph">reconciliation).</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-7-c-crime-sources-of-criminal-law">
+          <header class="section-header">
+            <h3 class="section-title level-2">C. Crime &amp; Sources of Criminal Law</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-7-c-crime-sources-of-criminal-law')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>1. Definition of Crime: Crime is an act committed or omitted in violation of a public law forbidding or</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">commanding it (Bouvier&#x27;s Law Dictionary, Rawle&#x27;s 3rd Rev., 729).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>2. Sources: (a) The Revised Penal Code (Act No. 3815) and amendments thereto; (b) Special Penal Laws</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">enacted by the Legislature; (c) Penal Presidential Decrees and Executive Orders during revolutionary /</p>
+        <p class="read-unit" data-unit-type="paragraph">constitutional periods.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-8-d-characteristics-of-criminal-law">
+          <header class="section-header">
+            <h3 class="section-title level-2">D. Characteristics of Criminal Law</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-8-d-characteristics-of-criminal-law')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>1. Generality: Penal laws and those of public security and good order shall be obligatory upon all who live or</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">sojourn in the Philippine territory (Art. 14, Civil Code). Exceptions: Treaty stipulations, generally accepted</p>
+        <p class="read-unit" data-unit-type="paragraph">principles of international law (sovereigns, diplomatic representatives), and constitutional immunities (Art. VI,</p>
+        <p class="read-unit" data-unit-type="paragraph">Sec. 11, 1987 Const.  —  parliamentary speech and debate).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>2. Territoriality: Penal laws are enforceable only within the national territory of the Philippines (Art. 2, RPC).</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Exceptions under Art. 2 (Extraterritoriality): (1) Offenses on Philippine ship or airship; (2)</p>
+        <p class="read-unit" data-unit-type="paragraph">Forging/counterfeiting coins/currency notes of the Philippines; (3) Introducing into the country counterfeit</p>
+        <p class="read-unit" data-unit-type="paragraph">coins/notes/obligations; (4) Offenses committed by public officers in the exercise of their functions; (5) Crimes</p>
+        <p class="read-unit" data-unit-type="paragraph">against national security and the law of nations (e.g., Treason, Espionage, Piracy).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>3. Prospectivity: Penal laws look forward and have no retroactive effect (Art. 21 &amp; 22 RPC; Art. 4 Civil Code;</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Art. III Sec. 22 1987 Const.). Exception: Penal laws shall have retroactive effect in so far as they favor the</p>
+        <p class="read-unit" data-unit-type="paragraph">person guilty of a felony, provided he is not a habitual delinquent (Art. 22, RPC). Constitutional prohibition on</p>
+        <p class="read-unit" data-unit-type="paragraph">Ex Post Facto Laws and Bills of Attainder.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>E. Construction &amp; Interpretation of Penal Laws</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>1. Strict Construction: Penal laws are strictly construed against the State and liberally in favor of the accused</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">(In dubio pro reo). Ambiguities must be resolved in favor of liberty.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>2. Harmonization: All provisions of the Penal Code must be harmonized and construed as a cohesive whole.</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>3. Prevalence of Spanish Text: In case of conflict or ambiguity, the Spanish text of Act No. 3815 prevails over</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">the English translation (People v. Mesias).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>4. Duty of Courts (Art. 5 RPC): Court duty when an act is not covered by law but should be repressed (report</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">to Chief Executive via DOJ), or when penalty is clearly excessive (Art. 5, RPC).</p>
+        <p class="read-unit" data-unit-type="paragraph">Criminal Law 1 • Complete Course Outline &amp; Topic Guide</p>
+        <p class="read-unit" data-unit-type="paragraph">MANILA LAW COLLEGE • Criminal Law 1 (Book I, RPC)</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>5. Effect of Repeal/Amendment: Absolute repeal of a penal law extinguishes criminal liability unless saved by</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">transitional clauses.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-9-ii-felonies-and-criminal-liability">
+          <header class="section-header">
+            <h3 class="section-title level-2">II. FELONIES AND CRIMINAL LIABILITY</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-9-ii-felonies-and-criminal-liability')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><strong>A. Crimes in General</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>1. Terminology: Terms: Crime (generic), Felony (punishable under RPC), Offense (punishable under Special</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Laws), Infraction / Misdemeanor (minor breaches, ordinances, light offenses), Private Offenses (Rule 110),</p>
+        <p class="read-unit" data-unit-type="paragraph">Victimless Crimes, Status Offenses.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-10-2-mala-in-se-vs-mala-prohibita-mala-in-se-inherently-immoral">
+          <header class="section-header">
+            <h4 class="section-title level-3">2. Mala In Se vs. Mala Prohibita: Mala in se (inherently immoral, evil in itself; criminal intent is necessary;</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-10-2-mala-in-se-vs-mala-prohibita-mala-in-se-inherently-immoral')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">good faith is a defense) vs. Mala prohibita (acts prohibited by special statute for public policy; intent is</p>
+        <p class="read-unit" data-unit-type="paragraph">immaterial; the only inquiry is whether the statute was violated).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>3. Moral Turpitude: Crimes involving moral turpitude (acts inherently contrary to justice, honesty, modesty, or</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">good morals).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>4. Relation of RPC to Special Laws: Article 10 RPC: Offenses punishable under special laws are not subject to</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">the provisions of Book I of the RPC, except when the special law explicitly provides or uses RPC penalties by</p>
+        <p class="read-unit" data-unit-type="paragraph">reference (supplementary nature of RPC).</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>B. Elements of Felonies (Art. 3, RPC)</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>1. Act or Omission: An act (bodily movement producing external effect) or omission (failure to perform a</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">positive duty required by law, e.g., Arts. 116, 137, 208, 213, 223, 234, 275 RPC).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>2. Legality: Nullum crimen, nulla poena sine lege (There is no crime when there is no law punishing it).</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>3. Dolo (Criminal Intent): Dolo (Deceit / Malice): Requisites are Freedom, Intelligence, and Intent.</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Presumption of intent; General vs. Specific intent; Intent distinguished from Motive; Mistake of Fact</p>
+        <p class="read-unit" data-unit-type="paragraph">(Ignorantia facti excusat  —  Ah Chong doctrine; requisites: honest mistake, lack of negligence, act would have</p>
+        <p class="read-unit" data-unit-type="paragraph">been lawful had facts been as believed).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>4. Culpa (Criminal Negligence): Culpa (Fault): Act committed through imprudence (deficiency of action / lack</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">of skill), negligence (deficiency of perception / lack of foresight), lack of foresight, or lack of skill (Art. 3 &amp; Art.</p>
+        <p class="read-unit" data-unit-type="paragraph">365, RPC; Ivler doctrine on reckless imprudence as a distinct quasi-offense).</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-11-c-incurring-criminal-liability-art-4-rpc">
+          <header class="section-header">
+            <h3 class="section-title level-2">C. Incurring Criminal Liability (Art. 4, RPC)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-11-c-incurring-criminal-liability-art-4-rpc')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>1. Proximate Cause &amp; Transfer of Intent: Criminal liability is incurred by any person committing a felony</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">although the wrongful act done be different from that which he intended (Art. 4, par. 1).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Three Scenarios: Praeter Intentionem (the injurious result is greater than that intended; Art. 13[3]);</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Aberratio Ictus (mistake in the blow, where the act directed at one strikes another; Art. 48 complex crime);</p>
+        <p class="read-unit" data-unit-type="paragraph">Error in Personae (mistake in identity; Art. 49).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>2. Impossible Crimes: Art. 4, par. 2: Commission of an act which would be an offense against persons or</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">property, were it not for the inherent impossibility of its accomplishment (physical impossibility or legal</p>
+        <p class="read-unit" data-unit-type="paragraph">impossibility) or the employment of inadequate or ineffectual means (Art. 4[2], Art. 59).</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-12-d-stages-of-execution-art-6-rpc">
+          <header class="section-header">
+            <h3 class="section-title level-2">D. Stages of Execution (Art. 6, RPC)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-12-d-stages-of-execution-art-6-rpc')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>1. Attempted Stage: The offender commences the commission of a felony directly by overt acts, and does not</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">perform all the acts of execution which should produce the felony by reason of some cause or accident other</p>
+        <p class="read-unit" data-unit-type="paragraph">than his own spontaneous desistance.</p>
+        <p class="read-unit" data-unit-type="paragraph">Criminal Law 1 • Complete Course Outline &amp; Topic Guide</p>
+        <p class="read-unit" data-unit-type="paragraph">MANILA LAW COLLEGE • Criminal Law 1 (Book I, RPC)</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>2. Frustrated Stage: The offender performs all the acts of execution which should produce the felony as a</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">consequence but which, nevertheless, do not produce it by reason of causes independent of the will of the</p>
+        <p class="read-unit" data-unit-type="paragraph">perpetrator.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>3. Consummated Stage: All the elements necessary for the execution and accomplishment of the felony are</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">present.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>4. Specific Felony Analysis: Special rules on stages of execution in specific crimes: Rape (mere penetration,</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">however slight), Theft (taking and unlawful taking / control; Valenzuela doctrine: no frustrated theft), Robbery</p>
+        <p class="read-unit" data-unit-type="paragraph">(taking with violence/intimidation or force upon things), Homicide/Murder (intent to kill, wound nature).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>5. Penalties for Stages: Rules on graduated penalties for attempted and frustrated stages (Arts. 50 – 57, RPC).</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>E. Conspiracy &amp; Proposal (Art. 8, RPC)</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>1. Definitions: Conspiracy exists when two or more persons come to an agreement concerning the</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">commission of a felony and decide to commit it. Proposal exists when the person who has decided to commit</p>
+        <p class="read-unit" data-unit-type="paragraph">a felony proposes its execution to some other person.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>2. General Rule &amp; Exceptions: Conspiracy and proposal to commit a felony are punishable only in the cases in</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">which the law specially provides a penalty therefor (e.g., Treason Art. 115, Rebellion Art. 136, Sedition Art.</p>
+        <p class="read-unit" data-unit-type="paragraph">141, Monopolies Art. 186, Brigandage Art. 306).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>3. Dual Nature of Conspiracy: Conspiracy as a felony in itself vs. Conspiracy as a mode of incurring criminal</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">liability (collective responsibility where the act of one is the act of all).</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>F. Multiple Offenders &amp; Classifications</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>1. Recidivism: Recidivism (Art. 14[9]): Final conviction of another crime embraced in the same Title of the RPC</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">at the time of trial.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>2. Reiteracion: Reiteracion / Habituality (Art. 14[10]): Offender has been previously punished for an offense to</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">which the law attaches an equal or greater penalty, or for two or more crimes with lighter penalties.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>3. Habitual Delinquency: Habitual Delinquency (Art. 62[5]): Within 10 years from last release or conviction of</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">serious/less serious physical injuries, robo, hurto, estafa, or falsification, found guilty a third time or oftener.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>4. Quasi-Recidivism: Quasi-Recidivism (Art. 160): Commission of a new felony before beginning to serve or</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">while serving sentence for a previous conviction. Punished with the maximum period of the penalty for the</p>
+        <p class="read-unit" data-unit-type="paragraph">new felony.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>5. Classification (Arts. 7, 9): Grave (capital or penalties with afflictive periods), Less Grave (penalties</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">correctional), Light Felonies (arresto menor or fine under statutory threshold; Art. 9 RPC).</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-13-iii-circumstances-affecting-criminal-liability">
+          <header class="section-header">
+            <h3 class="section-title level-2">III. CIRCUMSTANCES AFFECTING CRIMINAL LIABILITY</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-13-iii-circumstances-affecting-criminal-liability')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><strong>A. Justifying Circumstances (Art. 11, RPC)</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Where the act is in accordance with law; no crime and no criminal liability, and generally no civil liability ex delicto.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>1. Self-Defense: Self-Defense (Art. 11[1]): Requisites: (a) Unlawful aggression (indispensable); (b) Reasonable</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">necessity of the means employed to prevent or repel it; (c) Lack of sufficient provocation on the part of the</p>
+        <p class="read-unit" data-unit-type="paragraph">person defending himself.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>2. Defense of Relatives: Defense of Relatives (Art. 11[2]): Requisites: (a) Unlawful aggression; (b) Reasonable</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">necessity of means; (c) In case provocation was given by person attacked, the defender took no part therein.</p>
+        <p class="read-unit" data-unit-type="paragraph">Criminal Law 1 • Complete Course Outline &amp; Topic Guide</p>
+        <p class="read-unit" data-unit-type="paragraph">MANILA LAW COLLEGE • Criminal Law 1 (Book I, RPC)</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>3. Defense of Stranger: Defense of Stranger (Art. 11[3]): Requisites: (a) Unlawful aggression; (b) Reasonable</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">necessity of means; (c) Defender not induced by revenge, resentment, or other evil motive.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>4. State of Necessity: State of Necessity / Avoidance of Greater Evil (Art. 11[4]): (a) Evil sought to be avoided</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">actually exists; (b) Injury feared greater than that done; (c) No other practical and less harmful means. Note:</p>
+        <p class="read-unit" data-unit-type="paragraph">Civil liability is borne by persons benefited (Art. 101).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>5. Fulfillment of Duty: Fulfillment of Duty / Lawful Exercise of Right or Office (Art. 11[5]): (a) Accused acted in</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">performance of duty/exercise of right; (b) Injury or offense was necessary consequence of due performance.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>6. Lawful Order: Obedience to an Order Issued by a Superior for some Lawful Purpose (Art. 11[6]): (a) Order</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">issued by superior; (b) Order for a lawful purpose; (c) Means used lawful.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>B. Exempting Circumstances (Art. 12, RPC)</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Where there is a complete absence of free will, intelligence, or voluntariness; no criminal liability, but civil liability</p>
+        <p class="read-unit" data-unit-type="paragraph">remains (except accident and insuperable cause).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>1. Imbecility / Insanity (Art. 12[1]): Imbecility (exempt in all cases) or Insanity (exempt unless acted during a</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">lucid interval).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>2. Minority (RA 9344 &amp; Art. 12[2-3]): Under 15 years: Absolute exemption from criminal liability (subject to</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">intervention program). Above 15 but below 18: Exempt unless acted with discernment (subject to diversion;</p>
+        <p class="read-unit" data-unit-type="paragraph">RA 9344 as amended by RA 10630; PD 603; Juvenile Justice Rules).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>3. Accident: Accident (Art. 12[4]): Performing a lawful act with due care, causes injury by mere accident</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">without fault or intention of causing it.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>4. Compulsion &amp; Fear: Irresistible Force (Art. 12[5]) and Uncontrollable Fear of an equal or greater injury (Art.</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">12[6]).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>5. Insuperable Cause: Insuperable Cause (Art. 12[7]): Prevented by some lawful or insuperable cause from</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">performing an act required by law.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-14-c-mitigating-circumstances-art-13-rpc">
+          <header class="section-header">
+            <h3 class="section-title level-2">C. Mitigating Circumstances (Art. 13, RPC)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-14-c-mitigating-circumstances-art-13-rpc')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>1. Incomplete Defense / Exemption: Incomplete Justifying or Exempting circumstances (majority of requisites</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">present; Art. 13[1] &amp; Art. 67).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>2. Age: Under 18 or over 70 years old (Art. 13[2]).</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>3. Lack of Intent: Offender had no intention to commit so grave a wrong as that committed (Praeter</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">intentionem; Art. 13[3]).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>4. Sufficient Provocation: Sufficient provocation or threat on the part of the offended party immediately</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">preceding the act (Art. 13[4]).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>5. Immediate Vindication: Immediate vindication of a grave offense to the one committing the felony, his</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">spouse, ascendants, descendants, or siblings (Art. 13[5]).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>6. Passion or Obfuscation: Having acted upon an impulse so powerful as naturally to have produced passion</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">or obfuscation (Art. 13[6]).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>7. Voluntary Surrender &amp; Plea: Voluntary surrender to authorities or spontaneous confession of guilt in open</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">court before presentation of prosecution evidence (Art. 13[7]).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>8. Physical Defect: Physical defect (deaf, mute, blind) restricting means of action or communication (Art.</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">13[8]).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>9. Illness: Illness diminishing the exercise of will-power without depriving consciousness of acts (Art. 13[9]).</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Criminal Law 1 • Complete Course Outline &amp; Topic Guide</p>
+        <p class="read-unit" data-unit-type="paragraph">MANILA LAW COLLEGE • Criminal Law 1 (Book I, RPC)</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>10. Analogous Circumstances: Any other circumstance of a similar nature and analogous to those mentioned</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">(Art. 13[10]).</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-15-d-aggravating-circumstances-art-14-rpc">
+          <header class="section-header">
+            <h3 class="section-title level-2">D. Aggravating Circumstances (Art. 14, RPC)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-15-d-aggravating-circumstances-art-14-rpc')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Circumstances that increase the penalty without exceeding the maximum provided by law. Kinds: Generic, Specific,</p>
+        <p class="read-unit" data-unit-type="paragraph">Qualifying, Inherent, and Special.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Par. 1: Public Position: Advantage taken by the offender of his public position.</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Par. 2: Contempt / Insult to Authority: Committed in contempt of or with insult to public authorities.</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Par. 3: Disregard of Rank, Age, Sex, or Dwelling: Insult or disregard of respect due on account of rank, age,</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">sex, or committed in the victim&#x27;s dwelling without provocation.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Par. 4: Abuse of Confidence &amp; Ungratefulness: Act committed with abuse of confidence or obvious</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">ungratefulness.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Par. 5: Palace of Chief Executive / Place of Worship: Committed in the presence of Chief Executive or in</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">places dedicated to religious worship or discharge of public duties.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Par. 6: Nighttime, Uninhabited Place, or Band: Nocturnity, despoblado, or cuadrilla (more than 3 armed</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">malefactors) facilitating commission.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Par. 7: Calamity / Misfortune: Committed on occasion of conflagration, shipwreck, earthquake, epidemic, or</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">other disaster.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Par. 8: Aid of Armed Men: Committed with aid of armed men or persons who insure or afford impunity.</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Par. 9: Recidivism: Conviction by final judgment of another crime in the same Title of the RPC at time of trial.</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Par. 10: Reiteracion: Offender previously punished for offenses with equal/greater penalty or two lighter</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">penalties.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Par. 11: Price, Reward, or Promise: Crime committed in consideration of price, reward, or promise.</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Par. 12: Inundation, Fire, Explosion, Great Waste: Committed by means of poison, explosion, derailment, or</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">artifice involving great waste.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Par. 13: Evident Premeditation: Requisites: (a) Time offender determined to commit crime; (b) Act indicating</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">clinging to determination; (c) Sufficient lapse of time to allow reflection.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Par. 14: Craft, Fraud, or Disguise: Employment of cunning, trickery, deceit, or disguise to hide identity.</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Par. 15: Superior Strength &amp; Means to Weaken Defense: Deliberately taking advantage of physical disparity</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">or weakening victim&#x27;s defense.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Par. 16: Treachery (Alevosia): Employing means, methods, or forms of execution tending directly and specially</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">to insure execution without risk to self from defense.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Par. 17: Ignominy: Means employed adding moral suffering, humiliation, or shame to the natural effects of</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">the act.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Par. 18: Unlawful Entry: Entrance effected by a way not intended for ingress.</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Par. 19: Breaking Wall, Roof, Floor, or Window: Breaking structures as a means to commit the crime.</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Par. 20: Aid of Minors / Motor Vehicles: Aid of persons under 15, or by means of motor vehicles, motorized</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">watercraft, airships (RA 5438).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Par. 21: Cruelty: Deliberately augmenting the wrong by causing other unnecessary physical pain and suffering</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">before death.</p>
+        <p class="read-unit" data-unit-type="paragraph">Criminal Law 1 • Complete Course Outline &amp; Topic Guide</p>
+        <p class="read-unit" data-unit-type="paragraph">MANILA LAW COLLEGE • Criminal Law 1 (Book I, RPC)</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>E. Alternative Circumstances (Art. 15, RPC)</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>1. Relationship: Relationship (spouse, ascendant, descendant, legitimate/natural/adopted brother/sister,</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">relative by affinity within same degrees; mitigating in crimes against property, aggravating in crimes against</p>
+        <p class="read-unit" data-unit-type="paragraph">persons/chastity).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>2. Education: Degree of instruction and education of the offender (low education mitigating, high education</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">aggravating if used to facilitate crime).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>3. Intoxication: Intoxication (mitigating if not habitual and not subsequent to the plan to commit felony;</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">aggravating if intentional or habitual).</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>F. Absolutory Causes &amp; Battered Woman Syndrome</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-16-1-instigation-vs-entrapment-instigation-law-enforcer-instiga">
+          <header class="section-header">
+            <h4 class="section-title level-3">1. Instigation vs. Entrapment: Instigation (law enforcer instigates person to commit crime; complete defense,</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-16-1-instigation-vs-entrapment-instigation-law-enforcer-instiga')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">accused acquitted) vs. Entrapment (trapping criminal in the act; valid law enforcement, accused liable).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>2. Specific Absolutory Causes: Arts. 6(3) spontaneous desistance; Art. 16 accessory exempt by relationship;</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Art. 20 accessory relationship; Art. 247 death under exceptional circumstances; Art. 280 trespass to dwelling;</p>
+        <p class="read-unit" data-unit-type="paragraph">Art. 332 property relationship exemptions; Art. 344 marriage in private crimes.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>3. Battered Woman Syndrome: Victim-survivors suffering from Battered Woman Syndrome (BWS) do not</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">incur criminal and civil liability notwithstanding absence of elements of self-defense (RA 9262, Anti-VAWC Act;</p>
+        <p class="read-unit" data-unit-type="paragraph">Genosa doctrine).</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-17-iv-persons-criminally-liable-articles-16-20-rpc">
+          <header class="section-header">
+            <h3 class="section-title level-2">IV. PERSONS CRIMINALLY LIABLE (Articles 16 – 20, RPC)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-17-iv-persons-criminally-liable-articles-16-20-rpc')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><strong>A. In Grave &amp; Less Grave Felonies (Art. 16)</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>1. Principals (Art. 17): Principals by Direct Participation (those who take a direct part in the execution of the</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">act; Art. 17[1]).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• By Inducement: Principals by Inducement (those who directly force or induce others to commit it; Art.</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">17[2]; requisites: command of determinative power, made with intention of procurement).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• By Indispensable Cooperation: Principals by Indispensable Cooperation (those who cooperate in the</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">commission of the offense by another act without which it would not have been accomplished; Art. 17[3]).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>2. Accomplices (Art. 18): Those who, not being principals, cooperate in the execution of the offense by</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">previous or simultaneous acts (Art. 18).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>3. Accessories (Arts. 19 &amp; 20): Those who, having knowledge of the commission of the crime, and without</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">having participated therein as principals or accomplices, take part subsequent to its commission by: (1)</p>
+        <p class="read-unit" data-unit-type="paragraph">profiting or assisting offender to profit; (2) concealing or destroying body/effects/instruments of crime; (3)</p>
+        <p class="read-unit" data-unit-type="paragraph">harboring, concealing, or assisting in the escape of the principal (Art. 19). Exemption of accessories by</p>
+        <p class="read-unit" data-unit-type="paragraph">relationship (Art. 20). Anti-Fencing Law (PD 1612) and Obstruction of Justice (PD 1829).</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>B. In Light Felonies (Art. 16)</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Rule: Only principals and accomplices are criminally liable for light felonies; accessories are not liable.</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Criminal Law 1 • Complete Course Outline &amp; Topic Guide</p>
+        <p class="read-unit" data-unit-type="paragraph">MANILA LAW COLLEGE • Criminal Law 1 (Book I, RPC)</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-18-v-penalties-articles-21-88-rpc">
+          <header class="section-header">
+            <h3 class="section-title level-2">V. PENALTIES (Articles 21 – 88, RPC)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-18-v-penalties-articles-21-88-rpc')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><strong>A. Constitutional Limitations &amp; Purposes</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>1. Constitutional Standards: Bill of Rights limitations: Due process, equal protection, prohibition of cruel,</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">degrading, or inhuman punishment, excessive fines, ex post facto laws, and bills of attainder.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>2. Penal Philosophies: Purposes: Retribution, deterrence, rehabilitation/reformation, social defense, and</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">exemplarity.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>B. Classification &amp; Scale of Penalties (Arts. 25 – 26)</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Classification: Principal vs. Accessory; Capital (Death  —  prohibited by RA 9346), Afflictive (Reclusion perpetua,</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Reclusion temporal, Prision mayor), Correctional (Prision correccional, Arresto mayor, Destierro), Light</p>
+        <p class="read-unit" data-unit-type="paragraph">(Arresto menor, Public censure). Divisible vs. Indivisible penalties.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Distinction: Reclusion Perpetua (20 years and 1 day to 40 years, with accessory penalties, eligible for pardon</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">after 30 years) vs. Life Imprisonment (imposed for special penal laws, no fixed duration, no automatic</p>
+        <p class="read-unit" data-unit-type="paragraph">accessory penalties).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Special Measures: Preventive Imprisonment (Art. 29, credited in full or 4/5), Civil Interdiction (Art. 34), Bond</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">to Keep the Peñace (Art. 35), Subsidiary Imprisonment (Art. 39).</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-19-c-application-graduation-of-penalties">
+          <header class="section-header">
+            <h3 class="section-title level-2">C. Application &amp; Graduation of Penalties</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-19-c-application-graduation-of-penalties')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>1. Scale &amp; Participation: Rules on applying penalties according to stages of commission and participation (Arts.</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">46, 50 – 57).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>2. Modifying Circumstances Rules: Rules on graduating penalties and mitigating/aggravating circumstances</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">(Arts. 61 – 65, 71; Indivisible vs. Divisible penalty rules Art. 63 &amp; 64).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>3. Complex Crimes (Art. 48): Compound Crimes (single act constitutes two or more grave/less grave felonies)</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">and Complex Crimes Proper (an offense is a necessary means for committing the other; Art. 48). Special</p>
+        <p class="read-unit" data-unit-type="paragraph">Complex Crimes (composite crimes, e.g., Robbery with Homicide, Rape with Homicide).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-20-4-continued-vs-continuing-continued-crime-delito-continuado">
+          <header class="section-header">
+            <h4 class="section-title level-3">4. Continued vs. Continuing: Continued Crime (delito continuado  —  series of acts animated by a single</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-20-4-continued-vs-continuing-continued-crime-delito-continuado')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">criminal impulse) vs. Continuing Crime (elements occur across multiple territorial jurisdictions).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>5. Three-Fold Rule (Art. 70): Maximum duration of convict&#x27;s sentence shall not exceed three-fold the length of</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">time corresponding to the most severe penalty imposed upon him, not to exceed 40 years (Art. 70).</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-21-d-indeterminate-sentence-law-act-no-4103-as-amended">
+          <header class="section-header">
+            <h3 class="section-title level-2">D. Indeterminate Sentence Law (Act No. 4103, as Amended)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-21-d-indeterminate-sentence-law-act-no-4103-as-amended')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>1. Application to RPC Offenses: Maximum Term: Look to the RPC rules (considering modifying circumstances).</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Minimum Term: Within the range of the penalty next lower in degree to that prescribed by the Code without</p>
+        <p class="read-unit" data-unit-type="paragraph">considering modifying circumstances.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>2. Application to Special Laws: Maximum Term: Not to exceed maximum penalty fixed by statute. Minimum</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Term: Not to be less than the minimum penalty prescribed.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>3. Disqualifications: Offenders convicted of offenses punished with death or life imprisonment/reclusion</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">perpetua; treason, rebellion, sedition, espionage, piracy; habitual delinquents; escapees; those granted</p>
+        <p class="read-unit" data-unit-type="paragraph">conditional pardon and violated terms; maximum term does not exceed 1 year (Sec. 2, Act 4103).</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>E. Probation Law (PD 968, as Amended)</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>1. Nature &amp; Definition: Disposition under which a defendant, after conviction and sentence, is released</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">subject to conditions and supervision.</p>
+        <p class="read-unit" data-unit-type="paragraph">Criminal Law 1 • Complete Course Outline &amp; Topic Guide</p>
+        <p class="read-unit" data-unit-type="paragraph">MANILA LAW COLLEGE • Criminal Law 1 (Book I, RPC)</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>2. Disqualified Offenders: Sentenced to serve maximum term of imprisonment of more than 6 years;</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">convicted of crime against national security; previously convicted of offense punished by imprisonment of</p>
+        <p class="read-unit" data-unit-type="paragraph">more than 6 months and 1 day and/or fine; appeal taken from judgment of conviction (subject to RA 10707</p>
+        <p class="read-unit" data-unit-type="paragraph">amendment allowing probation upon non-substantive penalty modifications).</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-22-vi-extinction-of-criminal-liability-articles-89-99-rpc">
+          <header class="section-header">
+            <h3 class="section-title level-2">VI. EXTINCTION OF CRIMINAL LIABILITY (Articles 89 – 99, RPC)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-22-vi-extinction-of-criminal-liability-articles-89-99-rpc')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><strong>A. Total Extinction (Art. 89)</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>1. Death: Death of the convict (extinguishes personal and pecuniary penalties; civil liability ex delicto</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">extinguished under People v. Bayotas, but civil liability from other sources of obligations may survive).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>2. Service: Service of the sentence.</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>3. Amnesty: Amnesty (obliterates the offense itself; public act, requires legislative concurrence; applies to</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">political offenses).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>4. Absolute Pardon: Absolute Pardon (pardons punishment, does not obliterate guilt; executive act, no</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">congressional concurrence required; does not restore public office or right to practice profession unless</p>
+        <p class="read-unit" data-unit-type="paragraph">expressly restored).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>5. Prescription of Crime: Prescription of Crimes (Arts. 90 &amp; 91 RPC; Act No. 3326 for special laws). Time limits</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">from 20 years (capital offenses) down to 2 months (light offenses); interrupted by filing of</p>
+        <p class="read-unit" data-unit-type="paragraph">complaint/information.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>6. Prescription of Penalty: Prescription of Penalties (Arts. 92 &amp; 93 RPC). Runs from the date the convict</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">evaded service of sentence.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>7. Marriage of Offended Party: Marriage of the offended woman in crimes of Rape, Seduction, Abduction, and</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Acts of Lasciviousness (Art. 344 RPC &amp; Art. 266-C).</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>B. Partial Extinction (Art. 94)</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>1. Conditional Pardon: Conditional Pardon (Art. 95): Contractual executive clemency; violation authorizes re-</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">arrest or prosecution under Art. 159 RPC.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>2. Commutation: Commutation of Sentence (Art. 96): Substitution of a lesser penalty.</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>3. Good Conduct Allowances: Good Conduct Time Allowance (GCTA) under Arts. 97, 98, 99 RPC, and RA</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">10592.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-23-vii-civil-liability-arising-from-crimes-articles-100-113-rpc">
+          <header class="section-header">
+            <h3 class="section-title level-2">VII. CIVIL LIABILITY ARISING FROM CRIMES (Articles 100 – 113, RPC)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-23-vii-civil-liability-arising-from-crimes-articles-100-113-rpc')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>1. Fundamental Rule: Every person criminally liable for a felony is also civilly liable (Art. 100, RPC  —  Civil</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">liability ex delicto).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>2. Persons Civilly Liable: Principals, accomplices, and accessories are liable solidarily among themselves and</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">subsidiarily for the other classes (Arts. 109 – 110). Subsidiary civil liability of innkeepers, employers, and</p>
+        <p class="read-unit" data-unit-type="paragraph">teachers (Arts. 102 – 103; Basilio and Philippine Rabbit doctrines).</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>3. What Civil Liability Includes: (1) Restitution of the thing itself; (2) Reparation of the damage caused; (3)</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Indemnification for consequential damages (Art. 104; Castro v. Bustos). Moral, exemplary, nominal damages,</p>
+        <p class="read-unit" data-unit-type="paragraph">and civil indemnity under prevailing jurisprudence.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>4. Extinction: Civil liability is extinguished in the same manner as other obligations under the Civil Code</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">(payment, loss of thing, condonation, confusion, compensation, novation; Art. 112). Extinction of penal action</p>
+        <p class="read-unit" data-unit-type="paragraph">does not necessarily extinguish civil action if founded on other sources of obligation (Art. 113 &amp; Rule 111).</p>
+        <p class="read-unit" data-unit-type="paragraph">Criminal Law 1 • Complete Course Outline &amp; Topic Guide</p>
+        <p class="read-unit" data-unit-type="paragraph">MANILA LAW COLLEGE • Criminal Law 1 (Book I, RPC)</p>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <footer class="app-footer">
+    <p>MLC Interactive Legal Study Hub • Natural Cadence Web Speech Synthesis Engine</p>
+    <p style="margin-top: 0.25rem; opacity: 0.7;">Click any paragraph to start reading aloud • Fully compatible with Brave Read Aloud & extensions</p>
+  </footer>
+
+  <!-- Floating Selection Audio Trigger -->
+  <button id="floatingTtsTrigger" aria-label="Read Selection Aloud">🔊 Read Selection</button>
+
+  <!-- Natural Voice & Speech Synthesis Application Logic -->
+  <script>
+    (function() {
+      // 1. Theme Management
+      const themeSelect = document.getElementById('themeSelect');
+      const savedTheme = localStorage.getItem('mlc_reader_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      themeSelect.value = savedTheme;
+
+      themeSelect.addEventListener('change', (e) => {
+        document.documentElement.setAttribute('data-theme', e.target.value);
+        localStorage.setItem('mlc_reader_theme', e.target.value);
+      });
+
+      // 2. Font Size Controls
+      let currentFontSize = parseInt(localStorage.getItem('mlc_font_size') || '17', 10);
+      document.documentElement.style.fontSize = currentFontSize + 'px';
+
+      document.getElementById('fontIncBtn').addEventListener('click', () => {
+        if (currentFontSize < 26) {
+          currentFontSize += 1;
+          document.documentElement.style.fontSize = currentFontSize + 'px';
+          localStorage.setItem('mlc_font_size', currentFontSize);
+        }
+      });
+
+      document.getElementById('fontDecBtn').addEventListener('click', () => {
+        if (currentFontSize > 12) {
+          currentFontSize -= 1;
+          document.documentElement.style.fontSize = currentFontSize + 'px';
+          localStorage.setItem('mlc_font_size', currentFontSize);
+        }
+      });
+
+      // 3. Sidebar Mobile Toggle & Search
+      const sidebar = document.getElementById('appSidebar');
+      const toggleSidebarBtn = document.getElementById('toggleSidebarBtn');
+      toggleSidebarBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+      });
+
+      const searchInput = document.getElementById('sidebarSearch');
+      const tocItems = document.querySelectorAll('.toc-nav li');
+      searchInput.addEventListener('input', (e) => {
+        const q = e.target.value.toLowerCase().trim();
+        tocItems.forEach(li => {
+          const txt = li.textContent.toLowerCase();
+          li.style.display = txt.includes(q) ? '' : 'none';
+        });
+      });
+
+      // 4. Reading Progress Bar
+      window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / (height || 1)) * 100;
+        document.getElementById('readingProgressBar').style.width = scrolled + '%';
+      });
+
+      // =========================================================================
+      // 5. ENHANCED NATURAL SPEECH SYNTHESIS ENGINE
+      // =========================================================================
+      const synth = window.speechSynthesis;
+      let readUnits = [];
+      let currentUnitIndex = -1;
+      let isPaused = false;
+      let voices = [];
+      let nextUtteranceTimeout = null;
+      let lastSectionId = null;
+
+      const playPauseBtn = document.getElementById('ttsPlayPauseBtn');
+      const stopBtn = document.getElementById('ttsStopBtn');
+      const nextBtn = document.getElementById('ttsNextBtn');
+      const prevBtn = document.getElementById('ttsPrevBtn');
+      const playIcon = document.getElementById('ttsPlayIcon');
+      const pauseIcon = document.getElementById('ttsPauseIcon');
+      const statusBadge = document.getElementById('ttsStatus');
+      const speedSelect = document.getElementById('ttsSpeedSelect');
+      const voiceSelect = document.getElementById('ttsVoiceSelect');
+
+      function updateReadUnits() {
+        readUnits = Array.from(document.querySelectorAll('.read-unit'));
+      }
+      updateReadUnits();
+
+      // Intelligent Voice Ranking (Prefers Natural / Neural / High-Tier Human Voices)
+      function scoreVoice(v) {
+        const name = (v.name || '').toLowerCase();
+        let score = 0;
+        if (v.lang.startsWith('en')) score += 50;
+        if (v.lang === 'en-US' || v.lang === 'en-GB') score += 20;
+        if (name.includes('natural') || name.includes('neural') || name.includes('online')) score += 100;
+        if (name.includes('jenny') || name.includes('guy') || name.includes('aria') || name.includes('ryan') || name.includes('sonia')) score += 80;
+        if (name.includes('google') && !name.includes('legacy')) score += 70;
+        if (name.includes('premium') || name.includes('enhanced') || name.includes('siri')) score += 60;
+        if (name.includes('david') || name.includes('zira') || name.includes('mark')) score += 30;
+        return score;
+      }
+
+      function populateVoiceList() {
+        if (!synth) return;
+        const allVoices = synth.getVoices();
+        const enVoices = allVoices.filter(v => v.lang.startsWith('en'));
+        enVoices.sort((a, b) => scoreVoice(b) - scoreVoice(a));
+        voices = enVoices;
+
+        voiceSelect.innerHTML = '';
+        voices.forEach((v, idx) => {
+          const opt = document.createElement('option');
+          opt.value = idx;
+          const isNatural = (v.name.toLowerCase().includes('natural') || v.name.toLowerCase().includes('neural') || v.name.toLowerCase().includes('online'));
+          opt.textContent = (isNatural ? '✨ ' : '') + v.name + ' (' + v.lang + ')';
+          if (idx === 0) opt.selected = true;
+          voiceSelect.appendChild(opt);
+        });
+      }
+
+      if (synth) {
+        populateVoiceList();
+        if (speechSynthesis.onvoiceschanged !== undefined) {
+          speechSynthesis.onvoiceschanged = populateVoiceList;
+        }
+      }
+
+      // Smart Legal Phonetic Pre-Processor (Expands abbreviations & introduces natural prosody)
+      function prepareSpeechText(unit) {
+        let text = (unit.innerText || unit.textContent || '').trim();
+        const parentSec = unit.closest('section.doc-section');
+        const unitType = unit.getAttribute('data-unit-type') || '';
+        const badgeLabel = unit.getAttribute('data-badge-label') || '';
+
+        // Label announcing for case components
+        if (badgeLabel) {
+          if (badgeLabel.includes('DOCTRINE') || badgeLabel.includes('PRINCIPLE')) {
+            text = 'Key Doctrine: ' + text;
+          } else if (badgeLabel.includes('FACTS')) {
+            text = 'Case Facts: ' + text.replace(/^FACTS:?\\s*/i, '');
+          } else if (badgeLabel.includes('ISSUE')) {
+            text = 'Legal Issue: ' + text.replace(/^ISSUE:?\\s*/i, '');
+          } else if (badgeLabel.includes('HELD') || badgeLabel.includes('RULING')) {
+            text = 'Court Ruling and Held: ' + text.replace(/^(HELD|RULING):?\\s*/i, '');
+          }
+        } else if (unitType === 'quote') {
+          text = 'Quote: ' + text;
+        } else if (unitType === 'numbered') {
+          text = text.replace(/^(\d+)\.\\s*/, 'Item $1: ');
+        }
+
+        // Clean & expand common legal abbreviations for natural pronunciation
+        text = text
+          .replace(/\bG\.R\.\s*No\.?\s*([\d\-]+)/gi, 'G R Number $1')
+          .replace(/\bSCRA\b/g, 'S-C-R-A')
+          .replace(/\bPhil\.\s*(\d+)/gi, 'Philippine Reports volume $1')
+          .replace(/\bArt\.\s*(\d+)/gi, 'Article $1')
+          .replace(/\bArts\.\s*([\d,\s\-]+)/gi, 'Articles $1')
+          .replace(/\bSec\.\s*(\d+)/gi, 'Section $1')
+          .replace(/\bSecs\.\s*([\d,\s\-]+)/gi, 'Sections $1')
+          .replace(/\bPar\.\s*(\d+)/gi, 'Paragraph $1')
+          .replace(/\bPars\.\s*([\d,\s\-]+)/gi, 'Paragraphs $1')
+          .replace(/\bRPC\b/g, 'Revised Penal Code')
+          .replace(/\bCPR\b/g, 'Code of Professional Responsibility')
+          .replace(/\bCPRA\b/g, 'Code of Professional Responsibility and Accountability')
+          .replace(/\bConst\.\b/gi, 'Constitution')
+          .replace(/\bP\.D\.\s*No\.?\s*(\d+)/gi, 'Presidential Decree Number $1')
+          .replace(/\bR\.A\.\s*No\.?\s*(\d+)/gi, 'Republic Act Number $1')
+          .replace(/\bA\.C\.\s*No\.?\s*([A-Za-z0-9\-]+)/gi, 'Administrative Case Number $1')
+          .replace(/\bA\.M\.\s*No\.?\s*([A-Za-z0-9\-]+)/gi, 'Administrative Matter Number $1')
+          .replace(/\bet\s+al\./gi, 'and others')
+          .replace(/\bi\.e\./gi, 'that is')
+          .replace(/\be\.g\./gi, 'for example')
+          .replace(/\bviz\./gi, 'namely')
+          .replace(/\s+v(?:s)?\.\s+/gi, ' versus ')
+          .replace(/—/g, ', — ')
+          .replace(/–/g, ', ')
+          .replace(/;\s*/g, ';, ') // Introduce micro-pause at semicolons
+          .replace(/:\s*/g, ': ... ') // Introduce clear pause at colons
+          .replace(/\(([a-z\d])\)/gi, 'sub-item $1, ');
+
+        return text.trim();
+      }
+
+      // 5.1 Mobile Background Audio Carrier & WakeLock
+      let wakeLock = null;
+      let audioCtx = null;
+      let silentGain = null;
+      let oscillator = null;
+
+      function startKeepAliveAudio() {
+        try {
+          if (!audioCtx) {
+            const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+            if (AudioContextClass) {
+              audioCtx = new AudioContextClass();
+              oscillator = audioCtx.createOscillator();
+              silentGain = audioCtx.createGain();
+              silentGain.gain.setValueAtTime(0.0001, audioCtx.currentTime); // Inaudible keep-alive signal
+              oscillator.frequency.setValueAtTime(440, audioCtx.currentTime);
+              oscillator.connect(silentGain);
+              silentGain.connect(audioCtx.destination);
+              oscillator.start();
+            }
+          }
+          if (audioCtx && audioCtx.state === 'suspended') {
+            audioCtx.resume();
+          }
+        } catch (e) {}
+      }
+
+      function stopKeepAliveAudio() {
+        try {
+          if (audioCtx && audioCtx.state === 'running') {
+            audioCtx.suspend();
+          }
+        } catch (e) {}
+      }
+
+      async function requestWakeLock() {
+        try {
+          if ('wakeLock' in navigator) {
+            wakeLock = await navigator.wakeLock.request('screen');
+          }
+        } catch (err) {}
+      }
+
+      function releaseWakeLock() {
+        if (wakeLock) {
+          wakeLock.release().catch(() => {});
+          wakeLock = null;
+        }
+      }
+
+      function updateMediaSession(trackTitle) {
+        if ('mediaSession' in navigator) {
+          navigator.mediaSession.metadata = new MediaMetadata({
+            title: trackTitle || document.title,
+            artist: 'MLC Law Library',
+            album: 'Legal Audio Reader'
+          });
+          navigator.mediaSession.setActionHandler('play', () => playPauseBtn.click());
+          navigator.mediaSession.setActionHandler('pause', () => playPauseBtn.click());
+          navigator.mediaSession.setActionHandler('nexttrack', () => nextBtn.click());
+          navigator.mediaSession.setActionHandler('previoustrack', () => prevBtn.click());
+        }
+      }
+
+      function setSpeakingState(speaking, paused = false) {
+        if (speaking && !paused) {
+          playIcon.style.display = 'none';
+          pauseIcon.style.display = 'inline';
+          statusBadge.textContent = 'Speaking...';
+          statusBadge.className = 'tts-status-badge speaking';
+          startKeepAliveAudio();
+          requestWakeLock();
+        } else if (paused) {
+          playIcon.style.display = 'inline';
+          pauseIcon.style.display = 'none';
+          statusBadge.textContent = 'Paused';
+          statusBadge.className = 'tts-status-badge';
+          stopKeepAliveAudio();
+          releaseWakeLock();
+        } else {
+          playIcon.style.display = 'inline';
+          pauseIcon.style.display = 'none';
+          statusBadge.textContent = 'Ready';
+          statusBadge.className = 'tts-status-badge';
+          stopKeepAliveAudio();
+          releaseWakeLock();
+          clearHighlights();
+        }
+      }
+
+      function clearHighlights() {
+        readUnits.forEach(u => u.classList.remove('is-speaking'));
+      }
+
+      function highlightUnit(idx) {
+        clearHighlights();
+        if (idx >= 0 && idx < readUnits.length) {
+          const unit = readUnits[idx];
+          unit.classList.add('is-speaking');
+          unit.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+
+      // =========================================================================
+      // Native Multi-Utterance Queueing Engine (Persists through Android Minimization)
+      // =========================================================================
+      const QUEUE_AHEAD_COUNT = 8;
+      let isPlaying = false;
+      let nextQueueIdx = 0;
+
+      function createUtteranceForIndex(idx) {
+        if (idx < 0 || idx >= readUnits.length) return null;
+        const unit = readUnits[idx];
+        const currentSection = unit.closest('section.doc-section');
+        const currentSecId = currentSection ? currentSection.id : null;
+        
+        let processedText = prepareSpeechText(unit);
+        if (currentSecId && currentSecId !== lastSectionId && currentSection) {
+          const headerEl = currentSection.querySelector('.section-title');
+          if (headerEl) {
+            processedText = 'New Topic: ' + headerEl.innerText.trim() + ' ... ... ' + processedText;
+          }
+          lastSectionId = currentSecId;
+        }
+
+        if (!processedText) return null;
+
+        const utterance = new SpeechSynthesisUtterance(processedText);
+        utterance.rate = parseFloat(speedSelect.value) || 0.9;
+        utterance.pitch = 1.0;
+
+        const selectedVoiceIdx = voiceSelect.value;
+        if (selectedVoiceIdx !== 'default' && voices[selectedVoiceIdx]) {
+          utterance.voice = voices[selectedVoiceIdx];
+        } else if (voices.length > 0) {
+          utterance.voice = voices[0];
+        }
+
+        utterance.onstart = () => {
+          currentUnitIndex = idx;
+          highlightUnit(idx);
+          updateMediaSession(processedText);
+          setSpeakingState(true, false);
+        };
+
+        utterance.onend = () => {
+          if (isPlaying && !isPaused) {
+            fillSpeechQueue();
+            if (idx >= readUnits.length - 1) {
+              setSpeakingState(false);
+              isPlaying = false;
+            }
+          }
+        };
+
+        utterance.onerror = (e) => {
+          if (e.error !== 'interrupted' && e.error !== 'canceled') {
+            console.warn('TTS error:', e);
+          }
+        };
+
+        return utterance;
+      }
+
+      function fillSpeechQueue() {
+        if (!isPlaying || isPaused || !synth) return;
+        while (nextQueueIdx < readUnits.length && nextQueueIdx < currentUnitIndex + QUEUE_AHEAD_COUNT) {
+          const u = createUtteranceForIndex(nextQueueIdx);
+          nextQueueIdx++;
+          if (u) {
+            synth.speak(u);
+          }
+        }
+      }
+
+      function startPlaybackFrom(idx) {
+        if (!synth) return;
+        synth.cancel();
+        isPlaying = true;
+        isPaused = false;
+        currentUnitIndex = idx;
+        lastSectionId = null;
+        nextQueueIdx = idx;
+        setSpeakingState(true, false);
+        fillSpeechQueue();
+      }
+
+      playPauseBtn.addEventListener('click', () => {
+        if (!synth) return;
+        if (isPlaying && !isPaused) {
+          synth.pause();
+          isPaused = true;
+          setSpeakingState(true, true);
+        } else if (isPaused) {
+          synth.resume();
+          isPaused = false;
+          setSpeakingState(true, false);
+          fillSpeechQueue();
+        } else {
+          startPlaybackFrom(currentUnitIndex >= 0 ? currentUnitIndex : 0);
+        }
+      });
+
+      stopBtn.addEventListener('click', () => {
+        if (!synth) return;
+        synth.cancel();
+        isPlaying = false;
+        isPaused = false;
+        setSpeakingState(false);
+        currentUnitIndex = -1;
+        lastSectionId = null;
+      });
+
+      nextBtn.addEventListener('click', () => {
+        if (!synth) return;
+        const target = Math.min(readUnits.length - 1, (currentUnitIndex >= 0 ? currentUnitIndex : 0) + 1);
+        startPlaybackFrom(target);
+      });
+
+      prevBtn.addEventListener('click', () => {
+        if (!synth) return;
+        const target = Math.max(0, (currentUnitIndex >= 0 ? currentUnitIndex : 0) - 1);
+        startPlaybackFrom(target);
+      });
+
+      speedSelect.addEventListener('change', () => {
+        if (isPlaying) {
+          startPlaybackFrom(currentUnitIndex >= 0 ? currentUnitIndex : 0);
+        }
+      });
+
+      voiceSelect.addEventListener('change', () => {
+        if (isPlaying) {
+          startPlaybackFrom(currentUnitIndex >= 0 ? currentUnitIndex : 0);
+        }
+      });
+
+      // Click on any paragraph to read from that exact spot with natural cadence
+      document.getElementById('contentWrapper').addEventListener('click', (e) => {
+        const unit = e.target.closest('.read-unit');
+        if (unit) {
+          const idx = readUnits.indexOf(unit);
+          if (idx !== -1) {
+            startPlaybackFrom(idx);
+          }
+        }
+      });
+
+      // Section Quick-Listen Handler
+      window.readSection = function(sectionId) {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          const firstUnit = el.querySelector('.read-unit');
+          if (firstUnit) {
+            const idx = readUnits.indexOf(firstUnit);
+            if (idx !== -1) {
+              startPlaybackFrom(idx);
+            }
+          }
+        }
+      };
+      window.readSection = function(sectionId) {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          const firstUnit = el.querySelector('.read-unit');
+          if (firstUnit) {
+            const idx = readUnits.indexOf(firstUnit);
+            if (idx !== -1) {
+              isPaused = false;
+              lastSectionId = null; // force announcement of section
+              speakUnit(idx);
+            }
+          }
+        }
+      };
+
+      // Floating Selection Audio Button (with natural legal abbreviation expander)
+      const floatBtn = document.getElementById('floatingTtsTrigger');
+      document.addEventListener('mouseup', (e) => {
+        if (e.target.closest('#floatingTtsTrigger') || e.target.closest('.tts-toolbar') || e.target.closest('header')) return;
+        const sel = window.getSelection().toString().trim();
+        if (sel.length > 2) {
+          const rect = window.getSelection().getRangeAt(0).getBoundingClientRect();
+          floatBtn.style.top = (window.scrollY + rect.top - 44) + 'px';
+          floatBtn.style.left = (window.scrollX + rect.left + (rect.width / 2)) + 'px';
+          floatBtn.style.display = 'block';
+        } else {
+          floatBtn.style.display = 'none';
+        }
+      });
+
+      floatBtn.addEventListener('click', () => {
+        const sel = window.getSelection().toString().trim();
+        if (sel && synth) {
+          synth.cancel();
+          const dummyUnit = document.createElement('div');
+          dummyUnit.innerText = sel;
+          const naturalText = prepareSpeechText(dummyUnit);
+
+          const utterance = new SpeechSynthesisUtterance(naturalText);
+          utterance.rate = parseFloat(speedSelect.value) || 0.9;
+          utterance.pitch = 1.0;
+
+          const selectedVoiceIdx = voiceSelect.value;
+          if (selectedVoiceIdx !== 'default' && voices[selectedVoiceIdx]) {
+            utterance.voice = voices[selectedVoiceIdx];
+          } else if (voices.length > 0) {
+            utterance.voice = voices[0];
+          }
+
+          synth.speak(utterance);
+          setSpeakingState(true);
+          floatBtn.style.display = 'none';
+        }
+      });
+
+      // Keyboard Navigation
+      document.addEventListener('keydown', (e) => {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA') return;
+        if (e.code === 'Space') {
+          e.preventDefault();
+          playPauseBtn.click();
+        } else if (e.code === 'Escape') {
+          stopBtn.click();
+        } else if (e.key === 'n' || e.key === 'N') {
+          nextBtn.click();
+        } else if (e.key === 'p' || e.key === 'P') {
+          prevBtn.click();
+        } else if (e.key === 'd' || e.key === 'D') {
+          themeSelect.value = 'dark';
+          themeSelect.dispatchEvent(new Event('change'));
+        } else if (e.key === 's' || e.key === 'S') {
+          themeSelect.value = 'sepia';
+          themeSelect.dispatchEvent(new Event('change'));
+        } else if (e.key === 'l' || e.key === 'L') {
+          themeSelect.value = 'light';
+          themeSelect.dispatchEvent(new Event('change'));
+        } else if (e.key === '+' || e.key === '=') {
+          document.getElementById('fontIncBtn').click();
+        } else if (e.key === '-') {
+          document.getElementById('fontDecBtn').click();
+        } else if (e.key === '/') {
+          e.preventDefault();
+          searchInput.focus();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
