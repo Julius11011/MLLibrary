@@ -9,47 +9,28 @@ echo                   MLC CLOUD SYNC & AUTO-DEPLOYMENT
 echo ===============================================================================
 echo.
 
-echo [1/3] Scanning and regenerating all TTS HTML readers and Study Hub...
-python "%~dp0generate_tts_reader.py" --all
+echo [1/4] Scanning and regenerating all TTS HTML readers and Study Hub...
+python "%~dp0generate_tts_reader.py"
 
 echo.
-echo [2/3] Checking Git status...
-
-if not exist "%~dp0.git" (
-    echo.
-    echo [INFO] Git repository is not initialized yet.
-    echo Initializing local repository on branch 'main'...
-    git init -b main
-    echo.
-    echo Please create a new repository on GitHub (e.g., 'mlc-law-library')
-    set /p remote_url="Enter your GitHub Repository URL (https://github.com/USERNAME/REPO.git): "
-    if not "!remote_url!"=="" (
-        git remote add origin !remote_url!
-    )
-)
-
-echo.
-set msg=Update legal notes and TTS readers %date% %time%
-set /p user_msg="Enter commit note (or press Enter for default): "
-if not "!user_msg!"=="" set msg=!user_msg!
-
-echo.
-echo [3/3] Staging, committing, and pushing to cloud...
+echo [2/4] Checking Git status and staging updates...
 git add .
-git commit -m "%msg%"
+git commit -m "Update MLC legal notes, HTML readers, and study hub %date% %time%"
 git branch -M main
-git push -u origin main
+git push origin main
 
-if %errorlevel% equ 0 (
-    echo.
-    echo ===============================================================================
-    echo [SUCCESS] Pushed to GitHub!
-    echo Your online website (GitHub Pages / Cloudflare Pages) will update in ~30s!
-    echo ===============================================================================
-) else (
-    echo.
-    echo [NOTE] Push encountered an issue. Please verify your GitHub credentials or remote URL.
-)
+echo.
+echo [3/4] Deploying updated web assets to Cloudflare Workers...
+call npx wrangler deploy
 
+echo.
+echo [4/4] Checking audio podcast sync...
+echo If you generated new .mp3 podcast files, you can upload them to the GitHub CDN
+echo by running 'Upload-Audio-To-GitHub.bat' or python upload_audio_to_github_release.py.
+echo.
+echo ===============================================================================
+echo [SUCCESS] Everything is synchronized and deployed!
+echo Live Site: https://mllibrary.juliusrayn-balitbit.workers.dev
+echo ===============================================================================
 echo.
 pause
