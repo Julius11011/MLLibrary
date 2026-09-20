@@ -6,14 +6,13 @@
   <title>MLC Interactive Study Hub • Natural Speech Readers</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-primary: #0f172a;
-      --bg-secondary: #1e293b;
-      --bg-tertiary: #334155;
-      --bg-card: rgba(30, 41, 59, 0.7);
-      --border-color: rgba(148, 163, 184, 0.15);
+      --bg-primary: #0b1120;
+      --bg-secondary: #131d31;
+      --bg-tertiary: #1e293b;
+      --border-color: rgba(148, 163, 184, 0.16);
       --text-primary: #f8fafc;
       --text-secondary: #cbd5e1;
       --text-muted: #94a3b8;
@@ -30,265 +29,131 @@
       padding: 3rem 1.5rem;
       min-height: 100vh;
     }
-    .hub-container {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .hub-header {
-      text-align: center;
-      margin-bottom: 3.5rem;
-    }
-    .hub-badge {
-      display: inline-block;
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      padding: 0.35rem 1rem;
-      border-radius: 20px;
-      background: rgba(251, 191, 36, 0.15);
-      color: var(--accent-gold);
-      border: 1px solid rgba(251, 191, 36, 0.3);
-      margin-bottom: 1rem;
-    }
-    .hub-title {
-      font-family: var(--font-heading);
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: var(--text-primary);
-      margin-bottom: 0.75rem;
-    }
-    .hub-desc {
-      color: var(--text-secondary);
-      font-size: 1.05rem;
-      max-width: 650px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-    .search-box {
-      margin: 2rem auto 0 auto;
-      max-width: 480px;
-      position: relative;
-    }
-    .search-box input {
-      width: 100%;
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 0.85rem 1.25rem 0.85rem 2.75rem;
-      color: var(--text-primary);
-      font-size: 0.95rem;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .search-box input:focus {
-      border-color: var(--accent-blue);
-    }
-    .search-icon {
-      position: absolute;
-      left: 1rem;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--text-muted);
-    }
-    .group-section {
-      margin-bottom: 3rem;
-    }
-    .group-title {
-      font-family: var(--font-heading);
-      font-size: 1.4rem;
-      color: var(--accent-gold);
-      margin-bottom: 1.25rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid var(--border-color);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.25rem;
-    }
-    .reader-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 1.5rem;
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      flex-direction: column;
-      transition: all 0.25s ease;
-      position: relative;
-    }
-    .reader-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--accent-blue);
-      background: rgba(51, 65, 85, 0.8);
-      box-shadow: 0 10px 20px -5px rgba(0,0,0,0.4);
-    }
-    .card-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 0.75rem;
-    }
-    .card-icon {
-      font-size: 1.4rem;
-    }
-    .card-tts-badge {
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: var(--accent-blue);
-      background: rgba(56, 189, 248, 0.15);
-      padding: 0.2rem 0.5rem;
-      border-radius: 12px;
-      border: 1px solid rgba(56, 189, 248, 0.3);
-    }
-    .card-title {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: 0.5rem;
-      line-height: 1.4;
-    }
-    .card-relpath {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      margin-top: auto;
-      padding-top: 0.75rem;
-      border-top: 1px solid var(--border-color);
-      word-break: break-all;
-    }
+    .hub-container { max-width: 1100px; margin: 0 auto; }
+    .hub-header { text-align: center; margin-bottom: 3.5rem; }
+    .hub-title { font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: var(--accent-gold); margin-bottom: 0.5rem; }
+    .hub-subtitle { color: var(--text-muted); font-size: 1.05rem; }
+    .hub-group { margin-bottom: 2.5rem; }
+    .hub-group-title { font-size: 1.25rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 1.25rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
+    .hub-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.25rem; }
+    .hub-card { background-color: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.2s ease; }
+    .hub-card:hover { transform: translateY(-3px); border-color: var(--accent-blue); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); }
+    .hub-card-header { display: flex; gap: 0.5rem; margin-bottom: 0.75rem; }
+    .badge-reader { background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.55rem; border-radius: 6px; }
+    .badge-audio { background: rgba(52, 211, 153, 0.15); color: #34d399; font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.55rem; border-radius: 6px; }
+    .hub-card-title { font-size: 1.05rem; font-weight: 600; line-height: 1.4; margin-bottom: 1.25rem; }
+    .hub-card-title a { color: var(--text-primary); text-decoration: none; }
+    .hub-card-title a:hover { color: var(--accent-gold); }
+    .btn-open { display: inline-block; background: linear-gradient(135deg, var(--accent-gold), #d97706); color: #0b1120; font-weight: 700; font-size: 0.85rem; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none; text-align: center; transition: filter 0.15s ease; }
+    .btn-open:hover { filter: brightness(1.1); }
   </style>
 </head>
 <body>
   <div class="hub-container">
     <header class="hub-header">
-      <span class="hub-badge">MLC Academic Law Library</span>
-      <h1 class="hub-title">Interactive Study Hub & TTS Readers</h1>
-      <p class="hub-desc">Access all your course modules, digests, and outlines with full built-in Natural Speech Synthesis and visual reading guides.</p>
-      <div class="search-box">
-        <span class="search-icon">🔍</span>
-        <input type="text" id="hubSearch" placeholder="Search subject, digest, or topic...">
-      </div>
+      <h1 class="hub-title">MLC Law Library & Audio Hub</h1>
+      <p class="hub-subtitle">Interactive Full-Text Readers with Natural Voice Synthesis & Studio MP3 Podcasts</p>
     </header>
-
-
-    <section class="group-section">
-      <h2 class="group-title">📁 Basic Legal and Judiciary Ethics</h2>
-      <div class="cards-grid">
-
-        <a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons & definition.html" class="reader-card">
-          <div class="card-top">
-            <span class="card-icon">📖</span>
-            <span class="card-tts-badge">🎙 Natural Voice</span>
-          </div>
-          <h3 class="card-title">Canons &amp; definition</h3>
-          <div class="card-relpath">First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons &amp; definition.html</div>
-        </a>
-
-      </div>
-    </section>
-
-    <section class="group-section">
-      <h2 class="group-title">📁 Root</h2>
-      <div class="cards-grid">
-
-        <a href="JULIUS RAY N BALITBIT - MLC-LETTER-OF-UNDERTAKING.html" class="reader-card">
-          <div class="card-top">
-            <span class="card-icon">📖</span>
-            <span class="card-tts-badge">🎙 Natural Voice</span>
-          </div>
-          <h3 class="card-title">JULIUS RAY N BALITBIT - MLC-LETTER-OF-UNDERTAKING</h3>
-          <div class="card-relpath">JULIUS RAY N BALITBIT - MLC-LETTER-OF-UNDERTAKING.html</div>
-        </a>
-
-        <a href="MLC-JD-CURRICULUM.html" class="reader-card">
-          <div class="card-top">
-            <span class="card-icon">📖</span>
-            <span class="card-tts-badge">🎙 Natural Voice</span>
-          </div>
-          <h3 class="card-title">MLC-JD-CURRICULUM</h3>
-          <div class="card-relpath">MLC-JD-CURRICULUM.html</div>
-        </a>
-
-        <a href="README_TTS_READER.html" class="reader-card">
-          <div class="card-top">
-            <span class="card-icon">📖</span>
-            <span class="card-tts-badge">🎙 Natural Voice</span>
-          </div>
-          <h3 class="card-title">README TTS READER</h3>
-          <div class="card-relpath">README_TTS_READER.html</div>
-        </a>
-
-        <a href="examsoft.html" class="reader-card">
-          <div class="card-top">
-            <span class="card-icon">📖</span>
-            <span class="card-tts-badge">🎙 Natural Voice</span>
-          </div>
-          <h3 class="card-title">examsoft</h3>
-          <div class="card-relpath">examsoft.html</div>
-        </a>
-
-        <a href="jdyyyy-nnnn.balitbit@stu.html" class="reader-card">
-          <div class="card-top">
-            <span class="card-icon">📖</span>
-            <span class="card-tts-badge">🎙 Natural Voice</span>
-          </div>
-          <h3 class="card-title">jdyyyy-nnnn.balitbit@stu</h3>
-          <div class="card-relpath">jdyyyy-nnnn.balitbit@stu.html</div>
-        </a>
-
-      </div>
-    </section>
-
-    <section class="group-section">
-      <h2 class="group-title">📁 case digest</h2>
-      <div class="cards-grid">
-
-        <a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/case digest/BLJE Case Digest.html" class="reader-card">
-          <div class="card-top">
-            <span class="card-icon">📖</span>
-            <span class="card-tts-badge">🎙 Natural Voice</span>
-          </div>
-          <h3 class="card-title">BLJE Case Digest</h3>
-          <div class="card-relpath">First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/case digest/BLJE Case Digest.html</div>
-        </a>
-
-        <a href="First Sem 1st Year/Subjects/Criminal Law/case digest/Criminal Law Case Digest.html" class="reader-card">
-          <div class="card-top">
-            <span class="card-icon">📖</span>
-            <span class="card-tts-badge">🎙 Natural Voice</span>
-          </div>
-          <h3 class="card-title">Criminal Law Case Digest</h3>
-          <div class="card-relpath">First Sem 1st Year/Subjects/Criminal Law/case digest/Criminal Law Case Digest.html</div>
-        </a>
-
-        <a href="First Sem 1st Year/Subjects/Statutory Construction/case digest/Statutory Construction Case Digest.html" class="reader-card">
-          <div class="card-top">
-            <span class="card-icon">📖</span>
-            <span class="card-tts-badge">🎙 Natural Voice</span>
-          </div>
-          <h3 class="card-title">Statutory Construction Case Digest</h3>
-          <div class="card-relpath">First Sem 1st Year/Subjects/Statutory Construction/case digest/Statutory Construction Case Digest.html</div>
-        </a>
-
-      </div>
-    </section>
-
+    <div class="hub-group"><h2 class="hub-group-title">📂 Basic Legal and Judiciary Ethics</h2><div class="hub-grid">
+              <div class="hub-card">
+                <div class="hub-card-header">
+                  <span class="badge-reader">HTML Reader</span>
+                  <span class="badge-audio">🎙️ MP3 Audio</span>
+                </div>
+                <h3 class="hub-card-title"><a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons & definition.html">Canons &amp; definition</a></h3>
+                <div class="hub-card-actions">
+                  <a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons & definition.html" class="btn-open">Open Reader →</a>
+                </div>
+              </div>
+            </div></div><div class="hub-group"><h2 class="hub-group-title">📂 case digest</h2><div class="hub-grid">
+              <div class="hub-card">
+                <div class="hub-card-header">
+                  <span class="badge-reader">HTML Reader</span>
+                  <span class="badge-audio">🎙️ MP3 Audio</span>
+                </div>
+                <h3 class="hub-card-title"><a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/case digest/BLJE Case Digest.html">BLJE Case Digest</a></h3>
+                <div class="hub-card-actions">
+                  <a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/case digest/BLJE Case Digest.html" class="btn-open">Open Reader →</a>
+                </div>
+              </div>
+            
+              <div class="hub-card">
+                <div class="hub-card-header">
+                  <span class="badge-reader">HTML Reader</span>
+                  <span class="badge-audio">🎙️ MP3 Audio</span>
+                </div>
+                <h3 class="hub-card-title"><a href="First Sem 1st Year/Subjects/Criminal Law/case digest/Criminal Law Case Digest.html">Criminal Law Case Digest</a></h3>
+                <div class="hub-card-actions">
+                  <a href="First Sem 1st Year/Subjects/Criminal Law/case digest/Criminal Law Case Digest.html" class="btn-open">Open Reader →</a>
+                </div>
+              </div>
+            
+              <div class="hub-card">
+                <div class="hub-card-header">
+                  <span class="badge-reader">HTML Reader</span>
+                  <span class="badge-audio">🎙️ MP3 Audio</span>
+                </div>
+                <h3 class="hub-card-title"><a href="First Sem 1st Year/Subjects/Statutory Construction/case digest/Statutory Construction Case Digest.html">Statutory Construction Case Digest</a></h3>
+                <div class="hub-card-actions">
+                  <a href="First Sem 1st Year/Subjects/Statutory Construction/case digest/Statutory Construction Case Digest.html" class="btn-open">Open Reader →</a>
+                </div>
+              </div>
+            </div></div><div class="hub-group"><h2 class="hub-group-title">📂 Core Library</h2><div class="hub-grid">
+              <div class="hub-card">
+                <div class="hub-card-header">
+                  <span class="badge-reader">HTML Reader</span>
+                  
+                </div>
+                <h3 class="hub-card-title"><a href="JULIUS RAY N BALITBIT - MLC-LETTER-OF-UNDERTAKING.html">JULIUS RAY N BALITBIT - MLC-LETTER-OF-UNDERTAKING</a></h3>
+                <div class="hub-card-actions">
+                  <a href="JULIUS RAY N BALITBIT - MLC-LETTER-OF-UNDERTAKING.html" class="btn-open">Open Reader →</a>
+                </div>
+              </div>
+            
+              <div class="hub-card">
+                <div class="hub-card-header">
+                  <span class="badge-reader">HTML Reader</span>
+                  
+                </div>
+                <h3 class="hub-card-title"><a href="MLC-JD-CURRICULUM.html">MLC-JD-CURRICULUM</a></h3>
+                <div class="hub-card-actions">
+                  <a href="MLC-JD-CURRICULUM.html" class="btn-open">Open Reader →</a>
+                </div>
+              </div>
+            
+              <div class="hub-card">
+                <div class="hub-card-header">
+                  <span class="badge-reader">HTML Reader</span>
+                  
+                </div>
+                <h3 class="hub-card-title"><a href="README_TTS_READER.html">README TTS READER</a></h3>
+                <div class="hub-card-actions">
+                  <a href="README_TTS_READER.html" class="btn-open">Open Reader →</a>
+                </div>
+              </div>
+            
+              <div class="hub-card">
+                <div class="hub-card-header">
+                  <span class="badge-reader">HTML Reader</span>
+                  
+                </div>
+                <h3 class="hub-card-title"><a href="examsoft.html">examsoft</a></h3>
+                <div class="hub-card-actions">
+                  <a href="examsoft.html" class="btn-open">Open Reader →</a>
+                </div>
+              </div>
+            
+              <div class="hub-card">
+                <div class="hub-card-header">
+                  <span class="badge-reader">HTML Reader</span>
+                  
+                </div>
+                <h3 class="hub-card-title"><a href="jdyyyy-nnnn.balitbit@stu.html">jdyyyy-nnnn.balitbit@stu</a></h3>
+                <div class="hub-card-actions">
+                  <a href="jdyyyy-nnnn.balitbit@stu.html" class="btn-open">Open Reader →</a>
+                </div>
+              </div>
+            </div></div>
   </div>
-  <script>
-    const searchInput = document.getElementById('hubSearch');
-    const cards = document.querySelectorAll('.reader-card');
-    searchInput.addEventListener('input', (e) => {
-      const q = e.target.value.toLowerCase().trim();
-      cards.forEach(card => {
-        const text = card.textContent.toLowerCase();
-        card.style.display = text.includes(q) ? '' : 'none';
-      });
-    });
-  </script>
 </body>
 </html>
