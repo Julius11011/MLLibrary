@@ -1324,6 +1324,7 @@ HTML_PAGE_TEMPLATE = """<!DOCTYPE html>
             <div class="meta-item"><span>⏱</span> <span>~{reading_time_minutes} min read</span></div>
             <div class="meta-item"><span>🎙</span> <span>Intelligent Natural Speech</span></div>
           </div>
+          {mp3_player_html}
         </div>
 
         <!-- Document Sections -->
@@ -1968,6 +1969,31 @@ def convert_file_to_html_reader(file_path, output_path=None, overwrite=True):
     # Calculate estimated reading time (~160 words/min for deliberate study)
     reading_time = max(1, round(total_units * 35 / 160))
 
+    # Check if matching MP3 audio podcast exists
+    mp3_file = path_obj.with_suffix('.mp3')
+    mp3_player_html = ''
+    if mp3_file.exists():
+        mp3_name_esc = html.escape(mp3_file.name)
+        mp3_player_html = f'''
+          <div class="mp3-podcast-card" style="margin-top: 1.25rem; padding: 1rem 1.25rem; background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 14px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.65rem; flex-wrap: wrap; gap: 0.5rem;">
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span style="font-size: 1.1rem;">🎧</span>
+                <span style="font-family: var(--font-ui); font-weight: 700; font-size: 0.92rem; color: var(--accent-blue);">Studio Audio Podcast</span>
+                <span style="font-family: var(--font-ui); font-size: 0.72rem; padding: 0.18rem 0.55rem; background: rgba(52, 211, 153, 0.2); color: var(--accent-emerald); border-radius: 12px; font-weight: 600;">100% Mobile Background Play</span>
+              </div>
+              <a href="{mp3_name_esc}" download style="font-family: var(--font-ui); font-size: 0.8rem; color: var(--accent-gold); text-decoration: none; font-weight: 600;">⬇ Download MP3</a>
+            </div>
+            <audio controls preload="metadata" style="width: 100%; height: 42px; border-radius: 8px; outline: none;">
+              <source src="{mp3_name_esc}" type="audio/mpeg">
+              Your browser does not support audio playback.
+            </audio>
+            <div style="font-family: var(--font-ui); font-size: 0.73rem; color: var(--text-muted); margin-top: 0.4rem;">
+              💡 <em>Plays continuously with phone screen off or when minimized in Brave & Chrome.</em>
+            </div>
+          </div>
+        '''
+
     rendered_page = HTML_PAGE_TEMPLATE.format(
         escaped_title=html.escape(doc_title),
         escaped_description=html.escape(f"{subject_tag} comprehensive review notes and study materials."),
@@ -1976,7 +2002,8 @@ def convert_file_to_html_reader(file_path, output_path=None, overwrite=True):
         total_units=total_units,
         reading_time_minutes=reading_time,
         toc_html=toc_html,
-        sections_html=sections_html
+        sections_html=sections_html,
+        mp3_player_html=mp3_player_html
     )
 
     with open(output_path, 'w', encoding='utf-8') as f:
@@ -2319,3 +2346,71 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+async def generate_mp3_podcast(file_path, output_mp3=None, voice="en-US-JennyNeural"):
+    """Generates an MP3 audio podcast using Microsoft Azure Neural TTS with legal phonetic expansion."""
+    try:
+        import edge_tts
+    except ImportError:
+        print("[ERROR] edge-tts not installed. Run 'pip install edge-tts'.")
+        return None
+
+    path_obj = Path(file_path).resolve()
+    if output_mp3 is None:
+        output_mp3 = path_obj.with_suffix('.mp3')
+    else:
+        output_mp3 = Path(output_mp3).resolve()
+
+    print(f"[AUDIO] Generating Studio MP3 Podcast for {path_obj.name} -> {output_mp3.name}...")
+    
+    # Extract clean text
+    ext = path_obj.suffix.lower()
+    full_text = []
+    if ext == '.docx' and HAS_DOCX:
+        doc = docx.Document(path_obj)
+        for p in doc.paragraphs:
+            t = clean_text(p.text.strip())
+            if t:
+                full_text.append(t)
+    elif ext == '.txt':
+        with open(path_obj, 'r', encoding='utf-8', errors='replace') as f:
+            for l in f:
+                t = clean_text(l.strip())
+                if t:
+                    full_text.append(t)
+    elif ext == '.pdf' and HAS_FITZ:
+        doc = fitz.open(path_obj)
+        for page in doc:
+            t = clean_text(page.get_text().strip())
+            if t:
+                full_text.append(t)
+    elif ext == '.md':
+        with open(path_obj, 'r', encoding='utf-8', errors='replace') as f:
+            for l in f:
+                t = clean_text(l.strip())
+                if t and not t.startswith('#'):
+                    full_text.append(t)
+
+    if not full_text:
+        print(f"[WARN] No text extracted for MP3 from {path_obj.name}")
+        return None
+
+    joined = "\n\n".join(full_text)
+    
+    # Apply legal phonetic expansions
+    joined = (
+        joined.replace("CPRA", "Code of Professional Responsibility and Accountability")
+        .replace("CPR", "Code of Professional Responsibility")
+        .replace("SCRA", "S-C-R-A")
+        .replace("RPC", "Revised Penal Code")
+        .replace("Art.", "Article")
+        .replace("Sec.", "Section")
+        .replace("G.R. No.", "G R Number")
+        .replace("Phil.", "Philippine Reports")
+    )
+
+    communicate = edge_tts.Communicate(joined, voice, rate="-4%")
+    await communicate.save(str(output_mp3))
+    print(f"[SUCCESS] Created Studio MP3 Podcast: {output_mp3} ({output_mp3.stat().st_size // 1024} KB)")
+    return output_mp3
