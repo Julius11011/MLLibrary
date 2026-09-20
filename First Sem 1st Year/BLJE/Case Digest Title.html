@@ -1588,8 +1588,38 @@
 
       // 5.1 Mobile Background Audio Carrier & WakeLock
       let wakeLock = null;
-      const silentAudio = new Audio('data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA');
-      silentAudio.loop = true;
+      let audioCtx = null;
+      let silentGain = null;
+      let oscillator = null;
+
+      function startKeepAliveAudio() {
+        try {
+          if (!audioCtx) {
+            const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+            if (AudioContextClass) {
+              audioCtx = new AudioContextClass();
+              oscillator = audioCtx.createOscillator();
+              silentGain = audioCtx.createGain();
+              silentGain.gain.setValueAtTime(0.0001, audioCtx.currentTime); // Inaudible keep-alive signal
+              oscillator.frequency.setValueAtTime(440, audioCtx.currentTime);
+              oscillator.connect(silentGain);
+              silentGain.connect(audioCtx.destination);
+              oscillator.start();
+            }
+          }
+          if (audioCtx && audioCtx.state === 'suspended') {
+            audioCtx.resume();
+          }
+        } catch (e) {}
+      }
+
+      function stopKeepAliveAudio() {
+        try {
+          if (audioCtx && audioCtx.state === 'running') {
+            audioCtx.suspend();
+          }
+        } catch (e) {}
+      }
 
       async function requestWakeLock() {
         try {
@@ -1626,21 +1656,21 @@
           pauseIcon.style.display = 'inline';
           statusBadge.textContent = 'Speaking...';
           statusBadge.className = 'tts-status-badge speaking';
-          silentAudio.play().catch(() => {});
+          startKeepAliveAudio();
           requestWakeLock();
         } else if (paused) {
           playIcon.style.display = 'inline';
           pauseIcon.style.display = 'none';
           statusBadge.textContent = 'Paused';
           statusBadge.className = 'tts-status-badge';
-          silentAudio.pause();
+          stopKeepAliveAudio();
           releaseWakeLock();
         } else {
           playIcon.style.display = 'inline';
           pauseIcon.style.display = 'none';
           statusBadge.textContent = 'Ready';
           statusBadge.className = 'tts-status-badge';
-          silentAudio.pause();
+          stopKeepAliveAudio();
           releaseWakeLock();
           clearHighlights();
         }
@@ -1659,55 +1689,32 @@
         }
       }
 
-      function speakUnit(idx) {
-        if (!synth) return;
-        if (nextUtteranceTimeout) {
-          clearTimeout(nextUtteranceTimeout);
-          nextUtteranceTimeout = null;
-        }
+      // =========================================================================
+      // Native Multi-Utterance Queueing Engine (Persists through Android Minimization)
+      // =========================================================================
+      const QUEUE_AHEAD_COUNT = 8;
+      let isPlaying = false;
+      let nextQueueIdx = 0;
 
-        if (idx < 0 || idx >= readUnits.length) {
-          setSpeakingState(false);
-          currentUnitIndex = -1;
-          lastSectionId = null;
-          return;
-        }
-
-        synth.cancel();
-        currentUnitIndex = idx;
+      function createUtteranceForIndex(idx) {
+        if (idx < 0 || idx >= readUnits.length) return null;
         const unit = readUnits[idx];
-        highlightUnit(idx);
-
         const currentSection = unit.closest('section.doc-section');
         const currentSecId = currentSection ? currentSection.id : null;
         
-        // Detect section transition for topic announcement & deliberate pause
-        let isNewSection = (currentSecId && currentSecId !== lastSectionId);
-        lastSectionId = currentSecId;
-
         let processedText = prepareSpeechText(unit);
-        
-        // If entering a new section, announce the Topic / Section header first
-        if (isNewSection && currentSection) {
+        if (currentSecId && currentSecId !== lastSectionId && currentSection) {
           const headerEl = currentSection.querySelector('.section-title');
           if (headerEl) {
-            const hText = headerEl.innerText.trim();
-            processedText = 'New Topic: ' + hText + ' ... ... ' + processedText;
+            processedText = 'New Topic: ' + headerEl.innerText.trim() + ' ... ... ' + processedText;
           }
+          lastSectionId = currentSecId;
         }
 
-        if (!processedText) {
-          speakUnit(idx + 1);
-          return;
-        }
-
-        updateMediaSession(processedText);
+        if (!processedText) return null;
 
         const utterance = new SpeechSynthesisUtterance(processedText);
-        
-        // Calibrated study speech rate & natural pitch
-        const baseRate = parseFloat(speedSelect.value) || 0.9;
-        utterance.rate = baseRate;
+        utterance.rate = parseFloat(speedSelect.value) || 0.9;
         utterance.pitch = 1.0;
 
         const selectedVoiceIdx = voiceSelect.value;
@@ -1717,59 +1724,75 @@
           utterance.voice = voices[0];
         }
 
-        utterance.onend = () => {
-          if (currentUnitIndex === idx && !isPaused) {
-            // Calculate natural pause before next unit (longer pause if changing section/topic)
-            const nextIdx = idx + 1;
-            let pauseDuration = 400; // standard natural clause pause
-            
-            if (nextIdx < readUnits.length) {
-              const nextSec = readUnits[nextIdx].closest('section.doc-section');
-              if (nextSec && nextSec.id !== lastSectionId) {
-                pauseDuration = 1000; // 1 full second pause on topic change
-              }
-            }
+        utterance.onstart = () => {
+          currentUnitIndex = idx;
+          highlightUnit(idx);
+          updateMediaSession(processedText);
+          setSpeakingState(true, false);
+        };
 
-            nextUtteranceTimeout = setTimeout(() => {
-              speakUnit(nextIdx);
-            }, pauseDuration);
+        utterance.onend = () => {
+          if (isPlaying && !isPaused) {
+            fillSpeechQueue();
+            if (idx >= readUnits.length - 1) {
+              setSpeakingState(false);
+              isPlaying = false;
+            }
           }
         };
 
         utterance.onerror = (e) => {
           if (e.error !== 'interrupted' && e.error !== 'canceled') {
-            console.warn('TTS natural playback warning:', e);
+            console.warn('TTS error:', e);
           }
-          setSpeakingState(false);
         };
 
-        synth.speak(utterance);
+        return utterance;
+      }
+
+      function fillSpeechQueue() {
+        if (!isPlaying || isPaused || !synth) return;
+        while (nextQueueIdx < readUnits.length && nextQueueIdx < currentUnitIndex + QUEUE_AHEAD_COUNT) {
+          const u = createUtteranceForIndex(nextQueueIdx);
+          nextQueueIdx++;
+          if (u) {
+            synth.speak(u);
+          }
+        }
+      }
+
+      function startPlaybackFrom(idx) {
+        if (!synth) return;
+        synth.cancel();
+        isPlaying = true;
+        isPaused = false;
+        currentUnitIndex = idx;
+        lastSectionId = null;
+        nextQueueIdx = idx;
         setSpeakingState(true, false);
+        fillSpeechQueue();
       }
 
       playPauseBtn.addEventListener('click', () => {
         if (!synth) return;
-        if (synth.speaking && !synth.paused) {
+        if (isPlaying && !isPaused) {
           synth.pause();
           isPaused = true;
           setSpeakingState(true, true);
-        } else if (synth.paused) {
+        } else if (isPaused) {
           synth.resume();
           isPaused = false;
           setSpeakingState(true, false);
+          fillSpeechQueue();
         } else {
-          isPaused = false;
-          speakUnit(currentUnitIndex >= 0 ? currentUnitIndex : 0);
+          startPlaybackFrom(currentUnitIndex >= 0 ? currentUnitIndex : 0);
         }
       });
 
       stopBtn.addEventListener('click', () => {
         if (!synth) return;
-        if (nextUtteranceTimeout) {
-          clearTimeout(nextUtteranceTimeout);
-          nextUtteranceTimeout = null;
-        }
         synth.cancel();
+        isPlaying = false;
         isPaused = false;
         setSpeakingState(false);
         currentUnitIndex = -1;
@@ -1778,25 +1801,25 @@
 
       nextBtn.addEventListener('click', () => {
         if (!synth) return;
-        isPaused = false;
-        speakUnit(currentUnitIndex + 1);
+        const target = Math.min(readUnits.length - 1, (currentUnitIndex >= 0 ? currentUnitIndex : 0) + 1);
+        startPlaybackFrom(target);
       });
 
       prevBtn.addEventListener('click', () => {
         if (!synth) return;
-        isPaused = false;
-        speakUnit(Math.max(0, currentUnitIndex - 1));
+        const target = Math.max(0, (currentUnitIndex >= 0 ? currentUnitIndex : 0) - 1);
+        startPlaybackFrom(target);
       });
 
       speedSelect.addEventListener('change', () => {
-        if (synth && synth.speaking) {
-          speakUnit(currentUnitIndex);
+        if (isPlaying) {
+          startPlaybackFrom(currentUnitIndex >= 0 ? currentUnitIndex : 0);
         }
       });
 
       voiceSelect.addEventListener('change', () => {
-        if (synth && synth.speaking) {
-          speakUnit(currentUnitIndex);
+        if (isPlaying) {
+          startPlaybackFrom(currentUnitIndex >= 0 ? currentUnitIndex : 0);
         }
       });
 
@@ -1806,13 +1829,24 @@
         if (unit) {
           const idx = readUnits.indexOf(unit);
           if (idx !== -1) {
-            isPaused = false;
-            speakUnit(idx);
+            startPlaybackFrom(idx);
           }
         }
       });
 
       // Section Quick-Listen Handler
+      window.readSection = function(sectionId) {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          const firstUnit = el.querySelector('.read-unit');
+          if (firstUnit) {
+            const idx = readUnits.indexOf(firstUnit);
+            if (idx !== -1) {
+              startPlaybackFrom(idx);
+            }
+          }
+        }
+      };
       window.readSection = function(sectionId) {
         const el = document.getElementById(sectionId);
         if (el) {
