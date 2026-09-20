@@ -379,11 +379,12 @@ def generate_reader_html(doc_title, subject_tag, sections, mp3_filename=None):
         sec_html_list.append(f'<section id="{s_id}" class="doc-section">\n{units_html}\n</section>')
     sections_html = "\n<hr class=\"section-divider\" />\n".join(sec_html_list)
 
-    # Audio player snippet with Cloud Stream URL & Local Fallback
+    # Audio player snippet with Multi-Release Cloud Stream URL & Local Fallback
     mp3_player_html = ""
     if mp3_filename:
         encoded_mp3 = urllib.parse.quote(mp3_filename)
-        cloud_stream_url = f"{GITHUB_AUDIO_BASE_URL}/{encoded_mp3}"
+        cloud_url_v2 = f"https://github.com/Julius11011/MLLibrary/releases/download/audio-v2/{encoded_mp3}"
+        cloud_url_v1 = f"https://github.com/Julius11011/MLLibrary/releases/download/audio-v1/{encoded_mp3}"
         mp3_player_html = f'''
         <div class="studio-audio-player">
           <div class="audio-player-header">
@@ -391,7 +392,8 @@ def generate_reader_html(doc_title, subject_tag, sections, mp3_filename=None):
             <span class="audio-filename">{html.escape(mp3_filename)}</span>
           </div>
           <audio controls preload="metadata" class="native-audio-element">
-            <source src="{cloud_stream_url}" type="audio/mpeg">
+            <source src="{cloud_url_v2}" type="audio/mpeg">
+            <source src="{cloud_url_v1}" type="audio/mpeg">
             <source src="{html.escape(mp3_filename)}" type="audio/mpeg">
             Your browser does not support the audio element.
           </audio>
