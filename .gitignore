@@ -33,3 +33,7 @@ Thumbs.db
 ehthumbs.db
 Desktop.ini
 .DS_Store
+
+# MP3 Audio Files & Temporary Chunks (Hosted on GitHub Releases)
+*.mp3
+temp_*
