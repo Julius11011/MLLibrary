@@ -1,0 +1,10 @@
+.git
+.git/**
+**/.git/**
+*.py
+*.bat
+*.ps1
+__pycache__
+__pycache__/**
+*.crdownload
+*.tmp

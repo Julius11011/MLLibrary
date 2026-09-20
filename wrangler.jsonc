@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mllibrary",
+  "compatibility_date": "2026-09-18",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": ".",
+    "exclude": [
+      ".git",
+      ".git/**",
+      "**/.git/**",
+      "*.py",
+      "*.bat",
+      "*.ps1",
+      "__pycache__",
+      "__pycache__/**",
+      "*.crdownload",
+      "*.tmp"
+    ]
+  }
+}
