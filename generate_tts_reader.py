@@ -9,7 +9,7 @@ into interactive, high-readability HTML web applications featuring:
   - Continuous, Flowing Body Paragraphs with Modern Legal Typography (No Chat-Like Fragmentation)
   - Streamlined, Clean Table of Contents (TOC) focused on Main Topics & Sub Topics (e.g. Case Titles Only)
   - Clear Visual Hierarchy: Case Badges, Citation Banners, Subheadings, ALAC Inline Badges & Tables
-  - Native Studio MP3 Podcast Audio Player Integration (Mobile Background Compatible)
+  - Native Studio MP3 Podcast Audio Player Integration with GitHub CDN Cloud Streaming
   - Full Keyboard Navigation, Theme Modes (Dark, Sepia, Light), and Responsive Mobile Layout
 """
 
@@ -18,6 +18,7 @@ import sys
 import re
 import html
 import json
+import urllib.parse
 import argparse
 from pathlib import Path
 
@@ -29,6 +30,9 @@ try:
     HAS_DOCX = True
 except ImportError:
     HAS_DOCX = False
+
+# GitHub Release Audio CDN base URL
+GITHUB_AUDIO_BASE_URL = "https://github.com/Julius11011/MLLibrary/releases/download/audio-v1"
 
 # ==============================================================================
 # 1. TEXT CLEANING & NORMALIZATION
@@ -371,16 +375,19 @@ def generate_reader_html(doc_title, subject_tag, sections, mp3_filename=None):
         sec_html_list.append(f'<section id="{s_id}" class="doc-section">\n{units_html}\n</section>')
     sections_html = "\n<hr class=\"section-divider\" />\n".join(sec_html_list)
 
-    # Audio player snippet if mp3 available
+    # Audio player snippet with Cloud Stream URL & Local Fallback
     mp3_player_html = ""
     if mp3_filename:
+        encoded_mp3 = urllib.parse.quote(mp3_filename)
+        cloud_stream_url = f"{GITHUB_AUDIO_BASE_URL}/{encoded_mp3}"
         mp3_player_html = f'''
         <div class="studio-audio-player">
           <div class="audio-player-header">
-            <span class="audio-badge">🎙️ Studio Voice Podcast</span>
+            <span class="audio-badge">🎙️ Studio Voice Podcast (Cloud Stream)</span>
             <span class="audio-filename">{html.escape(mp3_filename)}</span>
           </div>
           <audio controls preload="metadata" class="native-audio-element">
+            <source src="{cloud_stream_url}" type="audio/mpeg">
             <source src="{html.escape(mp3_filename)}" type="audio/mpeg">
             Your browser does not support the audio element.
           </audio>
