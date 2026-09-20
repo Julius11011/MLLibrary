@@ -1359,9 +1359,57 @@ Rigorous Law School Case Digest Compendium Formatted via ALAC Method (Answer - L
         }
       }
 
-      // 5. Smart Legal Phonetic Expander
+      // 5. Smart Legal Phonetic & Roman Numeral Expander
+      function romanToInt(roman) {
+        const map = {
+          'M': 1000, 'CM': 900, 'D': 500, 'CD': 400,
+          'C': 100, 'XC': 90, 'L': 50, 'XL': 40,
+          'X': 10, 'IX': 9, 'V': 5, 'IV': 4, 'I': 1
+        };
+        const s = roman.toUpperCase();
+        let total = 0, i = 0;
+        while (i < s.length) {
+          if (i + 1 < s.length && map[s.substr(i, 2)]) {
+            total += map[s.substr(i, 2)];
+            i += 2;
+          } else if (map[s[i]]) {
+            total += map[s[i]];
+            i += 1;
+          } else {
+            return null;
+          }
+        }
+        return total;
+      }
+
+      function expandRomanNumerals(txt) {
+        // 1. Topic Roman Numeral Headings: "I. FACTS", "XVI. CONCLUSION"
+        txt = txt.replace(/\b([IVXLCDM]+)\.\s+/g, function(match, roman) {
+          const val = romanToInt(roman);
+          return val ? 'Topic ' + val + ': ' : match;
+        });
+
+        // 2. Legal prefix + Roman: Canon II, Part I, Chapter XVI, Article XIV, Rule IV, Book I
+        txt = txt.replace(/\b(Canon|Part|Chapter|Article|Title|Book|Section|Sec|Art|Vol|Volume|Rule)\s+([IVXLCDM]+)\b/gi, function(match, prefix, roman) {
+          const val = romanToInt(roman);
+          return val ? prefix + ' ' + val : match;
+        });
+
+        // 3. Parenthesized Roman numerals: (i), (ii), (iv), (xvi)
+        txt = txt.replace(/\(([ivxlcdm]+)\)/gi, function(match, roman) {
+          const val = romanToInt(roman);
+          return val ? 'sub-item ' + val + ', ' : match;
+        });
+
+        return txt;
+      }
+
       function prepareSpeechText(unitEl) {
         let text = unitEl.innerText || unitEl.textContent || '';
+        
+        // Expand Roman Numerals first so "Canon II" becomes "Canon 2", "XVI" becomes "16"
+        text = expandRomanNumerals(text);
+
         text = text
           .replace(/\bSCRA\b/g, 'S-C-R-A')
           .replace(/\bPhil\.\s*(\d+)/gi, 'Philippine Reports volume $1')
