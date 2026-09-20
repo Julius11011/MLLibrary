@@ -1,0 +1,9 @@
+How to Convert Word Documents (.docx/.doc) to PDF:
+
+Run the Python helper script with the file path(s) or directory path(s) you want to convert:
+
+python "C:\Users\JR\.gemini\config\skills\convert-to-pdf\scripts\convert_to_pdf.py" "C:\path\to\your\document.docx"
+
+You can also pass a directory to convert all Word documents inside it:
+
+python "C:\Users\JR\.gemini\config\skills\convert-to-pdf\scripts\convert_to_pdf.py" "C:\Users\JR\Downloads"

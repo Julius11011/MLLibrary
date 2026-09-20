@@ -1,0 +1,2263 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Criminal Procedure comprehensive review notes and study materials.">
+  <title>Criminal Procedure Case Digests Updated</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0f172a;
+      --bg-secondary: #1e293b;
+      --bg-tertiary: #334155;
+      --bg-card: rgba(30, 41, 59, 0.75);
+      --bg-card-hover: rgba(51, 65, 85, 0.85);
+      --border-color: rgba(148, 163, 184, 0.18);
+      --border-focus: #38bdf8;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --accent-gold: #fbbf24;
+      --accent-gold-dark: #d97706;
+      --accent-blue: #38bdf8;
+      --accent-indigo: #818cf8;
+      --accent-emerald: #34d399;
+      --accent-rose: #fb7185;
+      --highlight-reading: rgba(56, 189, 248, 0.28);
+      --font-body: 'Merriweather', Georgia, serif;
+      --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-heading: 'Cinzel', serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --sidebar-width: 320px;
+      --header-height: 72px;
+      --content-max-width: 880px;
+      --base-font-size: 17px;
+      --line-height: 1.85;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+      --glass-blur: blur(14px);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #ffffff;
+      --bg-tertiary: #e2e8f0;
+      --bg-card: rgba(255, 255, 255, 0.9);
+      --bg-card-hover: rgba(241, 245, 249, 0.98);
+      --border-color: rgba(203, 213, 225, 0.85);
+      --border-focus: #0284c7;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --accent-gold: #b45309;
+      --accent-gold-dark: #92400e;
+      --accent-blue: #0284c7;
+      --accent-indigo: #4f46e5;
+      --accent-emerald: #059669;
+      --accent-rose: #e11d48;
+      --highlight-reading: rgba(2, 132, 199, 0.18);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+    }
+
+    [data-theme="sepia"] {
+      --bg-primary: #fbf0d9;
+      --bg-secondary: #f4e4c1;
+      --bg-tertiary: #ecd6a7;
+      --bg-card: rgba(244, 228, 193, 0.9);
+      --bg-card-hover: rgba(236, 214, 167, 0.98);
+      --border-color: rgba(180, 150, 110, 0.45);
+      --border-focus: #9a6700;
+      --text-primary: #2d241e;
+      --text-secondary: #4a3b32;
+      --text-muted: #786455;
+      --accent-gold: #a75d00;
+      --accent-gold-dark: #8c4c00;
+      --accent-blue: #2c6e91;
+      --accent-indigo: #5d4a82;
+      --accent-emerald: #2e7d32;
+      --accent-rose: #c2185b;
+      --highlight-reading: rgba(200, 150, 50, 0.28);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: var(--base-font-size);
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      line-height: var(--line-height);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.25s ease, color 0.25s ease;
+      overflow-x: hidden;
+    }
+
+    /* Top Reading Progress Bar */
+    #readingProgressBar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue));
+      z-index: 999;
+      transition: width 0.1s ease;
+    }
+
+    /* Top Sticky Navigation Bar */
+    header.app-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--header-height);
+      background-color: rgba(15, 23, 42, 0.88);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      gap: 1rem;
+    }
+
+    [data-theme="light"] header.app-header {
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    [data-theme="sepia"] header.app-header {
+      background-color: rgba(251, 240, 217, 0.92);
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0f172a;
+      font-weight: 800;
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      box-shadow: 0 2px 8px rgba(251, 191, 36, 0.35);
+      text-decoration: none;
+    }
+
+    .brand-titles {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: var(--font-ui);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 300px;
+    }
+
+    .brand-subtitle {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      color: var(--accent-gold);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Global TTS Controls Toolbar */
+    .tts-toolbar {
+      display: flex;
+      align-items: center;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      padding: 0.35rem 0.65rem;
+      border-radius: 40px;
+      gap: 0.45rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .tts-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-primary);
+      cursor: pointer;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      font-size: 0.95rem;
+    }
+
+    .tts-btn:hover {
+      background-color: var(--bg-tertiary);
+      color: var(--accent-gold);
+    }
+
+    .tts-btn.primary {
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+      color: #0f172a;
+      font-weight: 700;
+      box-shadow: 0 2px 6px rgba(251, 191, 36, 0.4);
+    }
+
+    .tts-btn.primary:hover {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
+
+    .tts-status-badge {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.55rem;
+      border-radius: 20px;
+      background-color: var(--bg-tertiary);
+      color: var(--text-muted);
+      min-width: 90px;
+      text-align: center;
+    }
+
+    .tts-status-badge.speaking {
+      background-color: rgba(56, 189, 248, 0.2);
+      color: var(--accent-blue);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      animation: pulseGlow 1.5s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      from { box-shadow: 0 0 4px rgba(56, 189, 248, 0.2); }
+      to { box-shadow: 0 0 10px rgba(56, 189, 248, 0.5); }
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .control-select {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 0.4rem 0.65rem;
+      border-radius: 8px;
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .control-select:focus {
+      border-color: var(--border-focus);
+    }
+
+    .icon-btn {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+
+    .icon-btn:hover {
+      background-color: var(--bg-tertiary);
+      border-color: var(--border-focus);
+    }
+
+    /* Main Application Layout */
+    .app-layout {
+      display: flex;
+      flex: 1;
+      position: relative;
+    }
+
+    /* Sticky Sidebar Navigation */
+    aside.app-sidebar {
+      width: var(--sidebar-width);
+      height: calc(100vh - var(--header-height));
+      position: sticky;
+      top: var(--header-height);
+      background-color: var(--bg-secondary);
+      border-right: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      overflow-y: auto;
+      z-index: 50;
+      transition: transform 0.3s ease;
+    }
+
+    .sidebar-header {
+      padding: 1.25rem 1rem 0.75rem 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .sidebar-search {
+      position: relative;
+      width: 100%;
+    }
+
+    .sidebar-search input {
+      width: 100%;
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.5rem 0.75rem 0.5rem 2rem;
+      color: var(--text-primary);
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .sidebar-search input:focus {
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+    }
+
+    .sidebar-search .search-icon {
+      position: absolute;
+      left: 0.65rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    .toc-container {
+      padding: 0.75rem 0.5rem;
+      flex: 1;
+    }
+
+    .toc-nav ul {
+      list-style: none;
+    }
+
+    .toc-nav li {
+      margin-bottom: 0.2rem;
+    }
+
+    .toc-link {
+      display: block;
+      padding: 0.45rem 0.75rem;
+      border-radius: 6px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      font-weight: 500;
+      line-height: 1.4;
+      transition: all 0.2s ease;
+      border-left: 2px solid transparent;
+    }
+
+    .toc-link:hover {
+      background-color: var(--bg-tertiary);
+      color: var(--text-primary);
+    }
+
+    .toc-link.active {
+      background-color: rgba(56, 189, 248, 0.12);
+      color: var(--accent-blue);
+      border-left-color: var(--accent-blue);
+      font-weight: 600;
+    }
+
+    .toc-link.level-2 {
+      padding-left: 1.25rem;
+      font-size: 0.78rem;
+    }
+
+    .toc-link.level-3 {
+      padding-left: 1.75rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Main Content Container */
+    main.app-content {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      padding: 2.5rem 2rem;
+      overflow-y: visible;
+    }
+
+    .content-wrapper {
+      max-width: var(--content-max-width);
+      width: 100%;
+    }
+
+    /* Document Header Banner */
+    .document-hero {
+      background: linear-gradient(145deg, var(--bg-card), var(--bg-secondary));
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2.25rem 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .document-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue), var(--accent-indigo));
+    }
+
+    .doc-badge {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      background: rgba(251, 191, 36, 0.15);
+      color: var(--accent-gold);
+      border: 1px solid rgba(251, 191, 36, 0.3);
+      margin-bottom: 0.85rem;
+    }
+
+    .doc-main-title {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+    }
+
+    .doc-subtitle {
+      font-family: var(--font-ui);
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .doc-meta-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    /* Section & Content Styling */
+    section.doc-section {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2.25rem;
+      box-shadow: var(--shadow-md);
+      transition: border-color 0.2s ease;
+    }
+
+    section.doc-section:hover {
+      border-color: rgba(148, 163, 184, 0.35);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+      line-height: 1.4;
+    }
+
+    .section-title.level-2 {
+      font-size: 1.2rem;
+      color: var(--text-primary);
+    }
+
+    .section-title.level-3 {
+      font-size: 1.05rem;
+      color: var(--accent-blue);
+    }
+
+    .section-listen-btn {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.3rem 0.7rem;
+      border-radius: 20px;
+      background-color: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: all 0.2s ease;
+    }
+
+    .section-listen-btn:hover {
+      background-color: var(--accent-gold);
+      color: #0f172a;
+      border-color: var(--accent-gold);
+    }
+
+    /* Read Units & Paragraphs */
+    .read-unit {
+      position: relative;
+      margin-bottom: 1.15rem;
+      padding: 0.4rem 0.7rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .read-unit:hover {
+      background-color: rgba(148, 163, 184, 0.08);
+    }
+
+    .read-unit.is-speaking {
+      background-color: var(--highlight-reading) !important;
+      border-left: 3px solid var(--accent-blue);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
+    }
+
+    .bullet-point {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+    }
+
+    .bullet-dot {
+      color: var(--accent-gold);
+      font-weight: bold;
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+
+    .bullet-num {
+      color: var(--accent-blue);
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .bullet-content {
+      flex: 1;
+    }
+
+    .reader-quote {
+      border-left: 4px solid var(--accent-gold);
+      padding: 0.75rem 1.25rem;
+      background-color: rgba(251, 191, 36, 0.06);
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: var(--text-secondary);
+      margin: 1.25rem 0;
+    }
+
+    .reader-code {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1rem;
+      overflow-x: auto;
+      line-height: 1.5;
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+      margin: 1.25rem 0;
+    }
+
+    .reader-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-ui);
+      font-size: 0.88rem;
+    }
+
+    .reader-table th, .reader-table td {
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border-color);
+      text-align: left;
+    }
+
+    .reader-table th {
+      background-color: var(--bg-secondary);
+      color: var(--accent-gold);
+      font-weight: 600;
+    }
+
+    .reader-table tr:nth-child(even) {
+      background-color: rgba(148, 163, 184, 0.04);
+    }
+
+    /* Case Elements Badges */
+    .case-element {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .case-badge {
+      font-family: var(--font-ui);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+      flex-shrink: 0;
+      margin-top: 0.25rem;
+    }
+
+    .badge-facts { background: rgba(56, 189, 248, 0.18); color: var(--accent-blue); border: 1px solid rgba(56, 189, 248, 0.35); }
+    .badge-issue { background: rgba(251, 191, 36, 0.18); color: var(--accent-gold); border: 1px solid rgba(251, 191, 36, 0.35); }
+    .badge-held { background: rgba(52, 211, 153, 0.18); color: var(--accent-emerald); border: 1px solid rgba(52, 211, 153, 0.35); }
+    .badge-doctrine { background: rgba(251, 113, 133, 0.18); color: var(--accent-rose); border: 1px solid rgba(251, 113, 133, 0.35); }
+
+    .legal-citation {
+      font-weight: 600;
+      color: var(--accent-gold);
+      border-bottom: 1px dotted rgba(251, 191, 36, 0.5);
+    }
+
+    .section-divider {
+      border: 0;
+      height: 1px;
+      background: var(--border-color);
+      margin: 1.5rem 0;
+    }
+
+    /* Floating TTS Trigger on Selection */
+    #floatingTtsTrigger {
+      position: absolute;
+      display: none;
+      z-index: 1000;
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+      color: #0f172a;
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 20px;
+      padding: 0.4rem 0.85rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      cursor: pointer;
+      transform: translateX(-50%);
+      transition: transform 0.15s ease, filter 0.15s ease;
+    }
+
+    #floatingTtsTrigger:hover {
+      transform: translateX(-50%) scale(1.05);
+      filter: brightness(1.1);
+    }
+
+    /* Footer */
+    footer.app-footer {
+      background-color: var(--bg-secondary);
+      border-top: 1px solid var(--border-color);
+      padding: 1.5rem;
+      text-align: center;
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: auto;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 900px) {
+      aside.app-sidebar {
+        position: fixed;
+        left: 0;
+        top: var(--header-height);
+        transform: translateX(-100%);
+        box-shadow: var(--shadow-lg);
+      }
+
+      aside.app-sidebar.open {
+        transform: translateX(0);
+      }
+
+      .brand-title {
+        max-width: 180px;
+      }
+
+      .tts-status-badge {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="readingProgressBar"></div>
+
+  <!-- App Header -->
+  <header class="app-header">
+    <div class="brand-section">
+      <button class="icon-btn" id="toggleSidebarBtn" title="Toggle Table of Contents">☰</button>
+      <a href="#" class="brand-logo" title="MLC Law Reader">⚖</a>
+      <div class="brand-titles">
+        <span class="brand-title">Criminal Procedure Case Digests Updated</span>
+        <span class="brand-subtitle">Criminal Procedure • Interactive Reader</span>
+      </div>
+    </div>
+
+    <!-- TTS Toolbar -->
+    <div class="tts-toolbar">
+      <button class="tts-btn" id="ttsPrevBtn" title="Previous Paragraph (P)">⏮</button>
+      <button class="tts-btn primary" id="ttsPlayPauseBtn" title="Play / Pause (Space)">
+        <span id="ttsPlayIcon">▶</span>
+        <span id="ttsPauseIcon" style="display:none;">⏸</span>
+      </button>
+      <button class="tts-btn" id="ttsStopBtn" title="Stop (Esc)">⏹</button>
+      <button class="tts-btn" id="ttsNextBtn" title="Next Paragraph (N)">⏭</button>
+      <span class="tts-status-badge" id="ttsStatus">Ready</span>
+    </div>
+
+    <!-- Right Controls -->
+    <div class="header-actions">
+      <select class="control-select" id="ttsSpeedSelect" title="Reading Speed (Deliberate Study Pace)">
+        <option value="0.75">0.75x (Slow)</option>
+        <option value="0.85">0.85x (Very Clear)</option>
+        <option value="0.9" selected>0.9x (Deliberate)</option>
+        <option value="1.0">1.0x (Normal)</option>
+        <option value="1.15">1.15x</option>
+        <option value="1.25">1.25x</option>
+        <option value="1.5">1.5x</option>
+      </select>
+      <select class="control-select" id="ttsVoiceSelect" title="Speech Voice (Neural Natural Voices First)" style="max-width: 155px;">
+        <option value="default">Natural Voice (Auto)</option>
+      </select>
+      <button class="icon-btn" id="fontDecBtn" title="Decrease Font Size ( - )">A-</button>
+      <button class="icon-btn" id="fontIncBtn" title="Increase Font Size ( + )">A+</button>
+      <select class="control-select" id="themeSelect" title="Visual Theme">
+        <option value="dark">🌙 Dark</option>
+        <option value="sepia">📜 Sepia</option>
+        <option value="light">☀️ Light</option>
+      </select>
+    </div>
+  </header>
+
+  <!-- Layout Container -->
+  <div class="app-layout">
+    <!-- Table of Contents Sidebar -->
+    <aside class="app-sidebar" id="appSidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-search">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="sidebarSearch" placeholder="Search topics, cases... ( / )" autocomplete="off">
+        </div>
+      </div>
+      <div class="toc-container">
+        <nav class="toc-nav">
+          <ul id="tocList">
+            <li><a href="#sec-1-remedial-law---criminal-procedure-case-digests" class="toc-link level-3">REMEDIAL LAW - CRIMINAL PROCEDURE CASE DIGESTS</a></li>
+            <li><a href="#sec-2-case-no-1-people-v-mariano-71-scra-600" class="toc-link level-3">CASE NO. 1: People v. Mariano (71 SCRA 600)</a></li>
+            <li><a href="#sec-3-1-facts" class="toc-link level-3">1. FACTS:</a></li>
+            <li><a href="#sec-4-2-issues" class="toc-link level-3">2. ISSUE/S:</a></li>
+            <li><a href="#sec-5-3-courts-ruling" class="toc-link level-3">3. COURT&#x27;S RULING:</a></li>
+            <li><a href="#sec-6-4-applicable-doctrine-criminal-procedure-application" class="toc-link level-3">4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</a></li>
+            <li><a href="#sec-7-5-relevance-to-the-topic-explanation" class="toc-link level-3">5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</a></li>
+            <li><a href="#sec-8-case-no-2-eileen-p-david-v-glenda-s-marquez-gr-no-209859" class="toc-link level-3">CASE NO. 2: Eileen P. David v. Glenda S. Marquez (G.R. No. 209859)</a></li>
+            <li><a href="#sec-9-1-facts" class="toc-link level-3">1. FACTS:</a></li>
+            <li><a href="#sec-10-2-issues" class="toc-link level-3">2. ISSUE/S:</a></li>
+            <li><a href="#sec-11-3-courts-ruling" class="toc-link level-3">3. COURT&#x27;S RULING:</a></li>
+            <li><a href="#sec-12-4-applicable-doctrine-criminal-procedure-application" class="toc-link level-3">4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</a></li>
+            <li><a href="#sec-13-5-relevance-to-the-topic-explanation" class="toc-link level-3">5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</a></li>
+            <li><a href="#sec-14-case-no-3-zaldivia-v-reyes-211-scra-277" class="toc-link level-3">CASE NO. 3: Zaldivia v. Reyes (211 SCRA 277)</a></li>
+            <li><a href="#sec-15-1-facts" class="toc-link level-3">1. FACTS:</a></li>
+            <li><a href="#sec-16-2-issues" class="toc-link level-3">2. ISSUE/S:</a></li>
+            <li><a href="#sec-17-3-courts-ruling" class="toc-link level-3">3. COURT&#x27;S RULING:</a></li>
+            <li><a href="#sec-18-4-applicable-doctrine-criminal-procedure-application" class="toc-link level-3">4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</a></li>
+            <li><a href="#sec-19-5-relevance-to-the-topic-explanation" class="toc-link level-3">5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</a></li>
+            <li><a href="#sec-20-case-no-4-panaguiton-jr-v-doj-gr-no-167571" class="toc-link level-3">CASE NO. 4: Panaguiton, Jr. v. DOJ (G.R. No. 167571)</a></li>
+            <li><a href="#sec-21-1-facts" class="toc-link level-3">1. FACTS:</a></li>
+            <li><a href="#sec-22-2-issues" class="toc-link level-3">2. ISSUE/S:</a></li>
+            <li><a href="#sec-23-3-courts-ruling" class="toc-link level-3">3. COURT&#x27;S RULING:</a></li>
+            <li><a href="#sec-24-4-applicable-doctrine-criminal-procedure-application" class="toc-link level-3">4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</a></li>
+            <li><a href="#sec-25-5-relevance-to-the-topic-explanation" class="toc-link level-3">5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</a></li>
+            <li><a href="#sec-26-case-no-5-girlie-m-quisay-v-people-gr-no-216920" class="toc-link level-3">CASE NO. 5: Girlie M. Quisay v. People (G.R. No. 216920)</a></li>
+            <li><a href="#sec-27-1-facts" class="toc-link level-3">1. FACTS:</a></li>
+            <li><a href="#sec-28-2-issues" class="toc-link level-3">2. ISSUE/S:</a></li>
+            <li><a href="#sec-29-3-courts-ruling" class="toc-link level-3">3. COURT&#x27;S RULING:</a></li>
+            <li><a href="#sec-30-4-applicable-doctrine-criminal-procedure-application" class="toc-link level-3">4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</a></li>
+            <li><a href="#sec-31-5-relevance-to-the-topic-explanation" class="toc-link level-3">5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</a></li>
+            <li><a href="#sec-32-case-no-6-cudia-v-ca-284-scra-173" class="toc-link level-3">CASE NO. 6: Cudia v. CA (284 SCRA 173)</a></li>
+            <li><a href="#sec-33-1-facts" class="toc-link level-3">1. FACTS:</a></li>
+            <li><a href="#sec-34-2-issues" class="toc-link level-3">2. ISSUE/S:</a></li>
+            <li><a href="#sec-35-3-courts-ruling" class="toc-link level-3">3. COURT&#x27;S RULING:</a></li>
+            <li><a href="#sec-36-4-applicable-doctrine-criminal-procedure-application" class="toc-link level-3">4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</a></li>
+            <li><a href="#sec-37-5-relevance-to-the-topic-explanation" class="toc-link level-3">5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</a></li>
+            <li><a href="#sec-38-case-no-7-san-miguel-properties-inc-v-sec-hernando-perez-gr" class="toc-link level-3">CASE NO. 7: San Miguel Properties, Inc. v. Sec. Hernando Perez (G.R. No. 166836)</a></li>
+            <li><a href="#sec-39-1-facts" class="toc-link level-3">1. FACTS:</a></li>
+            <li><a href="#sec-40-2-issues" class="toc-link level-3">2. ISSUE/S:</a></li>
+            <li><a href="#sec-41-3-courts-ruling" class="toc-link level-3">3. COURT&#x27;S RULING:</a></li>
+            <li><a href="#sec-42-4-applicable-doctrine-criminal-procedure-application" class="toc-link level-3">4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</a></li>
+            <li><a href="#sec-43-5-relevance-to-the-topic-explanation" class="toc-link level-3">5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</a></li>
+            <li><a href="#sec-44-case-no-8-people-v-bayotas-gr-no-102007" class="toc-link level-3">CASE NO. 8: People v. Bayotas (G.R. No. 102007)</a></li>
+            <li><a href="#sec-45-1-facts" class="toc-link level-3">1. FACTS:</a></li>
+            <li><a href="#sec-46-2-issues" class="toc-link level-3">2. ISSUE/S:</a></li>
+            <li><a href="#sec-47-3-courts-ruling" class="toc-link level-3">3. COURT&#x27;S RULING:</a></li>
+            <li><a href="#sec-48-4-applicable-doctrine-criminal-procedure-application" class="toc-link level-3">4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</a></li>
+            <li><a href="#sec-49-5-relevance-to-the-topic-explanation" class="toc-link level-3">5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</a></li>
+            <li><a href="#sec-50-case-no-9-go-v-ca-206-scra-138" class="toc-link level-3">CASE NO. 9: Go v. CA (206 SCRA 138)</a></li>
+            <li><a href="#sec-51-1-facts" class="toc-link level-3">1. FACTS:</a></li>
+            <li><a href="#sec-52-2-issues" class="toc-link level-3">2. ISSUE/S:</a></li>
+            <li><a href="#sec-53-3-courts-ruling" class="toc-link level-3">3. COURT&#x27;S RULING:</a></li>
+            <li><a href="#sec-54-4-applicable-doctrine-criminal-procedure-application" class="toc-link level-3">4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</a></li>
+            <li><a href="#sec-55-5-relevance-to-the-topic-explanation" class="toc-link level-3">5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</a></li>
+            <li><a href="#sec-56-case-no-10-sen-jinggoy-estrada-v-office-of-the-ombudsman-gr" class="toc-link level-3">CASE NO. 10: Sen. Jinggoy Estrada v. Office of the Ombudsman (G.R. No. 212140-41)</a></li>
+            <li><a href="#sec-57-1-facts" class="toc-link level-3">1. FACTS:</a></li>
+            <li><a href="#sec-58-2-issues" class="toc-link level-3">2. ISSUE/S:</a></li>
+            <li><a href="#sec-59-3-courts-ruling" class="toc-link level-3">3. COURT&#x27;S RULING:</a></li>
+            <li><a href="#sec-60-4-applicable-doctrine-criminal-procedure-application" class="toc-link level-3">4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</a></li>
+            <li><a href="#sec-61-5-relevance-to-the-topic-explanation" class="toc-link level-3">5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</a></li>
+            <li><a href="#sec-62-addendum-analysis-of-a-sample-criminal-information-sheet" class="toc-link level-3">ADDENDUM: ANALYSIS OF A SAMPLE CRIMINAL &quot;INFORMATION&quot; SHEET</a></li>
+            <li><a href="#sec-63-2-analysis-and-answers-to-the-8-point-case-details" class="toc-link level-3">2. ANALYSIS AND ANSWERS TO THE 8-POINT CASE DETAILS:</a></li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="app-content" id="mainContentArea">
+      <div class="content-wrapper" id="contentWrapper">
+        <!-- Hero Header -->
+        <div class="document-hero">
+          <span class="doc-badge">Criminal Procedure</span>
+          <h1 class="doc-main-title">Criminal Procedure Case Digests Updated</h1>
+          <p class="doc-subtitle">Criminal Procedure comprehensive review notes and study materials.</p>
+          <div class="doc-meta-bar">
+            <div class="meta-item"><span>📑</span> <span>63 Sections</span></div>
+            <div class="meta-item"><span>🔊</span> <span id="totalUnitsCounter">325 Read Units</span></div>
+            <div class="meta-item"><span>⏱</span> <span>~71 min read</span></div>
+            <div class="meta-item"><span>🎙</span> <span>Intelligent Natural Speech</span></div>
+          </div>
+        </div>
+
+        <!-- Document Sections -->
+        
+        <section class="doc-section" id="sec-1-remedial-law---criminal-procedure-case-digests">
+          <header class="section-header">
+            <h4 class="section-title level-3">REMEDIAL LAW - CRIMINAL PROCEDURE CASE DIGESTS</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-1-remedial-law---criminal-procedure-case-digests')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><em>Integrating DOJ Circulars 15 &amp; 28 (s. 2024) and Rules on Appeal
+with Detailed Information Analysis &amp; Layman&#x27;s Summaries</em></p>
+        <p class="read-unit" data-unit-type="paragraph">============================================================</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-2-case-no-1-people-v-mariano-71-scra-600">
+          <header class="section-header">
+            <h4 class="section-title level-3">CASE NO. 1: People v. Mariano (71 SCRA 600)</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-2-case-no-1-people-v-mariano-71-scra-600')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><em>Topic: General Matters - Criminal Jurisdiction</em></p>
+        <p class="read-unit" data-unit-type="paragraph"><em>Date Promulgated: May 31, 1976</em></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Information:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>1) Who is the complainant? People of the Philippines (representing the State).</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">2) What is the ground of the case filed/ accusation? Estafa (unlawfully failing to account for public property/funds).</p>
+        <p class="read-unit" data-unit-type="paragraph">3) Committed crime/violation and if there is a probable cause? Estafa. Yes, probable cause was found by the investigating fiscal.</p>
+        <p class="read-unit" data-unit-type="paragraph">4) If there is a law/s to punish/ or is the case file has ground? Yes, Article 315 of the Revised Penal Code.</p>
+        <p class="read-unit" data-unit-type="paragraph">5) When the case was filed? The complaint was initiated in 1970.</p>
+        <p class="read-unit" data-unit-type="paragraph">6) Place/location the case is filed? Court of First Instance (CFI) of Bulacan.</p>
+        <p class="read-unit" data-unit-type="paragraph">7) What court has the jurisdiction in the case and why? CFI of Bulacan. Subject-matter jurisdiction is determined by the law in force at the time of filing (Judiciary Act of 1948), which gave CFIs jurisdiction over offenses carrying penalties exceeding six months.</p>
+        <p class="read-unit" data-unit-type="paragraph">8) Where is the trial will be held? CFI of Bulacan.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-3-1-facts">
+          <header class="section-header">
+            <h4 class="section-title level-3">1. FACTS:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-3-1-facts')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Mariano was charged with estafa before the Court of First Instance (CFI) of Bulacan. Mariano argued that the CFI did not have jurisdiction because the transaction occurred inside a military base, and under the US-PI Military Bases Agreement, military courts had exclusive jurisdiction over offenses committed inside the bases by base employees.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a1. FACTS:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">An employee was accused of stealing money in Bulacan. The crime happened inside a US military base, so the employee argued that only a US military court, not a regular Philippine court, could try him.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-4-2-issues">
+          <header class="section-header">
+            <h4 class="section-title level-3">2. ISSUE/S:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-4-2-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Whether the civil courts have jurisdiction over criminal offenses committed inside a military base.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a2. ISSUE/S:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Can a regular Philippine court try a crime that happened inside a US military base located in the Philippines?</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-5-3-courts-ruling">
+          <header class="section-header">
+            <h4 class="section-title level-3">3. COURT&#x27;S RULING:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-5-3-courts-ruling')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Yes. The jurisdiction of civil courts over offenses committed within the national territory is not divested by the fact that the offense was committed inside a military base. Military jurisdiction is restrictive and does not displace the general jurisdiction of civil courts over crimes committed within the Philippines.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a3. COURT&#x27;S RULING:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Yes. The Philippines owns the land of the military bases, so regular Philippine courts still have the power to try crimes committed inside them, unless a treaty specifically gives that power to the US.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-6-4-applicable-doctrine-criminal-procedure-application">
+          <header class="section-header">
+            <h4 class="section-title level-3">4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-6-4-applicable-doctrine-criminal-procedure-application')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Jurisdiction is determined by the law in force at the time of the institution of the action. Once jurisdiction attaches, it remains with the court until the case is resolved. Under DOJ Circular No. 015 (s. 2024), regular preliminary investigations are held for offenses with penalties above 6 years, but the basic jurisdiction of the court is always governed by statutory law, which cannot be defeated by administrative agreements or location.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">A court&#x27;s power to handle a case comes only from the law. The people involved in a case cannot agree to give a court power it doesn&#x27;t legally have, and they cannot give up this requirement.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-7-5-relevance-to-the-topic-explanation">
+          <header class="section-header">
+            <h4 class="section-title level-3">5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-7-5-relevance-to-the-topic-explanation')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Under the syllabus topic &#x27;Criminal jurisdiction,&#x27; this case establishes that jurisdiction over the subject matter is conferred by law and cannot be waived or agreed upon by the parties. It is the cornerstone of criminal procedure, as any action taken by a court without jurisdiction is null and void.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Shows that territorial jurisdiction is tied to state sovereignty and that subject-matter jurisdiction is strictly set by law, not by agreement.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-8-case-no-2-eileen-p-david-v-glenda-s-marquez-gr-no-209859">
+          <header class="section-header">
+            <h4 class="section-title level-3">CASE NO. 2: Eileen P. David v. Glenda S. Marquez (G.R. No. 209859)</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-8-case-no-2-eileen-p-david-v-glenda-s-marquez-gr-no-209859')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><em>Topic: General Matters - Jurisdiction of Criminal Courts</em></p>
+        <p class="read-unit" data-unit-type="paragraph"><em>Date Promulgated: June 5, 2017</em></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Information:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>1) Who is the complainant? Glenda S. Marquez (private complainant) / People of the Philippines (representing the State).</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">2) What is the ground of the case filed/ accusation? David promised to secure Marquez employment in Canada and collected placement fees, but failed to do so and refused to return the money.</p>
+        <p class="read-unit" data-unit-type="paragraph">3) Committed crime/violation and if there is a probable cause? Illegal Recruitment (Large Scale) and Estafa. Yes, probable cause was found by the prosecutor.</p>
+        <p class="read-unit" data-unit-type="paragraph">4) If there is a law/s to punish/ or is the case file has ground? Yes, R.A. 8042 (Migrant Workers Act) and Article 315(2)(a) of the Revised Penal Code.</p>
+        <p class="read-unit" data-unit-type="paragraph">5) When the case was filed? The Information was filed in 2007.</p>
+        <p class="read-unit" data-unit-type="paragraph">6) Place/location the case is filed? Regional Trial Court (RTC) of Manila.</p>
+        <p class="read-unit" data-unit-type="paragraph">7) What court has the jurisdiction in the case and why? RTC of Manila. Illegal recruitment carries a penalty of life imprisonment (exceeding MTC&#x27;s 6-year limit). Territorial jurisdiction is proper because illegal recruitment is a continuing/transitory offense, and essential elements occurred in Manila.</p>
+        <p class="read-unit" data-unit-type="paragraph">8) Where is the trial will be held? RTC of Manila.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-9-1-facts">
+          <header class="section-header">
+            <h4 class="section-title level-3">1. FACTS:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-9-1-facts')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Glenda Marquez filed a complaint for illegal recruitment and estafa against Eileen David, alleging that David promised her employment abroad but failed to deliver. The offenses were committed in Canada and Manila. David argued that the RTC of Manila had no jurisdiction because the illegal recruitment acts occurred in Canada, which is outside Philippine territory.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a1. FACTS:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">A woman promised another woman a job in Canada and took her money in Manila, but never got her the job. The accused claimed Manila courts couldn&#x27;t try her because the recruitment was for a job in Canada.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-10-2-issues">
+          <header class="section-header">
+            <h4 class="section-title level-3">2. ISSUE/S:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-10-2-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Whether the Regional Trial Court of Manila has jurisdiction over illegal recruitment cases where some acts were committed abroad.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a2. ISSUE/S:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Can a Philippine court try someone for illegal recruitment if the victim was recruited in Manila but the job was supposed to be in another country?</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-11-3-courts-ruling">
+          <header class="section-header">
+            <h4 class="section-title level-3">3. COURT&#x27;S RULING:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-11-3-courts-ruling')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Yes. Illegal recruitment is considered a transitory or continuing offense. Under Section 15(a) of Rule 110 of the Rules of Court, a criminal action shall be instituted and tried in the court of the municipality or province where the offense was committed or where any of its essential ingredients occurred. Since some essential acts, such as the recruitment meetings and payments, occurred in Manila, the RTC of Manila had jurisdiction.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a3. COURT&#x27;S RULING:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Yes. Since part of the crime (taking the money and negotiating) happened in Manila, the Manila court has the power to try the case, even if other parts of the crime happened in another country.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-12-4-applicable-doctrine-criminal-procedure-application">
+          <header class="section-header">
+            <h4 class="section-title level-3">4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-12-4-applicable-doctrine-criminal-procedure-application')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">For continuing offenses, jurisdiction can be exercised by any court where an essential element of the crime took place. Under DOJ Circular No. 015 (s. 2024) and DOJ Circular No. 028 (s. 2024), the preliminary investigation must be conducted by the prosecution office of the city or province where the offense was committed, aligning with the rules on territorial jurisdiction.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">For crimes that happen in multiple places, any court in any of those locations has the power to try the case because the crime is considered to have occurred in all of those places.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-13-5-relevance-to-the-topic-explanation">
+          <header class="section-header">
+            <h4 class="section-title level-3">5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-13-5-relevance-to-the-topic-explanation')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Distinguishes between jurisdiction over the subject matter (conferred by law) and jurisdiction over the person/territory. It shows that in continuing offenses, territorial jurisdiction is determined by where any of the essential ingredients of the crime occurred.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Explains that for ongoing crimes like illegal recruitment or theft, the trial can be held in any city where a part of the crime took place.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-14-case-no-3-zaldivia-v-reyes-211-scra-277">
+          <header class="section-header">
+            <h4 class="section-title level-3">CASE NO. 3: Zaldivia v. Reyes (211 SCRA 277)</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-14-case-no-3-zaldivia-v-reyes-211-scra-277')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><em>Topic: Prosecution of Offenses - Tolling of Prescriptive Period</em></p>
+        <p class="read-unit" data-unit-type="paragraph"><em>Date Promulgated: July 3, 1992</em></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Information:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>1) Who is the complainant? People of the Philippines / Local Government of Rodriguez, Rizal.</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">2) What is the ground of the case filed/ accusation? Operating public utility motor vehicles without the required municipal permit or franchise.</p>
+        <p class="read-unit" data-unit-type="paragraph">3) Committed crime/violation and if there is a probable cause? Violation of Municipal Ordinance No. 4, Series of 1990. Yes, probable cause was found, but the Information was filed late.</p>
+        <p class="read-unit" data-unit-type="paragraph">4) If there is a law/s to punish/ or is the case file has ground? Yes, Municipal Ordinance No. 4 of Rodriguez, Rizal.</p>
+        <p class="read-unit" data-unit-type="paragraph">5) When the case was filed? The complaint was filed with the prosecutor on May 3, 1990; the Information was filed in court on June 8, 1990.</p>
+        <p class="read-unit" data-unit-type="paragraph">6) Place/location the case is filed? Municipal Trial Court (MTC) of Rodriguez, Rizal.</p>
+        <p class="read-unit" data-unit-type="paragraph">7) What court has the jurisdiction in the case and why? MTC of Rodriguez, Rizal. Under the Rules on Summary Procedure, first-level courts (MTC) have exclusive jurisdiction over violations of municipal ordinances, which carry light penalties.</p>
+        <p class="read-unit" data-unit-type="paragraph">8) Where is the trial will be held? MTC of Rodriguez, Rizal.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-15-1-facts">
+          <header class="section-header">
+            <h4 class="section-title level-3">1. FACTS:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-15-1-facts')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Zaldivia was charged with violating a municipal ordinance. The complaint was filed with the Office of the Provincial Prosecutor. Zaldivia argued that the offense had already prescribed because under the Rules on Summary Procedure, the filing of the complaint in the prosecutor&#x27;s office does not toll the prescriptive period; only the filing of the Information in court does.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a1. FACTS:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">A driver was charged with violating a local town ordinance. The complaint was filed with the prosecutor&#x27;s office first, but it took a long time to get to court. The driver argued the case should be dismissed because the time limit (prescription period) had run out before the case actually reached the court.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-16-2-issues">
+          <header class="section-header">
+            <h4 class="section-title level-3">2. ISSUE/S:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-16-2-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Whether the filing of a complaint in the Prosecutor&#x27;s Office tolls the prescriptive period for offenses governed by the Rules on Summary Procedure.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a2. ISSUE/S:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Does filing a complaint with the prosecutor stop the countdown of the time limit for minor offenses, or must the case be filed directly in court to stop it?</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-17-3-courts-ruling">
+          <header class="section-header">
+            <h4 class="section-title level-3">3. COURT&#x27;S RULING:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-17-3-courts-ruling')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">No. For offenses governed by the Rules on Summary Procedure (such as violations of municipal ordinances), the prescriptive period is tolled only by the filing of the complaint or information in court, not in the prosecutor&#x27;s office.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a3. COURT&#x27;S RULING:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">No. For minor offenses, the time limit countdown only stops when the case is formally filed in court. Simply submitting it to the prosecutor is not enough, and if the time runs out before it gets to court, the case must be dismissed.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-18-4-applicable-doctrine-criminal-procedure-application">
+          <header class="section-header">
+            <h4 class="section-title level-3">4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-18-4-applicable-doctrine-criminal-procedure-application')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">This is a key exception to the general rule on prescription. In summary cases, filing in the prosecutor&#x27;s office does not stop the clock. Under DOJ Circular No. 028 (s. 2024), which covers Summary Investigations (imprisonment up to 1 year), prosecutors must act immediately (ex parte evaluation and no motions for reconsideration) to ensure that the Information is filed in court before the prescriptive period expires, directly applying the urgency established in Zaldivia.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Minor cases must be processed quickly. Filing a case with the prosecutor does not save it from expiring; it must be filed in the actual court before the time limit ends.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-19-5-relevance-to-the-topic-explanation">
+          <header class="section-header">
+            <h4 class="section-title level-3">5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-19-5-relevance-to-the-topic-explanation')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Directly impacts the workflow of summary cases. It highlights the strict timeline constraints on prosecutors to file summary offenses in court, since delay at the executive level can result in the extinguishment of criminal liability.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Highlights that for minor offenses, the rules require immediate court filing to prevent the case from being cancelled due to delay.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-20-case-no-4-panaguiton-jr-v-doj-gr-no-167571">
+          <header class="section-header">
+            <h4 class="section-title level-3">CASE NO. 4: Panaguiton, Jr. v. DOJ (G.R. No. 167571)</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-20-case-no-4-panaguiton-jr-v-doj-gr-no-167571')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><em>Topic: Prosecution of Offenses - Tolling of Prescriptive Period</em></p>
+        <p class="read-unit" data-unit-type="paragraph"><em>Date Promulgated: November 25, 2008</em></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Information:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>1) Who is the complainant? Rodrigo Panaguiton, Jr. (private complainant) / People of the Philippines (representing the State).</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">2) What is the ground of the case filed/ accusation? The accused issued checks in payment of shares that were subsequently dishonored due to insufficient funds, and failed to pay despite notice.</p>
+        <p class="read-unit" data-unit-type="paragraph">3) Committed crime/violation and if there is a probable cause? Violation of Batas Pambansa Blg. 22 (Bouncing Checks Law). Yes, probable cause was found by the investigating prosecutor.</p>
+        <p class="read-unit" data-unit-type="paragraph">4) If there is a law/s to punish/ or is the case file has ground? Yes, Batas Pambansa Blg. 22.</p>
+        <p class="read-unit" data-unit-type="paragraph">5) When the case was filed? The complaint was filed in 1995.</p>
+        <p class="read-unit" data-unit-type="paragraph">6) Place/location the case is filed? Regional Trial Court (RTC) of Quezon City (originally, before delegation to first-level courts).</p>
+        <p class="read-unit" data-unit-type="paragraph">7) What court has the jurisdiction in the case and why? Originally the RTC of Quezon City (as the potential fine exceeded the MTC&#x27;s limit under B.P. 129 before subsequent amendments). (Currently, first-level courts / Metropolitan Trial Courts have jurisdiction over B.P. 22 cases).</p>
+        <p class="read-unit" data-unit-type="paragraph">8) Where is the trial will be held? Quezon City.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-21-1-facts">
+          <header class="section-header">
+            <h4 class="section-title level-3">1. FACTS:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-21-1-facts')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Panaguiton filed a complaint for violation of BP Blg 22 (Bouncing Checks Law) before the City Prosecutor. The case dragged on for several years. The respondent argued that the crime had prescribed because BP Blg 22 is a special law governed by Act No. 3326, which states that only judicial proceedings toll the prescriptive period.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a1. FACTS:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">A man was sued for writing bad checks. The complaint was filed with the prosecutor&#x27;s office, but the investigation took years. The writer of the checks argued the case had expired because the law states that for special laws, only filing a case in court (not with the prosecutor) stops the time limit.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-22-2-issues">
+          <header class="section-header">
+            <h4 class="section-title level-3">2. ISSUE/S:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-22-2-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Whether the filing of a complaint with the Prosecutor&#x27;s Office tolls the prescriptive period for violations of special laws like BP Blg 22.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a2. ISSUE/S:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">For violations of special laws (like the Bouncing Checks Law), does filing a complaint with the prosecutor stop the time limit countdown?</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-23-3-courts-ruling">
+          <header class="section-header">
+            <h4 class="section-title level-3">3. COURT&#x27;S RULING:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-23-3-courts-ruling')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Yes. The Supreme Court ruled that the filing of a complaint with the Prosecutor&#x27;s Office for preliminary investigation tolls the prescriptive period for violations of special laws. To hold otherwise would penalize the complainant for administrative delays in the prosecution office.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a3. COURT&#x27;S RULING:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Yes. Filing a complaint with the prosecutor does stop the countdown for special laws. If it didn&#x27;t, people could escape justice just because the government took a long time to investigate the case.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-24-4-applicable-doctrine-criminal-procedure-application">
+          <header class="section-header">
+            <h4 class="section-title level-3">4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-24-4-applicable-doctrine-criminal-procedure-application')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Filing a complaint with the NPS tolls the prescriptive period for violations of special laws. Under both DOJ Circular No. 015 (s. 2024) and DOJ Circular No. 028 (s. 2024), the NPS enforces strict resolution timelines (60 days for DC 15, 20 days for DC 28) to prevent cases from languishing, balancing the tolling of prescription with the right of the accused to speedy disposition.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">For special laws, starting the investigation at the prosecutor&#x27;s office pauses the time limit, protecting the victim from losing their right to sue due to slow government processes.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-25-5-relevance-to-the-topic-explanation">
+          <header class="section-header">
+            <h4 class="section-title level-3">5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-25-5-relevance-to-the-topic-explanation')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Establishes the uniform rule that filing a complaint with the prosecutor tolls the prescriptive period for both RPC crimes and special laws, resolving a long-standing conflict in jurisprudence.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Clarifies that for special laws, the time limit pauses as soon as you file the complaint with the prosecutor&#x27;s office.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-26-case-no-5-girlie-m-quisay-v-people-gr-no-216920">
+          <header class="section-header">
+            <h4 class="section-title level-3">CASE NO. 5: Girlie M. Quisay v. People (G.R. No. 216920)</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-26-case-no-5-girlie-m-quisay-v-people-gr-no-216920')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><em>Topic: Prosecution of Offenses - Control of Prosecution</em></p>
+        <p class="read-unit" data-unit-type="paragraph"><em>Date Promulgated: January 13, 2016</em></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Information:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>1) Who is the complainant? People of the Philippines (upon complaint of the minor victim and her mother).</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">2) What is the ground of the case filed/ accusation? Quisay committed acts of physical and psychological abuse against a minor child.</p>
+        <p class="read-unit" data-unit-type="paragraph">3) Committed crime/violation and if there is a probable cause? Violation of Section 10(a) of R.A. 7610 (Child Abuse Law). Yes, probable cause was found, but the Information was void due to a jurisdictional signature defect.</p>
+        <p class="read-unit" data-unit-type="paragraph">4) If there is a law/s to punish/ or is the case file has ground? Yes, R.A. 7610.</p>
+        <p class="read-unit" data-unit-type="paragraph">5) When the case was filed? The Information was filed in court on September 13, 2007.</p>
+        <p class="read-unit" data-unit-type="paragraph">6) Place/location the case is filed? Regional Trial Court (RTC) of Makati City.</p>
+        <p class="read-unit" data-unit-type="paragraph">7) What court has the jurisdiction in the case and why? RTC of Makati City. R.A. 7610 violations carry a penalty exceeding 6 years (prision mayor in its minimum period), which falls under the exclusive original jurisdiction of the RTC.</p>
+        <p class="read-unit" data-unit-type="paragraph">8) Where is the trial will be held? RTC of Makati City.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-27-1-facts">
+          <header class="section-header">
+            <h4 class="section-title level-3">1. FACTS:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-27-1-facts')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Quisay was charged with violation of R.A. No. 7610 (Child Abuse Law). The recommendatory resolution and the Information were signed by the investigating prosecutor but lacked the signature or written approval of the City Prosecutor. Quisay filed a motion to quash the Information, alleging the prosecutor lacked authority to file it.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a1. FACTS:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">A woman was accused of child abuse. The prosecutor who investigated the case signed the charge sheet (Information), but the head of the office (City Prosecutor) never signed or approved it. The accused argued the case should be thrown out because the correct authority did not approve it.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-28-2-issues">
+          <header class="section-header">
+            <h4 class="section-title level-3">2. ISSUE/S:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-28-2-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Whether an Information filed without the written approval of the Provincial/City Prosecutor is valid.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a2. ISSUE/S:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Is a criminal charge sheet valid if it is not approved or signed by the head prosecutor?</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-29-3-courts-ruling">
+          <header class="section-header">
+            <h4 class="section-title level-3">3. COURT&#x27;S RULING:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-29-3-courts-ruling')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">No. Section 4, Rule 112 of the Rules of Court explicitly requires the prior written approval of the Provincial or City Prosecutor before an Information is filed in court. The absence of such approval is a jurisdictional defect that invalidates the Information and warrants its quashal.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a3. COURT&#x27;S RULING:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">No. The law strictly requires the head prosecutor to approve and sign the charge sheet. If they do not, the court has no power to try the case because the document initiating the case is legally empty.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-30-4-applicable-doctrine-criminal-procedure-application">
+          <header class="section-header">
+            <h4 class="section-title level-3">4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-30-4-applicable-doctrine-criminal-procedure-application')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Filing an Information requires the explicit written approval of the head of the prosecution office or authorized deputy. Under DOJ Circular No. 015 (s. 2024) and DOJ Circular No. 028 (s. 2024), this written approval is strictly enforced: resolutions must be transmitted to the Head of Prosecution within 5 days, and the head must approve/disapprove within 10 days (DC 15) or 5 days (DC 28). Any deviation is a critical violation.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Investigating prosecutors do not have the final say. Only the head prosecutor has the legal authority to decide whether to file a case in court.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-31-5-relevance-to-the-topic-explanation">
+          <header class="section-header">
+            <h4 class="section-title level-3">5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-31-5-relevance-to-the-topic-explanation')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Illustrates the &#x27;Control of Prosecution&#x27; principle, where only the designated head of the prosecution office has the ultimate authority to institute criminal actions, and failure to secure their approval is fatal to the case.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Teaches that a case can be dismissed if it lacks the proper signatures and approvals from the head of the prosecution office.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-32-case-no-6-cudia-v-ca-284-scra-173">
+          <header class="section-header">
+            <h4 class="section-title level-3">CASE NO. 6: Cudia v. CA (284 SCRA 173)</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-32-case-no-6-cudia-v-ca-284-scra-173')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><em>Topic: Prosecution of Offenses - Sufficiency of Information</em></p>
+        <p class="read-unit" data-unit-type="paragraph"><em>Date Promulgated: January 16, 1998</em></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Information:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>1) Who is the complainant? People of the Philippines (initiated by arresting police officers).</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">2) What is the ground of the case filed/ accusation? Cudia was found in possession of an unlicensed revolver and ammunition.</p>
+        <p class="read-unit" data-unit-type="paragraph">3) Committed crime/violation and if there is a probable cause? Illegal possession of firearms and ammunition. Yes, probable cause was found.</p>
+        <p class="read-unit" data-unit-type="paragraph">4) If there is a law/s to punish/ or is the case file has ground? Yes, Presidential Decree No. 1866.</p>
+        <p class="read-unit" data-unit-type="paragraph">5) When the case was filed? The Information was filed in 1989.</p>
+        <p class="read-unit" data-unit-type="paragraph">6) Place/location the case is filed? Regional Trial Court (RTC) of Angeles City (which was incorrect).</p>
+        <p class="read-unit" data-unit-type="paragraph">7) What court has the jurisdiction in the case and why? The Regional Trial Court (RTC) of San Fernando, Pampanga. The Angeles City RTC did not have jurisdiction because the offense was committed in Mabalacat, Pampanga, which was outside Angeles City&#x27;s territorial boundaries. Venue is jurisdictional.</p>
+        <p class="read-unit" data-unit-type="paragraph">8) Where is the trial will be held? RTC of San Fernando, Pampanga.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-33-1-facts">
+          <header class="section-header">
+            <h4 class="section-title level-3">1. FACTS:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-33-1-facts')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Cudia was arrested in Mabalacat, Pampanga, for illegal possession of firearms. The Information was filed in the RTC of Angeles City by the City Prosecutor of Angeles City. Cudia argued that the City Prosecutor of Angeles City had no authority to file the Information because the offense was committed in Mabalacat, which is under the jurisdiction of the Provincial Prosecutor of Pampanga.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a1. FACTS:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">A man was caught with an unlicensed gun in Mabalacat, Pampanga. However, he was charged in Angeles City by the Angeles City prosecutor. The accused argued the Angeles City prosecutor and court had no power over him because the crime occurred in a different town.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-34-2-issues">
+          <header class="section-header">
+            <h4 class="section-title level-3">2. ISSUE/S:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-34-2-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Whether an Information filed by a prosecutor who has no territorial authority over the place of commission of the offense is valid.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a2. ISSUE/S:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Can a city prosecutor file charges for a crime that happened in a completely different town outside their city boundaries?</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-35-3-courts-ruling">
+          <header class="section-header">
+            <h4 class="section-title level-3">3. COURT&#x27;S RULING:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-35-3-courts-ruling')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">No. The City Prosecutor of Angeles City has no authority to file an Information for an offense committed in Mabalacat, Pampanga. A prosecutor can only file an Information within their designated territorial jurisdiction. Since the filing prosecutor lacked authority, the Information was void, and the court did not acquire jurisdiction.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a3. COURT&#x27;S RULING:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">No. A prosecutor only has power within their specific city or province. Because the gun was found in Mabalacat (under the provincial prosecutor), the Angeles City prosecutor had no right to file the case, and the Angeles City court had no power to try it.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-36-4-applicable-doctrine-criminal-procedure-application">
+          <header class="section-header">
+            <h4 class="section-title level-3">4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-36-4-applicable-doctrine-criminal-procedure-application')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">An Information filed by a prosecutor without authority is a fatal defect that cannot be cured. Under DOJ Circular No. 015 (s. 2024), the preliminary investigation and filing must be conducted by the prosecution office with territorial jurisdiction over the crime. Violating this rule is a major procedural error that invalidates all proceedings.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">A trial must take place where the crime happened. A prosecutor from another area cannot handle the case, and any trial held in the wrong city is completely invalid.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-37-5-relevance-to-the-topic-explanation">
+          <header class="section-header">
+            <h4 class="section-title level-3">5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-37-5-relevance-to-the-topic-explanation')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Highlights that territorial authority of a prosecutor is co-extensive with the court&#x27;s jurisdiction. An information filed by an unauthorized prosecutor is void ab initio, and the accused cannot be validly arraigned under it.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Highlights that if a case is filed in the wrong place, the court cannot hear it and must dismiss it immediately.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-38-case-no-7-san-miguel-properties-inc-v-sec-hernando-perez-gr">
+          <header class="section-header">
+            <h4 class="section-title level-3">CASE NO. 7: San Miguel Properties, Inc. v. Sec. Hernando Perez (G.R. No. 166836)</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-38-case-no-7-san-miguel-properties-inc-v-sec-hernando-perez-gr')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><em>Topic: Prosecution of Civil Action - Prejudicial Question</em></p>
+        <p class="read-unit" data-unit-type="paragraph"><em>Date Promulgated: September 4, 2013</em></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Information:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>1) Who is the complainant? San Miguel Properties, Inc. (SMPI) / People of the Philippines.</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">2) What is the ground of the case filed/ accusation? The directors of B.F. Homes failed to deliver land titles to SMPI despite full payment, which was alleged to be estafa.</p>
+        <p class="read-unit" data-unit-type="paragraph">3) Committed crime/violation and if there is a probable cause? Estafa under Article 315 of the RPC. The determination of probable cause was suspended due to a prejudicial question.</p>
+        <p class="read-unit" data-unit-type="paragraph">4) If there is a law/s to punish/ or is the case file has ground? Yes, Article 315 of the RPC.</p>
+        <p class="read-unit" data-unit-type="paragraph">5) When the case was filed? The criminal complaint was filed in 1993.</p>
+        <p class="read-unit" data-unit-type="paragraph">6) Place/location the case is filed? Office of the Provincial Prosecutor of Rizal / RTC of Makati City.</p>
+        <p class="read-unit" data-unit-type="paragraph">7) What court has the jurisdiction in the case and why? RTC of Makati/Rizal. Estafa involving property valued in millions carries a penalty exceeding 6 years, which is within the exclusive jurisdiction of the RTC.</p>
+        <p class="read-unit" data-unit-type="paragraph">8) Where is the trial will be held? RTC of Makati City.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-39-1-facts">
+          <header class="section-header">
+            <h4 class="section-title level-3">1. FACTS:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-39-1-facts')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">San Miguel Properties purchased land from B.F. Homes. When B.F. Homes failed to deliver the titles, San Miguel filed a complaint with the HLURB for delivery of titles. While the HLURB case was pending, San Miguel filed a criminal complaint for estafa against the directors of B.F. Homes. The respondents argued the HLURB case was a prejudicial question that required the suspension of the criminal case.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a1. FACTS:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">A company bought land from a developer but did not receive the land titles. The company filed an administrative case to get the titles, and at the same time, filed a criminal case for fraud (estafa) against the developer&#x27;s managers. The managers argued the criminal case should wait until the administrative case was resolved.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-40-2-issues">
+          <header class="section-header">
+            <h4 class="section-title level-3">2. ISSUE/S:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-40-2-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Whether the pending HLURB administrative/civil case constitutes a prejudicial question to the criminal case for estafa.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a2. ISSUE/S:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Does the pending land title dispute at the administrative agency need to be decided before the court can try the managers for fraud?</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-41-3-courts-ruling">
+          <header class="section-header">
+            <h4 class="section-title level-3">3. COURT&#x27;S RULING:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-41-3-courts-ruling')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Yes. A prejudicial question exists when a civil or administrative action involves an issue similar or intimately related to the issue raised in the criminal action, the resolution of which determines whether or not the criminal action may proceed. Since the HLURB case determined whether B.F. Homes was legally justified in withholding the titles, its resolution was determinative of whether estafa (deceit/misappropriation) existed.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a3. COURT&#x27;S RULING:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Yes. The administrative agency must decide if the developer was legally allowed to hold onto the titles. If the developer was right, then there was no fraud. Therefore, the criminal case must wait for the administrative decision.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-42-4-applicable-doctrine-criminal-procedure-application">
+          <header class="section-header">
+            <h4 class="section-title level-3">4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-42-4-applicable-doctrine-criminal-procedure-application')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">A prejudicial question requires that: (a) the civil/administrative action involves issues intimately related to the criminal action, and (b) the resolution of the civil issue determines whether the criminal action may proceed. Under Section 3 of DOJ Circular No. 015 (s. 2024), the investigating prosecutor has the authority to suspend the preliminary investigation if a prejudicial question exists, avoiding conflicting rulings.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">If a separate civil or administrative case will decide a fact that determines whether a crime even occurred, the criminal case must be paused until that separate case is finished.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-43-5-relevance-to-the-topic-explanation">
+          <header class="section-header">
+            <h4 class="section-title level-3">5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-43-5-relevance-to-the-topic-explanation')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Explains the mechanism of prejudicial questions, which suspends the criminal proceeding at the preliminary investigation or trial stage to await the outcome of a civil/administrative case that is determinative of guilt or innocence.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Explains that courts will pause a criminal trial if a civil case must first decide a key fact that determines the accused&#x27;s guilt.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-44-case-no-8-people-v-bayotas-gr-no-102007">
+          <header class="section-header">
+            <h4 class="section-title level-3">CASE NO. 8: People v. Bayotas (G.R. No. 102007)</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-44-case-no-8-people-v-bayotas-gr-no-102007')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><em>Topic: Prosecution of Civil Action - Effect of Death of Accused</em></p>
+        <p class="read-unit" data-unit-type="paragraph"><em>Date Promulgated: September 2, 1994</em></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Information:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>1) Who is the complainant? People of the Philippines (upon complaint of the private victim).</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">2) What is the ground of the case filed/ accusation? Bayotas committed rape against the victim.</p>
+        <p class="read-unit" data-unit-type="paragraph">3) Committed crime/violation and if there is a probable cause? Rape. Yes, probable cause was found.</p>
+        <p class="read-unit" data-unit-type="paragraph">4) If there is a law/s to punish/ or is the case file has ground? Yes, Article 335 of the Revised Penal Code (in force at the time).</p>
+        <p class="read-unit" data-unit-type="paragraph">5) When the case was filed? The case was initiated in 1989.</p>
+        <p class="read-unit" data-unit-type="paragraph">6) Place/location the case is filed? Regional Trial Court (RTC) of Roxas City.</p>
+        <p class="read-unit" data-unit-type="paragraph">7) What court has the jurisdiction in the case and why? RTC of Roxas City. Rape is penalized with reclusion perpetua, which is under the exclusive original jurisdiction of the RTC.</p>
+        <p class="read-unit" data-unit-type="paragraph">8) Where is the trial will be held? RTC of Roxas City.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-45-1-facts">
+          <header class="section-header">
+            <h4 class="section-title level-3">1. FACTS:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-45-1-facts')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Bayotas was convicted of rape. While his appeal was pending before the Supreme Court, Bayotas died. The Solicitor General argued that while his criminal liability was extinguished, his civil liability survived.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a1. FACTS:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">A man was found guilty of rape. While his appeal was being reviewed by the Supreme Court, he passed away. The government argued that even though he could no longer be punished, his estate should still pay money (damages) to the victim.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-46-2-issues">
+          <header class="section-header">
+            <h4 class="section-title level-3">2. ISSUE/S:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-46-2-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Whether the death of the accused pending appeal extinguishes both their criminal and civil liability.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a2. ISSUE/S:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">If an accused person dies while appealing their conviction, does their death cancel both their criminal punishment and their civil duty to pay damages?</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-47-3-courts-ruling">
+          <header class="section-header">
+            <h4 class="section-title level-3">3. COURT&#x27;S RULING:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-47-3-courts-ruling')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Yes. The death of the accused pending appeal extinguishes their criminal liability, and as a consequence, their civil liability *ex delicto* (arising from the crime) is also extinguished. However, the civil liability may survive if it is based on sources of obligations other than delict (such as law, contracts, quasi-contracts, or quasi-delicts), which can be pursued in a separate civil action.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a3. COURT&#x27;S RULING:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Yes. Since the accused passed away before a final decision, he can no longer be punished, and the claim for damages directly based on the crime is cancelled. However, the victim can still sue the estate in a separate civil case if they have a non-criminal claim (like a contract or injury claim).</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-48-4-applicable-doctrine-criminal-procedure-application">
+          <header class="section-header">
+            <h4 class="section-title level-3">4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-48-4-applicable-doctrine-criminal-procedure-application')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Death of the accused before final judgment extinguishes criminal liability and civil liability arising solely from the crime. This principle is fundamental to criminal procedure (Article 89 of the RPC). Under DOJ Circular No. 015 (s. 2024), if the accused dies during preliminary investigation, the case must be dismissed as the criminal action can no longer be prosecuted.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">You cannot punish or collect crime-related damages from a dead person. The case is closed, but independent civil claims can still be filed separately.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-49-5-relevance-to-the-topic-explanation">
+          <header class="section-header">
+            <h4 class="section-title level-3">5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-49-5-relevance-to-the-topic-explanation')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Establishes the definitive rules on how the death of an accused affects civil actions deemed instituted with the criminal case, separating civil liability ex delicto from other sources of civil obligations.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Shows that when an accused dies before the appeal is finished, all crime-related claims against them are legally wiped out.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-50-case-no-9-go-v-ca-206-scra-138">
+          <header class="section-header">
+            <h4 class="section-title level-3">CASE NO. 9: Go v. CA (206 SCRA 138)</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-50-case-no-9-go-v-ca-206-scra-138')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><em>Topic: Preliminary Investigation - Nature of Right</em></p>
+        <p class="read-unit" data-unit-type="paragraph"><em>Date Promulgated: February 11, 1992</em></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Information:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>1) Who is the complainant? People of the Philippines (upon complaint of the heirs of Eldon Maguan).</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">2) What is the ground of the case filed/ accusation? Go shot and killed Eldon Maguan after a traffic altercation.</p>
+        <p class="read-unit" data-unit-type="paragraph">3) Committed crime/violation and if there is a probable cause? Murder. Yes, probable cause was found.</p>
+        <p class="read-unit" data-unit-type="paragraph">4) If there is a law/s to punish/ or is the case file has ground? Yes, Article 248 of the Revised Penal Code.</p>
+        <p class="read-unit" data-unit-type="paragraph">5) When the case was filed? The Information was filed on or about July 11, 1991.</p>
+        <p class="read-unit" data-unit-type="paragraph">6) Place/location the case is filed? Regional Trial Court (RTC) of Pasig (Branch 166).</p>
+        <p class="read-unit" data-unit-type="paragraph">7) What court has the jurisdiction in the case and why? RTC of Pasig. Murder is penalized with reclusion perpetua, which exceeds 6 years, putting it under the exclusive jurisdiction of the RTC.</p>
+        <p class="read-unit" data-unit-type="paragraph">8) Where is the trial will be held? RTC of Pasig City.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-51-1-facts">
+          <header class="section-header">
+            <h4 class="section-title level-3">1. FACTS:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-51-1-facts')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Go was involved in a shooting incident and fled. He was arrested without a warrant six days later. The police conducted an inquest proceeding. Go argued that the warrantless arrest was invalid because there was no hot pursuit, and therefore he was entitled to a regular preliminary investigation, not a summary inquest.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a1. FACTS:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">A driver shot and killed someone after a traffic fight and ran away. Six days later, he went to the police and was arrested without a warrant. The police did a quick review (inquest) to keep him in jail. The driver argued his arrest was illegal because it happened too late, and he was entitled to a full, regular investigation first.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-52-2-issues">
+          <header class="section-header">
+            <h4 class="section-title level-3">2. ISSUE/S:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-52-2-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Whether the accused was entitled to a regular preliminary investigation instead of an inquest proceeding.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a2. ISSUE/S:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Can the police use a quick &quot;inquest&quot; proceeding if the warrantless arrest happened six days after the crime, or must they conduct a full, regular preliminary investigation?</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-53-3-courts-ruling">
+          <header class="section-header">
+            <h4 class="section-title level-3">3. COURT&#x27;S RULING:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-53-3-courts-ruling')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Yes. A warrantless arrest must comply strictly with the rules (in flagrante delicto, hot pursuit, or escapee). Since the arrest occurred 6 days later, it was invalid. An inquest is only proper for valid warrantless arrests. Consequently, Go was entitled to a regular preliminary investigation, and the denial of his right violated due process.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a3. COURT&#x27;S RULING:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Yes. The arrest was illegal because the police did not catch him in the act or in immediate pursuit. Because the arrest was illegal, the quick inquest was invalid, and the driver had the right to a regular, full preliminary investigation before being charged.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-54-4-applicable-doctrine-criminal-procedure-application">
+          <header class="section-header">
+            <h4 class="section-title level-3">4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-54-4-applicable-doctrine-criminal-procedure-application')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">An inquest proceeding is only valid if the warrantless arrest is lawful. If the arrest is unlawful, the case must undergo regular preliminary investigation. Under DOJ Circular No. 015 (s. 2024), inquest proceedings are strictly limited to valid warrantless arrests. If the arrest is invalid, the prosecutor must refer the case for regular preliminary investigation under the new &#x27;reasonable certainty of conviction&#x27; standard.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Police can only bypass the regular investigation process if they arrest someone legally without a warrant. If the arrest is illegal, they must follow the full, regular procedure.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-55-5-relevance-to-the-topic-explanation">
+          <header class="section-header">
+            <h4 class="section-title level-3">5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-55-5-relevance-to-the-topic-explanation')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Highlights the distinction between Inquest and Preliminary Investigation, showing that an invalid arrest deprives the prosecutor of the right to bypass a regular preliminary investigation.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Highlights that the government cannot skip a regular investigation unless they arrest the person immediately and legally.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-56-case-no-10-sen-jinggoy-estrada-v-office-of-the-ombudsman-gr">
+          <header class="section-header">
+            <h4 class="section-title level-3">CASE NO. 10: Sen. Jinggoy Estrada v. Office of the Ombudsman (G.R. No. 212140-41)</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-56-case-no-10-sen-jinggoy-estrada-v-office-of-the-ombudsman-gr')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><em>Topic: Preliminary Investigation - Due Process</em></p>
+        <p class="read-unit" data-unit-type="paragraph"><em>Date Promulgated: January 21, 2015</em></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Information:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>1) Who is the complainant? People of the Philippines (Field Investigation Office of the Ombudsman).</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">2) What is the ground of the case filed/ accusation? Estrada allegedly pocketed kickbacks/commissions from his PDAF (pork barrel) in collusion with Janet Lim Napoles.</p>
+        <p class="read-unit" data-unit-type="paragraph">3) Committed crime/violation and if there is a probable cause? Plunder (R.A. 7080) and violations of R.A. 3019. Yes, probable cause was found by the Ombudsman.</p>
+        <p class="read-unit" data-unit-type="paragraph">4) If there is a law/s to punish/ or is the case file has ground? Yes, R.A. 7080 (Plunder Law) and R.A. 3019.</p>
+        <p class="read-unit" data-unit-type="paragraph">5) When the case was filed? The Information was filed in June 2014.</p>
+        <p class="read-unit" data-unit-type="paragraph">6) Place/location the case is filed? Sandiganbayan.</p>
+        <p class="read-unit" data-unit-type="paragraph">7) What court has the jurisdiction in the case and why? Sandiganbayan. Under P.D. 1606 as amended, the Sandiganbayan has exclusive original jurisdiction over plunder and graft cases committed by public officers of Salary Grade 30 or higher (including Senators).</p>
+        <p class="read-unit" data-unit-type="paragraph">8) Where is the trial will be held? Sandiganbayan (Manila).</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-57-1-facts">
+          <header class="section-header">
+            <h4 class="section-title level-3">1. FACTS:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-57-1-facts')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Senator Jinggoy Estrada was investigated for plunder. He requested copies of the counter-affidavits of his co-respondents. The Ombudsman denied the request. Estrada argued that the denial violated his right to due process in the preliminary investigation.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a1. FACTS:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">A Senator was investigated for corruption (plunder). He demanded to see the defense statements (counter-affidavits) of the other people accused in the same case. The government refused, and the Senator claimed his right to a fair investigation was violated.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-58-2-issues">
+          <header class="section-header">
+            <h4 class="section-title level-3">2. ISSUE/S:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-58-2-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Whether due process in a preliminary investigation requires that a respondent be furnished copies of their co-respondents&#x27; counter-affidavits.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a2. ISSUE/S:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Does the right to a fair investigation require the government to share all the defense statements of co-accused persons with each other?</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-59-3-courts-ruling">
+          <header class="section-header">
+            <h4 class="section-title level-3">3. COURT&#x27;S RULING:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-59-3-courts-ruling')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">No. The right to a preliminary investigation is a statutory right, not a constitutional one. Due process is satisfied when the respondent is given notice of the charges, the opportunity to examine the complainant&#x27;s evidence, and the chance to submit their own counter-affidavits. There is no rule requiring the cross-sharing of co-respondents&#x27; counter-affidavits.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a3. COURT&#x27;S RULING:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">No. An investigation is not a full trial. You only have the right to see the evidence against you and present your side. You do not have a legal right to see what the other accused people are saying in their defense.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-60-4-applicable-doctrine-criminal-procedure-application">
+          <header class="section-header">
+            <h4 class="section-title level-3">4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-60-4-applicable-doctrine-criminal-procedure-application')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">The right to preliminary investigation is statutory, and its procedures are defined by the rules of the investigating agency. Under DOJ Circular No. 015 (s. 2024), the preliminary investigation process is strictly governed to maintain a summary character, meaning pleadings are limited to the complaint and counter-affidavit, with no right to reply or rejoinder unless ordered.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">The rules of investigation are set by the law and the agency (like the Ombudsman). As long as you can see the charges and the complainant&#x27;s evidence, the investigation is fair.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-61-5-relevance-to-the-topic-explanation">
+          <header class="section-header">
+            <h4 class="section-title level-3">5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-61-5-relevance-to-the-topic-explanation')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Reinforces that preliminary investigation is not a judicial trial but a summary inquiry. Due process is a flexible concept in administrative proceedings, satisfied by the opportunity to be heard and submit evidence.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong><em>a5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</em></strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Teaches that the preliminary investigation is a quick, summary process, and the full rights of a trial (like seeing all defense statements) do not apply yet.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-62-addendum-analysis-of-a-sample-criminal-information-sheet">
+          <header class="section-header">
+            <h4 class="section-title level-3">ADDENDUM: ANALYSIS OF A SAMPLE CRIMINAL &quot;INFORMATION&quot; SHEET</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-62-addendum-analysis-of-a-sample-criminal-information-sheet')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><em>Topic: Prosecution of Offenses / Sufficiency of Complaint or Information</em></p>
+        <p class="read-unit" data-unit-type="paragraph"><em>Reference: Rule 110, Section 6 of the Revised Rules of Criminal Procedure</em></p>
+        <p class="read-unit" data-unit-type="paragraph">1. REPRESENTATIVE SAMPLE OF A CRIMINAL INFORMATION SHEET:</p>
+        <p class="read-unit" data-unit-type="paragraph">REPUBLIC OF THE PHILIPPINES</p>
+        <p class="read-unit" data-unit-type="paragraph">REGIONAL TRIAL COURT</p>
+        <p class="read-unit" data-unit-type="paragraph">National Capital Judicial Region</p>
+        <p class="read-unit" data-unit-type="paragraph">Branch 85, Quezon City</p>
+        <p class="read-unit" data-unit-type="paragraph">PEOPLE OF THE PHILIPPINES,</p>
+        <p class="read-unit" data-unit-type="paragraph">Complainant,</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">versus -                  CRIMINAL CASE NO. Q-23-04567</div></div>
+        <p class="read-unit" data-unit-type="paragraph">For: HOMICIDE</p>
+        <p class="read-unit" data-unit-type="paragraph">JUAN DELA CRUZ y SANTIAGO,</p>
+        <p class="read-unit" data-unit-type="paragraph">Accused.</p>
+        <p class="read-unit" data-unit-type="paragraph">x---------------------------------x</p>
+        <p class="read-unit" data-unit-type="paragraph">I N F O R M A T I O N</p>
+        <p class="read-unit" data-unit-type="paragraph">The undersigned Prosecutor accuses JUAN DELA CRUZ y SANTIAGO of the crime of HOMICIDE, defined and penalized under Article 249 of the Revised Penal Code, committed as follows:</p>
+        <p class="read-unit" data-unit-type="paragraph">That on or about the 10th day of October 2023, in Quezon City, Philippines, and within the jurisdiction of this Honorable Court, the said accused, with intent to kill, did then and there willfully, unlawfully, and feloniously attack, assault, and stab with a kitchen knife one JOSE DELA CRUZ y RAMOS, thereby inflicting upon the latter mortal wounds which were the direct and immediate cause of his death, to the damage and prejudice of the heirs of the deceased.</p>
+        <p class="read-unit" data-unit-type="paragraph">CONTRARY TO LAW.</p>
+        <p class="read-unit" data-unit-type="paragraph">Quezon City, Philippines, October 12, 2023.</p>
+        <p class="read-unit" data-unit-type="paragraph">(Sgd.)</p>
+        <p class="read-unit" data-unit-type="paragraph">MARIA A. SANTOS</p>
+        <p class="read-unit" data-unit-type="paragraph">Assistant City Prosecutor</p>
+        <p class="read-unit" data-unit-type="paragraph">C E R T I F I C A T I O N</p>
+        <p class="read-unit" data-unit-type="paragraph">I hereby certify that a preliminary investigation in this case was conducted by the undersigned in accordance with law; that I have examined the complainant and her witnesses; that there is reasonable ground to believe that a crime has been committed and that the accused is probably guilty thereof; and that the filing of this Information is with the prior written authority/approval of the City Prosecutor.</p>
+        <p class="read-unit" data-unit-type="paragraph">(Sgd.)</p>
+        <p class="read-unit" data-unit-type="paragraph">MARIA A. SANTOS</p>
+        <p class="read-unit" data-unit-type="paragraph">Assistant City Prosecutor</p>
+        <p class="read-unit" data-unit-type="paragraph">SUBSCRIBED AND SWORN to before me this 12th day of October 2023 in Quezon City, Philippines.</p>
+        <p class="read-unit" data-unit-type="paragraph">(Sgd.)</p>
+        <p class="read-unit" data-unit-type="paragraph">ROBERTO C. VALDEZ</p>
+        <p class="read-unit" data-unit-type="paragraph">City Prosecutor</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-63-2-analysis-and-answers-to-the-8-point-case-details">
+          <header class="section-header">
+            <h4 class="section-title level-3">2. ANALYSIS AND ANSWERS TO THE 8-POINT CASE DETAILS:</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-63-2-analysis-and-answers-to-the-8-point-case-details')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><strong>a. Who is the complainant?</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Public/Formal Complainant: The People of the Philippines. (Under Rule 110, Section 2 of the Rules of Court, all criminal actions in the Philippines must be prosecuted in the name and under the authority of the People of the Philippines, as crimes are offenses against the State).</p>
+        <p class="read-unit" data-unit-type="paragraph">Private Complainant/Offended Party: The heirs of the deceased victim, Jose dela Cruz y Ramos (e.g., the spouse or immediate family members who initiated the complaint-affidavit before the prosecutor&#x27;s office).</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>b. What is the accusation or ground?</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">The accusation is that the accused, Juan dela Cruz y Santiago, with intent to kill, willfully, unlawfully, and feloniously attacked, assaulted, and stabbed Jose dela Cruz y Ramos with a kitchen knife, inflicting mortal wounds that directly caused his death.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>c. What crime/violation was committed? Is there probable cause?</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Committed Crime: Homicide, defined and penalized under Article 249 of the Revised Penal Code.</p>
+        <p class="read-unit" data-unit-type="paragraph">Probable Cause: Yes. The investigating prosecutor certified that there is a reasonable ground to believe a crime has been committed and that the accused is probably guilty.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>c.1 explain why:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">The Certification block signed by Assistant City Prosecutor Maria A. Santos explicitly states: &quot;I hereby certify that... there is reasonable ground to believe that a crime has been committed and that the accused is probably guilty thereof.&quot; Under Section 4, Rule 112 of the Rules of Court, this certification under oath is the formal executive determination of probable cause required to file an Information in court.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>d. What law supports the case?</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Article 249 of the Revised Penal Code (RPC) of the Philippines.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>d.1 explain why:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Article 249 of the RPC defines the crime of Homicide and establishes its penalty as reclusion temporal (12 years and 1 day to 20 years). The case has a solid legal basis because the facts alleged in the Information satisfy all the essential elements of Homicide: (1) a person was killed; (2) the accused killed him; (3) the killing was with intent to kill; and (4) the killing does not constitute parricide, murder, or infanticide.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>e. When was it filed?</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">October 12, 2023.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>e.1 explain why:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">This is the date when the Assistant City Prosecutor signed and subscribed the Information under oath before the City Prosecutor, which designates the official institution of the criminal action in court (Rule 110, Section 1).</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>f. Where was it filed?</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Regional Trial Court (RTC) of Quezon City, Metro Manila.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>f.1 explain why:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">The Information states that the crime was committed in Quezon City, Philippines. Under Rule 110, Section 15 of the Rules of Court, criminal venue is jurisdictional, meaning a case must be filed and tried in the court of the municipality or province where the offense was committed or where any of its essential ingredients took place (locus delicti).</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>g. Which court has jurisdiction, and why?</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Regional Trial Court (RTC) of Quezon City.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>g.1 explain why:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Subject Matter Jurisdiction: Under B.P. Blg. 129, as amended by R.A. No. 7691 and R.A. No. 11576, Municipal Trial Courts (MTCs) have jurisdiction over offenses carrying a maximum penalty of 6 years of imprisonment or less. Since Homicide is penalized under Article 249 of the RPC with reclusion temporal (12 to 20 years), the penalty exceeds the 6-year threshold, placing it under the exclusive original jurisdiction of the Regional Trial Court (RTC).</p>
+        <p class="read-unit" data-unit-type="paragraph">Territorial Jurisdiction: The offense occurred within Quezon City, which falls within the territorial boundaries of the Quezon City RTC.</p>
+        <p class="read-unit" data-unit-type="paragraph">Jurisdiction Over the Person: This is acquired once the accused is arrested pursuant to a warrant of arrest issued by the RTC judge, or when the accused voluntarily submits to the court&#x27;s custody (e.g., by posting bail or surrendering).</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>h. Where will the trial be held?</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Regional Trial Court of Quezon City, Branch 85.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>h.1 explain why:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Upon filing, the case is assigned to Branch 85 of the RTC of Quezon City through a formal raffle process conducted by the Executive Judge, in accordance with the Supreme Court&#x27;s rules on case distribution and administration.</p>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <footer class="app-footer">
+    <p>MLC Interactive Legal Study Hub • Natural Cadence Web Speech Synthesis Engine</p>
+    <p style="margin-top: 0.25rem; opacity: 0.7;">Click any paragraph to start reading aloud • Fully compatible with Brave Read Aloud & extensions</p>
+  </footer>
+
+  <!-- Floating Selection Audio Trigger -->
+  <button id="floatingTtsTrigger" aria-label="Read Selection Aloud">🔊 Read Selection</button>
+
+  <!-- Natural Voice & Speech Synthesis Application Logic -->
+  <script>
+    (function() {
+      // 1. Theme Management
+      const themeSelect = document.getElementById('themeSelect');
+      const savedTheme = localStorage.getItem('mlc_reader_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      themeSelect.value = savedTheme;
+
+      themeSelect.addEventListener('change', (e) => {
+        document.documentElement.setAttribute('data-theme', e.target.value);
+        localStorage.setItem('mlc_reader_theme', e.target.value);
+      });
+
+      // 2. Font Size Controls
+      let currentFontSize = parseInt(localStorage.getItem('mlc_font_size') || '17', 10);
+      document.documentElement.style.fontSize = currentFontSize + 'px';
+
+      document.getElementById('fontIncBtn').addEventListener('click', () => {
+        if (currentFontSize < 26) {
+          currentFontSize += 1;
+          document.documentElement.style.fontSize = currentFontSize + 'px';
+          localStorage.setItem('mlc_font_size', currentFontSize);
+        }
+      });
+
+      document.getElementById('fontDecBtn').addEventListener('click', () => {
+        if (currentFontSize > 12) {
+          currentFontSize -= 1;
+          document.documentElement.style.fontSize = currentFontSize + 'px';
+          localStorage.setItem('mlc_font_size', currentFontSize);
+        }
+      });
+
+      // 3. Sidebar Mobile Toggle & Search
+      const sidebar = document.getElementById('appSidebar');
+      const toggleSidebarBtn = document.getElementById('toggleSidebarBtn');
+      toggleSidebarBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+      });
+
+      const searchInput = document.getElementById('sidebarSearch');
+      const tocItems = document.querySelectorAll('.toc-nav li');
+      searchInput.addEventListener('input', (e) => {
+        const q = e.target.value.toLowerCase().trim();
+        tocItems.forEach(li => {
+          const txt = li.textContent.toLowerCase();
+          li.style.display = txt.includes(q) ? '' : 'none';
+        });
+      });
+
+      // 4. Reading Progress Bar
+      window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / (height || 1)) * 100;
+        document.getElementById('readingProgressBar').style.width = scrolled + '%';
+      });
+
+      // =========================================================================
+      // 5. ENHANCED NATURAL SPEECH SYNTHESIS ENGINE
+      // =========================================================================
+      const synth = window.speechSynthesis;
+      let readUnits = [];
+      let currentUnitIndex = -1;
+      let isPaused = false;
+      let voices = [];
+      let nextUtteranceTimeout = null;
+      let lastSectionId = null;
+
+      const playPauseBtn = document.getElementById('ttsPlayPauseBtn');
+      const stopBtn = document.getElementById('ttsStopBtn');
+      const nextBtn = document.getElementById('ttsNextBtn');
+      const prevBtn = document.getElementById('ttsPrevBtn');
+      const playIcon = document.getElementById('ttsPlayIcon');
+      const pauseIcon = document.getElementById('ttsPauseIcon');
+      const statusBadge = document.getElementById('ttsStatus');
+      const speedSelect = document.getElementById('ttsSpeedSelect');
+      const voiceSelect = document.getElementById('ttsVoiceSelect');
+
+      function updateReadUnits() {
+        readUnits = Array.from(document.querySelectorAll('.read-unit'));
+      }
+      updateReadUnits();
+
+      // Intelligent Voice Ranking (Prefers Natural / Neural / High-Tier Human Voices)
+      function scoreVoice(v) {
+        const name = (v.name || '').toLowerCase();
+        let score = 0;
+        if (v.lang.startsWith('en')) score += 50;
+        if (v.lang === 'en-US' || v.lang === 'en-GB') score += 20;
+        if (name.includes('natural') || name.includes('neural') || name.includes('online')) score += 100;
+        if (name.includes('jenny') || name.includes('guy') || name.includes('aria') || name.includes('ryan') || name.includes('sonia')) score += 80;
+        if (name.includes('google') && !name.includes('legacy')) score += 70;
+        if (name.includes('premium') || name.includes('enhanced') || name.includes('siri')) score += 60;
+        if (name.includes('david') || name.includes('zira') || name.includes('mark')) score += 30;
+        return score;
+      }
+
+      function populateVoiceList() {
+        if (!synth) return;
+        const allVoices = synth.getVoices();
+        const enVoices = allVoices.filter(v => v.lang.startsWith('en'));
+        enVoices.sort((a, b) => scoreVoice(b) - scoreVoice(a));
+        voices = enVoices;
+
+        voiceSelect.innerHTML = '';
+        voices.forEach((v, idx) => {
+          const opt = document.createElement('option');
+          opt.value = idx;
+          const isNatural = (v.name.toLowerCase().includes('natural') || v.name.toLowerCase().includes('neural') || v.name.toLowerCase().includes('online'));
+          opt.textContent = (isNatural ? '✨ ' : '') + v.name + ' (' + v.lang + ')';
+          if (idx === 0) opt.selected = true;
+          voiceSelect.appendChild(opt);
+        });
+      }
+
+      if (synth) {
+        populateVoiceList();
+        if (speechSynthesis.onvoiceschanged !== undefined) {
+          speechSynthesis.onvoiceschanged = populateVoiceList;
+        }
+      }
+
+      // Smart Legal Phonetic Pre-Processor (Expands abbreviations & introduces natural prosody)
+      function prepareSpeechText(unit) {
+        let text = (unit.innerText || unit.textContent || '').trim();
+        const parentSec = unit.closest('section.doc-section');
+        const unitType = unit.getAttribute('data-unit-type') || '';
+        const badgeLabel = unit.getAttribute('data-badge-label') || '';
+
+        // Label announcing for case components
+        if (badgeLabel) {
+          if (badgeLabel.includes('DOCTRINE') || badgeLabel.includes('PRINCIPLE')) {
+            text = 'Key Doctrine: ' + text;
+          } else if (badgeLabel.includes('FACTS')) {
+            text = 'Case Facts: ' + text.replace(/^FACTS:?\\s*/i, '');
+          } else if (badgeLabel.includes('ISSUE')) {
+            text = 'Legal Issue: ' + text.replace(/^ISSUE:?\\s*/i, '');
+          } else if (badgeLabel.includes('HELD') || badgeLabel.includes('RULING')) {
+            text = 'Court Ruling and Held: ' + text.replace(/^(HELD|RULING):?\\s*/i, '');
+          }
+        } else if (unitType === 'quote') {
+          text = 'Quote: ' + text;
+        } else if (unitType === 'numbered') {
+          text = text.replace(/^(\d+)\.\\s*/, 'Item $1: ');
+        }
+
+        // Clean & expand common legal abbreviations for natural pronunciation
+        text = text
+          .replace(/\bG\.R\.\s*No\.?\s*([\d\-]+)/gi, 'G R Number $1')
+          .replace(/\bSCRA\b/g, 'S-C-R-A')
+          .replace(/\bPhil\.\s*(\d+)/gi, 'Philippine Reports volume $1')
+          .replace(/\bArt\.\s*(\d+)/gi, 'Article $1')
+          .replace(/\bArts\.\s*([\d,\s\-]+)/gi, 'Articles $1')
+          .replace(/\bSec\.\s*(\d+)/gi, 'Section $1')
+          .replace(/\bSecs\.\s*([\d,\s\-]+)/gi, 'Sections $1')
+          .replace(/\bPar\.\s*(\d+)/gi, 'Paragraph $1')
+          .replace(/\bPars\.\s*([\d,\s\-]+)/gi, 'Paragraphs $1')
+          .replace(/\bRPC\b/g, 'Revised Penal Code')
+          .replace(/\bCPR\b/g, 'Code of Professional Responsibility')
+          .replace(/\bCPRA\b/g, 'Code of Professional Responsibility and Accountability')
+          .replace(/\bConst\.\b/gi, 'Constitution')
+          .replace(/\bP\.D\.\s*No\.?\s*(\d+)/gi, 'Presidential Decree Number $1')
+          .replace(/\bR\.A\.\s*No\.?\s*(\d+)/gi, 'Republic Act Number $1')
+          .replace(/\bA\.C\.\s*No\.?\s*([A-Za-z0-9\-]+)/gi, 'Administrative Case Number $1')
+          .replace(/\bA\.M\.\s*No\.?\s*([A-Za-z0-9\-]+)/gi, 'Administrative Matter Number $1')
+          .replace(/\bet\s+al\./gi, 'and others')
+          .replace(/\bi\.e\./gi, 'that is')
+          .replace(/\be\.g\./gi, 'for example')
+          .replace(/\bviz\./gi, 'namely')
+          .replace(/\s+v(?:s)?\.\s+/gi, ' versus ')
+          .replace(/—/g, ', — ')
+          .replace(/–/g, ', ')
+          .replace(/;\s*/g, ';, ') // Introduce micro-pause at semicolons
+          .replace(/:\s*/g, ': ... ') // Introduce clear pause at colons
+          .replace(/\(([a-z\d])\)/gi, 'sub-item $1, ');
+
+        return text.trim();
+      }
+
+      function setSpeakingState(speaking, paused = false) {
+        if (speaking && !paused) {
+          playIcon.style.display = 'none';
+          pauseIcon.style.display = 'inline';
+          statusBadge.textContent = 'Speaking...';
+          statusBadge.className = 'tts-status-badge speaking';
+        } else if (paused) {
+          playIcon.style.display = 'inline';
+          pauseIcon.style.display = 'none';
+          statusBadge.textContent = 'Paused';
+          statusBadge.className = 'tts-status-badge';
+        } else {
+          playIcon.style.display = 'inline';
+          pauseIcon.style.display = 'none';
+          statusBadge.textContent = 'Ready';
+          statusBadge.className = 'tts-status-badge';
+          clearHighlights();
+        }
+      }
+
+      function clearHighlights() {
+        readUnits.forEach(u => u.classList.remove('is-speaking'));
+      }
+
+      function highlightUnit(idx) {
+        clearHighlights();
+        if (idx >= 0 && idx < readUnits.length) {
+          const unit = readUnits[idx];
+          unit.classList.add('is-speaking');
+          unit.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+
+      function speakUnit(idx) {
+        if (!synth) return;
+        if (nextUtteranceTimeout) {
+          clearTimeout(nextUtteranceTimeout);
+          nextUtteranceTimeout = null;
+        }
+
+        if (idx < 0 || idx >= readUnits.length) {
+          setSpeakingState(false);
+          currentUnitIndex = -1;
+          lastSectionId = null;
+          return;
+        }
+
+        synth.cancel();
+        currentUnitIndex = idx;
+        const unit = readUnits[idx];
+        highlightUnit(idx);
+
+        const currentSection = unit.closest('section.doc-section');
+        const currentSecId = currentSection ? currentSection.id : null;
+        
+        // Detect section transition for topic announcement & deliberate pause
+        let isNewSection = (currentSecId && currentSecId !== lastSectionId);
+        lastSectionId = currentSecId;
+
+        let processedText = prepareSpeechText(unit);
+        
+        // If entering a new section, announce the Topic / Section header first
+        if (isNewSection && currentSection) {
+          const headerEl = currentSection.querySelector('.section-title');
+          if (headerEl) {
+            const hText = headerEl.innerText.trim();
+            processedText = 'New Topic: ' + hText + ' ... ... ' + processedText;
+          }
+        }
+
+        if (!processedText) {
+          speakUnit(idx + 1);
+          return;
+        }
+
+        const utterance = new SpeechSynthesisUtterance(processedText);
+        
+        // Calibrated study speech rate & natural pitch
+        const baseRate = parseFloat(speedSelect.value) || 0.9;
+        utterance.rate = baseRate;
+        utterance.pitch = 1.0;
+
+        const selectedVoiceIdx = voiceSelect.value;
+        if (selectedVoiceIdx !== 'default' && voices[selectedVoiceIdx]) {
+          utterance.voice = voices[selectedVoiceIdx];
+        } else if (voices.length > 0) {
+          utterance.voice = voices[0];
+        }
+
+        utterance.onend = () => {
+          if (currentUnitIndex === idx && !isPaused) {
+            // Calculate natural pause before next unit (longer pause if changing section/topic)
+            const nextIdx = idx + 1;
+            let pauseDuration = 400; // standard natural clause pause
+            
+            if (nextIdx < readUnits.length) {
+              const nextSec = readUnits[nextIdx].closest('section.doc-section');
+              if (nextSec && nextSec.id !== lastSectionId) {
+                pauseDuration = 1000; // 1 full second pause on topic change
+              }
+            }
+
+            nextUtteranceTimeout = setTimeout(() => {
+              speakUnit(nextIdx);
+            }, pauseDuration);
+          }
+        };
+
+        utterance.onerror = (e) => {
+          if (e.error !== 'interrupted' && e.error !== 'canceled') {
+            console.warn('TTS natural playback warning:', e);
+          }
+          setSpeakingState(false);
+        };
+
+        synth.speak(utterance);
+        setSpeakingState(true, false);
+      }
+
+      playPauseBtn.addEventListener('click', () => {
+        if (!synth) return;
+        if (synth.speaking && !synth.paused) {
+          synth.pause();
+          isPaused = true;
+          setSpeakingState(true, true);
+        } else if (synth.paused) {
+          synth.resume();
+          isPaused = false;
+          setSpeakingState(true, false);
+        } else {
+          isPaused = false;
+          speakUnit(currentUnitIndex >= 0 ? currentUnitIndex : 0);
+        }
+      });
+
+      stopBtn.addEventListener('click', () => {
+        if (!synth) return;
+        if (nextUtteranceTimeout) {
+          clearTimeout(nextUtteranceTimeout);
+          nextUtteranceTimeout = null;
+        }
+        synth.cancel();
+        isPaused = false;
+        setSpeakingState(false);
+        currentUnitIndex = -1;
+        lastSectionId = null;
+      });
+
+      nextBtn.addEventListener('click', () => {
+        if (!synth) return;
+        isPaused = false;
+        speakUnit(currentUnitIndex + 1);
+      });
+
+      prevBtn.addEventListener('click', () => {
+        if (!synth) return;
+        isPaused = false;
+        speakUnit(Math.max(0, currentUnitIndex - 1));
+      });
+
+      speedSelect.addEventListener('change', () => {
+        if (synth && synth.speaking) {
+          speakUnit(currentUnitIndex);
+        }
+      });
+
+      voiceSelect.addEventListener('change', () => {
+        if (synth && synth.speaking) {
+          speakUnit(currentUnitIndex);
+        }
+      });
+
+      // Click on any paragraph to read from that exact spot with natural cadence
+      document.getElementById('contentWrapper').addEventListener('click', (e) => {
+        const unit = e.target.closest('.read-unit');
+        if (unit) {
+          const idx = readUnits.indexOf(unit);
+          if (idx !== -1) {
+            isPaused = false;
+            speakUnit(idx);
+          }
+        }
+      });
+
+      // Section Quick-Listen Handler
+      window.readSection = function(sectionId) {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          const firstUnit = el.querySelector('.read-unit');
+          if (firstUnit) {
+            const idx = readUnits.indexOf(firstUnit);
+            if (idx !== -1) {
+              isPaused = false;
+              lastSectionId = null; // force announcement of section
+              speakUnit(idx);
+            }
+          }
+        }
+      };
+
+      // Floating Selection Audio Button (with natural legal abbreviation expander)
+      const floatBtn = document.getElementById('floatingTtsTrigger');
+      document.addEventListener('mouseup', (e) => {
+        if (e.target.closest('#floatingTtsTrigger') || e.target.closest('.tts-toolbar') || e.target.closest('header')) return;
+        const sel = window.getSelection().toString().trim();
+        if (sel.length > 2) {
+          const rect = window.getSelection().getRangeAt(0).getBoundingClientRect();
+          floatBtn.style.top = (window.scrollY + rect.top - 44) + 'px';
+          floatBtn.style.left = (window.scrollX + rect.left + (rect.width / 2)) + 'px';
+          floatBtn.style.display = 'block';
+        } else {
+          floatBtn.style.display = 'none';
+        }
+      });
+
+      floatBtn.addEventListener('click', () => {
+        const sel = window.getSelection().toString().trim();
+        if (sel && synth) {
+          synth.cancel();
+          const dummyUnit = document.createElement('div');
+          dummyUnit.innerText = sel;
+          const naturalText = prepareSpeechText(dummyUnit);
+
+          const utterance = new SpeechSynthesisUtterance(naturalText);
+          utterance.rate = parseFloat(speedSelect.value) || 0.9;
+          utterance.pitch = 1.0;
+
+          const selectedVoiceIdx = voiceSelect.value;
+          if (selectedVoiceIdx !== 'default' && voices[selectedVoiceIdx]) {
+            utterance.voice = voices[selectedVoiceIdx];
+          } else if (voices.length > 0) {
+            utterance.voice = voices[0];
+          }
+
+          synth.speak(utterance);
+          setSpeakingState(true);
+          floatBtn.style.display = 'none';
+        }
+      });
+
+      // Keyboard Navigation
+      document.addEventListener('keydown', (e) => {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA') return;
+        if (e.code === 'Space') {
+          e.preventDefault();
+          playPauseBtn.click();
+        } else if (e.code === 'Escape') {
+          stopBtn.click();
+        } else if (e.key === 'n' || e.key === 'N') {
+          nextBtn.click();
+        } else if (e.key === 'p' || e.key === 'P') {
+          prevBtn.click();
+        } else if (e.key === 'd' || e.key === 'D') {
+          themeSelect.value = 'dark';
+          themeSelect.dispatchEvent(new Event('change'));
+        } else if (e.key === 's' || e.key === 'S') {
+          themeSelect.value = 'sepia';
+          themeSelect.dispatchEvent(new Event('change'));
+        } else if (e.key === 'l' || e.key === 'L') {
+          themeSelect.value = 'light';
+          themeSelect.dispatchEvent(new Event('change'));
+        } else if (e.key === '+' || e.key === '=') {
+          document.getElementById('fontIncBtn').click();
+        } else if (e.key === '-') {
+          document.getElementById('fontDecBtn').click();
+        } else if (e.key === '/') {
+          e.preventDefault();
+          searchInput.focus();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

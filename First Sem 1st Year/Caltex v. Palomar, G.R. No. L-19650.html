@@ -1,0 +1,2431 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Law Study Notes comprehensive review notes and study materials.">
+  <title>Caltex v. Palomar, G.R. No. L 19650</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0f172a;
+      --bg-secondary: #1e293b;
+      --bg-tertiary: #334155;
+      --bg-card: rgba(30, 41, 59, 0.75);
+      --bg-card-hover: rgba(51, 65, 85, 0.85);
+      --border-color: rgba(148, 163, 184, 0.18);
+      --border-focus: #38bdf8;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --accent-gold: #fbbf24;
+      --accent-gold-dark: #d97706;
+      --accent-blue: #38bdf8;
+      --accent-indigo: #818cf8;
+      --accent-emerald: #34d399;
+      --accent-rose: #fb7185;
+      --highlight-reading: rgba(56, 189, 248, 0.28);
+      --font-body: 'Merriweather', Georgia, serif;
+      --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-heading: 'Cinzel', serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --sidebar-width: 320px;
+      --header-height: 72px;
+      --content-max-width: 880px;
+      --base-font-size: 17px;
+      --line-height: 1.85;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+      --glass-blur: blur(14px);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #ffffff;
+      --bg-tertiary: #e2e8f0;
+      --bg-card: rgba(255, 255, 255, 0.9);
+      --bg-card-hover: rgba(241, 245, 249, 0.98);
+      --border-color: rgba(203, 213, 225, 0.85);
+      --border-focus: #0284c7;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --accent-gold: #b45309;
+      --accent-gold-dark: #92400e;
+      --accent-blue: #0284c7;
+      --accent-indigo: #4f46e5;
+      --accent-emerald: #059669;
+      --accent-rose: #e11d48;
+      --highlight-reading: rgba(2, 132, 199, 0.18);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+    }
+
+    [data-theme="sepia"] {
+      --bg-primary: #fbf0d9;
+      --bg-secondary: #f4e4c1;
+      --bg-tertiary: #ecd6a7;
+      --bg-card: rgba(244, 228, 193, 0.9);
+      --bg-card-hover: rgba(236, 214, 167, 0.98);
+      --border-color: rgba(180, 150, 110, 0.45);
+      --border-focus: #9a6700;
+      --text-primary: #2d241e;
+      --text-secondary: #4a3b32;
+      --text-muted: #786455;
+      --accent-gold: #a75d00;
+      --accent-gold-dark: #8c4c00;
+      --accent-blue: #2c6e91;
+      --accent-indigo: #5d4a82;
+      --accent-emerald: #2e7d32;
+      --accent-rose: #c2185b;
+      --highlight-reading: rgba(200, 150, 50, 0.28);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: var(--base-font-size);
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      line-height: var(--line-height);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.25s ease, color 0.25s ease;
+      overflow-x: hidden;
+    }
+
+    /* Top Reading Progress Bar */
+    #readingProgressBar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue));
+      z-index: 999;
+      transition: width 0.1s ease;
+    }
+
+    /* Top Sticky Navigation Bar */
+    header.app-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--header-height);
+      background-color: rgba(15, 23, 42, 0.88);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      gap: 1rem;
+    }
+
+    [data-theme="light"] header.app-header {
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    [data-theme="sepia"] header.app-header {
+      background-color: rgba(251, 240, 217, 0.92);
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0f172a;
+      font-weight: 800;
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      box-shadow: 0 2px 8px rgba(251, 191, 36, 0.35);
+      text-decoration: none;
+    }
+
+    .brand-titles {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: var(--font-ui);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 300px;
+    }
+
+    .brand-subtitle {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      color: var(--accent-gold);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Global TTS Controls Toolbar */
+    .tts-toolbar {
+      display: flex;
+      align-items: center;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      padding: 0.35rem 0.65rem;
+      border-radius: 40px;
+      gap: 0.45rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .tts-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-primary);
+      cursor: pointer;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      font-size: 0.95rem;
+    }
+
+    .tts-btn:hover {
+      background-color: var(--bg-tertiary);
+      color: var(--accent-gold);
+    }
+
+    .tts-btn.primary {
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+      color: #0f172a;
+      font-weight: 700;
+      box-shadow: 0 2px 6px rgba(251, 191, 36, 0.4);
+    }
+
+    .tts-btn.primary:hover {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
+
+    .tts-status-badge {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.55rem;
+      border-radius: 20px;
+      background-color: var(--bg-tertiary);
+      color: var(--text-muted);
+      min-width: 90px;
+      text-align: center;
+    }
+
+    .tts-status-badge.speaking {
+      background-color: rgba(56, 189, 248, 0.2);
+      color: var(--accent-blue);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      animation: pulseGlow 1.5s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      from { box-shadow: 0 0 4px rgba(56, 189, 248, 0.2); }
+      to { box-shadow: 0 0 10px rgba(56, 189, 248, 0.5); }
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .control-select {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 0.4rem 0.65rem;
+      border-radius: 8px;
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .control-select:focus {
+      border-color: var(--border-focus);
+    }
+
+    .icon-btn {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+
+    .icon-btn:hover {
+      background-color: var(--bg-tertiary);
+      border-color: var(--border-focus);
+    }
+
+    /* Main Application Layout */
+    .app-layout {
+      display: flex;
+      flex: 1;
+      position: relative;
+    }
+
+    /* Sticky Sidebar Navigation */
+    aside.app-sidebar {
+      width: var(--sidebar-width);
+      height: calc(100vh - var(--header-height));
+      position: sticky;
+      top: var(--header-height);
+      background-color: var(--bg-secondary);
+      border-right: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      overflow-y: auto;
+      z-index: 50;
+      transition: transform 0.3s ease;
+    }
+
+    .sidebar-header {
+      padding: 1.25rem 1rem 0.75rem 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .sidebar-search {
+      position: relative;
+      width: 100%;
+    }
+
+    .sidebar-search input {
+      width: 100%;
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.5rem 0.75rem 0.5rem 2rem;
+      color: var(--text-primary);
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .sidebar-search input:focus {
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+    }
+
+    .sidebar-search .search-icon {
+      position: absolute;
+      left: 0.65rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    .toc-container {
+      padding: 0.75rem 0.5rem;
+      flex: 1;
+    }
+
+    .toc-nav ul {
+      list-style: none;
+    }
+
+    .toc-nav li {
+      margin-bottom: 0.2rem;
+    }
+
+    .toc-link {
+      display: block;
+      padding: 0.45rem 0.75rem;
+      border-radius: 6px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      font-weight: 500;
+      line-height: 1.4;
+      transition: all 0.2s ease;
+      border-left: 2px solid transparent;
+    }
+
+    .toc-link:hover {
+      background-color: var(--bg-tertiary);
+      color: var(--text-primary);
+    }
+
+    .toc-link.active {
+      background-color: rgba(56, 189, 248, 0.12);
+      color: var(--accent-blue);
+      border-left-color: var(--accent-blue);
+      font-weight: 600;
+    }
+
+    .toc-link.level-2 {
+      padding-left: 1.25rem;
+      font-size: 0.78rem;
+    }
+
+    .toc-link.level-3 {
+      padding-left: 1.75rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Main Content Container */
+    main.app-content {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      padding: 2.5rem 2rem;
+      overflow-y: visible;
+    }
+
+    .content-wrapper {
+      max-width: var(--content-max-width);
+      width: 100%;
+    }
+
+    /* Document Header Banner */
+    .document-hero {
+      background: linear-gradient(145deg, var(--bg-card), var(--bg-secondary));
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2.25rem 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .document-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue), var(--accent-indigo));
+    }
+
+    .doc-badge {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      background: rgba(251, 191, 36, 0.15);
+      color: var(--accent-gold);
+      border: 1px solid rgba(251, 191, 36, 0.3);
+      margin-bottom: 0.85rem;
+    }
+
+    .doc-main-title {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+    }
+
+    .doc-subtitle {
+      font-family: var(--font-ui);
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .doc-meta-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    /* Section & Content Styling */
+    section.doc-section {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2.25rem;
+      box-shadow: var(--shadow-md);
+      transition: border-color 0.2s ease;
+    }
+
+    section.doc-section:hover {
+      border-color: rgba(148, 163, 184, 0.35);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+      line-height: 1.4;
+    }
+
+    .section-title.level-2 {
+      font-size: 1.2rem;
+      color: var(--text-primary);
+    }
+
+    .section-title.level-3 {
+      font-size: 1.05rem;
+      color: var(--accent-blue);
+    }
+
+    .section-listen-btn {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.3rem 0.7rem;
+      border-radius: 20px;
+      background-color: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: all 0.2s ease;
+    }
+
+    .section-listen-btn:hover {
+      background-color: var(--accent-gold);
+      color: #0f172a;
+      border-color: var(--accent-gold);
+    }
+
+    /* Read Units & Paragraphs */
+    .read-unit {
+      position: relative;
+      margin-bottom: 1.15rem;
+      padding: 0.4rem 0.7rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .read-unit:hover {
+      background-color: rgba(148, 163, 184, 0.08);
+    }
+
+    .read-unit.is-speaking {
+      background-color: var(--highlight-reading) !important;
+      border-left: 3px solid var(--accent-blue);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
+    }
+
+    .bullet-point {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+    }
+
+    .bullet-dot {
+      color: var(--accent-gold);
+      font-weight: bold;
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+
+    .bullet-num {
+      color: var(--accent-blue);
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .bullet-content {
+      flex: 1;
+    }
+
+    .reader-quote {
+      border-left: 4px solid var(--accent-gold);
+      padding: 0.75rem 1.25rem;
+      background-color: rgba(251, 191, 36, 0.06);
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: var(--text-secondary);
+      margin: 1.25rem 0;
+    }
+
+    .reader-code {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1rem;
+      overflow-x: auto;
+      line-height: 1.5;
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+      margin: 1.25rem 0;
+    }
+
+    .reader-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-ui);
+      font-size: 0.88rem;
+    }
+
+    .reader-table th, .reader-table td {
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border-color);
+      text-align: left;
+    }
+
+    .reader-table th {
+      background-color: var(--bg-secondary);
+      color: var(--accent-gold);
+      font-weight: 600;
+    }
+
+    .reader-table tr:nth-child(even) {
+      background-color: rgba(148, 163, 184, 0.04);
+    }
+
+    /* Case Elements Badges */
+    .case-element {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .case-badge {
+      font-family: var(--font-ui);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+      flex-shrink: 0;
+      margin-top: 0.25rem;
+    }
+
+    .badge-facts { background: rgba(56, 189, 248, 0.18); color: var(--accent-blue); border: 1px solid rgba(56, 189, 248, 0.35); }
+    .badge-issue { background: rgba(251, 191, 36, 0.18); color: var(--accent-gold); border: 1px solid rgba(251, 191, 36, 0.35); }
+    .badge-held { background: rgba(52, 211, 153, 0.18); color: var(--accent-emerald); border: 1px solid rgba(52, 211, 153, 0.35); }
+    .badge-doctrine { background: rgba(251, 113, 133, 0.18); color: var(--accent-rose); border: 1px solid rgba(251, 113, 133, 0.35); }
+
+    .legal-citation {
+      font-weight: 600;
+      color: var(--accent-gold);
+      border-bottom: 1px dotted rgba(251, 191, 36, 0.5);
+    }
+
+    .section-divider {
+      border: 0;
+      height: 1px;
+      background: var(--border-color);
+      margin: 1.5rem 0;
+    }
+
+    /* Floating TTS Trigger on Selection */
+    #floatingTtsTrigger {
+      position: absolute;
+      display: none;
+      z-index: 1000;
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+      color: #0f172a;
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 20px;
+      padding: 0.4rem 0.85rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      cursor: pointer;
+      transform: translateX(-50%);
+      transition: transform 0.15s ease, filter 0.15s ease;
+    }
+
+    #floatingTtsTrigger:hover {
+      transform: translateX(-50%) scale(1.05);
+      filter: brightness(1.1);
+    }
+
+    /* Footer */
+    footer.app-footer {
+      background-color: var(--bg-secondary);
+      border-top: 1px solid var(--border-color);
+      padding: 1.5rem;
+      text-align: center;
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: auto;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 900px) {
+      aside.app-sidebar {
+        position: fixed;
+        left: 0;
+        top: var(--header-height);
+        transform: translateX(-100%);
+        box-shadow: var(--shadow-lg);
+      }
+
+      aside.app-sidebar.open {
+        transform: translateX(0);
+      }
+
+      .brand-title {
+        max-width: 180px;
+      }
+
+      .tts-status-badge {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="readingProgressBar"></div>
+
+  <!-- App Header -->
+  <header class="app-header">
+    <div class="brand-section">
+      <button class="icon-btn" id="toggleSidebarBtn" title="Toggle Table of Contents">☰</button>
+      <a href="#" class="brand-logo" title="MLC Law Reader">⚖</a>
+      <div class="brand-titles">
+        <span class="brand-title">Caltex v. Palomar, G.R. No. L 19650</span>
+        <span class="brand-subtitle">Law Study Notes • Interactive Reader</span>
+      </div>
+    </div>
+
+    <!-- TTS Toolbar -->
+    <div class="tts-toolbar">
+      <button class="tts-btn" id="ttsPrevBtn" title="Previous Paragraph (P)">⏮</button>
+      <button class="tts-btn primary" id="ttsPlayPauseBtn" title="Play / Pause (Space)">
+        <span id="ttsPlayIcon">▶</span>
+        <span id="ttsPauseIcon" style="display:none;">⏸</span>
+      </button>
+      <button class="tts-btn" id="ttsStopBtn" title="Stop (Esc)">⏹</button>
+      <button class="tts-btn" id="ttsNextBtn" title="Next Paragraph (N)">⏭</button>
+      <span class="tts-status-badge" id="ttsStatus">Ready</span>
+    </div>
+
+    <!-- Right Controls -->
+    <div class="header-actions">
+      <select class="control-select" id="ttsSpeedSelect" title="Reading Speed (Deliberate Study Pace)">
+        <option value="0.75">0.75x (Slow)</option>
+        <option value="0.85">0.85x (Very Clear)</option>
+        <option value="0.9" selected>0.9x (Deliberate)</option>
+        <option value="1.0">1.0x (Normal)</option>
+        <option value="1.15">1.15x</option>
+        <option value="1.25">1.25x</option>
+        <option value="1.5">1.5x</option>
+      </select>
+      <select class="control-select" id="ttsVoiceSelect" title="Speech Voice (Neural Natural Voices First)" style="max-width: 155px;">
+        <option value="default">Natural Voice (Auto)</option>
+      </select>
+      <button class="icon-btn" id="fontDecBtn" title="Decrease Font Size ( - )">A-</button>
+      <button class="icon-btn" id="fontIncBtn" title="Increase Font Size ( + )">A+</button>
+      <select class="control-select" id="themeSelect" title="Visual Theme">
+        <option value="dark">🌙 Dark</option>
+        <option value="sepia">📜 Sepia</option>
+        <option value="light">☀️ Light</option>
+      </select>
+    </div>
+  </header>
+
+  <!-- Layout Container -->
+  <div class="app-layout">
+    <!-- Table of Contents Sidebar -->
+    <aside class="app-sidebar" id="appSidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-search">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="sidebarSearch" placeholder="Search topics, cases... ( / )" autocomplete="off">
+        </div>
+      </div>
+      <div class="toc-container">
+        <nav class="toc-nav">
+          <ul id="tocList">
+            <li><a href="#sec-1-caltex-v-palomar-gr-no-l-19650-29-september-1966" class="toc-link level-3">Caltex v. Palomar, G.R. No. L-19650, 29 September 1966</a></li>
+            <li><a href="#sec-2-romualdez-v-sandiganbayan-gr-no-152259-july-29-2004-pesca-v" class="toc-link level-3">Romualdez v. Sandiganbayan, G.R. No. 152259, July 29, 2004 Pesca v. Pesca, G.R. No. 136921, 17 April 2001</a></li>
+            <li><a href="#sec-3-people-v-mapa-gr-no-l-22301-30-august-1967" class="toc-link level-3">People v. Mapa, G.R. No. L-22301, 30 August 1967</a></li>
+            <li><a href="#sec-4-endencia-v-david-gr-no-l-6355-56-31-august-1953" class="toc-link level-3">Endencia v. David, G.R. No. L-6355-56, 31 August 1953</a></li>
+            <li><a href="#sec-5-people-v-corpuz-gr-no-180016-29-april-2014-decision-dissenti" class="toc-link level-3">People v. Corpuz, G.R. No. 180016, 29 April 2014 (Decision, Dissenting Opinion of J. Abad)</a></li>
+            <li><a href="#sec-6-republic-v-molina-gr-no-108763-13-february-1997" class="toc-link level-3">Republic v. Molina, G.R. No. 108763, 13 February 1997</a></li>
+            <li><a href="#sec-7-public-estates-authority-v-caoibes-jr-gr-no-132426-19-august" class="toc-link level-3">Public Estates Authority v. Caoibes, Jr., G.R. No. 132426, 19 August 1999</a></li>
+            <li><a href="#sec-8-people-v-atop-gr-no-124303-10-february-1998" class="toc-link level-3">People v. Atop, G.R. No. 124303, 10 February 1998</a></li>
+            <li><a href="#sec-9-people-v-avecilla-gr-no-117033-15-february-2001" class="toc-link level-3">People v. Avecilla, G.R. No. 117033, 15 February 2001</a></li>
+            <li><a href="#sec-10-bolos-v-bolos-gr-no-186400-october-20-2010" class="toc-link level-3">Bolos v. Bolos, G.R. No. 186400, October 20, 2010</a></li>
+            <li><a href="#sec-11-gan-v-reyes-gr-no-145527-may-28-2002" class="toc-link level-3">Gan v. Reyes, G.R. No. 145527, May 28, 2002</a></li>
+            <li><a href="#sec-12-people-v-acbangin-gr-no-117216-august-9-2000" class="toc-link level-3">People v. Acbangin, G.R. No. 117216, August 9, 2000</a></li>
+            <li><a href="#sec-13-people-v-veneracion-gr-no-119987-88-october-12-1995" class="toc-link level-3">People v. Veneracion, G.R. No. 119987-88, October 12, 1995</a></li>
+            <li><a href="#sec-14-pascual-v-pascual-bautista-gr-no-84240-march-25-1992" class="toc-link level-3">Pascual v. Pascual-Bautista, G.R. No. 84240, March 25, 1992</a></li>
+            <li><a href="#sec-15-duncan-v-court-of-first-instance-gr-no-l-30576-february-10-1" class="toc-link level-3">Duncan v. Court of First Instance, G.R. No. L-30576, February 10, 1976</a></li>
+            <li><a href="#sec-16-alonzo-v-intermediate-appellate-court-gr-no-72873-may-28-198" class="toc-link level-3">Alonzo v. Intermediate Appellate Court, G.R. No. 72873, May 28, 1987</a></li>
+            <li><a href="#sec-17-victoria-v-commission-on-elections-gr-no-109005-january-10-1" class="toc-link level-3">Victoria v. Commission on Elections, G.R. No. 109005, January 10, 1994</a></li>
+            <li><a href="#sec-18-philippine-healthcare-providers-inc-v-commissioner-of-intern" class="toc-link level-3">Philippine Healthcare Providers Inc., v. Commissioner of Internal Revenue  –  GR No. 167330, September 18, 2009</a></li>
+            <li><a href="#sec-19-ramirez-v-court-of-appeals-gr-no-93833-september-25-1995" class="toc-link level-3">Ramirez v. Court of Appeals  –  GR No. 93833, September 25, 1995</a></li>
+            <li><a href="#sec-20-torres-v-limjap-gr-no-34385-86-september-21-1931" class="toc-link level-3">Torres v. Limjap  –  GR No. 34385-86, September 21, 1931</a></li>
+            <li><a href="#sec-21-llorin-jr-v-court-of-appeals-gr-no-103592-february-4-1993" class="toc-link level-3">Llorin, Jr., v. Court of Appeals  –  GR No. 103592, February 4, 1993</a></li>
+            <li><a href="#sec-22-municipality-of-nueva-era-ilocos-norte-v-municipality-of-mar" class="toc-link level-3">Municipality of Nueva Era, Ilocos Norte v. Municipality of Marcos, Ilocos Norte  –  GR No. 169435, February 27, 2008</a></li>
+            <li><a href="#sec-23-club-filipino-inc-v-bautista-gr-no-168406-july-13-2009" class="toc-link level-3">Club Filipino, Inc., v. Bautista  –  GR No. 168406, July 13, 2009</a></li>
+            <li><a href="#sec-24-yu-v-samson-tatad-gr-no-170979-february-9-2011" class="toc-link level-3">Yu v. Samson-Tatad  –  GR No. 170979, February 9, 2011</a></li>
+            <li><a href="#sec-25-eugenio-v-drilon-gr-no-109404-22-january-1996" class="toc-link level-3">Eugenio v. Drilon, G.R. No. 109404, 22 January 1996</a></li>
+            <li><a href="#sec-26-alonzo-v-intermediate-appellate-court-gr-no-72873-28-may-198" class="toc-link level-3">Alonzo v. Intermediate Appellate Court, G.R. No. 72873, 28 May 1987</a></li>
+            <li><a href="#sec-27-melchor-v-commission-on-audit-gr-no-95398-16-august-1991" class="toc-link level-3">Melchor v. Commission on Audit, G.R. No. 95398, 16 August 1991</a></li>
+            <li><a href="#sec-28-people-v-garcia-gr-no-l-2873-28-february-1950" class="toc-link level-3">People v. Garcia, G.R. No. L-2873, 28 February 1950</a></li>
+            <li><a href="#sec-29-people-of-the-philippines-v-the-honorable-sandiganbayan-gr-n" class="toc-link level-3">People of the Philippines v. The Honorable Sandiganbayan  –  GR Nos. 1447706- 07, February 16, 2005</a></li>
+            <li><a href="#sec-30-pelizloy-realty-corporation-v-the-province-of-benguet-gr-no" class="toc-link level-3">Pelizloy Realty Corporation v. The Province of Benguet  –  GR No. 183137, April 10, 2013</a></li>
+            <li><a href="#sec-31-atienza-v-villarosa-gr-no-161081-may-10-2005" class="toc-link level-3">Atienza v. Villarosa  –  GR No. 161081, May 10, 2005</a></li>
+            <li><a href="#sec-32-sterling-selections-corporation-v-laguna-lake-development-au" class="toc-link level-3">Sterling Selections Corporation v. Laguna Lake Development Authority  –  GR No. 171427, March 30, 2011</a></li>
+            <li><a href="#sec-33-commission-on-audit-of-the-province-of-cebu-v-province-of-ce" class="toc-link level-3">Commission on Audit of the Province of Cebu v. Province of Cebu  –  GR No. 141386, November 29, 2001</a></li>
+            <li><a href="#sec-34-people-v-garcia-gr-no-l-2873-28-february-1950" class="toc-link level-3">People v. Garcia, G.R. No. L-2873, 28 February 1950</a></li>
+            <li><a href="#sec-35-roman-catholic-archbishop-of-manila-v-social-security-commis" class="toc-link level-3">Roman Catholic Archbishop of Manila v. Social Security Commission, G.R. No. L-15045, 20 January 1961</a></li>
+            <li><a href="#sec-36-escribano-v-avila-gr-no-l-30375-12-september-1978" class="toc-link level-3">Escribano v. Avila, G.R. No. L-30375, 12 September 1978</a></li>
+            <li><a href="#sec-37-people-v-manantan-gr-no-14129-31-july-1962" class="toc-link level-3">People v. Manantan, G.R. No. 14129, 31 July 1962</a></li>
+            <li><a href="#sec-38-philippine-economic-zone-authority-v-green-asia-construction" class="toc-link level-3">Philippine Economic Zone Authority v. Green Asia Construction &amp; Development Corporation  –  GR No. 188866, October 19, 2011</a></li>
+            <li><a href="#sec-39-tuna-processing-inc-v-philippine-kingford-inc---gr-no-185582" class="toc-link level-3">Tuna Processing, Inc., v. Philippine Kingford, Inc., - GR No. 185582, February 29, 2012</a></li>
+            <li><a href="#sec-40-magno-v-commission-on-elections-gr-no-147904-october-4-2002" class="toc-link level-3">Magno v. Commission on Elections  –  GR No. 147904, October 4, 2002</a></li>
+            <li><a href="#sec-41-remo-v-the-honorable-secretary-of-foreign-affairs-gr-no-1692" class="toc-link level-3">Remo v. The Honorable Secretary of Foreign Affairs  –  GR No. 169202, March 5, 2010</a></li>
+            <li><a href="#sec-42-commissioner-of-internal-revenue-v-philippine-airlines-inc-g" class="toc-link level-3">Commissioner of Internal Revenue v. Philippine Airlines, Inc.  –  GR No. 180066, July 2009</a></li>
+            <li><a href="#sec-43-republic-of-the-philippines-v-del-monte-motors-inc-gr-no-156" class="toc-link level-3">Republic of the Philippines v. Del Monte Motors, Inc.  –  GR No. 156956, October 9, 2006</a></li>
+            <li><a href="#sec-44-people-of-the-philippines-v-francisco-gr-no-106357-september" class="toc-link level-3">People of the Philippines v. Francisco  –  GR No. 106357, September 3, 1998</a></li>
+            <li><a href="#sec-45-philippine-national-bank-v-office-of-the-president-gr-no-104" class="toc-link level-3">Philippine National Bank v. Office of the President  –  GR No. 104528, January 18, 1996</a></li>
+            <li><a href="#sec-46-ebarle-v-sucaldito-gr-no-l-33628-december-29-1987" class="toc-link level-3">Ebarle v. Sucaldito  –  GR No. L-33628, December 29, 1987</a></li>
+            <li><a href="#sec-47-commissioner-of-customs-v-relunia-gr-no-l-11860-may-29-1959" class="toc-link level-3">Commissioner of Customs v. Relunia  –  GR No. L-11860, May 29, 1959</a></li>
+            <li><a href="#sec-48-people-of-the-philippines-v-subido-gr-no-l-21734-september-5" class="toc-link level-3">People of the Philippines v. Subido  –  GR No. L-21734, September 5, 1975</a></li>
+            <li><a href="#sec-49-florentino-v-pnb-gr-no-l-8782-april-28-1956" class="toc-link level-3">Florentino v. PNB, G.R. No. L-8782, April 28, 1956</a></li>
+            <li><a href="#sec-50-mapa-v-arroyo-gr-no-78585-july-5-1989" class="toc-link level-3">Mapa v. Arroyo, G.R. No. 78585, July 5, 1989</a></li>
+            <li><a href="#sec-51-people-of-the-philippine-islands-v-yabut-gr-no-39085-septemb" class="toc-link level-3">People of the Philippine Islands v. Yabut  –  GR No. 39085, September 27, 1933. 58 Phil 499</a></li>
+            <li><a href="#sec-52-baking-v-director-of-prisons-gr-no-30364-july-28-1969-28-scr" class="toc-link level-3">Baking v. Director of Prisons  –  GR No. 30364, July 28, 1969. 28 SCRA 850</a></li>
+            <li><a href="#sec-53-metropolitan-manila-development-authority-v-garin-gr-no-1302" class="toc-link level-3">Metropolitan Manila Development Authority v. Garin  –  GR No. 130230, April 15, 2005</a></li>
+            <li><a href="#sec-54-commissioner-of-internal-revenue-v-sm-prime-holdings-inc-gr" class="toc-link level-3">Commissioner of Internal Revenue v. SM Prime Holdings, Inc.  –  GR No. 183505, February 26, 2010</a></li>
+            <li><a href="#sec-55-laxamana-v-baltazar-gr-no-l-5955-september-19-1952" class="toc-link level-3">Laxamana v. Baltazar  –  GR No. L-5955, September 19, 1952</a></li>
+            <li><a href="#sec-56-ang-v-court-of-appeals-gr-no-182835-april-20-2010-618-scra-5" class="toc-link level-3">Ang v. Court of Appeals  –  GR No. 182835, April 20, 2010. 618 SCRA 592</a></li>
+            <li><a href="#sec-57-alvarez-v-guingona-gr-no-118303-31-january-1996" class="toc-link level-3">Alvarez v. Guingona, G.R. No. 118303, 31 January 1996</a></li>
+            <li><a href="#sec-58-alvarez-v-guingona-gr-no-118303-31-january-1996" class="toc-link level-3">Alvarez v. Guingona, G.R. No. 118303, 31 January 1996</a></li>
+            <li><a href="#sec-59-nha-v-reyes-gr-no-l-49439-29-june-1983" class="toc-link level-3">NHA v. Reyes, G.R. No. L-49439, 29 June 1983</a></li>
+            <li><a href="#sec-60-aparri-v-ca-gr-no-l-30057-31-january-1984" class="toc-link level-3">Aparri v. CA, G.R. No. L-30057, 31 January 1984</a></li>
+            <li><a href="#sec-61-republic-v-ca-gr-no-106763-9-may-2001" class="toc-link level-3">Republic v. CA, G.R. No. 106763, 9 May 2001</a></li>
+            <li><a href="#sec-62-lamp-v-dbm-secretary-gr-no-164987-24-april-2012" class="toc-link level-3">LAMP v. DBM Secretary, G.R. No. 164987, 24 April 2012</a></li>
+            <li><a href="#sec-63-alonzo-v-intermediate-appellate-court-gr-no-72873-28-may-198" class="toc-link level-3">Alonzo v. Intermediate Appellate Court, G.R. No. 72873, 28 May 1987</a></li>
+            <li><a href="#sec-64-coa-v-province-of-cebu-gr-no-141386-29-november-2001" class="toc-link level-3">COA v. Province of Cebu, G.R. No. 141386, 29 November 2001</a></li>
+            <li><a href="#sec-65-remo-v-dfa-secretary-gr-no-169202-5-march-2010" class="toc-link level-3">Remo v. DFA Secretary, G.R. No. 169202, 5 March 2010</a></li>
+            <li><a href="#sec-66-melchor-v-commission-on-audit-gr-no-95398-16-august-1991" class="toc-link level-3">Melchor v. Commission on Audit, G.R. No. 95398, 16 August 1991</a></li>
+            <li><a href="#sec-67-gatchalian-v-commission-on-elections-gr-no-l32560-61-october" class="toc-link level-3">Gatchalian v. Commission on Elections GR No.  –  L32560-61, October 22, 1970</a></li>
+            <li><a href="#sec-68-saludaga-v-honorable-sandiganbayan-gr-no-184537-april-23-201" class="toc-link level-3">Saludaga v. Honorable Sandiganbayan  –  GR No. 184537, April 23, 2010</a></li>
+            <li><a href="#sec-69-commissioner-of-internal-revenue-v-ariete-gr-no-164152-janua" class="toc-link level-3">Commissioner of Internal Revenue v. Ariete  –  GR No. 164152, January 21, 2010</a></li>
+            <li><a href="#sec-70-office-of-the-ombudsman-v-andutan-jr-gr-no-164679-july-27-20" class="toc-link level-3">Office of the Ombudsman v. Andutan, Jr.  –  GR No. 164679, July 27, 2011</a></li>
+            <li><a href="#sec-71-enriquez-v-enriquez-gr-no-139303-august-25-2005" class="toc-link level-3">Enriquez v. Enriquez  –  GR No. 139303, August 25, 2005</a></li>
+            <li><a href="#sec-72-diokno-v-rehabilitation-finance-corporation-gr-no-l-4712-11" class="toc-link level-3">Diokno v. Rehabilitation Finance Corporation, G.R. No. L-4712, 11 July 1952</a></li>
+            <li><a href="#sec-73-san-carlos-milling-v-cir-gr-no-103379-23-november-1993" class="toc-link level-3">San Carlos Milling v. CIR, G.R. No. 103379, 23 November 1993</a></li>
+            <li><a href="#sec-74-berces-v-guingona-gr-no-112099-21-february-1995" class="toc-link level-3">Berces v. Guingona, G.R. No. 112099, 21 February 1995</a></li>
+            <li><a href="#sec-75-chang-yung-fa-v-gianzo-gr-no-l-7885-25-november-1955" class="toc-link level-3">Chang Yung Fa v. Gianzo, G.R. No. L-7885, 25 November 1955</a></li>
+            <li><a href="#sec-76-victorias-milling-company-v-ssc-gr-no-l-16704-17-march-1962" class="toc-link level-3">Victorias Milling Company v. SSC, G.R. No. L-16704, 17 March 1962</a></li>
+            <li><a href="#sec-77-cir-v-manila-lodge-no-761-gr-no-l-11176-29-june-1959" class="toc-link level-3">CIR v. Manila Lodge No. 761, G.R. No. L-11176, 29 June 1959</a></li>
+            <li><a href="#sec-78-mustang-lumber-v-ca-gr-no-104988-18-june-1996" class="toc-link level-3">Mustang Lumber v. CA, G.R. No. 104988, 18 June 1996</a></li>
+            <li><a href="#sec-79-geotina-v-cta-gr-no-l-33500-30-august-1971" class="toc-link level-3">Geotina v. CTA, G.R. No. L-33500, 30 August 1971</a></li>
+            <li><a href="#sec-80-san-miguel-corporation-v-municipal-council-of-mandaue-gr-no" class="toc-link level-3">San Miguel Corporation v. Municipal Council of Mandaue, G.R. No. L-30761, 11 July 1973</a></li>
+            <li><a href="#sec-81-malanyaon-v-lising-gr-no-l-56028-30-july-1981" class="toc-link level-3">Malanyaon v. Lising, G.R. No. L-56028, 30 July 1981</a></li>
+            <li><a href="#sec-82-krivenko-v-register-of-deeds-gr-no-l-630-15-november-1947" class="toc-link level-3">Krivenko v. Register of Deeds, G.R. No. L-630, 15 November 1947</a></li>
+            <li><a href="#sec-83-garcia-v-comelec-gr-no-111230-30-september-1994" class="toc-link level-3">Garcia v. COMELEC, G.R. No. 111230, 30 September 1994</a></li>
+            <li><a href="#sec-84-gelano-v-ca-gr-no-l-39050-24-february-1981" class="toc-link level-3">Gelano v. CA, G.R. No. L-39050, 24 February 1981</a></li>
+            <li><a href="#sec-85-people-v-chaves-gr-no-l-19521-30-october-1964" class="toc-link level-3">People v. Chaves, G.R. No. L-19521, 30 October 1964</a></li>
+            <li><a href="#sec-86-buenaseda-v-flavier-gr-no-106719-21-september-1993" class="toc-link level-3">Buenaseda v. Flavier, G.R. No. 106719, 21 September 1993</a></li>
+            <li><a href="#sec-87-magtajas-v-pryce-properties-corporation-gr-no-111097-20-july" class="toc-link level-3">Magtajas v. Pryce Properties Corporation, G.R. No. 111097, 20 July 1994</a></li>
+            <li><a href="#sec-88-pendon-v-daisnes-gr-no-l-5606-28-august-1952" class="toc-link level-3">Pendon v. Daisnes, G.R. No. L-5606, 28 August 1952</a></li>
+            <li><a href="#sec-89-grospe-v-ca-gr-no-l-11443-30-september-1959" class="toc-link level-3">Grospe v. CA, G.R. No. L-11443, 30 September 1959</a></li>
+            <li><a href="#sec-90-francisco-v-house-of-representatives-gr-no-160261-10-novembe" class="toc-link level-3">Francisco v. House of Representatives, G.R. No. 160261, 10 November 2003</a></li>
+            <li><a href="#sec-91-de-castro-v-judicial-and-bar-council-gr-no-191002-20-april-2" class="toc-link level-3">De Castro v. Judicial and Bar Council, G.R. No. 191002, 20 April 2010</a></li>
+            <li><a href="#sec-92-chavez-v-judicial-and-bar-council-gr-no-202242-17-july-2012" class="toc-link level-3">Chavez v. Judicial and Bar Council, G.R. No. 202242, 17 July 2012</a></li>
+            <li><a href="#sec-93-sarmiento-v-mison-gr-no-79974-17-december-1987" class="toc-link level-3">Sarmiento v. Mison, G.R. No. 79974, 17 December 1987</a></li>
+            <li><a href="#sec-94-centro-project-manpower-services-corporation-v-naluis-gr-no" class="toc-link level-3">Centro Project Manpower Services Corporation v. Naluis, G.R. No. 160123, 17 June 2015</a></li>
+            <li><a href="#sec-95-centeno-v-pornillos-gr-no-113092-1-september-1994" class="toc-link level-3">Centeno v. Pornillos, G.R. No. 113092, 1 September 1994</a></li>
+            <li><a href="#sec-96-cabrera-v-ng-gr-no-201601-12-march-2014" class="toc-link level-3">Cabrera v. Ng, G.R. No. 201601, 12 March 2014</a></li>
+            <li><a href="#sec-97-land-bank-v-court-of-appeals-gr-no-221636" class="toc-link level-3">Land Bank v. Court of Appeals, G.R. No. 221636</a></li>
+            <li><a href="#sec-98-cir-v-la-tondea-distillery-gr-no-175188-15-july-2015" class="toc-link level-3">CIR v. La Tondeña Distillery, G.R. No. 175188, 15 July 2015</a></li>
+            <li><a href="#sec-99-city-of-manila-v-chinese-community-of-manila-gr-no-14355-31" class="toc-link level-3">City of Manila v. Chinese Community of Manila, G.R. No. 14355, 31 October 1919</a></li>
+            <li><a href="#sec-100-gsis-v-ca-gr-no-128523-25-september-1998" class="toc-link level-3">GSIS v. CA, G.R. No. 128523, 25 September 1998</a></li>
+            <li><a href="#sec-101-engle-v-comelec-gr-no-215995-19-january-2016" class="toc-link level-3">Engle v. COMELEC, G.R. No. 215995, 19 January 2016</a></li>
+            <li><a href="#sec-102-pesca-v-pesca-gr-no-136912-17-april-2001" class="toc-link level-3">Pesca v. Pesca, G.R. No. 136912, 17 April 2001</a></li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="app-content" id="mainContentArea">
+      <div class="content-wrapper" id="contentWrapper">
+        <!-- Hero Header -->
+        <div class="document-hero">
+          <span class="doc-badge">Law Study Notes</span>
+          <h1 class="doc-main-title">Caltex v. Palomar, G.R. No. L 19650</h1>
+          <p class="doc-subtitle">Law Study Notes comprehensive review notes and study materials.</p>
+          <div class="doc-meta-bar">
+            <div class="meta-item"><span>📑</span> <span>102 Sections</span></div>
+            <div class="meta-item"><span>🔊</span> <span id="totalUnitsCounter">10 Read Units</span></div>
+            <div class="meta-item"><span>⏱</span> <span>~2 min read</span></div>
+            <div class="meta-item"><span>🎙</span> <span>Intelligent Natural Speech</span></div>
+          </div>
+        </div>
+
+        <!-- Document Sections -->
+        
+        <section class="doc-section" id="sec-1-caltex-v-palomar-gr-no-l-19650-29-september-1966">
+          <header class="section-header">
+            <h4 class="section-title level-3">Caltex v. Palomar, G.R. No. L-19650, 29 September 1966</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-1-caltex-v-palomar-gr-no-l-19650-29-september-1966')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Tañada v. Tuvera, G.R. No. L-63915, 29 December 1986</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-2-romualdez-v-sandiganbayan-gr-no-152259-july-29-2004-pesca-v">
+          <header class="section-header">
+            <h4 class="section-title level-3">Romualdez v. Sandiganbayan, G.R. No. 152259, July 29, 2004 Pesca v. Pesca, G.R. No. 136921, 17 April 2001</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-2-romualdez-v-sandiganbayan-gr-no-152259-july-29-2004-pesca-v')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-3-people-v-mapa-gr-no-l-22301-30-august-1967">
+          <header class="section-header">
+            <h4 class="section-title level-3">People v. Mapa, G.R. No. L-22301, 30 August 1967</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-3-people-v-mapa-gr-no-l-22301-30-august-1967')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-4-endencia-v-david-gr-no-l-6355-56-31-august-1953">
+          <header class="section-header">
+            <h4 class="section-title level-3">Endencia v. David, G.R. No. L-6355-56, 31 August 1953</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-4-endencia-v-david-gr-no-l-6355-56-31-august-1953')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-5-people-v-corpuz-gr-no-180016-29-april-2014-decision-dissenti">
+          <header class="section-header">
+            <h4 class="section-title level-3">People v. Corpuz, G.R. No. 180016, 29 April 2014 (Decision, Dissenting Opinion of J. Abad)</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-5-people-v-corpuz-gr-no-180016-29-april-2014-decision-dissenti')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-6-republic-v-molina-gr-no-108763-13-february-1997">
+          <header class="section-header">
+            <h4 class="section-title level-3">Republic v. Molina, G.R. No. 108763, 13 February 1997</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-6-republic-v-molina-gr-no-108763-13-february-1997')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-7-public-estates-authority-v-caoibes-jr-gr-no-132426-19-august">
+          <header class="section-header">
+            <h4 class="section-title level-3">Public Estates Authority v. Caoibes, Jr., G.R. No. 132426, 19 August 1999</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-7-public-estates-authority-v-caoibes-jr-gr-no-132426-19-august')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-8-people-v-atop-gr-no-124303-10-february-1998">
+          <header class="section-header">
+            <h4 class="section-title level-3">People v. Atop, G.R. No. 124303, 10 February 1998</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-8-people-v-atop-gr-no-124303-10-february-1998')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-9-people-v-avecilla-gr-no-117033-15-february-2001">
+          <header class="section-header">
+            <h4 class="section-title level-3">People v. Avecilla, G.R. No. 117033, 15 February 2001</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-9-people-v-avecilla-gr-no-117033-15-february-2001')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Eastern Mediterranean Maritime Ltd. V. Surio, G.R. No. 154213, 21 August 2013</p>
+        <p class="read-unit" data-unit-type="paragraph">Tawang Multi-Purpose Cooperative v. La Trinidad Water District, G.R. No. 166471, March 22, 2011</p>
+        <p class="read-unit" data-unit-type="paragraph">Nippon Express (Philippines) Corporation v. Commissioner of Internal Revenue, G.R. No. 196907, March 13, 2013</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-10-bolos-v-bolos-gr-no-186400-october-20-2010">
+          <header class="section-header">
+            <h4 class="section-title level-3">Bolos v. Bolos, G.R. No. 186400, October 20, 2010</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-10-bolos-v-bolos-gr-no-186400-october-20-2010')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-11-gan-v-reyes-gr-no-145527-may-28-2002">
+          <header class="section-header">
+            <h4 class="section-title level-3">Gan v. Reyes, G.R. No. 145527, May 28, 2002</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-11-gan-v-reyes-gr-no-145527-may-28-2002')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-12-people-v-acbangin-gr-no-117216-august-9-2000">
+          <header class="section-header">
+            <h4 class="section-title level-3">People v. Acbangin, G.R. No. 117216, August 9, 2000</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-12-people-v-acbangin-gr-no-117216-august-9-2000')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-13-people-v-veneracion-gr-no-119987-88-october-12-1995">
+          <header class="section-header">
+            <h4 class="section-title level-3">People v. Veneracion, G.R. No. 119987-88, October 12, 1995</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-13-people-v-veneracion-gr-no-119987-88-october-12-1995')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-14-pascual-v-pascual-bautista-gr-no-84240-march-25-1992">
+          <header class="section-header">
+            <h4 class="section-title level-3">Pascual v. Pascual-Bautista, G.R. No. 84240, March 25, 1992</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-14-pascual-v-pascual-bautista-gr-no-84240-march-25-1992')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-15-duncan-v-court-of-first-instance-gr-no-l-30576-february-10-1">
+          <header class="section-header">
+            <h4 class="section-title level-3">Duncan v. Court of First Instance, G.R. No. L-30576, February 10, 1976</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-15-duncan-v-court-of-first-instance-gr-no-l-30576-february-10-1')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-16-alonzo-v-intermediate-appellate-court-gr-no-72873-may-28-198">
+          <header class="section-header">
+            <h4 class="section-title level-3">Alonzo v. Intermediate Appellate Court, G.R. No. 72873, May 28, 1987</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-16-alonzo-v-intermediate-appellate-court-gr-no-72873-may-28-198')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-17-victoria-v-commission-on-elections-gr-no-109005-january-10-1">
+          <header class="section-header">
+            <h4 class="section-title level-3">Victoria v. Commission on Elections, G.R. No. 109005, January 10, 1994</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-17-victoria-v-commission-on-elections-gr-no-109005-january-10-1')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-18-philippine-healthcare-providers-inc-v-commissioner-of-intern">
+          <header class="section-header">
+            <h4 class="section-title level-3">Philippine Healthcare Providers Inc., v. Commissioner of Internal Revenue  –  GR No. 167330, September 18, 2009</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-18-philippine-healthcare-providers-inc-v-commissioner-of-intern')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-19-ramirez-v-court-of-appeals-gr-no-93833-september-25-1995">
+          <header class="section-header">
+            <h4 class="section-title level-3">Ramirez v. Court of Appeals  –  GR No. 93833, September 25, 1995</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-19-ramirez-v-court-of-appeals-gr-no-93833-september-25-1995')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-20-torres-v-limjap-gr-no-34385-86-september-21-1931">
+          <header class="section-header">
+            <h4 class="section-title level-3">Torres v. Limjap  –  GR No. 34385-86, September 21, 1931</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-20-torres-v-limjap-gr-no-34385-86-september-21-1931')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-21-llorin-jr-v-court-of-appeals-gr-no-103592-february-4-1993">
+          <header class="section-header">
+            <h4 class="section-title level-3">Llorin, Jr., v. Court of Appeals  –  GR No. 103592, February 4, 1993</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-21-llorin-jr-v-court-of-appeals-gr-no-103592-february-4-1993')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-22-municipality-of-nueva-era-ilocos-norte-v-municipality-of-mar">
+          <header class="section-header">
+            <h4 class="section-title level-3">Municipality of Nueva Era, Ilocos Norte v. Municipality of Marcos, Ilocos Norte  –  GR No. 169435, February 27, 2008</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-22-municipality-of-nueva-era-ilocos-norte-v-municipality-of-mar')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-23-club-filipino-inc-v-bautista-gr-no-168406-july-13-2009">
+          <header class="section-header">
+            <h4 class="section-title level-3">Club Filipino, Inc., v. Bautista  –  GR No. 168406, July 13, 2009</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-23-club-filipino-inc-v-bautista-gr-no-168406-july-13-2009')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-24-yu-v-samson-tatad-gr-no-170979-february-9-2011">
+          <header class="section-header">
+            <h4 class="section-title level-3">Yu v. Samson-Tatad  –  GR No. 170979, February 9, 2011</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-24-yu-v-samson-tatad-gr-no-170979-february-9-2011')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-25-eugenio-v-drilon-gr-no-109404-22-january-1996">
+          <header class="section-header">
+            <h4 class="section-title level-3">Eugenio v. Drilon, G.R. No. 109404, 22 January 1996</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-25-eugenio-v-drilon-gr-no-109404-22-january-1996')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-26-alonzo-v-intermediate-appellate-court-gr-no-72873-28-may-198">
+          <header class="section-header">
+            <h4 class="section-title level-3">Alonzo v. Intermediate Appellate Court, G.R. No. 72873, 28 May 1987</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-26-alonzo-v-intermediate-appellate-court-gr-no-72873-28-may-198')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-27-melchor-v-commission-on-audit-gr-no-95398-16-august-1991">
+          <header class="section-header">
+            <h4 class="section-title level-3">Melchor v. Commission on Audit, G.R. No. 95398, 16 August 1991</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-27-melchor-v-commission-on-audit-gr-no-95398-16-august-1991')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-28-people-v-garcia-gr-no-l-2873-28-february-1950">
+          <header class="section-header">
+            <h4 class="section-title level-3">People v. Garcia, G.R. No. L-2873, 28 February 1950</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-28-people-v-garcia-gr-no-l-2873-28-february-1950')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-29-people-of-the-philippines-v-the-honorable-sandiganbayan-gr-n">
+          <header class="section-header">
+            <h4 class="section-title level-3">People of the Philippines v. The Honorable Sandiganbayan  –  GR Nos. 1447706- 07, February 16, 2005</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-29-people-of-the-philippines-v-the-honorable-sandiganbayan-gr-n')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-30-pelizloy-realty-corporation-v-the-province-of-benguet-gr-no">
+          <header class="section-header">
+            <h4 class="section-title level-3">Pelizloy Realty Corporation v. The Province of Benguet  –  GR No. 183137, April 10, 2013</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-30-pelizloy-realty-corporation-v-the-province-of-benguet-gr-no')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Coca-Cola Bottlers, Phils., Inc., v. Gomez  –  GR No. 154491, November 14, 2008</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-31-atienza-v-villarosa-gr-no-161081-may-10-2005">
+          <header class="section-header">
+            <h4 class="section-title level-3">Atienza v. Villarosa  –  GR No. 161081, May 10, 2005</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-31-atienza-v-villarosa-gr-no-161081-may-10-2005')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Commission on Human Rights Employees&#x27; Association v. Commission on Human Rights GR No. 155336, November 25, 2004</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-32-sterling-selections-corporation-v-laguna-lake-development-au">
+          <header class="section-header">
+            <h4 class="section-title level-3">Sterling Selections Corporation v. Laguna Lake Development Authority  –  GR No. 171427, March 30, 2011</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-32-sterling-selections-corporation-v-laguna-lake-development-au')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-33-commission-on-audit-of-the-province-of-cebu-v-province-of-ce">
+          <header class="section-header">
+            <h4 class="section-title level-3">Commission on Audit of the Province of Cebu v. Province of Cebu  –  GR No. 141386, November 29, 2001</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-33-commission-on-audit-of-the-province-of-cebu-v-province-of-ce')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-34-people-v-garcia-gr-no-l-2873-28-february-1950">
+          <header class="section-header">
+            <h4 class="section-title level-3">People v. Garcia, G.R. No. L-2873, 28 February 1950</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-34-people-v-garcia-gr-no-l-2873-28-february-1950')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Colgate-Palmolive v. Gimenez, G.R. No. L-14787, 28 January 1961</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-35-roman-catholic-archbishop-of-manila-v-social-security-commis">
+          <header class="section-header">
+            <h4 class="section-title level-3">Roman Catholic Archbishop of Manila v. Social Security Commission, G.R. No. L-15045, 20 January 1961</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-35-roman-catholic-archbishop-of-manila-v-social-security-commis')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-36-escribano-v-avila-gr-no-l-30375-12-september-1978">
+          <header class="section-header">
+            <h4 class="section-title level-3">Escribano v. Avila, G.R. No. L-30375, 12 September 1978</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-36-escribano-v-avila-gr-no-l-30375-12-september-1978')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-37-people-v-manantan-gr-no-14129-31-july-1962">
+          <header class="section-header">
+            <h4 class="section-title level-3">People v. Manantan, G.R. No. 14129, 31 July 1962</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-37-people-v-manantan-gr-no-14129-31-july-1962')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-38-philippine-economic-zone-authority-v-green-asia-construction">
+          <header class="section-header">
+            <h4 class="section-title level-3">Philippine Economic Zone Authority v. Green Asia Construction &amp; Development Corporation  –  GR No. 188866, October 19, 2011</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-38-philippine-economic-zone-authority-v-green-asia-construction')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-39-tuna-processing-inc-v-philippine-kingford-inc---gr-no-185582">
+          <header class="section-header">
+            <h4 class="section-title level-3">Tuna Processing, Inc., v. Philippine Kingford, Inc., - GR No. 185582, February 29, 2012</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-39-tuna-processing-inc-v-philippine-kingford-inc---gr-no-185582')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-40-magno-v-commission-on-elections-gr-no-147904-october-4-2002">
+          <header class="section-header">
+            <h4 class="section-title level-3">Magno v. Commission on Elections  –  GR No. 147904, October 4, 2002</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-40-magno-v-commission-on-elections-gr-no-147904-october-4-2002')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-41-remo-v-the-honorable-secretary-of-foreign-affairs-gr-no-1692">
+          <header class="section-header">
+            <h4 class="section-title level-3">Remo v. The Honorable Secretary of Foreign Affairs  –  GR No. 169202, March 5, 2010</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-41-remo-v-the-honorable-secretary-of-foreign-affairs-gr-no-1692')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-42-commissioner-of-internal-revenue-v-philippine-airlines-inc-g">
+          <header class="section-header">
+            <h4 class="section-title level-3">Commissioner of Internal Revenue v. Philippine Airlines, Inc.  –  GR No. 180066, July 2009</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-42-commissioner-of-internal-revenue-v-philippine-airlines-inc-g')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-43-republic-of-the-philippines-v-del-monte-motors-inc-gr-no-156">
+          <header class="section-header">
+            <h4 class="section-title level-3">Republic of the Philippines v. Del Monte Motors, Inc.  –  GR No. 156956, October 9, 2006</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-43-republic-of-the-philippines-v-del-monte-motors-inc-gr-no-156')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-44-people-of-the-philippines-v-francisco-gr-no-106357-september">
+          <header class="section-header">
+            <h4 class="section-title level-3">People of the Philippines v. Francisco  –  GR No. 106357, September 3, 1998</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-44-people-of-the-philippines-v-francisco-gr-no-106357-september')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-45-philippine-national-bank-v-office-of-the-president-gr-no-104">
+          <header class="section-header">
+            <h4 class="section-title level-3">Philippine National Bank v. Office of the President  –  GR No. 104528, January 18, 1996</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-45-philippine-national-bank-v-office-of-the-president-gr-no-104')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-46-ebarle-v-sucaldito-gr-no-l-33628-december-29-1987">
+          <header class="section-header">
+            <h4 class="section-title level-3">Ebarle v. Sucaldito  –  GR No. L-33628, December 29, 1987</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-46-ebarle-v-sucaldito-gr-no-l-33628-december-29-1987')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-47-commissioner-of-customs-v-relunia-gr-no-l-11860-may-29-1959">
+          <header class="section-header">
+            <h4 class="section-title level-3">Commissioner of Customs v. Relunia  –  GR No. L-11860, May 29, 1959</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-47-commissioner-of-customs-v-relunia-gr-no-l-11860-may-29-1959')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-48-people-of-the-philippines-v-subido-gr-no-l-21734-september-5">
+          <header class="section-header">
+            <h4 class="section-title level-3">People of the Philippines v. Subido  –  GR No. L-21734, September 5, 1975</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-48-people-of-the-philippines-v-subido-gr-no-l-21734-september-5')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-49-florentino-v-pnb-gr-no-l-8782-april-28-1956">
+          <header class="section-header">
+            <h4 class="section-title level-3">Florentino v. PNB, G.R. No. L-8782, April 28, 1956</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-49-florentino-v-pnb-gr-no-l-8782-april-28-1956')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-50-mapa-v-arroyo-gr-no-78585-july-5-1989">
+          <header class="section-header">
+            <h4 class="section-title level-3">Mapa v. Arroyo, G.R. No. 78585, July 5, 1989</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-50-mapa-v-arroyo-gr-no-78585-july-5-1989')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">In Re: In the matter of the estate of Emil H. Johnson  –  GR no. L-12767, November 16, 1918</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-51-people-of-the-philippine-islands-v-yabut-gr-no-39085-septemb">
+          <header class="section-header">
+            <h4 class="section-title level-3">People of the Philippine Islands v. Yabut  –  GR No. 39085, September 27, 1933. 58 Phil 499</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-51-people-of-the-philippine-islands-v-yabut-gr-no-39085-septemb')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-52-baking-v-director-of-prisons-gr-no-30364-july-28-1969-28-scr">
+          <header class="section-header">
+            <h4 class="section-title level-3">Baking v. Director of Prisons  –  GR No. 30364, July 28, 1969. 28 SCRA 850</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-52-baking-v-director-of-prisons-gr-no-30364-july-28-1969-28-scr')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-53-metropolitan-manila-development-authority-v-garin-gr-no-1302">
+          <header class="section-header">
+            <h4 class="section-title level-3">Metropolitan Manila Development Authority v. Garin  –  GR No. 130230, April 15, 2005</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-53-metropolitan-manila-development-authority-v-garin-gr-no-1302')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-54-commissioner-of-internal-revenue-v-sm-prime-holdings-inc-gr">
+          <header class="section-header">
+            <h4 class="section-title level-3">Commissioner of Internal Revenue v. SM Prime Holdings, Inc.  –  GR No. 183505, February 26, 2010</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-54-commissioner-of-internal-revenue-v-sm-prime-holdings-inc-gr')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-55-laxamana-v-baltazar-gr-no-l-5955-september-19-1952">
+          <header class="section-header">
+            <h4 class="section-title level-3">Laxamana v. Baltazar  –  GR No. L-5955, September 19, 1952</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-55-laxamana-v-baltazar-gr-no-l-5955-september-19-1952')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-56-ang-v-court-of-appeals-gr-no-182835-april-20-2010-618-scra-5">
+          <header class="section-header">
+            <h4 class="section-title level-3">Ang v. Court of Appeals  –  GR No. 182835, April 20, 2010. 618 SCRA 592</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-56-ang-v-court-of-appeals-gr-no-182835-april-20-2010-618-scra-5')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-57-alvarez-v-guingona-gr-no-118303-31-january-1996">
+          <header class="section-header">
+            <h4 class="section-title level-3">Alvarez v. Guingona, G.R. No. 118303, 31 January 1996</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-57-alvarez-v-guingona-gr-no-118303-31-january-1996')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Boie-Takeda Chemicals v. De La Serna, G.R. No. 92174, 10 December 1993</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-58-alvarez-v-guingona-gr-no-118303-31-january-1996">
+          <header class="section-header">
+            <h4 class="section-title level-3">Alvarez v. Guingona, G.R. No. 118303, 31 January 1996</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-58-alvarez-v-guingona-gr-no-118303-31-january-1996')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-59-nha-v-reyes-gr-no-l-49439-29-june-1983">
+          <header class="section-header">
+            <h4 class="section-title level-3">NHA v. Reyes, G.R. No. L-49439, 29 June 1983</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-59-nha-v-reyes-gr-no-l-49439-29-june-1983')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-60-aparri-v-ca-gr-no-l-30057-31-january-1984">
+          <header class="section-header">
+            <h4 class="section-title level-3">Aparri v. CA, G.R. No. L-30057, 31 January 1984</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-60-aparri-v-ca-gr-no-l-30057-31-january-1984')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-61-republic-v-ca-gr-no-106763-9-may-2001">
+          <header class="section-header">
+            <h4 class="section-title level-3">Republic v. CA, G.R. No. 106763, 9 May 2001</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-61-republic-v-ca-gr-no-106763-9-may-2001')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-62-lamp-v-dbm-secretary-gr-no-164987-24-april-2012">
+          <header class="section-header">
+            <h4 class="section-title level-3">LAMP v. DBM Secretary, G.R. No. 164987, 24 April 2012</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-62-lamp-v-dbm-secretary-gr-no-164987-24-april-2012')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-63-alonzo-v-intermediate-appellate-court-gr-no-72873-28-may-198">
+          <header class="section-header">
+            <h4 class="section-title level-3">Alonzo v. Intermediate Appellate Court, G.R. No. 72873, 28 May 1987</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-63-alonzo-v-intermediate-appellate-court-gr-no-72873-28-may-198')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-64-coa-v-province-of-cebu-gr-no-141386-29-november-2001">
+          <header class="section-header">
+            <h4 class="section-title level-3">COA v. Province of Cebu, G.R. No. 141386, 29 November 2001</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-64-coa-v-province-of-cebu-gr-no-141386-29-november-2001')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-65-remo-v-dfa-secretary-gr-no-169202-5-march-2010">
+          <header class="section-header">
+            <h4 class="section-title level-3">Remo v. DFA Secretary, G.R. No. 169202, 5 March 2010</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-65-remo-v-dfa-secretary-gr-no-169202-5-march-2010')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-66-melchor-v-commission-on-audit-gr-no-95398-16-august-1991">
+          <header class="section-header">
+            <h4 class="section-title level-3">Melchor v. Commission on Audit, G.R. No. 95398, 16 August 1991</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-66-melchor-v-commission-on-audit-gr-no-95398-16-august-1991')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-67-gatchalian-v-commission-on-elections-gr-no-l32560-61-october">
+          <header class="section-header">
+            <h4 class="section-title level-3">Gatchalian v. Commission on Elections GR No.  –  L32560-61, October 22, 1970</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-67-gatchalian-v-commission-on-elections-gr-no-l32560-61-october')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-68-saludaga-v-honorable-sandiganbayan-gr-no-184537-april-23-201">
+          <header class="section-header">
+            <h4 class="section-title level-3">Saludaga v. Honorable Sandiganbayan  –  GR No. 184537, April 23, 2010</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-68-saludaga-v-honorable-sandiganbayan-gr-no-184537-april-23-201')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-69-commissioner-of-internal-revenue-v-ariete-gr-no-164152-janua">
+          <header class="section-header">
+            <h4 class="section-title level-3">Commissioner of Internal Revenue v. Ariete  –  GR No. 164152, January 21, 2010</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-69-commissioner-of-internal-revenue-v-ariete-gr-no-164152-janua')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-70-office-of-the-ombudsman-v-andutan-jr-gr-no-164679-july-27-20">
+          <header class="section-header">
+            <h4 class="section-title level-3">Office of the Ombudsman v. Andutan, Jr.  –  GR No. 164679, July 27, 2011</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-70-office-of-the-ombudsman-v-andutan-jr-gr-no-164679-july-27-20')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-71-enriquez-v-enriquez-gr-no-139303-august-25-2005">
+          <header class="section-header">
+            <h4 class="section-title level-3">Enriquez v. Enriquez  –  GR No. 139303, August 25, 2005</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-71-enriquez-v-enriquez-gr-no-139303-august-25-2005')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-72-diokno-v-rehabilitation-finance-corporation-gr-no-l-4712-11">
+          <header class="section-header">
+            <h4 class="section-title level-3">Diokno v. Rehabilitation Finance Corporation, G.R. No. L-4712, 11 July 1952</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-72-diokno-v-rehabilitation-finance-corporation-gr-no-l-4712-11')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-73-san-carlos-milling-v-cir-gr-no-103379-23-november-1993">
+          <header class="section-header">
+            <h4 class="section-title level-3">San Carlos Milling v. CIR, G.R. No. 103379, 23 November 1993</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-73-san-carlos-milling-v-cir-gr-no-103379-23-november-1993')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-74-berces-v-guingona-gr-no-112099-21-february-1995">
+          <header class="section-header">
+            <h4 class="section-title level-3">Berces v. Guingona, G.R. No. 112099, 21 February 1995</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-74-berces-v-guingona-gr-no-112099-21-february-1995')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-75-chang-yung-fa-v-gianzo-gr-no-l-7885-25-november-1955">
+          <header class="section-header">
+            <h4 class="section-title level-3">Chang Yung Fa v. Gianzo, G.R. No. L-7885, 25 November 1955</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-75-chang-yung-fa-v-gianzo-gr-no-l-7885-25-november-1955')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-76-victorias-milling-company-v-ssc-gr-no-l-16704-17-march-1962">
+          <header class="section-header">
+            <h4 class="section-title level-3">Victorias Milling Company v. SSC, G.R. No. L-16704, 17 March 1962</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-76-victorias-milling-company-v-ssc-gr-no-l-16704-17-march-1962')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-77-cir-v-manila-lodge-no-761-gr-no-l-11176-29-june-1959">
+          <header class="section-header">
+            <h4 class="section-title level-3">CIR v. Manila Lodge No. 761, G.R. No. L-11176, 29 June 1959</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-77-cir-v-manila-lodge-no-761-gr-no-l-11176-29-june-1959')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-78-mustang-lumber-v-ca-gr-no-104988-18-june-1996">
+          <header class="section-header">
+            <h4 class="section-title level-3">Mustang Lumber v. CA, G.R. No. 104988, 18 June 1996</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-78-mustang-lumber-v-ca-gr-no-104988-18-june-1996')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">C&amp;C Commercial Corporation v. NAWASA, G.R. No. L-27275, 18 November 1967</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-79-geotina-v-cta-gr-no-l-33500-30-august-1971">
+          <header class="section-header">
+            <h4 class="section-title level-3">Geotina v. CTA, G.R. No. L-33500, 30 August 1971</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-79-geotina-v-cta-gr-no-l-33500-30-august-1971')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-80-san-miguel-corporation-v-municipal-council-of-mandaue-gr-no">
+          <header class="section-header">
+            <h4 class="section-title level-3">San Miguel Corporation v. Municipal Council of Mandaue, G.R. No. L-30761, 11 July 1973</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-80-san-miguel-corporation-v-municipal-council-of-mandaue-gr-no')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-81-malanyaon-v-lising-gr-no-l-56028-30-july-1981">
+          <header class="section-header">
+            <h4 class="section-title level-3">Malanyaon v. Lising, G.R. No. L-56028, 30 July 1981</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-81-malanyaon-v-lising-gr-no-l-56028-30-july-1981')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-82-krivenko-v-register-of-deeds-gr-no-l-630-15-november-1947">
+          <header class="section-header">
+            <h4 class="section-title level-3">Krivenko v. Register of Deeds, G.R. No. L-630, 15 November 1947</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-82-krivenko-v-register-of-deeds-gr-no-l-630-15-november-1947')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-83-garcia-v-comelec-gr-no-111230-30-september-1994">
+          <header class="section-header">
+            <h4 class="section-title level-3">Garcia v. COMELEC, G.R. No. 111230, 30 September 1994</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-83-garcia-v-comelec-gr-no-111230-30-september-1994')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-84-gelano-v-ca-gr-no-l-39050-24-february-1981">
+          <header class="section-header">
+            <h4 class="section-title level-3">Gelano v. CA, G.R. No. L-39050, 24 February 1981</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-84-gelano-v-ca-gr-no-l-39050-24-february-1981')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-85-people-v-chaves-gr-no-l-19521-30-october-1964">
+          <header class="section-header">
+            <h4 class="section-title level-3">People v. Chaves, G.R. No. L-19521, 30 October 1964</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-85-people-v-chaves-gr-no-l-19521-30-october-1964')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-86-buenaseda-v-flavier-gr-no-106719-21-september-1993">
+          <header class="section-header">
+            <h4 class="section-title level-3">Buenaseda v. Flavier, G.R. No. 106719, 21 September 1993</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-86-buenaseda-v-flavier-gr-no-106719-21-september-1993')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-87-magtajas-v-pryce-properties-corporation-gr-no-111097-20-july">
+          <header class="section-header">
+            <h4 class="section-title level-3">Magtajas v. Pryce Properties Corporation, G.R. No. 111097, 20 July 1994</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-87-magtajas-v-pryce-properties-corporation-gr-no-111097-20-july')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-88-pendon-v-daisnes-gr-no-l-5606-28-august-1952">
+          <header class="section-header">
+            <h4 class="section-title level-3">Pendon v. Daisnes, G.R. No. L-5606, 28 August 1952</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-88-pendon-v-daisnes-gr-no-l-5606-28-august-1952')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-89-grospe-v-ca-gr-no-l-11443-30-september-1959">
+          <header class="section-header">
+            <h4 class="section-title level-3">Grospe v. CA, G.R. No. L-11443, 30 September 1959</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-89-grospe-v-ca-gr-no-l-11443-30-september-1959')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-90-francisco-v-house-of-representatives-gr-no-160261-10-novembe">
+          <header class="section-header">
+            <h4 class="section-title level-3">Francisco v. House of Representatives, G.R. No. 160261, 10 November 2003</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-90-francisco-v-house-of-representatives-gr-no-160261-10-novembe')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-91-de-castro-v-judicial-and-bar-council-gr-no-191002-20-april-2">
+          <header class="section-header">
+            <h4 class="section-title level-3">De Castro v. Judicial and Bar Council, G.R. No. 191002, 20 April 2010</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-91-de-castro-v-judicial-and-bar-council-gr-no-191002-20-april-2')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-92-chavez-v-judicial-and-bar-council-gr-no-202242-17-july-2012">
+          <header class="section-header">
+            <h4 class="section-title level-3">Chavez v. Judicial and Bar Council, G.R. No. 202242, 17 July 2012</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-92-chavez-v-judicial-and-bar-council-gr-no-202242-17-july-2012')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-93-sarmiento-v-mison-gr-no-79974-17-december-1987">
+          <header class="section-header">
+            <h4 class="section-title level-3">Sarmiento v. Mison, G.R. No. 79974, 17 December 1987</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-93-sarmiento-v-mison-gr-no-79974-17-december-1987')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-94-centro-project-manpower-services-corporation-v-naluis-gr-no">
+          <header class="section-header">
+            <h4 class="section-title level-3">Centro Project Manpower Services Corporation v. Naluis, G.R. No. 160123, 17 June 2015</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-94-centro-project-manpower-services-corporation-v-naluis-gr-no')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-95-centeno-v-pornillos-gr-no-113092-1-september-1994">
+          <header class="section-header">
+            <h4 class="section-title level-3">Centeno v. Pornillos, G.R. No. 113092, 1 September 1994</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-95-centeno-v-pornillos-gr-no-113092-1-september-1994')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-96-cabrera-v-ng-gr-no-201601-12-march-2014">
+          <header class="section-header">
+            <h4 class="section-title level-3">Cabrera v. Ng, G.R. No. 201601, 12 March 2014</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-96-cabrera-v-ng-gr-no-201601-12-march-2014')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-97-land-bank-v-court-of-appeals-gr-no-221636">
+          <header class="section-header">
+            <h4 class="section-title level-3">Land Bank v. Court of Appeals, G.R. No. 221636</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-97-land-bank-v-court-of-appeals-gr-no-221636')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-98-cir-v-la-tondea-distillery-gr-no-175188-15-july-2015">
+          <header class="section-header">
+            <h4 class="section-title level-3">CIR v. La Tondeña Distillery, G.R. No. 175188, 15 July 2015</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-98-cir-v-la-tondea-distillery-gr-no-175188-15-july-2015')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-99-city-of-manila-v-chinese-community-of-manila-gr-no-14355-31">
+          <header class="section-header">
+            <h4 class="section-title level-3">City of Manila v. Chinese Community of Manila, G.R. No. 14355, 31 October 1919</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-99-city-of-manila-v-chinese-community-of-manila-gr-no-14355-31')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-100-gsis-v-ca-gr-no-128523-25-september-1998">
+          <header class="section-header">
+            <h4 class="section-title level-3">GSIS v. CA, G.R. No. 128523, 25 September 1998</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-100-gsis-v-ca-gr-no-128523-25-september-1998')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-101-engle-v-comelec-gr-no-215995-19-january-2016">
+          <header class="section-header">
+            <h4 class="section-title level-3">Engle v. COMELEC, G.R. No. 215995, 19 January 2016</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-101-engle-v-comelec-gr-no-215995-19-january-2016')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-102-pesca-v-pesca-gr-no-136912-17-april-2001">
+          <header class="section-header">
+            <h4 class="section-title level-3">Pesca v. Pesca, G.R. No. 136912, 17 April 2001</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-102-pesca-v-pesca-gr-no-136912-17-april-2001')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <footer class="app-footer">
+    <p>MLC Interactive Legal Study Hub • Natural Cadence Web Speech Synthesis Engine</p>
+    <p style="margin-top: 0.25rem; opacity: 0.7;">Click any paragraph to start reading aloud • Fully compatible with Brave Read Aloud & extensions</p>
+  </footer>
+
+  <!-- Floating Selection Audio Trigger -->
+  <button id="floatingTtsTrigger" aria-label="Read Selection Aloud">🔊 Read Selection</button>
+
+  <!-- Natural Voice & Speech Synthesis Application Logic -->
+  <script>
+    (function() {
+      // 1. Theme Management
+      const themeSelect = document.getElementById('themeSelect');
+      const savedTheme = localStorage.getItem('mlc_reader_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      themeSelect.value = savedTheme;
+
+      themeSelect.addEventListener('change', (e) => {
+        document.documentElement.setAttribute('data-theme', e.target.value);
+        localStorage.setItem('mlc_reader_theme', e.target.value);
+      });
+
+      // 2. Font Size Controls
+      let currentFontSize = parseInt(localStorage.getItem('mlc_font_size') || '17', 10);
+      document.documentElement.style.fontSize = currentFontSize + 'px';
+
+      document.getElementById('fontIncBtn').addEventListener('click', () => {
+        if (currentFontSize < 26) {
+          currentFontSize += 1;
+          document.documentElement.style.fontSize = currentFontSize + 'px';
+          localStorage.setItem('mlc_font_size', currentFontSize);
+        }
+      });
+
+      document.getElementById('fontDecBtn').addEventListener('click', () => {
+        if (currentFontSize > 12) {
+          currentFontSize -= 1;
+          document.documentElement.style.fontSize = currentFontSize + 'px';
+          localStorage.setItem('mlc_font_size', currentFontSize);
+        }
+      });
+
+      // 3. Sidebar Mobile Toggle & Search
+      const sidebar = document.getElementById('appSidebar');
+      const toggleSidebarBtn = document.getElementById('toggleSidebarBtn');
+      toggleSidebarBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+      });
+
+      const searchInput = document.getElementById('sidebarSearch');
+      const tocItems = document.querySelectorAll('.toc-nav li');
+      searchInput.addEventListener('input', (e) => {
+        const q = e.target.value.toLowerCase().trim();
+        tocItems.forEach(li => {
+          const txt = li.textContent.toLowerCase();
+          li.style.display = txt.includes(q) ? '' : 'none';
+        });
+      });
+
+      // 4. Reading Progress Bar
+      window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / (height || 1)) * 100;
+        document.getElementById('readingProgressBar').style.width = scrolled + '%';
+      });
+
+      // =========================================================================
+      // 5. ENHANCED NATURAL SPEECH SYNTHESIS ENGINE
+      // =========================================================================
+      const synth = window.speechSynthesis;
+      let readUnits = [];
+      let currentUnitIndex = -1;
+      let isPaused = false;
+      let voices = [];
+      let nextUtteranceTimeout = null;
+      let lastSectionId = null;
+
+      const playPauseBtn = document.getElementById('ttsPlayPauseBtn');
+      const stopBtn = document.getElementById('ttsStopBtn');
+      const nextBtn = document.getElementById('ttsNextBtn');
+      const prevBtn = document.getElementById('ttsPrevBtn');
+      const playIcon = document.getElementById('ttsPlayIcon');
+      const pauseIcon = document.getElementById('ttsPauseIcon');
+      const statusBadge = document.getElementById('ttsStatus');
+      const speedSelect = document.getElementById('ttsSpeedSelect');
+      const voiceSelect = document.getElementById('ttsVoiceSelect');
+
+      function updateReadUnits() {
+        readUnits = Array.from(document.querySelectorAll('.read-unit'));
+      }
+      updateReadUnits();
+
+      // Intelligent Voice Ranking (Prefers Natural / Neural / High-Tier Human Voices)
+      function scoreVoice(v) {
+        const name = (v.name || '').toLowerCase();
+        let score = 0;
+        if (v.lang.startsWith('en')) score += 50;
+        if (v.lang === 'en-US' || v.lang === 'en-GB') score += 20;
+        if (name.includes('natural') || name.includes('neural') || name.includes('online')) score += 100;
+        if (name.includes('jenny') || name.includes('guy') || name.includes('aria') || name.includes('ryan') || name.includes('sonia')) score += 80;
+        if (name.includes('google') && !name.includes('legacy')) score += 70;
+        if (name.includes('premium') || name.includes('enhanced') || name.includes('siri')) score += 60;
+        if (name.includes('david') || name.includes('zira') || name.includes('mark')) score += 30;
+        return score;
+      }
+
+      function populateVoiceList() {
+        if (!synth) return;
+        const allVoices = synth.getVoices();
+        const enVoices = allVoices.filter(v => v.lang.startsWith('en'));
+        enVoices.sort((a, b) => scoreVoice(b) - scoreVoice(a));
+        voices = enVoices;
+
+        voiceSelect.innerHTML = '';
+        voices.forEach((v, idx) => {
+          const opt = document.createElement('option');
+          opt.value = idx;
+          const isNatural = (v.name.toLowerCase().includes('natural') || v.name.toLowerCase().includes('neural') || v.name.toLowerCase().includes('online'));
+          opt.textContent = (isNatural ? '✨ ' : '') + v.name + ' (' + v.lang + ')';
+          if (idx === 0) opt.selected = true;
+          voiceSelect.appendChild(opt);
+        });
+      }
+
+      if (synth) {
+        populateVoiceList();
+        if (speechSynthesis.onvoiceschanged !== undefined) {
+          speechSynthesis.onvoiceschanged = populateVoiceList;
+        }
+      }
+
+      // Smart Legal Phonetic Pre-Processor (Expands abbreviations & introduces natural prosody)
+      function prepareSpeechText(unit) {
+        let text = (unit.innerText || unit.textContent || '').trim();
+        const parentSec = unit.closest('section.doc-section');
+        const unitType = unit.getAttribute('data-unit-type') || '';
+        const badgeLabel = unit.getAttribute('data-badge-label') || '';
+
+        // Label announcing for case components
+        if (badgeLabel) {
+          if (badgeLabel.includes('DOCTRINE') || badgeLabel.includes('PRINCIPLE')) {
+            text = 'Key Doctrine: ' + text;
+          } else if (badgeLabel.includes('FACTS')) {
+            text = 'Case Facts: ' + text.replace(/^FACTS:?\\s*/i, '');
+          } else if (badgeLabel.includes('ISSUE')) {
+            text = 'Legal Issue: ' + text.replace(/^ISSUE:?\\s*/i, '');
+          } else if (badgeLabel.includes('HELD') || badgeLabel.includes('RULING')) {
+            text = 'Court Ruling and Held: ' + text.replace(/^(HELD|RULING):?\\s*/i, '');
+          }
+        } else if (unitType === 'quote') {
+          text = 'Quote: ' + text;
+        } else if (unitType === 'numbered') {
+          text = text.replace(/^(\d+)\.\\s*/, 'Item $1: ');
+        }
+
+        // Clean & expand common legal abbreviations for natural pronunciation
+        text = text
+          .replace(/\bG\.R\.\s*No\.?\s*([\d\-]+)/gi, 'G R Number $1')
+          .replace(/\bSCRA\b/g, 'S-C-R-A')
+          .replace(/\bPhil\.\s*(\d+)/gi, 'Philippine Reports volume $1')
+          .replace(/\bArt\.\s*(\d+)/gi, 'Article $1')
+          .replace(/\bArts\.\s*([\d,\s\-]+)/gi, 'Articles $1')
+          .replace(/\bSec\.\s*(\d+)/gi, 'Section $1')
+          .replace(/\bSecs\.\s*([\d,\s\-]+)/gi, 'Sections $1')
+          .replace(/\bPar\.\s*(\d+)/gi, 'Paragraph $1')
+          .replace(/\bPars\.\s*([\d,\s\-]+)/gi, 'Paragraphs $1')
+          .replace(/\bRPC\b/g, 'Revised Penal Code')
+          .replace(/\bCPR\b/g, 'Code of Professional Responsibility')
+          .replace(/\bCPRA\b/g, 'Code of Professional Responsibility and Accountability')
+          .replace(/\bConst\.\b/gi, 'Constitution')
+          .replace(/\bP\.D\.\s*No\.?\s*(\d+)/gi, 'Presidential Decree Number $1')
+          .replace(/\bR\.A\.\s*No\.?\s*(\d+)/gi, 'Republic Act Number $1')
+          .replace(/\bA\.C\.\s*No\.?\s*([A-Za-z0-9\-]+)/gi, 'Administrative Case Number $1')
+          .replace(/\bA\.M\.\s*No\.?\s*([A-Za-z0-9\-]+)/gi, 'Administrative Matter Number $1')
+          .replace(/\bet\s+al\./gi, 'and others')
+          .replace(/\bi\.e\./gi, 'that is')
+          .replace(/\be\.g\./gi, 'for example')
+          .replace(/\bviz\./gi, 'namely')
+          .replace(/\s+v(?:s)?\.\s+/gi, ' versus ')
+          .replace(/—/g, ', — ')
+          .replace(/–/g, ', ')
+          .replace(/;\s*/g, ';, ') // Introduce micro-pause at semicolons
+          .replace(/:\s*/g, ': ... ') // Introduce clear pause at colons
+          .replace(/\(([a-z\d])\)/gi, 'sub-item $1, ');
+
+        return text.trim();
+      }
+
+      function setSpeakingState(speaking, paused = false) {
+        if (speaking && !paused) {
+          playIcon.style.display = 'none';
+          pauseIcon.style.display = 'inline';
+          statusBadge.textContent = 'Speaking...';
+          statusBadge.className = 'tts-status-badge speaking';
+        } else if (paused) {
+          playIcon.style.display = 'inline';
+          pauseIcon.style.display = 'none';
+          statusBadge.textContent = 'Paused';
+          statusBadge.className = 'tts-status-badge';
+        } else {
+          playIcon.style.display = 'inline';
+          pauseIcon.style.display = 'none';
+          statusBadge.textContent = 'Ready';
+          statusBadge.className = 'tts-status-badge';
+          clearHighlights();
+        }
+      }
+
+      function clearHighlights() {
+        readUnits.forEach(u => u.classList.remove('is-speaking'));
+      }
+
+      function highlightUnit(idx) {
+        clearHighlights();
+        if (idx >= 0 && idx < readUnits.length) {
+          const unit = readUnits[idx];
+          unit.classList.add('is-speaking');
+          unit.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+
+      function speakUnit(idx) {
+        if (!synth) return;
+        if (nextUtteranceTimeout) {
+          clearTimeout(nextUtteranceTimeout);
+          nextUtteranceTimeout = null;
+        }
+
+        if (idx < 0 || idx >= readUnits.length) {
+          setSpeakingState(false);
+          currentUnitIndex = -1;
+          lastSectionId = null;
+          return;
+        }
+
+        synth.cancel();
+        currentUnitIndex = idx;
+        const unit = readUnits[idx];
+        highlightUnit(idx);
+
+        const currentSection = unit.closest('section.doc-section');
+        const currentSecId = currentSection ? currentSection.id : null;
+        
+        // Detect section transition for topic announcement & deliberate pause
+        let isNewSection = (currentSecId && currentSecId !== lastSectionId);
+        lastSectionId = currentSecId;
+
+        let processedText = prepareSpeechText(unit);
+        
+        // If entering a new section, announce the Topic / Section header first
+        if (isNewSection && currentSection) {
+          const headerEl = currentSection.querySelector('.section-title');
+          if (headerEl) {
+            const hText = headerEl.innerText.trim();
+            processedText = 'New Topic: ' + hText + ' ... ... ' + processedText;
+          }
+        }
+
+        if (!processedText) {
+          speakUnit(idx + 1);
+          return;
+        }
+
+        const utterance = new SpeechSynthesisUtterance(processedText);
+        
+        // Calibrated study speech rate & natural pitch
+        const baseRate = parseFloat(speedSelect.value) || 0.9;
+        utterance.rate = baseRate;
+        utterance.pitch = 1.0;
+
+        const selectedVoiceIdx = voiceSelect.value;
+        if (selectedVoiceIdx !== 'default' && voices[selectedVoiceIdx]) {
+          utterance.voice = voices[selectedVoiceIdx];
+        } else if (voices.length > 0) {
+          utterance.voice = voices[0];
+        }
+
+        utterance.onend = () => {
+          if (currentUnitIndex === idx && !isPaused) {
+            // Calculate natural pause before next unit (longer pause if changing section/topic)
+            const nextIdx = idx + 1;
+            let pauseDuration = 400; // standard natural clause pause
+            
+            if (nextIdx < readUnits.length) {
+              const nextSec = readUnits[nextIdx].closest('section.doc-section');
+              if (nextSec && nextSec.id !== lastSectionId) {
+                pauseDuration = 1000; // 1 full second pause on topic change
+              }
+            }
+
+            nextUtteranceTimeout = setTimeout(() => {
+              speakUnit(nextIdx);
+            }, pauseDuration);
+          }
+        };
+
+        utterance.onerror = (e) => {
+          if (e.error !== 'interrupted' && e.error !== 'canceled') {
+            console.warn('TTS natural playback warning:', e);
+          }
+          setSpeakingState(false);
+        };
+
+        synth.speak(utterance);
+        setSpeakingState(true, false);
+      }
+
+      playPauseBtn.addEventListener('click', () => {
+        if (!synth) return;
+        if (synth.speaking && !synth.paused) {
+          synth.pause();
+          isPaused = true;
+          setSpeakingState(true, true);
+        } else if (synth.paused) {
+          synth.resume();
+          isPaused = false;
+          setSpeakingState(true, false);
+        } else {
+          isPaused = false;
+          speakUnit(currentUnitIndex >= 0 ? currentUnitIndex : 0);
+        }
+      });
+
+      stopBtn.addEventListener('click', () => {
+        if (!synth) return;
+        if (nextUtteranceTimeout) {
+          clearTimeout(nextUtteranceTimeout);
+          nextUtteranceTimeout = null;
+        }
+        synth.cancel();
+        isPaused = false;
+        setSpeakingState(false);
+        currentUnitIndex = -1;
+        lastSectionId = null;
+      });
+
+      nextBtn.addEventListener('click', () => {
+        if (!synth) return;
+        isPaused = false;
+        speakUnit(currentUnitIndex + 1);
+      });
+
+      prevBtn.addEventListener('click', () => {
+        if (!synth) return;
+        isPaused = false;
+        speakUnit(Math.max(0, currentUnitIndex - 1));
+      });
+
+      speedSelect.addEventListener('change', () => {
+        if (synth && synth.speaking) {
+          speakUnit(currentUnitIndex);
+        }
+      });
+
+      voiceSelect.addEventListener('change', () => {
+        if (synth && synth.speaking) {
+          speakUnit(currentUnitIndex);
+        }
+      });
+
+      // Click on any paragraph to read from that exact spot with natural cadence
+      document.getElementById('contentWrapper').addEventListener('click', (e) => {
+        const unit = e.target.closest('.read-unit');
+        if (unit) {
+          const idx = readUnits.indexOf(unit);
+          if (idx !== -1) {
+            isPaused = false;
+            speakUnit(idx);
+          }
+        }
+      });
+
+      // Section Quick-Listen Handler
+      window.readSection = function(sectionId) {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          const firstUnit = el.querySelector('.read-unit');
+          if (firstUnit) {
+            const idx = readUnits.indexOf(firstUnit);
+            if (idx !== -1) {
+              isPaused = false;
+              lastSectionId = null; // force announcement of section
+              speakUnit(idx);
+            }
+          }
+        }
+      };
+
+      // Floating Selection Audio Button (with natural legal abbreviation expander)
+      const floatBtn = document.getElementById('floatingTtsTrigger');
+      document.addEventListener('mouseup', (e) => {
+        if (e.target.closest('#floatingTtsTrigger') || e.target.closest('.tts-toolbar') || e.target.closest('header')) return;
+        const sel = window.getSelection().toString().trim();
+        if (sel.length > 2) {
+          const rect = window.getSelection().getRangeAt(0).getBoundingClientRect();
+          floatBtn.style.top = (window.scrollY + rect.top - 44) + 'px';
+          floatBtn.style.left = (window.scrollX + rect.left + (rect.width / 2)) + 'px';
+          floatBtn.style.display = 'block';
+        } else {
+          floatBtn.style.display = 'none';
+        }
+      });
+
+      floatBtn.addEventListener('click', () => {
+        const sel = window.getSelection().toString().trim();
+        if (sel && synth) {
+          synth.cancel();
+          const dummyUnit = document.createElement('div');
+          dummyUnit.innerText = sel;
+          const naturalText = prepareSpeechText(dummyUnit);
+
+          const utterance = new SpeechSynthesisUtterance(naturalText);
+          utterance.rate = parseFloat(speedSelect.value) || 0.9;
+          utterance.pitch = 1.0;
+
+          const selectedVoiceIdx = voiceSelect.value;
+          if (selectedVoiceIdx !== 'default' && voices[selectedVoiceIdx]) {
+            utterance.voice = voices[selectedVoiceIdx];
+          } else if (voices.length > 0) {
+            utterance.voice = voices[0];
+          }
+
+          synth.speak(utterance);
+          setSpeakingState(true);
+          floatBtn.style.display = 'none';
+        }
+      });
+
+      // Keyboard Navigation
+      document.addEventListener('keydown', (e) => {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA') return;
+        if (e.code === 'Space') {
+          e.preventDefault();
+          playPauseBtn.click();
+        } else if (e.code === 'Escape') {
+          stopBtn.click();
+        } else if (e.key === 'n' || e.key === 'N') {
+          nextBtn.click();
+        } else if (e.key === 'p' || e.key === 'P') {
+          prevBtn.click();
+        } else if (e.key === 'd' || e.key === 'D') {
+          themeSelect.value = 'dark';
+          themeSelect.dispatchEvent(new Event('change'));
+        } else if (e.key === 's' || e.key === 'S') {
+          themeSelect.value = 'sepia';
+          themeSelect.dispatchEvent(new Event('change'));
+        } else if (e.key === 'l' || e.key === 'L') {
+          themeSelect.value = 'light';
+          themeSelect.dispatchEvent(new Event('change'));
+        } else if (e.key === '+' || e.key === '=') {
+          document.getElementById('fontIncBtn').click();
+        } else if (e.key === '-') {
+          document.getElementById('fontDecBtn').click();
+        } else if (e.key === '/') {
+          e.preventDefault();
+          searchInput.focus();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

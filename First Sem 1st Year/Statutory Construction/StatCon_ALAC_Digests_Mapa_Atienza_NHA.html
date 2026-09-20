@@ -1,0 +1,2214 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Statutory Construction comprehensive review notes and study materials.">
+  <title>StatCon ALAC Digests Mapa Atienza NHA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0f172a;
+      --bg-secondary: #1e293b;
+      --bg-tertiary: #334155;
+      --bg-card: rgba(30, 41, 59, 0.75);
+      --bg-card-hover: rgba(51, 65, 85, 0.85);
+      --border-color: rgba(148, 163, 184, 0.18);
+      --border-focus: #38bdf8;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --accent-gold: #fbbf24;
+      --accent-gold-dark: #d97706;
+      --accent-blue: #38bdf8;
+      --accent-indigo: #818cf8;
+      --accent-emerald: #34d399;
+      --accent-rose: #fb7185;
+      --highlight-reading: rgba(56, 189, 248, 0.28);
+      --font-body: 'Merriweather', Georgia, serif;
+      --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-heading: 'Cinzel', serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --sidebar-width: 320px;
+      --header-height: 72px;
+      --content-max-width: 880px;
+      --base-font-size: 17px;
+      --line-height: 1.85;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+      --glass-blur: blur(14px);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #ffffff;
+      --bg-tertiary: #e2e8f0;
+      --bg-card: rgba(255, 255, 255, 0.9);
+      --bg-card-hover: rgba(241, 245, 249, 0.98);
+      --border-color: rgba(203, 213, 225, 0.85);
+      --border-focus: #0284c7;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --accent-gold: #b45309;
+      --accent-gold-dark: #92400e;
+      --accent-blue: #0284c7;
+      --accent-indigo: #4f46e5;
+      --accent-emerald: #059669;
+      --accent-rose: #e11d48;
+      --highlight-reading: rgba(2, 132, 199, 0.18);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+    }
+
+    [data-theme="sepia"] {
+      --bg-primary: #fbf0d9;
+      --bg-secondary: #f4e4c1;
+      --bg-tertiary: #ecd6a7;
+      --bg-card: rgba(244, 228, 193, 0.9);
+      --bg-card-hover: rgba(236, 214, 167, 0.98);
+      --border-color: rgba(180, 150, 110, 0.45);
+      --border-focus: #9a6700;
+      --text-primary: #2d241e;
+      --text-secondary: #4a3b32;
+      --text-muted: #786455;
+      --accent-gold: #a75d00;
+      --accent-gold-dark: #8c4c00;
+      --accent-blue: #2c6e91;
+      --accent-indigo: #5d4a82;
+      --accent-emerald: #2e7d32;
+      --accent-rose: #c2185b;
+      --highlight-reading: rgba(200, 150, 50, 0.28);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: var(--base-font-size);
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      line-height: var(--line-height);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.25s ease, color 0.25s ease;
+      overflow-x: hidden;
+    }
+
+    /* Top Reading Progress Bar */
+    #readingProgressBar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue));
+      z-index: 999;
+      transition: width 0.1s ease;
+    }
+
+    /* Top Sticky Navigation Bar */
+    header.app-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--header-height);
+      background-color: rgba(15, 23, 42, 0.88);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      gap: 1rem;
+    }
+
+    [data-theme="light"] header.app-header {
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    [data-theme="sepia"] header.app-header {
+      background-color: rgba(251, 240, 217, 0.92);
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0f172a;
+      font-weight: 800;
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      box-shadow: 0 2px 8px rgba(251, 191, 36, 0.35);
+      text-decoration: none;
+    }
+
+    .brand-titles {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: var(--font-ui);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 300px;
+    }
+
+    .brand-subtitle {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      color: var(--accent-gold);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Global TTS Controls Toolbar */
+    .tts-toolbar {
+      display: flex;
+      align-items: center;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      padding: 0.35rem 0.65rem;
+      border-radius: 40px;
+      gap: 0.45rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .tts-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-primary);
+      cursor: pointer;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      font-size: 0.95rem;
+    }
+
+    .tts-btn:hover {
+      background-color: var(--bg-tertiary);
+      color: var(--accent-gold);
+    }
+
+    .tts-btn.primary {
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+      color: #0f172a;
+      font-weight: 700;
+      box-shadow: 0 2px 6px rgba(251, 191, 36, 0.4);
+    }
+
+    .tts-btn.primary:hover {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
+
+    .tts-status-badge {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.55rem;
+      border-radius: 20px;
+      background-color: var(--bg-tertiary);
+      color: var(--text-muted);
+      min-width: 90px;
+      text-align: center;
+    }
+
+    .tts-status-badge.speaking {
+      background-color: rgba(56, 189, 248, 0.2);
+      color: var(--accent-blue);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      animation: pulseGlow 1.5s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      from { box-shadow: 0 0 4px rgba(56, 189, 248, 0.2); }
+      to { box-shadow: 0 0 10px rgba(56, 189, 248, 0.5); }
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .control-select {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 0.4rem 0.65rem;
+      border-radius: 8px;
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .control-select:focus {
+      border-color: var(--border-focus);
+    }
+
+    .icon-btn {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+
+    .icon-btn:hover {
+      background-color: var(--bg-tertiary);
+      border-color: var(--border-focus);
+    }
+
+    /* Main Application Layout */
+    .app-layout {
+      display: flex;
+      flex: 1;
+      position: relative;
+    }
+
+    /* Sticky Sidebar Navigation */
+    aside.app-sidebar {
+      width: var(--sidebar-width);
+      height: calc(100vh - var(--header-height));
+      position: sticky;
+      top: var(--header-height);
+      background-color: var(--bg-secondary);
+      border-right: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      overflow-y: auto;
+      z-index: 50;
+      transition: transform 0.3s ease;
+    }
+
+    .sidebar-header {
+      padding: 1.25rem 1rem 0.75rem 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .sidebar-search {
+      position: relative;
+      width: 100%;
+    }
+
+    .sidebar-search input {
+      width: 100%;
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.5rem 0.75rem 0.5rem 2rem;
+      color: var(--text-primary);
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .sidebar-search input:focus {
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+    }
+
+    .sidebar-search .search-icon {
+      position: absolute;
+      left: 0.65rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    .toc-container {
+      padding: 0.75rem 0.5rem;
+      flex: 1;
+    }
+
+    .toc-nav ul {
+      list-style: none;
+    }
+
+    .toc-nav li {
+      margin-bottom: 0.2rem;
+    }
+
+    .toc-link {
+      display: block;
+      padding: 0.45rem 0.75rem;
+      border-radius: 6px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      font-weight: 500;
+      line-height: 1.4;
+      transition: all 0.2s ease;
+      border-left: 2px solid transparent;
+    }
+
+    .toc-link:hover {
+      background-color: var(--bg-tertiary);
+      color: var(--text-primary);
+    }
+
+    .toc-link.active {
+      background-color: rgba(56, 189, 248, 0.12);
+      color: var(--accent-blue);
+      border-left-color: var(--accent-blue);
+      font-weight: 600;
+    }
+
+    .toc-link.level-2 {
+      padding-left: 1.25rem;
+      font-size: 0.78rem;
+    }
+
+    .toc-link.level-3 {
+      padding-left: 1.75rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Main Content Container */
+    main.app-content {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      padding: 2.5rem 2rem;
+      overflow-y: visible;
+    }
+
+    .content-wrapper {
+      max-width: var(--content-max-width);
+      width: 100%;
+    }
+
+    /* Document Header Banner */
+    .document-hero {
+      background: linear-gradient(145deg, var(--bg-card), var(--bg-secondary));
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2.25rem 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .document-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue), var(--accent-indigo));
+    }
+
+    .doc-badge {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      background: rgba(251, 191, 36, 0.15);
+      color: var(--accent-gold);
+      border: 1px solid rgba(251, 191, 36, 0.3);
+      margin-bottom: 0.85rem;
+    }
+
+    .doc-main-title {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+    }
+
+    .doc-subtitle {
+      font-family: var(--font-ui);
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .doc-meta-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    /* Section & Content Styling */
+    section.doc-section {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2.25rem;
+      box-shadow: var(--shadow-md);
+      transition: border-color 0.2s ease;
+    }
+
+    section.doc-section:hover {
+      border-color: rgba(148, 163, 184, 0.35);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+      line-height: 1.4;
+    }
+
+    .section-title.level-2 {
+      font-size: 1.2rem;
+      color: var(--text-primary);
+    }
+
+    .section-title.level-3 {
+      font-size: 1.05rem;
+      color: var(--accent-blue);
+    }
+
+    .section-listen-btn {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.3rem 0.7rem;
+      border-radius: 20px;
+      background-color: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: all 0.2s ease;
+    }
+
+    .section-listen-btn:hover {
+      background-color: var(--accent-gold);
+      color: #0f172a;
+      border-color: var(--accent-gold);
+    }
+
+    /* Read Units & Paragraphs */
+    .read-unit {
+      position: relative;
+      margin-bottom: 1.15rem;
+      padding: 0.4rem 0.7rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .read-unit:hover {
+      background-color: rgba(148, 163, 184, 0.08);
+    }
+
+    .read-unit.is-speaking {
+      background-color: var(--highlight-reading) !important;
+      border-left: 3px solid var(--accent-blue);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
+    }
+
+    .bullet-point {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+    }
+
+    .bullet-dot {
+      color: var(--accent-gold);
+      font-weight: bold;
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+
+    .bullet-num {
+      color: var(--accent-blue);
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .bullet-content {
+      flex: 1;
+    }
+
+    .reader-quote {
+      border-left: 4px solid var(--accent-gold);
+      padding: 0.75rem 1.25rem;
+      background-color: rgba(251, 191, 36, 0.06);
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: var(--text-secondary);
+      margin: 1.25rem 0;
+    }
+
+    .reader-code {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1rem;
+      overflow-x: auto;
+      line-height: 1.5;
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+      margin: 1.25rem 0;
+    }
+
+    .reader-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-ui);
+      font-size: 0.88rem;
+    }
+
+    .reader-table th, .reader-table td {
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border-color);
+      text-align: left;
+    }
+
+    .reader-table th {
+      background-color: var(--bg-secondary);
+      color: var(--accent-gold);
+      font-weight: 600;
+    }
+
+    .reader-table tr:nth-child(even) {
+      background-color: rgba(148, 163, 184, 0.04);
+    }
+
+    /* Case Elements Badges */
+    .case-element {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .case-badge {
+      font-family: var(--font-ui);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+      flex-shrink: 0;
+      margin-top: 0.25rem;
+    }
+
+    .badge-facts { background: rgba(56, 189, 248, 0.18); color: var(--accent-blue); border: 1px solid rgba(56, 189, 248, 0.35); }
+    .badge-issue { background: rgba(251, 191, 36, 0.18); color: var(--accent-gold); border: 1px solid rgba(251, 191, 36, 0.35); }
+    .badge-held { background: rgba(52, 211, 153, 0.18); color: var(--accent-emerald); border: 1px solid rgba(52, 211, 153, 0.35); }
+    .badge-doctrine { background: rgba(251, 113, 133, 0.18); color: var(--accent-rose); border: 1px solid rgba(251, 113, 133, 0.35); }
+
+    .legal-citation {
+      font-weight: 600;
+      color: var(--accent-gold);
+      border-bottom: 1px dotted rgba(251, 191, 36, 0.5);
+    }
+
+    .section-divider {
+      border: 0;
+      height: 1px;
+      background: var(--border-color);
+      margin: 1.5rem 0;
+    }
+
+    /* Floating TTS Trigger on Selection */
+    #floatingTtsTrigger {
+      position: absolute;
+      display: none;
+      z-index: 1000;
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+      color: #0f172a;
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 20px;
+      padding: 0.4rem 0.85rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      cursor: pointer;
+      transform: translateX(-50%);
+      transition: transform 0.15s ease, filter 0.15s ease;
+    }
+
+    #floatingTtsTrigger:hover {
+      transform: translateX(-50%) scale(1.05);
+      filter: brightness(1.1);
+    }
+
+    /* Footer */
+    footer.app-footer {
+      background-color: var(--bg-secondary);
+      border-top: 1px solid var(--border-color);
+      padding: 1.5rem;
+      text-align: center;
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: auto;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 900px) {
+      aside.app-sidebar {
+        position: fixed;
+        left: 0;
+        top: var(--header-height);
+        transform: translateX(-100%);
+        box-shadow: var(--shadow-lg);
+      }
+
+      aside.app-sidebar.open {
+        transform: translateX(0);
+      }
+
+      .brand-title {
+        max-width: 180px;
+      }
+
+      .tts-status-badge {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="readingProgressBar"></div>
+
+  <!-- App Header -->
+  <header class="app-header">
+    <div class="brand-section">
+      <button class="icon-btn" id="toggleSidebarBtn" title="Toggle Table of Contents">☰</button>
+      <a href="#" class="brand-logo" title="MLC Law Reader">⚖</a>
+      <div class="brand-titles">
+        <span class="brand-title">StatCon ALAC Digests Mapa Atienza NHA</span>
+        <span class="brand-subtitle">Statutory Construction • Interactive Reader</span>
+      </div>
+    </div>
+
+    <!-- TTS Toolbar -->
+    <div class="tts-toolbar">
+      <button class="tts-btn" id="ttsPrevBtn" title="Previous Paragraph (P)">⏮</button>
+      <button class="tts-btn primary" id="ttsPlayPauseBtn" title="Play / Pause (Space)">
+        <span id="ttsPlayIcon">▶</span>
+        <span id="ttsPauseIcon" style="display:none;">⏸</span>
+      </button>
+      <button class="tts-btn" id="ttsStopBtn" title="Stop (Esc)">⏹</button>
+      <button class="tts-btn" id="ttsNextBtn" title="Next Paragraph (N)">⏭</button>
+      <span class="tts-status-badge" id="ttsStatus">Ready</span>
+    </div>
+
+    <!-- Right Controls -->
+    <div class="header-actions">
+      <select class="control-select" id="ttsSpeedSelect" title="Reading Speed (Deliberate Study Pace)">
+        <option value="0.75">0.75x (Slow)</option>
+        <option value="0.85">0.85x (Very Clear)</option>
+        <option value="0.9" selected>0.9x (Deliberate)</option>
+        <option value="1.0">1.0x (Normal)</option>
+        <option value="1.15">1.15x</option>
+        <option value="1.25">1.25x</option>
+        <option value="1.5">1.5x</option>
+      </select>
+      <select class="control-select" id="ttsVoiceSelect" title="Speech Voice (Neural Natural Voices First)" style="max-width: 155px;">
+        <option value="default">Natural Voice (Auto)</option>
+      </select>
+      <button class="icon-btn" id="fontDecBtn" title="Decrease Font Size ( - )">A-</button>
+      <button class="icon-btn" id="fontIncBtn" title="Increase Font Size ( + )">A+</button>
+      <select class="control-select" id="themeSelect" title="Visual Theme">
+        <option value="dark">🌙 Dark</option>
+        <option value="sepia">📜 Sepia</option>
+        <option value="light">☀️ Light</option>
+      </select>
+    </div>
+  </header>
+
+  <!-- Layout Container -->
+  <div class="app-layout">
+    <!-- Table of Contents Sidebar -->
+    <aside class="app-sidebar" id="appSidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-search">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="sidebarSearch" placeholder="Search topics, cases... ( / )" autocomplete="off">
+        </div>
+      </div>
+      <div class="toc-container">
+        <nav class="toc-nav">
+          <ul id="tocList">
+            <li><a href="#sec-1-manila-law-college" class="toc-link level-2">MANILA LAW COLLEGE</a></li>
+            <li><a href="#sec-2-case-digests-in-alac-format-statutory-construction-analysis" class="toc-link level-2">CASE DIGESTS IN ALAC FORMAT &amp; STATUTORY CONSTRUCTION ANALYSIS</a></li>
+            <li><a href="#sec-3-1-people-v-mapa-gr-no-l-22301-30-august-1967" class="toc-link level-3">1. People v. Mapa, G.R. No. L-22301, 30 August 1967</a></li>
+            <li><a href="#sec-4-2-atienza-v-villarosa-gr-no-161081-10-may-2005" class="toc-link level-3">2. Atienza v. Villarosa, G.R. No. 161081, 10 May 2005</a></li>
+            <li><a href="#sec-5-3-nha-v-reyes-gr-no-l-49439-29-june-1983" class="toc-link level-3">3. NHA v. Reyes, G.R. No. L-49439, 29 June 1983</a></li>
+            <li><a href="#sec-6-1-people-of-the-philippines-v-mario-mapa-y-mapulong" class="toc-link level-3">1. PEOPLE OF THE PHILIPPINES v. MARIO MAPA Y MAPULONG</a></li>
+            <li><a href="#sec-7-i-parties-procedural-background" class="toc-link level-2">I. PARTIES &amp; PROCEDURAL BACKGROUND</a></li>
+            <li><a href="#sec-8-ii-whole-facts" class="toc-link level-2">II. WHOLE FACTS</a></li>
+            <li><a href="#sec-9-iii-the-legal-issue" class="toc-link level-2">III. THE LEGAL ISSUE</a></li>
+            <li><a href="#sec-10-how-to-tackle-in-recitation-simple-wording-the-legal-issue" class="toc-link level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: THE LEGAL ISSUE]</a></li>
+            <li><a href="#sec-11-iv-alac-digest" class="toc-link level-2">IV. ALAC DIGEST</a></li>
+            <li><a href="#sec-12-a-answer" class="toc-link level-2">[A] ANSWER:</a></li>
+            <li><a href="#sec-13-how-to-tackle-in-recitation-simple-wording-the-answer" class="toc-link level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: THE ANSWER]</a></li>
+            <li><a href="#sec-14-l-legal-basis" class="toc-link level-2">[L] LEGAL BASIS:</a></li>
+            <li><a href="#sec-15-how-to-tackle-in-recitation-simple-wording-legal-basis" class="toc-link level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: LEGAL BASIS]</a></li>
+            <li><a href="#sec-16-a-analysis-application" class="toc-link level-2">[A] ANALYSIS / APPLICATION:</a></li>
+            <li><a href="#sec-17-how-to-tackle-in-recitation-simple-wording-analysis-applicat" class="toc-link level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: ANALYSIS / APPLICATION]</a></li>
+            <li><a href="#sec-18-c-conclusion" class="toc-link level-2">[C] CONCLUSION:</a></li>
+            <li><a href="#sec-19-how-to-tackle-in-recitation-simple-wording-conclusion" class="toc-link level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: CONCLUSION]</a></li>
+            <li><a href="#sec-20-v-relation-to-statutory-construction-statcon_syllabus_jprpdf" class="toc-link level-2">V. RELATION TO STATUTORY CONSTRUCTION (StatCon_Syllabus_JPR.pdf)</a></li>
+            <li><a href="#sec-21-latin-maxims-with-english-translation-legal-meaning" class="toc-link level-2">LATIN MAXIMS WITH ENGLISH TRANSLATION &amp; LEGAL MEANING:</a></li>
+            <li><a href="#sec-22-how-to-tackle-in-recitation-simple-wording-relation-to-statu" class="toc-link level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: RELATION TO STATUTORY CONSTRUCTION]</a></li>
+            <li><a href="#sec-23-2-ramon-m-atienza-v-jose-t-villarosa" class="toc-link level-3">2. RAMON M. ATIENZA v. JOSE T. VILLAROSA</a></li>
+            <li><a href="#sec-24-i-parties-procedural-background" class="toc-link level-2">I. PARTIES &amp; PROCEDURAL BACKGROUND</a></li>
+            <li><a href="#sec-25-ii-whole-facts" class="toc-link level-2">II. WHOLE FACTS</a></li>
+            <li><a href="#sec-26-iii-the-legal-issues" class="toc-link level-2">III. THE LEGAL ISSUES</a></li>
+            <li><a href="#sec-27-how-to-tackle-in-recitation-simple-wording-the-legal-issue" class="toc-link level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: THE LEGAL ISSUE]</a></li>
+            <li><a href="#sec-28-iv-alac-digest" class="toc-link level-2">IV. ALAC DIGEST</a></li>
+            <li><a href="#sec-29-a-answer" class="toc-link level-2">[A] ANSWER:</a></li>
+            <li><a href="#sec-30-how-to-tackle-in-recitation-simple-wording-the-answer" class="toc-link level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: THE ANSWER]</a></li>
+            <li><a href="#sec-31-l-legal-basis" class="toc-link level-2">[L] LEGAL BASIS:</a></li>
+            <li><a href="#sec-32-how-to-tackle-in-recitation-simple-wording-legal-basis" class="toc-link level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: LEGAL BASIS]</a></li>
+            <li><a href="#sec-33-a-analysis-application" class="toc-link level-2">[A] ANALYSIS / APPLICATION:</a></li>
+            <li><a href="#sec-34-how-to-tackle-in-recitation-simple-wording-analysis-applicat" class="toc-link level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: ANALYSIS / APPLICATION]</a></li>
+            <li><a href="#sec-35-c-conclusion" class="toc-link level-2">[C] CONCLUSION:</a></li>
+            <li><a href="#sec-36-how-to-tackle-in-recitation-simple-wording-conclusion" class="toc-link level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: CONCLUSION]</a></li>
+            <li><a href="#sec-37-v-relation-to-statutory-construction-statcon_syllabus_jprpdf" class="toc-link level-2">V. RELATION TO STATUTORY CONSTRUCTION (StatCon_Syllabus_JPR.pdf)</a></li>
+            <li><a href="#sec-38-latin-maxims-with-english-translation-legal-meaning" class="toc-link level-2">LATIN MAXIMS WITH ENGLISH TRANSLATION &amp; LEGAL MEANING:</a></li>
+            <li><a href="#sec-39-how-to-tackle-in-recitation-simple-wording-relation-to-statu" class="toc-link level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: RELATION TO STATUTORY CONSTRUCTION]</a></li>
+            <li><a href="#sec-40-i-parties-procedural-background" class="toc-link level-2">I. PARTIES &amp; PROCEDURAL BACKGROUND</a></li>
+            <li><a href="#sec-41-ii-whole-facts" class="toc-link level-2">II. WHOLE FACTS</a></li>
+            <li><a href="#sec-42-iii-the-legal-issue" class="toc-link level-2">III. THE LEGAL ISSUE</a></li>
+            <li><a href="#sec-43-how-to-tackle-in-recitation-simple-wording-the-legal-issue" class="toc-link level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: THE LEGAL ISSUE]</a></li>
+            <li><a href="#sec-44-iv-alac-digest" class="toc-link level-2">IV. ALAC DIGEST</a></li>
+            <li><a href="#sec-45-a-answer" class="toc-link level-2">[A] ANSWER:</a></li>
+            <li><a href="#sec-46-how-to-tackle-in-recitation-simple-wording-the-answer" class="toc-link level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: THE ANSWER]</a></li>
+            <li><a href="#sec-47-l-legal-basis" class="toc-link level-2">[L] LEGAL BASIS:</a></li>
+            <li><a href="#sec-48-how-to-tackle-in-recitation-simple-wording-legal-basis" class="toc-link level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: LEGAL BASIS]</a></li>
+            <li><a href="#sec-49-a-analysis-application" class="toc-link level-2">[A] ANALYSIS / APPLICATION:</a></li>
+            <li><a href="#sec-50-how-to-tackle-in-recitation-simple-wording-analysis-applicat" class="toc-link level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: ANALYSIS / APPLICATION]</a></li>
+            <li><a href="#sec-51-c-conclusion" class="toc-link level-2">[C] CONCLUSION:</a></li>
+            <li><a href="#sec-52-how-to-tackle-in-recitation-simple-wording-conclusion" class="toc-link level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: CONCLUSION]</a></li>
+            <li><a href="#sec-53-v-relation-to-statutory-construction-statcon_syllabus_jprpdf" class="toc-link level-2">V. RELATION TO STATUTORY CONSTRUCTION (StatCon_Syllabus_JPR.pdf)</a></li>
+            <li><a href="#sec-54-latin-maxims-with-english-translation-legal-meaning" class="toc-link level-2">LATIN MAXIMS WITH ENGLISH TRANSLATION &amp; LEGAL MEANING:</a></li>
+            <li><a href="#sec-55-how-to-tackle-in-recitation-simple-wording-relation-to-statu" class="toc-link level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: RELATION TO STATUTORY CONSTRUCTION]</a></li>
+            <li><a href="#sec-56-summary-syllabus-cross-reference-grid" class="toc-link level-2">SUMMARY SYLLABUS CROSS-REFERENCE GRID</a></li>
+            <li><a href="#sec-57-1-people-v-mapa-gr-no-l-22301" class="toc-link level-3">1. People v. Mapa (G.R. No. L-22301)</a></li>
+            <li><a href="#sec-58-2-atienza-v-villarosa-gr-no-161081" class="toc-link level-3">2. Atienza v. Villarosa (G.R. No. 161081)</a></li>
+            <li><a href="#sec-59-3-nha-v-reyes-gr-no-l-49439" class="toc-link level-3">3. NHA v. Reyes (G.R. No. L-49439)</a></li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="app-content" id="mainContentArea">
+      <div class="content-wrapper" id="contentWrapper">
+        <!-- Hero Header -->
+        <div class="document-hero">
+          <span class="doc-badge">Statutory Construction</span>
+          <h1 class="doc-main-title">StatCon ALAC Digests Mapa Atienza NHA</h1>
+          <p class="doc-subtitle">Statutory Construction comprehensive review notes and study materials.</p>
+          <div class="doc-meta-bar">
+            <div class="meta-item"><span>📑</span> <span>59 Sections</span></div>
+            <div class="meta-item"><span>🔊</span> <span id="totalUnitsCounter">315 Read Units</span></div>
+            <div class="meta-item"><span>⏱</span> <span>~69 min read</span></div>
+            <div class="meta-item"><span>🎙</span> <span>Intelligent Natural Speech</span></div>
+          </div>
+        </div>
+
+        <!-- Document Sections -->
+        
+        <section class="doc-section" id="sec-1-manila-law-college">
+          <header class="section-header">
+            <h3 class="section-title level-2">MANILA LAW COLLEGE</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-1-manila-law-college')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Subject: Statutory Construction (2 units)</p>
+        <p class="read-unit" data-unit-type="paragraph">Instructor: Atty. Jason P. Raposas</p>
+        <p class="read-unit" data-unit-type="paragraph">Reference Syllabus: StatCon_Syllabus_JPR.pdf</p>
+        <p class="read-unit" data-unit-type="paragraph">================================================================================</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-2-case-digests-in-alac-format-statutory-construction-analysis">
+          <header class="section-header">
+            <h3 class="section-title level-2">CASE DIGESTS IN ALAC FORMAT &amp; STATUTORY CONSTRUCTION ANALYSIS</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-2-case-digests-in-alac-format-statutory-construction-analysis')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">(With Latin Maxims + Inline English Translations: Latin [English])</p>
+        <p class="read-unit" data-unit-type="paragraph">================================================================================</p>
+        <p class="read-unit" data-unit-type="paragraph">Cases:</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-3-1-people-v-mapa-gr-no-l-22301-30-august-1967">
+          <header class="section-header">
+            <h4 class="section-title level-3">1. People v. Mapa, G.R. No. L-22301, 30 August 1967</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-3-1-people-v-mapa-gr-no-l-22301-30-august-1967')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-4-2-atienza-v-villarosa-gr-no-161081-10-may-2005">
+          <header class="section-header">
+            <h4 class="section-title level-3">2. Atienza v. Villarosa, G.R. No. 161081, 10 May 2005</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-4-2-atienza-v-villarosa-gr-no-161081-10-may-2005')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-5-3-nha-v-reyes-gr-no-l-49439-29-june-1983">
+          <header class="section-header">
+            <h4 class="section-title level-3">3. NHA v. Reyes, G.R. No. L-49439, 29 June 1983</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-5-3-nha-v-reyes-gr-no-l-49439-29-june-1983')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">================================================================================</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-6-1-people-of-the-philippines-v-mario-mapa-y-mapulong">
+          <header class="section-header">
+            <h4 class="section-title level-3">1. PEOPLE OF THE PHILIPPINES v. MARIO MAPA Y MAPULONG</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-6-1-people-of-the-philippines-v-mario-mapa-y-mapulong')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">G.R. No. L-22301 | August 30, 1967 | 20 SCRA 1164 | En Banc | Ponente: J. Fernando</p>
+        <p class="read-unit" data-unit-type="paragraph">================================================================================</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-7-i-parties-procedural-background">
+          <header class="section-header">
+            <h3 class="section-title level-2">I. PARTIES &amp; PROCEDURAL BACKGROUND</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-7-i-parties-procedural-background')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Plaintiff-Appellee: People of the Philippines (represented by the Solicitor General)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Accused-Appellant: Mario Mapa y Mapulong</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Originating Court: Court of First Instance (CFI) of Manila (Branch VII)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Nature of the Action: Criminal prosecution for Illegal Possession of Firearm and Ammunition under Section 878 in relation to Section 2692 of the Revised Administrative Code (as amended by R.A. No. 4).</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-8-ii-whole-facts">
+          <header class="section-header">
+            <h3 class="section-title level-2">II. WHOLE FACTS</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-8-ii-whole-facts')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Mario Mapa was apprehended in Manila and charged with illegal possession of an unlicensed .22 caliber revolver with six (6) rounds of live ammunition. During trial, Mapa admitted possessing the firearm without an official license issued by the Philippine Constabulary. However, he raised an affirmative defense: he presented a certificate and badge issued by Governor Feliciano Leviste of Batangas appointing him as a &quot;Secret Agent&quot; of the Provincial Governor.</p>
+        <p class="read-unit" data-unit-type="paragraph">Mapa argued that under previous Supreme Court doctrines — specifically People v. Macarandang (1959) and People v. Lucero (1958) — secret agents and special agents appointed by provincial governors or mayors were deemed &quot;peace officers&quot; and were therefore exempt from firearm licensing requirements under Section 879 of the Revised Administrative Code.</p>
+        <p class="read-unit" data-unit-type="paragraph">Plain Meaning Summary of Facts:</p>
+        <p class="read-unit" data-unit-type="paragraph">Mario Mapa was caught with an unlicensed gun and ammunition. He claimed he could not be convicted because the Batangas Governor appointed him as a &quot;secret agent&quot; and gave him a badge. He argued that prior Supreme Court cases treated secret agents as &quot;peace officers&quot; exempt from gun license laws.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------------------------------------------------</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-9-iii-the-legal-issue">
+          <header class="section-header">
+            <h3 class="section-title level-2">III. THE LEGAL ISSUE</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-9-iii-the-legal-issue')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------------------------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Whether or not an appointment as a &quot;secret agent&quot; by a provincial governor exempts the appointee from criminal liability for illegal possession of firearms under Section 879 of the Revised Administrative Code.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-10-how-to-tackle-in-recitation-simple-wording-the-legal-issue">
+          <header class="section-header">
+            <h3 class="section-title level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: THE LEGAL ISSUE]</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-10-how-to-tackle-in-recitation-simple-wording-the-legal-issue')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Plain Meaning Explanation of the Issue:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">The court had to decide if a provincial governor&#x27;s administrative appointment could act as a legal shield against a criminal charge for illegal possession of firearms. Does being appointed a &quot;secret agent&quot; make you a &quot;peace officer&quot; exempt from firearm licensing, even though the statute never mentions secret agents?</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* How to Tackle in Recitation When Called:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">&quot;Sir/Ma&#x27;am, the core issue is whether the statutory exemptions under Section 879 of the Revised Administrative Code can be judicially expanded to include &#x27;secret agents&#x27; appointed by a provincial governor, despite their absence from the explicit text of the law.&quot;</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------------------------------------------------</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-11-iv-alac-digest">
+          <header class="section-header">
+            <h3 class="section-title level-2">IV. ALAC DIGEST</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-11-iv-alac-digest')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------------------------------------------------</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-12-a-answer">
+          <header class="section-header">
+            <h3 class="section-title level-2">[A] ANSWER:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-12-a-answer')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">No. An appointment as a &quot;secret agent&quot; does not exempt a person from criminal liability for illegal possession of firearms. The law explicitly enumerates the persons exempt from firearm licensing, and secret agents are not included in the statutory text.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-13-how-to-tackle-in-recitation-simple-wording-the-answer">
+          <header class="section-header">
+            <h3 class="section-title level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: THE ANSWER]</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-13-how-to-tackle-in-recitation-simple-wording-the-answer')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Plain Meaning Explanation of the Answer:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">A secret agent has no special right to carry an unlicensed gun. The law contains a closed, specific list of exempt public officials, and secret agents are not on it.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* How to Tackle in Recitation When Called:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">&quot;No, Sir/Ma&#x27;am. A secret agent is NOT exempt from the requirement of a firearm license. The statutory enumeration in Section 879 of the Revised Administrative Code is explicit and exclusive.&quot;</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------------------------------------------------</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-14-l-legal-basis">
+          <header class="section-header">
+            <h3 class="section-title level-2">[L] LEGAL BASIS:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-14-l-legal-basis')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">1. Section 878, Revised Administrative Code (RAC): Penalizes unlawful possession of firearms and ammunition without license.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">2. Section 879, Revised Administrative Code (RAC): Strictly and explicitly enumerates public officers exempt from firearm licensing requirements (e.g., provincial governors, lieutenant governors, provincial treasurers, municipal mayors, and regular members of municipal police forces).</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">3. Fundamental Canon of Construction: Verba Legis (the words of the law / plain meaning rule)  —  The first and fundamental duty of courts is to apply the law as written. When statutory language is plain and unambiguous, construction and interpretation are impermissible.</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-15-how-to-tackle-in-recitation-simple-wording-legal-basis">
+          <header class="section-header">
+            <h3 class="section-title level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: LEGAL BASIS]</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-15-how-to-tackle-in-recitation-simple-wording-legal-basis')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Plain Meaning Explanation of the Legal Basis:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">The case is anchored on the literal wording of Section 879 of the Revised Administrative Code and the cardinal rule of statutory construction that clear laws must be applied as written.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* How to Tackle in Recitation When Called:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">&quot;Sir/Ma&#x27;am, the legal basis consists of:</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">1. Section 878 and Section 879 of the Revised Administrative Code, which penalizes firearm possession and strictly enumerates exempt officers; and</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">2. The doctrine of Verba Legis (the words of the law)  —  where the law is clear, there is no room for interpretation, only application.&quot;</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------------------------------------------------</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-16-a-analysis-application">
+          <header class="section-header">
+            <h3 class="section-title level-2">[A] ANALYSIS / APPLICATION:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-16-a-analysis-application')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">1. Explicit Statutory Enumeration: Section 879 of the RAC contains a specific and clear list of exempt public officials. &quot;Secret agents&quot; or &quot;special agents&quot; are conspicuously absent from the statutory text.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">2. Prohibition on Judicial Legislation: The Supreme Court expressly overruled People v. Macarandang and People v. Lucero. The Court held that interpreting the statute to include &quot;secret agents&quot; constitutes impermissible judicial legislation — inserting an exemption that the legislature itself chose not to provide.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">3. Duty to Apply the Law: Verba legis non est recedendum (from the words of the statute there should be no departure). When the statute speaks in clear, definite, and unequivocal terms, the judiciary&#x27;s only task is strict application. The courts cannot alter, amend, or soften the law out of judicial sympathy.</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-17-how-to-tackle-in-recitation-simple-wording-analysis-applicat">
+          <header class="section-header">
+            <h3 class="section-title level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: ANALYSIS / APPLICATION]</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-17-how-to-tackle-in-recitation-simple-wording-analysis-applicat')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Plain Meaning Explanation of the Analysis:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">The Supreme Court checked the actual words of Section 879. It found governors, mayors, and police, but zero mention of secret agents. The Court realized its prior decisions in Macarandang and Lucero were mistakes because the judiciary was improperly creating exemptions that Congress never enacted. Thus, the Court applied the literal text and declared Mapa guilty.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* How to Tackle in Recitation When Called:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">&quot;Sir/Ma&#x27;am, in applying the law:</p>
+        <p class="read-unit" data-unit-type="paragraph">First, the text of Section 879 is clear and unambiguous, omitting secret agents;</p>
+        <p class="read-unit" data-unit-type="paragraph">Second, the Court expressly overruled Macarandang and Lucero to prevent judicial legislation; and</p>
+        <p class="read-unit" data-unit-type="paragraph">Third, the Court applied Verba Legis (the words of the law), holding that courts cannot insert exceptions into clear penal statutes.&quot;</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------------------------------------------------</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-18-c-conclusion">
+          <header class="section-header">
+            <h3 class="section-title level-2">[C] CONCLUSION:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-18-c-conclusion')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">The Supreme Court affirmed the judgment of conviction of the lower court, sentencing Mario Mapa to imprisonment for illegal possession of firearms and ammunition.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-19-how-to-tackle-in-recitation-simple-wording-conclusion">
+          <header class="section-header">
+            <h3 class="section-title level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: CONCLUSION]</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-19-how-to-tackle-in-recitation-simple-wording-conclusion')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Plain Meaning Explanation of the Conclusion:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">The conviction was upheld. Mapa was sentenced to prison because an administrative appointment cannot override a clear penal statute.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* How to Tackle in Recitation When Called:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">&quot;The Supreme Court affirmed the conviction of Mario Mapa, holding that lack of a statutory license constitutes illegal possession regardless of any appointment as a secret agent.&quot;</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------------------------------------------------</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-20-v-relation-to-statutory-construction-statcon_syllabus_jprpdf">
+          <header class="section-header">
+            <h3 class="section-title level-2">V. RELATION TO STATUTORY CONSTRUCTION (StatCon_Syllabus_JPR.pdf)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-20-v-relation-to-statutory-construction-statcon_syllabus_jprpdf')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------------------------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Applicable Syllabus Topics:</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* I. Background of the Study of Statutory Construction</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- E. When to construe?</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- F. Ambiguity / Vagueness</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- G. Statutory construction v. judicial legislation</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- J. Extent of the power to construe</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* II. Prelude to the Exercise of the Power</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- A. Verba legis non est recedendum (from the words of the statute there should be no departure)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- B. Absoluta sententia expositore non indigent (when language is plain, it needs no interpreter)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- C. Dura lex sed lex (the law is harsh, but it is the law)</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-21-latin-maxims-with-english-translation-legal-meaning">
+          <header class="section-header">
+            <h3 class="section-title level-2">LATIN MAXIMS WITH ENGLISH TRANSLATION &amp; LEGAL MEANING:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-21-latin-maxims-with-english-translation-legal-meaning')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">1. Verba Legis (the words of the law)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Literal English Translation: The words of the law.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Plain Legal Meaning: The plain meaning rule; courts must adhere strictly to what the text literally states.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">2. Verba legis non est recedendum (from the words of the statute there should be no departure)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Literal English Translation: From the words of a statute there should be no departure.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Plain Legal Meaning: The cardinal rule that where the law is clear, courts must follow the exact text without adding or subtracting anything.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">3. Absoluta sententia expositore non indigent (when language is plain and unequivocal, it needs no interpreter)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Literal English Translation: When language is plain and unequivocal, it needs no interpreter.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Plain Legal Meaning: Clear statutes do not require judicial explanation; their obvious meaning applies automatically.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">4. Index animi sermo est (speech is the index of intention)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Literal English Translation: Speech is the index of intention.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Plain Legal Meaning: The words chosen by the lawmakers are the most reliable indicator of what they intended.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">5. Dura lex, sed lex (the law is harsh, but it is the law)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Literal English Translation: The law is harsh, but it is the law.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Plain Legal Meaning: Even if applying a law leads to a strict or painful result (conviction), the court cannot waive the law.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">6. Expressio unius est exclusio alterius (the express mention of one thing is the exclusion of another)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Literal English Translation: The express mention of one thing is the exclusion of another.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Plain Legal Meaning: By explicitly listing exempt public officials, Congress intended to exclude all unlisted positions (like secret agents).</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">7. Iudicis est ius dicere, non dare (it is the duty of a judge to declare the law, not to make it)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Literal English Translation: It is the duty of a judge to declare the law, not to make it.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Plain Legal Meaning: Prohibition against judicial legislation. Judges cannot enact new exceptions.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Case Violation in StatCon:</p>
+        <p class="read-unit" data-unit-type="paragraph">The appellant urged the Court to engage in judicial legislation by expanding the statutory exemptions under Section 879 RAC to insert an unwritten category of &quot;secret agents.&quot;</p>
+        <p class="read-unit" data-unit-type="paragraph">Doctrinal Execution / Principle:</p>
+        <p class="read-unit" data-unit-type="paragraph">Defines the exact boundary of &quot;When to Construe.&quot; Where the law is clear, plain, and free from ambiguity, courts have zero authority to interpret or add words to the statute; the sole judicial duty is direct application.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-22-how-to-tackle-in-recitation-simple-wording-relation-to-statu">
+          <header class="section-header">
+            <h3 class="section-title level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: RELATION TO STATUTORY CONSTRUCTION]</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-22-how-to-tackle-in-recitation-simple-wording-relation-to-statu')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Plain Meaning Explanation of the StatCon Relation:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">This case is the #1 textbook case for the Plain Meaning Rule. It answers the fundamental question: When do we interpret laws? The rule is: Never interpret if the law is already clear.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* How to Tackle in Recitation When Called:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">&quot;Sir/Ma&#x27;am, under Chapter I and II of our syllabus:</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">1. Primary Maxim: Verba legis non est recedendum (from the words of the statute there should be no departure).</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">2. Core Doctrine: The case defines &#x27;When to Construe.&#x27; Interpretation is only justified when there is ambiguity. When the statute is clear, construction is forbidden.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">3. Limitation on Judicial Power: Courts cannot commit &#x27;Judicial Legislation&#x27; by creating exemptions omitted by Congress.&quot;</div></div>
+        <p class="read-unit" data-unit-type="paragraph">================================================================================</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-23-2-ramon-m-atienza-v-jose-t-villarosa">
+          <header class="section-header">
+            <h4 class="section-title level-3">2. RAMON M. ATIENZA v. JOSE T. VILLAROSA</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-23-2-ramon-m-atienza-v-jose-t-villarosa')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">G.R. No. 161081 | May 10, 2005 | 458 SCRA 385 | Second Division | Ponente: J. Callejo, Sr.</p>
+        <p class="read-unit" data-unit-type="paragraph">================================================================================</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-24-i-parties-procedural-background">
+          <header class="section-header">
+            <h3 class="section-title level-2">I. PARTIES &amp; PROCEDURAL BACKGROUND</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-24-i-parties-procedural-background')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Petitioner: Ramon M. Atienza (Vice-Governor of Occidental Mindoro)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Respondent: Jose T. Villarosa (Provincial Governor of Occidental Mindoro)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Originating Court: Supreme Court (Direct Petition for Prohibition and Mandamus under Rule 65)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Nature of the Action: Jurisdictional conflict regarding the scope of executive vs. legislative administrative powers under Republic Act No. 7160 (The Local Government Code of 1991).</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-25-ii-whole-facts">
+          <header class="section-header">
+            <h3 class="section-title level-2">II. WHOLE FACTS</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-25-ii-whole-facts')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">In June 2002, Governor Jose T. Villarosa issued executive memoranda stating that:</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">1. All Purchase Orders (POs) for supplies, materials, and equipment for all provincial government offices — including the Sangguniang Panlalawigan (SP) — must be approved and signed exclusively by the Provincial Governor.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">2. The Governor possesses the sole authority to terminate, appoint, and reassign casual, temporary, and job-order employees across the entire provincial government, including the legislative staff of the SP.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Vice-Governor Ramon M. Atienza, as Presiding Officer of the SP, challenged these memoranda. He argued that the Local Government Code confers upon the Vice-Governor the exclusive power to appoint employees of the SP and to sign all warrants and disbursement vouchers for expenditures appropriated for the legislative body.</p>
+        <p class="read-unit" data-unit-type="paragraph">Plain Meaning Summary of Facts:</p>
+        <p class="read-unit" data-unit-type="paragraph">The Governor tried to take full control over the hiring/firing of provincial board (Sangguniang Panlalawigan) employees and insisted that only the Governor could sign purchase orders for the board&#x27;s office supplies. The Vice-Governor argued that the law gives the Vice-Governor independent control over the board&#x27;s personnel and expenses.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------------------------------------------------</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-26-iii-the-legal-issues">
+          <header class="section-header">
+            <h3 class="section-title level-2">III. THE LEGAL ISSUES</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-26-iii-the-legal-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------------------------------------------------</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">1. Who between the Governor and the Vice-Governor has the authority to appoint officials and employees of the Sangguniang Panlalawigan?</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">2. Who has the authority to approve and sign purchase orders for supplies, materials, and equipment appropriated for the operation of the Sangguniang Panlalawigan?</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-27-how-to-tackle-in-recitation-simple-wording-the-legal-issue">
+          <header class="section-header">
+            <h3 class="section-title level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: THE LEGAL ISSUE]</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-27-how-to-tackle-in-recitation-simple-wording-the-legal-issue')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Plain Meaning Explanation of the Issues:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">This case resolves a power struggle between the executive and legislative branches of a province. Does the Governor have monarchical control over all provincial personnel and supplies, or does the Vice-Governor have independent authority to hire Sangguniang Panlalawigan staff and approve purchase orders for the board&#x27;s supplies?</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* How to Tackle in Recitation When Called:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">&quot;Sir/Ma&#x27;am, there are two distinct legal issues under RA 7160:</p>
+        <p class="read-unit" data-unit-type="paragraph">First, whether the appointing authority over Sangguniang Panlalawigan personnel belongs to the Governor under general executive powers or to the Vice-Governor under Section 466(a)(2); and</p>
+        <p class="read-unit" data-unit-type="paragraph">Second, whether the Vice-Governor&#x27;s express authority to sign vouchers and warrants implies the authority to approve purchase orders under the Doctrine of Necessary Implication (Ex necessitate legis - from the necessity of the law).&quot;</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------------------------------------------------</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-28-iv-alac-digest">
+          <header class="section-header">
+            <h3 class="section-title level-2">IV. ALAC DIGEST</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-28-iv-alac-digest')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------------------------------------------------</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-29-a-answer">
+          <header class="section-header">
+            <h3 class="section-title level-2">[A] ANSWER:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-29-a-answer')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">1. Appointing Power: The Vice-Governor has the exclusive authority to appoint all officials and employees of the Sangguniang Panlalawigan, except the Secretary to the Sanggunian (who is appointed under Section 468).</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">2. Purchase Orders: The Vice-Governor has the authority to approve and sign purchase orders for supplies, materials, and equipment appropriated for the operation of the Sangguniang Panlalawigan.</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-30-how-to-tackle-in-recitation-simple-wording-the-answer">
+          <header class="section-header">
+            <h3 class="section-title level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: THE ANSWER]</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-30-how-to-tackle-in-recitation-simple-wording-the-answer')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Plain Meaning Explanation of the Answer:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">The Vice-Governor wins on both issues: he hires the board&#x27;s staff and he signs the purchase orders for the board&#x27;s supplies.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* How to Tackle in Recitation When Called:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">&quot;Sir/Ma&#x27;am, the Vice-Governor possesses the authority on both matters:</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">1. The Vice-Governor has the exclusive power to appoint Sangguniang Panlalawigan personnel; and</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">2. The Vice-Governor has the implied power to approve purchase orders for items funded by legislative appropriations.&quot;</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------------------------------------------------</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-31-l-legal-basis">
+          <header class="section-header">
+            <h3 class="section-title level-2">[L] LEGAL BASIS:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-31-l-legal-basis')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">1. Section 466(a)(1), R.A. No. 7160: Confers on the Vice-Governor the power to sign all warrants drawn on the provincial treasury for expenditures appropriated for the operation of the Sangguniang Panlalawigan.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">2. Section 466(a)(2), R.A. No. 7160: Explicitly empowers the Vice-Governor to appoint all officials and employees of the Sangguniang Panlalawigan.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">3. Section 465(b)(1)(v), R.A. No. 7160: Grants the Governor general appointing power, but expressly qualifies it with the clause: &quot;except those whose appointment is specifically provided for in this Code.&quot;</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">4. Ex necessitate legis (from the necessity of the law / doctrine of necessary implication): What is implied in a statute is as much a part of it as that which is expressed.</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-32-how-to-tackle-in-recitation-simple-wording-legal-basis">
+          <header class="section-header">
+            <h3 class="section-title level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: LEGAL BASIS]</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-32-how-to-tackle-in-recitation-simple-wording-legal-basis')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Plain Meaning Explanation of the Legal Basis:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">The case relies on specific sections of the Local Government Code of 1991 (RA 7160) and the Doctrine of Necessary Implication: Ex necessitate legis (from the necessity of the law).</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* How to Tackle in Recitation When Called:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">&quot;Sir/Ma&#x27;am, the legal basis rests on:</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">1. Section 466(a)(2) of RA 7160 for the Vice-Governor&#x27;s express appointing power;</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">2. Section 465(b)(1)(v), where the Governor&#x27;s appointing power expressly contains an exception clause;</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">3. Section 466(a)(1) granting the Vice-Governor express authority to sign warrants and disbursement vouchers; and</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">4. Ex necessitate legis (from the necessity of the law / Doctrine of Necessary Implication).&quot;</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------------------------------------------------</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-33-a-analysis-application">
+          <header class="section-header">
+            <h3 class="section-title level-2">[A] ANALYSIS / APPLICATION:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-33-a-analysis-application')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">1. Specific Provision Prevails Over General: Generalia specialibus non derogant (general provisions do not derogate from special provisions). Section 465 is a general provision, while Section 466(a)(2) is a specific provision. Reading them harmoniously, the Governor&#x27;s general appointing power yields to the specific appointing power granted to the Vice-Governor over legislative personnel.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">2. Doctrine of Necessary Implication on Purchase Orders: Ex necessitate legis (from the necessity of the law) and Quando aliquid mandatur, mandatur et omne per quod pervenitur ad illud (when anything is authorized, everything by which it is accomplished is also authorized). While the Local Government Code does not explicitly mention the term &quot;purchase orders&quot; under the powers of the Vice-Governor, Section 466(a)(1) expressly grants him authority to approve disbursement vouchers and sign all warrants drawn for SP operational funds. Under the Doctrine of Necessary Implication, the express power to approve disbursement vouchers and sign checks/warrants necessarily carries with it the implied authority to approve purchase orders that create those obligations. Denying the Vice-Governor this power would render his express financial oversight useless and destroy the institutional check-and-balance between the local executive and legislative departments.</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-34-how-to-tackle-in-recitation-simple-wording-analysis-applicat">
+          <header class="section-header">
+            <h3 class="section-title level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: ANALYSIS / APPLICATION]</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-34-how-to-tackle-in-recitation-simple-wording-analysis-applicat')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Plain Meaning Explanation of the Analysis:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">The Court applied two statutory tools:</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">1. Harmonious Construction: The Governor&#x27;s general power says &quot;except as specifically provided.&quot; Section 466 specifically gives the Vice-Gov appointing power over board staff. Specific beats general (Lex specialis derogat legi generali - special law overrides general law).</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">2. Necessary Implication: You cannot disburse funds without a voucher, and you cannot issue a voucher without a purchase order. Since the Vice-Gov has express power to approve vouchers and warrants, he must logically have the implied power to approve the purchase orders that generate them (Ex necessitate legis - from the necessity of the law).</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* How to Tackle in Recitation When Called:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">&quot;Sir/Ma&#x27;am, the Court applied:</p>
+        <p class="read-unit" data-unit-type="paragraph">First, Generalia specialibus non derogant (general provisions do not derogate from special provisions) — the Governor&#x27;s general appointing power yields to the specific grant to the Vice-Governor under Section 466(a)(2); and</p>
+        <p class="read-unit" data-unit-type="paragraph">Second, Ex necessitate legis (from the necessity of the law) — the express statutory power to sign warrants and vouchers under Section 466(a)(1) necessarily includes the implied power to approve purchase orders, otherwise the express power would be rendered nugatory.&quot;</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------------------------------------------------</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-35-c-conclusion">
+          <header class="section-header">
+            <h3 class="section-title level-2">[C] CONCLUSION:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-35-c-conclusion')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">The Supreme Court granted the petition in part, holding that the Vice-Governor has the authority to appoint employees of the Sangguniang Panlalawigan and to approve purchase orders for expenditures funded by legislative appropriations.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-36-how-to-tackle-in-recitation-simple-wording-conclusion">
+          <header class="section-header">
+            <h3 class="section-title level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: CONCLUSION]</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-36-how-to-tackle-in-recitation-simple-wording-conclusion')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Plain Meaning Explanation of the Conclusion:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">The Supreme Court ruled in favor of the Vice-Governor, preserving the administrative and fiscal independence of the provincial legislative body from the Governor.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* How to Tackle in Recitation When Called:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">&quot;The Supreme Court granted the petition, declaring that the Vice-Governor has the authority to appoint legislative personnel and to approve purchase orders for the Sangguniang Panlalawigan.&quot;</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------------------------------------------------</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-37-v-relation-to-statutory-construction-statcon_syllabus_jprpdf">
+          <header class="section-header">
+            <h3 class="section-title level-2">V. RELATION TO STATUTORY CONSTRUCTION (StatCon_Syllabus_JPR.pdf)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-37-v-relation-to-statutory-construction-statcon_syllabus_jprpdf')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------------------------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Applicable Syllabus Topics:</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* III. Basic Guidelines in the Construction and Interpretation of Laws</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- B. Considerations within the Statute</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* d. Doctrine of Necessary Implication (Ex necessitate legis - from the necessity of the law)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* h. Meaning not reflected in the language of the Statute should not be considered</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- A. General Guidelines</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* h. Consideration of the statute as a whole (Ut res magis valeat quam pereat)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* i. Give effect to every word or sentence of a statute</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- C. Considerations outside the Statute</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* a. Generalia specialibus non derogat (general provisions do not derogate from special provisions)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* f. Interpretare et concordare leges legibus est optimus interpretandi (to interpret and harmonize laws with laws is the best method of interpretation)</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-38-latin-maxims-with-english-translation-legal-meaning">
+          <header class="section-header">
+            <h3 class="section-title level-2">LATIN MAXIMS WITH ENGLISH TRANSLATION &amp; LEGAL MEANING:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-38-latin-maxims-with-english-translation-legal-meaning')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">1. Ex necessitate legis (from the necessity of the law)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Literal English Translation: From the necessity of the law.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Plain Legal Meaning: The Doctrine of Necessary Implication. Whatever is implied in a statute is as much a part of it as that which is explicitly written.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">2. Quando aliquid mandatur, mandatur et omne per quod pervenitur ad illud (when anything is authorized, everything by which it is accomplished is also authorized)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Literal English Translation: When anything is commanded or authorized, everything by which it is accomplished is also authorized.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Plain Legal Meaning: If a statute grants a specific power (e.g., signing vouchers), it automatically grants all necessary preliminary powers (e.g., signing purchase orders) to make that power effective.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">3. Generalia specialibus non derogant (general provisions do not derogate from special provisions)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Literal English Translation: General provisions do not derogate from special provisions.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Plain Legal Meaning: A general statutory rule yields to a specific statutory exception.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">4. Lex specialis derogat legi generali (special law overrides general law)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Literal English Translation: A special law or provision overrides a general law or provision.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Plain Legal Meaning: Specific grants of authority govern over broad general grants.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">5. Ut res magis valeat quam pereat (that the thing may rather have effect than perish)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Literal English Translation: That the thing may rather have effect than perish.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Plain Legal Meaning: Statutes must be interpreted so that every part is operative, meaningful, and effective, rather than rendered useless.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">6. Interpretare et concordare leges legibus est optimus interpretandi (to interpret and harmonize laws with laws is the best method of interpretation)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Literal English Translation: To interpret and harmonize laws with laws is the best method of interpretation.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Plain Legal Meaning: Harmonious construction. Provisions must be read together so they complement rather than conflict with each other.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Case Violation in StatCon:</p>
+        <p class="read-unit" data-unit-type="paragraph">The Governor attempted to read Section 465 in total isolation, disregarding the express statutory exception and the systemic legislative independence embedded throughout RA 7160.</p>
+        <p class="read-unit" data-unit-type="paragraph">Doctrinal Execution / Principle:</p>
+        <p class="read-unit" data-unit-type="paragraph">Leading authority on the Doctrine of Necessary Implication: Statutory powers are not confined to their literal phrasing, but include all implied, incidental authorities essential to make the primary legislative grant effective.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-39-how-to-tackle-in-recitation-simple-wording-relation-to-statu">
+          <header class="section-header">
+            <h3 class="section-title level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: RELATION TO STATUTORY CONSTRUCTION]</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-39-how-to-tackle-in-recitation-simple-wording-relation-to-statu')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Plain Meaning Explanation of the StatCon Relation:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">This case is the quintessential illustration of the Doctrine of Necessary Implication: Ex necessitate legis (from the necessity of the law). It proves that statutory provisions include what is logically necessary to make them workable.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* How to Tackle in Recitation When Called:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">&quot;Sir/Ma&#x27;am, in our syllabus under Chapter III (Considerations within the Statute):</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">1. Primary Doctrine: Ex necessitate legis (from the necessity of the law / Doctrine of Necessary Implication) — what is implied in a statute is as much a part of it as that which is expressed.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">2. Harmonious Construction: Statutes must be construed as a whole under Ut res magis valeat quam pereat (that the thing may rather have effect than perish), ensuring specific exceptions prevail over general rules under Generalia specialibus non derogant (general provisions do not derogate from special provisions).&quot;</div></div>
+        <p class="read-unit" data-unit-type="paragraph">================================================================================</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">3. NATIONAL HOUSING AUTHORITY (NHA) v. HON. PASTOR P. REYES AND QUIRINO AUSTRIA</div></div>
+        <p class="read-unit" data-unit-type="paragraph">G.R. No. L-49439 | June 29, 1983 | 123 SCRA 245 | Second Division | Ponente: J. Fernando</p>
+        <p class="read-unit" data-unit-type="paragraph">================================================================================</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-40-i-parties-procedural-background">
+          <header class="section-header">
+            <h3 class="section-title level-2">I. PARTIES &amp; PROCEDURAL BACKGROUND</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-40-i-parties-procedural-background')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Petitioner: National Housing Authority (NHA)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Respondents: Hon. Pastor P. Reyes (Presiding Judge, CFI Cavite, Branch VIII) and Quirino Austria</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Originating Court: Court of First Instance (CFI) of Cavite (Branch VIII)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Nature of the Action: Petition for Certiorari to annul trial court orders departing from statutory compensation ceilings in an expropriation case.</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-41-ii-whole-facts">
+          <header class="section-header">
+            <h3 class="section-title level-2">II. WHOLE FACTS</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-41-ii-whole-facts')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">The National Housing Authority filed an expropriation complaint before the CFI of Cavite to acquire a 25,000-square-meter parcel of land in Dasmariñas, Cavite, owned by Quirino and Luciano Austria, for the expansion of the Dasmariñas Resettlement Project.</p>
+        <p class="read-unit" data-unit-type="paragraph">Under Presidential Decree (P.D.) No. 42, as amended by P.D. Nos. 76, 464, and 1224, the NHA deposited the amount representing the assessed value of the property for tax purposes to obtain a writ of possession. Under P.D. No. 1224, just compensation in expropriation for socialized housing and government infrastructure was strictly mandated to be the lower of the market value declared by the owner in their tax declaration or the assessed value determined by the provincial/city assessor.</p>
+        <p class="read-unit" data-unit-type="paragraph">Despite this explicit statutory formula, respondent Judge Reyes appointed commissioners to determine fair market value and issued an order authorizing the landowners to withdraw provisional compensation far in excess of the statutory ceiling fixed by the presidential decrees.</p>
+        <p class="read-unit" data-unit-type="paragraph">Plain Meaning Summary of Facts:</p>
+        <p class="read-unit" data-unit-type="paragraph">The government wanted to expropriate private land for a housing resettlement project. The law (Presidential Decree No. 1224) clearly stated that compensation cannot exceed the lower of the owner&#x27;s tax declaration or the government&#x27;s tax assessment. The trial judge refused to follow this formula, appointed commissioners, and ordered the government to pay a higher market value.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------------------------------------------------</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-42-iii-the-legal-issue">
+          <header class="section-header">
+            <h3 class="section-title level-2">III. THE LEGAL ISSUE</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-42-iii-the-legal-issue')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------------------------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Whether or not the trial court judge committed grave abuse of discretion by disregarding the mandatory statutory formula for just compensation established under Presidential Decree No. 1224 and related decrees.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-43-how-to-tackle-in-recitation-simple-wording-the-legal-issue">
+          <header class="section-header">
+            <h3 class="section-title level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: THE LEGAL ISSUE]</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-43-how-to-tackle-in-recitation-simple-wording-the-legal-issue')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Plain Meaning Explanation of the Issue:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">When a statute sets a mandatory mathematical ceiling on compensation for expropriated land in government housing projects, does a trial judge have the authority to bypass that statute and award a higher market value based on commissioners?</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* How to Tackle in Recitation When Called:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">&quot;Sir/Ma&#x27;am, the issue is whether a trial judge acts with grave abuse of discretion by disregarding the mandatory statutory formula for just compensation under P.D. No. 1224, testing whether courts are bound by Presumptio pro iustitia legis (presumption in favor of the constitutionality of a law) and Verba Legis (the words of the law).&quot;</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------------------------------------------------</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-44-iv-alac-digest">
+          <header class="section-header">
+            <h3 class="section-title level-2">IV. ALAC DIGEST</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-44-iv-alac-digest')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------------------------------------------------</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-45-a-answer">
+          <header class="section-header">
+            <h3 class="section-title level-2">[A] ANSWER:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-45-a-answer')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Yes. The trial court judge committed grave abuse of discretion. The judge is bound to apply the clear, mandatory, and unequivocal formula for just compensation prescribed by Presidential Decree No. 1224.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-46-how-to-tackle-in-recitation-simple-wording-the-answer">
+          <header class="section-header">
+            <h3 class="section-title level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: THE ANSWER]</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-46-how-to-tackle-in-recitation-simple-wording-the-answer')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Plain Meaning Explanation of the Answer:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Yes, the judge committed grave abuse of discretion. Lower courts cannot invent their own compensation rules when a valid statute provides a mandatory formula.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* How to Tackle in Recitation When Called:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">&quot;Yes, Sir/Ma&#x27;am. The trial court committed grave abuse of discretion because judges are duty-bound to apply the mandatory valuation formula prescribed by law.&quot;</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------------------------------------------------</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-47-l-legal-basis">
+          <header class="section-header">
+            <h3 class="section-title level-2">[L] LEGAL BASIS:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-47-l-legal-basis')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">1. Presidential Decree Nos. 42, 76, 464, and 1224: Substantive decrees setting the statutory ceiling for just compensation in expropriation proceedings.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">2. Presumptio pro iustitia legis (there is a presumption in favor of the justice and constitutionality of a law): Every legislative act and presidential decree enjoys the presumption of constitutionality and must be enforced by trial courts unless declared void by the Supreme Court.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">3. Verba Legis (the words of the law): Where a statute provides a mandatory mathematical/valuation rule without ambiguity, the judge cannot substitute personal discretion.</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-48-how-to-tackle-in-recitation-simple-wording-legal-basis">
+          <header class="section-header">
+            <h3 class="section-title level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: LEGAL BASIS]</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-48-how-to-tackle-in-recitation-simple-wording-legal-basis')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Plain Meaning Explanation of the Legal Basis:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">The legal basis is Presidential Decree No. 1224, the Presumption of Constitutionality: Presumptio pro iustitia legis (presumption in favor of the constitutionality of a law), and Verba Legis (the words of the law) / Dura lex sed lex (the law is harsh, but it is the law).</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* How to Tackle in Recitation When Called:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">&quot;Sir/Ma&#x27;am, the legal basis consists of:</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">1. P.D. No. 1224, which sets the valuation ceiling;</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">2. Presumptio pro iustitia legis (presumption in favor of the constitutionality of a law); and</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">3. The doctrines of Verba Legis (the words of the law) and Dura lex, sed lex (the law is harsh, but it is the law).&quot;</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------------------------------------------------</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-49-a-analysis-application">
+          <header class="section-header">
+            <h3 class="section-title level-2">[A] ANALYSIS / APPLICATION:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-49-a-analysis-application')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">1. Mandatory Language of the Decree: The language of P.D. No. 1224 was clear, explicit, and mandatory: Absoluta sententia expositore non indigent (when language is plain, it needs no interpreter). It removed the traditional judicial discretion to appoint commissioners for market value estimation in infrastructure and resettlement expropriations.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">2. Presumption of Validity: Presumptio pro iustitia legis (presumption in favor of the constitutionality of a law). A trial court cannot simply bypass or refuse to follow a statute on subjective grounds of equity. Until a statute is formally declared unconstitutional by the Supreme Court, lower courts are legally presumed and commanded to execute the law as written.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">3. Social Justice Objective: The Supreme Court emphasized that the decree was enacted to eliminate tax evasion (where owners undervalue their property for taxes but claim bloated values in expropriations) and to promote socialized housing for the underprivileged under the state&#x27;s welfare police power.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">(Note: While the exclusivity of this valuation formula in P.D. No. 1224 was subsequently overturned post-1986 in EPZA v. Dulay, under Statutory Construction principles and at the time NHA v. Reyes was decided, it represents the standard rule on the presumption of validity of legislative acts and strict adherence to mandatory text).</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-50-how-to-tackle-in-recitation-simple-wording-analysis-applicat">
+          <header class="section-header">
+            <h3 class="section-title level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: ANALYSIS / APPLICATION]</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-50-how-to-tackle-in-recitation-simple-wording-analysis-applicat')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Plain Meaning Explanation of the Analysis:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">The Supreme Court held that P.D. No. 1224 was an active, valid law. A trial judge cannot substitute his personal notions of fairness for the explicit mandate of a statute. Furthermore, the statute served a valid social justice purpose: stopping landowners from declaring low values to evade taxes while demanding high values in expropriation.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* How to Tackle in Recitation When Called:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">&quot;Sir/Ma&#x27;am, in applying the law:</p>
+        <p class="read-unit" data-unit-type="paragraph">First, the decree used mandatory phrasing that eliminated judicial discretion under Absoluta sententia expositore non indigent (plain language needs no interpreter);</p>
+        <p class="read-unit" data-unit-type="paragraph">Second, statutes carry Presumptio pro iustitia legis (presumption in favor of constitutionality), which lower courts must respect; and</p>
+        <p class="read-unit" data-unit-type="paragraph">Third, the law was intended to achieve social justice in housing and prevent tax evasion.&quot;</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------------------------------------------------</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-51-c-conclusion">
+          <header class="section-header">
+            <h3 class="section-title level-2">[C] CONCLUSION:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-51-c-conclusion')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">The Supreme Court granted the petition for certiorari, annulled and set aside the questioned orders of respondent Judge Reyes, and ordered the trial court to strictly comply with the statutory formula in P.D. No. 1224.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-52-how-to-tackle-in-recitation-simple-wording-conclusion">
+          <header class="section-header">
+            <h3 class="section-title level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: CONCLUSION]</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-52-how-to-tackle-in-recitation-simple-wording-conclusion')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Plain Meaning Explanation of the Conclusion:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">The Supreme Court annulled the trial judge&#x27;s orders and mandated strict adherence to the statutory compensation ceiling.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* How to Tackle in Recitation When Called:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">&quot;The Supreme Court granted the petition for certiorari and set aside the judge&#x27;s orders, commanding the trial court to apply the statutory formula in P.D. No. 1224.&quot;</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------------------------------------------------</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-53-v-relation-to-statutory-construction-statcon_syllabus_jprpdf">
+          <header class="section-header">
+            <h3 class="section-title level-2">V. RELATION TO STATUTORY CONSTRUCTION (StatCon_Syllabus_JPR.pdf)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-53-v-relation-to-statutory-construction-statcon_syllabus_jprpdf')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------------------------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Applicable Syllabus Topics:</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* IV. Aids to Construction</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- C. Presumptions</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* a. Presumption against unconstitutionality (Presumptio pro iustitia legis)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* d. Presumption against ineffectiveness</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* II. Prelude to the Exercise of the Power</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- A. Verba legis non est recedendum (from the words of the statute there should be no departure)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- C. Dura lex sed lex (the law is harsh, but it is the law)</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-54-latin-maxims-with-english-translation-legal-meaning">
+          <header class="section-header">
+            <h3 class="section-title level-2">LATIN MAXIMS WITH ENGLISH TRANSLATION &amp; LEGAL MEANING:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-54-latin-maxims-with-english-translation-legal-meaning')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">1. Presumptio pro iustitia legis (there is a presumption in favor of the justice and constitutionality of a law)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Literal English Translation: There is a presumption in favor of the justice and correctness of the law.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Plain Legal Meaning: Presumption of Constitutionality and Validity. Courts must presume that laws passed by the legislature or executive decrees are constitutional and valid until proven otherwise.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">2. Verba legis non est recedendum (from the words of a statute there should be no departure)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Literal English Translation: From the words of a statute there should be no departure.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Plain Legal Meaning: The Plain Meaning Rule. When the statute establishes an exact formula, judges must execute that formula without departure.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">3. Dura lex, sed lex (the law is harsh, but it is the law)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Literal English Translation: The law is harsh, but it is the law.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Plain Legal Meaning: Even if a property owner receives a smaller valuation under the statutory cap than market value, the judge must still enforce the statute.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">4. Absoluta sententia expositore non indigent (when language is plain, it needs no interpreter)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Literal English Translation: When language is plain, it needs no exposition.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Plain Legal Meaning: Mandatory mathematical valuation rules require no judicial interpretation.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">5. Iudicis est ius dicere, non dare (the judge&#x27;s duty is to declare what the law is, not to create it)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Literal English Translation: The judge&#x27;s duty is to declare what the law is, not to create it.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Plain Legal Meaning: Trial judges cannot substitute their preferred valuation methods for the clear formula enacted by the lawmaking authority.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Case Violation in StatCon:</p>
+        <p class="read-unit" data-unit-type="paragraph">The respondent trial judge violated the Presumption of Constitutionality and the Plain Meaning Rule by disregarding an active statute&#x27;s mandatory valuation formula in favor of subjective judicial discretion.</p>
+        <p class="read-unit" data-unit-type="paragraph">Doctrinal Execution / Principle:</p>
+        <p class="read-unit" data-unit-type="paragraph">Illustrates Presumptions in Statutory Construction: Courts must presume statutes are constitutional and valid, leaving no discretion for lower court judges to bypass an express legislative mandate.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-55-how-to-tackle-in-recitation-simple-wording-relation-to-statu">
+          <header class="section-header">
+            <h3 class="section-title level-2">[HOW TO TACKLE IN RECITATION / SIMPLE WORDING: RELATION TO STATUTORY CONSTRUCTION]</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-55-how-to-tackle-in-recitation-simple-wording-relation-to-statu')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Plain Meaning Explanation of the StatCon Relation:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">This case falls under Presumptions in Statutory Construction. It proves that every law is presumed valid and constitutional, and trial judges must strictly apply the written formula without deviation.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* How to Tackle in Recitation When Called:</div></div>
+        <p class="read-unit" data-unit-type="paragraph">&quot;Sir/Ma&#x27;am, under Chapter IV (C. Presumptions):</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">1. Primary Maxim: Presumptio pro iustitia legis (presumption in favor of the justice and constitutionality of a law).</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">2. Core Doctrine: Lower courts cannot disregard an active statute on equitable grounds; statutes must be enforced according to their literal terms under Dura lex, sed lex (the law is harsh, but it is the law) and Verba legis non est recedendum (from the words of the statute there should be no departure).&quot;</div></div>
+        <p class="read-unit" data-unit-type="paragraph">================================================================================</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-56-summary-syllabus-cross-reference-grid">
+          <header class="section-header">
+            <h3 class="section-title level-2">SUMMARY SYLLABUS CROSS-REFERENCE GRID</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-56-summary-syllabus-cross-reference-grid')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">================================================================================</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-57-1-people-v-mapa-gr-no-l-22301">
+          <header class="section-header">
+            <h4 class="section-title level-3">1. People v. Mapa (G.R. No. L-22301)</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-57-1-people-v-mapa-gr-no-l-22301')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Syllabus: Chapter I (E, F, G, J) &amp; Chapter II (A, B, C)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Ruling: Convicted. Secret agents not exempt under Sec. 879 RAC.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Primary Maxim: Verba legis non est recedendum (from the words of a statute there should be no departure).</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Supporting Maxim: Absoluta sententia expositore non indigent (when language is plain, it needs no interpreter).</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Recitation Takeaway: When the law is clear, apply it directly; adding words is judicial legislation.</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-58-2-atienza-v-villarosa-gr-no-161081">
+          <header class="section-header">
+            <h4 class="section-title level-3">2. Atienza v. Villarosa (G.R. No. 161081)</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-58-2-atienza-v-villarosa-gr-no-161081')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Syllabus: Chapter III (B-d, C-a, A-h)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Ruling: Vice-Governor upheld. Implied power to approve Purchase Orders.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Primary Maxim: Ex necessitate legis (from the necessity of the law / Doctrine of Necessary Implication).</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Supporting Maxim: Generalia specialibus non derogant (general provisions do not derogate from special provisions).</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Recitation Takeaway: Express power to sign vouchers implies power to sign purchase orders.</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-59-3-nha-v-reyes-gr-no-l-49439">
+          <header class="section-header">
+            <h4 class="section-title level-3">3. NHA v. Reyes (G.R. No. L-49439)</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-59-3-nha-v-reyes-gr-no-l-49439')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Syllabus: Chapter IV (C-a, C-d) &amp; Chapter II (A, C)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Ruling: Orders annulled. Trial judge bound by statutory compensation formula.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Primary Maxim: Presumptio pro iustitia legis (there is a presumption in favor of the justice and constitutionality of a law).</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Supporting Maxim: Dura lex, sed lex (the law is harsh, but it is the law).</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- Recitation Takeaway: Laws are presumed constitutional and binding on judges unless struck down by the Supreme Court.</div></div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <footer class="app-footer">
+    <p>MLC Interactive Legal Study Hub • Natural Cadence Web Speech Synthesis Engine</p>
+    <p style="margin-top: 0.25rem; opacity: 0.7;">Click any paragraph to start reading aloud • Fully compatible with Brave Read Aloud & extensions</p>
+  </footer>
+
+  <!-- Floating Selection Audio Trigger -->
+  <button id="floatingTtsTrigger" aria-label="Read Selection Aloud">🔊 Read Selection</button>
+
+  <!-- Natural Voice & Speech Synthesis Application Logic -->
+  <script>
+    (function() {
+      // 1. Theme Management
+      const themeSelect = document.getElementById('themeSelect');
+      const savedTheme = localStorage.getItem('mlc_reader_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      themeSelect.value = savedTheme;
+
+      themeSelect.addEventListener('change', (e) => {
+        document.documentElement.setAttribute('data-theme', e.target.value);
+        localStorage.setItem('mlc_reader_theme', e.target.value);
+      });
+
+      // 2. Font Size Controls
+      let currentFontSize = parseInt(localStorage.getItem('mlc_font_size') || '17', 10);
+      document.documentElement.style.fontSize = currentFontSize + 'px';
+
+      document.getElementById('fontIncBtn').addEventListener('click', () => {
+        if (currentFontSize < 26) {
+          currentFontSize += 1;
+          document.documentElement.style.fontSize = currentFontSize + 'px';
+          localStorage.setItem('mlc_font_size', currentFontSize);
+        }
+      });
+
+      document.getElementById('fontDecBtn').addEventListener('click', () => {
+        if (currentFontSize > 12) {
+          currentFontSize -= 1;
+          document.documentElement.style.fontSize = currentFontSize + 'px';
+          localStorage.setItem('mlc_font_size', currentFontSize);
+        }
+      });
+
+      // 3. Sidebar Mobile Toggle & Search
+      const sidebar = document.getElementById('appSidebar');
+      const toggleSidebarBtn = document.getElementById('toggleSidebarBtn');
+      toggleSidebarBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+      });
+
+      const searchInput = document.getElementById('sidebarSearch');
+      const tocItems = document.querySelectorAll('.toc-nav li');
+      searchInput.addEventListener('input', (e) => {
+        const q = e.target.value.toLowerCase().trim();
+        tocItems.forEach(li => {
+          const txt = li.textContent.toLowerCase();
+          li.style.display = txt.includes(q) ? '' : 'none';
+        });
+      });
+
+      // 4. Reading Progress Bar
+      window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / (height || 1)) * 100;
+        document.getElementById('readingProgressBar').style.width = scrolled + '%';
+      });
+
+      // =========================================================================
+      // 5. ENHANCED NATURAL SPEECH SYNTHESIS ENGINE
+      // =========================================================================
+      const synth = window.speechSynthesis;
+      let readUnits = [];
+      let currentUnitIndex = -1;
+      let isPaused = false;
+      let voices = [];
+      let nextUtteranceTimeout = null;
+      let lastSectionId = null;
+
+      const playPauseBtn = document.getElementById('ttsPlayPauseBtn');
+      const stopBtn = document.getElementById('ttsStopBtn');
+      const nextBtn = document.getElementById('ttsNextBtn');
+      const prevBtn = document.getElementById('ttsPrevBtn');
+      const playIcon = document.getElementById('ttsPlayIcon');
+      const pauseIcon = document.getElementById('ttsPauseIcon');
+      const statusBadge = document.getElementById('ttsStatus');
+      const speedSelect = document.getElementById('ttsSpeedSelect');
+      const voiceSelect = document.getElementById('ttsVoiceSelect');
+
+      function updateReadUnits() {
+        readUnits = Array.from(document.querySelectorAll('.read-unit'));
+      }
+      updateReadUnits();
+
+      // Intelligent Voice Ranking (Prefers Natural / Neural / High-Tier Human Voices)
+      function scoreVoice(v) {
+        const name = (v.name || '').toLowerCase();
+        let score = 0;
+        if (v.lang.startsWith('en')) score += 50;
+        if (v.lang === 'en-US' || v.lang === 'en-GB') score += 20;
+        if (name.includes('natural') || name.includes('neural') || name.includes('online')) score += 100;
+        if (name.includes('jenny') || name.includes('guy') || name.includes('aria') || name.includes('ryan') || name.includes('sonia')) score += 80;
+        if (name.includes('google') && !name.includes('legacy')) score += 70;
+        if (name.includes('premium') || name.includes('enhanced') || name.includes('siri')) score += 60;
+        if (name.includes('david') || name.includes('zira') || name.includes('mark')) score += 30;
+        return score;
+      }
+
+      function populateVoiceList() {
+        if (!synth) return;
+        const allVoices = synth.getVoices();
+        const enVoices = allVoices.filter(v => v.lang.startsWith('en'));
+        enVoices.sort((a, b) => scoreVoice(b) - scoreVoice(a));
+        voices = enVoices;
+
+        voiceSelect.innerHTML = '';
+        voices.forEach((v, idx) => {
+          const opt = document.createElement('option');
+          opt.value = idx;
+          const isNatural = (v.name.toLowerCase().includes('natural') || v.name.toLowerCase().includes('neural') || v.name.toLowerCase().includes('online'));
+          opt.textContent = (isNatural ? '✨ ' : '') + v.name + ' (' + v.lang + ')';
+          if (idx === 0) opt.selected = true;
+          voiceSelect.appendChild(opt);
+        });
+      }
+
+      if (synth) {
+        populateVoiceList();
+        if (speechSynthesis.onvoiceschanged !== undefined) {
+          speechSynthesis.onvoiceschanged = populateVoiceList;
+        }
+      }
+
+      // Smart Legal Phonetic Pre-Processor (Expands abbreviations & introduces natural prosody)
+      function prepareSpeechText(unit) {
+        let text = (unit.innerText || unit.textContent || '').trim();
+        const parentSec = unit.closest('section.doc-section');
+        const unitType = unit.getAttribute('data-unit-type') || '';
+        const badgeLabel = unit.getAttribute('data-badge-label') || '';
+
+        // Label announcing for case components
+        if (badgeLabel) {
+          if (badgeLabel.includes('DOCTRINE') || badgeLabel.includes('PRINCIPLE')) {
+            text = 'Key Doctrine: ' + text;
+          } else if (badgeLabel.includes('FACTS')) {
+            text = 'Case Facts: ' + text.replace(/^FACTS:?\\s*/i, '');
+          } else if (badgeLabel.includes('ISSUE')) {
+            text = 'Legal Issue: ' + text.replace(/^ISSUE:?\\s*/i, '');
+          } else if (badgeLabel.includes('HELD') || badgeLabel.includes('RULING')) {
+            text = 'Court Ruling and Held: ' + text.replace(/^(HELD|RULING):?\\s*/i, '');
+          }
+        } else if (unitType === 'quote') {
+          text = 'Quote: ' + text;
+        } else if (unitType === 'numbered') {
+          text = text.replace(/^(\d+)\.\\s*/, 'Item $1: ');
+        }
+
+        // Clean & expand common legal abbreviations for natural pronunciation
+        text = text
+          .replace(/\bG\.R\.\s*No\.?\s*([\d\-]+)/gi, 'G R Number $1')
+          .replace(/\bSCRA\b/g, 'S-C-R-A')
+          .replace(/\bPhil\.\s*(\d+)/gi, 'Philippine Reports volume $1')
+          .replace(/\bArt\.\s*(\d+)/gi, 'Article $1')
+          .replace(/\bArts\.\s*([\d,\s\-]+)/gi, 'Articles $1')
+          .replace(/\bSec\.\s*(\d+)/gi, 'Section $1')
+          .replace(/\bSecs\.\s*([\d,\s\-]+)/gi, 'Sections $1')
+          .replace(/\bPar\.\s*(\d+)/gi, 'Paragraph $1')
+          .replace(/\bPars\.\s*([\d,\s\-]+)/gi, 'Paragraphs $1')
+          .replace(/\bRPC\b/g, 'Revised Penal Code')
+          .replace(/\bCPR\b/g, 'Code of Professional Responsibility')
+          .replace(/\bCPRA\b/g, 'Code of Professional Responsibility and Accountability')
+          .replace(/\bConst\.\b/gi, 'Constitution')
+          .replace(/\bP\.D\.\s*No\.?\s*(\d+)/gi, 'Presidential Decree Number $1')
+          .replace(/\bR\.A\.\s*No\.?\s*(\d+)/gi, 'Republic Act Number $1')
+          .replace(/\bA\.C\.\s*No\.?\s*([A-Za-z0-9\-]+)/gi, 'Administrative Case Number $1')
+          .replace(/\bA\.M\.\s*No\.?\s*([A-Za-z0-9\-]+)/gi, 'Administrative Matter Number $1')
+          .replace(/\bet\s+al\./gi, 'and others')
+          .replace(/\bi\.e\./gi, 'that is')
+          .replace(/\be\.g\./gi, 'for example')
+          .replace(/\bviz\./gi, 'namely')
+          .replace(/\s+v(?:s)?\.\s+/gi, ' versus ')
+          .replace(/—/g, ', — ')
+          .replace(/–/g, ', ')
+          .replace(/;\s*/g, ';, ') // Introduce micro-pause at semicolons
+          .replace(/:\s*/g, ': ... ') // Introduce clear pause at colons
+          .replace(/\(([a-z\d])\)/gi, 'sub-item $1, ');
+
+        return text.trim();
+      }
+
+      function setSpeakingState(speaking, paused = false) {
+        if (speaking && !paused) {
+          playIcon.style.display = 'none';
+          pauseIcon.style.display = 'inline';
+          statusBadge.textContent = 'Speaking...';
+          statusBadge.className = 'tts-status-badge speaking';
+        } else if (paused) {
+          playIcon.style.display = 'inline';
+          pauseIcon.style.display = 'none';
+          statusBadge.textContent = 'Paused';
+          statusBadge.className = 'tts-status-badge';
+        } else {
+          playIcon.style.display = 'inline';
+          pauseIcon.style.display = 'none';
+          statusBadge.textContent = 'Ready';
+          statusBadge.className = 'tts-status-badge';
+          clearHighlights();
+        }
+      }
+
+      function clearHighlights() {
+        readUnits.forEach(u => u.classList.remove('is-speaking'));
+      }
+
+      function highlightUnit(idx) {
+        clearHighlights();
+        if (idx >= 0 && idx < readUnits.length) {
+          const unit = readUnits[idx];
+          unit.classList.add('is-speaking');
+          unit.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+
+      function speakUnit(idx) {
+        if (!synth) return;
+        if (nextUtteranceTimeout) {
+          clearTimeout(nextUtteranceTimeout);
+          nextUtteranceTimeout = null;
+        }
+
+        if (idx < 0 || idx >= readUnits.length) {
+          setSpeakingState(false);
+          currentUnitIndex = -1;
+          lastSectionId = null;
+          return;
+        }
+
+        synth.cancel();
+        currentUnitIndex = idx;
+        const unit = readUnits[idx];
+        highlightUnit(idx);
+
+        const currentSection = unit.closest('section.doc-section');
+        const currentSecId = currentSection ? currentSection.id : null;
+        
+        // Detect section transition for topic announcement & deliberate pause
+        let isNewSection = (currentSecId && currentSecId !== lastSectionId);
+        lastSectionId = currentSecId;
+
+        let processedText = prepareSpeechText(unit);
+        
+        // If entering a new section, announce the Topic / Section header first
+        if (isNewSection && currentSection) {
+          const headerEl = currentSection.querySelector('.section-title');
+          if (headerEl) {
+            const hText = headerEl.innerText.trim();
+            processedText = 'New Topic: ' + hText + ' ... ... ' + processedText;
+          }
+        }
+
+        if (!processedText) {
+          speakUnit(idx + 1);
+          return;
+        }
+
+        const utterance = new SpeechSynthesisUtterance(processedText);
+        
+        // Calibrated study speech rate & natural pitch
+        const baseRate = parseFloat(speedSelect.value) || 0.9;
+        utterance.rate = baseRate;
+        utterance.pitch = 1.0;
+
+        const selectedVoiceIdx = voiceSelect.value;
+        if (selectedVoiceIdx !== 'default' && voices[selectedVoiceIdx]) {
+          utterance.voice = voices[selectedVoiceIdx];
+        } else if (voices.length > 0) {
+          utterance.voice = voices[0];
+        }
+
+        utterance.onend = () => {
+          if (currentUnitIndex === idx && !isPaused) {
+            // Calculate natural pause before next unit (longer pause if changing section/topic)
+            const nextIdx = idx + 1;
+            let pauseDuration = 400; // standard natural clause pause
+            
+            if (nextIdx < readUnits.length) {
+              const nextSec = readUnits[nextIdx].closest('section.doc-section');
+              if (nextSec && nextSec.id !== lastSectionId) {
+                pauseDuration = 1000; // 1 full second pause on topic change
+              }
+            }
+
+            nextUtteranceTimeout = setTimeout(() => {
+              speakUnit(nextIdx);
+            }, pauseDuration);
+          }
+        };
+
+        utterance.onerror = (e) => {
+          if (e.error !== 'interrupted' && e.error !== 'canceled') {
+            console.warn('TTS natural playback warning:', e);
+          }
+          setSpeakingState(false);
+        };
+
+        synth.speak(utterance);
+        setSpeakingState(true, false);
+      }
+
+      playPauseBtn.addEventListener('click', () => {
+        if (!synth) return;
+        if (synth.speaking && !synth.paused) {
+          synth.pause();
+          isPaused = true;
+          setSpeakingState(true, true);
+        } else if (synth.paused) {
+          synth.resume();
+          isPaused = false;
+          setSpeakingState(true, false);
+        } else {
+          isPaused = false;
+          speakUnit(currentUnitIndex >= 0 ? currentUnitIndex : 0);
+        }
+      });
+
+      stopBtn.addEventListener('click', () => {
+        if (!synth) return;
+        if (nextUtteranceTimeout) {
+          clearTimeout(nextUtteranceTimeout);
+          nextUtteranceTimeout = null;
+        }
+        synth.cancel();
+        isPaused = false;
+        setSpeakingState(false);
+        currentUnitIndex = -1;
+        lastSectionId = null;
+      });
+
+      nextBtn.addEventListener('click', () => {
+        if (!synth) return;
+        isPaused = false;
+        speakUnit(currentUnitIndex + 1);
+      });
+
+      prevBtn.addEventListener('click', () => {
+        if (!synth) return;
+        isPaused = false;
+        speakUnit(Math.max(0, currentUnitIndex - 1));
+      });
+
+      speedSelect.addEventListener('change', () => {
+        if (synth && synth.speaking) {
+          speakUnit(currentUnitIndex);
+        }
+      });
+
+      voiceSelect.addEventListener('change', () => {
+        if (synth && synth.speaking) {
+          speakUnit(currentUnitIndex);
+        }
+      });
+
+      // Click on any paragraph to read from that exact spot with natural cadence
+      document.getElementById('contentWrapper').addEventListener('click', (e) => {
+        const unit = e.target.closest('.read-unit');
+        if (unit) {
+          const idx = readUnits.indexOf(unit);
+          if (idx !== -1) {
+            isPaused = false;
+            speakUnit(idx);
+          }
+        }
+      });
+
+      // Section Quick-Listen Handler
+      window.readSection = function(sectionId) {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          const firstUnit = el.querySelector('.read-unit');
+          if (firstUnit) {
+            const idx = readUnits.indexOf(firstUnit);
+            if (idx !== -1) {
+              isPaused = false;
+              lastSectionId = null; // force announcement of section
+              speakUnit(idx);
+            }
+          }
+        }
+      };
+
+      // Floating Selection Audio Button (with natural legal abbreviation expander)
+      const floatBtn = document.getElementById('floatingTtsTrigger');
+      document.addEventListener('mouseup', (e) => {
+        if (e.target.closest('#floatingTtsTrigger') || e.target.closest('.tts-toolbar') || e.target.closest('header')) return;
+        const sel = window.getSelection().toString().trim();
+        if (sel.length > 2) {
+          const rect = window.getSelection().getRangeAt(0).getBoundingClientRect();
+          floatBtn.style.top = (window.scrollY + rect.top - 44) + 'px';
+          floatBtn.style.left = (window.scrollX + rect.left + (rect.width / 2)) + 'px';
+          floatBtn.style.display = 'block';
+        } else {
+          floatBtn.style.display = 'none';
+        }
+      });
+
+      floatBtn.addEventListener('click', () => {
+        const sel = window.getSelection().toString().trim();
+        if (sel && synth) {
+          synth.cancel();
+          const dummyUnit = document.createElement('div');
+          dummyUnit.innerText = sel;
+          const naturalText = prepareSpeechText(dummyUnit);
+
+          const utterance = new SpeechSynthesisUtterance(naturalText);
+          utterance.rate = parseFloat(speedSelect.value) || 0.9;
+          utterance.pitch = 1.0;
+
+          const selectedVoiceIdx = voiceSelect.value;
+          if (selectedVoiceIdx !== 'default' && voices[selectedVoiceIdx]) {
+            utterance.voice = voices[selectedVoiceIdx];
+          } else if (voices.length > 0) {
+            utterance.voice = voices[0];
+          }
+
+          synth.speak(utterance);
+          setSpeakingState(true);
+          floatBtn.style.display = 'none';
+        }
+      });
+
+      // Keyboard Navigation
+      document.addEventListener('keydown', (e) => {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA') return;
+        if (e.code === 'Space') {
+          e.preventDefault();
+          playPauseBtn.click();
+        } else if (e.code === 'Escape') {
+          stopBtn.click();
+        } else if (e.key === 'n' || e.key === 'N') {
+          nextBtn.click();
+        } else if (e.key === 'p' || e.key === 'P') {
+          prevBtn.click();
+        } else if (e.key === 'd' || e.key === 'D') {
+          themeSelect.value = 'dark';
+          themeSelect.dispatchEvent(new Event('change'));
+        } else if (e.key === 's' || e.key === 'S') {
+          themeSelect.value = 'sepia';
+          themeSelect.dispatchEvent(new Event('change'));
+        } else if (e.key === 'l' || e.key === 'L') {
+          themeSelect.value = 'light';
+          themeSelect.dispatchEvent(new Event('change'));
+        } else if (e.key === '+' || e.key === '=') {
+          document.getElementById('fontIncBtn').click();
+        } else if (e.key === '-') {
+          document.getElementById('fontDecBtn').click();
+        } else if (e.key === '/') {
+          e.preventDefault();
+          searchInput.focus();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

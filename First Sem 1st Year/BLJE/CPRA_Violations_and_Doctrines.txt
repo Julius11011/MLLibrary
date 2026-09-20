@@ -1,0 +1,159 @@
+================================================================================
+DOCTRINES AND CANONS OF THE CODE OF PROFESSIONAL RESPONSIBILITY AND ACCOUNTABILITY (CPRA)
+                    IN PHILIPPINE LEGAL AND LAW ETHICS
+================================================================================
+Effective Date: May 29, 2023 (A.M. No. 22-09-01-SC)
+Replaces the 1988 Code of Professional Responsibility (CPR)
+
+This list summarizes the 6 main Canons of the CPRA, the key rules/sections 
+commonly violated in Philippine administrative/disciplinary cases, and the 
+established legal doctrines associated with each violation.
+
+--------------------------------------------------------------------------------
+CANON I: INDEPENDENCE
+--------------------------------------------------------------------------------
+Mandate: A lawyer shall maintain independence in the discharge of professional 
+duties, free from improper influence, pressure, or interference.
+
+1. Rule 1.01 - Independence from Extraneous Influences
+   * Violation: Allowing personal, financial, social, political, or other 
+     extraneous interests to influence professional judgment.
+   * Doctrine: A lawyer's professional judgment must be free from any double-dealing 
+     or personal interests that conflict with their client's cause.
+
+2. Rule 1.03 - Non-involvement in Illegal/Unethical Acts
+   * Violation: Assisting or counseling a client in activities known to be 
+     illegal, fraudulent, or deceitful.
+   * Doctrine: A lawyer's first and highest duty is to the law and the administration 
+     of justice, which supersedes the duty to the client.
+
+--------------------------------------------------------------------------------
+CANON II: PROPRIETY
+--------------------------------------------------------------------------------
+Mandate: A lawyer shall, at all times, act with propriety and maintain the 
+appearance of propriety in both personal and professional dealings.
+
+1. Section 1 - Propriety in Personal and Professional Conduct
+   * Violation: Grossly immoral conduct, dishonesty, or indecent behavior.
+   * Doctrine: Good moral character is not only a condition precedent to bar admission 
+     but a continuing requirement. Conduct showing moral turpitude, even in a 
+     lawyer's private life (such as sexual exploitation of a minor or extramarital 
+     affairs), warrants disbarment or suspension (e.g., Ventura v. Samson, Guevarra v. Eala).
+
+2. Section 2 - Respect for the Courts, Colleagues, and Parties
+   * Violation: Using disrespectful, abusive, or offensive language in court pleadings; 
+     harassing opposing counsel.
+   * Doctrine: Lawyers must treat opposing counsel and the court with professional courtesy, 
+     dignity, and respect. Poking fun at, mocking, or filing retaliatory suits 
+     against opposing counsel violates legal ethics (e.g., Cabarroguis v. Basa).
+
+3. Section 28 - Responsible Use of Social Media
+   * Violation: Posting misogynistic, sexist, profane, or abusive content online.
+   * Doctrine: A lawyer's speech on social media is subject to ethical regulation. 
+     Using online platforms to hurl profanities or engage in gender-based harassment 
+     degrades the legal profession and is ground for disbarment (e.g., Re: Lorenzo Gadon).
+
+4. Section 37 - Prohibition on Romantic or Sexual Relationship with a Client
+   * Violation: Entering into a romantic, dating, or sexual relationship with a client 
+     during the professional engagement.
+   * Doctrine: Dating or having a sexual relationship with a client creates an inherent 
+     conflict of interest, compromises objective professional judgment, and exploits 
+     the client's vulnerability.
+
+--------------------------------------------------------------------------------
+CANON III: FIDELITY
+--------------------------------------------------------------------------------
+Mandate: A lawyer shall act with absolute fidelity, loyalty, and devotion to the 
+client's cause, keeping client confidences inviolate.
+
+1. Section 1 - Fiduciary Relationship & Confidentiality
+   * Violation: Breaching client confidentiality or failing to protect prospective 
+     client information.
+   * Doctrine: A lawyer-client relationship (and the accompanying duty of confidentiality) 
+     attaches the moment a prospective client consults the lawyer and shares 
+     confidential details, regardless of whether a formal contract is signed or 
+     fees are paid (e.g., Sison v. Dumlao, Legaspi v. Gonzales).
+
+2. Section 6 - Conflict of Interest
+   * Violation: Representing conflicting interests without written, informed consent 
+     (e.g., representing both the landowner and illegal settler, or joint venture 
+     partners with opposing interests).
+   * Doctrine: A lawyer cannot represent conflicting interests as it violates the 
+     duty of absolute loyalty and confidentiality owed to each client (e.g., 
+     Buenavista Properties v. Deloria, Palma v. Maduramente).
+
+3. Section 13 - Acquisition of Litigated Property
+   * Violation: Leasing or buying property that is the direct object of active 
+     litigation handled by the lawyer.
+   * Doctrine: Under Article 1491 of the Civil Code and the CPRA, lawyers are strictly 
+     prohibited from purchasing or leasing property under litigation by virtue of 
+     their profession. This prevents exploitation of the fiduciary relationship 
+     (e.g., Gabucan v. Narido).
+
+4. Section 19 - Calling Client's Attention to Fraud
+   * Violation: Assisting in or condoning a client's fraudulent acts (such as using 
+     forged court orders).
+   * Doctrine: If a lawyer discovers that a client has perpetrated a fraud upon a court 
+     or person, the lawyer must immediately call on the client to rectify it. If the 
+     client refuses, the lawyer must withdraw from representation (e.g., Tiongson v. Flores).
+
+--------------------------------------------------------------------------------
+CANON IV: COMPETENCE AND DILIGENCE
+--------------------------------------------------------------------------------
+Mandate: A lawyer shall provide competent, diligent, and prompt legal services.
+
+1. Section 1 - Competence and Diligent Representation
+   * Violation: Neglecting a legal matter, failing to file pleadings on time, 
+     missing pre-trial conferences, or letting a client be declared in default.
+   * Doctrine: Acceptance of a case binds the lawyer to serve the client with competence 
+     and warm zeal. Negligence in performing duties violates the lawyer's oath and 
+     prejudices the client (e.g., Palma v. Maduramente).
+
+2. Section 3 - Duty to Inform Client
+   * Violation: Keeping the client in the dark; failing to provide updates; 
+     misrepresenting the status of the case.
+   * Doctrine: A lawyer has a fiduciary duty to keep the client reasonably informed. 
+     Failing to do so, or fabricating spurious court orders to cover up inaction, 
+     constitutes serious dishonesty (e.g., Manalang v. Buendia).
+
+--------------------------------------------------------------------------------
+CANON V: EQUALITY
+--------------------------------------------------------------------------------
+Mandate: A lawyer shall treat all persons with equality, fairness, and respect, 
+without bias or discrimination.
+
+1. Section 1 - Non-discrimination
+   * Violation: Using discriminatory, harassing, or biased language against any 
+     person or group based on race, sex, gender, religion, or background.
+   * Doctrine: The legal profession demands fairness and equal protection. Lawyers 
+     must refrain from discriminatory actions and language that undermine equality 
+     (e.g., Re: Lorenzo Gadon).
+
+--------------------------------------------------------------------------------
+CANON VI: ACCOUNTABILITY
+--------------------------------------------------------------------------------
+Mandate: A lawyer shall be accountable to society, the courts, and the legal 
+profession for their actions, adhering to disciplinary procedures.
+
+1. Section 32 & 33 - Abuse of Court Processes / Forum Shopping
+   * Violation: Filing multiple frivolous, dilatory motions to delay execution of 
+     final judgments; engaging in forum shopping.
+   * Doctrine: Lawyers must assist in the speedy and efficient administration of 
+     justice. Abusing procedural rules to frustrate final and executory decisions 
+     is an ethical violation (e.g., David v. Rongcal, Genato v. Mallari).
+
+2. Section 35 - Restrictions on Government Lawyers / Public Officials
+   * Violation: Public officials engaging in the private practice of law where 
+     prohibited, or practicing within the 1-year ban after separation.
+   * Doctrine: Government employees and public officials who are lawyers are barred 
+     from private practice (or face a 1-year ban in their former offices after resigning) 
+     to prevent conflict of interest, influence peddling, and corruption 
+     (e.g., Query of Atty. Silverio-Buffe).
+
+3. Rule 138 (Rules of Court) - Unauthorized Practice of Law / Advertising
+   * Violation: Publishing commercial advertisements offering legal services; 
+     unauthorized practice by corporations.
+   * Doctrine: The practice of law is a privilege reserved for individuals of good 
+     moral character admitted to the Bar. It cannot be practiced by corporations or 
+     advertised like merchant goods (e.g., Atty. Ulep v. Legal Clinic).
+================================================================================

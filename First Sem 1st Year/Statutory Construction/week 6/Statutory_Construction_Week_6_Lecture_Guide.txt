@@ -1,0 +1,155 @@
+MANILA LAW COLLEGE
+STATUTORY CONSTRUCTION COMPREHENSIVE LECTURE & STUDY GUIDE
+Coverage: Chapter II (Prelude to Exercise of Power) to Chapter IV.C (Presumptions in StatCon)
+===============================================================================================
+
+A. Verba Legis Non Est Recedendum (The Plain Meaning Rule)
+• Doctrinal Core: From the words of a statute there must be no departure. When the language of the law is clear, plain, and free from ambiguity, the court has no authority to construe—it must simply apply the law as written.
+• Why the Rule Exists: The legislature (Congress) is the sole constitutional authority vested with lawmaking power. When Congress expresses its will in plain terms, judges cannot insert exceptions or alter the scope under the guise of interpretation without committing unconstitutional judicial legislation.
+B. Absoluta Sententia Expositore Non Indiget & Dura Lex Sed Lex
+• Absoluta Sententia: An absolute or clear statement needs no expositor. When the statute is plain and unequivocal, bringing in external historical opinions or secondary aids only clouds what Congress already made clear.
+• Dura Lex Sed Lex: The law may be harsh, but it is the law. Courts cannot refuse to apply a valid statute merely because its enforcement works hardship, inconvenience, or perceived unfairness to a particular litigant.
+A. Intention of the Statute Must Prevail (Ratio Legis Est Anima Legis)
+• Core Principle: The reason of the law is the soul of the law. The primary objective of all statutory interpretation is to discover and effectuate the true legislative intent. Words ought to be subservient to the intent, not the intent to the words (Verba intentioni, non e contra, debent inservire).
+B. Construction to Avoid Absurdity and Injustice
+• Spirit Over Letter: The legislature is presumed never to intend an unjust, absurd, or ridiculous consequence. If a strictly literal reading of a statute defeats its manifest spirit or produces a monstrously absurd result, the spirit of the law controls over the letter.
+C. Ut Res Magis Valeat Quam Pereat & Nemo Tenetur Ad Impossibile
+• Ut Res Magis Valeat: That the thing may rather have effect than perish. An interpretation that gives life, validity, and operational effect to the statute is favored over one that destroys it or renders it inoperative.
+• Nemo Tenetur: No one is bound to perform the impossible. Statutory requirements are never interpreted to compel acts that are physically or legally impossible without fault of the party.
+A. Ubi Lex Non Distinguit Nec Nos Distinguere Debemus
+• Rule: Where the law makes no distinction, the court must make no distinction. When a statute uses general terms (e.g., 'all public officers', 'any action'), courts cannot carve out classifications or restrict the scope.
+B. Noscitur A Sociis (Associated Words)
+• Rule: A word is known by the company it keeps. The meaning of a doubtful or ambiguous statutory term is ascertained and colored by reference to the words with which it is associated in the sentence.
+C. Ejusdem Generis (Of the Same Kind)
+• The Formula: Where general words follow an enumeration of specific persons or things of a distinct class, the general words are construed to apply only to persons or things of the same general character as those specifically listed.
+• Strict Requisites: (1) Enumeration of specific words belonging to a homogenous class; (2) General catch-all term follows; (3) Specific terms do not exhaust the entire class.
+D. Expressio Unius Est Exclusio Alterius & Casus Omissus
+• Expressio Unius: The express mention of one person, thing, or consequence implies the exclusion of all others. If Congress writes a specific list, what is excluded is presumed intentionally omitted.
+• Casus Omissus: A case omitted is held to have been omitted intentionally. Even if a court believes Congress made an accidental omission, the court cannot supply the missing term under the guise of construction.
+E. Reddendo Singula Singulis & Doctrine of Necessary Implication
+• Reddendo Singula: Referring each to each. Distributing respective words and phrases to their appropriate subjects or antecedents in the statute.
+• Necessary Implication: What is implied in a statute is as much a part of it as what is expressed (Ex necessitate legis). Every statutory grant of power carries with it all incidental powers necessary to execute the main grant.
+A. Generalia Specialibus Non Derogat & Lex Specialis Derogat Generali
+• General vs Special: A general law does not repeal or derogate from a special law. A special law represents the concentrated legislative will on a specific subject and governs over a general law, even if the general law was enacted later.
+B. Lex Posterior Generalis Non Derogat Legi Priori Specialis
+• Rule: A subsequent general statute does not repeal a prior special statute unless there is a clear, manifest, and irreconcilable intention to abrogate the special law.
+C. Interpretare Et Concordare Leges Legibus (Harmonization)
+• Golden Rule: To interpret and harmonize laws with laws is the best method of interpretation. Every statute is presumed enacted in harmony with the existing body of laws. Courts must strive to reconcile conflicting statutes so that both may stand.
+D. The Borrowed Statute Rule
+• Rule: When a Philippine statute is copied or patterned after a foreign law (e.g. U.S. Uniform Commercial Code, Negotiable Instruments Law, Rules of Court), the authoritative decisions of the highest court of the originating jurisdiction are entitled to great persuasive weight in Philippine jurisprudence.
+A. Intrinsic Aids (Found Within the Four Corners)
+• Title: Defines the object and scope of the statute; persuasive when the body is ambiguous, but cannot override clear operational text.
+• Preamble: The 'Whereas' clauses stating the mischief and purpose; the key to unlock the minds of the lawmakers.
+• Punctuations: Semicolons separate distinct independent thoughts; commas set off qualifying clauses.
+• Headnotes & Epigraphs: Editorial section headings; convenient for reference, but non-controlling.
+• Lingual Text: Where an enacted statute was originally drafted in Spanish (e.g., Revised Penal Code), the Spanish text controls over defective English translations.
+B. Extrinsic Aids (Found Outside the Four Corners)
+• Legislative History: Committee reports, explanatory notes, and floor sponsorship speeches showing the evil sought to be remedied.
+• Contemporaneous Construction: Executive and administrative interpretations given by departments enforcing the law carry great respect, but cannot override clear text.
+• Dictionaries: Defining ordinary words according to their natural, customary, and accepted usage.
+A. The Five Cardinal Presumptions
+1. Presumption Against Unconstitutionality: Statutes are presumed valid; the challenger bears the heavy burden of showing clear constitutional violation (LAMP v. DBM, G.R. 164987).
+2. Presumption Against Injustice: In case of doubt, it is presumed Congress intended right and justice to prevail (Melchor v. COA, G.R. 95398 / Alonzo v. IAC).
+3. Presumption Against Implied Repeals: All statutes are presumed enacted with knowledge of prior laws and intended to coexist (COA v. Cebu, G.R. 141386).
+4. Presumption Against Ineffectiveness: Congress is presumed to intend that every word and section shall have operational effect.
+5. Presumption Against Absurdity: Statutes must receive a sensible construction that avoids irrational or unworkable results.
+MANILA LAW COLLEGE
+Manila Law College | Statutory Construction (2 Units) | Instructor: Atty. Jason P. Raposas
+STATUTORY CONSTRUCTION COMPREHENSIVE LECTURE & STUDY GUIDE
+Coverage: Chapter II (Prelude to Exercise of Power) to Chapter IV.C (Presumptions in StatCon)
+--------------------------------------------------------------------------------
+MODULE 1: PRELUDE TO THE EXERCISE OF JUDICIAL POWER
+The Threshold Test: Can the Court Even Interpret the Law?
+--------------------------------------------------------------------------------
+📌 CLASSROOM & PRACTICAL EXAMPLE
+
+Hypothetical: A city ordinance penalizes: 'Any person who brings any motorized vehicle inside the botanical gardens.' An individual rides a modern high-end electric scooter into the garden and is cited for a violation. He argues that electric scooters are eco-friendly and did not exist when the ordinance was enacted.
+Application: Under Verba Legis, an electric scooter is unequivocally a motorized vehicle. Because the text makes no distinction between gasoline and electric motors, the plain words govern without exception.
+--------------------------------------------------------------------------------
+📌 LANDMARK CASE: PEOPLE V. MAPA (G.R. NO. L-22301, AUG 30, 1967)
+
+Facts: Mario Mapa was prosecuted for illegal possession of firearms. He invoked his appointment as a secret agent of the Provincial Governor of Batangas.
+Ruling: Section 879 of the Revised Administrative Code explicitly enumerated the public officials exempt from firearm licensing (e.g. mayors, municipal treasurers, governors). Secret agents were omitted from the text. The Supreme Court applied Verba Legis: where the statute is clear, courts cannot supply an exemption that Congress did not write.
+--------------------------------------------------------------------------------
+💡 HOW LAW STUDENTS CAN GRASP & RECITE: VERBA LEGIS IN RECITATION
+
+• Plain English Concept: If the statutory wording is clear and unambiguous, interpretation is forbidden; only literal application is permitted.
+• Golden Recitation Script: "Your Honor, under the doctrine of Verba Legis Non Est Recedendum, where the law speaks in clear and categorical language, there is no room for interpretation. There is only room for application. The duty of the court is jus dicere, non jus dare."
+--------------------------------------------------------------------------------
+📌 LANDMARK CASE: PASCUAL V. PASCUAL-BAUTISTA (G.R. NO. 84240, MAR 25, 1992)
+
+Facts: An illegitimate child sought to inherit from her father's legitimate brother via intestate succession.
+Ruling: Article 992 of the Civil Code explicitly bars illegitimate children from inheriting intestate from the legitimate children and relatives of their father or mother (the Iron Curtain Rule). The Court ruled that even if the rule feels harsh, courts must apply the absolute text: Dura lex sed lex.
+--------------------------------------------------------------------------------
+MODULE 2: BASIC GUIDELINES IN CONSTRUCTION AND INTERPRETATION
+General Guidelines, Intent, Harmony, and Preventing Absurdity
+--------------------------------------------------------------------------------
+📌 LANDMARK CASE: ALONZO V. IAC (G.R. NO. 72873, MAY 28, 1987)
+
+Facts: Co-heirs sold their inherited property to a buyer who lived openly on the land and built a house for 13 years. A co-heir later sought to exercise legal redemption under Civil Code Article 1088, which allows redemption within 30 days from written notice of the sale, arguing no written notice had ever been served.
+Ruling: The Supreme Court (per Justice Cruz) held that actual open knowledge for over a decade satisfied the purpose of the law. To allow redemption after 13 years under a hyper-technical reading of 'written notice' would perpetuate grave injustice. The spirit of the law transcends its literal letters.
+--------------------------------------------------------------------------------
+MODULE 3: CONSIDERATIONS WITHIN THE STATUTE (INTRINSIC CANONS)
+Noscitur a Sociis, Ejusdem Generis, Expressio Unius, Casus Omissus, Reddendo Singula
+--------------------------------------------------------------------------------
+📌 LANDMARK CASE: PEOPLE V. MANANTAN (G.R. NO. L-14129, JULY 31, 1962)
+
+Facts: A Justice of the Peace (Judge) was charged with partisan political campaigning under Section 54 of the Revised Election Code, which prohibited 'any justice, judge, fiscal, treasurer, or assessor' from aiding candidates. He argued that the omission of 'justice of the peace' (which appeared in the predecessor law) meant he was excluded under Expressio Unius.
+Ruling: Convicted. Expressio Unius is merely an auxiliary aid and cannot defeat clear legislative intent. The general word 'judge' comprehends all judges, including Justices of the Peace. The purpose of insulating the judiciary from political partisanship applied equally to all judicial officers.
+--------------------------------------------------------------------------------
+MODULE 4: CONSIDERATIONS OUTSIDE THE STATUTE (INTER-STATUTORY CANONS)
+Generalia Specialibus, Lex Posterior, Lex Specialis, Borrowed Statutes & Harmonization
+--------------------------------------------------------------------------------
+📌 LANDMARK CASE: TUNA PROCESSING, INC. V. PHILIPPINE KINGFORD, INC. (G.R. NO. 185582, FEB 29, 2012)
+
+The Clash: Corporation Code Sec. 133 (General Law: unlicensed foreign corporation cannot sue) vs. Alternative Dispute Resolution Act / RA 9285 (Special Law: any party to arbitration may enforce an award).
+Ruling: The ADR Act as Lex Specialis governs the specific enforcement of international arbitral awards over the general capacity-to-sue provisions of the Corporation Code. Foreign corporations may enforce arbitral awards without a local license.
+--------------------------------------------------------------------------------
+📌 LANDMARK CASE: CIR V. PHILIPPINE AIRLINES, INC. (G.R. NO. 180066, JULY 8, 2009)
+
+Facts: PAL held a special legislative charter (PD 1590) allowing it to pay a franchise tax 'in lieu of all other taxes.' Congress later enacted broad VAT amendments to the NIRC.
+Ruling: The later general NIRC amendments did not repeal PAL's prior special charter exemption. A general tax law will not impliedly repeal a specialized franchise charter.
+--------------------------------------------------------------------------------
+📌 LANDMARK CASE: REMO V. SECRETARY OF FOREIGN AFFAIRS (G.R. NO. 169202, MAR 5, 2010)
+
+Harmonization: Civil Code Art. 370 gives a married woman the option to use her husband's surname, while the Philippine Passport Act (RA 8239) regulates passport issuance. Harmonized: A woman has the right to choose her surname, but once chosen and entered into official passport records, she cannot revert to her maiden name while married except upon death, annulment, or divorce.
+--------------------------------------------------------------------------------
+MODULE 5: AIDS TO CONSTRUCTION (INTRINSIC & EXTRINSIC AIDS)
+Title, Preambles, Punctuation, Lingual Text, Legislative History, Contemporaneous Construction
+--------------------------------------------------------------------------------
+📌 LANDMARK CASE: PEOPLE OF THE PHILIPPINES V. SUBIDO (G.R. NO. L-21734, SEPT 5, 1975)
+
+Facts: Accused claimed subsidiary imprisonment could not be imposed because the penalty did not explicitly attach to the fine.
+Ruling: The Court looked at the semicolon separating the penalty clauses. The semicolon indicated a distinct, independent clause, establishing that subsidiary imprisonment attached to the fine.
+--------------------------------------------------------------------------------
+📌 LANDMARK CASE: CIR V. SM PRIME HOLDINGS, INC. (G.R. NO. 183505, FEB 26, 2010)
+
+Facts: The CIR attempted to impose VAT on cinema ticket sales by administrative circular.
+Ruling: Tracing the legislative history of VAT enactments, the Supreme Court found that Congress intentionally excluded movie theaters from VAT because they were already subject to local amusement taxes. Administrative circulars cannot expand a tax statute beyond legislative intent.
+--------------------------------------------------------------------------------
+MODULE 6: PRESUMPTIONS IN STATUTORY CONSTRUCTION
+The Five Cardinal Default Truths Assumed by the Judiciary
+--------------------------------------------------------------------------------
+MODULE 7: THE LAW STUDENT'S 4-STEP ATTACK ALGORITHM & RECITATION CHEAT SHEET
+Step-by-Step Decision Flowchart for Recitations and Bar Exams
+--------------------------------------------------------------------------------
+📌 4-STEP BAR EXAM ATTACK FLOWCHART
+
+STEP 1: IS THE TEXT CLEAR? If YES -> Apply VERBA LEGIS / ABSOLUTA SENTENTIA / DURA LEX without interpretation.
+STEP 2: INTERPRETING WORDS IN ONE LAW? Check for EJUSDEM GENERIS (class + general term), NOSCITUR A SOCIIS (associated words), EXPRESSIO UNIUS (express list), or UBI LEX NON DISTINGUIT (broad terms).
+STEP 3: CONFLICT BETWEEN TWO LAWS? Apply GENERALIA SPECIALIBUS (special law prevails), LEX POSTERIOR GENERALIS (special law survives general law), or HARMONIZATION.
+STEP 4: CLAIMS OF INJUSTICE OR INVALIDITY? Apply PRESUMPTION OF CONSTITUTIONALITY, PRESUMPTION AGAINST INJUSTICE (Ratio Legis), and PRESUMPTION AGAINST IMPLIED REPEAL.
+--------------------------------------------------------------------------------
+📌 TOP 10 LATIN MAXIMS TO MEMORIZE FOR RECITATIONS
+
+1. Verba legis non est recedendum: From the words of a statute there must be no departure.
+2. Ratio legis est anima legis: The reason of the law is the soul of the law.
+3. Absoluta sententia expositore non indiget: A clear statement needs no interpreter.
+4. Ubi lex non distinguit nec nos distinguere debemus: Where the law does not distinguish, we ought not to distinguish.
+5. Ejusdem generis: Of the same kind or nature.
+6. Noscitur a sociis: A word is known by its associates.
+7. Expressio unius est exclusio alterius: The express mention of one is the exclusion of others.
+8. Generalia specialibus non derogat: General words do not derogate from special provisions.
+9. Interpretare et concordare leges legibus: To harmonize laws with laws is the best method of interpretation.
+10. Legis interpretatio legis vim obtinet: The judicial interpretation of the law has the force of law.
+--------------------------------------------------------------------------------

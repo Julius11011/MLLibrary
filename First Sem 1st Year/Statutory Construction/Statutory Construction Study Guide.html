@@ -1,0 +1,1919 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Statutory Construction comprehensive review notes and study materials.">
+  <title>Statutory Construction Study Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0f172a;
+      --bg-secondary: #1e293b;
+      --bg-tertiary: #334155;
+      --bg-card: rgba(30, 41, 59, 0.75);
+      --bg-card-hover: rgba(51, 65, 85, 0.85);
+      --border-color: rgba(148, 163, 184, 0.18);
+      --border-focus: #38bdf8;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --accent-gold: #fbbf24;
+      --accent-gold-dark: #d97706;
+      --accent-blue: #38bdf8;
+      --accent-indigo: #818cf8;
+      --accent-emerald: #34d399;
+      --accent-rose: #fb7185;
+      --highlight-reading: rgba(56, 189, 248, 0.28);
+      --font-body: 'Merriweather', Georgia, serif;
+      --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-heading: 'Cinzel', serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --sidebar-width: 320px;
+      --header-height: 72px;
+      --content-max-width: 880px;
+      --base-font-size: 17px;
+      --line-height: 1.85;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+      --glass-blur: blur(14px);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #ffffff;
+      --bg-tertiary: #e2e8f0;
+      --bg-card: rgba(255, 255, 255, 0.9);
+      --bg-card-hover: rgba(241, 245, 249, 0.98);
+      --border-color: rgba(203, 213, 225, 0.85);
+      --border-focus: #0284c7;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --accent-gold: #b45309;
+      --accent-gold-dark: #92400e;
+      --accent-blue: #0284c7;
+      --accent-indigo: #4f46e5;
+      --accent-emerald: #059669;
+      --accent-rose: #e11d48;
+      --highlight-reading: rgba(2, 132, 199, 0.18);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+    }
+
+    [data-theme="sepia"] {
+      --bg-primary: #fbf0d9;
+      --bg-secondary: #f4e4c1;
+      --bg-tertiary: #ecd6a7;
+      --bg-card: rgba(244, 228, 193, 0.9);
+      --bg-card-hover: rgba(236, 214, 167, 0.98);
+      --border-color: rgba(180, 150, 110, 0.45);
+      --border-focus: #9a6700;
+      --text-primary: #2d241e;
+      --text-secondary: #4a3b32;
+      --text-muted: #786455;
+      --accent-gold: #a75d00;
+      --accent-gold-dark: #8c4c00;
+      --accent-blue: #2c6e91;
+      --accent-indigo: #5d4a82;
+      --accent-emerald: #2e7d32;
+      --accent-rose: #c2185b;
+      --highlight-reading: rgba(200, 150, 50, 0.28);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: var(--base-font-size);
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      line-height: var(--line-height);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.25s ease, color 0.25s ease;
+      overflow-x: hidden;
+    }
+
+    /* Top Reading Progress Bar */
+    #readingProgressBar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue));
+      z-index: 999;
+      transition: width 0.1s ease;
+    }
+
+    /* Top Sticky Navigation Bar */
+    header.app-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--header-height);
+      background-color: rgba(15, 23, 42, 0.88);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      gap: 1rem;
+    }
+
+    [data-theme="light"] header.app-header {
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    [data-theme="sepia"] header.app-header {
+      background-color: rgba(251, 240, 217, 0.92);
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0f172a;
+      font-weight: 800;
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      box-shadow: 0 2px 8px rgba(251, 191, 36, 0.35);
+      text-decoration: none;
+    }
+
+    .brand-titles {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: var(--font-ui);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 300px;
+    }
+
+    .brand-subtitle {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      color: var(--accent-gold);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Global TTS Controls Toolbar */
+    .tts-toolbar {
+      display: flex;
+      align-items: center;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      padding: 0.35rem 0.65rem;
+      border-radius: 40px;
+      gap: 0.45rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .tts-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-primary);
+      cursor: pointer;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      font-size: 0.95rem;
+    }
+
+    .tts-btn:hover {
+      background-color: var(--bg-tertiary);
+      color: var(--accent-gold);
+    }
+
+    .tts-btn.primary {
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+      color: #0f172a;
+      font-weight: 700;
+      box-shadow: 0 2px 6px rgba(251, 191, 36, 0.4);
+    }
+
+    .tts-btn.primary:hover {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
+
+    .tts-status-badge {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.55rem;
+      border-radius: 20px;
+      background-color: var(--bg-tertiary);
+      color: var(--text-muted);
+      min-width: 90px;
+      text-align: center;
+    }
+
+    .tts-status-badge.speaking {
+      background-color: rgba(56, 189, 248, 0.2);
+      color: var(--accent-blue);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      animation: pulseGlow 1.5s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      from { box-shadow: 0 0 4px rgba(56, 189, 248, 0.2); }
+      to { box-shadow: 0 0 10px rgba(56, 189, 248, 0.5); }
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .control-select {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 0.4rem 0.65rem;
+      border-radius: 8px;
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .control-select:focus {
+      border-color: var(--border-focus);
+    }
+
+    .icon-btn {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+
+    .icon-btn:hover {
+      background-color: var(--bg-tertiary);
+      border-color: var(--border-focus);
+    }
+
+    /* Main Application Layout */
+    .app-layout {
+      display: flex;
+      flex: 1;
+      position: relative;
+    }
+
+    /* Sticky Sidebar Navigation */
+    aside.app-sidebar {
+      width: var(--sidebar-width);
+      height: calc(100vh - var(--header-height));
+      position: sticky;
+      top: var(--header-height);
+      background-color: var(--bg-secondary);
+      border-right: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      overflow-y: auto;
+      z-index: 50;
+      transition: transform 0.3s ease;
+    }
+
+    .sidebar-header {
+      padding: 1.25rem 1rem 0.75rem 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .sidebar-search {
+      position: relative;
+      width: 100%;
+    }
+
+    .sidebar-search input {
+      width: 100%;
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.5rem 0.75rem 0.5rem 2rem;
+      color: var(--text-primary);
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .sidebar-search input:focus {
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+    }
+
+    .sidebar-search .search-icon {
+      position: absolute;
+      left: 0.65rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    .toc-container {
+      padding: 0.75rem 0.5rem;
+      flex: 1;
+    }
+
+    .toc-nav ul {
+      list-style: none;
+    }
+
+    .toc-nav li {
+      margin-bottom: 0.2rem;
+    }
+
+    .toc-link {
+      display: block;
+      padding: 0.45rem 0.75rem;
+      border-radius: 6px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      font-weight: 500;
+      line-height: 1.4;
+      transition: all 0.2s ease;
+      border-left: 2px solid transparent;
+    }
+
+    .toc-link:hover {
+      background-color: var(--bg-tertiary);
+      color: var(--text-primary);
+    }
+
+    .toc-link.active {
+      background-color: rgba(56, 189, 248, 0.12);
+      color: var(--accent-blue);
+      border-left-color: var(--accent-blue);
+      font-weight: 600;
+    }
+
+    .toc-link.level-2 {
+      padding-left: 1.25rem;
+      font-size: 0.78rem;
+    }
+
+    .toc-link.level-3 {
+      padding-left: 1.75rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Main Content Container */
+    main.app-content {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      padding: 2.5rem 2rem;
+      overflow-y: visible;
+    }
+
+    .content-wrapper {
+      max-width: var(--content-max-width);
+      width: 100%;
+    }
+
+    /* Document Header Banner */
+    .document-hero {
+      background: linear-gradient(145deg, var(--bg-card), var(--bg-secondary));
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2.25rem 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .document-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue), var(--accent-indigo));
+    }
+
+    .doc-badge {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      background: rgba(251, 191, 36, 0.15);
+      color: var(--accent-gold);
+      border: 1px solid rgba(251, 191, 36, 0.3);
+      margin-bottom: 0.85rem;
+    }
+
+    .doc-main-title {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+    }
+
+    .doc-subtitle {
+      font-family: var(--font-ui);
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .doc-meta-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    /* Section & Content Styling */
+    section.doc-section {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2.25rem;
+      box-shadow: var(--shadow-md);
+      transition: border-color 0.2s ease;
+    }
+
+    section.doc-section:hover {
+      border-color: rgba(148, 163, 184, 0.35);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+      line-height: 1.4;
+    }
+
+    .section-title.level-2 {
+      font-size: 1.2rem;
+      color: var(--text-primary);
+    }
+
+    .section-title.level-3 {
+      font-size: 1.05rem;
+      color: var(--accent-blue);
+    }
+
+    .section-listen-btn {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.3rem 0.7rem;
+      border-radius: 20px;
+      background-color: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: all 0.2s ease;
+    }
+
+    .section-listen-btn:hover {
+      background-color: var(--accent-gold);
+      color: #0f172a;
+      border-color: var(--accent-gold);
+    }
+
+    /* Read Units & Paragraphs */
+    .read-unit {
+      position: relative;
+      margin-bottom: 1.15rem;
+      padding: 0.4rem 0.7rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .read-unit:hover {
+      background-color: rgba(148, 163, 184, 0.08);
+    }
+
+    .read-unit.is-speaking {
+      background-color: var(--highlight-reading) !important;
+      border-left: 3px solid var(--accent-blue);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
+    }
+
+    .bullet-point {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+    }
+
+    .bullet-dot {
+      color: var(--accent-gold);
+      font-weight: bold;
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+
+    .bullet-num {
+      color: var(--accent-blue);
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .bullet-content {
+      flex: 1;
+    }
+
+    .reader-quote {
+      border-left: 4px solid var(--accent-gold);
+      padding: 0.75rem 1.25rem;
+      background-color: rgba(251, 191, 36, 0.06);
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: var(--text-secondary);
+      margin: 1.25rem 0;
+    }
+
+    .reader-code {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1rem;
+      overflow-x: auto;
+      line-height: 1.5;
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+      margin: 1.25rem 0;
+    }
+
+    .reader-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-ui);
+      font-size: 0.88rem;
+    }
+
+    .reader-table th, .reader-table td {
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border-color);
+      text-align: left;
+    }
+
+    .reader-table th {
+      background-color: var(--bg-secondary);
+      color: var(--accent-gold);
+      font-weight: 600;
+    }
+
+    .reader-table tr:nth-child(even) {
+      background-color: rgba(148, 163, 184, 0.04);
+    }
+
+    /* Case Elements Badges */
+    .case-element {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .case-badge {
+      font-family: var(--font-ui);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+      flex-shrink: 0;
+      margin-top: 0.25rem;
+    }
+
+    .badge-facts { background: rgba(56, 189, 248, 0.18); color: var(--accent-blue); border: 1px solid rgba(56, 189, 248, 0.35); }
+    .badge-issue { background: rgba(251, 191, 36, 0.18); color: var(--accent-gold); border: 1px solid rgba(251, 191, 36, 0.35); }
+    .badge-held { background: rgba(52, 211, 153, 0.18); color: var(--accent-emerald); border: 1px solid rgba(52, 211, 153, 0.35); }
+    .badge-doctrine { background: rgba(251, 113, 133, 0.18); color: var(--accent-rose); border: 1px solid rgba(251, 113, 133, 0.35); }
+
+    .legal-citation {
+      font-weight: 600;
+      color: var(--accent-gold);
+      border-bottom: 1px dotted rgba(251, 191, 36, 0.5);
+    }
+
+    .section-divider {
+      border: 0;
+      height: 1px;
+      background: var(--border-color);
+      margin: 1.5rem 0;
+    }
+
+    /* Floating TTS Trigger on Selection */
+    #floatingTtsTrigger {
+      position: absolute;
+      display: none;
+      z-index: 1000;
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+      color: #0f172a;
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 20px;
+      padding: 0.4rem 0.85rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      cursor: pointer;
+      transform: translateX(-50%);
+      transition: transform 0.15s ease, filter 0.15s ease;
+    }
+
+    #floatingTtsTrigger:hover {
+      transform: translateX(-50%) scale(1.05);
+      filter: brightness(1.1);
+    }
+
+    /* Footer */
+    footer.app-footer {
+      background-color: var(--bg-secondary);
+      border-top: 1px solid var(--border-color);
+      padding: 1.5rem;
+      text-align: center;
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: auto;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 900px) {
+      aside.app-sidebar {
+        position: fixed;
+        left: 0;
+        top: var(--header-height);
+        transform: translateX(-100%);
+        box-shadow: var(--shadow-lg);
+      }
+
+      aside.app-sidebar.open {
+        transform: translateX(0);
+      }
+
+      .brand-title {
+        max-width: 180px;
+      }
+
+      .tts-status-badge {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="readingProgressBar"></div>
+
+  <!-- App Header -->
+  <header class="app-header">
+    <div class="brand-section">
+      <button class="icon-btn" id="toggleSidebarBtn" title="Toggle Table of Contents">☰</button>
+      <a href="#" class="brand-logo" title="MLC Law Reader">⚖</a>
+      <div class="brand-titles">
+        <span class="brand-title">Statutory Construction Study Guide</span>
+        <span class="brand-subtitle">Statutory Construction • Interactive Reader</span>
+      </div>
+    </div>
+
+    <!-- TTS Toolbar -->
+    <div class="tts-toolbar">
+      <button class="tts-btn" id="ttsPrevBtn" title="Previous Paragraph (P)">⏮</button>
+      <button class="tts-btn primary" id="ttsPlayPauseBtn" title="Play / Pause (Space)">
+        <span id="ttsPlayIcon">▶</span>
+        <span id="ttsPauseIcon" style="display:none;">⏸</span>
+      </button>
+      <button class="tts-btn" id="ttsStopBtn" title="Stop (Esc)">⏹</button>
+      <button class="tts-btn" id="ttsNextBtn" title="Next Paragraph (N)">⏭</button>
+      <span class="tts-status-badge" id="ttsStatus">Ready</span>
+    </div>
+
+    <!-- Right Controls -->
+    <div class="header-actions">
+      <select class="control-select" id="ttsSpeedSelect" title="Reading Speed (Deliberate Study Pace)">
+        <option value="0.75">0.75x (Slow)</option>
+        <option value="0.85">0.85x (Very Clear)</option>
+        <option value="0.9" selected>0.9x (Deliberate)</option>
+        <option value="1.0">1.0x (Normal)</option>
+        <option value="1.15">1.15x</option>
+        <option value="1.25">1.25x</option>
+        <option value="1.5">1.5x</option>
+      </select>
+      <select class="control-select" id="ttsVoiceSelect" title="Speech Voice (Neural Natural Voices First)" style="max-width: 155px;">
+        <option value="default">Natural Voice (Auto)</option>
+      </select>
+      <button class="icon-btn" id="fontDecBtn" title="Decrease Font Size ( - )">A-</button>
+      <button class="icon-btn" id="fontIncBtn" title="Increase Font Size ( + )">A+</button>
+      <select class="control-select" id="themeSelect" title="Visual Theme">
+        <option value="dark">🌙 Dark</option>
+        <option value="sepia">📜 Sepia</option>
+        <option value="light">☀️ Light</option>
+      </select>
+    </div>
+  </header>
+
+  <!-- Layout Container -->
+  <div class="app-layout">
+    <!-- Table of Contents Sidebar -->
+    <aside class="app-sidebar" id="appSidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-search">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="sidebarSearch" placeholder="Search topics, cases... ( / )" autocomplete="off">
+        </div>
+      </div>
+      <div class="toc-container">
+        <nav class="toc-nav">
+          <ul id="tocList">
+            <li><a href="#sec-intro" class="toc-link level-1">Statutory Construction Study Guide</a></li>
+            <li><a href="#sec-1-statutory-construction-comprehensive-study-guide" class="toc-link level-2">STATUTORY CONSTRUCTION COMPREHENSIVE STUDY GUIDE</a></li>
+            <li><a href="#sec-2-i-background-of-the-study-of-statutory-construction" class="toc-link level-2">I. BACKGROUND OF THE STUDY OF STATUTORY CONSTRUCTION</a></li>
+            <li><a href="#sec-3-c-situs-of-construction" class="toc-link level-2">C. Situs of Construction</a></li>
+            <li><a href="#sec-4-d-purpose-of-construction" class="toc-link level-2">D. Purpose of Construction</a></li>
+            <li><a href="#sec-5-g-statutory-construction-v-judicial-legislation" class="toc-link level-3">G. Statutory Construction v. Judicial Legislation</a></li>
+            <li><a href="#sec-6-i-kinds-of-construction" class="toc-link level-2">I. Kinds of Construction</a></li>
+            <li><a href="#sec-7-ii-prelude-to-the-exercise-of-the-power" class="toc-link level-2">II. PRELUDE TO THE EXERCISE OF THE POWER</a></li>
+            <li><a href="#sec-8-c-dura-lex-sed-lex" class="toc-link level-2">C. Dura Lex Sed Lex</a></li>
+            <li><a href="#sec-9-iii-basic-guidelines-in-the-construction-and-interpretation" class="toc-link level-2">III. BASIC GUIDELINES IN THE CONSTRUCTION AND INTERPRETATION OF LAWS</a></li>
+            <li><a href="#sec-10-a-general-guidelines" class="toc-link level-2">--- A. GENERAL GUIDELINES ---</a></li>
+            <li><a href="#sec-11-c-verba-intentioni-non-e-contra-debent-inservire" class="toc-link level-2">c. Verba intentioni, non e contra, debent inservire</a></li>
+            <li><a href="#sec-12-d-the-statute-must-be-capable-of-interpretation-otherwise-it" class="toc-link level-2">d. The Statute must be capable of interpretation, otherwise, it is inoperative</a></li>
+            <li><a href="#sec-13-i-give-effect-to-every-word-or-sentence-of-a-statute" class="toc-link level-2">i. Give effect to every word or sentence of a statute</a></li>
+            <li><a href="#sec-14-b-considerations-within-the-statute" class="toc-link level-2">--- B. CONSIDERATIONS WITHIN THE STATUTE ---</a></li>
+            <li><a href="#sec-15-c-noscitur-a-sociis-rule" class="toc-link level-2">c. Noscitur a sociis Rule</a></li>
+            <li><a href="#sec-16-d-doctrine-of-necessary-implication" class="toc-link level-2">d. Doctrine of Necessary Implication</a></li>
+            <li><a href="#sec-17-c-considerations-outside-the-statute" class="toc-link level-2">--- C. CONSIDERATIONS OUTSIDE THE STATUTE ---</a></li>
+            <li><a href="#sec-18-c-lex-specialis-derogat-legi-generalis" class="toc-link level-2">c. Lex specialis derogat legi generalis</a></li>
+            <li><a href="#sec-19-d-lex-posterior-generalis-non-derogat-legi-priori-specialis" class="toc-link level-2">d. Lex posterior generalis non derogat legi priori specialis</a></li>
+            <li><a href="#sec-20-iv-aids-to-construction" class="toc-link level-2">IV. AIDS TO CONSTRUCTION</a></li>
+            <li><a href="#sec-21-c-presumptions" class="toc-link level-2">C. Presumptions</a></li>
+            <li><a href="#sec-22-v-interpretation-of-words-and-phrases" class="toc-link level-2">V. INTERPRETATION OF WORDS AND PHRASES</a></li>
+            <li><a href="#sec-23-c-general-words-construed-generally" class="toc-link level-2">C. General words construed generally</a></li>
+            <li><a href="#sec-24-d-progressive-interpretation" class="toc-link level-2">D. Progressive interpretation</a></li>
+            <li><a href="#sec-25-i-statute-construed-as-a-whole" class="toc-link level-2">I. Statute construed as a whole</a></li>
+            <li><a href="#sec-26-vi-construction-of-constitution-and-specific-kinds-of-statut" class="toc-link level-2">VI. CONSTRUCTION OF CONSTITUTION AND SPECIFIC KINDS OF STATUTES</a></li>
+            <li><a href="#sec-27-c-statutes-liberally-construed" class="toc-link level-2">C. Statutes Liberally Construed</a></li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="app-content" id="mainContentArea">
+      <div class="content-wrapper" id="contentWrapper">
+        <!-- Hero Header -->
+        <div class="document-hero">
+          <span class="doc-badge">Statutory Construction</span>
+          <h1 class="doc-main-title">Statutory Construction Study Guide</h1>
+          <p class="doc-subtitle">Statutory Construction comprehensive review notes and study materials.</p>
+          <div class="doc-meta-bar">
+            <div class="meta-item"><span>📑</span> <span>28 Sections</span></div>
+            <div class="meta-item"><span>🔊</span> <span id="totalUnitsCounter">332 Read Units</span></div>
+            <div class="meta-item"><span>⏱</span> <span>~73 min read</span></div>
+            <div class="meta-item"><span>🎙</span> <span>Intelligent Natural Speech</span></div>
+          </div>
+        </div>
+
+        <!-- Document Sections -->
+        
+        <section class="doc-section" id="sec-intro">
+          <header class="section-header">
+            <h2 class="section-title level-1">Statutory Construction Study Guide</h2>
+            <button class="section-listen-btn" onclick="readSection('sec-intro')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">================================================================================</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-1-statutory-construction-comprehensive-study-guide">
+          <header class="section-header">
+            <h3 class="section-title level-2">STATUTORY CONSTRUCTION COMPREHENSIVE STUDY GUIDE</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-1-statutory-construction-comprehensive-study-guide')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Based on Ruben E. Agpalo&#x27;s Reviewer</p>
+        <p class="read-unit" data-unit-type="paragraph">Mapped to Manila Law College Syllabus</p>
+        <p class="read-unit" data-unit-type="paragraph">================================================================================</p>
+        <p class="read-unit" data-unit-type="paragraph">================================================================================</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-2-i-background-of-the-study-of-statutory-construction">
+          <header class="section-header">
+            <h3 class="section-title level-2">I. BACKGROUND OF THE STUDY OF STATUTORY CONSTRUCTION</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-2-i-background-of-the-study-of-statutory-construction')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">================================================================================</p>
+        <p class="read-unit" data-unit-type="paragraph">A. Statutes</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">-----------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">A statute is an act of the legislature as an organized body, expressed in the required form and passed according to the procedure mandated by law to constitute it as part of the law of the land. (Agpalo, Statutory Construction). Kinds of statutes include general, special, local, public, private, penal, remedial, curative, prospective, and retrospective.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Leges posteriores priores contrarias abrogant</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: Later laws repeal prior contrary laws.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Used by judges to resolve conflicts between two laws passed at different times. The Supreme Court applies this to ensure that the latest democratic will of the legislature is enforced, automatically repealing older conflicting provisions.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">B. Statutory Construction</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">-------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Statutory Construction  –  the art or process of discovering and expounding the meaning and intention of the authors of the law with respect to its application to a given case, where that intention is rendered doubtful, among others, by reason of the fact that the given case is not explicitly provided for in the law.</p>
+        <p class="read-unit" data-unit-type="paragraph">Justice Martin defines statutory construction as the art of seeking the intention of the legislature in enacting a statute and applying it to a given state of facts.</p>
+        <p class="read-unit" data-unit-type="paragraph">A judicial function is required when a statute is invoked and different interpretations are in contention.</p>
+        <p class="read-unit" data-unit-type="paragraph">Difference between judicial legislation and statutory construction:</p>
+        <p class="read-unit" data-unit-type="paragraph">Where legislature attempts to do several things one which is invalid, it may be discarded if the remainder of the act is workable and in no way depends upon the invalid portion, but if that portion is an integral part of the act, and its excision changes the manifest intent of the act by broadening its scope to include subject matter or territory which was not included therein as enacted, such excision is &quot;judicial legislation&quot; and not &quot;statutory construction&quot;.</p>
+        <p class="read-unit" data-unit-type="paragraph">Construction is the drawing of conclusions with respect to subjects that are beyond the direct expression of the text, while interpretation is the process of discovering the true meaning of the language used.</p>
+        <p class="read-unit" data-unit-type="paragraph">Interpretation is limited to exploring the written text. Construction on the other hand is the drawing of conclusions, respecting subjects that lie beyond the direct expressions of the text.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Interpretatio chartarum benigne facienda est ut res magis valeat quam pereat</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: The interpretation of documents is to be made liberally, so that the thing may rather have effect than perish.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Trials use this principle to defend the validity of a law. Courts will interpret a statute in a way that makes it functional and constitutional rather than declaring it void, respecting the role of the legislature.</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-3-c-situs-of-construction">
+          <header class="section-header">
+            <h3 class="section-title level-2">C. Situs of Construction</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-3-c-situs-of-construction')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">In our system of government:</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">• Legislative power is vested in the Congress of the Philippines  –  the Senate and the House of the Representatives</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">• Executive power is vested in the President of the Republic of the Philippines (Art. VII, Sec.1, Phil. Const.)</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">• Judicial power is vested in one Supreme Court and in such lower courts as may be established by law. (Art VIII, Sec. 1, Phil. Const.)</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Legislative  –  makes the law</p>
+        <p class="read-unit" data-unit-type="paragraph">Executive - executes the law</p>
+        <p class="read-unit" data-unit-type="paragraph">Judicial  –  interprets the law</p>
+        <p class="read-unit" data-unit-type="paragraph">Simply stated, the situs of construction and interpretation of written laws belong to the judicial department.</p>
+        <p class="read-unit" data-unit-type="paragraph">It is the duty of the Courts of Justice to settle actual controversies involving rights which are legally demandable and enforceable, and to determine whether or not there has been a grave abuse of discretion amounting to lack or excess of jurisdiction on the part of any branch or instrumentality of the government.</p>
+        <p class="read-unit" data-unit-type="paragraph">Supreme Court is the one and only Constitutional Court and all other lower courts are statutory courts and such lower courts have the power to construe and interpret written laws.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Judicis est jus dicere, non dare</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: It is the duty of a judge to declare the law, not to make it.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Used in trials and appeals to check judicial overreach. Defense or prosecution counsel will cite this to remind the judge that they cannot add words, conditions, or exceptions to a statute that are not written in the text.</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-4-d-purpose-of-construction">
+          <header class="section-header">
+            <h3 class="section-title level-2">D. Purpose of Construction</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-4-d-purpose-of-construction')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">The primary purpose of statutory construction is to ascertain and give effect to the intent of the legislature. The intent of the law is the law itself; hence, the court&#x27;s main objective is to discover that intent and apply it to the facts of the case.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Ratio legis est anima legis</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: The reason of the law is the soul of the law.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Used when the literal text of a statute leads to confusion. The Supreme Court looks at the legislative debates, historical background, or the &quot;mischief&quot; the law sought to cure to interpret it in alignment with its true purpose.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">E. When to Construe?</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">A court should only construe a statute when the law is ambiguous, obscure, or doubtful in its application to a given case. If the law is clear, plain, and free from doubt, there is no room for construction — only application. (Verba legis rule).</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: In claris non fit interpretatio</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: In clear things, there is no room for interpretation.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: This is the first line of defense in many trials. Litigants argue that because the wording of the contract or law is plain, the court has no authority to interpret it and must simply apply it as written.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">F. Ambiguity / Vagueness</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Ambiguity or vagueness exists when a statute is susceptible to two or more reasonable but contradictory interpretations. It is this ambiguity that triggers the judicial power to construe and interpret the law.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Contra proferentem</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: Against the one who brings it forward (or against the author of the ambiguity).</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Used extensively in contract disputes and insurance trials. If a clause drafted by one party (such as an insurance company or employer) is ambiguous, the court will construe it against them and in favor of the adhering party.</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-5-g-statutory-construction-v-judicial-legislation">
+          <header class="section-header">
+            <h4 class="section-title level-3">G. Statutory Construction v. Judicial Legislation</h4>
+            <button class="section-listen-btn" onclick="readSection('sec-5-g-statutory-construction-v-judicial-legislation')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">-------------------------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Judicial legislation occurs when the court goes beyond interpreting the law and begins inserting its own policy preferences, adding provisions, or deleting valid parts of the statute. This violates the separation of powers.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Jus dicere, non jus dare</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: To declare the law, not to make the law.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Litigants use this maxim in appeals to argue that a lower court judge committed a reversible error by effectively rewriting a statute to suit their own sense of equity.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">H. Legis Interpretado Legis Vim Obtinet</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">The interpretation placed upon the written law by a competent court has the force of law. Under Article 8 of the Civil Code of the Philippines, judicial decisions applying or interpreting the laws or the Constitution form part of the legal system of the Philippines.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Legis interpretatio legis vim obtinet</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: The interpretation of the law has the force of law.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Lower court judges are bound by Supreme Court interpretations. Lawyers cite Supreme Court decisions as binding authority, as these interpretations carry the same legal weight as the statutes themselves.</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-6-i-kinds-of-construction">
+          <header class="section-header">
+            <h3 class="section-title level-2">I. Kinds of Construction</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-6-i-kinds-of-construction')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Dr. Lieber in his work on Hermeneutics gives the following classification of the different kinds of interpretation:</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">1. Close interpretation  –  adopted if just reasons connected with the character and formation of the text induce as to take the words in the narrowest meaning. This is generally known as &quot;literal&quot; interpretation.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">2. Extensive interpretation  –  also called as liberal interpretation, it adopts a more comprehensive signification of the words.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">3. Extravagant interpretation  –  substitutes a meaning evidently beyond the true one. It is therefore not genuine interpretation.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">4. Free or unrestricted interpretation  –  proceeds simply on the general principles of interpretation in good faith, not bound by any specific or superior principle.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">5. Limited or restricted interpretation - influenced by other principles than the strictly hermeneutic ones.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">6. Predestined interpretation  –  takes place when the interpreter, laboring under a strong bias of mind, makes the text subservient to his preconceived views and desires.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Interpretatio benigna</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: Liberal interpretation.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Applied in labor, social security, and human rights cases. Courts use this kind of construction to ensure the law&#x27;s protective benefits reach the intended beneficiaries, rather than defeating them through technicalities.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">J. Extent of the Power to Construe</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">----------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">The judicial power includes the duty of the courts to settle actual controversies involving rights which are demandable and enforceable, and to determine whether there has been grave abuse of discretion. The power to construe is co-extensive with the judicial duty to apply the law to resolve disputes.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Ubi aliquid conceditur, conceditur et id sine quo res ipsa esse non potest</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: When anything is granted, that also is granted without which the thing itself cannot exist.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Used by the Supreme Court to justify its implied powers. If the constitution gives the court the power to interpret laws, it implicitly grants the power to issue orders, summon witnesses, and enforce its decisions.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">================================================================================</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-7-ii-prelude-to-the-exercise-of-the-power">
+          <header class="section-header">
+            <h3 class="section-title level-2">II. PRELUDE TO THE EXERCISE OF THE POWER</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-7-ii-prelude-to-the-exercise-of-the-power')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">================================================================================</p>
+        <p class="read-unit" data-unit-type="paragraph">A. Verba Legis Non Est Recedendum</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">---------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">If the language of the statute is plain and free from ambiguity, and expresses a single, definite, and sensible meaning, that meaning is conclusively presumed to be the meaning which the legislature intended to convey.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Verba legis non est recedendum</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: From the words of the statute there must be no departure.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Cited by courts to stop litigants from arguing about the &quot;spirit&quot; of the law when the letter of the law is clear. In tax trials, if the exemption list is specific, no other items can be added by &quot;interpretation.&quot;</div></div>
+        <p class="read-unit" data-unit-type="paragraph">B. Absoluta Sententia Expositore Non Indigent</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">---------------------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">When the language of the law is clear and unequivocal, it requires no explanation or interpretation.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Absoluta sententia expositore non indigent</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: A clear statement needs no expositor.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Used by judges to immediately dismiss complex, speculative legal arguments. If a procedural deadline is stated as &quot;15 days,&quot; the judge will cite this maxim to reject claims that the deadline should be calculated differently.</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-8-c-dura-lex-sed-lex">
+          <header class="section-header">
+            <h3 class="section-title level-2">C. Dura Lex Sed Lex</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-8-c-dura-lex-sed-lex')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">-------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">The law is harsh, but it is the law. The court&#x27;s duty is to apply the law as written, even if it leads to harsh or seemingly unjust results, as the court cannot legislate.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Dura lex sed lex</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: The law is harsh, but it is the law.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Often invoked in criminal and forfeiture trials. If a person clearly violated a strict penal or customs law, the judge will express sympathy but apply the penalty anyway, noting that changing the law is the job of Congress, not the courts.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">================================================================================</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-9-iii-basic-guidelines-in-the-construction-and-interpretation">
+          <header class="section-header">
+            <h3 class="section-title level-2">III. BASIC GUIDELINES IN THE CONSTRUCTION AND INTERPRETATION OF LAWS</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-9-iii-basic-guidelines-in-the-construction-and-interpretation')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">================================================================================</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-10-a-general-guidelines">
+          <header class="section-header">
+            <h3 class="section-title level-2">--- A. GENERAL GUIDELINES ---</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-10-a-general-guidelines')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">a. Intention of the Statute must prevail</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">----------------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">The object of all interpretation and construction of statutes is to ascertain the meaning and intention of the legislature, to the end that the same may be enforced. Legislative intent is determined principally from the language of the statute.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Voluntas legislatoris est mens legis</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: The will of the legislator is the mind of the law.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Used by the Supreme Court as the guiding light of any statutory analysis, overriding literal text if it is proven that the literal words defeat the legislature&#x27;s clear will.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">b. Legislative Intent is determined principally from the language of the statute</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">---------------------------------------------------------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">The primary source of legislative intent is the wording of the law itself.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Littera scripta manet</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: The written letter remains.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Lawyers use this to focus the judge&#x27;s attention on the actual text of the statute during oral arguments, resisting attempts by the opposing side to use secondary sources.</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-11-c-verba-intentioni-non-e-contra-debent-inservire">
+          <header class="section-header">
+            <h3 class="section-title level-2">c. Verba intentioni, non e contra, debent inservire</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-11-c-verba-intentioni-non-e-contra-debent-inservire')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">---------------------------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Words ought to be made subservient to the intent, not intent to the words. The literal wording of a statute must yield to the clear intention of the legislature if a literal reading would defeat the law&#x27;s purpose.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Verba intentioni, non e contra, debent inservire</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: Words ought to be made subservient to the intent, not intent to the words.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Used to prevent a legal loophole. If a literal reading of a word would allow a criminal to escape punishment or allow a tax evader to bypass a tax, the court will adjust the word&#x27;s meaning to preserve the legislative intent.</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-12-d-the-statute-must-be-capable-of-interpretation-otherwise-it">
+          <header class="section-header">
+            <h3 class="section-title level-2">d. The Statute must be capable of interpretation, otherwise, it is inoperative</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-12-d-the-statute-must-be-capable-of-interpretation-otherwise-it')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">-------------------------------------------------------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">The law must be interpreted in a way that makes it work. If it cannot be interpreted at all due to extreme vagueness, it is declared void.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Ut res magis valeat quam pereat</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: That the thing may rather have effect than perish.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Litigants defending a law&#x27;s constitutionality will cite this. The court will actively search for an interpretation that keeps the law alive rather than striking it down as unconstitutionally vague.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">e. In interpreting a statute, it must be interpreted to accomplish a purpose</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">-----------------------------------------------------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">A statute should be construed with reference to the intended purpose and the evils it seeks to suppress or correct.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Ratio legis</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: The reason of the law.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Used to determine the scope of a law. If a law bans &quot;vehicles in the park&quot; to prevent noise, the court uses the *ratio legis* to decide if the ban applies to electric wheelchairs (no, because it defeats the purpose of accessibility without causing the noise evil).</div></div>
+        <p class="read-unit" data-unit-type="paragraph">f. Nemo tenetur ad impossibile</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">No one is bound to do the impossible. A statute should not be construed to require an obligor to perform an impossible act.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Nemo tenetur ad impossibile</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: No one is bound to do the impossible.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Used as a defense in administrative compliance cases. If a law requires a submission within a period when government offices were shut due to a national emergency, the court will excuse the delay using this maxim.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">g. Construction to avoid absurdity and injustice</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">-------------------------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Courts reject literal interpretations that lead to absurd, unjust, or impossible results.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Argumentum ab inconvenienti</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: Argument from inconvenience or hardship.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Used to strike down interpretations that create administrative chaos or severe injustice. If one interpretation of a tax law would shut down all local businesses, the court will reject it as an unintended hardship.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">h. Consideration of the statute as a whole</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">-------------------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">A cardinal rule in statutory construction is that legislative intent must be ascertained from a consideration of the statute as a whole and not merely of a particular provision. A word or phrase might easily convey a meaning which is different from the one actually intended.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Ex tota materia emergat resolutio</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: The construction should arise from the whole subject matter.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Used to defeat arguments based on &quot;cherry-picked&quot; sentences. Lawyers argue that the disputed clause must be read in the context of the entire chapter to understand its real meaning.</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-13-i-give-effect-to-every-word-or-sentence-of-a-statute">
+          <header class="section-header">
+            <h3 class="section-title level-2">i. Give effect to every word or sentence of a statute</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-13-i-give-effect-to-every-word-or-sentence-of-a-statute')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">-----------------------------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">It is not to be presumed that the legislature has used any useless words.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Verba aliquid operari debent</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: Words ought to have some effect.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Used to oppose interpretations that would render certain statutory words or clauses redundant or meaningless. Courts must interpret the law so that every word has a distinct legal purpose.</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-14-b-considerations-within-the-statute">
+          <header class="section-header">
+            <h3 class="section-title level-2">--- B. CONSIDERATIONS WITHIN THE STATUTE ---</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-14-b-considerations-within-the-statute')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">a. Ubi Lex Non Distinguit Nec Nos Distinguere Debemos</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">-----------------------------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Where the law does not distinguish, we should not distinguish.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Ubi lex non distinguit nec nos distinguere debemos</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: Where the law does not distinguish, we ought not to distinguish.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Used when a party tries to insert an unwritten exception. For example, if a law grants a benefit to &quot;all employees,&quot; the court will cite this to block an employer from excluding part-time workers.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">b. Ejusdem Generis Rule</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">When general words follow specific words in a list; the general words are restricted to things of the same class.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Ejusdem generis</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: Of the same kind.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Used to interpret catch-all terms. If a law regulates &quot;mines, quarries, and other land,&quot; the court will decide that &quot;other land&quot; only means land used for extraction (quarry-like), not a residential backyard.</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-15-c-noscitur-a-sociis-rule">
+          <header class="section-header">
+            <h3 class="section-title level-2">c. Noscitur a sociis Rule</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-15-c-noscitur-a-sociis-rule')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">-------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">The meaning of an obscure word is determined by looking at the words surrounding it.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Noscitur a sociis</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: It is known by its associates.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Used to define words with multiple meanings. If a statute mentions &quot;dogs, cats, and other domestic animals,&quot; the word &quot;domestic&quot; will be understood to mean household pets, not farm animals like cows.</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-16-d-doctrine-of-necessary-implication">
+          <header class="section-header">
+            <h3 class="section-title level-2">d. Doctrine of Necessary Implication</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-16-d-doctrine-of-necessary-implication')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">------------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">What is implied in a statute is as much a part of it as what is expressed. Every statute is understood to contain by implication all such provisions as may be necessary to effectuate its object and purpose.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Ex necessitate legis</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: From the necessity of the law.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Used to establish administrative power. If a law grants an agency the duty to &quot;regulate public transport,&quot; the court will imply the power to issue licenses and impose fines, as the main duty cannot be performed without them.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">e. Expressio unius est exclusio alterius (Doctrine of Negative Implication)</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">---------------------------------------------------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">The express mention of one thing excludes all others.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Expressio unius est exclusio alterius</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: The express mention of one thing excludes all others.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Used to prove that an exclusion was intentional. If a tax exemption is granted to &quot;public schools,&quot; the court will rule that private schools are excluded, since the legislature would have written them in if they intended to exempt them.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">f. Reddendo singula singulis</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">----------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Referring each to each. Letting each phrase or word relate to its corresponding subject.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Reddendo singula singulis</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: Referring each to each.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Used to clean up syntax in complex contracts or laws. If a clause says &quot;men and women may enter their respective bathrooms,&quot; the court distributes &quot;men&quot; to &quot;male bathrooms&quot; and &quot;women&quot; to &quot;female bathrooms&quot; to prevent absurd mixed entries.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">g. Casus omissus pro omisso habendus est</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">----------------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">A case omitted is to be held as intentionally omitted. Restricts courts from supplying omissions in a statute, leaving it to the legislature to amend.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Casus omissus pro omisso habendus est</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: A case omitted is to be held as intentionally omitted.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Used to protect the separation of powers. If a law fails to penalize a specific act, the judge cannot convict a person for it, stating that the omission is a gap only Congress can fill.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">h. Meaning not reflected in the language of the Statute should not be considered</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">---------------------------------------------------------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Courts cannot insert or read into the law a meaning that is not supported by the text.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Index animi sermo</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: Speech is the index of the mind.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Used to block arguments that rely heavily on speculative legislative intent when the actual written text contradicts those speculations.</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-17-c-considerations-outside-the-statute">
+          <header class="section-header">
+            <h3 class="section-title level-2">--- C. CONSIDERATIONS OUTSIDE THE STATUTE ---</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-17-c-considerations-outside-the-statute')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">a. Generalia Specialibus non derogat</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">------------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">A general law does not repeal a special law unless the intent is clear.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Generalia specialibus non derogant</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: General things do not derogate from special things.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Used to defend local government charters or specific agency laws from being accidentally repealed by a later, broad national law. Litigants argue the special charter remains an exception to the general law.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">b. Lex posterior derogat priori</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">-------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">A later law repeals an earlier law.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Lex posterior derogat priori</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: A later law repeals an earlier law.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Used to decide which of two conflicting laws applies. The court applies the newer law as it represents the most recent democratic consensus.</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-18-c-lex-specialis-derogat-legi-generalis">
+          <header class="section-header">
+            <h3 class="section-title level-2">c. Lex specialis derogat legi generalis</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-18-c-lex-specialis-derogat-legi-generalis')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">---------------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">A special law repeals/overrides a general law.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Lex specialis derogat legi generali</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: A special law overrides a general law.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Used when a case falls under two different statutes. For example, if a child commits a crime, the court applies the Child and Youth Welfare Code (special law) rather than the Revised Penal Code (general law).</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-19-d-lex-posterior-generalis-non-derogat-legi-priori-specialis">
+          <header class="section-header">
+            <h3 class="section-title level-2">d. Lex posterior generalis non derogat legi priori specialis</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-19-d-lex-posterior-generalis-non-derogat-legi-priori-specialis')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">------------------------------------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">A later general law does not repeal a prior special law.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Lex posterior generalis non derogat legi priori speciali</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: A later general law does not repeal a prior special law.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Invoked to maintain specialized legal frameworks. A new national tax code (general) will not destroy the tax exemptions granted in an earlier corporate charter (special) unless the code explicitly repeals it.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">e. Borrowed Statute Rule</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Statutes adopted from foreign countries are generally construed in accordance with the construction given to them in those countries.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Interpretatione legis alienae</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: Interpretation of foreign law.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Used extensively in corporate, tax, and labor trials in the Philippines. Since many local laws are modeled after US laws, lawyers cite US Supreme Court precedents to persuade Philippine courts on how to interpret similar local provisions.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">f. Interpretare et concordare leges legibus est optimus interpretandi</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">---------------------------------------------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">To interpret and harmonize laws with laws is the best method of interpretation.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Interpretare et concordare leges legibus est optimus interpretandi modus</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: To interpret and harmonize laws with laws is the best method of interpretation.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Used to prevent a finding of implied repeal. The court will attempt to read two seemingly conflicting laws in a way that allows both to be valid and executed.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">================================================================================</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-20-iv-aids-to-construction">
+          <header class="section-header">
+            <h3 class="section-title level-2">IV. AIDS TO CONSTRUCTION</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-20-iv-aids-to-construction')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">================================================================================</p>
+        <p class="read-unit" data-unit-type="paragraph">A. Intrinsic Aids</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">-----------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Intrinsic aids are tools found within the statute itself, such as the Title, Preamble, Text of the statute, Subtitles, Punctuation, and Capitalization.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Ex visceribus actus</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: From the bowels of the act.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Lawyers use this to argue that the meaning of a clause must be found strictly within the borders of the statute, referring to the preamble (&quot;Whereas&quot; clauses) to explain the purpose of the enacting body.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">B. Extrinsic Aids</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">-----------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Extrinsic aids are existing aids from outside sources, meaning outside of the four corners of the statute, such as legislative history, journals, committee reports, and contemporary construction.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Contemporanea expositio est optima et fortissima in lege</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: Contemporaneous exposition is the best and strongest in the law.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Used to support administrative practices. If a government agency has interpreted a tax law in a certain way for 20 years without Congress changing the law, the court will uphold that interpretation as contemporaneous construction.</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-21-c-presumptions">
+          <header class="section-header">
+            <h3 class="section-title level-2">C. Presumptions</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-21-c-presumptions')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">---------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Presumptions are assumptions made by the court in aid of construction, such as presumptions against unconstitutionality, injustice, implied repeals, ineffectiveness, and absurdity.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Presumptio juris</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: Presumption of law.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Crucial in constitutional trials. The party challenging a law must overcome the strong presumption that the legislature acted constitutionally. If the court is in doubt, it will rule in favor of the law&#x27;s validity.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">================================================================================</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-22-v-interpretation-of-words-and-phrases">
+          <header class="section-header">
+            <h3 class="section-title level-2">V. INTERPRETATION OF WORDS AND PHRASES</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-22-v-interpretation-of-words-and-phrases')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">================================================================================</p>
+        <p class="read-unit" data-unit-type="paragraph">A. General Words and Phrases</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">----------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">General words are construed in their ordinary and common meaning, unless a technical or commercial meaning is intended by the legislature.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Verba artis</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: Technical words / words of art.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Used to define trade terms. If a tax law taxes &quot;minerals,&quot; the court will use geological and commercial standards rather than common dictionary definitions to decide if sand is included.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">B. Specific Words</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">-----------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">The use of specific connecting words like &quot;and&quot; (conjunctive, requiring both) and &quot;or&quot; (disjunctive, requiring either), as well as mandatory words like &quot;shall&quot; and directory words like &quot;may.&quot;</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Shall v. May</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: Mandatory versus Directory.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Used to challenge procedural errors. If a statute says the board &quot;shall&quot; hold a hearing within 10 days, a lawyer will argue that a hearing held on the 11th day is void, as &quot;shall&quot; makes the timeline mandatory.</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-23-c-general-words-construed-generally">
+          <header class="section-header">
+            <h3 class="section-title level-2">C. General words construed generally</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-23-c-general-words-construed-generally')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">------------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">General terms must be given their general scope and not restricted unless explicitly limited.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Ubi lex non distinguit</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: Where the law does not distinguish.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Block attempts to read restrictive qualifications into a broad statutory grant.</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-24-d-progressive-interpretation">
+          <header class="section-header">
+            <h3 class="section-title level-2">D. Progressive interpretation</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-24-d-progressive-interpretation')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">-----------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Statutes must be construed to apply to new and modern conditions that did not exist at the time of enactment.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Leges vigilantibus, non dormientibus subveniunt</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: The laws aid the vigilant, not those who sleep.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Used in cybercrime and intellectual property trials. The court applies a copyright law written in the 1970s to modern digital streaming, interpreting &quot;broadcast&quot; progressively to include internet transmissions.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">E. Words with commercial meaning</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Words used in trade or commerce are given their commercial definition.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Consuetudo mercatorum</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: The custom of merchants.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: In customs and tariff cases, the court defers to how merchants in that specific industry define a product to resolve classification disputes.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">F. Words with technical or legal meaning</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">----------------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Technical words are given their technical definition.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Verba artis</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: Words of art.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: In property or criminal trials, terms like &quot;heir&quot; or &quot;malice&quot; are given strict legal definitions, not their colloquial meanings.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">G. Meaning of word qualified by purpose of statute</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">The scope of a word is adjusted to fit the objective of the statute.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Ratio legis</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: The reason of the law.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Invoked to narrow down broad words that would otherwise lead to unintended results outside the law&#x27;s scope.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">H. Provisos, exceptions, saving clauses</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">A proviso qualifies or limits the general provisions of a statute. An exception exempts something from the scope of the law.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Exceptio firmat regulam in casibus non exceptis</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: The exception proves the rule in cases not excepted.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Used to determine the exact boundary of a law. If a law lists specific exceptions to a ban, lawyers argue that anything not listed in the exceptions is strictly banned.</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-25-i-statute-construed-as-a-whole">
+          <header class="section-header">
+            <h3 class="section-title level-2">I. Statute construed as a whole</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-25-i-statute-construed-as-a-whole')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">-------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Legislative intent must be gathered from the entire statute.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Ut magis valeat quam pereat</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: That it may rather have effect than perish.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Resists attempts to invalidate a section by showing it aligns with other working parts of the same act.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">J. Statute construed in relation to others</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">------------------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Statutes on the same subject must be interpreted together.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: In pari materia</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: Upon the same matter.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Used to fill gaps. If a newer law is silent on the filing procedure, courts apply the procedure detailed in an older law on the same subject.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">================================================================================</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-26-vi-construction-of-constitution-and-specific-kinds-of-statut">
+          <header class="section-header">
+            <h3 class="section-title level-2">VI. CONSTRUCTION OF CONSTITUTION AND SPECIFIC KINDS OF STATUTES</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-26-vi-construction-of-constitution-and-specific-kinds-of-statut')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">================================================================================</p>
+        <p class="read-unit" data-unit-type="paragraph">A. Constitutional Construction</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">A constitution is supreme and must be construed in its entirety as one single document, with all provisions interpreted to achieve its great purposes.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Suprema lex</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: The supreme law.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Used to strike down unconstitutional statutes. Lawyers argue that the Constitution overrides any conflicting law, and courts must resolve conflicts in favor of the constitutional text.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">B. Statutes Strictly Construed</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Penal laws, tax laws, and naturalization laws are strictly construed. Penal laws are construed strictly against the State and in favor of the accused. Tax laws are construed strictly against the government.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: In dubio pro reo</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: In doubt, in favor of the accused.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: The cornerstone of criminal trials. Defense attorneys cite this to argue that if a criminal statute is ambiguous, the court must adopt the interpretation that acquits the client or imposes the lighter penalty.</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-27-c-statutes-liberally-construed">
+          <header class="section-header">
+            <h3 class="section-title level-2">C. Statutes Liberally Construed</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-27-c-statutes-liberally-construed')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">------------------------------</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Insurance laws, labor laws, retirement laws, election rules, and rules of court are liberally construed in favor of the beneficiary or to achieve their curative objectives.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Latin Maxim: Favorabilia sunt amplianda, odiosa restringenda</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* English Counterpart: Favorable things should be enlarged, odious things restricted.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">* Application in Court/Trial: Applied in labor arbitration. The arbitrator or judge resolves doubts in the interpretation of employment contracts or the Labor Code in favor of the employee, recognizing the constitutional mandate to protect labor.</div></div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <footer class="app-footer">
+    <p>MLC Interactive Legal Study Hub • Natural Cadence Web Speech Synthesis Engine</p>
+    <p style="margin-top: 0.25rem; opacity: 0.7;">Click any paragraph to start reading aloud • Fully compatible with Brave Read Aloud & extensions</p>
+  </footer>
+
+  <!-- Floating Selection Audio Trigger -->
+  <button id="floatingTtsTrigger" aria-label="Read Selection Aloud">🔊 Read Selection</button>
+
+  <!-- Natural Voice & Speech Synthesis Application Logic -->
+  <script>
+    (function() {
+      // 1. Theme Management
+      const themeSelect = document.getElementById('themeSelect');
+      const savedTheme = localStorage.getItem('mlc_reader_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      themeSelect.value = savedTheme;
+
+      themeSelect.addEventListener('change', (e) => {
+        document.documentElement.setAttribute('data-theme', e.target.value);
+        localStorage.setItem('mlc_reader_theme', e.target.value);
+      });
+
+      // 2. Font Size Controls
+      let currentFontSize = parseInt(localStorage.getItem('mlc_font_size') || '17', 10);
+      document.documentElement.style.fontSize = currentFontSize + 'px';
+
+      document.getElementById('fontIncBtn').addEventListener('click', () => {
+        if (currentFontSize < 26) {
+          currentFontSize += 1;
+          document.documentElement.style.fontSize = currentFontSize + 'px';
+          localStorage.setItem('mlc_font_size', currentFontSize);
+        }
+      });
+
+      document.getElementById('fontDecBtn').addEventListener('click', () => {
+        if (currentFontSize > 12) {
+          currentFontSize -= 1;
+          document.documentElement.style.fontSize = currentFontSize + 'px';
+          localStorage.setItem('mlc_font_size', currentFontSize);
+        }
+      });
+
+      // 3. Sidebar Mobile Toggle & Search
+      const sidebar = document.getElementById('appSidebar');
+      const toggleSidebarBtn = document.getElementById('toggleSidebarBtn');
+      toggleSidebarBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+      });
+
+      const searchInput = document.getElementById('sidebarSearch');
+      const tocItems = document.querySelectorAll('.toc-nav li');
+      searchInput.addEventListener('input', (e) => {
+        const q = e.target.value.toLowerCase().trim();
+        tocItems.forEach(li => {
+          const txt = li.textContent.toLowerCase();
+          li.style.display = txt.includes(q) ? '' : 'none';
+        });
+      });
+
+      // 4. Reading Progress Bar
+      window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / (height || 1)) * 100;
+        document.getElementById('readingProgressBar').style.width = scrolled + '%';
+      });
+
+      // =========================================================================
+      // 5. ENHANCED NATURAL SPEECH SYNTHESIS ENGINE
+      // =========================================================================
+      const synth = window.speechSynthesis;
+      let readUnits = [];
+      let currentUnitIndex = -1;
+      let isPaused = false;
+      let voices = [];
+      let nextUtteranceTimeout = null;
+      let lastSectionId = null;
+
+      const playPauseBtn = document.getElementById('ttsPlayPauseBtn');
+      const stopBtn = document.getElementById('ttsStopBtn');
+      const nextBtn = document.getElementById('ttsNextBtn');
+      const prevBtn = document.getElementById('ttsPrevBtn');
+      const playIcon = document.getElementById('ttsPlayIcon');
+      const pauseIcon = document.getElementById('ttsPauseIcon');
+      const statusBadge = document.getElementById('ttsStatus');
+      const speedSelect = document.getElementById('ttsSpeedSelect');
+      const voiceSelect = document.getElementById('ttsVoiceSelect');
+
+      function updateReadUnits() {
+        readUnits = Array.from(document.querySelectorAll('.read-unit'));
+      }
+      updateReadUnits();
+
+      // Intelligent Voice Ranking (Prefers Natural / Neural / High-Tier Human Voices)
+      function scoreVoice(v) {
+        const name = (v.name || '').toLowerCase();
+        let score = 0;
+        if (v.lang.startsWith('en')) score += 50;
+        if (v.lang === 'en-US' || v.lang === 'en-GB') score += 20;
+        if (name.includes('natural') || name.includes('neural') || name.includes('online')) score += 100;
+        if (name.includes('jenny') || name.includes('guy') || name.includes('aria') || name.includes('ryan') || name.includes('sonia')) score += 80;
+        if (name.includes('google') && !name.includes('legacy')) score += 70;
+        if (name.includes('premium') || name.includes('enhanced') || name.includes('siri')) score += 60;
+        if (name.includes('david') || name.includes('zira') || name.includes('mark')) score += 30;
+        return score;
+      }
+
+      function populateVoiceList() {
+        if (!synth) return;
+        const allVoices = synth.getVoices();
+        const enVoices = allVoices.filter(v => v.lang.startsWith('en'));
+        enVoices.sort((a, b) => scoreVoice(b) - scoreVoice(a));
+        voices = enVoices;
+
+        voiceSelect.innerHTML = '';
+        voices.forEach((v, idx) => {
+          const opt = document.createElement('option');
+          opt.value = idx;
+          const isNatural = (v.name.toLowerCase().includes('natural') || v.name.toLowerCase().includes('neural') || v.name.toLowerCase().includes('online'));
+          opt.textContent = (isNatural ? '✨ ' : '') + v.name + ' (' + v.lang + ')';
+          if (idx === 0) opt.selected = true;
+          voiceSelect.appendChild(opt);
+        });
+      }
+
+      if (synth) {
+        populateVoiceList();
+        if (speechSynthesis.onvoiceschanged !== undefined) {
+          speechSynthesis.onvoiceschanged = populateVoiceList;
+        }
+      }
+
+      // Smart Legal Phonetic Pre-Processor (Expands abbreviations & introduces natural prosody)
+      function prepareSpeechText(unit) {
+        let text = (unit.innerText || unit.textContent || '').trim();
+        const parentSec = unit.closest('section.doc-section');
+        const unitType = unit.getAttribute('data-unit-type') || '';
+        const badgeLabel = unit.getAttribute('data-badge-label') || '';
+
+        // Label announcing for case components
+        if (badgeLabel) {
+          if (badgeLabel.includes('DOCTRINE') || badgeLabel.includes('PRINCIPLE')) {
+            text = 'Key Doctrine: ' + text;
+          } else if (badgeLabel.includes('FACTS')) {
+            text = 'Case Facts: ' + text.replace(/^FACTS:?\\s*/i, '');
+          } else if (badgeLabel.includes('ISSUE')) {
+            text = 'Legal Issue: ' + text.replace(/^ISSUE:?\\s*/i, '');
+          } else if (badgeLabel.includes('HELD') || badgeLabel.includes('RULING')) {
+            text = 'Court Ruling and Held: ' + text.replace(/^(HELD|RULING):?\\s*/i, '');
+          }
+        } else if (unitType === 'quote') {
+          text = 'Quote: ' + text;
+        } else if (unitType === 'numbered') {
+          text = text.replace(/^(\d+)\.\\s*/, 'Item $1: ');
+        }
+
+        // Clean & expand common legal abbreviations for natural pronunciation
+        text = text
+          .replace(/\bG\.R\.\s*No\.?\s*([\d\-]+)/gi, 'G R Number $1')
+          .replace(/\bSCRA\b/g, 'S-C-R-A')
+          .replace(/\bPhil\.\s*(\d+)/gi, 'Philippine Reports volume $1')
+          .replace(/\bArt\.\s*(\d+)/gi, 'Article $1')
+          .replace(/\bArts\.\s*([\d,\s\-]+)/gi, 'Articles $1')
+          .replace(/\bSec\.\s*(\d+)/gi, 'Section $1')
+          .replace(/\bSecs\.\s*([\d,\s\-]+)/gi, 'Sections $1')
+          .replace(/\bPar\.\s*(\d+)/gi, 'Paragraph $1')
+          .replace(/\bPars\.\s*([\d,\s\-]+)/gi, 'Paragraphs $1')
+          .replace(/\bRPC\b/g, 'Revised Penal Code')
+          .replace(/\bCPR\b/g, 'Code of Professional Responsibility')
+          .replace(/\bCPRA\b/g, 'Code of Professional Responsibility and Accountability')
+          .replace(/\bConst\.\b/gi, 'Constitution')
+          .replace(/\bP\.D\.\s*No\.?\s*(\d+)/gi, 'Presidential Decree Number $1')
+          .replace(/\bR\.A\.\s*No\.?\s*(\d+)/gi, 'Republic Act Number $1')
+          .replace(/\bA\.C\.\s*No\.?\s*([A-Za-z0-9\-]+)/gi, 'Administrative Case Number $1')
+          .replace(/\bA\.M\.\s*No\.?\s*([A-Za-z0-9\-]+)/gi, 'Administrative Matter Number $1')
+          .replace(/\bet\s+al\./gi, 'and others')
+          .replace(/\bi\.e\./gi, 'that is')
+          .replace(/\be\.g\./gi, 'for example')
+          .replace(/\bviz\./gi, 'namely')
+          .replace(/\s+v(?:s)?\.\s+/gi, ' versus ')
+          .replace(/—/g, ', — ')
+          .replace(/–/g, ', ')
+          .replace(/;\s*/g, ';, ') // Introduce micro-pause at semicolons
+          .replace(/:\s*/g, ': ... ') // Introduce clear pause at colons
+          .replace(/\(([a-z\d])\)/gi, 'sub-item $1, ');
+
+        return text.trim();
+      }
+
+      function setSpeakingState(speaking, paused = false) {
+        if (speaking && !paused) {
+          playIcon.style.display = 'none';
+          pauseIcon.style.display = 'inline';
+          statusBadge.textContent = 'Speaking...';
+          statusBadge.className = 'tts-status-badge speaking';
+        } else if (paused) {
+          playIcon.style.display = 'inline';
+          pauseIcon.style.display = 'none';
+          statusBadge.textContent = 'Paused';
+          statusBadge.className = 'tts-status-badge';
+        } else {
+          playIcon.style.display = 'inline';
+          pauseIcon.style.display = 'none';
+          statusBadge.textContent = 'Ready';
+          statusBadge.className = 'tts-status-badge';
+          clearHighlights();
+        }
+      }
+
+      function clearHighlights() {
+        readUnits.forEach(u => u.classList.remove('is-speaking'));
+      }
+
+      function highlightUnit(idx) {
+        clearHighlights();
+        if (idx >= 0 && idx < readUnits.length) {
+          const unit = readUnits[idx];
+          unit.classList.add('is-speaking');
+          unit.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+
+      function speakUnit(idx) {
+        if (!synth) return;
+        if (nextUtteranceTimeout) {
+          clearTimeout(nextUtteranceTimeout);
+          nextUtteranceTimeout = null;
+        }
+
+        if (idx < 0 || idx >= readUnits.length) {
+          setSpeakingState(false);
+          currentUnitIndex = -1;
+          lastSectionId = null;
+          return;
+        }
+
+        synth.cancel();
+        currentUnitIndex = idx;
+        const unit = readUnits[idx];
+        highlightUnit(idx);
+
+        const currentSection = unit.closest('section.doc-section');
+        const currentSecId = currentSection ? currentSection.id : null;
+        
+        // Detect section transition for topic announcement & deliberate pause
+        let isNewSection = (currentSecId && currentSecId !== lastSectionId);
+        lastSectionId = currentSecId;
+
+        let processedText = prepareSpeechText(unit);
+        
+        // If entering a new section, announce the Topic / Section header first
+        if (isNewSection && currentSection) {
+          const headerEl = currentSection.querySelector('.section-title');
+          if (headerEl) {
+            const hText = headerEl.innerText.trim();
+            processedText = 'New Topic: ' + hText + ' ... ... ' + processedText;
+          }
+        }
+
+        if (!processedText) {
+          speakUnit(idx + 1);
+          return;
+        }
+
+        const utterance = new SpeechSynthesisUtterance(processedText);
+        
+        // Calibrated study speech rate & natural pitch
+        const baseRate = parseFloat(speedSelect.value) || 0.9;
+        utterance.rate = baseRate;
+        utterance.pitch = 1.0;
+
+        const selectedVoiceIdx = voiceSelect.value;
+        if (selectedVoiceIdx !== 'default' && voices[selectedVoiceIdx]) {
+          utterance.voice = voices[selectedVoiceIdx];
+        } else if (voices.length > 0) {
+          utterance.voice = voices[0];
+        }
+
+        utterance.onend = () => {
+          if (currentUnitIndex === idx && !isPaused) {
+            // Calculate natural pause before next unit (longer pause if changing section/topic)
+            const nextIdx = idx + 1;
+            let pauseDuration = 400; // standard natural clause pause
+            
+            if (nextIdx < readUnits.length) {
+              const nextSec = readUnits[nextIdx].closest('section.doc-section');
+              if (nextSec && nextSec.id !== lastSectionId) {
+                pauseDuration = 1000; // 1 full second pause on topic change
+              }
+            }
+
+            nextUtteranceTimeout = setTimeout(() => {
+              speakUnit(nextIdx);
+            }, pauseDuration);
+          }
+        };
+
+        utterance.onerror = (e) => {
+          if (e.error !== 'interrupted' && e.error !== 'canceled') {
+            console.warn('TTS natural playback warning:', e);
+          }
+          setSpeakingState(false);
+        };
+
+        synth.speak(utterance);
+        setSpeakingState(true, false);
+      }
+
+      playPauseBtn.addEventListener('click', () => {
+        if (!synth) return;
+        if (synth.speaking && !synth.paused) {
+          synth.pause();
+          isPaused = true;
+          setSpeakingState(true, true);
+        } else if (synth.paused) {
+          synth.resume();
+          isPaused = false;
+          setSpeakingState(true, false);
+        } else {
+          isPaused = false;
+          speakUnit(currentUnitIndex >= 0 ? currentUnitIndex : 0);
+        }
+      });
+
+      stopBtn.addEventListener('click', () => {
+        if (!synth) return;
+        if (nextUtteranceTimeout) {
+          clearTimeout(nextUtteranceTimeout);
+          nextUtteranceTimeout = null;
+        }
+        synth.cancel();
+        isPaused = false;
+        setSpeakingState(false);
+        currentUnitIndex = -1;
+        lastSectionId = null;
+      });
+
+      nextBtn.addEventListener('click', () => {
+        if (!synth) return;
+        isPaused = false;
+        speakUnit(currentUnitIndex + 1);
+      });
+
+      prevBtn.addEventListener('click', () => {
+        if (!synth) return;
+        isPaused = false;
+        speakUnit(Math.max(0, currentUnitIndex - 1));
+      });
+
+      speedSelect.addEventListener('change', () => {
+        if (synth && synth.speaking) {
+          speakUnit(currentUnitIndex);
+        }
+      });
+
+      voiceSelect.addEventListener('change', () => {
+        if (synth && synth.speaking) {
+          speakUnit(currentUnitIndex);
+        }
+      });
+
+      // Click on any paragraph to read from that exact spot with natural cadence
+      document.getElementById('contentWrapper').addEventListener('click', (e) => {
+        const unit = e.target.closest('.read-unit');
+        if (unit) {
+          const idx = readUnits.indexOf(unit);
+          if (idx !== -1) {
+            isPaused = false;
+            speakUnit(idx);
+          }
+        }
+      });
+
+      // Section Quick-Listen Handler
+      window.readSection = function(sectionId) {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          const firstUnit = el.querySelector('.read-unit');
+          if (firstUnit) {
+            const idx = readUnits.indexOf(firstUnit);
+            if (idx !== -1) {
+              isPaused = false;
+              lastSectionId = null; // force announcement of section
+              speakUnit(idx);
+            }
+          }
+        }
+      };
+
+      // Floating Selection Audio Button (with natural legal abbreviation expander)
+      const floatBtn = document.getElementById('floatingTtsTrigger');
+      document.addEventListener('mouseup', (e) => {
+        if (e.target.closest('#floatingTtsTrigger') || e.target.closest('.tts-toolbar') || e.target.closest('header')) return;
+        const sel = window.getSelection().toString().trim();
+        if (sel.length > 2) {
+          const rect = window.getSelection().getRangeAt(0).getBoundingClientRect();
+          floatBtn.style.top = (window.scrollY + rect.top - 44) + 'px';
+          floatBtn.style.left = (window.scrollX + rect.left + (rect.width / 2)) + 'px';
+          floatBtn.style.display = 'block';
+        } else {
+          floatBtn.style.display = 'none';
+        }
+      });
+
+      floatBtn.addEventListener('click', () => {
+        const sel = window.getSelection().toString().trim();
+        if (sel && synth) {
+          synth.cancel();
+          const dummyUnit = document.createElement('div');
+          dummyUnit.innerText = sel;
+          const naturalText = prepareSpeechText(dummyUnit);
+
+          const utterance = new SpeechSynthesisUtterance(naturalText);
+          utterance.rate = parseFloat(speedSelect.value) || 0.9;
+          utterance.pitch = 1.0;
+
+          const selectedVoiceIdx = voiceSelect.value;
+          if (selectedVoiceIdx !== 'default' && voices[selectedVoiceIdx]) {
+            utterance.voice = voices[selectedVoiceIdx];
+          } else if (voices.length > 0) {
+            utterance.voice = voices[0];
+          }
+
+          synth.speak(utterance);
+          setSpeakingState(true);
+          floatBtn.style.display = 'none';
+        }
+      });
+
+      // Keyboard Navigation
+      document.addEventListener('keydown', (e) => {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA') return;
+        if (e.code === 'Space') {
+          e.preventDefault();
+          playPauseBtn.click();
+        } else if (e.code === 'Escape') {
+          stopBtn.click();
+        } else if (e.key === 'n' || e.key === 'N') {
+          nextBtn.click();
+        } else if (e.key === 'p' || e.key === 'P') {
+          prevBtn.click();
+        } else if (e.key === 'd' || e.key === 'D') {
+          themeSelect.value = 'dark';
+          themeSelect.dispatchEvent(new Event('change'));
+        } else if (e.key === 's' || e.key === 'S') {
+          themeSelect.value = 'sepia';
+          themeSelect.dispatchEvent(new Event('change'));
+        } else if (e.key === 'l' || e.key === 'L') {
+          themeSelect.value = 'light';
+          themeSelect.dispatchEvent(new Event('change'));
+        } else if (e.key === '+' || e.key === '=') {
+          document.getElementById('fontIncBtn').click();
+        } else if (e.key === '-') {
+          document.getElementById('fontDecBtn').click();
+        } else if (e.key === '/') {
+          e.preventDefault();
+          searchInput.focus();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

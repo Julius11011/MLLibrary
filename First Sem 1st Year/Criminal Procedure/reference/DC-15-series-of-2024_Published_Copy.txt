@@ -1,0 +1,76 @@
+DEPARTMENT OF JUSTICE (DOJ)
+Manila, Philippines
+
+DEPARTMENT CIRCULAR NO. 015
+Series of 2024
+
+DATE: July 16, 2024
+EFFECTIVITY: July 31, 2024 (Fifteen [15] days after publication)
+
+SUBJECT: 2024 DOJ-NPS RULES ON PRELIMINARY INVESTIGATIONS AND INQUEST PROCEEDINGS
+
+================================================================================
+EXECUTIVE SUMMARY
+================================================================================
+Department Circular No. 015 (DC 15) establishes the "2024 DOJ-NPS Rules on Preliminary 
+Investigations and Inquest Proceedings." These Rules modernize, standardize, and govern 
+the National Prosecution Service (NPS) in preliminary investigations and inquests for 
+crimes where the law prescribes a penalty of at least six (6) years and one (1) day.
+
+================================================================================
+RULE I: TITLE, SCOPE, COVERAGE, AND POLICIES
+================================================================================
+* Section 1. Title: "2024 DOJ-NPS Rules on Preliminary Investigations and Inquest Proceedings"
+* Section 2. Scope: Governs the conduct of preliminary investigations and inquest proceedings 
+  in all prosecution offices of the National Prosecution Service (NPS) under R.A. No. 10071, 
+  subject to D.C. No. 20 (Policy on Pro-Active Involvement of Prosecutors in Case Build-Up).
+* Section 3. Coverage: Preliminary investigations are required for crimes where the prescribed 
+  penalty is at least six (6) years and one (1) day, regardless of the fine.
+* Motu Proprio Dismissal: Investigating prosecutors can dismiss complaints at any stage if 
+  they find no "prima facie evidence with reasonable certainty of conviction," subject to 
+  prior approval by the head of the prosecution office.
+
+================================================================================
+RULE II: QUANTUM OF EVIDENCE
+================================================================================
+* Section 5. Quantum of Evidence: raised from "probable cause" to "prima facie evidence 
+  with reasonable certainty of conviction."
+* Definition: Prima facie evidence with reasonable certainty of conviction exists when 
+  the evidence-at-hand (testimonial, documentary, or real) is, if left uncontradicted, 
+  sufficient to establish all elements of the crime beyond reasonable doubt, and the 
+  identity of the accused.
+* Evaluation: Prosecutors must verify that evidence is admissible, credible, and capable 
+  of being preserved and presented at trial.
+
+================================================================================
+PROCEDURAL TIMELINE & WORKFLOW
+================================================================================
+1. Investigation Phase:
+   * The investigating prosecutor must resolve the preliminary investigation within sixty 
+     (60) calendar days from assignment.
+   * A maximum extension of thirty (30) calendar days is allowed only in cases involving 
+     capital offenses, complex legal issues, counter-charges, consolidation, or case 
+     reassignment.
+2. Transmittal Phase:
+   * The recommendatory resolution and the corresponding information must be transmitted 
+     to the Head of the Prosecution Office within five (5) calendar days from the date 
+     of the resolution.
+3. Review and Approval:
+   * The Head of the Prosecution Office must review and act upon (approve/disapprove) 
+     the resolution within ten (10) calendar days from receipt.
+4. Promulgation:
+   * Resolutions must be promulgated within five (5) calendar days from approval.
+
+================================================================================
+MODERNIZATION & DIGITAL REFORMS
+================================================================================
+* E-Filing: Complaining and responding parties may file submissions electronically.
+* Virtual Proceedings: Preliminary investigations, witness oaths, and inquests may be 
+  conducted online via videoconferencing as alternatives to in-person sessions.
+
+================================================================================
+CONSTITUTIONAL VALIDITY
+================================================================================
+* The Supreme Court of the Philippines upheld the validity of DC 15 in G.R. No. 280455 
+  (Atty. Meking v. Remulla), declaring that preliminary investigations are executive functions, 
+  granting the DOJ authority to establish its own evidentiary and prosecutorial rules.

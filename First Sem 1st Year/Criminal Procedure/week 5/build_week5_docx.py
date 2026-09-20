@@ -1,0 +1,982 @@
+import os
+import sys
+import docx
+from docx import Document
+from docx.shared import Inches, Pt, RGBColor
+from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.enum.table import WD_TABLE_ALIGNMENT, WD_ALIGN_VERTICAL
+from docx.oxml import OxmlElement, parse_xml
+from docx.oxml.ns import nsdecls, qn
+
+def set_cell_background(cell, fill_hex):
+    tcPr = cell._tc.get_or_add_tcPr()
+    shd = parse_xml(f'<w:shd {nsdecls("w")} w:fill="{fill_hex}"/>')
+    tcPr.append(shd)
+
+def set_cell_margins(cell, top=100, bottom=100, left=150, right=150):
+    tcPr = cell._tc.get_or_add_tcPr()
+    tcMar = OxmlElement('w:tcMar')
+    for m, val in [('top', top), ('bottom', bottom), ('left', left), ('right', right)]:
+        node = OxmlElement(f'w:{m}')
+        node.set(qn('w:w'), str(val))
+        node.set(qn('w:type'), 'dxa')
+        tcMar.append(node)
+    tcPr.append(tcMar)
+
+def set_table_borders(table, color="D3D3D3", sz="4", val="single"):
+    tblPr = table._tbl.tblPr
+    borders = parse_xml(f'''
+        <w:tblBorders {nsdecls("w")}>
+            <w:top w:val="{val}" w:sz="{sz}" w:space="0" w:color="{color}"/>
+            <w:bottom w:val="{val}" w:sz="{sz}" w:space="0" w:color="{color}"/>
+            <w:left w:val="none"/>
+            <w:right w:val="none"/>
+            <w:insideH w:val="{val}" w:sz="{sz}" w:space="0" w:color="{color}"/>
+            <w:insideV w:val="none"/>
+        </w:tblBorders>
+    ''')
+    tblPr.append(borders)
+
+def create_full_digest():
+    txt_path = r"c:\Users\JR\Downloads\14All-All41\MLC\First Sem 1st Year\Criminal Procedure\week 5\Criminal_Procedure_Week_5_Case_Digests.txt"
+    docx_path = r"c:\Users\JR\Downloads\14All-All41\MLC\First Sem 1st Year\Criminal Procedure\week 5\Criminal_Procedure_Week_5_Case_Digests.docx"
+
+    cases_data = [
+        {
+            "num": "1",
+            "title": "Renato Cudia v. The Court of Appeals, The Hon. Carlos D. Rustia (Presiding Judge, RTC Angeles City, Br. 60), and The People of the Philippines",
+            "citation": "G.R. No. 110315 | January 16, 1998 | 284 SCRA 173 | 348 Phil. 190",
+            "division": "Second Division | Ponente: Justice Flerida Ruth P. Romero",
+            "topic": "Rule 110 (Institution of Criminal Actions) & Rule 112 - Authority of the Prosecutor to File Information / Territorial Jurisdiction of City vs. Provincial Prosecutors / Lack of Authority is Jurisdictional and Non-Waivable (Rule 117, Sec. 3[d] & Sec. 9)",
+            "info": {
+                "1": ("Who is the complainant?", 
+                      "Formal / Public Complainant: People of the Philippines (represented by the State).\n"
+                      "Apprehending Officers / Initiating Complainants: Operatives of the Angeles City Police / PC-INP Command stationed at Angeles City."),
+                "2": ("What is the ground of the case filed/ accusation?", 
+                      "Unlawful possession and concealment of an unlicensed firearm and live ammunition (one Colt .38 caliber revolver with Serial No. 43868 and six [6] live rounds) without the necessary license, permit, or legal authority."),
+                "3": ("Committed crime/violation and if there is a probable cause?", 
+                      "Illegal Possession of Firearms and Ammunition under Section 1 of Presidential Decree No. 1866.\n"
+                      "Probable Cause: An inquest/preliminary investigation was conducted by the 3rd Assistant City Prosecutor of Angeles City, who found probable cause and filed the criminal Information."),
+                "4": ("If there is a law/s to punish/ or is the case file has ground?", 
+                      "Yes. Section 1 of Presidential Decree No. 1866 (Codifying the Laws on Illegal/Unlawful Possession, Manufacture, Dealing In, Acquisition or Disposition, of Firearms, Ammunition or Explosives)."),
+                "5": ("When the case was filed?", 
+                      "Apprehension date: June 28, 1989.\n"
+                      "Information filed by City Prosecutor: July 10, 1989 (Criminal Case No. 89-11-205).\n"
+                      "Motion to Quash filed: December 11, 1989.\n"
+                      "Supreme Court Decision promulgated: January 16, 1998."),
+                "6": ("Place/location the case is filed?", 
+                      "Regional Trial Court (RTC) of Angeles City, Third Judicial Region, Branch 60."),
+                "7": ("What court has the jurisdiction in the case and why?", 
+                      "The RTC of Angeles City DID NOT acquire valid jurisdiction because the Information was null and void.\n"
+                      "Subject-Matter / Territorial Jurisdiction Analysis: The offense occurred in Barangay Malabanias, Municipality of Mabalacat, Province of Pampanga (outside the territorial limits of Angeles City). Under Section 58 of R.A. No. 170 (Charter of Angeles City), the City Prosecutor of Angeles City has authority to investigate and file charges ONLY for offenses committed within Angeles City. For offenses committed in Mabalacat, Pampanga, the authority to investigate and file Informations belongs exclusively to the Provincial Prosecutor of Pampanga, with trial before the RTC of San Fernando, Pampanga."),
+                "8": ("Where is the trial will be held?", 
+                      "Trial was erroneously held before RTC Angeles City (Branch 60); however, the Supreme Court held that proceedings were void without prejudice to the Provincial Prosecutor of Pampanga filing a proper Information before the proper court (RTC San Fernando, Pampanga).")
+            },
+            "facts": (
+                "On June 28, 1989, elements of the Angeles City Police Command arrested petitioner Renato Cudia in Barangay Malabanias. At the time of his arrest, police found in his possession an unlicensed Colt .38 caliber revolver with serial number 43868 loaded with six (6) live rounds of ammunition. He was brought to the Angeles City Police Station for booking.\n\n"
+                "The 3rd Assistant City Prosecutor of Angeles City conducted an inquest investigation and filed an Information for Illegal Possession of Firearms and Ammunition under Presidential Decree No. 1866 before the Regional Trial Court (RTC) of Angeles City, Branch 60 (docketed as Criminal Case No. 89-11-205).\n\n"
+                "Petitioner Cudia filed a Motion to Quash the Information on the ground that the City Prosecutor of Angeles City had no legal authority to conduct the preliminary investigation and file the Information, and that the RTC of Angeles City had no territorial jurisdiction over the offense. Cudia established that Barangay Malabanias, where the arrest and alleged possession occurred, is part of the Municipality of Mabalacat, Province of Pampanga, and is outside the territorial boundary of Angeles City.\n\n"
+                "To cure the defect, the City Prosecutor amended the Information by altering the locus delicti, but evidence during the hearing confirmed that the apprehension occurred in Mabalacat, Pampanga. Nevertheless, the RTC of Angeles City denied the Motion to Quash, proceeded to trial, and convicted Cudia. The Court of Appeals affirmed the conviction, holding that Cudia waived any defect by entering a plea and that the RTC of Angeles City had general territorial competence as part of the Third Judicial Region. Cudia appealed to the Supreme Court."
+            ),
+            "a1_facts": (
+                "A man was arrested in the town of Mabalacat, Pampanga, for carrying an unlicensed .38 caliber revolver. Even though the arrest happened in Mabalacat (which is under the Provincial Prosecutor of Pampanga), the City Prosecutor of Angeles City took charge of the case and filed a criminal charge in the Angeles City trial court. The accused asked the court to dismiss the case because the Angeles City prosecutor had no legal authority to file charges for crimes committed outside Angeles City. The trial court and Court of Appeals refused to dismiss the case and convicted him, claiming he had already entered a plea. The accused appealed to the Supreme Court."
+            ),
+            "issues": (
+                "1. Whether an Information filed by a City Prosecutor for an offense committed outside his territorial jurisdiction (in a neighboring municipality under the Provincial Prosecutor) is valid.\n"
+                "2. Whether the lack of authority of the prosecutor to file an Information is a jurisdictional defect that deprives the trial court of jurisdiction.\n"
+                "3. Whether the lack of authority of the prosecutor who filed the Information is waived by the failure to move to quash or by entering a plea of not guilty."
+            ),
+            "a2_issues": (
+                "1. Can a City Prosecutor file a criminal case for a crime that took place outside the city in a neighboring province?\n"
+                "2. Does an Information filed by an unauthorized prosecutor give the trial court any power to try and convict the accused?\n"
+                "3. Is this fatal error forgiven or waived if the accused already entered a plea before pointing it out?"
+            ),
+            "ruling": (
+                "The Supreme Court REVERSED and SET ASIDE the Court of Appeals' decision and DISMISSED Criminal Case No. 89-11-205 without prejudice.\n\n"
+                "1. THE CITY PROSECUTOR LACKED TERRITORIAL AUTHORITY TO FILE THE INFORMATION:\n"
+                "Under Section 58 of Republic Act No. 170 (The Charter of Angeles City) and Section 9 of Presidential Decree No. 1275, the City Prosecutor of Angeles City possesses investigative and prosecutorial authority exclusively within the territorial jurisdiction of Angeles City. For crimes committed in the Municipality of Mabalacat, Pampanga, the exclusive authority to conduct preliminary investigations and file criminal informations resides in the Provincial Prosecutor of Pampanga. The City Prosecutor of Angeles City acted ultra vires and had zero legal standing to institute charges for acts committed in Mabalacat.\n\n"
+                "2. AN INFORMATION FILED BY AN UNAUTHORIZED OFFICER IS VOID AND CONFERS NO JURISDICTION:\n"
+                "The filing of a valid Information by an officer authorized by law is an indispensable jurisdictional prerequisite. An Information signed and filed by an officer without statutory authority is null and void ab initio. Because the Information was fundamentally invalid, it never conferred jurisdiction upon the RTC of Angeles City over the offense or over the person of the accused. The entire proceedings before the RTC were a complete nullity.\n\n"
+                "3. LACK OF AUTHORITY OF THE PROSECUTOR IS JURISDICTIONAL AND CANNOT BE WAIVED:\n"
+                "Under Section 3(d) in relation to Section 9, Rule 117 of the Rules of Court, the ground that 'the officer who filed the information had no authority to do so' is an exception to the waiver rule. It is a jurisdictional defect that goes to the very competence of the court to act. It may be raised at any stage of the proceedings, even for the first time on appeal, and cannot be cured by silence, consent, or the entry of a plea."
+            ),
+            "a3_ruling": (
+                "The Supreme Court ruled NO, the conviction is VOID and the case must be DISMISSED.\n"
+                "1. A City Prosecutor only has legal power inside his own city. He cannot file criminal charges for crimes committed in a different municipality outside his city limits.\n"
+                "2. If a prosecutor files a case without legal authority, the charge sheet (Information) is completely dead/void from the start. A void Information gives the court zero power to try the accused.\n"
+                "3. Lack of authority of the prosecutor is a fundamental jurisdictional defect. It can NEVER be waived or cured, even if the accused was already arraigned or convicted. The case against Cudia was dismissed without prejudice to the proper Provincial Prosecutor filing the case in the proper court."
+            ),
+            "doctrines": (
+                "• Rule 110, Section 4 & Rule 112, Section 4 (Authority to File Information): An Information must be subscribed, approved, and filed by an officer authorized by law (Provincial/City Prosecutor or Ombudsman). An Information filed by an unauthorized prosecutor is void and does not confer jurisdiction upon the court.\n"
+                "• Rule 117, Section 3(d) & Section 9 (Non-Waiver of Jurisdictional Defects): While most formal defects are waived if not raised in a Motion to Quash prior to plea, lack of authority of the filing officer (Sec. 3[d]) and lack of jurisdiction over the offense charged (Sec. 3[b]) are non-waivable and can be asserted at any stage, including on appeal.\n"
+                "• DOJ Circulars 15 & 28 (s. 2024) Integration: Territorial authority of prosecutors strictly governs preliminary investigation and inquest. Prosecutors must verify territorial jurisdiction at the inception of case buildup; any inquest or PI resolved by an office lacking territorial competence constitutes an ultra vires act that renders subsequent court proceedings vulnerable to dismissal."
+            ),
+            "a4_doctrines": (
+                "A court cannot try a criminal case unless the charge was filed by a prosecutor with legal authority over that exact territory. If the wrong prosecutor files the charge, the entire case is legally void from the beginning and can be thrown out at any time, even on appeal."
+            ),
+            "relevance": (
+                "Under the syllabus topic 'Rule 110 - Who Must Prosecute Criminal Actions / Authority of the Public Prosecutor / Territorial Jurisdiction,' Cudia v. CA is the landmark precedent establishing that the authority of a public prosecutor is strictly territorial and jurisdictional. It demonstrates that prosecutorial authority is an essential pillar of criminal jurisdiction, bridging the law on preliminary investigation (Rule 112), motions to quash (Rule 117), and subject-matter jurisdiction."
+            ),
+            "a5_relevance": (
+                "Essential case for Rule 110 and Rule 117. Proves that prosecutors cannot cross territorial borders to file charges, and an Information filed by an unauthorized prosecutor completely destroys the court's jurisdiction."
+            )
+        },
+        {
+            "num": "2",
+            "title": "Girlie M. Quinsay v. People of the Philippines",
+            "citation": "G.R. No. 216920 | January 13, 2016 | 779 SCRA 328 | 778 Phil. 841",
+            "division": "First Division | Ponente: Justice Estela M. Perlas-Bernabe",
+            "topic": "Rule 110, Section 15 (Place where action is to be instituted / Venue in Criminal Cases is Jurisdictional) / Batas Pambansa Blg. 22 (Bouncing Checks Law) / Transitory or Continuing Crimes / Locus Delicti / Residence of Complainant is Immaterial",
+            "info": {
+                "1": ("Who is the complainant?", 
+                      "Formal / Public Complainant: People of the Philippines (represented by the Public Prosecutor).\n"
+                      "Private Complainant / Payee: Rita C. Tan (jewelry dealer residing in Quezon City)."),
+                "2": ("What is the ground of the case filed/ accusation?", 
+                      "Issuance of three (3) postdated China Banking Corporation checks totaling P450,000.00 as payment for assorted diamond and gold jewelry, which checks were dishonored upon presentment for payment due to 'Account Closed' / 'Drawn Against Insufficient Funds' (DAIF)."),
+                "3": ("Committed crime/violation and if there is a probable cause?", 
+                      "Three (3) counts of Violation of Batas Pambansa Blg. 22 (The Bouncing Checks Law).\n"
+                      "Probable Cause: Investigating prosecutor of Quezon City found probable cause and filed Informations before MeTC Quezon City."),
+                "4": ("If there is a law/s to punish/ or is the case file has ground?", 
+                      "Yes. Section 1 of Batas Pambansa Blg. 22 (An Act Penalizing the Making or Drawing and Issuance of a Check Without Sufficient Funds or Credit and for Other Purposes)."),
+                "5": ("When the case was filed?", 
+                      "Complaint filed with OCP Quezon City in 2000.\n"
+                      "Informations filed before MeTC Quezon City (Crim. Case Nos. 100438, 100439, and 100440) in 2001.\n"
+                      "MeTC Decision: August 28, 2012.\n"
+                      "Supreme Court Decision promulgated: January 13, 2016."),
+                "6": ("Place/location the case is filed?", 
+                      "Metropolitan Trial Court (MeTC) of Quezon City, Branch 43."),
+                "7": ("What court has the jurisdiction in the case and why?", 
+                      "The MeTC of Quezon City DID NOT have territorial jurisdiction.\n"
+                      "Subject-Matter vs. Territorial Jurisdiction Analysis: While B.P. 22 cases fall under the subject-matter jurisdiction of first-level courts (MeTC/MTC) under B.P. 129, territorial jurisdiction (venue) is an essential element of jurisdiction in criminal cases. Under Rule 110, Section 15(a), criminal cases must be filed where the offense was committed or where any of its essential ingredients occurred. In B.P. 22, the essential ingredients are: (1) drawing/making of check, (2) delivery/issuance, and (3) dishonor. All three acts occurred exclusively in Makati City (transactions in Makati office, China Bank branch in Makati). No essential element occurred in Quezon City."),
+                "8": ("Where is the trial will be held?", 
+                      "MeTC Quezon City erroneously tried the case, but the Supreme Court nullified the conviction and dismissed the case for lack of territorial jurisdiction.")
+            },
+            "facts": (
+                "Private complainant Rita C. Tan, a jewelry merchant residing in Quezon City, alleged that petitioner Girlie M. Quinsay purchased assorted jewelry items from her with a total value of P450,000.00. In payment for the jewelry, Quinsay drew and issued three (3) postdated China Banking Corporation checks (Makati Branch).\n\n"
+                "When Tan deposited the checks into her bank account, they were dishonored by China Bank with the notices 'Account Closed' and 'Drawn Against Insufficient Funds' (DAIF). Tan sent demand letters to Quinsay's office in Makati City, but Quinsay failed to pay.\n\n"
+                "Tan filed a criminal complaint before the Office of the City Prosecutor of Quezon City. Three Informations for Violation of B.P. Blg. 22 were filed before the Metropolitan Trial Court (MeTC) of Quezon City, Branch 43.\n\n"
+                "After the prosecution rested its case, Quinsay filed a Demurrer to Evidence / Motion to Dismiss on the ground of lack of territorial jurisdiction. Quinsay established that: (1) all sales negotiations and deliveries of jewelry occurred at her office in Makati City; (2) the checks were drawn and physically delivered in Makati City; and (3) the drawee bank was China Bank Makati Branch. The prosecution failed to show that any act of drawing, delivery, or dishonor took place in Quezon City, relying solely on Tan's residence in Quezon City.\n\n"
+                "The MeTC denied the demurrer and convicted Quinsay. The RTC and Court of Appeals affirmed the conviction, holding that venue was properly laid because the complainant resided in Quezon City and deposited the checks there. Quinsay petitioned the Supreme Court."
+            ),
+            "a1_facts": (
+                "A jewelry merchant living in Quezon City sold jewelry to a woman at her office in Makati City. The buyer gave three postdated checks drawn on a bank in Makati. The checks bounced when deposited. The seller filed a B.P. 22 (bouncing check) case in Quezon City simply because that was where she lived. The buyer argued that Quezon City courts had no power to try the case because the checks were written, handed over, and dishonored entirely in Makati City. The lower courts convicted the buyer anyway, reasoning that the victim lived in Quezon City. The buyer appealed to the Supreme Court."
+            ),
+            "issues": (
+                "1. Whether venue in criminal cases is jurisdictional or merely procedural.\n"
+                "2. Whether the Metropolitan Trial Court of Quezon City had territorial jurisdiction to try and decide the B.P. 22 cases when all essential ingredients (drawing, issuance/delivery, and dishonor) took place in Makati City.\n"
+                "3. Whether the residence of the private complainant or the place of bank deposit confers territorial jurisdiction in a B.P. 22 prosecution."
+            ),
+            "a2_issues": (
+                "1. Is the place/city where a criminal case is filed an absolute requirement of court power (jurisdiction), or can it be held anywhere?\n"
+                "2. Can a Quezon City court convict someone for bouncing checks if the checks were written, delivered, and bounced in Makati City?\n"
+                "3. Does filing a case where the victim lives give the court legal power to try the crime?"
+            ),
+            "ruling": (
+                "The Supreme Court REVERSED and SET ASIDE the Court of Appeals' decision and ACQUITTED/DISMISSED the criminal cases against Girlie M. Quinsay for lack of jurisdiction.\n\n"
+                "1. VENUE IN CRIMINAL CASES IS JURISDICTIONAL:\n"
+                "In Philippine criminal procedure, venue is an essential element of jurisdiction. A court has no jurisdiction to try an offense committed outside its territorial limits. Under Section 15(a), Rule 110 of the Rules of Court, a criminal action must be instituted and tried in the court of the municipality or province where the offense was committed or where any of its essential ingredients occurred.\n\n"
+                "2. ESSENTIAL INGREDIENTS OF B.P. 22 & TERRITORIAL JURISDICTION:\n"
+                "Violation of B.P. Blg. 22 is a transitory or continuing crime. Jurisdiction is properly acquired only by a court of the place where any of the three essential acts occurred:\n"
+                "(a) The place where the check was made or drawn;\n"
+                "(b) The place where the check was issued or delivered to the payee; or\n"
+                "(c) The place where the check was presented for payment and dishonored by the drawee bank.\n\n"
+                "3. RESIDENCE OF COMPLAINANT IS IMMATERIAL:\n"
+                "The residence of the complainant is completely irrelevant to the determination of territorial jurisdiction in criminal cases. The prosecution completely failed to prove that any of the checks were drawn, issued, delivered, or dishonored in Quezon City. Because all essential ingredients occurred in Makati City, the MeTC of Quezon City never acquired jurisdiction over the subject offense, and all its proceedings and judgment of conviction were null and void."
+            ),
+            "a3_ruling": (
+                "The Supreme Court ruled NO, the Quezon City court had NO JURISDICTION, and ACQUITTED the accused.\n"
+                "1. In criminal law, venue is jurisdictional. A court cannot try a crime that happened outside its territorial borders.\n"
+                "2. For bouncing check cases (B.P. 22), the case can ONLY be filed in the city where: (a) the check was written, (b) the check was handed over, or (c) the bank that bounced the check is located.\n"
+                "3. Where the victim lives does NOT matter at all. Because all three check acts happened in Makati City and none in Quezon City, the Quezon City court had zero authority to try the case."
+            ),
+            "doctrines": (
+                "• Rule 110, Section 15(a) (Place of Institution): In criminal law, venue is jurisdictional and not merely procedural (unlike in civil procedure). Territorial jurisdiction cannot be conferred by consent, submission, or waiver.\n"
+                "• Locus Delicti in B.P. Blg. 22: B.P. 22 is a continuing crime triable only in the territorial jurisdiction where the check was: (1) made/drawn, (2) issued/delivered, or (3) presented/dishonored. The location of the private complainant's residence does not confer venue.\n"
+                "• Distinguish Estafa vs. B.P. 22 Territorial Jurisdiction: In Estafa through bouncing checks (Art. 315[2][a], RPC), deceit and damage are elements; hence, the place where deceit was employed or where damage was suffered can establish venue. In B.P. 22, damage and deceit are NOT elements (malum prohibitum); thus, venue is strictly tied to the physical acts of drawing, delivery, and dishonor."
+            ),
+            "a4_doctrines": (
+                "Criminal cases must be filed where the crime physically took place or where its legal ingredients occurred. For bouncing checks, this means where the check was made, handed over, or dishonored by the bank. A complainant cannot sue in their home city if no check transaction happened there."
+            ),
+            "relevance": (
+                "Under the syllabus topic 'Rule 110, Section 15 - Territorial Jurisdiction / Venue is Jurisdictional,' Quinsay v. People is the definitive modern authority contrasting criminal venue from civil venue and establishing the strict tripartite locus delicti test for B.P. 22 violations."
+            ),
+            "a5_relevance": (
+                "Crucial case demonstrating that in criminal procedure, filing in the wrong city is fatal because it destroys the court's jurisdiction over the crime, requiring outright dismissal."
+            )
+        },
+        {
+            "num": "3",
+            "title": "People of the Philippines v. Danilo Feliciano, Jr., Julius Victor L. Medalla, Christopher Soliva, Warren L. Zingapan, and Robert Michael Beltran Alvir",
+            "citation": "G.R. No. 196735 | May 5, 2014 | 724 SCRA 148 | 734 Phil. 499",
+            "division": "Supreme Court En Banc | Ponente: Justice Marvic Mario Victor F. Leonen",
+            "topic": "Rule 110, Sections 6, 8, & 9 (Sufficiency of Information / Right to be Informed of Nature and Cause of Accusation / Allegation of Conspiracy / Allegation of Qualifying Circumstances: Treachery, Disguise/Masking / Bill of Particulars under Rule 116, Sec. 9 / Fraternity Violence)",
+            "info": {
+                "1": ("Who is the complainant?", 
+                      "Formal / Public Complainant: People of the Philippines (State).\n"
+                      "Private Complainants / Offended Parties: Heirs of Dennis Venturina (deceased victim) and surviving injured victims Leandro Lachica, Arnel Fortes, Mervin Natalicio, and Cristobal Gaston, Jr. (all members of Sigma Rho fraternity)."),
+                "2": ("What is the ground of the case filed/ accusation?", 
+                      "Violent, coordinated, and deadly armed assault on members of the Sigma Rho fraternity while eating lunch at the CAS Tambayan / Beach House in UP Diliman on December 8, 1994, using lead pipes and baseball bats, resulting in the brutal death of Dennis Venturina and severe head/body injuries to four other students."),
+                "3": ("Committed crime/violation and if there is a probable cause?", 
+                      "Murder (for the death of Dennis Venturina) and Multiple Attempted Murder (4 counts).\n"
+                      "Probable Cause: Found by the City Prosecutor of Quezon City upon eyewitness identifications by surviving victims and bystanders."),
+                "4": ("If there is a law/s to punish/ or is the case file has ground?", 
+                      "Yes. Article 248 (Murder) and Article 248 in relation to Articles 6 and 51 (Attempted Murder) of the Revised Penal Code."),
+                "5": ("When the case was filed?", 
+                      "Crime committed: December 8, 1994.\n"
+                      "Informations filed before RTC Quezon City: May 1995 (Crim. Case Nos. Q-95-61133 to Q-95-61137).\n"
+                      "RTC Decision: February 28, 2002.\n"
+                      "Court of Appeals Decision: November 26, 2010.\n"
+                      "Supreme Court En Banc Decision promulgated: May 5, 2014."),
+                "6": ("Place/location the case is filed?", 
+                      "Regional Trial Court (RTC) of Quezon City, Branch 219."),
+                "7": ("What court has the jurisdiction in the case and why?", 
+                      "RTC of Quezon City, Branch 219.\n"
+                      "Subject-Matter Jurisdiction: Under B.P. 129, Murder carries the penalty of reclusion perpetua to death, which falls under the exclusive original jurisdiction of the Regional Trial Court.\n"
+                      "Territorial Jurisdiction: The offense was committed within the campus of UP Diliman, Quezon City (within RTC Quezon City's territorial boundaries)."),
+                "8": ("Where is the trial will be held?", 
+                      "Regional Trial Court (RTC) of Quezon City, Branch 219.")
+            },
+            "facts": (
+                "On December 8, 1994, around 12:30 p.m., several members of the Sigma Rho fraternity (including Dennis Venturina, Leandro Lachica, Arnel Fortes, Mervin Natalicio, and Cristobal Gaston, Jr.) were having lunch at the CAS Tambayan / Beach House cafeteria at UP Diliman.\n\n"
+                "Suddenly, a group of men wearing masks and carrying lethal weapons, including baseball bats and lead pipes, stormed the area and launched a rapid, vicious, and simultaneous attack against the unarmed Sigma Rhoans. Dennis Venturina was bludgeoned repeatedly on the head, sustaining severe traumatic brain injuries that caused his death days later. Four other students sustained serious head lacerations and body fractures.\n\n"
+                "Five members of the Scintilla Juris fraternity—Danilo Feliciano, Jr., Julius Victor Medalla, Christopher Soliva, Warren Zingapan, and Robert Michael Alvir—were positively identified by eyewitnesses and charged before the RTC of Quezon City with Murder and Attempted Murder.\n\n"
+                "The Information alleged that the accused, 'conspiring, confederating together and mutually helping one another, with intent to kill, qualified by treachery, evident premeditation, and taking advantage of superior strength, and armed with lead pipes and baseball bats, and wearing masks,' assaulted the victims.\n\n"
+                "The RTC convicted all five accused of Murder and Attempted Murder, sentencing them to reclusion perpetua. The Court of Appeals affirmed the conviction.\n\n"
+                "Before the Supreme Court En Banc, the appellants contended that the Information was fatally defective and violated their constitutional right to be informed of the nature and cause of the accusation because: (1) it failed to specify the particular role and exact physical blow delivered by each individual accused; (2) it did not describe the masks or how the disguise was used; and (3) it alleged multiple qualifying circumstances in generic terms without specific operational facts."
+            ),
+            "a1_facts": (
+                "Members of a UP fraternity were eating lunch on campus when a group of masked men from a rival fraternity attacked them with lead pipes and baseball bats, killing one student and severely injuring four others. Five attackers were identified, charged, and convicted of Murder. On appeal, the convicted men argued their constitutional rights were violated because the criminal charge sheet (Information) did not spell out exactly which specific blow each individual person landed, and did not describe their masks in minute detail. The Supreme Court En Banc reviewed their claims."
+            ),
+            "issues": (
+                "1. Whether an Information charging conspiracy is sufficient under Rule 110, Section 6 if it alleges a collective conspiracy without detailing the specific individual blow or act of each accused.\n"
+                "2. Whether the allegation of 'wearing masks' in the Information is sufficient to allege the qualifying/aggravating circumstance of disguise without specifying the physical details of the masks.\n"
+                "3. What is the mandatory procedural remedy of an accused who finds the allegations in an Information vague or lacking in specificity before entering a plea?"
+            ),
+            "a2_issues": (
+                "1. Does an Information for murder need to state the exact punch, swing, or hit made by every single conspirator, or is stating that they conspired together enough?\n"
+                "2. Is writing 'wearing masks' in the charge sheet enough to put the accused on notice of the circumstance of disguise?\n"
+                "3. If an accused feels the criminal charge is too vague, what legal remedy must they file before pleading?"
+            ),
+            "ruling": (
+                "The Supreme Court En Banc AFFIRMED the conviction of the appellants for Murder and Attempted Murder.\n\n"
+                "1. SUFFICIENCY OF ALLEGATION OF CONSPIRACY (RULE 110, SEC. 6):\n"
+                "Under Rule 110, Section 6, an Information is sufficient if it states the name of the accused, the designation of the offense, and the acts or omissions complained of in ordinary and concise language. When conspiracy is alleged, it is NOT necessary to state the specific individual act or blow delivered by each co-conspirator. Conspiracy means that the collective criminal design makes the act of one the act of all. A general statement that the accused conspired, confederated, and mutually aided one another to kill the victim is legally sufficient to apprise each accused of the charge.\n\n"
+                "2. SUFFICIENCY OF ALLEGATION OF DISGUISE / WEARING MASKS:\n"
+                "The Information explicitly alleged that the accused committed the assault 'armed with lead pipes and baseball bats, and wearing masks.' The phrase 'wearing masks' is an ordinary and readily understandable factual statement that directly establishes the circumstance of disguise (used to conceal identity and prevent defense). It is not necessary to describe the fabric, color, or style of the masks in the Information.\n\n"
+                "3. MANDATORY REMEDY FOR VAGUENESS IS A BILL OF PARTICULARS (RULE 116, SEC. 9):\n"
+                "If the accused felt that the Information was ambiguous, generic, or lacking in specific factual details, their proper and mandatory procedural remedy was to move for a BILL OF PARTICULARS under Section 9, Rule 116 of the Rules of Court, or file a Motion to Quash BEFORE entering their plea. By entering their pleas of not guilty without filing a motion for a bill of particulars, the accused fully waived any objection to formal vagueness or lack of particularity in the Information."
+            ),
+            "a3_ruling": (
+                "The Supreme Court En Banc ruled YES, the Information was COMPLETELY VALID and SUFFICIENT, and affirmed their conviction.\n"
+                "1. When people conspire to commit a crime, the act of one is the act of all. The prosecutor does NOT have to write down who swung which bat or landed which blow.\n"
+                "2. Writing 'wearing masks' in the Information is completely clear and sufficient to charge them with using a disguise.\n"
+                "3. If an accused believes the charge is too vague, they MUST file a Motion for a 'Bill of Particulars' before they enter their plea. If they go ahead and plead 'not guilty' without asking for a bill of particulars, they lose the right to complain about vagueness forever."
+            ),
+            "doctrines": (
+                "• Rule 110, Section 6 (Sufficiency of Information): An Information requires only the ultimate facts constituting the offense in plain and concise language; evidentiary facts and minute operational details do not need to be recited.\n"
+                "• Conspiracy in Information: Allegation of conspiracy does not require itemization of individual physical acts. The conspiracy establishes joint liability for the entirety of the criminal act.\n"
+                "• Rule 116, Section 9 (Bill of Particulars in Criminal Cases): The accused may, before arraignment, move for a bill of particulars to specify or clarify vague allegations to properly plead and prepare for trial. Failure to move for a bill of particulars prior to plea constitutes a complete waiver of formal ambiguity."
+            ),
+            "a4_doctrines": (
+                "A criminal charge only needs to state the main facts of the crime, not every tiny detail. When multiple people attack together in conspiracy, they are all equally guilty for the whole crime. If a defendant thinks the charge is vague, they must demand a Bill of Particulars before pleading, or they waive the objection."
+            ),
+            "relevance": (
+                "Under the syllabus topic 'Rule 110, Section 6 - Sufficiency of Information / Right to be Informed / Bill of Particulars,' Feliciano is the leading Supreme Court En Banc decision clarifying how conspiracy and qualifying circumstances must be pleaded in an Information and establishing the pre-arraignment requirement of the Bill of Particulars under Rule 116."
+            ),
+            "a5_relevance": (
+                "Masterclass case on the right to be informed and the sufficiency of an Information. Teaches students that conspiracy removes the need for individual blow-by-blow descriptions, and failure to ask for a Bill of Particulars waives objections to vagueness."
+            )
+        },
+        {
+            "num": "4",
+            "title": "People of the Philippines v. Jeffrey Cañares y Rosal",
+            "citation": "G.R. No. 174065 | February 18, 2009 | 593 SCRA 480 | 598 Phil. 876",
+            "division": "Third Division | Ponente: Justice Minita V. Chico-Nazario",
+            "topic": "Rule 110, Sections 6, 8, & 9 (Sufficiency of Information / Designation of the Offense / Conflict Between Caption and Body of Information / The Body of Information Controls Over the Caption / Right to be Informed)",
+            "info": {
+                "1": ("Who is the complainant?", 
+                      "Formal / Public Complainant: People of the Philippines (State).\n"
+                      "Private Complainant / Victim: AAA (a 10-year-old minor child, represented by her mother, BBB)."),
+                "2": ("What is the ground of the case filed/ accusation?", 
+                      "Unlawful carnal knowledge of AAA, a ten (10) year old minor female child, committed inside a residence in Tondo, Manila."),
+                "3": ("Committed crime/violation and if there is a probable cause?", 
+                      "Qualified Statutory Rape under Article 266-A, paragraph 1(d) in relation to Article 266-B of the Revised Penal Code (as amended by R.A. No. 8353).\n"
+                      "Probable Cause: Investigating prosecutor of Manila found probable cause upon victim's affidavit, medico-legal findings of hymenal lacerations, and birth certificate proving minority."),
+                "4": ("If there is a law/s to punish/ or is the case file has ground?", 
+                      "Yes. Article 266-A, par. 1(d) and Article 266-B of the Revised Penal Code, as amended by Republic Act No. 8353 (The Anti-Rape Law of 1997)."),
+                "5": ("When the case was filed?", 
+                      "Crime committed: September 1, 2000.\n"
+                      "Information filed before RTC Manila: September 13, 2000 (Crim. Case No. 00-185449).\n"
+                      "RTC Decision: January 20, 2003.\n"
+                      "Supreme Court Decision promulgated: February 18, 2009."),
+                "6": ("Place/location the case is filed?", 
+                      "Regional Trial Court (RTC) of Manila, Branch 19 (Designated Family Court)."),
+                "7": ("What court has the jurisdiction in the case and why?", 
+                      "RTC of Manila, Branch 19.\n"
+                      "Subject-Matter Jurisdiction: Under R.A. No. 8369 (Family Courts Act of 1997) and B.P. 129, exclusive original jurisdiction over offenses committed against children and crimes carrying reclusion perpetua to death belongs to the Regional Trial Court / Family Court.\n"
+                      "Territorial Jurisdiction: The offense occurred in Tondo, Manila (within RTC Manila's territorial jurisdiction)."),
+                "8": ("Where is the trial will be held?", 
+                      "Regional Trial Court (RTC) of Manila, Branch 19.")
+            },
+            "facts": (
+                "On September 1, 2000, in Tondo, Manila, accused-appellant Jeffrey Cañares had sexual intercourse with AAA, a 10-year-old minor.\n\n"
+                "The City Prosecutor of Manila filed an Information against Cañares before the RTC of Manila. In the caption and preamble of the Information, the prosecutor designated the offense as 'Rape under Article 266-A, par. 1(a) of the Revised Penal Code' (which defines simple rape through force, threat, or intimidation).\n\n"
+                "However, the body/narrative of the Information explicitly alleged: 'That on or about September 1, 2000, in the City of Manila, Philippines, the said accused did then and there willfully, unlawfully and feloniously have carnal knowledge of one AAA, a ten (10) year old girl, against her will and consent.'\n\n"
+                "During trial, the prosecution proved the victim's age (10 years old) through her certificate of live birth and oral testimony, and proved carnal knowledge through physical examination and medical findings. The RTC convicted Cañares of Qualified Statutory Rape under Article 266-A, par. 1(d) in relation to Article 266-B, sentencing him to death (later commuted to reclusion perpetua without eligibility for parole under R.A. No. 9346).\n\n"
+                "The Court of Appeals affirmed the conviction. On appeal to the Supreme Court, Cañares argued that he was deprived of his constitutional right to be informed of the nature and cause of the accusation because the caption of the Information cited paragraph 1(a) (simple rape by force) rather than paragraph 1(d) (statutory rape of a minor below 12 years old) or Article 266-B (qualified rape), and thus he could only be convicted of simple rape."
+            ),
+            "a1_facts": (
+                "A man was accused of raping a 10-year-old girl in Tondo, Manila. In the header/title of the criminal charge sheet, the prosecutor mistakenly wrote the section for 'simple rape by force' instead of 'statutory rape of a child under 12.' But in the actual text/body of the charge, it clearly stated that he had sexual intercourse with a 10-year-old child. The trial court convicted him of qualified statutory rape. The accused appealed, arguing that because the title of the document cited the wrong paragraph, he could not be convicted of statutory rape without violating his right to be informed."
+            ),
+            "issues": (
+                "1. Whether an error or discrepancy in the designation/title of the offense in the caption of the Information prevents the court from convicting the accused of the crime described in the body.\n"
+                "2. Whether the allegations in the body of the Information control over the caption or technical title.\n"
+                "3. Whether the accused's constitutional right to be informed of the nature and cause of the accusation was violated when the body of the Information clearly alleged the victim's exact age (10 years old)."
+            ),
+            "a2_issues": (
+                "1. If the title of a charge sheet names the wrong section of law, does that stop the court from convicting the accused based on what the body actually says?\n"
+                "2. Which part rules when there is a mismatch: the title/caption or the actual text/body of the charge?\n"
+                "3. Was the accused's right to know the charges against him violated when the body clearly stated the victim was only 10 years old?"
+            ),
+            "ruling": (
+                "The Supreme Court AFFIRMED the conviction of Jeffrey Cañares for Qualified Statutory Rape.\n\n"
+                "1. THE BODY OF THE INFORMATION CONTROLS OVER THE CAPTION:\n"
+                "The real nature of the crime charged is determined not by the caption, title, or preamble of the Information, nor by the statutory provision cited by the prosecutor, but by the ACTUAL FACTS alleged in the body of the Information. When there is a conflict between the title/designation in the caption and the specific facts alleged in the body, the facts in the body PREVAIL and CONTROL.\n\n"
+                "2. NO VIOLATION OF RIGHT TO BE INFORMED (RULE 110, SEC. 6 & 8):\n"
+                "The constitutional right to be informed requires that the accused be apprised of the acts or omissions constituting the crime. Here, the body of the Information expressly recited that the victim was a ten (10) year old girl and that the accused had carnal knowledge of her. Minority under 12 years of age is the defining qualifying element of statutory rape under Article 266-A, par. 1(d). Because this qualifying fact was unequivocally set forth in the narrative body, the accused was fully informed of the exact nature and cause of the charge.\n\n"
+                "3. ERRONEOUS STATUTORY DESIGNATION IS NOT FATAL:\n"
+                "An incorrect citation of the statutory provision in the caption is a mere formal imperfection that does not prejudice the substantial rights of the accused, so long as the body clearly alleges all essential elements and qualifying circumstances."
+            ),
+            "a3_ruling": (
+                "The Supreme Court ruled NO, the conviction for Qualified Statutory Rape was UPHELD.\n"
+                "1. In criminal law, the text/body of the charge sheet ALWAYS beats the title/caption. What matters is the factual story written in the body, not the label in the header.\n"
+                "2. Because the body clearly stated that the girl was 10 years old, the accused was completely informed that he was being charged with raping a child under 12 (statutory rape).\n"
+                "3. A mistaken article number in the header is a harmless technical error that does not let a guilty person escape conviction."
+            ),
+            "doctrines": (
+                "• Rule 110, Section 6 & Section 8 (Designation of Offense vs. Allegations in Body): The caption or title of the Information does not control the nature of the offense. The crime charged is determined strictly by the recital of ultimate facts in the body of the Information.\n"
+                "• Variance Rule & Right to be Informed: The constitutional test is whether the body of the Information alleges facts sufficient to apprise an individual of ordinary intelligence of the specific charge and qualifying circumstances against which he must defend.\n"
+                "• Qualifying Circumstance of Minority: In statutory rape, the age of the victim (below 12) is a qualifying/essential element. Expressly stating the exact age (10 years old) in the body satisfies Section 8, Rule 110."
+            ),
+            "a4_doctrines": (
+                "The facts written in the body of the criminal charge determine what crime is being tried, not the title or section number written at the top. If the body describes all the facts of a qualified crime, the court can convict the accused of that qualified crime."
+            ),
+            "relevance": (
+                "Under the syllabus topic 'Rule 110, Section 6 & 8 - Designation of Offense / Sufficiency of Information,' People v. Cañares is the standard jurisprudence illustrating the supremacy of the body of the Information over its caption and applying the rule on alleging qualifying circumstances."
+            ),
+            "a5_relevance": (
+                "Teaches that the factual allegations in the narrative body of the Information govern the trial and conviction, protecting against technical dismissals caused by mere clerical errors in the caption."
+            )
+        },
+        {
+            "num": "5",
+            "title": "People of the Philippines v. Noel Garcia y Morcoso",
+            "citation": "G.R. No. 159450 | March 30, 2011 | 646 SCRA 722 | 662 Phil. 544",
+            "division": "Third Division | Ponente: Justice Lucas P. Bersamin",
+            "topic": "Rule 110, Sections 8 & 9 (2000 Revised Rules of Criminal Procedure) - Mandatory Requirement to Specifically Allege Qualifying and Aggravating Circumstances / Right to be Informed / Unalleged Aggravating Circumstances Cannot be Appreciated Even if Proven at Trial / Retroactive Application of Favorable Procedural Rules",
+            "info": {
+                "1": ("Who is the complainant?", 
+                      "Formal / Public Complainant: People of the Philippines (State).\n"
+                      "Private Complainants: Heirs of the deceased victim, Fernando Morales."),
+                "2": ("What is the ground of the case filed/ accusation?", 
+                      "Fatal shooting of Fernando Morales while seated in his backyard in Barangay Commonwealth, Quezon City, using an unlicensed .38 caliber firearm."),
+                "3": ("Committed crime/violation and if there is a probable cause?", 
+                      "Murder (qualified by Treachery).\n"
+                      "Probable Cause: Found by the City Prosecutor of Quezon City based on eyewitness testimonies of the victim's family members."),
+                "4": ("If there is a law/s to punish/ or is the case file has ground?", 
+                      "Yes. Article 248 of the Revised Penal Code (as amended by R.A. No. 7659)."),
+                "5": ("When the case was filed?", 
+                      "Crime committed: September 28, 1998.\n"
+                      "Information filed before RTC Quezon City: October 5, 1998 (Crim. Case No. Q-98-79018).\n"
+                      "RTC Decision: July 12, 2002 (sentenced to Death).\n"
+                      "CA Decision: May 30, 2007 (affirming Death).\n"
+                      "Supreme Court Decision promulgated: March 30, 2011."),
+                "6": ("Place/location the case is filed?", 
+                      "Regional Trial Court (RTC) of Quezon City, Branch 223."),
+                "7": ("What court has the jurisdiction in the case and why?", 
+                      "RTC of Quezon City, Branch 223.\n"
+                      "Subject-Matter Jurisdiction: Murder carries reclusion perpetua to death, cognizable exclusively by the RTC under B.P. 129.\n"
+                      "Territorial Jurisdiction: The shooting took place in Barangay Commonwealth, Quezon City."),
+                "8": ("Where is the trial will be held?", 
+                      "Regional Trial Court (RTC) of Quezon City, Branch 223.")
+            },
+            "facts": (
+                "On September 28, 1998, around 8:00 p.m., Fernando Morales was sitting in the backyard of his residence in Barangay Commonwealth, Quezon City. Suddenly, accused Noel Garcia approached him from behind and shot him multiple times with a handgun, inflicting fatal gunshot wounds on his chest and neck.\n\n"
+                "The City Prosecutor of Quezon City filed an Information for Murder against Garcia, alleging solely the qualifying circumstance of TREACHERY (alevosia).\n\n"
+                "During trial, the prosecution presented evidence showing that the shooting occurred at 8:00 p.m. inside the victim's residential yard. The RTC convicted Garcia of Murder, appreciated treachery as the qualifying circumstance, and additionally appreciated the GENERIC AGGRAVATING CIRCUMSTANCES of DWELLING (morada) and NIGHTTIME (nocturnidad). Because of these two generic aggravating circumstances, the RTC sentenced Garcia to the supreme penalty of DEATH and ordered payment of exemplary damages.\n\n"
+                "The Court of Appeals affirmed the death sentence. On appeal to the Supreme Court, Garcia argued that the trial court and the CA committed reversible error in appreciating dwelling and nighttime because neither circumstance was alleged in the criminal Information, in violation of Sections 8 and 9, Rule 110 of the 2000 Revised Rules of Criminal Procedure."
+            ),
+            "a1_facts": (
+                "A man sneaked into someone's backyard at night and shot him to death. The prosecutor filed a murder charge and only wrote down 'treachery' as the special circumstance. During the trial, the evidence showed the crime happened at night and inside the victim's home. The trial judge sentenced the gunman to death because of the extra aggravating factors of 'dwelling' (home) and 'nighttime,' even though the prosecutor never wrote those two factors in the charge sheet. The Court of Appeals agreed with the death sentence. The gunman appealed to the Supreme Court, arguing that an unwritten aggravating factor can never be used to increase a penalty."
+            ),
+            "issues": (
+                "1. Whether generic aggravating circumstances (dwelling and nighttime) that were proven during trial but NOT alleged in the criminal Information can be appreciated by the court to increase the penalty or award exemplary damages.\n"
+                "2. Whether Sections 8 and 9, Rule 110 of the 2000 Revised Rules of Criminal Procedure apply retroactively to crimes committed prior to their effectivity on December 1, 2000.\n"
+                "3. What is the constitutional justification for prohibiting the appreciation of unalleged aggravating circumstances?"
+            ),
+            "a2_issues": (
+                "1. Can a judge use an aggravating factor (like nighttime or home) to increase a punishment to death if that factor was never written in the charge sheet?\n"
+                "2. Do the 2000 Criminal Procedure rules apply backwards in time to help a defendant whose crime happened in 1998?\n"
+                "3. Why does the Constitution protect the accused from unwritten aggravating factors?"
+            ),
+            "ruling": (
+                "The Supreme Court MODIFIED the decision, affirming the conviction for Murder qualified by treachery, but STRICTLY DISALLOWED the appreciation of dwelling and nighttime, thereby REDUCING the penalty from Death to RECLUSION PERPETUA.\n\n"
+                "1. MANDATORY REQUIREMENT TO ALLEGE ALL CIRCUMSTANCES (RULE 110, SEC. 8 & 9):\n"
+                "Under Sections 8 and 9 of Rule 110 of the 2000 Revised Rules of Criminal Procedure, EVERY qualifying AND aggravating circumstance—whether generic, qualifying, or special—MUST be specifically alleged in the Information. Proof without allegation is completely useless in law. Even if an aggravating circumstance is proven beyond reasonable doubt at trial, the court CANNOT appreciate it if it was omitted from the Information.\n\n"
+                "2. CONSTITUTIONAL FOUNDATION (RIGHT TO BE INFORMED):\n"
+                "This rule implements Section 14(2), Article III of the 1987 Constitution guaranteeing the right of the accused to be informed of the nature and cause of the accusation. An aggravating circumstance directly increases the accused's criminal liability and exposure to penalties; hence, the accused must be given fair and timely notice in the Information to prepare his defense and adduce counter-evidence during trial.\n\n"
+                "3. RETROACTIVE APPLICATION OF FAVORABLE PROCEDURAL RULES:\n"
+                "Although the crime was committed in 1998 (prior to the December 1, 2000 effectivity of the Revised Rules), procedural rules that are favorable to the accused must be given retroactive application. Therefore, the requirement under Sections 8 and 9 of Rule 110 applies retroactively to Garcia's case, invalidating the appreciation of dwelling and nighttime."
+            ),
+            "a3_ruling": (
+                "The Supreme Court ruled NO, unwritten aggravating factors CANNOT be used, and reduced the sentence to Reclusion Perpetua.\n"
+                "1. Under Rule 110, Sections 8 and 9, every single aggravating factor MUST be written in the charge sheet. If it is not in the charge sheet, the judge is forbidden from using it to increase the penalty, even if proven 100% at trial.\n"
+                "2. The Constitution gives every person the right to know everything they are being accused of so they can defend themselves.\n"
+                "3. Favorable procedural rules apply backwards (retroactively) to help the accused. Since the prosecutor forgot to write 'dwelling' and 'nighttime' in the charge sheet, the court could not impose the death penalty."
+            ),
+            "doctrines": (
+                "• Rule 110, Section 8 (Designation of Qualifying and Aggravating Circumstances): The Information must state the qualifying and aggravating circumstances attending the commission of the crime. Failure to allege them precludes the court from appreciating them.\n"
+                "• Rule 110, Section 9 (Cause of the Accusation): The acts or omissions constituting the offense and qualifying/aggravating circumstances must be stated in ordinary and concise language.\n"
+                "• Proof vs. Allegation Doctrine: In criminal procedure, allegata et probata must coincide. Proof of an unalleged aggravating circumstance cannot cure the omission in the Information.\n"
+                "• Retroactivity of Favorable Procedural Rules: Procedural rules of criminal procedure that benefit the accused apply retroactively to pending actions without violating vested rights."
+            ),
+            "a4_doctrines": (
+                "In criminal cases, the prosecutor must write down every single aggravating factor in the charge sheet. If they forget to write it, the court can never use it against the defendant, no matter how much evidence was presented during trial."
+            ),
+            "relevance": (
+                "Under the syllabus topic 'Rule 110, Sections 8 & 9 - Qualifying and Aggravating Circumstances / Right to be Informed,' People v. Garcia is the benchmark ruling enforcing the strict prohibition against appreciating unalleged aggravating circumstances and establishing the retroactive benefit of the 2000 Criminal Procedure amendments."
+            ),
+            "a5_relevance": (
+                "A vital doctrine for Bar exams and class recitations: proving a fact at trial does not matter if the prosecutor did not allege it in the Information."
+            )
+        },
+        {
+            "num": "6",
+            "title": "Leo V. Lazarte, Jr. v. Sandiganbayan (First Division) and People of the Philippines",
+            "citation": "G.R. No. 180122 | March 13, 2009 | 581 SCRA 431 | 600 Phil. 475",
+            "division": "Third Division | Ponente: Justice Minita V. Chico-Nazario",
+            "topic": "Rule 110, Section 14 (Amendment or Substitution of Complaint or Information) / Formal vs. Substantial Amendments / Amendments Before vs. After Plea / Definitive Test of Substantial Amendment / Prejudice to the Rights of the Accused",
+            "info": {
+                "1": ("Who is the complainant?", 
+                      "Formal / Public Complainant: People of the Philippines (represented by the Office of the Ombudsman / Office of the Special Prosecutor).\n"
+                      "Initiating Entity: Fact-Finding and Intelligence Bureau (FFIB) of the Ombudsman / National Printing Office audit team."),
+                "2": ("What is the ground of the case filed/ accusation?", 
+                      "Corrupt, irregular, and unbidded procurement of continuous forms and carbonless printing paper by National Printing Office (NPO) officials from a favored private supplier, causing undue injury to the government in the amount of P2,499,999.00."),
+                "3": ("Committed crime/violation and if there is a probable cause?", 
+                      "Violation of Section 3(e) of Republic Act No. 3019 (The Anti-Graft and Corrupt Practices Act).\n"
+                      "Probable Cause: Found by the Ombudsman / Special Prosecutor following a full preliminary investigation."),
+                "4": ("If there is a law/s to punish/ or is the case file has ground?", 
+                      "Yes. Section 3(e) of Republic Act No. 3019, as amended."),
+                "5": ("When the case was filed?", 
+                      "Original Information filed before Sandiganbayan: December 28, 1998 (Crim. Case No. 25114).\n"
+                      "Arraignment of Lazarte: November 24, 2003.\n"
+                      "Motion for Leave to Admit Amended Information filed: June 20, 2006 (post-arraignment).\n"
+                      "Sandiganbayan Resolution admitting amendment: July 20, 2007.\n"
+                      "Supreme Court Decision promulgated: March 13, 2009."),
+                "6": ("Place/location the case is filed?", 
+                      "Sandiganbayan, First Division, Commonwealth Avenue, Diliman, Quezon City."),
+                "7": ("What court has the jurisdiction in the case and why?", 
+                      "Sandiganbayan, First Division.\n"
+                      "Subject-Matter Jurisdiction: Under Presidential Decree No. 1606, as amended by R.A. No. 7975 and R.A. No. 8249, the Sandiganbayan has exclusive original jurisdiction over violations of R.A. 3019 committed by public officers occupying Salary Grade 27 or higher (such as the NPO Director) and co-accused lower-ranking public officers acting in conspiracy with them."),
+                "8": ("Where is the trial will be held?", 
+                      "Sandiganbayan, First Division, Quezon City.")
+            },
+            "facts": (
+                "Petitioner Leo V. Lazarte, Jr., a public officer and employee of the National Printing Office (NPO), was charged before the Sandiganbayan with violation of Section 3(e) of R.A. No. 3019 in connection with the purchase of P2.49 million worth of printing paper without public bidding.\n\n"
+                "Lazarte was arraigned on November 24, 2003, and entered a plea of 'not guilty.'\n\n"
+                "Nearly three years after arraignment, on June 20, 2006, the Special Prosecutor filed a 'Motion for Leave of Court to Admit Amended Information.'\n\n"
+                "The Amended Information made the following modifications:\n"
+                "(a) It changed the date of the commission of the crime from 'on or about May 1990' to 'the period from February 1990 to June 1990';\n"
+                "(b) It specified the exact Purchase Order numbers and invoice details; and\n"
+                "(c) It elaborated on the individual official designations and specific clerical functions of the co-accused within the NPO hierarchy.\n\n"
+                "Lazarte vigorously opposed the motion, arguing that the amendments were SUBSTANTIAL and made AFTER ARRAIGNMENT, in direct violation of Section 14, Rule 110 of the Rules of Court.\n\n"
+                "The Sandiganbayan admitted the Amended Information, ruling that the changes were merely formal. Lazarte filed a Rule 65 petition for certiorari before the Supreme Court."
+            ),
+            "a1_facts": (
+                "A government printing office worker was charged before the Sandiganbayan with graft for buying paper without public bidding. He was arraigned and pleaded 'not guilty.' Three years later, the government prosecutor asked to amend the charge sheet to change the date of the crime from 'May 1990' to 'between February and June 1990' and to add specific purchase order numbers. The worker protested, saying the law forbids 'substantial' changes after a person has already entered a plea. The Sandiganbayan allowed the changes, so the worker appealed to the Supreme Court."
+            ),
+            "issues": (
+                "1. What is the governing rule and definitive legal test to distinguish between a FORMAL amendment and a SUBSTANTIAL amendment under Section 14, Rule 110?\n"
+                "2. Whether an amendment changing the date/time-frame of the offense and providing specific purchase order numbers after arraignment is formal or substantial.\n"
+                "3. Whether the admission of the Amended Information prejudiced the constitutional and statutory rights of the accused."
+            ),
+            "a2_issues": (
+                "1. How does the law tell the difference between a small 'formal' edit and a major 'substantial' change to a criminal charge?\n"
+                "2. Is expanding the dates and listing invoice numbers after the accused pleaded not guilty a formal edit or an illegal major change?\n"
+                "3. Did changing the charge sheet harm the worker's defense?"
+            ),
+            "ruling": (
+                "The Supreme Court DISMISSED the petition and AFFIRMED the Sandiganbayan's admission of the Amended Information.\n\n"
+                "1. THE RULES ON AMENDMENT BEFORE AND AFTER PLEA (RULE 110, SEC. 14):\n"
+                "• BEFORE PLEA: An Information may be amended in form or substance without leave of court.\n"
+                "• AFTER PLEA: Any amendment may only be made WITH LEAVE OF COURT and ONLY AS TO FORM, provided that it does not prejudice the rights of the accused.\n\n"
+                "2. THE DEFINITIVE TEST OF SUBSTANTIAL VS. FORMAL AMENDMENT:\n"
+                "• An amendment is SUBSTANTIAL when it: (a) changes the nature of the crime charged; (b) alters the defense of the accused; (c) introduces new elements not originally alleged; or (d) surprises the accused such that the evidence he prepared is no longer applicable.\n"
+                "• An amendment is FORMAL when it: (a) merely states with additional precision something already included in the original information; (b) does not alter the nature of the offense; (c) leaves the defense under the original information equally available and intact; and (d) causes no surprise or prejudice to the accused.\n\n"
+                "3. THE AMENDMENTS IN LAZARTE WERE PURELY FORMAL:\n"
+                "(a) Time is not an essential element of Section 3(e) of R.A. 3019; hence, expanding the date from 'May 1990' to 'February to June 1990' is a formal amendment.\n"
+                "(b) Specifying purchase order numbers and official positions merely added factual precision to transactions already identified in the original charge.\n"
+                "(c) Lazarte's defenses (absence of conspiracy, regularity of duties) remained 100% available and unaffected. Therefore, the amendments were purely formal and properly admitted."
+            ),
+            "a3_ruling": (
+                "The Supreme Court ruled that the changes were PURELY FORMAL and VALID, affirming the Sandiganbayan.\n"
+                "1. Before a plea, the prosecutor can change anything. But after a plea, ONLY minor/formal edits are allowed with permission from the judge.\n"
+                "2. The Test: An edit is 'substantial' (illegal) if it changes the crime, catches the accused by surprise, or ruins their defense. It is 'formal' (allowed) if it just clarifies facts and leaves the defense unchanged.\n"
+                "3. Here, adding purchase order numbers and broadening the date did not change the crime of graft, nor did it hurt the worker's defense. Therefore, the changes were legally allowed."
+            ),
+            "doctrines": (
+                "• Rule 110, Section 14 (Amendment of Information): Post-arraignment amendments are strictly confined to matters of form with leave of court and must not prejudice the substantial rights of the accused.\n"
+                "• Test of Prejudicial/Substantial Amendment: The inquiry is whether a defense under the original information remains equally available under the amended information, and whether any evidence prepared by the accused remains equally applicable.\n"
+                "• Time as Formal Element: When time is not an essential element of the offense charged, an amendment specifying or expanding the dates of commission is a formal amendment."
+            ),
+            "a4_doctrines": (
+                "After a defendant enters a plea, the prosecutor cannot change the crime or mess up the defense. However, the prosecutor can make formal cleanups—like correcting dates or adding document numbers—so long as the main crime and the defendant's defense remain the same."
+            ),
+            "relevance": (
+                "Under the syllabus topic 'Rule 110, Section 14 - Amendment vs. Substitution of Information / Formal vs. Substantial Amendments,' Lazarte v. Sandiganbayan is the leading authority articulating the four-factor test to determine whether a post-arraignment amendment is formal or substantial."
+            ),
+            "a5_relevance": (
+                "The go-to case for Rule 110, Section 14 on whether an amendment after plea is allowed, teaching the exact test used in Bar examinations."
+            )
+        },
+        {
+            "num": "7",
+            "title": "John Labsky P. Maximo and Robert M. Panganiban v. Francisco Villapando, Jr.",
+            "citation": "G.R. Nos. 214925 & 214965 | April 26, 2017 | 824 SCRA 443 | 809 Phil. 843",
+            "division": "Third Division | Ponente: Justice Diosdado M. Peralta",
+            "topic": "Rule 112 (Preliminary Investigation) / Executive Determination of Probable Cause / Doctrine of Judicial Non-Interference with Prosecutorial Discretion / Injunction Against Criminal Prosecution / General Rule & Narrow Exceptions / Interplay Between Intra-Corporate Disputes and Criminal Prosecution",
+            "info": {
+                "1": ("Who is the complainant?", 
+                      "Formal / Public Complainant: People of the Philippines.\n"
+                      "Private Complainants / Petitioners: John Labsky P. Maximo and Robert M. Panganiban (co-shareholders and executives of an IT and online entertainment corporation)."),
+                "2": ("What is the ground of the case filed/ accusation?", 
+                      "Corporate embezzlement, unauthorized access, fraudulent diversion of company funds, and misappropriation of intellectual property/software programs by respondent Francisco Villapando, Jr. (former business partner)."),
+                "3": ("Committed crime/violation and if there is a probable cause?", 
+                      "Multiple counts of Estafa (Art. 315, RPC), Qualified Theft (Art. 310, RPC), and Cybercrime offenses under R.A. No. 10175.\n"
+                      "Probable Cause: Under active evaluation and preliminary investigation before the City Prosecutors of Makati City and Pasig City."),
+                "4": ("If there is a law/s to punish/ or is the case file has ground?", 
+                      "Yes. Articles 310 and 315 of the Revised Penal Code; Republic Act No. 10175 (Cybercrime Prevention Act of 2012); Corporation Code."),
+                "5": ("When the case was filed?", 
+                      "Criminal complaints filed before City Prosecutors of Makati and Pasig: 2013-2014.\n"
+                      "Villapando filed Civil Injunction Complaint in RTC Makati: 2014 (Civil Case No. 14-386).\n"
+                      "RTC Makati issued Preliminary Injunction: May 2014.\n"
+                      "Court of Appeals affirmed Injunction: October 2014.\n"
+                      "Supreme Court Decision promulgated: April 26, 2017."),
+                "6": ("Place/location the case is filed?", 
+                      "Criminal Complaints: Offices of the City Prosecutor of Makati City and Pasig City.\n"
+                      "Civil Injunction Case: Regional Trial Court (RTC) of Makati City, Branch 142."),
+                "7": ("What court has the jurisdiction in the case and why?", 
+                      "The RTC of Makati City in a civil action HAD NO JURISDICTION OR LEGAL AUTHORITY to enjoin the public prosecutors from conducting preliminary investigations.\n"
+                      "Jurisdiction & Doctrine of Non-Interference Analysis: Under Section 5, Rule 110 and Rule 112, the determination of probable cause and the decision to file a criminal Information are exclusive executive functions belonging to the Department of Justice / Public Prosecutors. Regular civil courts cannot usurp this prosecutorial power by issuing injunctions against criminal prosecution, except under extremely narrow and extraordinary circumstances."),
+                "8": ("Where is the trial will be held?", 
+                      "Criminal trials proceed before the proper Regional Trial Courts of Makati/Pasig once Informations are filed by the prosecutors.")
+            },
+            "facts": (
+                "A severe business dispute arose among the founders and stockholders of an IT and software enterprise. Petitioners John Labsky Maximo and Robert Panganiban filed criminal complaints for Estafa, Qualified Theft, and Cybercrime against respondent Francisco Villapando, Jr. before the City Prosecutors of Makati City and Pasig City.\n\n"
+                "While the preliminary investigations were pending before the prosecutors, Villapando filed a civil action for 'Injunction and Damages' with an application for a Temporary Restraining Order (TRO) and Writ of Preliminary Injunction before the RTC of Makati City (Branch 142).\n\n"
+                "Villapando claimed that the criminal charges were purely harassment suits stemming from an intra-corporate dispute and asked the RTC to enjoin and restrain the City Prosecutors of Makati and Pasig and the private complainants from resolving the preliminary investigations and from filing criminal Informations in court.\n\n"
+                "The RTC of Makati granted Villapando's petition and issued a writ of preliminary injunction restraining the prosecutors from filing criminal Informations. The Court of Appeals affirmed the injunction.\n\n"
+                "Maximo and Panganiban elevated the matter to the Supreme Court, contending that the trial court committed grave abuse of discretion by violating the fundamental doctrine of judicial non-interference with criminal prosecutions."
+            ),
+            "a1_facts": (
+                "Partners in an IT company had a falling out, and two partners sued the third partner for stealing company funds and software (Estafa and Cybercrime) before city prosecutors. While the prosecutors were investigating whether to file charges, the accused partner ran to a civil trial judge and asked for an injunction to freeze the criminal investigation, claiming it was just a business dispute and harassment. The civil judge granted the injunction and ordered the prosecutors to stop. The Court of Appeals agreed with the freeze order. The two partners appealed to the Supreme Court."
+            ),
+            "issues": (
+                "1. What is the fundamental doctrine of judicial non-interference with the executive determination of probable cause and criminal prosecution?\n"
+                "2. Whether a trial court in a civil action can issue a writ of preliminary injunction to restrain and stop public prosecutors from conducting preliminary investigations and filing criminal Informations.\n"
+                "3. What are the strictly limited, exceptional circumstances where an injunction against criminal prosecution is legally permissible?"
+            ),
+            "a2_issues": (
+                "1. Can a civil court judge order public prosecutors to stop investigating a crime?\n"
+                "2. Can an accused person use a civil lawsuit to block criminal charges from being filed against them?\n"
+                "3. Are there any rare exceptions where a court can stop a criminal prosecution?"
+            ),
+            "ruling": (
+                "The Supreme Court REVERSED and SET ASIDE the decisions of the Court of Appeals and RTC Makati, DISSOLVED the writ of preliminary injunction, and ORDERED the public prosecutors to immediately proceed with the preliminary investigations and filing of Informations.\n\n"
+                "1. THE CARDINAL DOCTRINE OF JUDICIAL NON-INTERFERENCE:\n"
+                "The well-entrenched general rule in Philippine jurisprudence is that courts will NOT issue an injunction or TRO to restrain, enjoin, or prohibit criminal prosecution. Public interest demands that criminal offenses be investigated, prosecuted, and resolved without judicial obstruction.\n\n"
+                "2. PRELIMINARY INVESTIGATION IS AN EXCLUSIVE EXECUTIVE PREROGATIVE:\n"
+                "Under Rule 112 and Section 5, Rule 110 of the Rules of Court, the determination of probable cause for the institution of a criminal action is an executive function vested exclusively in the public prosecutor and the Department of Justice. Courts cannot interfere with the prosecutor's discretion or preemptively enjoin the filing of an Information.\n\n"
+                "3. STRICT AND EXTRAORDINARY EXCEPTIONS TO NON-INTERFERENCE:\n"
+                "An injunction against criminal prosecution is permissible ONLY in rare and extreme exceptions:\n"
+                "  (a) When necessary to protect constitutional rights;\n"
+                "  (b) When necessary for the orderly administration of justice or to avoid multiplicity of actions;\n"
+                "  (c) When there is a valid prejudicial question in a previously filed civil case;\n"
+                "  (d) When the statute under which prosecution is brought is void;\n"
+                "  (e) When the prosecution is brought in manifest bad faith, harassment, or persecution;\n"
+                "  (f) When there is clearly no prima facie case and the court is in a position to so determine;\n"
+                "  (g) When the officer initiating the prosecution has no authority.\n\n"
+                "4. INTRA-CORPORATE DISPUTES DO NOT JUSTIFY INJUNCTIONS:\n"
+                "The mere fact that criminal charges arise from a corporate or commercial dispute does not justify enjoining the prosecution. The respondent's defenses (corporate authority, lack of intent) are matters of defense to be threshed out before the prosecutor during preliminary investigation or before the trial court during trial, NOT through a preemptive civil injunction."
+            ),
+            "a3_ruling": (
+                "The Supreme Court ruled NO, the civil injunction was COMPLETELY ILLEGAL and DISSOLVED it immediately.\n"
+                "1. General Rule: Courts cannot stop criminal prosecutions with injunctions. The public has a right to see crimes investigated.\n"
+                "2. Investigating crimes and finding probable cause is the executive job of prosecutors, not civil judges.\n"
+                "3. Injunctions against criminal cases are allowed only in rare, extreme cases (like clear persecution or an unconstitutional law). Just because people have a business fight does not give a civil judge the power to block criminal fraud charges."
+            ),
+            "doctrines": (
+                "• Rule 110, Section 5 & Rule 112 (Executive Discretion & Non-Interference): The prosecutor's determination of probable cause is an executive function immune from judicial injunctive interference, preserving the separation of powers.\n"
+                "• General Rule on Injunctions Against Criminal Prosecution: Criminal prosecutions cannot be enjoined by injunction or prohibition. The exceptions are strictly construed and require clear proof of bad faith or constitutional infringement.\n"
+                "• Commercial Disputes vs. Criminal Offenses: A pending civil or commercial dispute does not preclude criminal liability. Defenses of corporate authority or absence of criminal intent must be submitted to the prosecutor or trial court, not used to secure a civil injunction."
+            ),
+            "a4_doctrines": (
+                "Civil judges are strictly forbidden from stopping criminal investigations. Prosecutors must be allowed to do their jobs. If an accused is innocent or claims it is just a business dispute, they must prove that to the prosecutor or during the criminal trial, not through a civil injunction."
+            ),
+            "relevance": (
+                "Under the syllabus topic 'Rule 112 - Preliminary Investigation / Executive Determination of Probable Cause / Injunction Against Criminal Prosecution,' Maximo v. Villapando is the definitive modern precedent enforcing the doctrine of judicial non-interference and detailing the strict exceptions."
+            ),
+            "a5_relevance": (
+                "Essential case on the boundary between executive prosecutorial power and judicial authority. Proves that civil courts cannot be used as shields to block criminal investigations."
+            )
+        }
+    ]
+
+    # 1. WRITE TXT FILE
+    with open(txt_path, "w", encoding="utf-8") as f:
+        f.write("REMEDIAL LAW - CRIMINAL PROCEDURE CASE DIGESTS & CASE STUDY (WEEK 5)\n")
+        f.write("================================================================================\n")
+        f.write("Topics: Prosecution of Offenses (Rule 110), Authority of Prosecutors,\n")
+        f.write("Territorial Jurisdiction & Venue, Sufficiency of Information, Right to be Informed,\n")
+        f.write("Allegations of Conspiracy & Circumstances, Amendments (Formal vs. Substantial),\n")
+        f.write("and Executive Determination of Probable Cause vs. Judicial Non-Interference (Rule 112)\n")
+        f.write("Correlated with DOJ Circulars 15 & 28 (s. 2024), B.P. 129 / R.A. 7691 / R.A. 11576,\n")
+        f.write("UST Golden Notes, Dean Tan Criminal Procedure Reviewer, and Rule 116 / 117 Rules of Court\n")
+        f.write("================================================================================\n\n")
+
+        for c in cases_data:
+            f.write("================================================================================\n")
+            f.write(f"CASE NO. {c['num']}: {c['title']}\n")
+            f.write(f"Citation: {c['citation']}\n")
+            f.write(f"Division / Ponente: {c['division']}\n")
+            f.write(f"Topic: {c['topic']}\n")
+            f.write("--------------------------------------------------------------------------------\n")
+            f.write("*   **Information:**\n")
+            for k in ["1", "2", "3", "4", "5", "6", "7", "8"]:
+                q, ans = c['info'][k]
+                f.write(f"    *   **{k}) {q}** {ans}\n")
+            f.write("\n1. FACTS:\n")
+            f.write(c['facts'] + "\n\n")
+            f.write("a1. FACTS (PLAIN ENGLISH / RECITATION SUMMARY):\n")
+            f.write("    " + c['a1_facts'].replace("\n", "\n    ") + "\n\n")
+            f.write("2. ISSUE/S:\n")
+            f.write(c['issues'] + "\n\n")
+            f.write("a2. ISSUE/S (PLAIN ENGLISH):\n")
+            f.write("    " + c['a2_issues'].replace("\n", "\n    ") + "\n\n")
+            f.write("3. COURT'S RULING:\n")
+            f.write(c['ruling'] + "\n\n")
+            f.write("a3. COURT'S RULING (PLAIN ENGLISH):\n")
+            f.write("    " + c['a3_ruling'].replace("\n", "\n    ") + "\n\n")
+            f.write("4. APPLICABLE DOCTRINE & CRIMINAL PROCEDURE APPLICATION:\n")
+            f.write(c['doctrines'] + "\n\n")
+            f.write("a4. APPLICABLE DOCTRINE & CRIMINAL PROCEDURE APPLICATION (PLAIN ENGLISH):\n")
+            f.write("    " + c['a4_doctrines'].replace("\n", "\n    ") + "\n\n")
+            f.write("5. RELEVANCE TO THE TOPIC & EXPLANATION:\n")
+            f.write(c['relevance'] + "\n\n")
+            f.write("a5. RELEVANCE TO THE TOPIC & EXPLANATION (PLAIN ENGLISH):\n")
+            f.write("    " + c['a5_relevance'].replace("\n", "\n    ") + "\n\n")
+
+    print("Successfully generated TXT file:", txt_path)
+
+    # 2. WRITE DOCX FILE
+    doc = Document()
+
+    # Set margins
+    sections = doc.sections
+    for section in sections:
+        section.top_margin = Inches(0.8)
+        section.bottom_margin = Inches(0.8)
+        section.left_margin = Inches(0.8)
+        section.right_margin = Inches(0.8)
+
+    # Header Title
+    title_p = doc.add_paragraph()
+    title_p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    t_run = title_p.add_run("REMEDIAL LAW - CRIMINAL PROCEDURE CASE DIGESTS")
+    t_run.font.name = "Arial"
+    t_run.font.size = Pt(16)
+    t_run.font.bold = True
+    t_run.font.color.rgb = RGBColor(27, 54, 93) # Navy
+
+    sub_p = doc.add_paragraph()
+    sub_p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    s_run = sub_p.add_run("WEEK 5 CASE STUDY & CLASSROOM RECITATION COMPILATION\nRule 110 (Prosecution of Offenses), Sufficiency of Information, Jurisdiction, Amendments, and Rule 112")
+    s_run.font.name = "Arial"
+    s_run.font.size = Pt(11)
+    s_run.font.bold = True
+    s_run.font.color.rgb = RGBColor(100, 110, 120)
+
+    # Correlates Box
+    callout_tbl = doc.add_table(rows=1, cols=1)
+    callout_tbl.alignment = WD_TABLE_ALIGNMENT.CENTER
+    callout_cell = callout_tbl.cell(0, 0)
+    set_cell_background(callout_cell, "F0F4F8")
+    set_cell_margins(callout_cell, top=140, bottom=140, left=200, right=200)
+    set_table_borders(callout_tbl, color="1B365D", sz="12", val="left")
+    
+    cp = callout_cell.paragraphs[0]
+    c_run1 = cp.add_run("STATUTORY & REGULATORY FRAMEWORK:\n")
+    c_run1.font.name = "Arial"
+    c_run1.font.size = Pt(10)
+    c_run1.font.bold = True
+    c_run1.font.color.rgb = RGBColor(27, 54, 93)
+    c_run2 = cp.add_run(
+        "• 2000 Revised Rules of Criminal Procedure (Rules 110, 112, 116, 117)\n"
+        "• DOJ Department Circular No. 015 (s. 2024) & DOJ Circular No. 028 (s. 2024)\n"
+        "• B.P. Blg. 129 as amended by R.A. 7691 and R.A. 11576 (Jurisdiction of Courts)\n"
+        "• Constitution of the Philippines (Art. III, Sec. 14[2] - Right to be Informed; Art. VIII, Sec. 5[5])"
+    )
+    c_run2.font.name = "Arial"
+    c_run2.font.size = Pt(9.5)
+    c_run2.font.color.rgb = RGBColor(40, 50, 60)
+
+    doc.add_paragraph() # Spacing
+
+    # Iterate through cases
+    for c in cases_data:
+        # Case Header Table
+        case_header_tbl = doc.add_table(rows=1, cols=1)
+        case_header_tbl.alignment = WD_TABLE_ALIGNMENT.CENTER
+        ch_cell = case_header_tbl.cell(0, 0)
+        set_cell_background(ch_cell, "1B365D") # Navy background
+        set_cell_margins(ch_cell, top=140, bottom=140, left=180, right=180)
+        
+        ch_p = ch_cell.paragraphs[0]
+        chr1 = ch_p.add_run(f"CASE NO. {c['num']}: {c['title'].upper()}\n")
+        chr1.font.name = "Arial"
+        chr1.font.size = Pt(12)
+        chr1.font.bold = True
+        chr1.font.color.rgb = RGBColor(255, 255, 255)
+        
+        chr2 = ch_p.add_run(f"Citation: {c['citation']} | {c['division']}\n")
+        chr2.font.name = "Arial"
+        chr2.font.size = Pt(9.5)
+        chr2.font.color.rgb = RGBColor(220, 230, 245)
+        
+        chr3 = ch_p.add_run(f"Topic: {c['topic']}")
+        chr3.font.name = "Arial"
+        chr3.font.size = Pt(9.5)
+        chr3.font.italic = True
+        chr3.font.color.rgb = RGBColor(240, 245, 255)
+
+        doc.add_paragraph() # Spacing
+
+        # 8-Point Information Table
+        info_header_p = doc.add_paragraph()
+        ih_run = info_header_p.add_run("MANDATORY 8-POINT CRIMINAL PROCEDURE INFORMATION MATRIX")
+        ih_run.font.name = "Arial"
+        ih_run.font.size = Pt(10.5)
+        ih_run.font.bold = True
+        ih_run.font.color.rgb = RGBColor(27, 54, 93)
+
+        info_tbl = doc.add_table(rows=8, cols=2)
+        info_tbl.alignment = WD_TABLE_ALIGNMENT.CENTER
+        set_table_borders(info_tbl, color="CCCCCC", sz="4", val="single")
+
+        for idx, k in enumerate(["1", "2", "3", "4", "5", "6", "7", "8"]):
+            q, ans = c['info'][k]
+            row_cells = info_tbl.rows[idx].cells
+            
+            # Left column (Question)
+            set_cell_background(row_cells[0], "F4F6F9" if idx % 2 == 0 else "EAEEF3")
+            set_cell_margins(row_cells[0], top=80, bottom=80, left=120, right=120)
+            row_cells[0].width = Inches(2.2)
+            p0 = row_cells[0].paragraphs[0]
+            r0 = p0.add_run(f"{k}) {q}")
+            r0.font.name = "Arial"
+            r0.font.size = Pt(9)
+            r0.font.bold = True
+            r0.font.color.rgb = RGBColor(27, 54, 93)
+
+            # Right column (Answer)
+            set_cell_background(row_cells[1], "FFFFFF" if idx % 2 == 0 else "FDFDFE")
+            set_cell_margins(row_cells[1], top=80, bottom=80, left=120, right=120)
+            row_cells[1].width = Inches(4.6)
+            p1 = row_cells[1].paragraphs[0]
+            r1 = p1.add_run(ans)
+            r1.font.name = "Arial"
+            r1.font.size = Pt(9)
+            r1.font.color.rgb = RGBColor(30, 30, 30)
+
+        doc.add_paragraph() # Spacing
+
+        # Section 1: FACTS
+        f_head = doc.add_paragraph()
+        fr_h = f_head.add_run("1. FACTS:")
+        fr_h.font.name = "Arial"
+        fr_h.font.size = Pt(11)
+        fr_h.font.bold = True
+        fr_h.font.color.rgb = RGBColor(27, 54, 93)
+        
+        fp = doc.add_paragraph()
+        fr = fp.add_run(c['facts'])
+        fr.font.name = "Arial"
+        fr.font.size = Pt(10)
+        fr.font.color.rgb = RGBColor(30, 30, 30)
+
+        # Section a1: PLAIN ENGLISH FACTS (Callout box)
+        pe_tbl = doc.add_table(rows=1, cols=1)
+        pe_tbl.alignment = WD_TABLE_ALIGNMENT.CENTER
+        pe_cell = pe_tbl.cell(0, 0)
+        set_cell_background(pe_cell, "F9FBFD")
+        set_cell_margins(pe_cell, top=100, bottom=100, left=150, right=150)
+        set_table_borders(pe_tbl, color="3A75C4", sz="8", val="left")
+        pe_p = pe_cell.paragraphs[0]
+        per1 = pe_p.add_run("a1. FACTS (PLAIN ENGLISH / 60-SECOND RECITATION):\n")
+        per1.font.name = "Arial"
+        per1.font.size = Pt(9.5)
+        per1.font.bold = True
+        per1.font.color.rgb = RGBColor(58, 117, 196)
+        per2 = pe_p.add_run(c['a1_facts'])
+        per2.font.name = "Arial"
+        per2.font.size = Pt(9.5)
+        per2.font.italic = True
+        per2.font.color.rgb = RGBColor(50, 60, 70)
+
+        doc.add_paragraph()
+
+        # Section 2: ISSUE/S
+        i_head = doc.add_paragraph()
+        ir_h = i_head.add_run("2. ISSUE/S:")
+        ir_h.font.name = "Arial"
+        ir_h.font.size = Pt(11)
+        ir_h.font.bold = True
+        ir_h.font.color.rgb = RGBColor(27, 54, 93)
+
+        ip = doc.add_paragraph()
+        ir = ip.add_run(c['issues'])
+        ir.font.name = "Arial"
+        ir.font.size = Pt(10)
+        ir.font.color.rgb = RGBColor(30, 30, 30)
+
+        # Section a2: PLAIN ENGLISH ISSUES
+        pe_tbl2 = doc.add_table(rows=1, cols=1)
+        pe_tbl2.alignment = WD_TABLE_ALIGNMENT.CENTER
+        pe_cell2 = pe_tbl2.cell(0, 0)
+        set_cell_background(pe_cell2, "F9FBFD")
+        set_cell_margins(pe_cell2, top=100, bottom=100, left=150, right=150)
+        set_table_borders(pe_tbl2, color="3A75C4", sz="8", val="left")
+        pe_p2 = pe_cell2.paragraphs[0]
+        per2_1 = pe_p2.add_run("a2. ISSUE/S (PLAIN ENGLISH / RECITATION QUESTIONS):\n")
+        per2_1.font.name = "Arial"
+        per2_1.font.size = Pt(9.5)
+        per2_1.font.bold = True
+        per2_1.font.color.rgb = RGBColor(58, 117, 196)
+        per2_2 = pe_p2.add_run(c['a2_issues'])
+        per2_2.font.name = "Arial"
+        per2_2.font.size = Pt(9.5)
+        per2_2.font.italic = True
+        per2_2.font.color.rgb = RGBColor(50, 60, 70)
+
+        doc.add_paragraph()
+
+        # Section 3: COURT'S RULING
+        r_head = doc.add_paragraph()
+        rr_h = r_head.add_run("3. COURT'S RULING:")
+        rr_h.font.name = "Arial"
+        rr_h.font.size = Pt(11)
+        rr_h.font.bold = True
+        rr_h.font.color.rgb = RGBColor(27, 54, 93)
+
+        rp = doc.add_paragraph()
+        rr = rp.add_run(c['ruling'])
+        rr.font.name = "Arial"
+        rr.font.size = Pt(10)
+        rr.font.color.rgb = RGBColor(30, 30, 30)
+
+        # Section a3: PLAIN ENGLISH RULING
+        pe_tbl3 = doc.add_table(rows=1, cols=1)
+        pe_tbl3.alignment = WD_TABLE_ALIGNMENT.CENTER
+        pe_cell3 = pe_tbl3.cell(0, 0)
+        set_cell_background(pe_cell3, "F9FBFD")
+        set_cell_margins(pe_cell3, top=100, bottom=100, left=150, right=150)
+        set_table_borders(pe_tbl3, color="3A75C4", sz="8", val="left")
+        pe_p3 = pe_cell3.paragraphs[0]
+        per3_1 = pe_p3.add_run("a3. COURT'S RULING (PLAIN ENGLISH / HOT-SEAT SUMMARY):\n")
+        per3_1.font.name = "Arial"
+        per3_1.font.size = Pt(9.5)
+        per3_1.font.bold = True
+        per3_1.font.color.rgb = RGBColor(58, 117, 196)
+        per3_2 = pe_p3.add_run(c['a3_ruling'])
+        per3_2.font.name = "Arial"
+        per3_2.font.size = Pt(9.5)
+        per3_2.font.italic = True
+        per3_2.font.color.rgb = RGBColor(50, 60, 70)
+
+        doc.add_paragraph()
+
+        # Section 4: DOCTRINES
+        d_head = doc.add_paragraph()
+        dr_h = d_head.add_run("4. APPLICABLE DOCTRINE & CRIMINAL PROCEDURE APPLICATION:")
+        dr_h.font.name = "Arial"
+        dr_h.font.size = Pt(11)
+        dr_h.font.bold = True
+        dr_h.font.color.rgb = RGBColor(27, 54, 93)
+
+        dp = doc.add_paragraph()
+        dr = dp.add_run(c['doctrines'])
+        dr.font.name = "Arial"
+        dr.font.size = Pt(10)
+        dr.font.color.rgb = RGBColor(30, 30, 30)
+
+        # Section a4: PLAIN ENGLISH DOCTRINES
+        pe_tbl4 = doc.add_table(rows=1, cols=1)
+        pe_tbl4.alignment = WD_TABLE_ALIGNMENT.CENTER
+        pe_cell4 = pe_tbl4.cell(0, 0)
+        set_cell_background(pe_cell4, "F9FBFD")
+        set_cell_margins(pe_cell4, top=100, bottom=100, left=150, right=150)
+        set_table_borders(pe_tbl4, color="3A75C4", sz="8", val="left")
+        pe_p4 = pe_cell4.paragraphs[0]
+        per4_1 = pe_p4.add_run("a4. APPLICABLE DOCTRINE (PLAIN ENGLISH TAKEAWAY):\n")
+        per4_1.font.name = "Arial"
+        per4_1.font.size = Pt(9.5)
+        per4_1.font.bold = True
+        per4_1.font.color.rgb = RGBColor(58, 117, 196)
+        per4_2 = pe_p4.add_run(c['a4_doctrines'])
+        per4_2.font.name = "Arial"
+        per4_2.font.size = Pt(9.5)
+        per4_2.font.italic = True
+        per4_2.font.color.rgb = RGBColor(50, 60, 70)
+
+        doc.add_paragraph()
+
+        # Section 5: RELEVANCE
+        rel_head = doc.add_paragraph()
+        rel_h = rel_head.add_run("5. RELEVANCE TO THE TOPIC & SYLLABUS EXPLANATION:")
+        rel_h.font.name = "Arial"
+        rel_h.font.size = Pt(11)
+        rel_h.font.bold = True
+        rel_h.font.color.rgb = RGBColor(27, 54, 93)
+
+        relp = doc.add_paragraph()
+        relr = relp.add_run(c['relevance'])
+        relr.font.name = "Arial"
+        relr.font.size = Pt(10)
+        relr.font.color.rgb = RGBColor(30, 30, 30)
+
+        # Section a5: PLAIN ENGLISH RELEVANCE
+        pe_tbl5 = doc.add_table(rows=1, cols=1)
+        pe_tbl5.alignment = WD_TABLE_ALIGNMENT.CENTER
+        pe_cell5 = pe_tbl5.cell(0, 0)
+        set_cell_background(pe_cell5, "F9FBFD")
+        set_cell_margins(pe_cell5, top=100, bottom=100, left=150, right=150)
+        set_table_borders(pe_tbl5, color="3A75C4", sz="8", val="left")
+        pe_p5 = pe_cell5.paragraphs[0]
+        per5_1 = pe_p5.add_run("a5. RELEVANCE (PLAIN ENGLISH SUMMARY):\n")
+        per5_1.font.name = "Arial"
+        per5_1.font.size = Pt(9.5)
+        per5_1.font.bold = True
+        per5_1.font.color.rgb = RGBColor(58, 117, 196)
+        per5_2 = pe_p5.add_run(c['a5_relevance'])
+        per5_2.font.name = "Arial"
+        per5_2.font.size = Pt(9.5)
+        per5_2.font.italic = True
+        per5_2.font.color.rgb = RGBColor(50, 60, 70)
+
+        doc.add_page_break()
+
+    doc.save(docx_path)
+    print("Successfully generated DOCX file:", docx_path)
+
+if __name__ == "__main__":
+    create_full_digest()

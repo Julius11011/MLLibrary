@@ -1,0 +1,532 @@
+================================================================================
+            STATUTORY CONSTRUCTION COMPREHENSIVE STUDY GUIDE
+                  Based on Ruben E. Agpalo's Reviewer
+                    Mapped to Manila Law College Syllabus
+================================================================================
+
+================================================================================
+I. BACKGROUND OF THE STUDY OF STATUTORY CONSTRUCTION
+================================================================================
+
+A. Statutes
+-----------
+A statute is an act of the legislature as an organized body, expressed in the required form and passed according to the procedure mandated by law to constitute it as part of the law of the land. (Agpalo, Statutory Construction). Kinds of statutes include general, special, local, public, private, penal, remedial, curative, prospective, and retrospective.
+
+* Latin Maxim: Leges posteriores priores contrarias abrogant
+* English Counterpart: Later laws repeal prior contrary laws.
+* Application in Court/Trial: Used by judges to resolve conflicts between two laws passed at different times. The Supreme Court applies this to ensure that the latest democratic will of the legislature is enforced, automatically repealing older conflicting provisions.
+
+
+B. Statutory Construction
+-------------------------
+Statutory Construction – the art or process of discovering and expounding the meaning and intention of the authors of the law with respect to its application to a given case, where that intention is rendered doubtful, among others, by reason of the fact that the given case is not explicitly provided for in the law.
+
+Justice Martin defines statutory construction as the art of seeking the intention of the legislature in enacting a statute and applying it to a given state of facts.
+
+A judicial function is required when a statute is invoked and different interpretations are in contention.
+
+Difference between judicial legislation and statutory construction:
+Where legislature attempts to do several things one which is invalid, it may be discarded if the remainder of the act is workable and in no way depends upon the invalid portion, but if that portion is an integral part of the act, and its excision changes the manifest intent of the act by broadening its scope to include subject matter or territory which was not included therein as enacted, such excision is “judicial legislation” and not “statutory construction”.
+
+Construction is the drawing of conclusions with respect to subjects that are beyond the direct expression of the text, while interpretation is the process of discovering the true meaning of the language used.
+
+Interpretation is limited to exploring the written text. Construction on the other hand is the drawing of conclusions, respecting subjects that lie beyond the direct expressions of the text.
+
+* Latin Maxim: Interpretatio chartarum benigne facienda est ut res magis valeat quam pereat
+* English Counterpart: The interpretation of documents is to be made liberally, so that the thing may rather have effect than perish.
+* Application in Court/Trial: Trials use this principle to defend the validity of a law. Courts will interpret a statute in a way that makes it functional and constitutional rather than declaring it void, respecting the role of the legislature.
+
+
+C. Situs of Construction
+------------------------
+In our system of government:
+• Legislative power is vested in the Congress of the Philippines – the Senate and the House of the Representatives
+• Executive power is vested in the President of the Republic of the Philippines (Art. VII, Sec.1, Phil. Const.)
+• Judicial power is vested in one Supreme Court and in such lower courts as may be established by law. (Art VIII, Sec. 1, Phil. Const.)
+
+Legislative – makes the law
+Executive - executes the law
+Judicial – interprets the law
+
+Simply stated, the situs of construction and interpretation of written laws belong to the judicial department.
+
+It is the duty of the Courts of Justice to settle actual controversies involving rights which are legally demandable and enforceable, and to determine whether or not there has been a grave abuse of discretion amounting to lack or excess of jurisdiction on the part of any branch or instrumentality of the government.
+
+Supreme Court is the one and only Constitutional Court and all other lower courts are statutory courts and such lower courts have the power to construe and interpret written laws.
+
+* Latin Maxim: Judicis est jus dicere, non dare
+* English Counterpart: It is the duty of a judge to declare the law, not to make it.
+* Application in Court/Trial: Used in trials and appeals to check judicial overreach. Defense or prosecution counsel will cite this to remind the judge that they cannot add words, conditions, or exceptions to a statute that are not written in the text.
+
+
+D. Purpose of Construction
+--------------------------
+The primary purpose of statutory construction is to ascertain and give effect to the intent of the legislature. The intent of the law is the law itself; hence, the court's main objective is to discover that intent and apply it to the facts of the case.
+
+* Latin Maxim: Ratio legis est anima legis
+* English Counterpart: The reason of the law is the soul of the law.
+* Application in Court/Trial: Used when the literal text of a statute leads to confusion. The Supreme Court looks at the legislative debates, historical background, or the "mischief" the law sought to cure to interpret it in alignment with its true purpose.
+
+
+E. When to Construe?
+--------------------
+A court should only construe a statute when the law is ambiguous, obscure, or doubtful in its application to a given case. If the law is clear, plain, and free from doubt, there is no room for construction—only application. (Verba legis rule).
+
+* Latin Maxim: In claris non fit interpretatio
+* English Counterpart: In clear things, there is no room for interpretation.
+* Application in Court/Trial: This is the first line of defense in many trials. Litigants argue that because the wording of the contract or law is plain, the court has no authority to interpret it and must simply apply it as written.
+
+
+F. Ambiguity / Vagueness
+------------------------
+Ambiguity or vagueness exists when a statute is susceptible to two or more reasonable but contradictory interpretations. It is this ambiguity that triggers the judicial power to construe and interpret the law.
+
+* Latin Maxim: Contra proferentem
+* English Counterpart: Against the one who brings it forward (or against the author of the ambiguity).
+* Application in Court/Trial: Used extensively in contract disputes and insurance trials. If a clause drafted by one party (such as an insurance company or employer) is ambiguous, the court will construe it against them and in favor of the adhering party.
+
+
+G. Statutory Construction v. Judicial Legislation
+-------------------------------------------------
+Judicial legislation occurs when the court goes beyond interpreting the law and begins inserting its own policy preferences, adding provisions, or deleting valid parts of the statute. This violates the separation of powers.
+
+* Latin Maxim: Jus dicere, non jus dare
+* English Counterpart: To declare the law, not to make the law.
+* Application in Court/Trial: Litigants use this maxim in appeals to argue that a lower court judge committed a reversible error by effectively rewriting a statute to suit their own sense of equity.
+
+
+H. Legis Interpretado Legis Vim Obtinet
+--------------------------------------
+The interpretation placed upon the written law by a competent court has the force of law. Under Article 8 of the Civil Code of the Philippines, judicial decisions applying or interpreting the laws or the Constitution form part of the legal system of the Philippines.
+
+* Latin Maxim: Legis interpretatio legis vim obtinet
+* English Counterpart: The interpretation of the law has the force of law.
+* Application in Court/Trial: Lower court judges are bound by Supreme Court interpretations. Lawyers cite Supreme Court decisions as binding authority, as these interpretations carry the same legal weight as the statutes themselves.
+
+
+I. Kinds of Construction
+------------------------
+Dr. Lieber in his work on Hermeneutics gives the following classification of the different kinds of interpretation:
+1. Close interpretation – adopted if just reasons connected with the character and formation of the text induce as to take the words in the narrowest meaning. This is generally known as “literal” interpretation.
+2. Extensive interpretation – also called as liberal interpretation, it adopts a more comprehensive signification of the words.
+3. Extravagant interpretation – substitutes a meaning evidently beyond the true one. It is therefore not genuine interpretation.
+4. Free or unrestricted interpretation – proceeds simply on the general principles of interpretation in good faith, not bound by any specific or superior principle.
+5. Limited or restricted interpretation - influenced by other principles than the strictly hermeneutic ones.
+6. Predestined interpretation – takes place when the interpreter, laboring under a strong bias of mind, makes the text subservient to his preconceived views and desires.
+
+* Latin Maxim: Interpretatio benigna
+* English Counterpart: Liberal interpretation.
+* Application in Court/Trial: Applied in labor, social security, and human rights cases. Courts use this kind of construction to ensure the law's protective benefits reach the intended beneficiaries, rather than defeating them through technicalities.
+
+
+J. Extent of the Power to Construe
+----------------------------------
+The judicial power includes the duty of the courts to settle actual controversies involving rights which are demandable and enforceable, and to determine whether there has been grave abuse of discretion. The power to construe is co-extensive with the judicial duty to apply the law to resolve disputes.
+
+* Latin Maxim: Ubi aliquid conceditur, conceditur et id sine quo res ipsa esse non potest
+* English Counterpart: When anything is granted, that also is granted without which the thing itself cannot exist.
+* Application in Court/Trial: Used by the Supreme Court to justify its implied powers. If the constitution gives the court the power to interpret laws, it implicitly grants the power to issue orders, summon witnesses, and enforce its decisions.
+
+
+================================================================================
+II. PRELUDE TO THE EXERCISE OF THE POWER
+================================================================================
+
+A. Verba Legis Non Est Recedendum
+---------------------------------
+If the language of the statute is plain and free from ambiguity, and expresses a single, definite, and sensible meaning, that meaning is conclusively presumed to be the meaning which the legislature intended to convey.
+
+* Latin Maxim: Verba legis non est recedendum
+* English Counterpart: From the words of the statute there must be no departure.
+* Application in Court/Trial: Cited by courts to stop litigants from arguing about the "spirit" of the law when the letter of the law is clear. In tax trials, if the exemption list is specific, no other items can be added by "interpretation."
+
+
+B. Absoluta Sententia Expositore Non Indigent
+---------------------------------------------
+When the language of the law is clear and unequivocal, it requires no explanation or interpretation.
+
+* Latin Maxim: Absoluta sententia expositore non indigent
+* English Counterpart: A clear statement needs no expositor.
+* Application in Court/Trial: Used by judges to immediately dismiss complex, speculative legal arguments. If a procedural deadline is stated as "15 days," the judge will cite this maxim to reject claims that the deadline should be calculated differently.
+
+
+C. Dura Lex Sed Lex
+-------------------
+The law is harsh, but it is the law. The court's duty is to apply the law as written, even if it leads to harsh or seemingly unjust results, as the court cannot legislate.
+
+* Latin Maxim: Dura lex sed lex
+* English Counterpart: The law is harsh, but it is the law.
+* Application in Court/Trial: Often invoked in criminal and forfeiture trials. If a person clearly violated a strict penal or customs law, the judge will express sympathy but apply the penalty anyway, noting that changing the law is the job of Congress, not the courts.
+
+
+================================================================================
+III. BASIC GUIDELINES IN THE CONSTRUCTION AND INTERPRETATION OF LAWS
+================================================================================
+
+--- A. GENERAL GUIDELINES ---
+
+a. Intention of the Statute must prevail
+----------------------------------------
+The object of all interpretation and construction of statutes is to ascertain the meaning and intention of the legislature, to the end that the same may be enforced. Legislative intent is determined principally from the language of the statute.
+
+* Latin Maxim: Voluntas legislatoris est mens legis
+* English Counterpart: The will of the legislator is the mind of the law.
+* Application in Court/Trial: Used by the Supreme Court as the guiding light of any statutory analysis, overriding literal text if it is proven that the literal words defeat the legislature's clear will.
+
+
+b. Legislative Intent is determined principally from the language of the statute
+---------------------------------------------------------------------------------
+The primary source of legislative intent is the wording of the law itself.
+
+* Latin Maxim: Littera scripta manet
+* English Counterpart: The written letter remains.
+* Application in Court/Trial: Lawyers use this to focus the judge's attention on the actual text of the statute during oral arguments, resisting attempts by the opposing side to use secondary sources.
+
+
+c. Verba intentioni, non e contra, debent inservire
+---------------------------------------------------
+Words ought to be made subservient to the intent, not intent to the words. The literal wording of a statute must yield to the clear intention of the legislature if a literal reading would defeat the law's purpose.
+
+* Latin Maxim: Verba intentioni, non e contra, debent inservire
+* English Counterpart: Words ought to be made subservient to the intent, not intent to the words.
+* Application in Court/Trial: Used to prevent a legal loophole. If a literal reading of a word would allow a criminal to escape punishment or allow a tax evader to bypass a tax, the court will adjust the word's meaning to preserve the legislative intent.
+
+
+d. The Statute must be capable of interpretation, otherwise, it is inoperative
+-------------------------------------------------------------------------------
+The law must be interpreted in a way that makes it work. If it cannot be interpreted at all due to extreme vagueness, it is declared void.
+
+* Latin Maxim: Ut res magis valeat quam pereat
+* English Counterpart: That the thing may rather have effect than perish.
+* Application in Court/Trial: Litigants defending a law's constitutionality will cite this. The court will actively search for an interpretation that keeps the law alive rather than striking it down as unconstitutionally vague.
+
+
+e. In interpreting a statute, it must be interpreted to accomplish a purpose
+-----------------------------------------------------------------------------
+A statute should be construed with reference to the intended purpose and the evils it seeks to suppress or correct.
+
+* Latin Maxim: Ratio legis
+* English Counterpart: The reason of the law.
+* Application in Court/Trial: Used to determine the scope of a law. If a law bans "vehicles in the park" to prevent noise, the court uses the *ratio legis* to decide if the ban applies to electric wheelchairs (no, because it defeats the purpose of accessibility without causing the noise evil).
+
+
+f. Nemo tenetur ad impossibile
+------------------------------
+No one is bound to do the impossible. A statute should not be construed to require an obligor to perform an impossible act.
+
+* Latin Maxim: Nemo tenetur ad impossibile
+* English Counterpart: No one is bound to do the impossible.
+* Application in Court/Trial: Used as a defense in administrative compliance cases. If a law requires a submission within a period when government offices were shut due to a national emergency, the court will excuse the delay using this maxim.
+
+
+g. Construction to avoid absurdity and injustice
+-------------------------------------------------
+Courts reject literal interpretations that lead to absurd, unjust, or impossible results.
+
+* Latin Maxim: Argumentum ab inconvenienti
+* English Counterpart: Argument from inconvenience or hardship.
+* Application in Court/Trial: Used to strike down interpretations that create administrative chaos or severe injustice. If one interpretation of a tax law would shut down all local businesses, the court will reject it as an unintended hardship.
+
+
+h. Consideration of the statute as a whole
+-------------------------------------------
+A cardinal rule in statutory construction is that legislative intent must be ascertained from a consideration of the statute as a whole and not merely of a particular provision. A word or phrase might easily convey a meaning which is different from the one actually intended.
+
+* Latin Maxim: Ex tota materia emergat resolutio
+* English Counterpart: The construction should arise from the whole subject matter.
+* Application in Court/Trial: Used to defeat arguments based on "cherry-picked" sentences. Lawyers argue that the disputed clause must be read in the context of the entire chapter to understand its real meaning.
+
+
+i. Give effect to every word or sentence of a statute
+-----------------------------------------------------
+It is not to be presumed that the legislature has used any useless words.
+
+* Latin Maxim: Verba aliquid operari debent
+* English Counterpart: Words ought to have some effect.
+* Application in Court/Trial: Used to oppose interpretations that would render certain statutory words or clauses redundant or meaningless. Courts must interpret the law so that every word has a distinct legal purpose.
+
+
+--- B. CONSIDERATIONS WITHIN THE STATUTE ---
+
+a. Ubi Lex Non Distinguit Nec Nos Distinguere Debemos
+-----------------------------------------------------
+Where the law does not distinguish, we should not distinguish.
+
+* Latin Maxim: Ubi lex non distinguit nec nos distinguere debemos
+* English Counterpart: Where the law does not distinguish, we ought not to distinguish.
+* Application in Court/Trial: Used when a party tries to insert an unwritten exception. For example, if a law grants a benefit to "all employees," the court will cite this to block an employer from excluding part-time workers.
+
+
+b. Ejusdem Generis Rule
+------------------------
+When general words follow specific words in a list; the general words are restricted to things of the same class.
+
+* Latin Maxim: Ejusdem generis
+* English Counterpart: Of the same kind.
+* Application in Court/Trial: Used to interpret catch-all terms. If a law regulates "mines, quarries, and other land," the court will decide that "other land" only means land used for extraction (quarry-like), not a residential backyard.
+
+
+c. Noscitur a sociis Rule
+-------------------------
+The meaning of an obscure word is determined by looking at the words surrounding it.
+
+* Latin Maxim: Noscitur a sociis
+* English Counterpart: It is known by its associates.
+* Application in Court/Trial: Used to define words with multiple meanings. If a statute mentions "dogs, cats, and other domestic animals," the word "domestic" will be understood to mean household pets, not farm animals like cows.
+
+
+d. Doctrine of Necessary Implication
+------------------------------------
+What is implied in a statute is as much a part of it as what is expressed. Every statute is understood to contain by implication all such provisions as may be necessary to effectuate its object and purpose.
+
+* Latin Maxim: Ex necessitate legis
+* English Counterpart: From the necessity of the law.
+* Application in Court/Trial: Used to establish administrative power. If a law grants an agency the duty to "regulate public transport," the court will imply the power to issue licenses and impose fines, as the main duty cannot be performed without them.
+
+
+e. Expressio unius est exclusio alterius (Doctrine of Negative Implication)
+---------------------------------------------------------------------------
+The express mention of one thing excludes all others.
+
+* Latin Maxim: Expressio unius est exclusio alterius
+* English Counterpart: The express mention of one thing excludes all others.
+* Application in Court/Trial: Used to prove that an exclusion was intentional. If a tax exemption is granted to "public schools," the court will rule that private schools are excluded, since the legislature would have written them in if they intended to exempt them.
+
+
+f. Reddendo singula singulis
+----------------------------
+Referring each to each. Letting each phrase or word relate to its corresponding subject.
+
+* Latin Maxim: Reddendo singula singulis
+* English Counterpart: Referring each to each.
+* Application in Court/Trial: Used to clean up syntax in complex contracts or laws. If a clause says "men and women may enter their respective bathrooms," the court distributes "men" to "male bathrooms" and "women" to "female bathrooms" to prevent absurd mixed entries.
+
+
+g. Casus omissus pro omisso habendus est
+----------------------------------------
+A case omitted is to be held as intentionally omitted. Restricts courts from supplying omissions in a statute, leaving it to the legislature to amend.
+
+* Latin Maxim: Casus omissus pro omisso habendus est
+* English Counterpart: A case omitted is to be held as intentionally omitted.
+* Application in Court/Trial: Used to protect the separation of powers. If a law fails to penalize a specific act, the judge cannot convict a person for it, stating that the omission is a gap only Congress can fill.
+
+
+h. Meaning not reflected in the language of the Statute should not be considered
+---------------------------------------------------------------------------------
+Courts cannot insert or read into the law a meaning that is not supported by the text.
+
+* Latin Maxim: Index animi sermo
+* English Counterpart: Speech is the index of the mind.
+* Application in Court/Trial: Used to block arguments that rely heavily on speculative legislative intent when the actual written text contradicts those speculations.
+
+
+--- C. CONSIDERATIONS OUTSIDE THE STATUTE ---
+
+a. Generalia Specialibus non derogat
+------------------------------------
+A general law does not repeal a special law unless the intent is clear.
+
+* Latin Maxim: Generalia specialibus non derogant
+* English Counterpart: General things do not derogate from special things.
+* Application in Court/Trial: Used to defend local government charters or specific agency laws from being accidentally repealed by a later, broad national law. Litigants argue the special charter remains an exception to the general law.
+
+
+b. Lex posterior derogat priori
+-------------------------------
+A later law repeals an earlier law.
+
+* Latin Maxim: Lex posterior derogat priori
+* English Counterpart: A later law repeals an earlier law.
+* Application in Court/Trial: Used to decide which of two conflicting laws applies. The court applies the newer law as it represents the most recent democratic consensus.
+
+
+c. Lex specialis derogat legi generalis
+---------------------------------------
+A special law repeals/overrides a general law.
+
+* Latin Maxim: Lex specialis derogat legi generali
+* English Counterpart: A special law overrides a general law.
+* Application in Court/Trial: Used when a case falls under two different statutes. For example, if a child commits a crime, the court applies the Child and Youth Welfare Code (special law) rather than the Revised Penal Code (general law).
+
+
+d. Lex posterior generalis non derogat legi priori specialis
+------------------------------------------------------------
+A later general law does not repeal a prior special law.
+
+* Latin Maxim: Lex posterior generalis non derogat legi priori speciali
+* English Counterpart: A later general law does not repeal a prior special law.
+* Application in Court/Trial: Invoked to maintain specialized legal frameworks. A new national tax code (general) will not destroy the tax exemptions granted in an earlier corporate charter (special) unless the code explicitly repeals it.
+
+
+e. Borrowed Statute Rule
+------------------------
+Statutes adopted from foreign countries are generally construed in accordance with the construction given to them in those countries.
+
+* Latin Maxim: Interpretatione legis alienae
+* English Counterpart: Interpretation of foreign law.
+* Application in Court/Trial: Used extensively in corporate, tax, and labor trials in the Philippines. Since many local laws are modeled after US laws, lawyers cite US Supreme Court precedents to persuade Philippine courts on how to interpret similar local provisions.
+
+
+f. Interpretare et concordare leges legibus est optimus interpretandi
+---------------------------------------------------------------------
+To interpret and harmonize laws with laws is the best method of interpretation.
+
+* Latin Maxim: Interpretare et concordare leges legibus est optimus interpretandi modus
+* English Counterpart: To interpret and harmonize laws with laws is the best method of interpretation.
+* Application in Court/Trial: Used to prevent a finding of implied repeal. The court will attempt to read two seemingly conflicting laws in a way that allows both to be valid and executed.
+
+
+================================================================================
+IV. AIDS TO CONSTRUCTION
+================================================================================
+
+A. Intrinsic Aids
+-----------------
+Intrinsic aids are tools found within the statute itself, such as the Title, Preamble, Text of the statute, Subtitles, Punctuation, and Capitalization.
+
+* Latin Maxim: Ex visceribus actus
+* English Counterpart: From the bowels of the act.
+* Application in Court/Trial: Lawyers use this to argue that the meaning of a clause must be found strictly within the borders of the statute, referring to the preamble ("Whereas" clauses) to explain the purpose of the enacting body.
+
+
+B. Extrinsic Aids
+-----------------
+Extrinsic aids are existing aids from outside sources, meaning outside of the four corners of the statute, such as legislative history, journals, committee reports, and contemporary construction.
+
+* Latin Maxim: Contemporanea expositio est optima et fortissima in lege
+* English Counterpart: Contemporaneous exposition is the best and strongest in the law.
+* Application in Court/Trial: Used to support administrative practices. If a government agency has interpreted a tax law in a certain way for 20 years without Congress changing the law, the court will uphold that interpretation as contemporaneous construction.
+
+
+C. Presumptions
+---------------
+Presumptions are assumptions made by the court in aid of construction, such as presumptions against unconstitutionality, injustice, implied repeals, ineffectiveness, and absurdity.
+
+* Latin Maxim: Presumptio juris
+* English Counterpart: Presumption of law.
+* Application in Court/Trial: Crucial in constitutional trials. The party challenging a law must overcome the strong presumption that the legislature acted constitutionally. If the court is in doubt, it will rule in favor of the law's validity.
+
+
+================================================================================
+V. INTERPRETATION OF WORDS AND PHRASES
+================================================================================
+
+A. General Words and Phrases
+----------------------------
+General words are construed in their ordinary and common meaning, unless a technical or commercial meaning is intended by the legislature.
+
+* Latin Maxim: Verba artis
+* English Counterpart: Technical words / words of art.
+* Application in Court/Trial: Used to define trade terms. If a tax law taxes "minerals," the court will use geological and commercial standards rather than common dictionary definitions to decide if sand is included.
+
+
+B. Specific Words
+-----------------
+The use of specific connecting words like "and" (conjunctive, requiring both) and "or" (disjunctive, requiring either), as well as mandatory words like "shall" and directory words like "may."
+
+* Latin Maxim: Shall v. May
+* English Counterpart: Mandatory versus Directory.
+* Application in Court/Trial: Used to challenge procedural errors. If a statute says the board "shall" hold a hearing within 10 days, a lawyer will argue that a hearing held on the 11th day is void, as "shall" makes the timeline mandatory.
+
+
+C. General words construed generally
+------------------------------------
+General terms must be given their general scope and not restricted unless explicitly limited.
+
+* Latin Maxim: Ubi lex non distinguit
+* English Counterpart: Where the law does not distinguish.
+* Application in Court/Trial: Block attempts to read restrictive qualifications into a broad statutory grant.
+
+
+D. Progressive interpretation
+-----------------------------
+Statutes must be construed to apply to new and modern conditions that did not exist at the time of enactment.
+
+* Latin Maxim: Leges vigilantibus, non dormientibus subveniunt
+* English Counterpart: The laws aid the vigilant, not those who sleep.
+* Application in Court/Trial: Used in cybercrime and intellectual property trials. The court applies a copyright law written in the 1970s to modern digital streaming, interpreting "broadcast" progressively to include internet transmissions.
+
+
+E. Words with commercial meaning
+--------------------------------
+Words used in trade or commerce are given their commercial definition.
+
+* Latin Maxim: Consuetudo mercatorum
+* English Counterpart: The custom of merchants.
+* Application in Court/Trial: In customs and tariff cases, the court defers to how merchants in that specific industry define a product to resolve classification disputes.
+
+
+F. Words with technical or legal meaning
+----------------------------------------
+Technical words are given their technical definition.
+
+* Latin Maxim: Verba artis
+* English Counterpart: Words of art.
+* Application in Court/Trial: In property or criminal trials, terms like "heir" or "malice" are given strict legal definitions, not their colloquial meanings.
+
+
+G. Meaning of word qualified by purpose of statute
+--------------------------------------------------
+The scope of a word is adjusted to fit the objective of the statute.
+
+* Latin Maxim: Ratio legis
+* English Counterpart: The reason of the law.
+* Application in Court/Trial: Invoked to narrow down broad words that would otherwise lead to unintended results outside the law's scope.
+
+
+H. Provisos, exceptions, saving clauses
+--------------------------------------
+A proviso qualifies or limits the general provisions of a statute. An exception exempts something from the scope of the law.
+
+* Latin Maxim: Exceptio firmat regulam in casibus non exceptis
+* English Counterpart: The exception proves the rule in cases not excepted.
+* Application in Court/Trial: Used to determine the exact boundary of a law. If a law lists specific exceptions to a ban, lawyers argue that anything not listed in the exceptions is strictly banned.
+
+
+I. Statute construed as a whole
+-------------------------------
+Legislative intent must be gathered from the entire statute.
+
+* Latin Maxim: Ut magis valeat quam pereat
+* English Counterpart: That it may rather have effect than perish.
+* Application in Court/Trial: Resists attempts to invalidate a section by showing it aligns with other working parts of the same act.
+
+
+J. Statute construed in relation to others
+------------------------------------------
+Statutes on the same subject must be interpreted together.
+
+* Latin Maxim: In pari materia
+* English Counterpart: Upon the same matter.
+* Application in Court/Trial: Used to fill gaps. If a newer law is silent on the filing procedure, courts apply the procedure detailed in an older law on the same subject.
+
+
+================================================================================
+VI. CONSTRUCTION OF CONSTITUTION AND SPECIFIC KINDS OF STATUTES
+================================================================================
+
+A. Constitutional Construction
+------------------------------
+A constitution is supreme and must be construed in its entirety as one single document, with all provisions interpreted to achieve its great purposes.
+
+* Latin Maxim: Suprema lex
+* English Counterpart: The supreme law.
+* Application in Court/Trial: Used to strike down unconstitutional statutes. Lawyers argue that the Constitution overrides any conflicting law, and courts must resolve conflicts in favor of the constitutional text.
+
+
+B. Statutes Strictly Construed
+------------------------------
+Penal laws, tax laws, and naturalization laws are strictly construed. Penal laws are construed strictly against the State and in favor of the accused. Tax laws are construed strictly against the government.
+
+* Latin Maxim: In dubio pro reo
+* English Counterpart: In doubt, in favor of the accused.
+* Application in Court/Trial: The cornerstone of criminal trials. Defense attorneys cite this to argue that if a criminal statute is ambiguous, the court must adopt the interpretation that acquits the client or imposes the lighter penalty.
+
+
+C. Statutes Liberally Construed
+------------------------------
+Insurance laws, labor laws, retirement laws, election rules, and rules of court are liberally construed in favor of the beneficiary or to achieve their curative objectives.
+
+* Latin Maxim: Favorabilia sunt amplianda, odiosa restringenda
+* English Counterpart: Favorable things should be enlarged, odious things restricted.
+* Application in Court/Trial: Applied in labor arbitration. The arbitrator or judge resolves doubts in the interpretation of employment contracts or the Labor Code in favor of the employee, recognizing the constitutional mandate to protect labor.

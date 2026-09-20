@@ -1,0 +1,1905 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Criminal Procedure comprehensive review notes and study materials.">
+  <title>Criminal Procedure Week 4 Case Digests</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0f172a;
+      --bg-secondary: #1e293b;
+      --bg-tertiary: #334155;
+      --bg-card: rgba(30, 41, 59, 0.75);
+      --bg-card-hover: rgba(51, 65, 85, 0.85);
+      --border-color: rgba(148, 163, 184, 0.18);
+      --border-focus: #38bdf8;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --accent-gold: #fbbf24;
+      --accent-gold-dark: #d97706;
+      --accent-blue: #38bdf8;
+      --accent-indigo: #818cf8;
+      --accent-emerald: #34d399;
+      --accent-rose: #fb7185;
+      --highlight-reading: rgba(56, 189, 248, 0.28);
+      --font-body: 'Merriweather', Georgia, serif;
+      --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-heading: 'Cinzel', serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --sidebar-width: 320px;
+      --header-height: 72px;
+      --content-max-width: 880px;
+      --base-font-size: 17px;
+      --line-height: 1.85;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+      --glass-blur: blur(14px);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #ffffff;
+      --bg-tertiary: #e2e8f0;
+      --bg-card: rgba(255, 255, 255, 0.9);
+      --bg-card-hover: rgba(241, 245, 249, 0.98);
+      --border-color: rgba(203, 213, 225, 0.85);
+      --border-focus: #0284c7;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --accent-gold: #b45309;
+      --accent-gold-dark: #92400e;
+      --accent-blue: #0284c7;
+      --accent-indigo: #4f46e5;
+      --accent-emerald: #059669;
+      --accent-rose: #e11d48;
+      --highlight-reading: rgba(2, 132, 199, 0.18);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+    }
+
+    [data-theme="sepia"] {
+      --bg-primary: #fbf0d9;
+      --bg-secondary: #f4e4c1;
+      --bg-tertiary: #ecd6a7;
+      --bg-card: rgba(244, 228, 193, 0.9);
+      --bg-card-hover: rgba(236, 214, 167, 0.98);
+      --border-color: rgba(180, 150, 110, 0.45);
+      --border-focus: #9a6700;
+      --text-primary: #2d241e;
+      --text-secondary: #4a3b32;
+      --text-muted: #786455;
+      --accent-gold: #a75d00;
+      --accent-gold-dark: #8c4c00;
+      --accent-blue: #2c6e91;
+      --accent-indigo: #5d4a82;
+      --accent-emerald: #2e7d32;
+      --accent-rose: #c2185b;
+      --highlight-reading: rgba(200, 150, 50, 0.28);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: var(--base-font-size);
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      line-height: var(--line-height);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.25s ease, color 0.25s ease;
+      overflow-x: hidden;
+    }
+
+    /* Top Reading Progress Bar */
+    #readingProgressBar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue));
+      z-index: 999;
+      transition: width 0.1s ease;
+    }
+
+    /* Top Sticky Navigation Bar */
+    header.app-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--header-height);
+      background-color: rgba(15, 23, 42, 0.88);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      gap: 1rem;
+    }
+
+    [data-theme="light"] header.app-header {
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    [data-theme="sepia"] header.app-header {
+      background-color: rgba(251, 240, 217, 0.92);
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0f172a;
+      font-weight: 800;
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      box-shadow: 0 2px 8px rgba(251, 191, 36, 0.35);
+      text-decoration: none;
+    }
+
+    .brand-titles {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: var(--font-ui);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 300px;
+    }
+
+    .brand-subtitle {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      color: var(--accent-gold);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Global TTS Controls Toolbar */
+    .tts-toolbar {
+      display: flex;
+      align-items: center;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      padding: 0.35rem 0.65rem;
+      border-radius: 40px;
+      gap: 0.45rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .tts-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-primary);
+      cursor: pointer;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      font-size: 0.95rem;
+    }
+
+    .tts-btn:hover {
+      background-color: var(--bg-tertiary);
+      color: var(--accent-gold);
+    }
+
+    .tts-btn.primary {
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+      color: #0f172a;
+      font-weight: 700;
+      box-shadow: 0 2px 6px rgba(251, 191, 36, 0.4);
+    }
+
+    .tts-btn.primary:hover {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
+
+    .tts-status-badge {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.55rem;
+      border-radius: 20px;
+      background-color: var(--bg-tertiary);
+      color: var(--text-muted);
+      min-width: 90px;
+      text-align: center;
+    }
+
+    .tts-status-badge.speaking {
+      background-color: rgba(56, 189, 248, 0.2);
+      color: var(--accent-blue);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      animation: pulseGlow 1.5s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      from { box-shadow: 0 0 4px rgba(56, 189, 248, 0.2); }
+      to { box-shadow: 0 0 10px rgba(56, 189, 248, 0.5); }
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .control-select {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 0.4rem 0.65rem;
+      border-radius: 8px;
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .control-select:focus {
+      border-color: var(--border-focus);
+    }
+
+    .icon-btn {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+
+    .icon-btn:hover {
+      background-color: var(--bg-tertiary);
+      border-color: var(--border-focus);
+    }
+
+    /* Main Application Layout */
+    .app-layout {
+      display: flex;
+      flex: 1;
+      position: relative;
+    }
+
+    /* Sticky Sidebar Navigation */
+    aside.app-sidebar {
+      width: var(--sidebar-width);
+      height: calc(100vh - var(--header-height));
+      position: sticky;
+      top: var(--header-height);
+      background-color: var(--bg-secondary);
+      border-right: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      overflow-y: auto;
+      z-index: 50;
+      transition: transform 0.3s ease;
+    }
+
+    .sidebar-header {
+      padding: 1.25rem 1rem 0.75rem 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .sidebar-search {
+      position: relative;
+      width: 100%;
+    }
+
+    .sidebar-search input {
+      width: 100%;
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.5rem 0.75rem 0.5rem 2rem;
+      color: var(--text-primary);
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .sidebar-search input:focus {
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+    }
+
+    .sidebar-search .search-icon {
+      position: absolute;
+      left: 0.65rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    .toc-container {
+      padding: 0.75rem 0.5rem;
+      flex: 1;
+    }
+
+    .toc-nav ul {
+      list-style: none;
+    }
+
+    .toc-nav li {
+      margin-bottom: 0.2rem;
+    }
+
+    .toc-link {
+      display: block;
+      padding: 0.45rem 0.75rem;
+      border-radius: 6px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      font-weight: 500;
+      line-height: 1.4;
+      transition: all 0.2s ease;
+      border-left: 2px solid transparent;
+    }
+
+    .toc-link:hover {
+      background-color: var(--bg-tertiary);
+      color: var(--text-primary);
+    }
+
+    .toc-link.active {
+      background-color: rgba(56, 189, 248, 0.12);
+      color: var(--accent-blue);
+      border-left-color: var(--accent-blue);
+      font-weight: 600;
+    }
+
+    .toc-link.level-2 {
+      padding-left: 1.25rem;
+      font-size: 0.78rem;
+    }
+
+    .toc-link.level-3 {
+      padding-left: 1.75rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Main Content Container */
+    main.app-content {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      padding: 2.5rem 2rem;
+      overflow-y: visible;
+    }
+
+    .content-wrapper {
+      max-width: var(--content-max-width);
+      width: 100%;
+    }
+
+    /* Document Header Banner */
+    .document-hero {
+      background: linear-gradient(145deg, var(--bg-card), var(--bg-secondary));
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2.25rem 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .document-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue), var(--accent-indigo));
+    }
+
+    .doc-badge {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      background: rgba(251, 191, 36, 0.15);
+      color: var(--accent-gold);
+      border: 1px solid rgba(251, 191, 36, 0.3);
+      margin-bottom: 0.85rem;
+    }
+
+    .doc-main-title {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+    }
+
+    .doc-subtitle {
+      font-family: var(--font-ui);
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .doc-meta-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    /* Section & Content Styling */
+    section.doc-section {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2.25rem;
+      box-shadow: var(--shadow-md);
+      transition: border-color 0.2s ease;
+    }
+
+    section.doc-section:hover {
+      border-color: rgba(148, 163, 184, 0.35);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+      line-height: 1.4;
+    }
+
+    .section-title.level-2 {
+      font-size: 1.2rem;
+      color: var(--text-primary);
+    }
+
+    .section-title.level-3 {
+      font-size: 1.05rem;
+      color: var(--accent-blue);
+    }
+
+    .section-listen-btn {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.3rem 0.7rem;
+      border-radius: 20px;
+      background-color: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: all 0.2s ease;
+    }
+
+    .section-listen-btn:hover {
+      background-color: var(--accent-gold);
+      color: #0f172a;
+      border-color: var(--accent-gold);
+    }
+
+    /* Read Units & Paragraphs */
+    .read-unit {
+      position: relative;
+      margin-bottom: 1.15rem;
+      padding: 0.4rem 0.7rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .read-unit:hover {
+      background-color: rgba(148, 163, 184, 0.08);
+    }
+
+    .read-unit.is-speaking {
+      background-color: var(--highlight-reading) !important;
+      border-left: 3px solid var(--accent-blue);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
+    }
+
+    .bullet-point {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+    }
+
+    .bullet-dot {
+      color: var(--accent-gold);
+      font-weight: bold;
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+
+    .bullet-num {
+      color: var(--accent-blue);
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .bullet-content {
+      flex: 1;
+    }
+
+    .reader-quote {
+      border-left: 4px solid var(--accent-gold);
+      padding: 0.75rem 1.25rem;
+      background-color: rgba(251, 191, 36, 0.06);
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: var(--text-secondary);
+      margin: 1.25rem 0;
+    }
+
+    .reader-code {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1rem;
+      overflow-x: auto;
+      line-height: 1.5;
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+      margin: 1.25rem 0;
+    }
+
+    .reader-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-ui);
+      font-size: 0.88rem;
+    }
+
+    .reader-table th, .reader-table td {
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border-color);
+      text-align: left;
+    }
+
+    .reader-table th {
+      background-color: var(--bg-secondary);
+      color: var(--accent-gold);
+      font-weight: 600;
+    }
+
+    .reader-table tr:nth-child(even) {
+      background-color: rgba(148, 163, 184, 0.04);
+    }
+
+    /* Case Elements Badges */
+    .case-element {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .case-badge {
+      font-family: var(--font-ui);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+      flex-shrink: 0;
+      margin-top: 0.25rem;
+    }
+
+    .badge-facts { background: rgba(56, 189, 248, 0.18); color: var(--accent-blue); border: 1px solid rgba(56, 189, 248, 0.35); }
+    .badge-issue { background: rgba(251, 191, 36, 0.18); color: var(--accent-gold); border: 1px solid rgba(251, 191, 36, 0.35); }
+    .badge-held { background: rgba(52, 211, 153, 0.18); color: var(--accent-emerald); border: 1px solid rgba(52, 211, 153, 0.35); }
+    .badge-doctrine { background: rgba(251, 113, 133, 0.18); color: var(--accent-rose); border: 1px solid rgba(251, 113, 133, 0.35); }
+
+    .legal-citation {
+      font-weight: 600;
+      color: var(--accent-gold);
+      border-bottom: 1px dotted rgba(251, 191, 36, 0.5);
+    }
+
+    .section-divider {
+      border: 0;
+      height: 1px;
+      background: var(--border-color);
+      margin: 1.5rem 0;
+    }
+
+    /* Floating TTS Trigger on Selection */
+    #floatingTtsTrigger {
+      position: absolute;
+      display: none;
+      z-index: 1000;
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+      color: #0f172a;
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 20px;
+      padding: 0.4rem 0.85rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      cursor: pointer;
+      transform: translateX(-50%);
+      transition: transform 0.15s ease, filter 0.15s ease;
+    }
+
+    #floatingTtsTrigger:hover {
+      transform: translateX(-50%) scale(1.05);
+      filter: brightness(1.1);
+    }
+
+    /* Footer */
+    footer.app-footer {
+      background-color: var(--bg-secondary);
+      border-top: 1px solid var(--border-color);
+      padding: 1.5rem;
+      text-align: center;
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: auto;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 900px) {
+      aside.app-sidebar {
+        position: fixed;
+        left: 0;
+        top: var(--header-height);
+        transform: translateX(-100%);
+        box-shadow: var(--shadow-lg);
+      }
+
+      aside.app-sidebar.open {
+        transform: translateX(0);
+      }
+
+      .brand-title {
+        max-width: 180px;
+      }
+
+      .tts-status-badge {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="readingProgressBar"></div>
+
+  <!-- App Header -->
+  <header class="app-header">
+    <div class="brand-section">
+      <button class="icon-btn" id="toggleSidebarBtn" title="Toggle Table of Contents">☰</button>
+      <a href="#" class="brand-logo" title="MLC Law Reader">⚖</a>
+      <div class="brand-titles">
+        <span class="brand-title">Criminal Procedure Week 4 Case Digests</span>
+        <span class="brand-subtitle">Criminal Procedure • Interactive Reader</span>
+      </div>
+    </div>
+
+    <!-- TTS Toolbar -->
+    <div class="tts-toolbar">
+      <button class="tts-btn" id="ttsPrevBtn" title="Previous Paragraph (P)">⏮</button>
+      <button class="tts-btn primary" id="ttsPlayPauseBtn" title="Play / Pause (Space)">
+        <span id="ttsPlayIcon">▶</span>
+        <span id="ttsPauseIcon" style="display:none;">⏸</span>
+      </button>
+      <button class="tts-btn" id="ttsStopBtn" title="Stop (Esc)">⏹</button>
+      <button class="tts-btn" id="ttsNextBtn" title="Next Paragraph (N)">⏭</button>
+      <span class="tts-status-badge" id="ttsStatus">Ready</span>
+    </div>
+
+    <!-- Right Controls -->
+    <div class="header-actions">
+      <select class="control-select" id="ttsSpeedSelect" title="Reading Speed (Deliberate Study Pace)">
+        <option value="0.75">0.75x (Slow)</option>
+        <option value="0.85">0.85x (Very Clear)</option>
+        <option value="0.9" selected>0.9x (Deliberate)</option>
+        <option value="1.0">1.0x (Normal)</option>
+        <option value="1.15">1.15x</option>
+        <option value="1.25">1.25x</option>
+        <option value="1.5">1.5x</option>
+      </select>
+      <select class="control-select" id="ttsVoiceSelect" title="Speech Voice (Neural Natural Voices First)" style="max-width: 155px;">
+        <option value="default">Natural Voice (Auto)</option>
+      </select>
+      <button class="icon-btn" id="fontDecBtn" title="Decrease Font Size ( - )">A-</button>
+      <button class="icon-btn" id="fontIncBtn" title="Increase Font Size ( + )">A+</button>
+      <select class="control-select" id="themeSelect" title="Visual Theme">
+        <option value="dark">🌙 Dark</option>
+        <option value="sepia">📜 Sepia</option>
+        <option value="light">☀️ Light</option>
+      </select>
+    </div>
+  </header>
+
+  <!-- Layout Container -->
+  <div class="app-layout">
+    <!-- Table of Contents Sidebar -->
+    <aside class="app-sidebar" id="appSidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-search">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="sidebarSearch" placeholder="Search topics, cases... ( / )" autocomplete="off">
+        </div>
+      </div>
+      <div class="toc-container">
+        <nav class="toc-nav">
+          <ul id="tocList">
+            <li><a href="#sec-1-remedial-law---criminal-procedure-case-digests-week-4" class="toc-link level-2">REMEDIAL LAW - CRIMINAL PROCEDURE CASE DIGESTS (WEEK 4)</a></li>
+            <li><a href="#sec-2-1-facts" class="toc-link level-2">1. FACTS:</a></li>
+            <li><a href="#sec-3-2-issues" class="toc-link level-2">2. ISSUE/S:</a></li>
+            <li><a href="#sec-4-3-courts-ruling" class="toc-link level-2">3. COURT&#x27;S RULING:</a></li>
+            <li><a href="#sec-5-4-applicable-doctrine-criminal-procedure-application" class="toc-link level-2">4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</a></li>
+            <li><a href="#sec-6-5-relevance-to-the-topic-explanation" class="toc-link level-2">5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</a></li>
+            <li><a href="#sec-7-1-facts" class="toc-link level-2">1. FACTS:</a></li>
+            <li><a href="#sec-8-2-issues" class="toc-link level-2">2. ISSUE/S:</a></li>
+            <li><a href="#sec-9-3-courts-ruling" class="toc-link level-2">3. COURT&#x27;S RULING:</a></li>
+            <li><a href="#sec-10-4-applicable-doctrine-criminal-procedure-application" class="toc-link level-2">4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</a></li>
+            <li><a href="#sec-11-5-relevance-to-the-topic-explanation" class="toc-link level-2">5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</a></li>
+            <li><a href="#sec-12-1-facts" class="toc-link level-2">1. FACTS:</a></li>
+            <li><a href="#sec-13-2-issues" class="toc-link level-2">2. ISSUE/S:</a></li>
+            <li><a href="#sec-14-3-courts-ruling" class="toc-link level-2">3. COURT&#x27;S RULING:</a></li>
+            <li><a href="#sec-15-4-applicable-doctrine-criminal-procedure-application" class="toc-link level-2">4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</a></li>
+            <li><a href="#sec-16-5-relevance-to-the-topic-explanation" class="toc-link level-2">5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</a></li>
+            <li><a href="#sec-17-1-facts" class="toc-link level-2">1. FACTS:</a></li>
+            <li><a href="#sec-18-2-issues" class="toc-link level-2">2. ISSUE/S:</a></li>
+            <li><a href="#sec-19-3-courts-ruling" class="toc-link level-2">3. COURT&#x27;S RULING:</a></li>
+            <li><a href="#sec-20-4-applicable-doctrine-criminal-procedure-application" class="toc-link level-2">4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</a></li>
+            <li><a href="#sec-21-5-relevance-to-the-topic-explanation" class="toc-link level-2">5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</a></li>
+            <li><a href="#sec-22-1-facts" class="toc-link level-2">1. FACTS:</a></li>
+            <li><a href="#sec-23-2-issues" class="toc-link level-2">2. ISSUE/S:</a></li>
+            <li><a href="#sec-24-3-courts-ruling" class="toc-link level-2">3. COURT&#x27;S RULING:</a></li>
+            <li><a href="#sec-25-4-applicable-doctrine-criminal-procedure-application" class="toc-link level-2">4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</a></li>
+            <li><a href="#sec-26-5-relevance-to-the-topic-explanation" class="toc-link level-2">5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</a></li>
+            <li><a href="#sec-27-summary-comparison-table-rule-110-jurisprudential-highlights" class="toc-link level-2">SUMMARY COMPARISON TABLE: RULE 110 JURISPRUDENTIAL HIGHLIGHTS (WEEK 4)</a></li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="app-content" id="mainContentArea">
+      <div class="content-wrapper" id="contentWrapper">
+        <!-- Hero Header -->
+        <div class="document-hero">
+          <span class="doc-badge">Criminal Procedure</span>
+          <h1 class="doc-main-title">Criminal Procedure Week 4 Case Digests</h1>
+          <p class="doc-subtitle">Criminal Procedure comprehensive review notes and study materials.</p>
+          <div class="doc-meta-bar">
+            <div class="meta-item"><span>📑</span> <span>27 Sections</span></div>
+            <div class="meta-item"><span>🔊</span> <span id="totalUnitsCounter">328 Read Units</span></div>
+            <div class="meta-item"><span>⏱</span> <span>~72 min read</span></div>
+            <div class="meta-item"><span>🎙</span> <span>Intelligent Natural Speech</span></div>
+          </div>
+        </div>
+
+        <!-- Document Sections -->
+        
+        <section class="doc-section" id="sec-1-remedial-law---criminal-procedure-case-digests-week-4">
+          <header class="section-header">
+            <h3 class="section-title level-2">REMEDIAL LAW - CRIMINAL PROCEDURE CASE DIGESTS (WEEK 4)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-1-remedial-law---criminal-procedure-case-digests-week-4')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">================================================================================</p>
+        <p class="read-unit" data-unit-type="paragraph">Topics: Prosecution of Offenses (Rule 110), Control of Prosecution,</p>
+        <p class="read-unit" data-unit-type="paragraph">Territorial Authority of Prosecutors, Sufficiency of Information,</p>
+        <p class="read-unit" data-unit-type="paragraph">and Distinctions Between Complaint &amp; Information</p>
+        <p class="read-unit" data-unit-type="paragraph">Correlated with DOJ Circulars 15 &amp; 28 (s. 2024), B.P. 129 / R.A. 7691 / R.A. 11576,</p>
+        <p class="read-unit" data-unit-type="paragraph">UST Golden Notes, and Dean Tan Criminal Procedure Reviewer</p>
+        <p class="read-unit" data-unit-type="paragraph">================================================================================</p>
+        <p class="read-unit" data-unit-type="paragraph">================================================================================</p>
+        <p class="read-unit" data-unit-type="paragraph">CASE NO. 1: Wilson Chua, Renita Chua, The Secretary of Justice, and The City Prosecutor of Lucena City v. Rodrigo Padillo and Marietta Padillo</p>
+        <p class="read-unit" data-unit-type="paragraph">Citation: G.R. No. 163797 | Date Promulgated: April 24, 2007 | 522 SCRA 128</p>
+        <p class="read-unit" data-unit-type="paragraph">Division: First Division | Ponente: Justice Angelina Sandoval-Gutierrez</p>
+        <p class="read-unit" data-unit-type="paragraph">Topic: Rule 110 (Prosecution of Offenses) - Who Must Prosecute Criminal Actions / Control of the Public Prosecutor / Executive Determination of Probable Cause / Exception to Non-Interference: Grave Abuse of Discretion by the Secretary of Justice</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------------------------------------------------</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Information:**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **1) Who is the complainant?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Formal / Public Complainant:** People of the Philippines (representing the State).</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Private Complainants / Offended Parties:** Spouses Rodrigo Padillo and Marietta Padillo (owners/proprietors of Padillo Lending Investor).</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **2) What is the ground of the case filed/ accusation?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   Systematic embezzlement and fraudulent diversion of approximately P7,000,000.00 from Padillo Lending Investor through the falsification of commercial checks and loan documents. The manager, Marissa Padillo-Chua, fabricated loan applications for simulated borrowers, altered checks to insert alternative payees, and diverted the funds directly into the personal bank accounts of her husband (Wilson Chua) and sister-in-law (Renita Chua).</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **3) Committed crime/violation and if there is a probable cause?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   Multiple counts of Estafa through Falsification of Commercial Documents (Article 315, par. 1(b) and par. 2(a) in relation to Article 172 and Article 48 of the Revised Penal Code).</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Probable Cause:** Yes. Probable cause was established by the City Prosecutor and confirmed by the Court of Appeals and Supreme Court against Marissa Padillo-Chua, Wilson Chua, and Renita Chua. The Secretary of Justice&#x27;s exclusion of Wilson and Renita was ruled a grave abuse of discretion.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **4) If there is a law/s to punish/ or is the case file has ground?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   Yes. Article 315 (Estafa), Article 172 (Falsification of Commercial Documents), and Article 48 (Complex Crimes) of the Revised Penal Code.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **5) When the case was filed?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   The criminal complaint was filed with the Office of the City Prosecutor of Lucena City on November 19, 1999. The City Prosecutor issued the resolution finding probable cause on April 14, 2000. Informations were filed with the RTC of Lucena City in 2000.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **6) Place/location the case is filed?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   Office of the City Prosecutor of Lucena City / Regional Trial Court (RTC) of Lucena City, Quezon Province.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **7) What court has the jurisdiction in the case and why?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Regional Trial Court (RTC) of Lucena City.**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   *Subject-Matter Jurisdiction:* Under B.P. Blg. 129, as amended by R.A. No. 7691 and R.A. No. 11576, first-level courts (MTC/MTCC) have jurisdiction over offenses with imprisonment not exceeding 6 years. Because the complex crime of Estafa through Falsification of Commercial Documents involving millions of pesos carries the penalty for the graver offense in its maximum period (*prision mayor* in its maximum period to *reclusion temporal*, exceeding 6 years), exclusive original jurisdiction belongs to the Regional Trial Court.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   *Territorial Jurisdiction:* The loan applications were fabricated, the checks drawn and altered, and the proceeds deposited in Lucena City (locus delicti).</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **8) Where is the trial will be held?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   Regional Trial Court (RTC) of Lucena City, Quezon Province.</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-2-1-facts">
+          <header class="section-header">
+            <h3 class="section-title level-2">1. FACTS:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-2-1-facts')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Spouses Rodrigo and Marietta Padillo owned and operated a money-lending enterprise in Lucena City named &quot;Padillo Lending Investor.&quot; They hired their niece, Marissa Padillo-Chua, as the firm&#x27;s manager and cashier. Taking advantage of her position and the trust reposed in her by the Spouses Padillo, Marissa devised a fraudulent scheme to misappropriate business funds amounting to approximately P7,000,000.00.</p>
+        <p class="read-unit" data-unit-type="paragraph">Marissa fabricated fictitious loan applications and promissory notes using the names of simulated borrowers. She then prepared commercial checks drawn against the bank accounts of Padillo Lending Investor (Urban Bank and Metrobank Lucena branches) payable to these fictitious borrowers. After obtaining the signature of Marietta Padillo on the checks, Marissa altered them by inserting alternative payees (adding &quot;OR Wilson Chua&quot; or &quot;OR Renita Chua&quot;) or having them encashed. The proceeds were directly deposited into the personal bank accounts of her husband, Wilson Chua, and his sister, Renita Chua. A collector, Ernesto Alcantara, confirmed via affidavit that Wilson Chua was actively involved, monitored the check encashments, and received the stolen money.</p>
+        <p class="read-unit" data-unit-type="paragraph">On November 19, 1999, the Padillos filed a criminal complaint for multiple counts of Estafa through Falsification of Commercial Documents before the Office of the City Prosecutor of Lucena City. On April 14, 2000, 1st Assistant City Prosecutor Rome S. Melendres found probable cause against Marissa, Wilson, and Renita Chua. However, upon petition for review, DOJ Undersecretary Manuel A.J. Teehankee (acting for the Secretary of Justice) reversed the resolution in part by directing the prosecutor to drop and exclude Wilson Chua and Renita Chua from the Informations, claiming there was no direct evidence of conspiracy.</p>
+        <p class="read-unit" data-unit-type="paragraph">The Padillos filed a Rule 65 petition for certiorari with the Court of Appeals (CA). The CA granted the petition, nullified the DOJ Secretary&#x27;s directives for grave abuse of discretion, and ordered the inclusion of Wilson and Renita Chua as co-accused. Wilson and Renita Chua appealed to the Supreme Court.</p>
+        <p class="read-unit" data-unit-type="paragraph">a1. FACTS:</p>
+        <p class="read-unit" data-unit-type="paragraph">A married couple owned a money-lending shop in Lucena City and trusted their niece to manage it. The niece secretly stole about P7 million by making fake loan papers for people who didn&#x27;t exist, writing company checks for those fake loans, and altering the checks so the money went straight into the personal bank accounts of her husband and sister-in-law. When the owners caught them and sued everyone for fraud and falsification, the Department of Justice tried to drop the charges against the husband and sister-in-law, claiming there was no direct proof they helped write the fake papers. The owners appealed, arguing that since the stolen money landed in their personal bank accounts, they were clearly part of the crime.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-3-2-issues">
+          <header class="section-header">
+            <h3 class="section-title level-2">2. ISSUE/S:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-3-2-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Whether the Secretary of Justice committed grave abuse of discretion in directing the exclusion of Wilson Chua and Renita Chua from the criminal Informations despite the presence of strong circumstantial evidence establishing probable cause.</p>
+        <p class="read-unit" data-unit-type="paragraph">a2. ISSUE/S:</p>
+        <p class="read-unit" data-unit-type="paragraph">Can the Secretary of Justice refuse to file criminal charges against family members who received millions in stolen money in their bank accounts, or did the Secretary abuse his power by ignoring clear evidence of their involvement?</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-4-3-courts-ruling">
+          <header class="section-header">
+            <h3 class="section-title level-2">3. COURT&#x27;S RULING:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-4-3-courts-ruling')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Yes. The Supreme Court affirmed the Court of Appeals and ruled that the Secretary of Justice committed grave abuse of discretion.</p>
+        <p class="read-unit" data-unit-type="paragraph">While the determination of probable cause is an executive function and the public prosecutor and Secretary of Justice have broad discretion in the direction and control of criminal prosecutions under Section 5, Rule 110 of the Rules of Court, this discretion is not unbridled. When the Secretary of Justice exercises this power arbitrarily or in disregard of facts establishing probable cause, courts may intervene via certiorari under Rule 65.</p>
+        <p class="read-unit" data-unit-type="paragraph">Probable cause does not require absolute certainty or evidence establishing guilt beyond reasonable doubt; it merely requires facts and circumstances sufficient to engender a well-founded belief that a crime has been committed and that the respondent is probably guilty thereof. Conspiracy need not be proved by direct evidence but may be inferred from the collective acts and circumstances showing a community of criminal design.</p>
+        <p class="read-unit" data-unit-type="paragraph">Here, the following circumstances clearly established probable cause against Wilson Chua and Renita Chua:</p>
+        <p class="read-unit" data-unit-type="paragraph">(a) The altered checks containing the embezzled funds were directly deposited into their personal bank accounts;</p>
+        <p class="read-unit" data-unit-type="paragraph">(b) Wilson Chua lived with Marissa as husband and wife and shared their financial household;</p>
+        <p class="read-unit" data-unit-type="paragraph">(c) The affidavit of collector Ernesto Alcantara showed Wilson&#x27;s active participation and knowledge; and</p>
+        <p class="read-unit" data-unit-type="paragraph">(d) Neither Wilson nor Renita offered any legitimate commercial explanation for receiving millions of pesos from Padillo Lending Investor&#x27;s accounts.</p>
+        <p class="read-unit" data-unit-type="paragraph">Therefore, the Secretary of Justice acted with grave abuse of discretion, and both Wilson Chua and Renita Chua must be included as co-accused in the Informations filed before the RTC of Lucena City.</p>
+        <p class="read-unit" data-unit-type="paragraph">a3. COURT&#x27;S RULING:</p>
+        <p class="read-unit" data-unit-type="paragraph">Yes. The Supreme Court ruled that the Secretary of Justice made a serious legal error (grave abuse of discretion). To charge someone in court, the prosecutor does not need 100% proof of guilt — only &quot;probable cause,&quot; meaning a reasonable belief that they took part in the crime. Here, the stolen money went directly into the bank accounts of the husband and sister-in-law, and a witness confirmed the husband knew about the scheme. People who receive stolen money without any legal explanation cannot claim to be innocent bystanders. Therefore, the court ordered that the husband and sister-in-law must be charged and tried in court alongside the niece.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-5-4-applicable-doctrine-criminal-procedure-application">
+          <header class="section-header">
+            <h3 class="section-title level-2">4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-5-4-applicable-doctrine-criminal-procedure-application')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Rule 110, Section 5 &amp; Rule 112, Section 4 (Control of Prosecution &amp; Executive Determination of Probable Cause):** Public prosecutors and the Secretary of Justice possess executive authority to determine whether to file a criminal case. However, this power is subject to judicial review under Rule 65 when exercised with grave abuse of discretion.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **DOJ Department Circular No. 015 (s. 2024) and DOJ Circular No. 028 (s. 2024) Integration:** Under modern DOJ rules, prosecutors must evaluate complaints under the &quot;reasonable certainty of conviction&quot; standard based on admissible evidence. In evaluating conspiracy and financial crimes, prosecutors must account for circumstantial evidence and money trails (e.g., bank deposits and unexplained receipt of funds). If an executive officer arbitrarily ignores established financial evidence, the ruling is vulnerable to judicial nullification.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Proof Required at Inquest/Preliminary Investigation:** Preliminary investigation is not a trial. Probable cause requires only reasonable grounds of suspicion supported by circumstances sufficiently strong in themselves to warrant a cautious man in the belief that the person accused is guilty of the offense.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">a4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</p>
+        <p class="read-unit" data-unit-type="paragraph">While government prosecutors have the power to decide who to charge, they cannot arbitrarily protect or drop people when clear evidence (like bank records) connects them to the crime. If the prosecutor or Secretary of Justice ignores obvious evidence, the courts will step in and order the charges filed.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-6-5-relevance-to-the-topic-explanation">
+          <header class="section-header">
+            <h3 class="section-title level-2">5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-6-5-relevance-to-the-topic-explanation')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Under the syllabus topic *Rule 110 - Who Must Prosecute Criminal Actions / Control of the Public Prosecutor / Review of Probable Cause,* this case establishes the crucial boundary between executive prosecutorial discretion and judicial review. It illustrates that while the executive branch controls the institution of criminal actions, that power cannot be used as an arbitrary shield to drop co-conspirators when the evidence demonstrates probable cause.</p>
+        <p class="read-unit" data-unit-type="paragraph">a5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</p>
+        <p class="read-unit" data-unit-type="paragraph">Shows the limits of a prosecutor&#x27;s power. It proves that prosecutorial discretion is not absolute, and victims of crimes can ask the courts to force prosecutors to file charges against all guilty parties if the prosecutor acted with grave abuse of discretion.</p>
+        <p class="read-unit" data-unit-type="paragraph">================================================================================</p>
+        <p class="read-unit" data-unit-type="paragraph">CASE NO. 2: Bureau of Customs v. Peter Sherman, Michael Whelan, Teodoro B. Lingan, Atty. Ofelia B. Cajigal, and the Court of Tax Appeals</p>
+        <p class="read-unit" data-unit-type="paragraph">Citation: G.R. No. 190487 | Date Promulgated: April 13, 2011 | 648 SCRA 615</p>
+        <p class="read-unit" data-unit-type="paragraph">Division: Third Division | Ponente: Justice Conchita Carpio Morales</p>
+        <p class="read-unit" data-unit-type="paragraph">Topic: Rule 110 (Prosecution of Offenses) - Who Must Prosecute Criminal Actions / Control of the Public Prosecutor / Representation of the Government by the Office of the Solicitor General (OSG) / Nominal Complainant vs. Public Prosecutor / Withdrawal of Information</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------------------------------------------------</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Information:**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **1) Who is the complainant?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Formal / Public Complainant:** People of the Philippines (represented by the Public Prosecutor and Office of the Solicitor General).</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Nominal / Initiating Complainant:** Bureau of Customs (BOC), represented by the Commissioner of Customs (acting through its &quot;Run After The Smugglers&quot; / RATS legal officers).</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **2) What is the ground of the case filed/ accusation?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   Alleged unlawful importation and fraudulent entry of finished printed bet slips and thermal rolls from Australia into the Philippines (transferred from Clark Special Economic Zone to the Philippine Charity Sweepstakes Office) without payment of customs duties and value-added taxes totaling P45,862,693.00.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **3) Committed crime/violation and if there is a probable cause?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   Unlawful Importation / Fraudulent Practices Against Customs Revenue under Section 3601 in relation to Section 3602 of the Tariff and Customs Code of the Philippines (TCCP).</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Probable Cause:** Probable cause was initially found by the State Prosecutor, but upon review, Secretary of Justice Raul M. Gonzalez found NO probable cause (holding that MSPI was an exempt CSEZ enterprise under R.A. 7227). The Court of Tax Appeals (CTA) independently affirmed the absence of probable cause and granted the withdrawal of the Information.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **4) If there is a law/s to punish/ or is the case file has ground?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   Sections 3601 and 3602 of the Tariff and Customs Code of the Philippines (TCCP), as amended.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **5) When the case was filed?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   The BOC filed its complaint-affidavit in 2007. The State Prosecutor issued the resolution finding probable cause on January 3, 2008. The Information was filed before the CTA in 2008 (CTA Crim. Case No. O-116). The CTA granted the motion to withdraw the Information on July 28, 2009. The Supreme Court decided the petition on April 13, 2011.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **6) Place/location the case is filed?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   Department of Justice / Court of Tax Appeals (CTA) First Division, Diliman, Quezon City.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **7) What court has the jurisdiction in the case and why?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Court of Tax Appeals (CTA).**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   *Subject-Matter Jurisdiction:* Under R.A. No. 1125, as amended by R.A. No. 9282, the Court of Tax Appeals exercises exclusive original jurisdiction in all criminal offenses arising from violations of the Tariff and Customs Code and National Internal Revenue Code where the principal amount of taxes and fees, exclusive of charges and penalties, is P1,000,000.00 or more. Here, the disputed customs duties and taxes amounted to P45,862,693.00, well above the statutory threshold.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **8) Where is the trial will be held?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   Court of Tax Appeals (CTA), Quezon City.</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-7-1-facts">
+          <header class="section-header">
+            <h3 class="section-title level-2">1. FACTS:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-7-1-facts')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Mark Sensing Philippines, Inc. (MSPI) was an enterprise registered with the Clark Development Corporation (CDC) inside the Clark Special Economic Zone (CSEZ). MSPI was contracted by the Philippine Charity Sweepstakes Office (PCSO) to print on-line lottery bet slips and thermal paper rolls. From June 2005 to January 2007, MSPI imported printed bet slips and thermal rolls from its parent company in Australia. The shipments entered the country through the Port of Manila and Subic, and were transferred to CSEZ under official transshipment permits before final delivery to PCSO.</p>
+        <p class="read-unit" data-unit-type="paragraph">The Bureau of Customs (BOC), through its &quot;Run After The Smugglers&quot; (RATS) Program, alleged that MSPI failed to pay customs duties and value-added taxes totaling P45,862,693.00, claiming that the bet slips were finished consumer goods that did not qualify for tax incentives. The BOC filed a criminal complaint with the DOJ against MSPI officers Peter Sherman, Michael Whelan, Teodoro B. Lingan, Atty. Ofelia B. Cajigal, and customs brokers for violation of Sections 3601 and 3602 of the TCCP.</p>
+        <p class="read-unit" data-unit-type="paragraph">State Prosecutor Rohairah A. Lao initially found probable cause and filed an Information before the Court of Tax Appeals (CTA Crim. Case No. O-116). However, the respondents filed a Petition for Review with the Secretary of Justice. On June 19, 2008, Secretary of Justice Raul M. Gonzalez reversed the State Prosecutor, holding that MSPI, as a CSEZ enterprise, was legally exempt from customs duties under R.A. 7227, and that all importations were accompanied by valid transshipment permits approved by the BOC itself. The Secretary of Justice ordered the State Prosecutor to immediately withdraw the Information.</p>
+        <p class="read-unit" data-unit-type="paragraph">Pursuant to this directive, the State Prosecutor filed a Motion to Withdraw Information before the CTA First Division. The BOC, represented solely by its RATS legal officers (without the OSG), opposed the motion. On July 28, 2009, the CTA granted the motion to withdraw and dismissed the criminal case, finding upon its own independent evaluation of the evidence that there was no probable cause to hold the accused for trial.</p>
+        <p class="read-unit" data-unit-type="paragraph">The BOC, acting through its in-house RATS lawyers without the participation or conformity of the Office of the Solicitor General (OSG), filed a Rule 65 petition for certiorari directly with the Supreme Court.</p>
+        <p class="read-unit" data-unit-type="paragraph">a1. FACTS:</p>
+        <p class="read-unit" data-unit-type="paragraph">A company in the Clark Special Economic Zone imported lottery paper and bet slips for the PCSO. The Bureau of Customs claimed the company smuggled the goods without paying P45.8 million in customs taxes, and sued the company directors. A prosecutor initially filed charges in the Court of Tax Appeals. However, the Secretary of Justice reviewed the case, found that the company had valid tax-free permits under the Clark ecozone law, and ordered the prosecutor to drop the case. The prosecutor asked the court to withdraw the charges, and the court agreed and dismissed the case. The Bureau of Customs got upset and filed an appeal directly in the Supreme Court using only its own in-house lawyers, without getting permission or help from the government&#x27;s official top lawyer (the Solicitor General).</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-8-2-issues">
+          <header class="section-header">
+            <h3 class="section-title level-2">2. ISSUE/S:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-8-2-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">1. Whether the Bureau of Customs (as a government agency) has the legal personality to file a petition for certiorari in a criminal case before the Supreme Court without the representation or authorization of the Office of the Solicitor General (OSG).</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">2. Whether the Court of Tax Appeals committed grave abuse of discretion in granting the public prosecutor&#x27;s Motion to Withdraw Information.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">a2. ISSUE/S:</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">1. Can a government bureau (like the Bureau of Customs) file a criminal appeal in the Supreme Court by itself, or does the law require the Solicitor General to represent it?</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">2. Did the tax court make an illegal mistake when it agreed with the prosecutor to withdraw and dismiss the criminal charges?</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-9-3-courts-ruling">
+          <header class="section-header">
+            <h3 class="section-title level-2">3. COURT&#x27;S RULING:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-9-3-courts-ruling')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">No on both counts. The Supreme Court dismissed the BOC&#x27;s petition.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">1.  **Lack of Legal Personality and Representation by the OSG:**</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Under Section 35(1), Chapter 12, Title III, Book IV of the 1987 Administrative Code (E.O. 292), the Office of the Solicitor General (OSG) is the sole legal representative of the Government of the Philippines, its agencies, and officials in all appellate proceedings before the Court of Appeals and the Supreme Court. In criminal proceedings, the State is the real party in interest, represented by the OSG.</p>
+        <p class="read-unit" data-unit-type="paragraph">The Bureau of Customs is merely a government bureau acting as the nominal or private complainant. A private complainant or government agency has no standing to assail the dismissal of a criminal case or file a petition for certiorari without the authorization, conformity, and active representation of the OSG. The petition filed solely by the BOC RATS lawyers suffered from a fatal procedural defect.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">2.  **Prosecutorial Control and Independent Judicial Determination:**</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Under Section 5, Rule 110 of the Rules of Court, all criminal actions are under the direction and control of the public prosecutor. When the Secretary of Justice directs the withdrawal of an Information, the prosecutor is bound to follow. Once a motion to withdraw is filed, the court must make its own independent assessment of the merits of the case (*Crespo v. Mogul*).</p>
+        <p class="read-unit" data-unit-type="paragraph">Here, the CTA First Division did not merely rubber-stamp the prosecutor&#x27;s motion; it conducted its own independent evaluation of the records and correctly concluded that MSPI operated under valid tax-exempt CSEZ permits under R.A. 7227, completely negating any fraudulent intent or probable cause for smuggling. The CTA acted well within its jurisdiction.</p>
+        <p class="read-unit" data-unit-type="paragraph">a3. COURT&#x27;S RULING:</p>
+        <p class="read-unit" data-unit-type="paragraph">No. The Supreme Court threw out the Bureau of Customs&#x27; appeal for two major reasons:</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">1. The Bureau of Customs had no legal right to file the appeal on its own. By law, only the Office of the Solicitor General (the chief lawyer of the Philippine government) can represent government agencies in criminal cases before the Supreme Court.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">2. In criminal cases, the public prosecutor controls the prosecution. When the prosecutor moved to withdraw the case and the tax court independently checked the evidence and agreed that no crime was committed, the court acted properly.</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-10-4-applicable-doctrine-criminal-procedure-application">
+          <header class="section-header">
+            <h3 class="section-title level-2">4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-10-4-applicable-doctrine-criminal-procedure-application')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Rule 110, Section 5 (Control of Prosecution):** Criminal actions are instituted on behalf of the People of the Philippines and are under the exclusive control of the public prosecutor. Private complainants and government bureaus cannot usurp the prosecutorial functions of the State.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Administrative Code of 1987 (Mandatory OSG Representation):** In all appellate proceedings (Rule 45, Rule 65) before the Court of Appeals and Supreme Court concerning criminal cases, the State must be represented exclusively by the Solicitor General. Any petition filed by private counsel or in-house agency lawyers without OSG deputation is dismissible outright.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Independent Assessment Rule (*Crespo v. Mogul*):** Once an Information is filed in court, any disposition thereof (dismissal, withdrawal, or amendment) rests in the sound discretion of the court. The court cannot blindly rely on the executive findings of the DOJ Secretary, but must perform an independent review.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **DOJ Circulars No. 015 &amp; 028 (s. 2024) Alignment:** In current practice, motions to withdraw informations must be supported by certified findings of absence of reasonable certainty of conviction, preserving the court&#x27;s prerogative to evaluate the evidence independently.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">a4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</p>
+        <p class="read-unit" data-unit-type="paragraph">Only the public prosecutor controls a criminal lawsuit, and only the Solicitor General can represent the government in the Supreme Court. A government agency cannot act like a private rogue litigant; if the prosecutor and the judge agree to drop a case because there is no crime, the agency cannot overturn that decision on its own.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-11-5-relevance-to-the-topic-explanation">
+          <header class="section-header">
+            <h3 class="section-title level-2">5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-11-5-relevance-to-the-topic-explanation')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Under the syllabus topic *Rule 110 - Who Must Prosecute Criminal Actions / Control of Prosecution / Role of the OSG,* this case demonstrates that:</p>
+        <p class="read-unit" data-unit-type="paragraph">(1) Government agencies acting as complainants in criminal cases are subject to the same procedural hierarchy as private offended parties;</p>
+        <p class="read-unit" data-unit-type="paragraph">(2) Control of prosecution belongs strictly to the public prosecutor at trial and the OSG on appeal; and</p>
+        <p class="read-unit" data-unit-type="paragraph">(3) The trial court possesses the final judicial authority to grant or deny the withdrawal of an Information upon independent assessment.</p>
+        <p class="read-unit" data-unit-type="paragraph">a5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</p>
+        <p class="read-unit" data-unit-type="paragraph">Clarifies who has the legal power to handle criminal cases in court: the trial prosecutor controls the case at the trial level, the Solicitor General controls it at the Supreme Court level, and a government department cannot bypass these official lawyers.</p>
+        <p class="read-unit" data-unit-type="paragraph">================================================================================</p>
+        <p class="read-unit" data-unit-type="paragraph">CASE NO. 3: People of the Philippines v. Gualberto Cinco y Solloza (Soyosa)</p>
+        <p class="read-unit" data-unit-type="paragraph">Citation: G.R. No. 186460 | Date Promulgated: December 4, 2009 | 607 SCRA 739</p>
+        <p class="read-unit" data-unit-type="paragraph">Division: Second Division | Ponente: Justice Antonio T. Carpio</p>
+        <p class="read-unit" data-unit-type="paragraph">Topic: Rule 110 (Prosecution of Offenses) - Sufficiency of Complaint or Information / Date and Time of Commission of Offense / Material Ingredients vs. Gravamen of Offense / Right to be Informed of Nature and Cause of Accusation</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------------------------------------------------</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Information:**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **1) Who is the complainant?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Formal / Public Complainant:** People of the Philippines (representing the State).</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Private Complainant / Offended Party:** &quot;AAA&quot;, a 14-year-old minor victim, assisted by her mother.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **2) What is the ground of the case filed/ accusation?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   The accused, Gualberto Cinco y Solloza (live-in partner of the victim&#x27;s maternal aunt), committed two counts of rape against 14-year-old AAA by taking advantage of being alone with her in their residence and having carnal knowledge of her through force, threat of violence, and intimidation.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **3) Committed crime/violation and if there is a probable cause?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   Two (2) counts of Simple Rape under Article 266-A, paragraph 1(a) of the Revised Penal Code.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Probable Cause:** Yes. Probable cause was found by the investigating prosecutor and affirmed by the trial court, the Court of Appeals, and the Supreme Court.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **4) If there is a law/s to punish/ or is the case file has ground?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   Article 266-A, paragraph 1(a) and Article 266-B of the Revised Penal Code (as amended by R.A. No. 8353, The Anti-Rape Law of 1997).</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **5) When the case was filed?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   The two Informations were filed before the Regional Trial Court of Quezon City on October 5, 2001 (Criminal Case Nos. Q-01-100233 and Q-01-100234). The Supreme Court decided the appeal on December 4, 2009.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **6) Place/location the case is filed?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   Regional Trial Court (RTC) of Quezon City, Branch 104 (Family Court).</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **7) What court has the jurisdiction in the case and why?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Regional Trial Court (RTC) of Quezon City (Family Court).**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   *Subject-Matter Jurisdiction:* Under B.P. Blg. 129, as amended, and Republic Act No. 8369 (The Family Courts Act of 1997), the Regional Trial Court designated as a Family Court has exclusive original jurisdiction over criminal cases punishable by *reclusion perpetua* (such as rape) and all criminal offenses where one of the victims is a child/minor.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   *Territorial Jurisdiction:* The criminal acts were committed within the territorial boundaries of Quezon City.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **8) Where is the trial will be held?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   Regional Trial Court (RTC) of Quezon City, Branch 104.</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-12-1-facts">
+          <header class="section-header">
+            <h3 class="section-title level-2">1. FACTS:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-12-1-facts')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">In October 2000, 14-year-old &quot;AAA&quot; was living in Quezon City with her maternal aunt, Maritess, and Maritess&#x27; live-in partner, accused-appellant Gualberto Cinco y Solloza. On a morning in October 2000, while Maritess was away at work, Cinco approached AAA, dragged her into the bedroom, forcibly undressed her, pinned her down, and had carnal knowledge of her against her will while threatening to kill her if she told anyone.</p>
+        <p class="read-unit" data-unit-type="paragraph">On November 19, 2000, Cinco repeated the sexual assault under similar circumstances when Maritess again left the house. In September 2001, AAA finally disclosed the ordeal to her mother. A physical examination by a PNP medico-legal officer revealed healed deep hymenal lacerations consistent with sexual intercourse.</p>
+        <p class="read-unit" data-unit-type="paragraph">Two Informations were filed charging Cinco with two counts of Simple Rape before the RTC of Quezon City (Criminal Case Nos. Q-01-100233 and Q-01-100234).</p>
+        <p class="read-unit" data-unit-type="paragraph">The first Information alleged: &quot;That on or about the month of October 2000, in Quezon City, Philippines, the above-named accused, by means of force, violence and intimidation, did then and there willfully, unlawfully and feloniously have carnal knowledge of the undersigned AAA, a minor, 14 years of age, against her will...&quot;</p>
+        <p class="read-unit" data-unit-type="paragraph">The second Information alleged: &quot;That on or about November 19, 2000, in Quezon City, Philippines, the said accused, by means of force, violence and intimidation, did then and there willfully, unlawfully and feloniously have carnal knowledge of the undersigned AAA, a minor, 14 years of age, against her will...&quot;</p>
+        <p class="read-unit" data-unit-type="paragraph">At the trial, Cinco raised the defense of denial and alibi, testifying that he worked as a driver and was never alone with the victim. Crucially, Cinco argued that the Informations were fatally defective because the first Information stated &quot;on or about the month of October 2000&quot; without giving the exact day or time, which allegedly violated his constitutional right to be informed of the nature and cause of the accusation and prevented him from proving an alibi.</p>
+        <p class="read-unit" data-unit-type="paragraph">The RTC convicted Cinco of two counts of Simple Rape and sentenced him to *reclusion perpetua* for each count. The Court of Appeals affirmed the conviction in toto. Cinco appealed to the Supreme Court.</p>
+        <p class="read-unit" data-unit-type="paragraph">a1. FACTS:</p>
+        <p class="read-unit" data-unit-type="paragraph">A 14-year-old girl was living with her aunt and her aunt&#x27;s live-in partner in Quezon City. While the aunt was away at work, the partner raped the young girl twice (once in October 2000 and once on November 19, 2000) while threatening to kill her. When she finally told her mother, medical exams confirmed the sexual abuse, and the man was charged with two counts of rape. In his defense, the man claimed he didn&#x27;t do it and argued that the charge sheet (Information) was invalid because it only said the crime happened &quot;in the month of October 2000&quot; without listing the exact day and time, claiming this made it impossible for him to provide an alibi.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-13-2-issues">
+          <header class="section-header">
+            <h3 class="section-title level-2">2. ISSUE/S:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-13-2-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Whether the Information charging the accused with rape was fatally defective for failing to allege the precise date and time of the commission of the offense.</p>
+        <p class="read-unit" data-unit-type="paragraph">a2. ISSUE/S:</p>
+        <p class="read-unit" data-unit-type="paragraph">Is a criminal charge for rape invalid if the prosecutor only writes the month and year (like &quot;October 2000&quot;) instead of the exact date and time?</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-14-3-courts-ruling">
+          <header class="section-header">
+            <h3 class="section-title level-2">3. COURT&#x27;S RULING:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-14-3-courts-ruling')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">No. The Supreme Court affirmed the conviction of Gualberto Cinco y Solloza for two counts of Simple Rape.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">1.  **Date and Time Are Not Material Ingredients in Rape:**</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Under Section 11, Rule 110 of the Revised Rules of Criminal Procedure:</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*&quot;It is not necessary to state in the complaint or information the precise date the offense was committed except when it is a material ingredient of the offense. The offense may be alleged to have been committed on a date as near to the actual date at which the offense was committed as the complaint or information will permit.&quot;*</div></div>
+        <p class="read-unit" data-unit-type="paragraph">The *gravamen* of the crime of rape is carnal knowledge of a woman through force, threat, or intimidation (or where the victim is under 12 or deprived of reason). The exact date and time are not essential elements of the crime. An Information that states the offense occurred &quot;on or about the month of October 2000&quot; or &quot;on or about November 19, 2000&quot; is legally sufficient.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">2.  **Right to Be Informed of the Accusation:**</div></div>
+        <p class="read-unit" data-unit-type="paragraph">An Information satisfies the constitutional requirement under Section 6, Rule 110 if it states the name of the accused, the designation of the offense, the acts or omissions complained of as constituting the offense, the name of the offended party, the approximate date of commission, and the place of commission. The Information here enabled a person of common understanding to know what offense was intended to be charged.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">3.  **Waiver and Bill of Particulars:**</div></div>
+        <p class="read-unit" data-unit-type="paragraph">If the accused felt that the allegation of time was too indefinite to prepare a defense, his proper procedural remedy was to file a Motion for a Bill of Particulars under Section 9, Rule 116, or a Motion to Quash under Rule 117 before entering his plea. By entering a plea of not guilty and participating in the trial without objection, the accused waived any formal defect in the Information.</p>
+        <p class="read-unit" data-unit-type="paragraph">a3. COURT&#x27;S RULING:</p>
+        <p class="read-unit" data-unit-type="paragraph">No. The Supreme Court held that the charge sheet was completely valid. In rape cases, the exact day and time are not essential parts of the crime; what matters is whether the accused forced himself upon the victim. Under the Rules of Court (Rule 110, Section 11), saying the crime happened &quot;around October 2000&quot; is specific enough. Furthermore, if the accused wanted more specific details, he should have asked the judge for a &quot;Bill of Particulars&quot; before his arraignment. Because he pleaded &quot;not guilty&quot; and went through the whole trial without objecting to the wording, he legally gave up any right to complain about it later.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-15-4-applicable-doctrine-criminal-procedure-application">
+          <header class="section-header">
+            <h3 class="section-title level-2">4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-15-4-applicable-doctrine-criminal-procedure-application')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Rule 110, Section 6 (Sufficiency of Complaint or Information):** An Information is sufficient if it states the acts or omissions in ordinary and concise language sufficient to enable a person of common understanding to know the offense charged.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Rule 110, Section 11 (Date of Commission of Offense):** The precise date is NOT required in the Information UNLESS the date itself is a material element of the crime (e.g., violation of Sunday election bans, infanticide committed within 72 hours of birth). For general crimes such as rape, homicide, or theft, using the phrase &quot;on or about&quot; a month and year satisfies the law.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Rule 116, Section 9 (Bill of Particulars) &amp; Rule 117 (Waiver):** Any ambiguity regarding the time, place, or specific circumstances must be attacked through a motion for bill of particulars or motion to quash prior to arraignment. Pleading to the charge cures and waives any non-jurisdictional ambiguity.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **DOJ Circulars 15 &amp; 28 (s. 2024) Drafting Rules:** Directs prosecutors to formulate Informations with clarity, setting forth the timeframe with as much proximity as the evidence allows, while preserving prosecutorial validity against hyper-technical objections.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">a4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</p>
+        <p class="read-unit" data-unit-type="paragraph">Charge sheets do not need to list the exact hour or day unless the date itself makes the act illegal. For crimes like rape, giving the approximate month and year is enough. If an accused person believes the charge is too vague, they must object before entering a plea; otherwise, they waive their objection.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-16-5-relevance-to-the-topic-explanation">
+          <header class="section-header">
+            <h3 class="section-title level-2">5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-16-5-relevance-to-the-topic-explanation')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Under the syllabus topic *Rule 110 - Sufficiency of Complaint or Information / Date of Commission of Offense,* this case provides the standard interpretation of Section 6 and Section 11 of Rule 110. It establishes that technical imprecision in the date does not invalidate an Information where the essential elements (gravamen) of the felony are clearly described.</p>
+        <p class="read-unit" data-unit-type="paragraph">a5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</p>
+        <p class="read-unit" data-unit-type="paragraph">Teaches law students how to determine if a criminal Information is legally sufficient under Rule 110, proving that approximate dates are valid and that procedural objections must be raised before entering a plea.</p>
+        <p class="read-unit" data-unit-type="paragraph">================================================================================</p>
+        <p class="read-unit" data-unit-type="paragraph">CASE NO. 4: Visitacion L. Estodillo and Jovelyn Estudillo v. Judge Teofilo D. Baluma</p>
+        <p class="read-unit" data-unit-type="paragraph">Citation: A.M. No. RTJ-04-1837 | Date Promulgated: March 23, 2004 | 426 SCRA 1</p>
+        <p class="read-unit" data-unit-type="paragraph">Division: Second Division | Ponente: Justice Romeo J. Callejo, Sr.</p>
+        <p class="read-unit" data-unit-type="paragraph">Topic: Rule 110 (Prosecution of Offenses) - Distinctions Between Complaint and Information / Formal Requisites of an Information (Subscription under Official Oath vs. Sworn Statement) / Rule 110 Sections 3 and 4 / Gross Ignorance of Basic Law</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------------------------------------------------</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Information:**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **1) Who is the complainant?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Complainants in the Administrative Case:** Visitacion L. Estodillo and her minor daughter, Jovelyn Estudillo.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Formal / Public Complainant in Underlying Criminal Case:** People of the Philippines, upon complaint of Jovelyn Estudillo.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **2) What is the ground of the case filed/ accusation?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Administrative Charge:** Gross and Inexcusable Ignorance of the Law and Grave Abuse of Authority against Judge Teofilo D. Baluma (Presiding Judge, RTC Bohol, Branch 1) for dismissively throwing out a criminal Information for child abuse on the legally erroneous ground that the Information was &quot;not subscribed and sworn to&quot; by the prosecutor.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Underlying Criminal Charge:** Accused Fredie Cirilo Nocos y Urot committed acts of child abuse against 13-year-old Jovelyn Estudillo.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **3) Committed crime/violation and if there is a probable cause?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Administrative Violation:** Gross Ignorance of the Law and Procedure (Rule 140 of the Rules of Court / Code of Judicial Conduct).</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Underlying Criminal Violation:** Violation of Section 10(a) of Republic Act No. 7610 (Special Protection of Children Against Child Abuse, Exploitation and Discrimination Act). Probable cause was duly established by the City Prosecutor.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **4) If there is a law/s to punish/ or is the case file has ground?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   Rule 140 of the Rules of Court (Discipline of Judges); Section 3 &amp; Section 4 of Rule 110 of the Revised Rules of Criminal Procedure; Section 10(a) of R.A. 7610.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **5) When the case was filed?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   The criminal Information was filed on August 21, 2002. Judge Baluma dismissed it on August 27, 2002. The administrative complaint was filed in October 2002. The Supreme Court promulgated its decision on March 23, 2004.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **6) Place/location the case is filed?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   Regional Trial Court (RTC) of Bohol, Branch 1, Tagbilaran City (Family Court) / Supreme Court of the Philippines (Administrative Matter).</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **7) What court has the jurisdiction in the case and why?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Supreme Court of the Philippines (Administrative Jurisdiction).**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   Under Article VIII, Section 6 of the 1987 Constitution, the Supreme Court has exclusive administrative supervision and disciplinary power over all courts and judges.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   *Underlying Criminal Jurisdiction:* RTC of Bohol, Branch 1 (Family Court under R.A. 8369).</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **8) Where is the trial will be held?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   Supreme Court of the Philippines (Administrative Matter) / RTC of Bohol, Branch 1, Tagbilaran City (Criminal Case No. 11627).</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-17-1-facts">
+          <header class="section-header">
+            <h3 class="section-title level-2">1. FACTS:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-17-1-facts')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">On August 21, 2002, 2nd Assistant City Prosecutor Sisinio C. Virtudazo of Tagbilaran City filed a criminal Information for &quot;Other Acts of Child Abuse&quot; under Section 10(a) of R.A. 7610 against Fredie Cirilo Nocos y Urot before the Regional Trial Court of Bohol, Branch 1 (designated Family Court), presided over by respondent Judge Teofilo D. Baluma (Criminal Case No. 11627). The criminal case stemmed from a sworn complaint filed by 13-year-old Jovelyn Estudillo and her mother Visitacion L. Estodillo.</p>
+        <p class="read-unit" data-unit-type="paragraph">The Information was signed (&quot;subscribed&quot;) by Assistant City Prosecutor Virtudazo with the prior written approval of City Prosecutor Rodolfo R. Ligason. At the bottom of the Information, Prosecutor Virtudazo executed the standard certification under oath that a preliminary investigation had been conducted in accordance with law and that there was reasonable ground to believe that the crime was committed and the accused was probably guilty.</p>
+        <p class="read-unit" data-unit-type="paragraph">On August 27, 2002, without any motion from the accused and before arraignment, Judge Teofilo D. Baluma *motu proprio* issued an Order dismissing Criminal Case No. 11627 on the ground that the Information was &quot;not subscribed and sworn to by the Assistant City Prosecutor,&quot; declaring the Information fatally defective and null and void.</p>
+        <p class="read-unit" data-unit-type="paragraph">Prosecutor Virtudazo filed a Motion for Reconsideration, citing Section 4, Rule 110 of the Rules of Court which explicitly provides that an Information only needs to be *subscribed* by the prosecutor and is not required to be sworn to. Judge Baluma subsequently granted the reconsideration and reinstated the case.</p>
+        <p class="read-unit" data-unit-type="paragraph">However, the private complainants, Visitacion L. Estodillo and Jovelyn Estudillo, filed an administrative complaint before the Office of the Court Administrator (OCA) charging Judge Baluma with Gross and Inexcusable Ignorance of the Law and Grave Abuse of Authority.</p>
+        <p class="read-unit" data-unit-type="paragraph">a1. FACTS:</p>
+        <p class="read-unit" data-unit-type="paragraph">A mother and her 13-year-old daughter filed a child abuse case against a man in Tagbilaran City. The prosecutor investigated the case, signed the formal charge sheet (Information), certified under oath that there was probable cause, and filed it in the Family Court. However, the trial judge immediately threw out and dismissed the criminal case on his own, claiming that the Information was completely void because the prosecutor did not have the main text of the charge sheet &quot;sworn to under oath.&quot; The prosecutor had to point out the basic rule book to the judge, showing that only a private &quot;complaint&quot; must be sworn to, while a prosecutor&#x27;s &quot;Information&quot; only needs to be signed. The mother and daughter then filed an administrative complaint against the judge for not knowing elementary law.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-18-2-issues">
+          <header class="section-header">
+            <h3 class="section-title level-2">2. ISSUE/S:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-18-2-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Whether an Information filed in court by a public prosecutor is required to be subscribed and sworn to under oath, and whether Judge Baluma&#x27;s dismissal of the criminal case on that ground constituted Gross Ignorance of the Law.</p>
+        <p class="read-unit" data-unit-type="paragraph">a2. ISSUE/S:</p>
+        <p class="read-unit" data-unit-type="paragraph">Does a criminal charge sheet (Information) signed by a government prosecutor have to be sworn under oath like a private complaint, and is a judge guilty of gross ignorance of the law for dismissing a case because it wasn&#x27;t sworn to?</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-19-3-courts-ruling">
+          <header class="section-header">
+            <h3 class="section-title level-2">3. COURT&#x27;S RULING:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-19-3-courts-ruling')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">No (an Information does not need to be sworn to), and Yes (Judge Baluma was guilty of Gross Ignorance of the Law). The Supreme Court reprimanded Judge Baluma with a stern warning.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">1.  **Distinction Between Complaint and Information (Rule 110, Sections 3 &amp; 4):**</div></div>
+        <p class="read-unit" data-unit-type="paragraph">The Supreme Court underscored the elementary distinction between a Complaint and an Information:</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Complaint (Section 3, Rule 110):** *&quot;A complaint is a sworn written statement charging a person with an offense, subscribed by the offended party, any peace officer, or other public officer charged with the enforcement of the law violated.&quot;*</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Information (Section 4, Rule 110):** *&quot;An information is an accusation in writing charging a person with an offense, subscribed by the prosecutor and filed with the court.&quot;*</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">2.  **Why an Information Does NOT Need an Oath:**</div></div>
+        <p class="read-unit" data-unit-type="paragraph">An Information is filed by a public prosecutor who is an officer of the law acting under the solemn responsibility of his official oath of office. The prosecutor&#x27;s official oath accompanies every official act he performs. Therefore, there is NO statutory or procedural requirement that the Information itself be sworn to. The certification executed by the prosecutor regarding the conduct of a preliminary investigation is sufficient.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">3.  **Gross Ignorance of the Law:**</div></div>
+        <p class="read-unit" data-unit-type="paragraph">The distinction between a complaint and an information is an elementary rule of criminal procedure taught in basic law studies. When the law is so elementary, not to know it or to act as if one does not know it constitutes gross ignorance of the law. A judge is expected to exhibit more than just a cursory acquaintance with the basic Rules of Court. Judge Baluma&#x27;s erroneous dismissal caused undue delay in a child abuse prosecution and undermined public confidence in the judiciary.</p>
+        <p class="read-unit" data-unit-type="paragraph">a3. COURT&#x27;S RULING:</p>
+        <p class="read-unit" data-unit-type="paragraph">No, an Information does NOT need to be sworn to under oath, and Yes, the judge was guilty of gross ignorance of the law.</p>
+        <p class="read-unit" data-unit-type="paragraph">The Supreme Court explained that:</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">1. A private &quot;Complaint&quot; (Rule 110, Section 3) must be sworn under oath by the victim or police officer.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">2. A prosecutor&#x27;s &quot;Information&quot; (Rule 110, Section 4) only needs to be signed (&quot;subscribed&quot;). The prosecutor does not need to swear to it every time because they already took a solemn oath of office when they became a government prosecutor.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Confusing an Information with a Complaint is a first-year law school error. The Supreme Court reprimanded the judge and warned him that repeating such basic mistakes would lead to severe penalties.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-20-4-applicable-doctrine-criminal-procedure-application">
+          <header class="section-header">
+            <h3 class="section-title level-2">4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-20-4-applicable-doctrine-criminal-procedure-application')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Rule 110, Section 3 vs. Section 4 (The Definitive Distinction):**</div></div>
+        <p class="read-unit" data-unit-type="paragraph">| Feature | Complaint (Sec. 3) | Information (Sec. 4) |</p>
+        <p class="read-unit" data-unit-type="paragraph">| :--- | :--- | :--- |</p>
+        <p class="read-unit" data-unit-type="paragraph">| **Form** | Sworn written statement | Accusation in writing (need not be sworn) |</p>
+        <p class="read-unit" data-unit-type="paragraph">| **Subscriber** | Offended party, peace officer, or enforcing public officer | Public Prosecutor |</p>
+        <p class="read-unit" data-unit-type="paragraph">| **Filing Target** | Prosecutor&#x27;s Office (or MTC in proper cases) | The Trial Court having jurisdiction |</p>
+        <p class="read-unit" data-unit-type="paragraph">| **Official Oath** | Requires separate jurat / swearing | Supported by the prosecutor&#x27;s official oath of office |</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Rule 112, Section 4 (Prosecutor&#x27;s Certification):** The certification at the foot of an Information that preliminary investigation was conducted and probable cause exists does not transform the Information into a sworn complaint.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **DOJ Circular No. 015 &amp; Circular No. 028 (s. 2024) Standard Forms:** All standard Information templates issued by the National Prosecution Service require only the subscription and certification of the investigating prosecutor and the written approval of the Head of the Prosecution Office.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Judicial Competence (Canon 3, Code of Judicial Conduct):** Judges are duty-bound to master elementary procedural rules to avoid aborting valid criminal prosecutions.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">a4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</p>
+        <p class="read-unit" data-unit-type="paragraph">An Information filed by a prosecutor only requires a signature, not a notarized oath, because the prosecutor is an official acting under their government oath. A judge cannot throw out a case because of a non-existent oath requirement.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-21-5-relevance-to-the-topic-explanation">
+          <header class="section-header">
+            <h3 class="section-title level-2">5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-21-5-relevance-to-the-topic-explanation')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Under the syllabus topic *Rule 110 - Distinction between Complaint and Information / Requisites of Information,* this case serves as the leading administrative authority illustrating the statutory and practical differences between a complaint under Section 3 and an information under Section 4 of Rule 110.</p>
+        <p class="read-unit" data-unit-type="paragraph">a5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</p>
+        <p class="read-unit" data-unit-type="paragraph">Provides the foundational rule on the difference between a Complaint and an Information, emphasizing that a prosecutor&#x27;s charge sheet needs only a signature, not a sworn oath.</p>
+        <p class="read-unit" data-unit-type="paragraph">================================================================================</p>
+        <p class="read-unit" data-unit-type="paragraph">CASE NO. 5: Renato Cudia v. The Court of Appeals, The Hon. Carlos D. Rustia, Presiding Judge of RTC, Branch 56, Angeles City, and People of the Philippines</p>
+        <p class="read-unit" data-unit-type="paragraph">Citation: G.R. No. 110315 | Date Promulgated: January 16, 1998 | 284 SCRA 173</p>
+        <p class="read-unit" data-unit-type="paragraph">Division: Third Division | Ponente: Justice Jose C. Vitug (Romero, J., Acting Chairman)</p>
+        <p class="read-unit" data-unit-type="paragraph">Topic: Rule 110 (Prosecution of Offenses) - Who Must Prosecute Criminal Actions / Authority of Prosecutor to File Information / Territorial Authority of Prosecutors / Void Information / Requisites of Double Jeopardy (Rule 117, Section 7)</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">--------------------------------------------------------------------------------</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Information:**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **1) Who is the complainant?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Formal / Public Complainant:** People of the Philippines (representing the sovereign State).</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Initiating Officers / Complainants:** Arresting police officers of the Philippine National Police (PNP) / 173rd PC Company.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **2) What is the ground of the case filed/ accusation?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   The accused, Renato Cudia, was apprehended in possession of an unlicensed .38 caliber revolver with serial number and live ammunition without any permit or authority to possess the same.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **3) Committed crime/violation and if there is a probable cause?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   Illegal Possession of Firearms and Ammunition under Presidential Decree No. 1866.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Probable Cause:** Yes, probable cause was established. However, the first Information filed was legally void because the investigating prosecutor lacked territorial authority to file an Information for a crime committed in a different municipality outside his city.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **4) If there is a law/s to punish/ or is the case file has ground?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   Presidential Decree No. 1866 (Codifying the Laws on Illegal/Unlawful Possession, Manufacture, Dealing In, Acquisition or Disposition of Firearms, Ammunition or Explosives).</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **5) When the case was filed?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   The first Information was filed by the City Prosecutor of Angeles City on June 28, 1989 (Criminal Case No. 11542, RTC Angeles City). The second Information was filed by the Provincial Prosecutor of Pampanga on April 22, 1991 (Criminal Case No. 11987, RTC San Fernando, Pampanga). The Supreme Court promulgated its decision on January 16, 1998.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **6) Place/location the case is filed?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   Originally filed with the Regional Trial Court (RTC) of Angeles City, Branch 56 (incorrect venue / lack of territorial jurisdiction); subsequently re-filed with the Regional Trial Court (RTC) of San Fernando, Pampanga, Branch 46 (proper venue).</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **7) What court has the jurisdiction in the case and why?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Regional Trial Court (RTC) of San Fernando, Pampanga.**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   *Subject-Matter Jurisdiction:* Under B.P. Blg. 129, as amended, and P.D. 1866, illegal possession of firearms carries a penalty of *reclusion temporal* in its maximum period to *reclusion perpetua*, falling squarely under the exclusive original jurisdiction of the Regional Trial Court.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   *Territorial Jurisdiction:* Venue in criminal cases is jurisdictional (*locus delicti*). The firearm was discovered and seized in Mabalacat, Pampanga. The City Prosecutor and RTC of Angeles City had NO territorial jurisdiction over crimes committed in Mabalacat. Only the Provincial Prosecutor and RTC of Pampanga had jurisdiction.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **8) Where is the trial will be held?**</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   Regional Trial Court (RTC) of San Fernando, Pampanga, Branch 46.</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-22-1-facts">
+          <header class="section-header">
+            <h3 class="section-title level-2">1. FACTS:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-22-1-facts')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">On June 28, 1989, petitioner Renato Cudia was arrested by law enforcement operatives in the municipality of Mabalacat, Pampanga, for carrying an unlicensed .38 caliber revolver with ammunition. Following the arrest, the City Prosecutor of Angeles City conducted an inquest and filed an Information for Illegal Possession of Firearms and Ammunition under Presidential Decree No. 1866 before the Regional Trial Court of Angeles City, Branch 56 (Criminal Case No. 11542). Cudia was arraigned and entered a plea of not guilty.</p>
+        <p class="read-unit" data-unit-type="paragraph">During the trial, it was established that the arrest and the apprehension of the firearm took place in Barangay Malabanias / Mabalacat, Pampanga, an area outside the territorial limits of Angeles City. Realizing that the crime occurred in the municipality of Mabalacat (which was under the exclusive territorial jurisdiction of the Provincial Prosecutor of Pampanga and the RTC of San Fernando, Pampanga), the City Prosecutor of Angeles City filed a motion to dismiss Criminal Case No. 11542 on the ground of lack of territorial jurisdiction. Over Cudia&#x27;s objection, Judge Carlos D. Rustia of RTC Angeles City dismissed the case.</p>
+        <p class="read-unit" data-unit-type="paragraph">Subsequently, the Provincial Prosecutor of Pampanga conducted a preliminary investigation and filed a new Information for the exact same offense against Cudia before the Regional Trial Court of San Fernando, Pampanga (Criminal Case No. 11987). Cudia filed a Motion to Quash the new Information on the ground of Double Jeopardy (Rule 117, Section 7), asserting that he had already been arraigned and the first case was dismissed without his express consent.</p>
+        <p class="read-unit" data-unit-type="paragraph">The RTC of San Fernando denied Cudia&#x27;s motion to quash, and the Court of Appeals affirmed the denial. Cudia filed a Petition for Review on Certiorari before the Supreme Court.</p>
+        <p class="read-unit" data-unit-type="paragraph">a1. FACTS:</p>
+        <p class="read-unit" data-unit-type="paragraph">A man was caught carrying an unlicensed .38 caliber gun in the town of Mabalacat, Pampanga. However, he was mistakenly brought before the City Prosecutor of Angeles City, who charged him in the Angeles City court. After the man pleaded &quot;not guilty,&quot; it was discovered that the crime happened outside Angeles City (in Mabalacat), so the Angeles City prosecutor had no legal power over the case, and the Angeles judge dismissed it. Later, the correct Provincial Prosecutor of Pampanga filed the gun charges in the correct Pampanga court. The man objected, arguing &quot;Double Jeopardy&quot; — claiming he was being tried twice for the same crime after the first case was dismissed against his will.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-23-2-issues">
+          <header class="section-header">
+            <h3 class="section-title level-2">2. ISSUE/S:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-23-2-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">1. Whether an Information filed by a prosecutor who has no territorial authority over the place of commission of the crime is valid and confers jurisdiction upon the court.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">2. Whether the dismissal of the first Information barred the filing of the second Information on the ground of double jeopardy.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">a2. ISSUE/S:</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">1. Can a city prosecutor file criminal charges for a crime that happened in a completely different town outside his city?</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">2. Does dismissing a charge sheet that was filed in the wrong city by the wrong prosecutor protect the accused from being charged again in the correct court under &quot;Double Jeopardy&quot;?</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-24-3-courts-ruling">
+          <header class="section-header">
+            <h3 class="section-title level-2">3. COURT&#x27;S RULING:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-24-3-courts-ruling')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">No on both counts. The Supreme Court affirmed the Court of Appeals and ruled that double jeopardy did not attach.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">1.  **Authority to File Information is Jurisdictional:**</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Under Section 4 and Section 5, Rule 110 of the Rules of Court, an Information must be subscribed and filed by an officer authorized by law. The authority of a prosecutor to investigate and file criminal charges is strictly confined within his designated territorial jurisdiction.</p>
+        <p class="read-unit" data-unit-type="paragraph">The City Prosecutor of Angeles City had no legal authority to file an Information for an offense committed in Mabalacat, Pampanga. An Information filed by a prosecutor who lacks authority is void *ab initio*. It confers NO jurisdiction upon the trial court over the offense.</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">2.  **Requisites of Double Jeopardy Not Satisfied:**</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Under Section 7, Rule 117 of the Rules of Court, for double jeopardy to attach, four indispensable requisites must concur:</p>
+        <p class="read-unit" data-unit-type="paragraph">(a) A valid complaint or information;</p>
+        <p class="read-unit" data-unit-type="paragraph">(b) Before a court of competent jurisdiction;</p>
+        <p class="read-unit" data-unit-type="paragraph">(c) The accused has been arraigned and entered a plea; and</p>
+        <p class="read-unit" data-unit-type="paragraph">(d) The accused was convicted, acquitted, or the case was dismissed without his express consent.</p>
+        <p class="read-unit" data-unit-type="paragraph">Here, the first two requisites were fatally absent:</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- The first Information was NOT valid because it was filed by an officer lacking statutory and territorial authority; and</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">- The RTC of Angeles City was NOT a court of competent jurisdiction because territorial venue in criminal cases is jurisdictional (*Rule 110, Section 15*).</div></div>
+        <p class="read-unit" data-unit-type="paragraph">Because the first trial court never acquired jurisdiction, legal jeopardy never attached. Therefore, the dismissal of Criminal Case No. 11542 did not constitute a bar to the subsequent filing of a valid Information by the Provincial Prosecutor of Pampanga before the RTC of San Fernando.</p>
+        <p class="read-unit" data-unit-type="paragraph">a3. COURT&#x27;S RULING:</p>
+        <p class="read-unit" data-unit-type="paragraph">No to both questions. The Supreme Court ruled that the man could be tried in the second court and that &quot;Double Jeopardy&quot; did not apply:</p>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">1. A prosecutor only has power inside their assigned city or province. Because the gun was found in Mabalacat, the Angeles City prosecutor had zero authority to file the case, making the first charge sheet completely null and void.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">2. For Double Jeopardy to protect you, the first trial must have started with a VALID charge sheet in a court that actually had LEGAL POWER (jurisdiction) over the case. Because the first case was filed by the wrong prosecutor in the wrong city, the first court never had legal power, and the accused was never in real legal danger (jeopardy). Therefore, the correct prosecutor in Pampanga has every right to file the case and put him on trial.</div></div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-25-4-applicable-doctrine-criminal-procedure-application">
+          <header class="section-header">
+            <h3 class="section-title level-2">4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-25-4-applicable-doctrine-criminal-procedure-application')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Rule 110, Section 4 &amp; 5 (Authority of Filing Prosecutor):** The filing of a criminal Information by an officer without statutory authority is a jurisdictional defect that renders the proceedings void *ab initio*. It is non-curable by amendment or waiver.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Rule 110, Section 15 (Territorial Jurisdiction &amp; Venue):** In Philippine criminal procedure, venue is jurisdictional. A court cannot try an offense committed outside its territorial boundaries.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **Rule 117, Section 7 (Elements of Double Jeopardy):** Double jeopardy requires a valid information before a competent court. If the first information is void or the court lacks jurisdiction, the accused is not placed in legal jeopardy, and dismissal will not bar subsequent prosecution before the proper forum.</div></div>
+        <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">*   **DOJ Circulars No. 015 &amp; 028 (s. 2024) Territorial Referral Mandate:** If an investigating prosecutor receives a complaint for an offense committed outside their territorial jurisdiction, the prosecutor must immediately issue an Order of Referral transmitting the records to the proper City or Provincial Prosecution Office having territorial jurisdiction, preventing void filings.</div></div>
+        <p class="read-unit" data-unit-type="paragraph">a4. APPLICABLE DOCTRINE &amp; CRIMINAL PROCEDURE APPLICATION:</p>
+        <p class="read-unit" data-unit-type="paragraph">A prosecutor cannot file cases for crimes that happened in another municipality. If a case is filed by the wrong prosecutor in the wrong city, the proceedings are legally invisible and void. Dismissing that void case does not trigger Double Jeopardy, and the correct prosecutor can file the charges again in the proper court.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-26-5-relevance-to-the-topic-explanation">
+          <header class="section-header">
+            <h3 class="section-title level-2">5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-26-5-relevance-to-the-topic-explanation')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Under the syllabus topic *Rule 110 - Who Must Prosecute Criminal Actions / Territorial Authority of Prosecutors / Requisites of Valid Information / Double Jeopardy,* this case is the landmark precedent establishing that:</p>
+        <p class="read-unit" data-unit-type="paragraph">(1) An unauthorized prosecutor produces a void Information;</p>
+        <p class="read-unit" data-unit-type="paragraph">(2) Venue is strictly jurisdictional in criminal cases; and</p>
+        <p class="read-unit" data-unit-type="paragraph">(3) Legal jeopardy never attaches to a proceeding founded on a void Information before a court without territorial jurisdiction.</p>
+        <p class="read-unit" data-unit-type="paragraph">a5. RELEVANCE TO THE TOPIC &amp; EXPLANATION:</p>
+        <p class="read-unit" data-unit-type="paragraph">Serves as the foundational case proving that a charge sheet filed by an unauthorized prosecutor is void from the beginning and cannot trigger Double Jeopardy to block a valid trial in the proper court.</p>
+        <p class="read-unit" data-unit-type="paragraph">================================================================================</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-27-summary-comparison-table-rule-110-jurisprudential-highlights">
+          <header class="section-header">
+            <h3 class="section-title level-2">SUMMARY COMPARISON TABLE: RULE 110 JURISPRUDENTIAL HIGHLIGHTS (WEEK 4)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-27-summary-comparison-table-rule-110-jurisprudential-highlights')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">================================================================================</p>
+        <p class="read-unit" data-unit-type="paragraph">| Case Name &amp; Citation | Specific Rule 110 / Procedural Topic | Key Ratio Decidendi | Impact on Criminal Procedure |</p>
+        <p class="read-unit" data-unit-type="paragraph">| :--- | :--- | :--- | :--- |</p>
+        <p class="read-unit" data-unit-type="paragraph">| **Chua v. Padillo** (G.R. No. 163797, 2007) | Sec. 5 (Control of Prosecution) &amp; Sec. 4, Rule 112 (Probable Cause) | Executive prosecutorial discretion is subject to judicial review via Rule 65 when the DOJ Secretary acts with grave abuse of discretion by ignoring financial/circumstantial proof of conspiracy. | Prevents arbitrary dismissal/exclusion of co-conspirators when probable cause is supported by bank records. |</p>
+        <p class="read-unit" data-unit-type="paragraph">| **Bureau of Customs v. Sherman** (G.R. No. 190487, 2011) | Sec. 5 (Control of Prosecution), Sec. 16 (Intervention) &amp; OSG Mandate | Government agencies/bureaus acting as nominal complainants cannot appeal criminal dismissals before the SC without the authorization and representation of the OSG. | Establishes the sole authority of the OSG in appellate criminal proceedings and affirms prosecutorial control over motions to withdraw. |</p>
+        <p class="read-unit" data-unit-type="paragraph">| **People v. Cinco** (G.R. No. 186460, 2009) | Sec. 6 (Sufficiency of Info) &amp; Sec. 11 (Date of Offense) | In offenses where date is not a material element (e.g. rape), alleging &quot;on or about [month/year]&quot; is legally sufficient. Objections to vagueness must be raised via Bill of Particulars prior to plea. | Prevents technical dismissals based on approximate dates and enforces waiver of formal defects upon entering a plea. |</p>
+        <p class="read-unit" data-unit-type="paragraph">| **Estodillo v. Judge Baluma** (A.M. No. RTJ-04-1837, 2004) | Sec. 3 (Complaint) vs. Sec. 4 (Information) &amp; Rule 112 | An Information is NOT required to be sworn to; it is only subscribed by the prosecutor who acts under official oath of office. Dismissing an Information for lack of oath is gross ignorance. | Clarifies the structural difference between private complaints and public informations. |</p>
+        <p class="read-unit" data-unit-type="paragraph">| **Cudia v. Court of Appeals** (G.R. No. 110315, 1998) | Sec. 4 &amp; 5 (Prosecutor&#x27;s Authority), Sec. 15 (Venue) &amp; Rule 117 (Double Jeopardy) | An Information filed by a prosecutor without territorial authority over the place of the crime is void ab initio. The court acquires no jurisdiction, and double jeopardy does not attach to bar re-filing. | Enforces strict territorial limits on prosecutors and establishes that void informations do not trigger double jeopardy. |</p>
+        <p class="read-unit" data-unit-type="paragraph">================================================================================</p>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <footer class="app-footer">
+    <p>MLC Interactive Legal Study Hub • Natural Cadence Web Speech Synthesis Engine</p>
+    <p style="margin-top: 0.25rem; opacity: 0.7;">Click any paragraph to start reading aloud • Fully compatible with Brave Read Aloud & extensions</p>
+  </footer>
+
+  <!-- Floating Selection Audio Trigger -->
+  <button id="floatingTtsTrigger" aria-label="Read Selection Aloud">🔊 Read Selection</button>
+
+  <!-- Natural Voice & Speech Synthesis Application Logic -->
+  <script>
+    (function() {
+      // 1. Theme Management
+      const themeSelect = document.getElementById('themeSelect');
+      const savedTheme = localStorage.getItem('mlc_reader_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      themeSelect.value = savedTheme;
+
+      themeSelect.addEventListener('change', (e) => {
+        document.documentElement.setAttribute('data-theme', e.target.value);
+        localStorage.setItem('mlc_reader_theme', e.target.value);
+      });
+
+      // 2. Font Size Controls
+      let currentFontSize = parseInt(localStorage.getItem('mlc_font_size') || '17', 10);
+      document.documentElement.style.fontSize = currentFontSize + 'px';
+
+      document.getElementById('fontIncBtn').addEventListener('click', () => {
+        if (currentFontSize < 26) {
+          currentFontSize += 1;
+          document.documentElement.style.fontSize = currentFontSize + 'px';
+          localStorage.setItem('mlc_font_size', currentFontSize);
+        }
+      });
+
+      document.getElementById('fontDecBtn').addEventListener('click', () => {
+        if (currentFontSize > 12) {
+          currentFontSize -= 1;
+          document.documentElement.style.fontSize = currentFontSize + 'px';
+          localStorage.setItem('mlc_font_size', currentFontSize);
+        }
+      });
+
+      // 3. Sidebar Mobile Toggle & Search
+      const sidebar = document.getElementById('appSidebar');
+      const toggleSidebarBtn = document.getElementById('toggleSidebarBtn');
+      toggleSidebarBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+      });
+
+      const searchInput = document.getElementById('sidebarSearch');
+      const tocItems = document.querySelectorAll('.toc-nav li');
+      searchInput.addEventListener('input', (e) => {
+        const q = e.target.value.toLowerCase().trim();
+        tocItems.forEach(li => {
+          const txt = li.textContent.toLowerCase();
+          li.style.display = txt.includes(q) ? '' : 'none';
+        });
+      });
+
+      // 4. Reading Progress Bar
+      window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / (height || 1)) * 100;
+        document.getElementById('readingProgressBar').style.width = scrolled + '%';
+      });
+
+      // =========================================================================
+      // 5. ENHANCED NATURAL SPEECH SYNTHESIS ENGINE
+      // =========================================================================
+      const synth = window.speechSynthesis;
+      let readUnits = [];
+      let currentUnitIndex = -1;
+      let isPaused = false;
+      let voices = [];
+      let nextUtteranceTimeout = null;
+      let lastSectionId = null;
+
+      const playPauseBtn = document.getElementById('ttsPlayPauseBtn');
+      const stopBtn = document.getElementById('ttsStopBtn');
+      const nextBtn = document.getElementById('ttsNextBtn');
+      const prevBtn = document.getElementById('ttsPrevBtn');
+      const playIcon = document.getElementById('ttsPlayIcon');
+      const pauseIcon = document.getElementById('ttsPauseIcon');
+      const statusBadge = document.getElementById('ttsStatus');
+      const speedSelect = document.getElementById('ttsSpeedSelect');
+      const voiceSelect = document.getElementById('ttsVoiceSelect');
+
+      function updateReadUnits() {
+        readUnits = Array.from(document.querySelectorAll('.read-unit'));
+      }
+      updateReadUnits();
+
+      // Intelligent Voice Ranking (Prefers Natural / Neural / High-Tier Human Voices)
+      function scoreVoice(v) {
+        const name = (v.name || '').toLowerCase();
+        let score = 0;
+        if (v.lang.startsWith('en')) score += 50;
+        if (v.lang === 'en-US' || v.lang === 'en-GB') score += 20;
+        if (name.includes('natural') || name.includes('neural') || name.includes('online')) score += 100;
+        if (name.includes('jenny') || name.includes('guy') || name.includes('aria') || name.includes('ryan') || name.includes('sonia')) score += 80;
+        if (name.includes('google') && !name.includes('legacy')) score += 70;
+        if (name.includes('premium') || name.includes('enhanced') || name.includes('siri')) score += 60;
+        if (name.includes('david') || name.includes('zira') || name.includes('mark')) score += 30;
+        return score;
+      }
+
+      function populateVoiceList() {
+        if (!synth) return;
+        const allVoices = synth.getVoices();
+        const enVoices = allVoices.filter(v => v.lang.startsWith('en'));
+        enVoices.sort((a, b) => scoreVoice(b) - scoreVoice(a));
+        voices = enVoices;
+
+        voiceSelect.innerHTML = '';
+        voices.forEach((v, idx) => {
+          const opt = document.createElement('option');
+          opt.value = idx;
+          const isNatural = (v.name.toLowerCase().includes('natural') || v.name.toLowerCase().includes('neural') || v.name.toLowerCase().includes('online'));
+          opt.textContent = (isNatural ? '✨ ' : '') + v.name + ' (' + v.lang + ')';
+          if (idx === 0) opt.selected = true;
+          voiceSelect.appendChild(opt);
+        });
+      }
+
+      if (synth) {
+        populateVoiceList();
+        if (speechSynthesis.onvoiceschanged !== undefined) {
+          speechSynthesis.onvoiceschanged = populateVoiceList;
+        }
+      }
+
+      // Smart Legal Phonetic Pre-Processor (Expands abbreviations & introduces natural prosody)
+      function prepareSpeechText(unit) {
+        let text = (unit.innerText || unit.textContent || '').trim();
+        const parentSec = unit.closest('section.doc-section');
+        const unitType = unit.getAttribute('data-unit-type') || '';
+        const badgeLabel = unit.getAttribute('data-badge-label') || '';
+
+        // Label announcing for case components
+        if (badgeLabel) {
+          if (badgeLabel.includes('DOCTRINE') || badgeLabel.includes('PRINCIPLE')) {
+            text = 'Key Doctrine: ' + text;
+          } else if (badgeLabel.includes('FACTS')) {
+            text = 'Case Facts: ' + text.replace(/^FACTS:?\\s*/i, '');
+          } else if (badgeLabel.includes('ISSUE')) {
+            text = 'Legal Issue: ' + text.replace(/^ISSUE:?\\s*/i, '');
+          } else if (badgeLabel.includes('HELD') || badgeLabel.includes('RULING')) {
+            text = 'Court Ruling and Held: ' + text.replace(/^(HELD|RULING):?\\s*/i, '');
+          }
+        } else if (unitType === 'quote') {
+          text = 'Quote: ' + text;
+        } else if (unitType === 'numbered') {
+          text = text.replace(/^(\d+)\.\\s*/, 'Item $1: ');
+        }
+
+        // Clean & expand common legal abbreviations for natural pronunciation
+        text = text
+          .replace(/\bG\.R\.\s*No\.?\s*([\d\-]+)/gi, 'G R Number $1')
+          .replace(/\bSCRA\b/g, 'S-C-R-A')
+          .replace(/\bPhil\.\s*(\d+)/gi, 'Philippine Reports volume $1')
+          .replace(/\bArt\.\s*(\d+)/gi, 'Article $1')
+          .replace(/\bArts\.\s*([\d,\s\-]+)/gi, 'Articles $1')
+          .replace(/\bSec\.\s*(\d+)/gi, 'Section $1')
+          .replace(/\bSecs\.\s*([\d,\s\-]+)/gi, 'Sections $1')
+          .replace(/\bPar\.\s*(\d+)/gi, 'Paragraph $1')
+          .replace(/\bPars\.\s*([\d,\s\-]+)/gi, 'Paragraphs $1')
+          .replace(/\bRPC\b/g, 'Revised Penal Code')
+          .replace(/\bCPR\b/g, 'Code of Professional Responsibility')
+          .replace(/\bCPRA\b/g, 'Code of Professional Responsibility and Accountability')
+          .replace(/\bConst\.\b/gi, 'Constitution')
+          .replace(/\bP\.D\.\s*No\.?\s*(\d+)/gi, 'Presidential Decree Number $1')
+          .replace(/\bR\.A\.\s*No\.?\s*(\d+)/gi, 'Republic Act Number $1')
+          .replace(/\bA\.C\.\s*No\.?\s*([A-Za-z0-9\-]+)/gi, 'Administrative Case Number $1')
+          .replace(/\bA\.M\.\s*No\.?\s*([A-Za-z0-9\-]+)/gi, 'Administrative Matter Number $1')
+          .replace(/\bet\s+al\./gi, 'and others')
+          .replace(/\bi\.e\./gi, 'that is')
+          .replace(/\be\.g\./gi, 'for example')
+          .replace(/\bviz\./gi, 'namely')
+          .replace(/\s+v(?:s)?\.\s+/gi, ' versus ')
+          .replace(/—/g, ', — ')
+          .replace(/–/g, ', ')
+          .replace(/;\s*/g, ';, ') // Introduce micro-pause at semicolons
+          .replace(/:\s*/g, ': ... ') // Introduce clear pause at colons
+          .replace(/\(([a-z\d])\)/gi, 'sub-item $1, ');
+
+        return text.trim();
+      }
+
+      function setSpeakingState(speaking, paused = false) {
+        if (speaking && !paused) {
+          playIcon.style.display = 'none';
+          pauseIcon.style.display = 'inline';
+          statusBadge.textContent = 'Speaking...';
+          statusBadge.className = 'tts-status-badge speaking';
+        } else if (paused) {
+          playIcon.style.display = 'inline';
+          pauseIcon.style.display = 'none';
+          statusBadge.textContent = 'Paused';
+          statusBadge.className = 'tts-status-badge';
+        } else {
+          playIcon.style.display = 'inline';
+          pauseIcon.style.display = 'none';
+          statusBadge.textContent = 'Ready';
+          statusBadge.className = 'tts-status-badge';
+          clearHighlights();
+        }
+      }
+
+      function clearHighlights() {
+        readUnits.forEach(u => u.classList.remove('is-speaking'));
+      }
+
+      function highlightUnit(idx) {
+        clearHighlights();
+        if (idx >= 0 && idx < readUnits.length) {
+          const unit = readUnits[idx];
+          unit.classList.add('is-speaking');
+          unit.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+
+      function speakUnit(idx) {
+        if (!synth) return;
+        if (nextUtteranceTimeout) {
+          clearTimeout(nextUtteranceTimeout);
+          nextUtteranceTimeout = null;
+        }
+
+        if (idx < 0 || idx >= readUnits.length) {
+          setSpeakingState(false);
+          currentUnitIndex = -1;
+          lastSectionId = null;
+          return;
+        }
+
+        synth.cancel();
+        currentUnitIndex = idx;
+        const unit = readUnits[idx];
+        highlightUnit(idx);
+
+        const currentSection = unit.closest('section.doc-section');
+        const currentSecId = currentSection ? currentSection.id : null;
+        
+        // Detect section transition for topic announcement & deliberate pause
+        let isNewSection = (currentSecId && currentSecId !== lastSectionId);
+        lastSectionId = currentSecId;
+
+        let processedText = prepareSpeechText(unit);
+        
+        // If entering a new section, announce the Topic / Section header first
+        if (isNewSection && currentSection) {
+          const headerEl = currentSection.querySelector('.section-title');
+          if (headerEl) {
+            const hText = headerEl.innerText.trim();
+            processedText = 'New Topic: ' + hText + ' ... ... ' + processedText;
+          }
+        }
+
+        if (!processedText) {
+          speakUnit(idx + 1);
+          return;
+        }
+
+        const utterance = new SpeechSynthesisUtterance(processedText);
+        
+        // Calibrated study speech rate & natural pitch
+        const baseRate = parseFloat(speedSelect.value) || 0.9;
+        utterance.rate = baseRate;
+        utterance.pitch = 1.0;
+
+        const selectedVoiceIdx = voiceSelect.value;
+        if (selectedVoiceIdx !== 'default' && voices[selectedVoiceIdx]) {
+          utterance.voice = voices[selectedVoiceIdx];
+        } else if (voices.length > 0) {
+          utterance.voice = voices[0];
+        }
+
+        utterance.onend = () => {
+          if (currentUnitIndex === idx && !isPaused) {
+            // Calculate natural pause before next unit (longer pause if changing section/topic)
+            const nextIdx = idx + 1;
+            let pauseDuration = 400; // standard natural clause pause
+            
+            if (nextIdx < readUnits.length) {
+              const nextSec = readUnits[nextIdx].closest('section.doc-section');
+              if (nextSec && nextSec.id !== lastSectionId) {
+                pauseDuration = 1000; // 1 full second pause on topic change
+              }
+            }
+
+            nextUtteranceTimeout = setTimeout(() => {
+              speakUnit(nextIdx);
+            }, pauseDuration);
+          }
+        };
+
+        utterance.onerror = (e) => {
+          if (e.error !== 'interrupted' && e.error !== 'canceled') {
+            console.warn('TTS natural playback warning:', e);
+          }
+          setSpeakingState(false);
+        };
+
+        synth.speak(utterance);
+        setSpeakingState(true, false);
+      }
+
+      playPauseBtn.addEventListener('click', () => {
+        if (!synth) return;
+        if (synth.speaking && !synth.paused) {
+          synth.pause();
+          isPaused = true;
+          setSpeakingState(true, true);
+        } else if (synth.paused) {
+          synth.resume();
+          isPaused = false;
+          setSpeakingState(true, false);
+        } else {
+          isPaused = false;
+          speakUnit(currentUnitIndex >= 0 ? currentUnitIndex : 0);
+        }
+      });
+
+      stopBtn.addEventListener('click', () => {
+        if (!synth) return;
+        if (nextUtteranceTimeout) {
+          clearTimeout(nextUtteranceTimeout);
+          nextUtteranceTimeout = null;
+        }
+        synth.cancel();
+        isPaused = false;
+        setSpeakingState(false);
+        currentUnitIndex = -1;
+        lastSectionId = null;
+      });
+
+      nextBtn.addEventListener('click', () => {
+        if (!synth) return;
+        isPaused = false;
+        speakUnit(currentUnitIndex + 1);
+      });
+
+      prevBtn.addEventListener('click', () => {
+        if (!synth) return;
+        isPaused = false;
+        speakUnit(Math.max(0, currentUnitIndex - 1));
+      });
+
+      speedSelect.addEventListener('change', () => {
+        if (synth && synth.speaking) {
+          speakUnit(currentUnitIndex);
+        }
+      });
+
+      voiceSelect.addEventListener('change', () => {
+        if (synth && synth.speaking) {
+          speakUnit(currentUnitIndex);
+        }
+      });
+
+      // Click on any paragraph to read from that exact spot with natural cadence
+      document.getElementById('contentWrapper').addEventListener('click', (e) => {
+        const unit = e.target.closest('.read-unit');
+        if (unit) {
+          const idx = readUnits.indexOf(unit);
+          if (idx !== -1) {
+            isPaused = false;
+            speakUnit(idx);
+          }
+        }
+      });
+
+      // Section Quick-Listen Handler
+      window.readSection = function(sectionId) {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          const firstUnit = el.querySelector('.read-unit');
+          if (firstUnit) {
+            const idx = readUnits.indexOf(firstUnit);
+            if (idx !== -1) {
+              isPaused = false;
+              lastSectionId = null; // force announcement of section
+              speakUnit(idx);
+            }
+          }
+        }
+      };
+
+      // Floating Selection Audio Button (with natural legal abbreviation expander)
+      const floatBtn = document.getElementById('floatingTtsTrigger');
+      document.addEventListener('mouseup', (e) => {
+        if (e.target.closest('#floatingTtsTrigger') || e.target.closest('.tts-toolbar') || e.target.closest('header')) return;
+        const sel = window.getSelection().toString().trim();
+        if (sel.length > 2) {
+          const rect = window.getSelection().getRangeAt(0).getBoundingClientRect();
+          floatBtn.style.top = (window.scrollY + rect.top - 44) + 'px';
+          floatBtn.style.left = (window.scrollX + rect.left + (rect.width / 2)) + 'px';
+          floatBtn.style.display = 'block';
+        } else {
+          floatBtn.style.display = 'none';
+        }
+      });
+
+      floatBtn.addEventListener('click', () => {
+        const sel = window.getSelection().toString().trim();
+        if (sel && synth) {
+          synth.cancel();
+          const dummyUnit = document.createElement('div');
+          dummyUnit.innerText = sel;
+          const naturalText = prepareSpeechText(dummyUnit);
+
+          const utterance = new SpeechSynthesisUtterance(naturalText);
+          utterance.rate = parseFloat(speedSelect.value) || 0.9;
+          utterance.pitch = 1.0;
+
+          const selectedVoiceIdx = voiceSelect.value;
+          if (selectedVoiceIdx !== 'default' && voices[selectedVoiceIdx]) {
+            utterance.voice = voices[selectedVoiceIdx];
+          } else if (voices.length > 0) {
+            utterance.voice = voices[0];
+          }
+
+          synth.speak(utterance);
+          setSpeakingState(true);
+          floatBtn.style.display = 'none';
+        }
+      });
+
+      // Keyboard Navigation
+      document.addEventListener('keydown', (e) => {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA') return;
+        if (e.code === 'Space') {
+          e.preventDefault();
+          playPauseBtn.click();
+        } else if (e.code === 'Escape') {
+          stopBtn.click();
+        } else if (e.key === 'n' || e.key === 'N') {
+          nextBtn.click();
+        } else if (e.key === 'p' || e.key === 'P') {
+          prevBtn.click();
+        } else if (e.key === 'd' || e.key === 'D') {
+          themeSelect.value = 'dark';
+          themeSelect.dispatchEvent(new Event('change'));
+        } else if (e.key === 's' || e.key === 'S') {
+          themeSelect.value = 'sepia';
+          themeSelect.dispatchEvent(new Event('change'));
+        } else if (e.key === 'l' || e.key === 'L') {
+          themeSelect.value = 'light';
+          themeSelect.dispatchEvent(new Event('change'));
+        } else if (e.key === '+' || e.key === '=') {
+          document.getElementById('fontIncBtn').click();
+        } else if (e.key === '-') {
+          document.getElementById('fontDecBtn').click();
+        } else if (e.key === '/') {
+          e.preventDefault();
+          searchInput.focus();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
