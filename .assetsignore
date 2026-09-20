@@ -1,10 +1,29 @@
-.git
-.git/**
-**/.git/**
+# Cloudflare Workers Assets Ignore File
+# Excludes files exceeding the 25 MiB limit and non-web development files
+
+# Large media files (> 25MB)
+*.mp3
+**/*.mp3
+
+# Source office / raw files (HTML readers are deployed instead)
+*.docx
+**/*.docx
+*.pdf
+**/*.pdf
+
+# Developer scripts and tools
 *.py
+**/*.py
 *.bat
 *.ps1
 __pycache__
 __pycache__/**
-*.crdownload
+.git
+.git/**
+**/.git/**
+node_modules
+node_modules/**
 *.tmp
+*.crdownload
+.vscode
+.vscode/**
