@@ -3,166 +3,129 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Basic Legal and Judiciary Ethics comprehensive review notes and study materials.">
   <title>Canons &amp; definition | MLC Law Library</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-primary: #0b1120;
       --bg-secondary: #131d31;
       --bg-tertiary: #1e293b;
-      --bg-card: rgba(19, 29, 49, 0.85);
-      --bg-card-hover: rgba(30, 41, 59, 0.95);
-      --border-color: rgba(148, 163, 184, 0.16);
-      --border-focus: #38bdf8;
+      --border-color: rgba(148, 163, 184, 0.14);
+      --border-focus: #fbbf24;
       --text-primary: #f8fafc;
       --text-secondary: #cbd5e1;
       --text-muted: #94a3b8;
       --accent-gold: #fbbf24;
       --accent-gold-dark: #d97706;
       --accent-blue: #38bdf8;
-      --accent-indigo: #818cf8;
       --accent-emerald: #34d399;
-      --accent-rose: #fb7185;
-      --highlight-reading: rgba(56, 189, 248, 0.22);
-      --font-body: 'Merriweather', Georgia, serif;
+      --accent-crimson: #f87171;
+      --accent-purple: #c084fc;
+      --highlight-bg: rgba(251, 191, 36, 0.22);
+      --highlight-border: #fbbf24;
+      --card-bg: rgba(19, 29, 49, 0.7);
       --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Merriweather', Georgia, serif;
       --font-heading: 'Cinzel', serif;
       --font-mono: 'JetBrains Mono', monospace;
-      --sidebar-width: 340px;
-      --header-height: 68px;
-      --content-max-width: 900px;
-      --base-font-size: 17px;
-      --line-height: 1.85;
+      --sidebar-width: 320px;
+      --header-height: 64px;
       --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
-      --glass-blur: blur(14px);
-    }
-
-    [data-theme="light"] {
-      --bg-primary: #f8fafc;
-      --bg-secondary: #ffffff;
-      --bg-tertiary: #f1f5f9;
-      --bg-card: rgba(255, 255, 255, 0.95);
-      --bg-card-hover: rgba(248, 250, 252, 1);
-      --border-color: rgba(203, 213, 225, 0.85);
-      --border-focus: #0284c7;
-      --text-primary: #0f172a;
-      --text-secondary: #334155;
-      --text-muted: #64748b;
-      --accent-gold: #b45309;
-      --accent-gold-dark: #92400e;
-      --accent-blue: #0284c7;
-      --accent-indigo: #4f46e5;
-      --accent-emerald: #059669;
-      --accent-rose: #e11d48;
-      --highlight-reading: rgba(2, 132, 199, 0.15);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
     }
 
     [data-theme="sepia"] {
-      --bg-primary: #fbf0d9;
-      --bg-secondary: #f4e4c1;
-      --bg-tertiary: #ecd6a7;
-      --bg-card: rgba(244, 228, 193, 0.95);
-      --bg-card-hover: rgba(236, 214, 167, 1);
-      --border-color: rgba(180, 150, 110, 0.45);
-      --border-focus: #9a6700;
+      --bg-primary: #fbf7ee;
+      --bg-secondary: #f4ecd8;
+      --bg-tertiary: #e9dfc4;
+      --border-color: rgba(120, 97, 65, 0.18);
+      --border-focus: #b45309;
       --text-primary: #2d241e;
-      --text-secondary: #4a3b32;
-      --text-muted: #786455;
-      --accent-gold: #a75d00;
-      --accent-gold-dark: #8c4c00;
-      --accent-blue: #2c6e91;
-      --accent-indigo: #5d4a82;
-      --accent-emerald: #2e7d32;
-      --accent-rose: #c2185b;
-      --highlight-reading: rgba(200, 150, 50, 0.22);
+      --text-secondary: #4a3e35;
+      --text-muted: #786c60;
+      --accent-gold: #b45309;
+      --accent-gold-dark: #92400e;
+      --accent-blue: #0284c7;
+      --accent-emerald: #059669;
+      --accent-crimson: #dc2626;
+      --accent-purple: #7c3aed;
+      --highlight-bg: rgba(217, 119, 6, 0.2);
+      --highlight-border: #b45309;
+      --card-bg: rgba(244, 236, 216, 0.85);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    [data-theme="light"] {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8fafc;
+      --bg-tertiary: #f1f5f9;
+      --border-color: #e2e8f0;
+      --border-focus: #d97706;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --accent-gold: #d97706;
+      --accent-gold-dark: #b45309;
+      --accent-blue: #0284c7;
+      --accent-emerald: #059669;
+      --accent-crimson: #dc2626;
+      --accent-purple: #7c3aed;
+      --highlight-bg: rgba(254, 240, 138, 0.5);
+      --highlight-border: #eab308;
+      --card-bg: rgba(248, 250, 252, 0.9);
     }
 
-    html {
-      scroll-behavior: smooth;
-      font-size: var(--base-font-size);
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       background-color: var(--bg-primary);
       color: var(--text-primary);
       font-family: var(--font-body);
-      line-height: var(--line-height);
+      font-size: 17px;
+      line-height: 1.8;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      transition: background-color 0.25s ease, color 0.25s ease;
-      overflow-x: hidden;
+      transition: background-color 0.2s ease, color 0.2s ease;
     }
 
-    /* Top Reading Progress Bar */
+    /* Scroll Progress Bar */
     #readingProgressBar {
       position: fixed;
       top: 0;
       left: 0;
       height: 3px;
-      width: 0%;
       background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue));
-      z-index: 999;
+      width: 0%;
+      z-index: 9999;
       transition: width 0.1s ease;
     }
 
-    /* Header */
+    /* App Header */
     header.app-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
       height: var(--header-height);
-      background-color: rgba(11, 17, 32, 0.92);
-      backdrop-filter: var(--glass-blur);
-      -webkit-backdrop-filter: var(--glass-blur);
+      background-color: var(--bg-secondary);
       border-bottom: 1px solid var(--border-color);
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 1.25rem;
-      gap: 1rem;
-    }
-
-    [data-theme="light"] header.app-header {
-      background-color: rgba(255, 255, 255, 0.92);
-    }
-
-    [data-theme="sepia"] header.app-header {
-      background-color: rgba(251, 240, 217, 0.94);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
     }
 
     .brand-section {
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      flex-shrink: 0;
     }
 
     .brand-logo {
-      width: 36px;
-      height: 36px;
-      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #0b1120;
-      font-weight: 900;
-      font-family: var(--font-ui);
-      font-size: 1.1rem;
-      box-shadow: var(--shadow-sm);
+      font-size: 1.4rem;
     }
 
     .brand-info {
@@ -171,31 +134,31 @@
     }
 
     .brand-title {
-      font-family: var(--font-ui);
+      font-family: var(--font-heading);
       font-weight: 700;
       font-size: 0.95rem;
-      color: var(--text-primary);
+      color: var(--accent-gold);
+      letter-spacing: 0.04em;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      max-width: 280px;
+      max-width: 320px;
     }
 
     .brand-subject {
       font-family: var(--font-ui);
       font-size: 0.72rem;
-      color: var(--accent-gold);
-      font-weight: 600;
+      color: var(--text-muted);
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
+      font-weight: 600;
     }
 
-    /* Controls Toolbar */
+    /* TTS Toolbar */
     .tts-toolbar {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
+      gap: 0.6rem;
     }
 
     .toolbar-group {
@@ -340,6 +303,12 @@
       text-overflow: ellipsis;
     }
 
+    .toc-link.level-2 {
+      padding-left: 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
     .toc-link:hover {
       background-color: var(--bg-tertiary);
       color: var(--accent-gold);
@@ -355,88 +324,130 @@
     /* Main Content Area */
     main.content-area {
       flex: 1;
+      max-width: 900px;
+      margin: 0 auto;
       padding: 2.5rem 2rem 5rem 2rem;
-      display: flex;
-      justify-content: center;
-      min-width: 0;
     }
 
-    .content-wrapper {
-      max-width: var(--content-max-width);
-      width: 100%;
-    }
-
-    /* Document Top Card */
+    /* Hero Card */
     .doc-hero-card {
-      background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+      background-color: var(--bg-secondary);
       border: 1px solid var(--border-color);
-      border-radius: 14px;
+      border-radius: 12px;
       padding: 2rem;
       margin-bottom: 2.5rem;
       box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .doc-hero-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--accent-gold), var(--accent-blue));
     }
 
     .doc-hero-subject {
       font-family: var(--font-ui);
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 700;
+      color: var(--accent-gold);
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: var(--accent-gold);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
     }
 
     .doc-hero-title {
       font-family: var(--font-heading);
-      font-size: 1.8rem;
+      font-size: 1.85rem;
       font-weight: 800;
       color: var(--text-primary);
       line-height: 1.3;
-      margin-bottom: 0.75rem;
+      margin-bottom: 1rem;
     }
 
     .doc-meta-stats {
       display: flex;
+      flex-wrap: wrap;
       gap: 1.25rem;
       font-family: var(--font-ui);
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       color: var(--text-muted);
-      flex-wrap: wrap;
     }
 
-    /* Case Section & Cards */
-    .doc-section {
-      margin-bottom: 3rem;
+    /* Studio Audio Player */
+    .studio-audio-player {
+      margin-top: 1.5rem;
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1rem;
+    }
+
+    .audio-player-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+    }
+
+    .audio-badge {
+      font-weight: 700;
+      color: var(--accent-emerald);
+    }
+
+    .audio-filename {
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+    }
+
+    audio.native-audio-element {
+      width: 100%;
+      height: 40px;
+      outline: none;
+    }
+
+    /* Case Section & Flowing Prose */
+    section.doc-section {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-divider {
+      border: 0;
+      height: 1px;
+      background: var(--border-color);
+      margin: 3.5rem 0;
     }
 
     .case-header-card {
-      background: linear-gradient(135deg, rgba(19, 29, 49, 0.95), rgba(15, 23, 42, 0.98));
-      border: 1px solid rgba(251, 191, 36, 0.35);
-      border-radius: 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
       padding: 1.25rem 1.5rem;
-      margin: 2.5rem 0 1.25rem 0;
-      box-shadow: var(--shadow-sm);
+      margin-bottom: 1.25rem;
       display: flex;
       align-items: center;
       gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    [data-theme="light"] .case-header-card {
-      background: linear-gradient(135deg, #ffffff, #f1f5f9);
-      border-color: rgba(180, 83, 9, 0.3);
+      box-shadow: var(--shadow-sm);
     }
 
     .case-number-pill {
       font-family: var(--font-ui);
-      font-size: 0.8rem;
-      font-weight: 800;
       background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
       color: #0b1120;
-      padding: 0.3rem 0.75rem;
-      border-radius: 6px;
-      letter-spacing: 0.04em;
-      flex-shrink: 0;
+      font-weight: 800;
+      font-size: 0.78rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 20px;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
     }
 
     .case-header-title {
@@ -444,118 +455,123 @@
       font-size: 1.35rem;
       font-weight: 700;
       color: var(--text-primary);
-      line-height: 1.35;
-      margin: 0;
-      flex: 1;
+      line-height: 1.3;
+    }
+
+    .topic-header-card {
+      background: var(--card-bg);
+      border-left: 4px solid var(--accent-gold);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .topic-header-title {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+    }
+
+    .subtopic-header-card {
+      margin: 1.5rem 0 1rem 0;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.4rem;
+    }
+
+    .subtopic-header-title {
+      font-family: var(--font-ui);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent-blue);
     }
 
     .case-citation-banner {
-      background: rgba(56, 189, 248, 0.08);
+      background-color: var(--bg-tertiary);
       border-left: 3px solid var(--accent-blue);
-      border-radius: 0 8px 8px 0;
+      border-radius: 6px;
       padding: 0.6rem 1rem;
-      margin-bottom: 1.5rem;
       font-family: var(--font-ui);
-      font-size: 0.88rem;
-      color: var(--accent-blue);
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.5rem;
     }
 
-    .citation-icon {
-      font-size: 1.1rem;
-    }
-
-    /* Subheadings within Case (Facts, Issue, Ruling) */
     .case-subheading {
       font-family: var(--font-ui);
-      font-size: 0.95rem;
+      font-size: 1.05rem;
       font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
       color: var(--accent-gold);
-      margin: 1.75rem 0 0.85rem 0;
-      padding-bottom: 0.35rem;
-      border-bottom: 1px solid rgba(251, 191, 36, 0.25);
+      margin: 2rem 0 0.85rem 0;
       display: flex;
       align-items: center;
-      gap: 0.45rem;
+      gap: 0.4rem;
+      letter-spacing: 0.02em;
     }
 
     .subheading-accent {
       color: var(--accent-gold);
-      font-size: 1rem;
+      font-weight: 800;
     }
 
     /* Continuous Flowing Body Paragraphs */
     .case-paragraph {
       margin-bottom: 1.25rem;
-      font-size: 1.05rem;
       line-height: 1.85;
       color: var(--text-primary);
       text-align: justify;
-      text-justify: inter-word;
-    }
-
-    .read-unit {
-      position: relative;
-      padding: 0.5rem 0.75rem;
-      border-radius: 8px;
+      transition: background-color 0.2s ease, transform 0.15s ease;
+      padding: 0.35rem 0.5rem;
+      border-radius: 6px;
       cursor: pointer;
-      transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
     }
 
-    .read-unit:hover {
-      background-color: rgba(148, 163, 184, 0.07);
+    .case-paragraph:hover {
+      background-color: rgba(255, 255, 255, 0.03);
     }
 
-    .read-unit.is-speaking {
-      background-color: var(--highlight-reading) !important;
-      border-left: 3px solid var(--accent-blue);
-      box-shadow: 0 0 14px rgba(56, 189, 248, 0.25);
-    }
-
-    /* ALAC and Reasoning Inline Badges */
+    /* ALAC Inline Badges & Paragraphs */
     .alac-paragraph {
-      display: block;
+      margin-bottom: 1.25rem;
+      line-height: 1.85;
     }
 
     .alac-badge {
       display: inline-block;
       font-family: var(--font-ui);
       font-size: 0.72rem;
-      font-weight: 700;
+      font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.06em;
       padding: 0.2rem 0.55rem;
-      border-radius: 4px;
-      margin-right: 0.45rem;
-      vertical-align: baseline;
+      border-radius: 5px;
+      margin-right: 0.5rem;
+      vertical-align: middle;
     }
 
-    .badge-ans { background: rgba(52, 211, 153, 0.18); color: var(--accent-emerald); border: 1px solid rgba(52, 211, 153, 0.35); }
-    .badge-law { background: rgba(56, 189, 248, 0.18); color: var(--accent-blue); border: 1px solid rgba(56, 189, 248, 0.35); }
-    .badge-app { background: rgba(129, 140, 248, 0.18); color: var(--accent-indigo); border: 1px solid rgba(129, 140, 248, 0.35); }
-    .badge-con { background: rgba(251, 113, 133, 0.18); color: var(--accent-rose); border: 1px solid rgba(251, 113, 133, 0.35); }
-    .badge-syn { background: rgba(251, 191, 36, 0.18); color: var(--accent-gold); border: 1px solid rgba(251, 191, 36, 0.35); }
-    .badge-gen { background: rgba(148, 163, 184, 0.18); color: var(--text-secondary); border: 1px solid rgba(148, 163, 184, 0.35); }
+    .badge-ans { background-color: rgba(56, 189, 248, 0.18); color: var(--accent-blue); border: 1px solid rgba(56, 189, 248, 0.4); }
+    .badge-law { background-color: rgba(251, 191, 36, 0.18); color: var(--accent-gold); border: 1px solid rgba(251, 191, 36, 0.4); }
+    .badge-app { background-color: rgba(192, 132, 252, 0.18); color: var(--accent-purple); border: 1px solid rgba(192, 132, 252, 0.4); }
+    .badge-con { background-color: rgba(248, 113, 113, 0.18); color: var(--accent-crimson); border: 1px solid rgba(248, 113, 113, 0.4); }
+    .badge-syn { background-color: rgba(52, 211, 153, 0.18); color: var(--accent-emerald); border: 1px solid rgba(52, 211, 153, 0.4); }
+    .badge-gen { background-color: rgba(148, 163, 184, 0.18); color: var(--text-secondary); border: 1px solid rgba(148, 163, 184, 0.4); }
 
-    /* Lists */
+    /* Bullet Points */
     .bullet-point {
       display: flex;
       align-items: flex-start;
-      gap: 0.65rem;
-      margin-bottom: 0.75rem;
-      font-size: 1.05rem;
+      gap: 0.6rem;
+      margin-bottom: 0.85rem;
+      padding-left: 0.5rem;
       line-height: 1.75;
     }
 
     .bullet-dot {
       color: var(--accent-gold);
-      font-weight: bold;
-      font-size: 1.2rem;
-      line-height: 1.5;
+      font-weight: 700;
     }
 
     .bullet-content {
@@ -566,38 +582,49 @@
     .table-responsive {
       overflow-x: auto;
       margin: 1.5rem 0;
-      border-radius: 8px;
       border: 1px solid var(--border-color);
+      border-radius: 8px;
     }
 
     .reader-table {
       width: 100%;
       border-collapse: collapse;
       font-family: var(--font-ui);
-      font-size: 0.9rem;
-    }
-
-    .reader-table th, .reader-table td {
-      padding: 0.85rem 1.15rem;
-      border: 1px solid var(--border-color);
+      font-size: 0.85rem;
       text-align: left;
-      line-height: 1.6;
     }
 
     .reader-table th {
-      background-color: var(--bg-secondary);
+      background-color: var(--bg-tertiary);
       color: var(--accent-gold);
       font-weight: 700;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border-color);
     }
 
-    .reader-table tr:nth-child(even) {
-      background-color: rgba(148, 163, 184, 0.04);
+    .reader-table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-secondary);
     }
 
-    /* Floating TTS Tooltip */
+    .reader-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* TTS Active Unit Highlighting */
+    .read-unit.is-speaking {
+      background-color: var(--highlight-bg) !important;
+      outline: 2px solid var(--highlight-border);
+      border-radius: 6px;
+      box-shadow: 0 0 16px rgba(251, 191, 36, 0.3);
+      transition: all 0.15s ease;
+    }
+
+    /* Floating Selection Trigger */
     #floatingTtsTrigger {
-      position: absolute;
       display: none;
+      position: absolute;
       z-index: 1000;
       background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
       color: #0b1120;
@@ -660,7 +687,7 @@
   <header class="app-header">
     <div class="brand-section">
       <button class="icon-btn" id="toggleSidebarBtn" title="Toggle Table of Contents">☰</button>
-      <div class="brand-logo">§</div>
+      <div class="brand-logo">⚖️</div>
       <div class="brand-info">
         <span class="brand-title">Canons &amp; definition</span>
         <span class="brand-subject">Basic Legal and Judiciary Ethics</span>
@@ -712,35 +739,35 @@
     <!-- Table of Contents Sidebar -->
     <aside class="app-sidebar" id="sidebarNav">
       <div class="sidebar-header">
-        <input type="text" id="sidebarSearch" class="sidebar-search" placeholder="🔍 Filter Case Titles..." />
+        <input type="text" id="sidebarSearch" class="sidebar-search" placeholder="🔍 Filter Topics / Cases..." />
       </div>
       <nav class="sidebar-nav">
         <ul id="tocList">
           <li><a href="#sec-overview" class="toc-link level-1" title="Canons &amp; definition">Canons &amp; definition</a></li>
-            <li><a href="#sec-1-part-i-legal-ethics---code-of-professional-responsibility-an" class="toc-link level-1" title="PART I: LEGAL ETHICS  -  CODE OF PROFESSIONAL RESPONSIBILITY AND ACCOUNTABILITY (CPRA)">PART I: LEGAL ETHICS  -  CODE OF PROFESSIONAL RESPONSIBILITY A...</a></li>
-            <li><a href="#sec-2-canon-i-independence" class="toc-link level-1" title="Canon I: Independence">Canon I: Independence</a></li>
-            <li><a href="#sec-3-canon-ii-propriety" class="toc-link level-1" title="Canon II: Propriety">Canon II: Propriety</a></li>
-            <li><a href="#sec-4-canon-iii-fidelity" class="toc-link level-1" title="Canon III: Fidelity">Canon III: Fidelity</a></li>
-            <li><a href="#sec-5-canon-iv-competence-and-diligence" class="toc-link level-1" title="Canon IV: Competence and Diligence">Canon IV: Competence and Diligence</a></li>
-            <li><a href="#sec-6-canon-v-equality" class="toc-link level-1" title="Canon V: Equality">Canon V: Equality</a></li>
-            <li><a href="#sec-7-canon-vi-accountability" class="toc-link level-1" title="Canon VI: Accountability">Canon VI: Accountability</a></li>
-            <li><a href="#sec-8-part-ii-judicial-ethics---new-code-of-judicial-conduct-ncjc" class="toc-link level-1" title="PART II: JUDICIAL ETHICS  -  NEW CODE OF JUDICIAL CONDUCT (NCJC)">PART II: JUDICIAL ETHICS  -  NEW CODE OF JUDICIAL CONDUCT (NCJC)</a></li>
-            <li><a href="#sec-9-canon-1-independence" class="toc-link level-1" title="Canon 1: Independence">Canon 1: Independence</a></li>
-            <li><a href="#sec-10-canon-2-integrity" class="toc-link level-1" title="Canon 2: Integrity">Canon 2: Integrity</a></li>
-            <li><a href="#sec-11-canon-3-impartiality" class="toc-link level-1" title="Canon 3: Impartiality">Canon 3: Impartiality</a></li>
-            <li><a href="#sec-12-canon-4-propriety" class="toc-link level-1" title="Canon 4: Propriety">Canon 4: Propriety</a></li>
-            <li><a href="#sec-13-canon-5-equality" class="toc-link level-1" title="Canon 5: Equality">Canon 5: Equality</a></li>
-            <li><a href="#sec-14-canon-6-competence-and-diligence" class="toc-link level-1" title="Canon 6: Competence and Diligence">Canon 6: Competence and Diligence</a></li>
-            <li><a href="#sec-15-part-iii-court-personnel-ethics---code-of-conduct-for-court" class="toc-link level-1" title="PART III: COURT PERSONNEL ETHICS  -  CODE OF CONDUCT FOR COURT PERSONNEL (CCCP)">PART III: COURT PERSONNEL ETHICS  -  CODE OF CONDUCT FOR COURT...</a></li>
-            <li><a href="#sec-16-canon-i-fidelity-to-duty" class="toc-link level-1" title="Canon I: Fidelity to Duty">Canon I: Fidelity to Duty</a></li>
-            <li><a href="#sec-17-canon-ii-confidentiality" class="toc-link level-1" title="Canon II: Confidentiality">Canon II: Confidentiality</a></li>
-            <li><a href="#sec-18-canon-iii-conflict-of-interest" class="toc-link level-1" title="Canon III: Conflict of Interest">Canon III: Conflict of Interest</a></li>
-            <li><a href="#sec-19-canon-iv-performance-of-duties" class="toc-link level-1" title="Canon IV: Performance of Duties">Canon IV: Performance of Duties</a></li>
-            <li><a href="#sec-20-part-iv-historical-comparative-reference---the-1988-code-of" class="toc-link level-1" title="PART IV: HISTORICAL COMPARATIVE REFERENCE  -  THE 1988 CODE OF PROFESSIONAL RESPONSIBILITY (CPR)">PART IV: HISTORICAL COMPARATIVE REFERENCE  -  THE 1988 CODE OF...</a></li>
-            <li><a href="#sec-21-chapter-i-the-lawyer-and-society-canons-1-to-6" class="toc-link level-1" title="Chapter I: The Lawyer and Society (Canons 1 to 6)">Chapter I: The Lawyer and Society (Canons 1 to 6)</a></li>
-            <li><a href="#sec-22-chapter-ii-the-lawyer-and-the-legal-profession-canons-7-to-9" class="toc-link level-1" title="Chapter II: The Lawyer and the Legal Profession (Canons 7 to 9)">Chapter II: The Lawyer and the Legal Profession (Canons 7 to 9)</a></li>
-            <li><a href="#sec-23-chapter-iii-the-lawyer-and-the-courts-canons-10-to-13" class="toc-link level-1" title="Chapter III: The Lawyer and the Courts (Canons 10 to 13)">Chapter III: The Lawyer and the Courts (Canons 10 to 13)</a></li>
-            <li><a href="#sec-24-chapter-iv-the-lawyer-and-the-client-canons-14-to-22" class="toc-link level-1" title="Chapter IV: The Lawyer and the Client (Canons 14 to 22)">Chapter IV: The Lawyer and the Client (Canons 14 to 22)</a></li>
+<li><a href="#sec-1-part-i-legal-ethics---code-of-professional-responsibility-an" class="toc-link level-1" title="PART I: LEGAL ETHICS  -  CODE OF PROFESSIONAL RESPONSIBILITY AND ACCOUNTABILITY (CPRA)">PART I: LEGAL ETHICS  -  CODE OF PROFESSIONAL RESPONSIBILITY AND ACCOUNTABILITY (CPRA)</a></li>
+<li><a href="#sec-2-canon-i-independence" class="toc-link level-1" title="Canon I: Independence">Canon I: Independence</a></li>
+<li><a href="#sec-3-canon-ii-propriety" class="toc-link level-1" title="Canon II: Propriety">Canon II: Propriety</a></li>
+<li><a href="#sec-4-canon-iii-fidelity" class="toc-link level-1" title="Canon III: Fidelity">Canon III: Fidelity</a></li>
+<li><a href="#sec-5-canon-iv-competence-and-diligence" class="toc-link level-1" title="Canon IV: Competence and Diligence">Canon IV: Competence and Diligence</a></li>
+<li><a href="#sec-6-canon-v-equality" class="toc-link level-1" title="Canon V: Equality">Canon V: Equality</a></li>
+<li><a href="#sec-7-canon-vi-accountability" class="toc-link level-1" title="Canon VI: Accountability">Canon VI: Accountability</a></li>
+<li><a href="#sec-8-part-ii-judicial-ethics---new-code-of-judicial-conduct-ncjc" class="toc-link level-1" title="PART II: JUDICIAL ETHICS  -  NEW CODE OF JUDICIAL CONDUCT (NCJC)">PART II: JUDICIAL ETHICS  -  NEW CODE OF JUDICIAL CONDUCT (NCJC)</a></li>
+<li><a href="#sec-9-canon-1-independence" class="toc-link level-1" title="Canon 1: Independence">Canon 1: Independence</a></li>
+<li><a href="#sec-10-canon-2-integrity" class="toc-link level-1" title="Canon 2: Integrity">Canon 2: Integrity</a></li>
+<li><a href="#sec-11-canon-3-impartiality" class="toc-link level-1" title="Canon 3: Impartiality">Canon 3: Impartiality</a></li>
+<li><a href="#sec-12-canon-4-propriety" class="toc-link level-1" title="Canon 4: Propriety">Canon 4: Propriety</a></li>
+<li><a href="#sec-13-canon-5-equality" class="toc-link level-1" title="Canon 5: Equality">Canon 5: Equality</a></li>
+<li><a href="#sec-14-canon-6-competence-and-diligence" class="toc-link level-1" title="Canon 6: Competence and Diligence">Canon 6: Competence and Diligence</a></li>
+<li><a href="#sec-15-part-iii-court-personnel-ethics---code-of-conduct-for-court" class="toc-link level-1" title="PART III: COURT PERSONNEL ETHICS  -  CODE OF CONDUCT FOR COURT PERSONNEL (CCCP)">PART III: COURT PERSONNEL ETHICS  -  CODE OF CONDUCT FOR COURT PERSONNEL (CCCP)</a></li>
+<li><a href="#sec-16-canon-i-fidelity-to-duty" class="toc-link level-1" title="Canon I: Fidelity to Duty">Canon I: Fidelity to Duty</a></li>
+<li><a href="#sec-17-canon-ii-confidentiality" class="toc-link level-1" title="Canon II: Confidentiality">Canon II: Confidentiality</a></li>
+<li><a href="#sec-18-canon-iii-conflict-of-interest" class="toc-link level-1" title="Canon III: Conflict of Interest">Canon III: Conflict of Interest</a></li>
+<li><a href="#sec-19-canon-iv-performance-of-duties" class="toc-link level-1" title="Canon IV: Performance of Duties">Canon IV: Performance of Duties</a></li>
+<li><a href="#sec-20-part-iv-historical-comparative-reference---the-1988-code-of" class="toc-link level-1" title="PART IV: HISTORICAL COMPARATIVE REFERENCE  -  THE 1988 CODE OF PROFESSIONAL RESPONSIBILITY (CPR)">PART IV: HISTORICAL COMPARATIVE REFERENCE  -  THE 1988 CODE OF PROFESSIONAL RESPONSIBILITY (CPR)</a></li>
+<li><a href="#sec-21-chapter-i-the-lawyer-and-society-canons-1-to-6" class="toc-link level-1" title="Chapter I: The Lawyer and Society (Canons 1 to 6)">Chapter I: The Lawyer and Society (Canons 1 to 6)</a></li>
+<li><a href="#sec-22-chapter-ii-the-lawyer-and-the-legal-profession-canons-7-to-9" class="toc-link level-1" title="Chapter II: The Lawyer and the Legal Profession (Canons 7 to 9)">Chapter II: The Lawyer and the Legal Profession (Canons 7 to 9)</a></li>
+<li><a href="#sec-23-chapter-iii-the-lawyer-and-the-courts-canons-10-to-13" class="toc-link level-1" title="Chapter III: The Lawyer and the Courts (Canons 10 to 13)">Chapter III: The Lawyer and the Courts (Canons 10 to 13)</a></li>
+<li><a href="#sec-24-chapter-iv-the-lawyer-and-the-client-canons-14-to-22" class="toc-link level-1" title="Chapter IV: The Lawyer and the Client (Canons 14 to 22)">Chapter IV: The Lawyer and the Client (Canons 14 to 22)</a></li>
         </ul>
       </nav>
     </aside>
@@ -753,227 +780,169 @@
           <div class="doc-hero-subject">Basic Legal and Judiciary Ethics</div>
           <h1 class="doc-hero-title">Canons &amp; definition</h1>
           <div class="doc-meta-stats">
-            <span>📚 25 Cases / Sections</span>
+            <span>📑 25 Topics / Cases</span>
             <span>📖 70 Narrative Units</span>
-            <span>⏱ ~15 min study read</span>
+            <span>⏱ ~28 min study read</span>
           </div>
           
-          <div class="mp3-podcast-card" style="margin-top: 1.5rem; padding: 1.15rem 1.35rem; background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 12px;">
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
-              <div style="display: flex; align-items: center; gap: 0.5rem;">
-                <span style="font-size: 1.15rem;">🎙️</span>
-                <span style="font-family: var(--font-ui); font-weight: 700; font-size: 0.95rem; color: var(--accent-blue);">Master Studio Audio Podcast (4.8 MB)</span>
-                <span style="font-family: var(--font-ui); font-size: 0.72rem; padding: 0.2rem 0.55rem; background: rgba(52, 211, 153, 0.2); color: var(--accent-emerald); border-radius: 12px; font-weight: 600;">Mobile Background Audio</span>
-              </div>
-              <a href="Canons &amp; definition.mp3" download style="font-family: var(--font-ui); font-size: 0.82rem; color: var(--accent-gold); text-decoration: none; font-weight: 700;">⬇ Download MP3</a>
-            </div>
-            <audio controls preload="metadata" style="width: 100%; height: 42px; border-radius: 8px; outline: none;">
-              <source src="Canons &amp; definition.mp3" type="audio/mpeg">
-              Your browser does not support audio playback.
-            </audio>
-            <div style="font-family: var(--font-ui); font-size: 0.75rem; color: var(--text-muted); margin-top: 0.4rem;">
-              💡 <em>Plays continuously with phone screen locked or app minimized. Perfect for mobile commute listening.</em>
-            </div>
+        <div class="studio-audio-player">
+          <div class="audio-player-header">
+            <span class="audio-badge">🎙️ Studio Voice Podcast</span>
+            <span class="audio-filename">Canons &amp; definition.mp3</span>
           </div>
+          <audio controls preload="metadata" class="native-audio-element">
+            <source src="Canons &amp; definition.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
         
         </div>
 
         <!-- Rendered Sections -->
-        
-        <section class="doc-section" id="sec-overview">
-          <div class="section-body">
-            <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>BASIC LEGAL AND JUDICIAL ETHICS (BLJE)</strong></p>
-        <p class="read-unit case-paragraph" data-unit-type="paragraph"><em>Comprehensive Guide to Canons, Statutory Mandates, and Plain-Language Definitions</em></p>
-          </div>
-        </section>
-
-        <section class="doc-section" id="sec-1-part-i-legal-ethics---code-of-professional-responsibility-an">
-          <div class="section-body">
-            <div class="case-header-card read-unit" data-unit-type="case-header"><h2 class="case-header-title">PART I: LEGAL ETHICS  -  CODE OF PROFESSIONAL RESPONSIBILITY AND ACCOUNTABILITY (CPRA)</h2></div>
-        <p class="read-unit case-paragraph" data-unit-type="paragraph"><em>Promulgated under A.M. No. 22-04-05-SC (Effective May 29, 2023), governing the conduct, ethical responsibilities, and professional accountability of all lawyers admitted to the Philippine Bar.</em></p>
-          </div>
-        </section>
-
-        <section class="doc-section" id="sec-2-canon-i-independence">
-          <div class="section-body">
-            <div class="case-header-card read-unit" data-unit-type="case-header"><h2 class="case-header-title">Canon I: Independence</h2></div>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Core Legal Mandate</span> <span class="alac-text">A lawyer shall maintain professional independence at all times, free from improper influence, extraneous pressure, political interference, commercial control, or self-interest.</span></p>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>&quot;Stand your ground.&quot; Never let money, politics, personal friendships, or outside forces dictate your legal advice or trial strategy. A lawyer&#x27;s ultimate loyalty is to the Constitution, the rule of law, and the administration of justice.</em></span></p>
-          </div>
-        </section>
-
-        <section class="doc-section" id="sec-3-canon-ii-propriety">
-          <div class="section-body">
-            <div class="case-header-card read-unit" data-unit-type="case-header"><h2 class="case-header-title">Canon II: Propriety</h2></div>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Core Legal Mandate</span> <span class="alac-text">A lawyer shall act with decency, dignity, honor, and professional respect in all professional, public, and private dealings, including all forms of online and social media communication.</span></p>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>&quot;Act with honor and class everywhere.&quot; A lawyer represents the legal profession 24/7. Maintain honesty, decorum, and courtesy in court, in public interactions, and on social media platforms. The CPRA strictly prohibits vulgarity, harassment, spreading unverified legal gossip, and engaging in romantic or sexual relations with current clients.</em></span></p>
-          </div>
-        </section>
-
-        <section class="doc-section" id="sec-4-canon-iii-fidelity">
-          <div class="section-body">
-            <div class="case-header-card read-unit" data-unit-type="case-header"><h2 class="case-header-title">Canon III: Fidelity</h2></div>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Core Legal Mandate</span> <span class="alac-text">A lawyer shall observe absolute loyalty, undivided fidelity, sacred confidentiality, diligent preservation of client property and funds, and strict avoidance of conflicting interests.</span></p>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>&quot;Be completely loyal to your client.&quot; Guard client secrets permanently even after the lawyer-client relationship terminates. Never represent opposing sides in the same or related disputes without informed written consent, and never commingle client trust money with personal operating funds.</em></span></p>
-          </div>
-        </section>
-
-        <section class="doc-section" id="sec-5-canon-iv-competence-and-diligence">
-          <div class="section-body">
-            <div class="case-header-card read-unit" data-unit-type="case-header"><h2 class="case-header-title">Canon IV: Competence and Diligence</h2></div>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Core Legal Mandate</span> <span class="alac-text">A lawyer shall provide proficient, timely, thoroughly prepared, and skilled legal service, while actively maintaining continuous legal education and embracing modern legal technologies.</span></p>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>&quot;Do your job well, proficiently, and on time.&quot; Master the law and jurisprudence governing your cases, attend court hearings punctually and prepared, avoid unnecessary procedural delays, and keep clients regularly updated on significant case developments.</em></span></p>
-          </div>
-        </section>
-
-        <section class="doc-section" id="sec-6-canon-v-equality">
-          <div class="section-body">
-            <div class="case-header-card read-unit" data-unit-type="case-header"><h2 class="case-header-title">Canon V: Equality</h2></div>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Core Legal Mandate</span> <span class="alac-text">A lawyer shall adhere to non-discrimination principles and actively promote equal access to justice for all persons, regardless of gender, race, religious belief, socioeconomic status, or disability.</span></p>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>&quot;Treat everyone fairly and with equal dignity.&quot; Do not discriminate against clients or litigants. Actively support and participate in legal aid programs, pro bono advocacy, and representation for the poor, marginalized, and underprivileged.</em></span></p>
-          </div>
-        </section>
-
-        <section class="doc-section" id="sec-7-canon-vi-accountability">
-          <div class="section-body">
-            <div class="case-header-card read-unit" data-unit-type="case-header"><h2 class="case-header-title">Canon VI: Accountability</h2></div>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Core Legal Mandate</span> <span class="alac-text">A lawyer is an officer of the court subject to moral responsibility and strict disciplinary jurisdiction for any violation of ethical duties, oath, or professional standards.</span></p>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>&quot;Own your actions.&quot; Lawyers who commit fraud, gross misconduct, ethical violations, or breach of trust are held directly accountable by the Supreme Court and Integrated Bar of the Philippines, facing sanctions ranging from reprimand, fine, and suspension, to permanent disbarment.</em></span></p>
-          </div>
-        </section>
-
-        <section class="doc-section" id="sec-8-part-ii-judicial-ethics---new-code-of-judicial-conduct-ncjc">
-          <div class="section-body">
-            <div class="case-header-card read-unit" data-unit-type="case-header"><h2 class="case-header-title">PART II: JUDICIAL ETHICS  -  NEW CODE OF JUDICIAL CONDUCT (NCJC)</h2></div>
-        <p class="read-unit case-paragraph" data-unit-type="paragraph"><em>Promulgated under A.M. No. 03-05-01-SC (incorporating the international Bangalore Principles of Judicial Conduct), establishing the universal moral and legal standards governing all Judges and Justices across the Philippine Judiciary.</em></p>
-          </div>
-        </section>
-
-        <section class="doc-section" id="sec-9-canon-1-independence">
-          <div class="section-body">
-            <div class="case-header-card read-unit" data-unit-type="case-header"><h2 class="case-header-title">Canon 1: Independence</h2></div>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Core Legal Mandate</span> <span class="alac-text">Judicial independence is a pre-requisite to the rule of law. A judge shall exercise judicial power independently on the basis of facts and law, without regard to executive directives, legislative interests, partisan politics, or public pressure.</span></p>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>&quot;Decide without fear or favor.&quot; Judges must evaluate evidence and statutes objectively. They must never yield to executive officials, politicians, media sensationalism, public clamor, or personal acquaintances.</em></span></p>
-          </div>
-        </section>
-
-        <section class="doc-section" id="sec-10-canon-2-integrity">
-          <div class="section-body">
-            <div class="case-header-card read-unit" data-unit-type="case-header"><h2 class="case-header-title">Canon 2: Integrity</h2></div>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Core Legal Mandate</span> <span class="alac-text">Integrity is essential not only to the proper discharge of the judicial office, but also to personal conduct. A judge shall ensure that his or her conduct is above reproach in the view of a reasonable observer.</span></p>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>&quot;Be clean, honest, and untouchable.&quot; A judge&#x27;s character and daily life must be spotless. Never solicit or accept gifts, bribes, or favors, and never engage in deceitful or fraudulent conduct in public or private life.</em></span></p>
-          </div>
-        </section>
-
-        <section class="doc-section" id="sec-11-canon-3-impartiality">
-          <div class="section-body">
-            <div class="case-header-card read-unit" data-unit-type="case-header"><h2 class="case-header-title">Canon 3: Impartiality</h2></div>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Core Legal Mandate</span> <span class="alac-text">Impartiality applies not only to the decision itself but also to the entire trial process. A judge shall perform judicial duties with complete neutrality, fairness, and objectivity, free from bias or prejudice.</span></p>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>&quot;Act as a fair and neutral referee.&quot; Never favor any party, prosecutor, or defense counsel. Inhibit and recuse from hearing cases where a judge has a personal interest, prior involvement, or close familial relation with a litigant or lawyer.</em></span></p>
-          </div>
-        </section>
-
-        <section class="doc-section" id="sec-12-canon-4-propriety">
-          <div class="section-body">
-            <div class="case-header-card read-unit" data-unit-type="case-header"><h2 class="case-header-title">Canon 4: Propriety</h2></div>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Core Legal Mandate</span> <span class="alac-text">Propriety and the appearance of propriety are essential to the performance of all judicial activities. A judge shall avoid impropriety and the appearance of impropriety in both judicial and extra-judicial conduct.</span></p>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>&quot;Avoid looking shady or compromised.&quot; Live modestly and circumspectly. Avoid socializing closely or dining privately with practicing lawyers who have active cases pending before your court sala.</em></span></p>
-          </div>
-        </section>
-
-        <section class="doc-section" id="sec-13-canon-5-equality">
-          <div class="section-body">
-            <div class="case-header-card read-unit" data-unit-type="case-header"><h2 class="case-header-title">Canon 5: Equality</h2></div>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Core Legal Mandate</span> <span class="alac-text">Ensuring equality of treatment to all before the courts is essential to the due performance of the judicial office. A judge shall be aware of and understand diversity in society and treat everyone with equal dignity.</span></p>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>&quot;Respect everyone in your courtroom.&quot; Treat rich and poor litigants, prominent counsel and young attorneys, victims and accused with equal patience, neutrality, courtesy, and fairness without condescension or bias.</em></span></p>
-          </div>
-        </section>
-
-        <section class="doc-section" id="sec-14-canon-6-competence-and-diligence">
-          <div class="section-body">
-            <div class="case-header-card read-unit" data-unit-type="case-header"><h2 class="case-header-title">Canon 6: Competence and Diligence</h2></div>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Core Legal Mandate</span> <span class="alac-text">Competence and diligence are prerequisites to the due performance of judicial office. A judge shall maintain professional competence, manage courtroom dockets efficiently, and resolve cases within the reglementary periods prescribed by the Constitution and law.</span></p>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>&quot;Know the law and do not delay justice.&quot; Continuously master statutory amendments and Supreme Court jurisprudence, properly supervise court staff, and render clear, well-reasoned decisions within constitutional deadlines.</em></span></p>
-          </div>
-        </section>
-
-        <section class="doc-section" id="sec-15-part-iii-court-personnel-ethics---code-of-conduct-for-court">
-          <div class="section-body">
-            <div class="case-header-card read-unit" data-unit-type="case-header"><h2 class="case-header-title">PART III: COURT PERSONNEL ETHICS  -  CODE OF CONDUCT FOR COURT PERSONNEL (CCCP)</h2></div>
-        <p class="read-unit case-paragraph" data-unit-type="paragraph"><em>Promulgated under A.M. No. 03-06-13-SC, establishing strict ethical guidelines and public accountability standards for all Clerks of Court, Branch Clerks, Process Servers, Stenographers, and court administrative staff.</em></p>
-          </div>
-        </section>
-
-        <section class="doc-section" id="sec-16-canon-i-fidelity-to-duty">
-          <div class="section-body">
-            <div class="case-header-card read-unit" data-unit-type="case-header"><h2 class="case-header-title">Canon I: Fidelity to Duty</h2></div>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Core Legal Mandate</span> <span class="alac-text">Court personnel shall dedicate themselves to the honest, faithful, and diligent performance of their public duties, placing public interest above personal convenience or private financial gain.</span></p>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>&quot;Serve the court and the public honestly.&quot; Never solicit or accept tips, facilitation fees, or bribes from litigants. Refrain from fixing cases or acting as middlemen for law firms.</em></span></p>
-          </div>
-        </section>
-
-        <section class="doc-section" id="sec-17-canon-ii-confidentiality">
-          <div class="section-body">
-            <div class="case-header-card read-unit" data-unit-type="case-header"><h2 class="case-header-title">Canon II: Confidentiality</h2></div>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Core Legal Mandate</span> <span class="alac-text">Court personnel shall maintain strict confidentiality concerning all official information, draft decisions, internal memoranda, case raffle results, and judicial deliberations acquired during their service.</span></p>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>&quot;Keep court records and secrets locked.&quot; Never leak draft orders, unsigned decisions, or confidential case records to litigants, journalists, or third parties before official promulgation.</em></span></p>
-          </div>
-        </section>
-
-        <section class="doc-section" id="sec-18-canon-iii-conflict-of-interest">
-          <div class="section-body">
-            <div class="case-header-card read-unit" data-unit-type="case-header"><h2 class="case-header-title">Canon III: Conflict of Interest</h2></div>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Core Legal Mandate</span> <span class="alac-text">Court personnel shall not participate in any business transactions, private employment, or financial investments that conflict with or compromise their official duties and court responsibilities.</span></p>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>&quot;No shady side deals or commercial conflicts.&quot; Do not recommend private law practitioners to litigants, and do not enter into commercial dealings with individuals who have pending matters before the court.</em></span></p>
-          </div>
-        </section>
-
-        <section class="doc-section" id="sec-19-canon-iv-performance-of-duties">
-          <div class="section-body">
-            <div class="case-header-card read-unit" data-unit-type="case-header"><h2 class="case-header-title">Canon IV: Performance of Duties</h2></div>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Core Legal Mandate</span> <span class="alac-text">Court personnel shall perform their official duties promptly, courteously, efficiently, without discrimination, and in strict compliance with prescribed procedural guidelines and work schedules.</span></p>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>&quot;Be prompt, hardworking, and polite.&quot; Arrive at the court on time, assist the public professionally without red tape or extortion, and execute court processes diligently.</em></span></p>
-          </div>
-        </section>
-
-        <section class="doc-section" id="sec-20-part-iv-historical-comparative-reference---the-1988-code-of">
-          <div class="section-body">
-            <div class="case-header-card read-unit" data-unit-type="case-header"><h2 class="case-header-title">PART IV: HISTORICAL COMPARATIVE REFERENCE  -  THE 1988 CODE OF PROFESSIONAL RESPONSIBILITY (CPR)</h2></div>
-        <p class="read-unit case-paragraph" data-unit-type="paragraph"><em>The foundational 1988 Code of Professional Responsibility (Canons 1 to 22), organized into four major chapters reflecting the fourfold duty of a lawyer. Essential for comparative study, bar examination historical doctrines, and jurisprudential analysis.</em></p>
-          </div>
-        </section>
-
-        <section class="doc-section" id="sec-21-chapter-i-the-lawyer-and-society-canons-1-to-6">
-          <div class="section-body">
-            <div class="case-header-card read-unit" data-unit-type="case-header"><h2 class="case-header-title">Chapter I: The Lawyer and Society (Canons 1 to 6)</h2></div>
-        <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Scope and Core Principles: </strong>Covers the lawyer&#x27;s fundamental duties to uphold the Constitution, obey the laws of the land, promote respect for law and legal processes, make legal services available to all persons regardless of means, provide accurate and non-misleading information regarding legal services, and participate in continuous legal education and law reform.</p>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>Lawyers must be law-abiding citizens and social leaders who champion justice, avoid illegal schemes, assist indigent litigants with pro bono service, and refrain from self-laudatory commercial advertisements.</em></span></p>
-          </div>
-        </section>
-
-        <section class="doc-section" id="sec-22-chapter-ii-the-lawyer-and-the-legal-profession-canons-7-to-9">
-          <div class="section-body">
-            <div class="case-header-card read-unit" data-unit-type="case-header"><h2 class="case-header-title">Chapter II: The Lawyer and the Legal Profession (Canons 7 to 9)</h2></div>
-        <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Scope and Core Principles: </strong>Covers the lawyer&#x27;s duties to uphold the integrity, nobility, and dignity of the legal profession at all times, treat fellow members of the Bar with courtesy, candor, and fairness, and assist in preventing the unauthorized practice of law by non-lawyers or suspended practitioners.</p>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>Maintain the highest moral standards, never malign or deceive fellow lawyers, refrain from poaching clients, and never allow non-lawyers to practice law under your name.</em></span></p>
-          </div>
-        </section>
-
-        <section class="doc-section" id="sec-23-chapter-iii-the-lawyer-and-the-courts-canons-10-to-13">
-          <div class="section-body">
-            <div class="case-header-card read-unit" data-unit-type="case-header"><h2 class="case-header-title">Chapter III: The Lawyer and the Courts (Canons 10 to 13)</h2></div>
-        <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Scope and Core Principles: </strong>Covers the lawyer&#x27;s duties of honesty, candor, and fairness to the courts, observing procedural rules, avoiding deceit or misquotation of statutes/records, assisting in the speedy and efficient administration of justice (avoiding forum shopping and frivolous appeals), observing respect and deference toward judicial officers, and refraining from acts or public statements that exert improper influence or prejudice pending court proceedings.</p>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>Never lie to a judge, never misquote facts or laws, avoid delaying tactics, show respect to the bench, and never claim private influence over the court.</em></span></p>
-          </div>
-        </section>
-
-        <section class="doc-section" id="sec-24-chapter-iv-the-lawyer-and-the-client-canons-14-to-22">
-          <div class="section-body">
-            <div class="case-header-card read-unit" data-unit-type="case-header"><h2 class="case-header-title">Chapter IV: The Lawyer and the Client (Canons 14 to 22)</h2></div>
-        <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Scope and Core Principles: </strong>Covers the availability of legal service, undivided loyalty and fidelity to client interests, absolute confidentiality of privileged communications, candor in legal advice, charging reasonable and transparent attorney&#x27;s fees, accounting for and preserving client trust funds and properties, and observing ethical procedures when withdrawing from legal representation.</p>
-        <p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>Once engaged, give your best effort to your client, keep their secrets inviolate, never represent conflicting parties, handle client money with strict accounting, charge ethical fees, and never abandon a client without justifiable cause and court approval.</em></span></p>
-          </div>
-        </section>
+        <section id="sec-overview" class="doc-section">
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>BASIC LEGAL AND JUDICIAL ETHICS (BLJE)</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><em>Comprehensive Guide to Canons, Statutory Mandates, and Plain-Language Definitions</em></p>
+</section>
+<hr class="section-divider" />
+<section id="sec-1-part-i-legal-ethics---code-of-professional-responsibility-an" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title"><strong>PART I: LEGAL ETHICS  -  CODE OF PROFESSIONAL RESPONSIBILITY AND ACCOUNTABILITY (CPRA)</strong></h2></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><em>Promulgated under A.M. No. 22-04-05-SC (Effective May 29, 2023), governing the conduct, ethical responsibilities, and professional accountability of all lawyers admitted to the Philippine Bar.</em></p>
+</section>
+<hr class="section-divider" />
+<section id="sec-2-canon-i-independence" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title"><strong>Canon I: Independence</strong></h2></div>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Core Legal Mandate</span> <span class="alac-text">A lawyer shall maintain professional independence at all times, free from improper influence, extraneous pressure, political interference, commercial control, or self-interest.</span></p>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>&quot;Stand your ground.&quot; Never let money, politics, personal friendships, or outside forces dictate your legal advice or trial strategy. A lawyer&#x27;s ultimate loyalty is to the Constitution, the rule of law, and the administration of justice.</em></span></p>
+</section>
+<hr class="section-divider" />
+<section id="sec-3-canon-ii-propriety" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title"><strong>Canon II: Propriety</strong></h2></div>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Core Legal Mandate</span> <span class="alac-text">A lawyer shall act with decency, dignity, honor, and professional respect in all professional, public, and private dealings, including all forms of online and social media communication.</span></p>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>&quot;Act with honor and class everywhere.&quot; A lawyer represents the legal profession 24/7. Maintain honesty, decorum, and courtesy in court, in public interactions, and on social media platforms. The CPRA strictly prohibits vulgarity, harassment, spreading unverified legal gossip, and engaging in romantic or sexual relations with current clients.</em></span></p>
+</section>
+<hr class="section-divider" />
+<section id="sec-4-canon-iii-fidelity" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title"><strong>Canon III: Fidelity</strong></h2></div>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Core Legal Mandate</span> <span class="alac-text">A lawyer shall observe absolute loyalty, undivided fidelity, sacred confidentiality, diligent preservation of client property and funds, and strict avoidance of conflicting interests.</span></p>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>&quot;Be completely loyal to your client.&quot; Guard client secrets permanently even after the lawyer-client relationship terminates. Never represent opposing sides in the same or related disputes without informed written consent, and never commingle client trust money with personal operating funds.</em></span></p>
+</section>
+<hr class="section-divider" />
+<section id="sec-5-canon-iv-competence-and-diligence" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title"><strong>Canon IV: Competence and Diligence</strong></h2></div>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Core Legal Mandate</span> <span class="alac-text">A lawyer shall provide proficient, timely, thoroughly prepared, and skilled legal service, while actively maintaining continuous legal education and embracing modern legal technologies.</span></p>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>&quot;Do your job well, proficiently, and on time.&quot; Master the law and jurisprudence governing your cases, attend court hearings punctually and prepared, avoid unnecessary procedural delays, and keep clients regularly updated on significant case developments.</em></span></p>
+</section>
+<hr class="section-divider" />
+<section id="sec-6-canon-v-equality" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title"><strong>Canon V: Equality</strong></h2></div>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Core Legal Mandate</span> <span class="alac-text">A lawyer shall adhere to non-discrimination principles and actively promote equal access to justice for all persons, regardless of gender, race, religious belief, socioeconomic status, or disability.</span></p>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>&quot;Treat everyone fairly and with equal dignity.&quot; Do not discriminate against clients or litigants. Actively support and participate in legal aid programs, pro bono advocacy, and representation for the poor, marginalized, and underprivileged.</em></span></p>
+</section>
+<hr class="section-divider" />
+<section id="sec-7-canon-vi-accountability" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title"><strong>Canon VI: Accountability</strong></h2></div>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Core Legal Mandate</span> <span class="alac-text">A lawyer is an officer of the court subject to moral responsibility and strict disciplinary jurisdiction for any violation of ethical duties, oath, or professional standards.</span></p>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>&quot;Own your actions.&quot; Lawyers who commit fraud, gross misconduct, ethical violations, or breach of trust are held directly accountable by the Supreme Court and Integrated Bar of the Philippines, facing sanctions ranging from reprimand, fine, and suspension, to permanent disbarment.</em></span></p>
+</section>
+<hr class="section-divider" />
+<section id="sec-8-part-ii-judicial-ethics---new-code-of-judicial-conduct-ncjc" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title"><strong>PART II: JUDICIAL ETHICS  -  NEW CODE OF JUDICIAL CONDUCT (NCJC)</strong></h2></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><em>Promulgated under A.M. No. 03-05-01-SC (incorporating the international Bangalore Principles of Judicial Conduct), establishing the universal moral and legal standards governing all Judges and Justices across the Philippine Judiciary.</em></p>
+</section>
+<hr class="section-divider" />
+<section id="sec-9-canon-1-independence" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title"><strong>Canon 1: Independence</strong></h2></div>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Core Legal Mandate</span> <span class="alac-text">Judicial independence is a pre-requisite to the rule of law. A judge shall exercise judicial power independently on the basis of facts and law, without regard to executive directives, legislative interests, partisan politics, or public pressure.</span></p>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>&quot;Decide without fear or favor.&quot; Judges must evaluate evidence and statutes objectively. They must never yield to executive officials, politicians, media sensationalism, public clamor, or personal acquaintances.</em></span></p>
+</section>
+<hr class="section-divider" />
+<section id="sec-10-canon-2-integrity" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title"><strong>Canon 2: Integrity</strong></h2></div>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Core Legal Mandate</span> <span class="alac-text">Integrity is essential not only to the proper discharge of the judicial office, but also to personal conduct. A judge shall ensure that his or her conduct is above reproach in the view of a reasonable observer.</span></p>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>&quot;Be clean, honest, and untouchable.&quot; A judge&#x27;s character and daily life must be spotless. Never solicit or accept gifts, bribes, or favors, and never engage in deceitful or fraudulent conduct in public or private life.</em></span></p>
+</section>
+<hr class="section-divider" />
+<section id="sec-11-canon-3-impartiality" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title"><strong>Canon 3: Impartiality</strong></h2></div>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Core Legal Mandate</span> <span class="alac-text">Impartiality applies not only to the decision itself but also to the entire trial process. A judge shall perform judicial duties with complete neutrality, fairness, and objectivity, free from bias or prejudice.</span></p>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>&quot;Act as a fair and neutral referee.&quot; Never favor any party, prosecutor, or defense counsel. Inhibit and recuse from hearing cases where a judge has a personal interest, prior involvement, or close familial relation with a litigant or lawyer.</em></span></p>
+</section>
+<hr class="section-divider" />
+<section id="sec-12-canon-4-propriety" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title"><strong>Canon 4: Propriety</strong></h2></div>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Core Legal Mandate</span> <span class="alac-text">Propriety and the appearance of propriety are essential to the performance of all judicial activities. A judge shall avoid impropriety and the appearance of impropriety in both judicial and extra-judicial conduct.</span></p>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>&quot;Avoid looking shady or compromised.&quot; Live modestly and circumspectly. Avoid socializing closely or dining privately with practicing lawyers who have active cases pending before your court sala.</em></span></p>
+</section>
+<hr class="section-divider" />
+<section id="sec-13-canon-5-equality" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title"><strong>Canon 5: Equality</strong></h2></div>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Core Legal Mandate</span> <span class="alac-text">Ensuring equality of treatment to all before the courts is essential to the due performance of the judicial office. A judge shall be aware of and understand diversity in society and treat everyone with equal dignity.</span></p>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>&quot;Respect everyone in your courtroom.&quot; Treat rich and poor litigants, prominent counsel and young attorneys, victims and accused with equal patience, neutrality, courtesy, and fairness without condescension or bias.</em></span></p>
+</section>
+<hr class="section-divider" />
+<section id="sec-14-canon-6-competence-and-diligence" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title"><strong>Canon 6: Competence and Diligence</strong></h2></div>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Core Legal Mandate</span> <span class="alac-text">Competence and diligence are prerequisites to the due performance of judicial office. A judge shall maintain professional competence, manage courtroom dockets efficiently, and resolve cases within the reglementary periods prescribed by the Constitution and law.</span></p>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>&quot;Know the law and do not delay justice.&quot; Continuously master statutory amendments and Supreme Court jurisprudence, properly supervise court staff, and render clear, well-reasoned decisions within constitutional deadlines.</em></span></p>
+</section>
+<hr class="section-divider" />
+<section id="sec-15-part-iii-court-personnel-ethics---code-of-conduct-for-court" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title"><strong>PART III: COURT PERSONNEL ETHICS  -  CODE OF CONDUCT FOR COURT PERSONNEL (CCCP)</strong></h2></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><em>Promulgated under A.M. No. 03-06-13-SC, establishing strict ethical guidelines and public accountability standards for all Clerks of Court, Branch Clerks, Process Servers, Stenographers, and court administrative staff.</em></p>
+</section>
+<hr class="section-divider" />
+<section id="sec-16-canon-i-fidelity-to-duty" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title"><strong>Canon I: Fidelity to Duty</strong></h2></div>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Core Legal Mandate</span> <span class="alac-text">Court personnel shall dedicate themselves to the honest, faithful, and diligent performance of their public duties, placing public interest above personal convenience or private financial gain.</span></p>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>&quot;Serve the court and the public honestly.&quot; Never solicit or accept tips, facilitation fees, or bribes from litigants. Refrain from fixing cases or acting as middlemen for law firms.</em></span></p>
+</section>
+<hr class="section-divider" />
+<section id="sec-17-canon-ii-confidentiality" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title"><strong>Canon II: Confidentiality</strong></h2></div>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Core Legal Mandate</span> <span class="alac-text">Court personnel shall maintain strict confidentiality concerning all official information, draft decisions, internal memoranda, case raffle results, and judicial deliberations acquired during their service.</span></p>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>&quot;Keep court records and secrets locked.&quot; Never leak draft orders, unsigned decisions, or confidential case records to litigants, journalists, or third parties before official promulgation.</em></span></p>
+</section>
+<hr class="section-divider" />
+<section id="sec-18-canon-iii-conflict-of-interest" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title"><strong>Canon III: Conflict of Interest</strong></h2></div>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Core Legal Mandate</span> <span class="alac-text">Court personnel shall not participate in any business transactions, private employment, or financial investments that conflict with or compromise their official duties and court responsibilities.</span></p>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>&quot;No shady side deals or commercial conflicts.&quot; Do not recommend private law practitioners to litigants, and do not enter into commercial dealings with individuals who have pending matters before the court.</em></span></p>
+</section>
+<hr class="section-divider" />
+<section id="sec-19-canon-iv-performance-of-duties" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title"><strong>Canon IV: Performance of Duties</strong></h2></div>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Core Legal Mandate</span> <span class="alac-text">Court personnel shall perform their official duties promptly, courteously, efficiently, without discrimination, and in strict compliance with prescribed procedural guidelines and work schedules.</span></p>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>&quot;Be prompt, hardworking, and polite.&quot; Arrive at the court on time, assist the public professionally without red tape or extortion, and execute court processes diligently.</em></span></p>
+</section>
+<hr class="section-divider" />
+<section id="sec-20-part-iv-historical-comparative-reference---the-1988-code-of" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title"><strong>PART IV: HISTORICAL COMPARATIVE REFERENCE  -  THE 1988 CODE OF PROFESSIONAL RESPONSIBILITY (CPR)</strong></h2></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><em>The foundational 1988 Code of Professional Responsibility (Canons 1 to 22), organized into four major chapters reflecting the fourfold duty of a lawyer. Essential for comparative study, bar examination historical doctrines, and jurisprudential analysis.</em></p>
+</section>
+<hr class="section-divider" />
+<section id="sec-21-chapter-i-the-lawyer-and-society-canons-1-to-6" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title"><strong>Chapter I: The Lawyer and Society (Canons 1 to 6)</strong></h2></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Scope and Core Principles: </strong>Covers the lawyer&#x27;s fundamental duties to uphold the Constitution, obey the laws of the land, promote respect for law and legal processes, make legal services available to all persons regardless of means, provide accurate and non-misleading information regarding legal services, and participate in continuous legal education and law reform.</p>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>Lawyers must be law-abiding citizens and social leaders who champion justice, avoid illegal schemes, assist indigent litigants with pro bono service, and refrain from self-laudatory commercial advertisements.</em></span></p>
+</section>
+<hr class="section-divider" />
+<section id="sec-22-chapter-ii-the-lawyer-and-the-legal-profession-canons-7-to-9" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title"><strong>Chapter II: The Lawyer and the Legal Profession (Canons 7 to 9)</strong></h2></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Scope and Core Principles: </strong>Covers the lawyer&#x27;s duties to uphold the integrity, nobility, and dignity of the legal profession at all times, treat fellow members of the Bar with courtesy, candor, and fairness, and assist in preventing the unauthorized practice of law by non-lawyers or suspended practitioners.</p>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>Maintain the highest moral standards, never malign or deceive fellow lawyers, refrain from poaching clients, and never allow non-lawyers to practice law under your name.</em></span></p>
+</section>
+<hr class="section-divider" />
+<section id="sec-23-chapter-iii-the-lawyer-and-the-courts-canons-10-to-13" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title"><strong>Chapter III: The Lawyer and the Courts (Canons 10 to 13)</strong></h2></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Scope and Core Principles: </strong>Covers the lawyer&#x27;s duties of honesty, candor, and fairness to the courts, observing procedural rules, avoiding deceit or misquotation of statutes/records, assisting in the speedy and efficient administration of justice (avoiding forum shopping and frivolous appeals), observing respect and deference toward judicial officers, and refraining from acts or public statements that exert improper influence or prejudice pending court proceedings.</p>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>Never lie to a judge, never misquote facts or laws, avoid delaying tactics, show respect to the bench, and never claim private influence over the court.</em></span></p>
+</section>
+<hr class="section-divider" />
+<section id="sec-24-chapter-iv-the-lawyer-and-the-client-canons-14-to-22" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title"><strong>Chapter IV: The Lawyer and the Client (Canons 14 to 22)</strong></h2></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Scope and Core Principles: </strong>Covers the availability of legal service, undivided loyalty and fidelity to client interests, absolute confidentiality of privileged communications, candor in legal advice, charging reasonable and transparent attorney&#x27;s fees, accounting for and preserving client trust funds and properties, and observing ethical procedures when withdrawing from legal representation.</p>
+<p class="read-unit case-paragraph alac-paragraph" data-unit-type="alac"><span class="alac-badge badge-syn">Practical Meaning</span> <span class="alac-text"><em>Once engaged, give your best effort to your client, keep their secrets inviolate, never represent conflicting parties, handle client money with strict accounting, charge ethical fees, and never abandon a client without justifiable cause and court approval.</em></span></p>
+</section>
       </div>
     </main>
   </div>
@@ -1237,7 +1206,7 @@
         const currentSec = unit.closest('section.doc-section');
         const currentSecId = currentSec ? currentSec.id : null;
         if (currentSecId && currentSecId !== lastSectionId && currentSec) {
-          const headerEl = currentSec.querySelector('.case-header-title') || currentSec.querySelector('.section-title');
+          const headerEl = currentSec.querySelector('.case-header-title') || currentSec.querySelector('.topic-header-title') || currentSec.querySelector('.subtopic-header-title');
           if (headerEl) {
             speechText = 'Now Reading: ' + headerEl.innerText.trim() + ' ... ... ' + speechText;
           }
@@ -1339,50 +1308,29 @@
         const sel = window.getSelection().toString().trim();
         if (sel && synth) {
           synth.cancel();
-          const dummy = document.createElement('div');
-          dummy.innerText = sel;
-          const speechText = prepareSpeechText(dummy);
-
-          const utterance = new SpeechSynthesisUtterance(speechText);
+          const utterance = new SpeechSynthesisUtterance(expandRomanNumerals(sel));
           utterance.rate = parseFloat(speedSelect.value) || 0.9;
           const selVoiceIdx = voiceSelect.value;
           if (selVoiceIdx !== 'default' && voices[selVoiceIdx]) {
             utterance.voice = voices[selVoiceIdx];
           }
           synth.speak(utterance);
-          setSpeakingState(true);
           floatBtn.style.display = 'none';
         }
       });
 
       // Keyboard Shortcuts
       document.addEventListener('keydown', (e) => {
-        if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA') return;
         if (e.code === 'Space') {
           e.preventDefault();
           playPauseBtn.click();
-        } else if (e.code === 'Escape') {
+        } else if (e.key === 'Escape') {
           stopBtn.click();
         } else if (e.key === 'n' || e.key === 'N') {
           nextBtn.click();
         } else if (e.key === 'p' || e.key === 'P') {
           prevBtn.click();
-        } else if (e.key === 'd' || e.key === 'D') {
-          themeSelect.value = 'dark';
-          themeSelect.dispatchEvent(new Event('change'));
-        } else if (e.key === 's' || e.key === 'S') {
-          themeSelect.value = 'sepia';
-          themeSelect.dispatchEvent(new Event('change'));
-        } else if (e.key === 'l' || e.key === 'L') {
-          themeSelect.value = 'light';
-          themeSelect.dispatchEvent(new Event('change'));
-        } else if (e.key === '+' || e.key === '=') {
-          fontIncBtn.click();
-        } else if (e.key === '-') {
-          fontDecBtn.click();
-        } else if (e.key === '/') {
-          e.preventDefault();
-          sidebarSearch.focus();
         }
       });
     })();

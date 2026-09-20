@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MLC Interactive Study Hub • Natural Speech Readers</title>
+  <title>MLC Law Library & Interactive Audio Suite</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -17,7 +17,9 @@
       --text-secondary: #cbd5e1;
       --text-muted: #94a3b8;
       --accent-gold: #fbbf24;
+      --accent-gold-dark: #d97706;
       --accent-blue: #38bdf8;
+      --accent-emerald: #34d399;
       --font-ui: 'Inter', -apple-system, sans-serif;
       --font-heading: 'Cinzel', serif;
     }
@@ -26,522 +28,47 @@
       background-color: var(--bg-primary);
       color: var(--text-primary);
       font-family: var(--font-ui);
-      padding: 3rem 1.5rem;
+      padding: 3.5rem 1.5rem;
       min-height: 100vh;
     }
     .hub-container { max-width: 1100px; margin: 0 auto; }
     .hub-header { text-align: center; margin-bottom: 3.5rem; }
-    .hub-title { font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: var(--accent-gold); margin-bottom: 0.5rem; }
-    .hub-subtitle { color: var(--text-muted); font-size: 1.05rem; }
-    .hub-group { margin-bottom: 2.5rem; }
-    .hub-group-title { font-size: 1.25rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 1.25rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
+    .hub-badge { display: inline-block; background: rgba(251, 191, 36, 0.15); color: var(--accent-gold); font-size: 0.78rem; font-weight: 700; padding: 0.3rem 0.8rem; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; border: 1px solid rgba(251, 191, 36, 0.3); }
+    .hub-title { font-family: var(--font-heading); font-size: 2.3rem; font-weight: 800; color: var(--accent-gold); margin-bottom: 0.75rem; letter-spacing: 0.03em; }
+    .hub-subtitle { color: var(--text-muted); font-size: 1.05rem; max-width: 650px; margin: 0 auto; line-height: 1.6; }
+    .hub-group { margin-bottom: 3rem; }
+    .hub-group-title { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1.25rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 0.5rem; }
     .hub-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.25rem; }
-    .hub-card { background-color: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.2s ease; }
-    .hub-card:hover { transform: translateY(-3px); border-color: var(--accent-blue); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); }
-    .hub-card-header { display: flex; gap: 0.5rem; margin-bottom: 0.75rem; }
-    .badge-reader { background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.55rem; border-radius: 6px; }
-    .badge-audio { background: rgba(52, 211, 153, 0.15); color: #34d399; font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.55rem; border-radius: 6px; }
-    .hub-card-title { font-size: 1.05rem; font-weight: 600; line-height: 1.4; margin-bottom: 1.25rem; }
-    .hub-card-title a { color: var(--text-primary); text-decoration: none; }
+    .hub-card { background-color: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.2s ease; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2); }
+    .hub-card:hover { transform: translateY(-3px); border-color: var(--accent-blue); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); }
+    .hub-card-header { display: flex; gap: 0.5rem; margin-bottom: 0.85rem; }
+    .badge-reader { background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); font-size: 0.72rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid rgba(56, 189, 248, 0.3); }
+    .badge-outline { background: rgba(192, 132, 252, 0.15); color: #c084fc; font-size: 0.72rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid rgba(192, 132, 252, 0.3); }
+    .badge-audio { background: rgba(52, 211, 153, 0.15); color: #34d399; font-size: 0.72rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid rgba(52, 211, 153, 0.3); }
+    .hub-card-title { font-size: 1.05rem; font-weight: 600; line-height: 1.45; margin-bottom: 1.5rem; }
+    .hub-card-title a { color: var(--text-primary); text-decoration: none; transition: color 0.15s ease; }
     .hub-card-title a:hover { color: var(--accent-gold); }
-    .btn-open { display: inline-block; background: linear-gradient(135deg, var(--accent-gold), #d97706); color: #0b1120; font-weight: 700; font-size: 0.85rem; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none; text-align: center; transition: filter 0.15s ease; }
-    .btn-open:hover { filter: brightness(1.1); }
+    .hub-card-actions { margin-top: auto; }
+    .btn-open { display: inline-block; background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark)); color: #0b1120; font-weight: 700; font-size: 0.85rem; padding: 0.55rem 1.1rem; border-radius: 8px; text-decoration: none; text-align: center; transition: filter 0.15s ease, transform 0.15s ease; }
+    .btn-open:hover { filter: brightness(1.1); transform: scale(1.02); }
+    footer { text-align: center; margin-top: 4rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border-color); padding-top: 2rem; }
   </style>
 </head>
 <body>
   <div class="hub-container">
     <header class="hub-header">
+      <div class="hub-badge">Manila Law College • Juris Doctor Program</div>
       <h1 class="hub-title">MLC Law Library & Audio Hub</h1>
-      <p class="hub-subtitle">Interactive Full-Text Readers with Natural Voice Synthesis & Studio MP3 Podcasts</p>
+      <p class="hub-subtitle">Interactive Full-Text Readers with Natural Voice Synthesis, ALAC Reasoning, and Studio Podcasts</p>
     </header>
-    <div class="hub-group"><h2 class="hub-group-title">📂 BLJE</h2><div class="hub-grid">
+    
+          <div class="hub-group">
+            <h2 class="hub-group-title">⚖️ Basic Legal and Judiciary Ethics</h2>
+            <div class="hub-grid">
+              
               <div class="hub-card">
                 <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/BLJE/CPRA_Violations_and_Doctrines.html">CPRA Violations and Doctrines</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/BLJE/CPRA_Violations_and_Doctrines.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/BLJE/Canons & definition.html">Canons &amp; definition</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/BLJE/Canons & definition.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/BLJE/Canons.html">Canons</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/BLJE/Canons.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/BLJE/Case Digest Title.html">Case Digest Title</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/BLJE/Case Digest Title.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/BLJE/Lawyer Provision.html">Lawyer Provision</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/BLJE/Lawyer Provision.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/BLJE/Legal Ethics.html">Legal Ethics</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/BLJE/Legal Ethics.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/BLJE/Legal-Ethics-revised_hwCD0pwaTLCgmHtPRIqf.html">Legal-Ethics-revised hwCD0pwaTLCgmHtPRIqf</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/BLJE/Legal-Ethics-revised_hwCD0pwaTLCgmHtPRIqf.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/BLJE/Legal-Ethics.html">Legal-Ethics</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/BLJE/Legal-Ethics.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/BLJE/New Microsoft Word Document.html">New Microsoft Word Document</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/BLJE/New Microsoft Word Document.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/BLJE/Topic Efficient and effective legal.html">Topic Efficient and effective legal</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/BLJE/Topic Efficient and effective legal.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            </div></div><div class="hub-group"><h2 class="hub-group-title">📂 Case study reference</h2><div class="hub-grid">
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/BLJE/Case study reference/Group-3-Case-Digest-example 1.html">Group-3-Case-Digest-example 1</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/BLJE/Case study reference/Group-3-Case-Digest-example 1.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/BLJE/Case study reference/Group-3-Case-Digest-example 2.html">Group-3-Case-Digest-example 2</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/BLJE/Case study reference/Group-3-Case-Digest-example 2.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            </div></div><div class="hub-group"><h2 class="hub-group-title">📂 Group 3</h2><div class="hub-grid">
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/BLJE/Group 3/Group 3 cases.html">Group 3 cases</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/BLJE/Group 3/Group 3 cases.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            </div></div><div class="hub-group"><h2 class="hub-group-title">📂 Week 4</h2><div class="hub-grid">
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/BLJE/Week 4/QUIZ NO. 1_lLAST NAME_FIRST NAME_ 090126.html">QUIZ NO. 1 lLAST NAME FIRST NAME  090126</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/BLJE/Week 4/QUIZ NO. 1_lLAST NAME_FIRST NAME_ 090126.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            </div></div><div class="hub-group"><h2 class="hub-group-title">📂 syllabus</h2><div class="hub-grid">
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/BLJE/syllabus/2026-2027-_TUES_Part-1_-Syll_BLJE.html">2026-2027- TUES Part-1 -Syll BLJE</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/BLJE/syllabus/2026-2027-_TUES_Part-1_-Syll_BLJE.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            </div></div><div class="hub-group"><h2 class="hub-group-title">📂 week 5</h2><div class="hub-grid">
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/BLJE/week 5/Criminal_Procedure_Week_5_Case_Digests.html">Criminal Procedure Week 5 Case Digests</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/BLJE/week 5/Criminal_Procedure_Week_5_Case_Digests.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/BLJE/week 5/Pimentel_v_Legal_Education_Board_Case_Digest.html">Pimentel v Legal Education Board Case Digest</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/BLJE/week 5/Pimentel_v_Legal_Education_Board_Case_Digest.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            </div></div><div class="hub-group"><h2 class="hub-group-title">📂 CsL</h2><div class="hub-grid">
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/CsL/Case_Digests_II_The_Philippines_as_a_State.html">Case Digests II The Philippines as a State</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/CsL/Case_Digests_II_The_Philippines_as_a_State.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/CsL/Topic_II_The_Philippines_as_a_State.html">Topic II The Philippines as a State</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/CsL/Topic_II_The_Philippines_as_a_State.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            </div></div><div class="hub-group"><h2 class="hub-group-title">📂 First Sem 1st Year</h2><div class="hub-grid">
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/Legal.html">Legal</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/Legal.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/how to convert.html">how to convert</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/how to convert.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            </div></div><div class="hub-group"><h2 class="hub-group-title">📂 New Format</h2><div class="hub-grid">
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/Statutory Construction/New Format/Statutory Construction Case Digest Format.html">Statutory Construction Case Digest Format</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/Statutory Construction/New Format/Statutory Construction Case Digest Format.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/Statutory Construction/New Format/major topics or chapters in Statutory Construction.html">major topics or chapters in Statutory Construction</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/Statutory Construction/New Format/major topics or chapters in Statutory Construction.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            </div></div><div class="hub-group"><h2 class="hub-group-title">📂 Statutory Construction</h2><div class="hub-grid">
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/Statutory Construction/StatCon_ALAC_Digests_Mapa_Atienza_NHA.html">StatCon ALAC Digests Mapa Atienza NHA</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/Statutory Construction/StatCon_ALAC_Digests_Mapa_Atienza_NHA.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/Statutory Construction/StatCon_Cases.html">StatCon Cases</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/Statutory Construction/StatCon_Cases.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/Statutory Construction/StatCon_Cases_Phase1.html">StatCon Cases Phase1</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/Statutory Construction/StatCon_Cases_Phase1.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/Statutory Construction/StatCon_Syllabus_Cases.html">StatCon Syllabus Cases</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/Statutory Construction/StatCon_Syllabus_Cases.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/Statutory Construction/StatCon_Syllabus_JPR (1).html">StatCon Syllabus JPR (1)</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/Statutory Construction/StatCon_Syllabus_JPR (1).html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/Statutory Construction/StatCon_Syllabus_JPR (4).html">StatCon Syllabus JPR (4)</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/Statutory Construction/StatCon_Syllabus_JPR (4).html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/Statutory Construction/StatCon_Syllabus_JPR.html">StatCon Syllabus JPR</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/Statutory Construction/StatCon_Syllabus_JPR.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/Statutory Construction/StatCon_Syllabus_Outline.html">StatCon Syllabus Outline</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/Statutory Construction/StatCon_Syllabus_Outline.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/Statutory Construction/Statutory Construction Agpalo Reviewer.html">Statutory Construction Agpalo Reviewer</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/Statutory Construction/Statutory Construction Agpalo Reviewer.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/Statutory Construction/Statutory Construction Study Guide.html">Statutory Construction Study Guide</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/Statutory Construction/Statutory Construction Study Guide.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/Statutory Construction/format_dump.html">format dump</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/Statutory Construction/format_dump.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            </div></div><div class="hub-group"><h2 class="hub-group-title">📂 StatCons</h2><div class="hub-grid">
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/Statutory Construction/StatCons/StatCons_Master_Complete_All_Cases.html">StatCons Master Complete All Cases</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/Statutory Construction/StatCons/StatCons_Master_Complete_All_Cases.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/Statutory Construction/StatCons/StatCons_Phase1_Chapters_I_II.html">StatCons Phase1 Chapters I II</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/Statutory Construction/StatCons/StatCons_Phase1_Chapters_I_II.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/Statutory Construction/StatCons/StatCons_Phase2_Chapter_III.html">StatCons Phase2 Chapter III</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/Statutory Construction/StatCons/StatCons_Phase2_Chapter_III.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/Statutory Construction/StatCons/StatCons_Phase3_Chapter_IV.html">StatCons Phase3 Chapter IV</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/Statutory Construction/StatCons/StatCons_Phase3_Chapter_IV.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/Statutory Construction/StatCons/StatCons_Phase4_Chapters_V_VI.html">StatCons Phase4 Chapters V VI</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/Statutory Construction/StatCons/StatCons_Phase4_Chapters_V_VI.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/Statutory Construction/StatCons/test_sample_render.html">test sample render</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/Statutory Construction/StatCons/test_sample_render.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/Statutory Construction/StatCons/test_unicode.html">test unicode</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/Statutory Construction/StatCons/test_unicode.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            </div></div><div class="hub-group"><h2 class="hub-group-title">📂 drive-download-20260911T122722Z-1-001</h2><div class="hub-grid">
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/Statutory Construction/drive-download-20260911T122722Z-1-001/Statutory Construction Case Digest Format.html">Statutory Construction Case Digest Format</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/Statutory Construction/drive-download-20260911T122722Z-1-001/Statutory Construction Case Digest Format.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            </div></div><div class="hub-group"><h2 class="hub-group-title">📂 week 6</h2><div class="hub-grid">
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/Statutory Construction/week 6/Statutory_Construction_Week_6_Cases.html">Statutory Construction Week 6 Cases</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/Statutory Construction/week 6/Statutory_Construction_Week_6_Cases.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/Statutory Construction/week 6/Statutory_Construction_Week_6_Lecture_Guide.html">Statutory Construction Week 6 Lecture Guide</a></h3>
-                <div class="hub-card-actions">
-                  <a href="First Sem 1st Year/Statutory Construction/week 6/Statutory_Construction_Week_6_Lecture_Guide.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            </div></div><div class="hub-group"><h2 class="hub-group-title">📂 Basic Legal and Judiciary Ethics</h2><div class="hub-grid">
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
+                  <span class="badge-outline">Course Outline</span>
                   <span class="badge-audio">🎙️ MP3 Audio</span>
                 </div>
                 <h3 class="hub-card-title"><a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons & definition.html">Canons &amp; definition</a></h3>
@@ -549,10 +76,10 @@
                   <a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons & definition.html" class="btn-open">Open Reader →</a>
                 </div>
               </div>
-            </div></div><div class="hub-group"><h2 class="hub-group-title">📂 case digest</h2><div class="hub-grid">
+            
               <div class="hub-card">
                 <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
+                  <span class="badge-reader">Case Digest</span>
                   <span class="badge-audio">🎙️ MP3 Audio</span>
                 </div>
                 <h3 class="hub-card-title"><a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/case digest/BLJE Case Digest.html">BLJE Case Digest</a></h3>
@@ -561,9 +88,38 @@
                 </div>
               </div>
             
+            </div>
+          </div>
+        
+          <div class="hub-group">
+            <h2 class="hub-group-title">🏛️ Criminal Law</h2>
+            <div class="hub-grid">
+              
               <div class="hub-card">
                 <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
+                  <span class="badge-outline">Course Outline</span>
+                  
+                </div>
+                <h3 class="hub-card-title"><a href="First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 - Assigned Landmark Cases Masterlist.html">Criminal Law 1 - Assigned Landmark Cases Masterlist</a></h3>
+                <div class="hub-card-actions">
+                  <a href="First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 - Assigned Landmark Cases Masterlist.html" class="btn-open">Open Reader →</a>
+                </div>
+              </div>
+            
+              <div class="hub-card">
+                <div class="hub-card-header">
+                  <span class="badge-outline">Course Outline</span>
+                  
+                </div>
+                <h3 class="hub-card-title"><a href="First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 - Course Outline and Complete Topics.html">Criminal Law 1 - Course Outline and Complete Topics</a></h3>
+                <div class="hub-card-actions">
+                  <a href="First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 - Course Outline and Complete Topics.html" class="btn-open">Open Reader →</a>
+                </div>
+              </div>
+            
+              <div class="hub-card">
+                <div class="hub-card-header">
+                  <span class="badge-reader">Case Digest</span>
                   <span class="badge-audio">🎙️ MP3 Audio</span>
                 </div>
                 <h3 class="hub-card-title"><a href="First Sem 1st Year/Subjects/Criminal Law/case digest/Criminal Law Case Digest.html">Criminal Law Case Digest</a></h3>
@@ -572,9 +128,27 @@
                 </div>
               </div>
             
+            </div>
+          </div>
+        
+          <div class="hub-group">
+            <h2 class="hub-group-title">📜 Statutory Construction</h2>
+            <div class="hub-grid">
+              
               <div class="hub-card">
                 <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
+                  <span class="badge-outline">Course Outline</span>
+                  
+                </div>
+                <h3 class="hub-card-title"><a href="First Sem 1st Year/Subjects/Statutory Construction/Statutory Construction (StatCon).html">Statutory Construction (StatCon)</a></h3>
+                <div class="hub-card-actions">
+                  <a href="First Sem 1st Year/Subjects/Statutory Construction/Statutory Construction (StatCon).html" class="btn-open">Open Reader →</a>
+                </div>
+              </div>
+            
+              <div class="hub-card">
+                <div class="hub-card-header">
+                  <span class="badge-reader">Case Digest</span>
                   <span class="badge-audio">🎙️ MP3 Audio</span>
                 </div>
                 <h3 class="hub-card-title"><a href="First Sem 1st Year/Subjects/Statutory Construction/case digest/Statutory Construction Case Digest.html">Statutory Construction Case Digest</a></h3>
@@ -582,62 +156,13 @@
                   <a href="First Sem 1st Year/Subjects/Statutory Construction/case digest/Statutory Construction Case Digest.html" class="btn-open">Open Reader →</a>
                 </div>
               </div>
-            </div></div><div class="hub-group"><h2 class="hub-group-title">📂 Core Library</h2><div class="hub-grid">
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="JULIUS RAY N BALITBIT - MLC-LETTER-OF-UNDERTAKING.html">JULIUS RAY N BALITBIT - MLC-LETTER-OF-UNDERTAKING</a></h3>
-                <div class="hub-card-actions">
-                  <a href="JULIUS RAY N BALITBIT - MLC-LETTER-OF-UNDERTAKING.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
             
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="MLC-JD-CURRICULUM.html">MLC-JD-CURRICULUM</a></h3>
-                <div class="hub-card-actions">
-                  <a href="MLC-JD-CURRICULUM.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="README_TTS_READER.html">README TTS READER</a></h3>
-                <div class="hub-card-actions">
-                  <a href="README_TTS_READER.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="examsoft.html">examsoft</a></h3>
-                <div class="hub-card-actions">
-                  <a href="examsoft.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            
-              <div class="hub-card">
-                <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
-                  
-                </div>
-                <h3 class="hub-card-title"><a href="jdyyyy-nnnn.balitbit@stu.html">jdyyyy-nnnn.balitbit@stu</a></h3>
-                <div class="hub-card-actions">
-                  <a href="jdyyyy-nnnn.balitbit@stu.html" class="btn-open">Open Reader →</a>
-                </div>
-              </div>
-            </div></div>
+            </div>
+          </div>
+        
+    <footer>
+      <div>Manila Law College (MLC) • Academic Year 2026–2027 • First Semester Subjects</div>
+    </footer>
   </div>
 </body>
 </html>

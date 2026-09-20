@@ -3,12 +3,12 @@
 """
 MLC Universal Text-to-Speech (Read Aloud) HTML Reader Generator
 ===============================================================
-Converts legal study materials (.docx, .pdf, .md, .txt) across all MLC folders
+Converts legal study materials (.docx) across all MLC folders
 into interactive, high-readability HTML web applications featuring:
   - Natural, Human-like Cadence & Intonation with Smart Legal Phonetic Expansions
-  - Continuous, Flowing Body Paragraphs with Modern Legal Typography
-  - Streamlined, Non-Redundant Table of Contents (TOC) with Instant Live Search
-  - Clear Visual Hierarchy: Case Badges, Citation Banners, Subheadings, ALAC Badges & Tables
+  - Continuous, Flowing Body Paragraphs with Modern Legal Typography (No Chat-Like Fragmentation)
+  - Streamlined, Clean Table of Contents (TOC) focused on Main Topics & Sub Topics (e.g. Case Titles Only)
+  - Clear Visual Hierarchy: Case Badges, Citation Banners, Subheadings, ALAC Inline Badges & Tables
   - Native Studio MP3 Podcast Audio Player Integration (Mobile Background Compatible)
   - Full Keyboard Navigation, Theme Modes (Dark, Sepia, Light), and Responsive Mobile Layout
 """
@@ -21,22 +21,14 @@ import json
 import argparse
 from pathlib import Path
 
-# Optional dependencies with graceful fallback
+# Optional dependencies
 try:
     import docx
+    from docx.text.paragraph import Paragraph
+    from docx.table import Table
     HAS_DOCX = True
 except ImportError:
     HAS_DOCX = False
-
-try:
-    import pymupdf as fitz
-    HAS_FITZ = True
-except ImportError:
-    try:
-        import fitz
-        HAS_FITZ = True
-    except ImportError:
-        HAS_FITZ = False
 
 # ==============================================================================
 # 1. TEXT CLEANING & NORMALIZATION
@@ -69,18 +61,29 @@ def slugify(text):
 
 # Regex patterns for high-precision legal document structure
 CASE_HEADING_RE = re.compile(
-    r'^(CASE\s+\d+[:\.]?.*|PART\s+[I|V|X\d]+[:\.]?.*|Canon\s+[I|V|X\d]+[:\.]?.*|CHAPTER\s+[I|V|X\d]+[:\.]?.*|TOPIC\s+[I|V|X\d]+[:\.]?.*)',
+    r'^(CASE\s+\d+[:\.]?.*)',
     re.IGNORECASE
 )
 
-SUBHEADING_RE = re.compile(
-    r'^([I|V|X]+\.\s+[A-Z\s\(\)&,\-\/:]{3,}|HOW THE COURT CONSTRUED|RELEVANT STATUTORY|APPLICABLE\s+.*(?:PRINCIPLES|MAXIMS|CANONS|PROVISIONS)|SUMMARY OF THE STATUTORY|SUBJECT MATTER & PROVISION|SYLLABUS TOPIC|FACTS OF THE CASE|STATEMENT OF THE ETHICAL ISSUE|SUBSTANTIVE LEGAL ISSUE|THE COURT\'S RULING|THE RULING|COURT\'S RULING)',
+MAIN_TOPIC_RE = re.compile(
+    r'^(PART\s+[I|V|X\d]+[:\.]?.*|Canon\s+[I|V|X\d]+[:\.]?.*|CHAPTER\s+[I|V|X\d]+[:\.]?.*|\b[I|V|X]+\.\s+[A-Z\s\(\)&,\-\/:]{3,}|STEP\s+\d+[:\.]?.*|\d+\.\s+[A-Z\s\(\)&,\-\/:]{4,}|EXECUTIVE CASE DISTRIBUTION MATRIX)',
+    re.IGNORECASE
+)
+
+SUB_TOPIC_RE = re.compile(
+    r'^(Topic:\s+.*|^[A-Z]\.\s+[A-Za-z0-9\s\(\)&,\-\/:]{3,}|Section\s+\d+[:\.]?.*|Rule\s+\d+[:\.]?.*|STEP\s+\d+[:\.]?.*|STEP\s+0[:\.]?.*)',
+    re.IGNORECASE
+)
+
+INTERNAL_SUBHEADING_RE = re.compile(
+    r'^([I|V|X]+\.\s+(?:FACTS|ISSUE|THE COURT|COURT|APPLICABLE|SUBJECT MATTER|SYLLABUS|SUMMARY|HOW THE COURT|RELEVANT).*|FACTS OF THE CASE|STATEMENT OF THE ETHICAL ISSUE|STATEMENT OF THE ISSUE|SUBSTANTIVE LEGAL ISSUE|THE COURT\'S RULING|THE RULING|COURT\'S RULING|HOW THE COURT CONSTRUED|RELEVANT STATUTORY|APPLICABLE\s+.*(?:PRINCIPLES|MAXIMS|CANONS|PROVISIONS)|SUMMARY OF THE STATUTORY|SUBJECT MATTER & PROVISION|SYLLABUS TOPIC)',
     re.IGNORECASE
 )
 
 ALAC_PATTERNS = [
     r'Ethical Synthesis & Canon Application',
     r'Criminal Law Synthesis & Statutory Application',
+    r'Statutory Construction Synthesis & Maxim Application',
     r'Statutory Construction Synthesis & Methodological Application',
     r'APPLICATION\s*\/\s*ANALYSIS',
     r'CONCLUSION\s*\/\s*DISPOSITIVE\s*RULING',
@@ -107,7 +110,7 @@ ALAC_PATTERNS = [
 ALAC_RE = re.compile(r'^(' + '|'.join(ALAC_PATTERNS) + r')\s*[:\.\-–—]?', re.IGNORECASE)
 
 # ==============================================================================
-# 2. DOCUMENT PARSERS (.docx, .pdf, .md, .txt)
+# 2. DOCUMENT PARSER (.docx)
 # ==============================================================================
 
 def format_inline_runs(paragraph):
@@ -131,10 +134,11 @@ def format_inline_runs(paragraph):
 def parse_docx_file(file_path, doc_title=""):
     """
     Parses Microsoft Word (.docx) file into structured case sections with:
-      - TOC limited strictly to Major Case / Canon / Part headings
+      - TOC limited strictly to Major Case Titles / Main Topics / Sub Topics
       - In-case styled subheadings (Facts, Issue, Ruling, Ethical Principles)
-      - Distinct styled ALAC inline badges (Answer, Legal Basis, Application, Conclusion)
       - Smooth, non-fragmented continuous body paragraphs
+      - Embedded tables at their exact contextual positions
+      - Distinct styled ALAC inline badges (Answer, Legal Basis, Application, Conclusion)
     """
     if not HAS_DOCX:
         raise RuntimeError("python-docx is required. Install with 'pip install python-docx'.")
@@ -150,38 +154,54 @@ def parse_docx_file(file_path, doc_title=""):
     sec_counter = 1
     expect_citation = False
 
-    for p in doc.paragraphs:
+    # Strictly identify Case Digest documents
+    filename_lower = file_path.name.lower()
+    is_case_digest_doc = "digest" in filename_lower
+
+    for element in doc.element.body:
+        # 1. Handle Tables
+        if element.tag.endswith('tbl'):
+            tbl = Table(element, doc)
+            html_tbl = ['<div class="table-responsive read-unit" data-unit-type="table"><table class="reader-table">']
+            for i, row in enumerate(tbl.rows):
+                tag = 'th' if i == 0 else 'td'
+                html_tbl.append('<tr>')
+                for cell in row.cells:
+                    ctext = html.escape(clean_text(cell.text.strip()))
+                    html_tbl.append(f'<{tag}>{ctext}</{tag}>')
+                html_tbl.append('</tr>')
+            html_tbl.append('</table></div>')
+            current_sec["units"].append("".join(html_tbl))
+            continue
+
+        # 2. Handle Paragraphs
+        if not element.tag.endswith('p'):
+            continue
+
+        p = Paragraph(element, doc)
         raw_text = clean_text(p.text.strip())
         if not raw_text:
             continue
 
-        style_name = p.style.name.lower() if p.style else ""
         formatted_text = format_inline_runs(p)
-        if not formatted_text:
-            continue
+        style_name = (p.style.name or "").lower()
 
-        # 1. Check for Top-Level Case / Canon / Part Headings (Creates TOC Section)
-        is_major_heading = bool(
-            CASE_HEADING_RE.match(raw_text) or
-            ("heading 1" in style_name and len(raw_text) < 140 and not SUBHEADING_RE.match(raw_text)) or
-            ("title" in style_name and len(raw_text) < 140)
-        )
-
-        if is_major_heading:
+        # A. Check for Case Title Heading: "CASE 1: ...", "CASE 13: ..."
+        case_match = CASE_HEADING_RE.match(raw_text)
+        if case_match:
             if current_sec["units"] or current_sec["title"] != (doc_title or "Document Overview"):
                 sections.append(current_sec)
             
             sec_id = f"sec-{sec_counter}-{slugify(raw_text)}"
             sec_counter += 1
             
-            # Extract case badge if it is a case
             case_badge = ""
             case_name = raw_text
-            case_match = re.match(r'^(CASE\s+\d+)[:\.]?\s*(.*)$', raw_text, re.IGNORECASE)
-            if case_match:
-                case_badge = case_match.group(1).upper()
-                case_name = case_match.group(2) or case_badge
-            
+            c_split = re.match(r'^(CASE\s+\d+)[:\.]?\s*(.*)$', raw_text, re.IGNORECASE)
+            if c_split:
+                case_badge = c_split.group(1).upper()
+                case_name = c_split.group(2) or case_badge
+
             current_sec = {
                 "id": sec_id,
                 "title": raw_text,
@@ -200,25 +220,62 @@ def parse_docx_file(file_path, doc_title=""):
             expect_citation = True
             continue
 
-        # 2. Check for Case Citation Line (e.g. A.C. No. 13521, June 27, 2023 | Per Curiam)
+        # B. Check for Main Topics in Non-Digest Guides (e.g. Canons, StatCon Methodology, Outline Parts)
+        if not is_case_digest_doc and MAIN_TOPIC_RE.match(raw_text):
+            if current_sec["units"] or current_sec["title"] != (doc_title or "Document Overview"):
+                sections.append(current_sec)
+            
+            sec_id = f"sec-{sec_counter}-{slugify(raw_text)}"
+            sec_counter += 1
+            
+            current_sec = {
+                "id": sec_id,
+                "title": raw_text,
+                "level": 1,
+                "units": []
+            }
+            current_sec["units"].append(
+                f'<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title">{formatted_text}</h2></div>'
+            )
+            continue
+
+        # C. Check for Sub-Topics in Non-Digest Guides (e.g. "Topic: Theories of Criminal Law", "A. Definitions & Nature")
+        if not is_case_digest_doc and SUB_TOPIC_RE.match(raw_text):
+            if current_sec["units"] or current_sec["title"] != (doc_title or "Document Overview"):
+                sections.append(current_sec)
+            
+            sec_id = f"sec-{sec_counter}-{slugify(raw_text)}"
+            sec_counter += 1
+            
+            current_sec = {
+                "id": sec_id,
+                "title": raw_text,
+                "level": 2,
+                "units": []
+            }
+            current_sec["units"].append(
+                f'<div class="subtopic-header-card read-unit" data-unit-type="subtopic-header"><h3 class="subtopic-header-title">{formatted_text}</h3></div>'
+            )
+            continue
+
+        # D. Check for Case Citation Line (e.g. A.C. No. 13521, June 27, 2023 | Per Curiam)
         if expect_citation and (len(raw_text) < 180 and any(k in raw_text for k in ["SCRA", "G.R.", "A.C.", "A.M.", "Phil.", "Ponente", "Curiam", "En Banc", "|"])):
             current_sec["units"].append(
-                f'<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖</span> <span class="citation-text">{formatted_text}</span></div>'
+                f'<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text">{formatted_text}</span></div>'
             )
             expect_citation = False
             continue
         
         expect_citation = False
 
-        # 3. Check for Subheadings within the Case (e.g. I. FACTS OF THE CASE, II. ISSUE)
-        if SUBHEADING_RE.match(raw_text):
-            sub_title = raw_text
+        # E. Check for Internal In-Case Subheadings (e.g. I. FACTS OF THE CASE, II. ISSUE, III. RULING)
+        if INTERNAL_SUBHEADING_RE.match(raw_text):
             current_sec["units"].append(
                 f'<h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> {formatted_text}</h3>'
             )
             continue
 
-        # 4. Check for ALAC & Structured Reasoning Badges (ANSWER:, LEGAL BASIS:, ANALYSIS:, CONCLUSION:)
+        # F. Check for ALAC & Structured Reasoning Badges (ANSWER:, LEGAL BASIS:, ANALYSIS:, CONCLUSION:)
         alac_match = ALAC_RE.match(raw_text)
         if alac_match:
             badge_label = alac_match.group(1).strip()
@@ -265,7 +322,7 @@ def parse_docx_file(file_path, doc_title=""):
             )
             continue
 
-        # 5. Check for Bullet Points and Lists
+        # G. Check for Bullet Points and Lists
         if "list" in style_name or "bullet" in style_name or raw_text.startswith(('•', '-', '*')) or re.match(r'^[•\-\*]\s*', raw_text):
             clean_bullet = re.sub(r'^[•\-\*]\s*', '', formatted_text)
             current_sec["units"].append(
@@ -273,346 +330,191 @@ def parse_docx_file(file_path, doc_title=""):
             )
             continue
 
-        # 6. Standard Continuous Flowing Paragraph
+        # H. Standard Continuous Flowing Paragraph
         current_sec["units"].append(f'<p class="read-unit case-paragraph" data-unit-type="paragraph">{formatted_text}</p>')
 
-    # Extract tables in docx
-    for table in doc.tables:
-        html_tbl = ['<div class="table-responsive read-unit" data-unit-type="table"><table class="reader-table">']
-        for i, row in enumerate(table.rows):
-            tag = 'th' if i == 0 else 'td'
-            html_tbl.append('<tr>')
-            for cell in row.cells:
-                ctext = html.escape(clean_text(cell.text.strip()))
-                html_tbl.append(f'<{tag}>{ctext}</{tag}>')
-            html_tbl.append('</tr>')
-        html_tbl.append('</table></div>')
-        current_sec["units"].append("".join(html_tbl))
-
     if current_sec["units"] or current_sec["title"]:
         sections.append(current_sec)
 
     return sections
 
-def parse_pdf_file(file_path, doc_title=""):
+# ==============================================================================
+# 3. HTML GENERATOR & TEMPLATE
+# ==============================================================================
+
+def generate_reader_html(doc_title, subject_tag, sections, mp3_filename=None):
     """
-    Parses PDF document using PyMuPDF (fitz), de-fragmenting lines into smooth paragraphs
-    and organizing TOC strictly around major case/document headings.
+    Renders the complete self-contained interactive reader HTML app.
     """
-    if not HAS_FITZ:
-        raise RuntimeError("PyMuPDF (fitz) is required. Install with 'pip install pymupdf'.")
+    escaped_title = html.escape(doc_title)
+    escaped_subject_tag = html.escape(subject_tag)
     
-    doc = fitz.open(file_path)
-    all_blocks = []
+    total_sections = len(sections)
+    total_units = sum(len(s.get("units", [])) for s in sections)
+    reading_time_minutes = max(1, round(total_units * 0.4))
 
-    for page_idx in range(len(doc)):
-        page = doc[page_idx]
-        blocks = page.get_text("dict")["blocks"]
-        for b in blocks:
-            if "lines" in b:
-                block_text_parts = []
-                is_bold_block = False
-                for l in b["lines"]:
-                    line_str = "".join(s["text"] for s in l["spans"]).strip()
-                    bbox = l["bbox"]
-                    # Skip recurring header/footer
-                    if bbox[1] > 740 and line_str.isdigit():
-                        continue
-                    if bbox[1] < 50 and ("DEAN" in line_str or "FACULTY OF CIVIL LAW" in line_str):
-                        continue
-                    if line_str:
-                        if any("bold" in s.get("font", "").lower() or s.get("flags", 0) & 2 for s in l["spans"]):
-                            is_bold_block = True
-                        block_text_parts.append(line_str)
-                if block_text_parts:
-                    joined = clean_text(" ".join(block_text_parts))
-                    all_blocks.append((joined, is_bold_block))
+    # Build TOC HTML
+    toc_items = []
+    for s in sections:
+        s_title = html.escape(s.get("title", "Section"))
+        s_id = s.get("id", "sec")
+        s_lvl = s.get("level", 1)
+        lvl_class = f"level-{s_lvl}"
+        toc_items.append(f'<li><a href="#{s_id}" class="toc-link {lvl_class}" title="{s_title}">{s_title}</a></li>')
+    toc_html = "\n".join(toc_items)
 
-    sections = []
-    current_sec = {
-        "id": "sec-overview",
-        "title": doc_title or "Document Overview",
-        "level": 1,
-        "units": []
-    }
-    sec_counter = 1
+    # Build Content HTML
+    sec_html_list = []
+    for s in sections:
+        s_id = s.get("id", "sec")
+        units_html = "\n".join(s.get("units", []))
+        sec_html_list.append(f'<section id="{s_id}" class="doc-section">\n{units_html}\n</section>')
+    sections_html = "\n<hr class=\"section-divider\" />\n".join(sec_html_list)
 
-    for text, is_bold in all_blocks:
-        if not text:
-            continue
+    # Audio player snippet if mp3 available
+    mp3_player_html = ""
+    if mp3_filename:
+        mp3_player_html = f'''
+        <div class="studio-audio-player">
+          <div class="audio-player-header">
+            <span class="audio-badge">🎙️ Studio Voice Podcast</span>
+            <span class="audio-filename">{html.escape(mp3_filename)}</span>
+          </div>
+          <audio controls preload="metadata" class="native-audio-element">
+            <source src="{html.escape(mp3_filename)}" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        '''
 
-        is_major = bool(
-            CASE_HEADING_RE.match(text) or
-            (is_bold and len(text) < 120 and not SUBHEADING_RE.match(text) and (text.isupper() or "CASE" in text.upper()))
-        )
-
-        if is_major:
-            if current_sec["units"] or current_sec["title"] != (doc_title or "Document Overview"):
-                sections.append(current_sec)
-            sec_id = f"sec-{sec_counter}-{slugify(text)}"
-            sec_counter += 1
-            current_sec = {
-                "id": sec_id,
-                "title": text,
-                "level": 1,
-                "units": []
-            }
-            current_sec["units"].append(
-                f'<div class="case-header-card read-unit" data-unit-type="case-header"><h2 class="case-header-title">{html.escape(text)}</h2></div>'
-            )
-            continue
-
-        if SUBHEADING_RE.match(text):
-            current_sec["units"].append(
-                f'<h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> {html.escape(text)}</h3>'
-            )
-            continue
-
-        esc = html.escape(text)
-        if is_bold and len(text) < 120:
-            esc = f"<strong>{esc}</strong>"
-
-        current_sec["units"].append(f'<p class="read-unit case-paragraph" data-unit-type="paragraph">{esc}</p>')
-
-    if current_sec["units"] or current_sec["title"]:
-        sections.append(current_sec)
-
-    return sections
-
-def parse_markdown(content, doc_title=""):
-    """Parses Markdown text into structured case sections and units."""
-    lines = content.splitlines()
-    sections = []
-    current_sec = {
-        "id": "sec-overview",
-        "title": doc_title or "Introduction",
-        "level": 1,
-        "units": []
-    }
-    sec_counter = 1
-
-    def format_inline(t):
-        t = clean_text(t)
-        t = html.escape(t)
-        t = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', t)
-        t = re.sub(r'__(.+?)__', r'<strong>\1</strong>', t)
-        t = re.sub(r'\*(.+?)\*', r'<em>\1</em>', t)
-        t = re.sub(r'_(.+?)_', r'<em>\1</em>', t)
-        t = re.sub(r'`(.+?)`', r'<code>\1</code>', t)
-        return t
-
-    for line in lines:
-        stripped = line.strip()
-        if not stripped:
-            continue
-
-        # Major Headings (# or ## CASE)
-        heading_match = re.match(r'^(#{1,3})\s+(.+)$', stripped)
-        if heading_match:
-            htext = heading_match.group(2).strip()
-            if CASE_HEADING_RE.match(htext) or heading_match.group(1) == '#':
-                if current_sec["units"] or current_sec["title"] != (doc_title or "Introduction"):
-                    sections.append(current_sec)
-                sec_id = f"sec-{sec_counter}-{slugify(htext)}"
-                sec_counter += 1
-                current_sec = {
-                    "id": sec_id,
-                    "title": clean_text(htext),
-                    "level": 1,
-                    "units": []
-                }
-                current_sec["units"].append(
-                    f'<div class="case-header-card read-unit" data-unit-type="case-header"><h2 class="case-header-title">{html.escape(htext)}</h2></div>'
-                )
-                continue
-            else:
-                current_sec["units"].append(
-                    f'<h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> {format_inline(htext)}</h3>'
-                )
-                continue
-
-        formatted_p = format_inline(stripped)
-        current_sec["units"].append(f'<p class="read-unit case-paragraph" data-unit-type="paragraph">{formatted_p}</p>')
-
-    if current_sec["units"] or current_sec["title"]:
-        sections.append(current_sec)
-
-    return sections
-
-def parse_txt_file(file_path, doc_title=""):
-    with open(file_path, 'r', encoding='utf-8', errors='replace') as f:
-        content = f.read()
-    return parse_markdown(content, doc_title)
-
-# ==============================================================================
-# 3. MODERN RESPONSIVE HTML READER TEMPLATE
-# ==============================================================================
-
-HTML_PAGE_TEMPLATE = """<!DOCTYPE html>
+    html_template = f'''<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="{escaped_description}">
   <title>{escaped_title} | MLC Law Library</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {{
       --bg-primary: #0b1120;
       --bg-secondary: #131d31;
       --bg-tertiary: #1e293b;
-      --bg-card: rgba(19, 29, 49, 0.85);
-      --bg-card-hover: rgba(30, 41, 59, 0.95);
-      --border-color: rgba(148, 163, 184, 0.16);
-      --border-focus: #38bdf8;
+      --border-color: rgba(148, 163, 184, 0.14);
+      --border-focus: #fbbf24;
       --text-primary: #f8fafc;
       --text-secondary: #cbd5e1;
       --text-muted: #94a3b8;
       --accent-gold: #fbbf24;
       --accent-gold-dark: #d97706;
       --accent-blue: #38bdf8;
-      --accent-indigo: #818cf8;
       --accent-emerald: #34d399;
-      --accent-rose: #fb7185;
-      --highlight-reading: rgba(56, 189, 248, 0.22);
-      --font-body: 'Merriweather', Georgia, serif;
+      --accent-crimson: #f87171;
+      --accent-purple: #c084fc;
+      --highlight-bg: rgba(251, 191, 36, 0.22);
+      --highlight-border: #fbbf24;
+      --card-bg: rgba(19, 29, 49, 0.7);
       --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Merriweather', Georgia, serif;
       --font-heading: 'Cinzel', serif;
       --font-mono: 'JetBrains Mono', monospace;
-      --sidebar-width: 340px;
-      --header-height: 68px;
-      --content-max-width: 900px;
-      --base-font-size: 17px;
-      --line-height: 1.85;
+      --sidebar-width: 320px;
+      --header-height: 64px;
       --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
-      --glass-blur: blur(14px);
-    }}
-
-    [data-theme="light"] {{
-      --bg-primary: #f8fafc;
-      --bg-secondary: #ffffff;
-      --bg-tertiary: #f1f5f9;
-      --bg-card: rgba(255, 255, 255, 0.95);
-      --bg-card-hover: rgba(248, 250, 252, 1);
-      --border-color: rgba(203, 213, 225, 0.85);
-      --border-focus: #0284c7;
-      --text-primary: #0f172a;
-      --text-secondary: #334155;
-      --text-muted: #64748b;
-      --accent-gold: #b45309;
-      --accent-gold-dark: #92400e;
-      --accent-blue: #0284c7;
-      --accent-indigo: #4f46e5;
-      --accent-emerald: #059669;
-      --accent-rose: #e11d48;
-      --highlight-reading: rgba(2, 132, 199, 0.15);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
     }}
 
     [data-theme="sepia"] {{
-      --bg-primary: #fbf0d9;
-      --bg-secondary: #f4e4c1;
-      --bg-tertiary: #ecd6a7;
-      --bg-card: rgba(244, 228, 193, 0.95);
-      --bg-card-hover: rgba(236, 214, 167, 1);
-      --border-color: rgba(180, 150, 110, 0.45);
-      --border-focus: #9a6700;
+      --bg-primary: #fbf7ee;
+      --bg-secondary: #f4ecd8;
+      --bg-tertiary: #e9dfc4;
+      --border-color: rgba(120, 97, 65, 0.18);
+      --border-focus: #b45309;
       --text-primary: #2d241e;
-      --text-secondary: #4a3b32;
-      --text-muted: #786455;
-      --accent-gold: #a75d00;
-      --accent-gold-dark: #8c4c00;
-      --accent-blue: #2c6e91;
-      --accent-indigo: #5d4a82;
-      --accent-emerald: #2e7d32;
-      --accent-rose: #c2185b;
-      --highlight-reading: rgba(200, 150, 50, 0.22);
+      --text-secondary: #4a3e35;
+      --text-muted: #786c60;
+      --accent-gold: #b45309;
+      --accent-gold-dark: #92400e;
+      --accent-blue: #0284c7;
+      --accent-emerald: #059669;
+      --accent-crimson: #dc2626;
+      --accent-purple: #7c3aed;
+      --highlight-bg: rgba(217, 119, 6, 0.2);
+      --highlight-border: #b45309;
+      --card-bg: rgba(244, 236, 216, 0.85);
     }}
 
-    * {{
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    [data-theme="light"] {{
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8fafc;
+      --bg-tertiary: #f1f5f9;
+      --border-color: #e2e8f0;
+      --border-focus: #d97706;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --accent-gold: #d97706;
+      --accent-gold-dark: #b45309;
+      --accent-blue: #0284c7;
+      --accent-emerald: #059669;
+      --accent-crimson: #dc2626;
+      --accent-purple: #7c3aed;
+      --highlight-bg: rgba(254, 240, 138, 0.5);
+      --highlight-border: #eab308;
+      --card-bg: rgba(248, 250, 252, 0.9);
     }}
 
-    html {{
-      scroll-behavior: smooth;
-      font-size: var(--base-font-size);
-    }}
+    * {{ box-sizing: border-box; margin: 0; padding: 0; }}
 
     body {{
       background-color: var(--bg-primary);
       color: var(--text-primary);
       font-family: var(--font-body);
-      line-height: var(--line-height);
+      font-size: 17px;
+      line-height: 1.8;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      transition: background-color 0.25s ease, color 0.25s ease;
-      overflow-x: hidden;
+      transition: background-color 0.2s ease, color 0.2s ease;
     }}
 
-    /* Top Reading Progress Bar */
+    /* Scroll Progress Bar */
     #readingProgressBar {{
       position: fixed;
       top: 0;
       left: 0;
       height: 3px;
-      width: 0%;
       background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue));
-      z-index: 999;
+      width: 0%;
+      z-index: 9999;
       transition: width 0.1s ease;
     }}
 
-    /* Header */
+    /* App Header */
     header.app-header {{
-      position: sticky;
-      top: 0;
-      z-index: 100;
       height: var(--header-height);
-      background-color: rgba(11, 17, 32, 0.92);
-      backdrop-filter: var(--glass-blur);
-      -webkit-backdrop-filter: var(--glass-blur);
+      background-color: var(--bg-secondary);
       border-bottom: 1px solid var(--border-color);
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 1.25rem;
-      gap: 1rem;
-    }}
-
-    [data-theme="light"] header.app-header {{
-      background-color: rgba(255, 255, 255, 0.92);
-    }}
-
-    [data-theme="sepia"] header.app-header {{
-      background-color: rgba(251, 240, 217, 0.94);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
     }}
 
     .brand-section {{
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      flex-shrink: 0;
     }}
 
     .brand-logo {{
-      width: 36px;
-      height: 36px;
-      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #0b1120;
-      font-weight: 900;
-      font-family: var(--font-ui);
-      font-size: 1.1rem;
-      box-shadow: var(--shadow-sm);
+      font-size: 1.4rem;
     }}
 
     .brand-info {{
@@ -621,31 +523,31 @@ HTML_PAGE_TEMPLATE = """<!DOCTYPE html>
     }}
 
     .brand-title {{
-      font-family: var(--font-ui);
+      font-family: var(--font-heading);
       font-weight: 700;
       font-size: 0.95rem;
-      color: var(--text-primary);
+      color: var(--accent-gold);
+      letter-spacing: 0.04em;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      max-width: 280px;
+      max-width: 320px;
     }}
 
     .brand-subject {{
       font-family: var(--font-ui);
       font-size: 0.72rem;
-      color: var(--accent-gold);
-      font-weight: 600;
+      color: var(--text-muted);
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
+      font-weight: 600;
     }}
 
-    /* Controls Toolbar */
+    /* TTS Toolbar */
     .tts-toolbar {{
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
+      gap: 0.6rem;
     }}
 
     .toolbar-group {{
@@ -790,6 +692,12 @@ HTML_PAGE_TEMPLATE = """<!DOCTYPE html>
       text-overflow: ellipsis;
     }}
 
+    .toc-link.level-2 {{
+      padding-left: 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }}
+
     .toc-link:hover {{
       background-color: var(--bg-tertiary);
       color: var(--accent-gold);
@@ -805,88 +713,130 @@ HTML_PAGE_TEMPLATE = """<!DOCTYPE html>
     /* Main Content Area */
     main.content-area {{
       flex: 1;
+      max-width: 900px;
+      margin: 0 auto;
       padding: 2.5rem 2rem 5rem 2rem;
-      display: flex;
-      justify-content: center;
-      min-width: 0;
     }}
 
-    .content-wrapper {{
-      max-width: var(--content-max-width);
-      width: 100%;
-    }}
-
-    /* Document Top Card */
+    /* Hero Card */
     .doc-hero-card {{
-      background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+      background-color: var(--bg-secondary);
       border: 1px solid var(--border-color);
-      border-radius: 14px;
+      border-radius: 12px;
       padding: 2rem;
       margin-bottom: 2.5rem;
       box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+    }}
+
+    .doc-hero-card::before {{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--accent-gold), var(--accent-blue));
     }}
 
     .doc-hero-subject {{
       font-family: var(--font-ui);
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 700;
+      color: var(--accent-gold);
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: var(--accent-gold);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
     }}
 
     .doc-hero-title {{
       font-family: var(--font-heading);
-      font-size: 1.8rem;
+      font-size: 1.85rem;
       font-weight: 800;
       color: var(--text-primary);
       line-height: 1.3;
-      margin-bottom: 0.75rem;
+      margin-bottom: 1rem;
     }}
 
     .doc-meta-stats {{
       display: flex;
+      flex-wrap: wrap;
       gap: 1.25rem;
       font-family: var(--font-ui);
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       color: var(--text-muted);
-      flex-wrap: wrap;
     }}
 
-    /* Case Section & Cards */
-    .doc-section {{
-      margin-bottom: 3rem;
+    /* Studio Audio Player */
+    .studio-audio-player {{
+      margin-top: 1.5rem;
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1rem;
+    }}
+
+    .audio-player-header {{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+    }}
+
+    .audio-badge {{
+      font-weight: 700;
+      color: var(--accent-emerald);
+    }}
+
+    .audio-filename {{
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+    }}
+
+    audio.native-audio-element {{
+      width: 100%;
+      height: 40px;
+      outline: none;
+    }}
+
+    /* Case Section & Flowing Prose */
+    section.doc-section {{
+      margin-bottom: 3.5rem;
+    }}
+
+    .section-divider {{
+      border: 0;
+      height: 1px;
+      background: var(--border-color);
+      margin: 3.5rem 0;
     }}
 
     .case-header-card {{
-      background: linear-gradient(135deg, rgba(19, 29, 49, 0.95), rgba(15, 23, 42, 0.98));
-      border: 1px solid rgba(251, 191, 36, 0.35);
-      border-radius: 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
       padding: 1.25rem 1.5rem;
-      margin: 2.5rem 0 1.25rem 0;
-      box-shadow: var(--shadow-sm);
+      margin-bottom: 1.25rem;
       display: flex;
       align-items: center;
       gap: 1rem;
-      flex-wrap: wrap;
-    }}
-
-    [data-theme="light"] .case-header-card {{
-      background: linear-gradient(135deg, #ffffff, #f1f5f9);
-      border-color: rgba(180, 83, 9, 0.3);
+      box-shadow: var(--shadow-sm);
     }}
 
     .case-number-pill {{
       font-family: var(--font-ui);
-      font-size: 0.8rem;
-      font-weight: 800;
       background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
       color: #0b1120;
-      padding: 0.3rem 0.75rem;
-      border-radius: 6px;
-      letter-spacing: 0.04em;
-      flex-shrink: 0;
+      font-weight: 800;
+      font-size: 0.78rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 20px;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
     }}
 
     .case-header-title {{
@@ -894,118 +844,123 @@ HTML_PAGE_TEMPLATE = """<!DOCTYPE html>
       font-size: 1.35rem;
       font-weight: 700;
       color: var(--text-primary);
-      line-height: 1.35;
-      margin: 0;
-      flex: 1;
+      line-height: 1.3;
+    }}
+
+    .topic-header-card {{
+      background: var(--card-bg);
+      border-left: 4px solid var(--accent-gold);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+    }}
+
+    .topic-header-title {{
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+    }}
+
+    .subtopic-header-card {{
+      margin: 1.5rem 0 1rem 0;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.4rem;
+    }}
+
+    .subtopic-header-title {{
+      font-family: var(--font-ui);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent-blue);
     }}
 
     .case-citation-banner {{
-      background: rgba(56, 189, 248, 0.08);
+      background-color: var(--bg-tertiary);
       border-left: 3px solid var(--accent-blue);
-      border-radius: 0 8px 8px 0;
+      border-radius: 6px;
       padding: 0.6rem 1rem;
-      margin-bottom: 1.5rem;
       font-family: var(--font-ui);
-      font-size: 0.88rem;
-      color: var(--accent-blue);
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.5rem;
     }}
 
-    .citation-icon {{
-      font-size: 1.1rem;
-    }}
-
-    /* Subheadings within Case (Facts, Issue, Ruling) */
     .case-subheading {{
       font-family: var(--font-ui);
-      font-size: 0.95rem;
+      font-size: 1.05rem;
       font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
       color: var(--accent-gold);
-      margin: 1.75rem 0 0.85rem 0;
-      padding-bottom: 0.35rem;
-      border-bottom: 1px solid rgba(251, 191, 36, 0.25);
+      margin: 2rem 0 0.85rem 0;
       display: flex;
       align-items: center;
-      gap: 0.45rem;
+      gap: 0.4rem;
+      letter-spacing: 0.02em;
     }}
 
     .subheading-accent {{
       color: var(--accent-gold);
-      font-size: 1rem;
+      font-weight: 800;
     }}
 
     /* Continuous Flowing Body Paragraphs */
     .case-paragraph {{
       margin-bottom: 1.25rem;
-      font-size: 1.05rem;
       line-height: 1.85;
       color: var(--text-primary);
       text-align: justify;
-      text-justify: inter-word;
-    }}
-
-    .read-unit {{
-      position: relative;
-      padding: 0.5rem 0.75rem;
-      border-radius: 8px;
+      transition: background-color 0.2s ease, transform 0.15s ease;
+      padding: 0.35rem 0.5rem;
+      border-radius: 6px;
       cursor: pointer;
-      transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
     }}
 
-    .read-unit:hover {{
-      background-color: rgba(148, 163, 184, 0.07);
+    .case-paragraph:hover {{
+      background-color: rgba(255, 255, 255, 0.03);
     }}
 
-    .read-unit.is-speaking {{
-      background-color: var(--highlight-reading) !important;
-      border-left: 3px solid var(--accent-blue);
-      box-shadow: 0 0 14px rgba(56, 189, 248, 0.25);
-    }}
-
-    /* ALAC and Reasoning Inline Badges */
+    /* ALAC Inline Badges & Paragraphs */
     .alac-paragraph {{
-      display: block;
+      margin-bottom: 1.25rem;
+      line-height: 1.85;
     }}
 
     .alac-badge {{
       display: inline-block;
       font-family: var(--font-ui);
       font-size: 0.72rem;
-      font-weight: 700;
+      font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.06em;
       padding: 0.2rem 0.55rem;
-      border-radius: 4px;
-      margin-right: 0.45rem;
-      vertical-align: baseline;
+      border-radius: 5px;
+      margin-right: 0.5rem;
+      vertical-align: middle;
     }}
 
-    .badge-ans {{ background: rgba(52, 211, 153, 0.18); color: var(--accent-emerald); border: 1px solid rgba(52, 211, 153, 0.35); }}
-    .badge-law {{ background: rgba(56, 189, 248, 0.18); color: var(--accent-blue); border: 1px solid rgba(56, 189, 248, 0.35); }}
-    .badge-app {{ background: rgba(129, 140, 248, 0.18); color: var(--accent-indigo); border: 1px solid rgba(129, 140, 248, 0.35); }}
-    .badge-con {{ background: rgba(251, 113, 133, 0.18); color: var(--accent-rose); border: 1px solid rgba(251, 113, 133, 0.35); }}
-    .badge-syn {{ background: rgba(251, 191, 36, 0.18); color: var(--accent-gold); border: 1px solid rgba(251, 191, 36, 0.35); }}
-    .badge-gen {{ background: rgba(148, 163, 184, 0.18); color: var(--text-secondary); border: 1px solid rgba(148, 163, 184, 0.35); }}
+    .badge-ans {{ background-color: rgba(56, 189, 248, 0.18); color: var(--accent-blue); border: 1px solid rgba(56, 189, 248, 0.4); }}
+    .badge-law {{ background-color: rgba(251, 191, 36, 0.18); color: var(--accent-gold); border: 1px solid rgba(251, 191, 36, 0.4); }}
+    .badge-app {{ background-color: rgba(192, 132, 252, 0.18); color: var(--accent-purple); border: 1px solid rgba(192, 132, 252, 0.4); }}
+    .badge-con {{ background-color: rgba(248, 113, 113, 0.18); color: var(--accent-crimson); border: 1px solid rgba(248, 113, 113, 0.4); }}
+    .badge-syn {{ background-color: rgba(52, 211, 153, 0.18); color: var(--accent-emerald); border: 1px solid rgba(52, 211, 153, 0.4); }}
+    .badge-gen {{ background-color: rgba(148, 163, 184, 0.18); color: var(--text-secondary); border: 1px solid rgba(148, 163, 184, 0.4); }}
 
-    /* Lists */
+    /* Bullet Points */
     .bullet-point {{
       display: flex;
       align-items: flex-start;
-      gap: 0.65rem;
-      margin-bottom: 0.75rem;
-      font-size: 1.05rem;
+      gap: 0.6rem;
+      margin-bottom: 0.85rem;
+      padding-left: 0.5rem;
       line-height: 1.75;
     }}
 
     .bullet-dot {{
       color: var(--accent-gold);
-      font-weight: bold;
-      font-size: 1.2rem;
-      line-height: 1.5;
+      font-weight: 700;
     }}
 
     .bullet-content {{
@@ -1016,38 +971,49 @@ HTML_PAGE_TEMPLATE = """<!DOCTYPE html>
     .table-responsive {{
       overflow-x: auto;
       margin: 1.5rem 0;
-      border-radius: 8px;
       border: 1px solid var(--border-color);
+      border-radius: 8px;
     }}
 
     .reader-table {{
       width: 100%;
       border-collapse: collapse;
       font-family: var(--font-ui);
-      font-size: 0.9rem;
-    }}
-
-    .reader-table th, .reader-table td {{
-      padding: 0.85rem 1.15rem;
-      border: 1px solid var(--border-color);
+      font-size: 0.85rem;
       text-align: left;
-      line-height: 1.6;
     }}
 
     .reader-table th {{
-      background-color: var(--bg-secondary);
+      background-color: var(--bg-tertiary);
       color: var(--accent-gold);
       font-weight: 700;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border-color);
     }}
 
-    .reader-table tr:nth-child(even) {{
-      background-color: rgba(148, 163, 184, 0.04);
+    .reader-table td {{
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-secondary);
     }}
 
-    /* Floating TTS Tooltip */
+    .reader-table tr:last-child td {{
+      border-bottom: none;
+    }}
+
+    /* TTS Active Unit Highlighting */
+    .read-unit.is-speaking {{
+      background-color: var(--highlight-bg) !important;
+      outline: 2px solid var(--highlight-border);
+      border-radius: 6px;
+      box-shadow: 0 0 16px rgba(251, 191, 36, 0.3);
+      transition: all 0.15s ease;
+    }}
+
+    /* Floating Selection Trigger */
     #floatingTtsTrigger {{
-      position: absolute;
       display: none;
+      position: absolute;
       z-index: 1000;
       background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
       color: #0b1120;
@@ -1110,7 +1076,7 @@ HTML_PAGE_TEMPLATE = """<!DOCTYPE html>
   <header class="app-header">
     <div class="brand-section">
       <button class="icon-btn" id="toggleSidebarBtn" title="Toggle Table of Contents">☰</button>
-      <div class="brand-logo">§</div>
+      <div class="brand-logo">⚖️</div>
       <div class="brand-info">
         <span class="brand-title">{escaped_title}</span>
         <span class="brand-subject">{escaped_subject_tag}</span>
@@ -1162,7 +1128,7 @@ HTML_PAGE_TEMPLATE = """<!DOCTYPE html>
     <!-- Table of Contents Sidebar -->
     <aside class="app-sidebar" id="sidebarNav">
       <div class="sidebar-header">
-        <input type="text" id="sidebarSearch" class="sidebar-search" placeholder="🔍 Filter Case Titles..." />
+        <input type="text" id="sidebarSearch" class="sidebar-search" placeholder="🔍 Filter Topics / Cases..." />
       </div>
       <nav class="sidebar-nav">
         <ul id="tocList">
@@ -1179,7 +1145,7 @@ HTML_PAGE_TEMPLATE = """<!DOCTYPE html>
           <div class="doc-hero-subject">{escaped_subject_tag}</div>
           <h1 class="doc-hero-title">{escaped_title}</h1>
           <div class="doc-meta-stats">
-            <span>📚 {total_sections} Cases / Sections</span>
+            <span>📑 {total_sections} Topics / Cases</span>
             <span>📖 {total_units} Narrative Units</span>
             <span>⏱ ~{reading_time_minutes} min study read</span>
           </div>
@@ -1451,7 +1417,7 @@ HTML_PAGE_TEMPLATE = """<!DOCTYPE html>
         const currentSec = unit.closest('section.doc-section');
         const currentSecId = currentSec ? currentSec.id : null;
         if (currentSecId && currentSecId !== lastSectionId && currentSec) {{
-          const headerEl = currentSec.querySelector('.case-header-title') || currentSec.querySelector('.section-title');
+          const headerEl = currentSec.querySelector('.case-header-title') || currentSec.querySelector('.topic-header-title') || currentSec.querySelector('.subtopic-header-title');
           if (headerEl) {{
             speechText = 'Now Reading: ' + headerEl.innerText.trim() + ' ... ... ' + speechText;
           }}
@@ -1553,209 +1519,99 @@ HTML_PAGE_TEMPLATE = """<!DOCTYPE html>
         const sel = window.getSelection().toString().trim();
         if (sel && synth) {{
           synth.cancel();
-          const dummy = document.createElement('div');
-          dummy.innerText = sel;
-          const speechText = prepareSpeechText(dummy);
-
-          const utterance = new SpeechSynthesisUtterance(speechText);
+          const utterance = new SpeechSynthesisUtterance(expandRomanNumerals(sel));
           utterance.rate = parseFloat(speedSelect.value) || 0.9;
           const selVoiceIdx = voiceSelect.value;
           if (selVoiceIdx !== 'default' && voices[selVoiceIdx]) {{
             utterance.voice = voices[selVoiceIdx];
           }}
           synth.speak(utterance);
-          setSpeakingState(true);
           floatBtn.style.display = 'none';
         }}
       }});
 
       // Keyboard Shortcuts
       document.addEventListener('keydown', (e) => {{
-        if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA') return;
         if (e.code === 'Space') {{
           e.preventDefault();
           playPauseBtn.click();
-        }} else if (e.code === 'Escape') {{
+        }} else if (e.key === 'Escape') {{
           stopBtn.click();
         }} else if (e.key === 'n' || e.key === 'N') {{
           nextBtn.click();
         }} else if (e.key === 'p' || e.key === 'P') {{
           prevBtn.click();
-        }} else if (e.key === 'd' || e.key === 'D') {{
-          themeSelect.value = 'dark';
-          themeSelect.dispatchEvent(new Event('change'));
-        }} else if (e.key === 's' || e.key === 'S') {{
-          themeSelect.value = 'sepia';
-          themeSelect.dispatchEvent(new Event('change'));
-        }} else if (e.key === 'l' || e.key === 'L') {{
-          themeSelect.value = 'light';
-          themeSelect.dispatchEvent(new Event('change'));
-        }} else if (e.key === '+' || e.key === '=') {{
-          fontIncBtn.click();
-        }} else if (e.key === '-') {{
-          fontDecBtn.click();
-        }} else if (e.key === '/') {{
-          e.preventDefault();
-          sidebarSearch.focus();
         }}
       }});
     }})();
   </script>
 </body>
 </html>
-"""
+'''
+    return html_template
 
 # ==============================================================================
-# 4. COMPILER & BATCH PROCESSOR
+# 4. CONVERSION & HUB SCANNING
 # ==============================================================================
 
-def infer_subject_and_title(file_path):
-    path_obj = Path(file_path).resolve()
-    filename_stem = path_obj.stem
-    parts = list(path_obj.parts)
-    subject = "Law Study Notes"
-    for p in reversed(parts[:-1]):
-        if any(term in p.lower() for term in ["criminal", "statutory", "blje", "ethics", "procedure", "civil", "consti"]):
-            subject = p
-            break
-            
-    clean_title = filename_stem.replace("_", " ").replace("-", " ")
-    clean_title = re.sub(r'\s+', ' ', clean_title).strip()
-    return subject, clean_title
-
-def convert_file_to_html_reader(file_path, output_path=None, overwrite=True):
-    path_obj = Path(file_path).resolve()
-    if not path_obj.exists():
-        print(f"[ERROR] File not found: {path_obj}")
+def convert_file_to_html_reader(input_file_path, output_html_path=None, overwrite=True):
+    path = Path(input_file_path).resolve()
+    if not path.exists():
+        print(f"[ERROR] File not found: {path}")
         return None
 
-    if output_path is None:
-        output_path = path_obj.with_suffix('.html')
+    if output_html_path is None:
+        out_path = path.with_suffix('.html')
     else:
-        output_path = Path(output_path).resolve()
+        out_path = Path(output_html_path).resolve()
 
-    ext = path_obj.suffix.lower()
-    subject_tag, doc_title = infer_subject_and_title(path_obj)
+    if out_path.exists() and not overwrite:
+        print(f"[SKIP] Output file already exists: {out_path.name}")
+        return out_path
 
-    if output_path.exists() and not overwrite:
-        print(f"[SKIP] Output exists: {output_path}")
-        return output_path
+    doc_title = path.stem.replace('_', ' ')
+    subject_tag = path.parent.name
+    if subject_tag.lower() == "case digest":
+        subject_tag = f"{path.parent.parent.name} • Case Digest"
 
-    print(f"[PROCESSING] {path_obj.name} -> {output_path.name}")
+    # Audio file pairing
+    mp3_file = path.with_suffix('.mp3')
+    mp3_filename = mp3_file.name if mp3_file.exists() else None
 
-    sections = []
-    if ext == '.docx':
-        sections = parse_docx_file(str(path_obj), doc_title)
-    elif ext == '.pdf':
-        sections = parse_pdf_file(str(path_obj), doc_title)
-    elif ext == '.md':
-        with open(path_obj, 'r', encoding='utf-8', errors='replace') as f:
-            content = f.read()
-        sections = parse_markdown(content, doc_title)
-    elif ext == '.txt':
-        sections = parse_txt_file(str(path_obj), doc_title)
+    print(f"[CONVERTING] {path.name} -> {out_path.name} (Subject: {subject_tag})")
+
+    suffix = path.suffix.lower()
+    if suffix == '.docx':
+        sections = parse_docx_file(path, doc_title=doc_title)
     else:
-        print(f"[WARN] Unsupported extension: {ext}")
+        print(f"[WARN] Unsupported or non-docx file: {path.name}")
         return None
 
-    if not sections:
-        print(f"[WARN] No sections extracted from {path_obj.name}")
-        return None
-
-    # Build TOC HTML & Sections HTML
-    toc_items = []
-    sec_html_list = []
-    total_units = 0
-
-    for s in sections:
-        sec_id = s.get("id", "sec-main")
-        sec_title = s.get("title", "Section")
-        level = s.get("level", 1)
-        units = s.get("units", [])
-        total_units += len(units)
-
-        display_title = sec_title
-        if len(display_title) > 65:
-            display_title = display_title[:62] + "..."
-
-        toc_items.append(
-            f'<li><a href="#{sec_id}" class="toc-link level-{level}" title="{html.escape(sec_title)}">{html.escape(display_title)}</a></li>'
-        )
-
-        rendered_units = "\n        ".join(units)
-        sec_html_list.append(f'''
-        <section class="doc-section" id="{sec_id}">
-          <div class="section-body">
-            {rendered_units}
-          </div>
-        </section>''')
-
-    toc_html = "\n            ".join(toc_items)
-    sections_html = "\n".join(sec_html_list)
-
-    reading_time = max(1, round(total_units * 35 / 160))
-
-    # Check companion MP3 audio podcast
-    mp3_file = path_obj.with_suffix('.mp3')
-    mp3_player_html = ''
-    if mp3_file.exists():
-        mp3_name_esc = html.escape(mp3_file.name)
-        mp3_size_mb = round(mp3_file.stat().st_size / (1024 * 1024), 1)
-        mp3_player_html = f'''
-          <div class="mp3-podcast-card" style="margin-top: 1.5rem; padding: 1.15rem 1.35rem; background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 12px;">
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
-              <div style="display: flex; align-items: center; gap: 0.5rem;">
-                <span style="font-size: 1.15rem;">🎙️</span>
-                <span style="font-family: var(--font-ui); font-weight: 700; font-size: 0.95rem; color: var(--accent-blue);">Master Studio Audio Podcast ({mp3_size_mb} MB)</span>
-                <span style="font-family: var(--font-ui); font-size: 0.72rem; padding: 0.2rem 0.55rem; background: rgba(52, 211, 153, 0.2); color: var(--accent-emerald); border-radius: 12px; font-weight: 600;">Mobile Background Audio</span>
-              </div>
-              <a href="{mp3_name_esc}" download style="font-family: var(--font-ui); font-size: 0.82rem; color: var(--accent-gold); text-decoration: none; font-weight: 700;">⬇ Download MP3</a>
-            </div>
-            <audio controls preload="metadata" style="width: 100%; height: 42px; border-radius: 8px; outline: none;">
-              <source src="{mp3_name_esc}" type="audio/mpeg">
-              Your browser does not support audio playback.
-            </audio>
-            <div style="font-family: var(--font-ui); font-size: 0.75rem; color: var(--text-muted); margin-top: 0.4rem;">
-              💡 <em>Plays continuously with phone screen locked or app minimized. Perfect for mobile commute listening.</em>
-            </div>
-          </div>
-        '''
-
-    rendered_page = HTML_PAGE_TEMPLATE.format(
-        escaped_title=html.escape(doc_title),
-        escaped_description=html.escape(f"{subject_tag} comprehensive review notes and study materials."),
-        escaped_subject_tag=html.escape(subject_tag),
-        total_sections=len(sections),
-        total_units=total_units,
-        reading_time_minutes=reading_time,
-        toc_html=toc_html,
-        sections_html=sections_html,
-        mp3_player_html=mp3_player_html
+    html_content = generate_reader_html(
+        doc_title=doc_title,
+        subject_tag=subject_tag,
+        sections=sections,
+        mp3_filename=mp3_filename
     )
 
-    with open(output_path, 'w', encoding='utf-8') as f:
-        f.write(rendered_page)
+    with open(out_path, 'w', encoding='utf-8') as f:
+        f.write(html_content)
 
-    print(f"[SUCCESS] Created HTML Reader: {output_path.name} ({total_units} units, {len(sections)} TOC sections)")
-    return output_path
+    print(f"[SUCCESS] Created HTML Reader: {out_path.name} ({len(sections)} sections)")
+    return out_path
 
-def scan_and_convert_directory(dir_path, recursive=True, overwrite=True):
-    target_dir = Path(dir_path).resolve()
-    print(f"\n=== Scanning directory: {target_dir} ===")
-    supported_extensions = {'.docx', '.pdf', '.md', '.txt'}
-    ignore_stems = {'readme', 'handoff', 'format_dump', 'study_hub', 'index'}
-    
-    pattern = "**/*" if recursive else "*"
-    all_files = [p for p in target_dir.glob(pattern) if p.is_file() and p.suffix.lower() in supported_extensions]
+def scan_and_convert_directory(dir_path, overwrite=True):
+    base_dir = Path(dir_path).resolve()
+    print(f"\n=== Scanning Subjects in {base_dir} ===")
 
-    # Group by directory and stem to prioritize .docx over .pdf
+    # Group files by stem to prioritize docx
     grouped = {}
-    for p in all_files:
-        if '__pycache__' in str(p) or '.agents' in str(p) or p.name.startswith(('~', '.', 'Unconfirmed')):
+    for p in base_dir.rglob('*'):
+        if not p.is_file() or p.name.startswith(('~$', '.~')):
             continue
-        if p.stem.lower() in ignore_stems and p.suffix.lower() == '.md':
+        if p.suffix.lower() != '.docx':
             continue
-
         key = (p.parent, p.stem.lower())
         if key not in grouped:
             grouped[key] = []
@@ -1765,53 +1621,75 @@ def scan_and_convert_directory(dir_path, recursive=True, overwrite=True):
     generated_files = []
 
     for key, file_list in grouped.items():
-        # Preference: .docx > .md > .txt > .pdf
-        chosen = None
-        for ext in ['.docx', '.md', '.txt', '.pdf']:
-            match = next((f for f in file_list if f.suffix.lower() == ext), None)
-            if match:
-                chosen = match
-                break
+        chosen = file_list[0]
+        try:
+            out = convert_file_to_html_reader(chosen, overwrite=overwrite)
+            if out:
+                converted_count += 1
+                generated_files.append(out)
+        except Exception as e:
+            print(f"[ERROR] Failed to convert {chosen.name}: {e}")
 
-        if chosen:
-            try:
-                out = convert_file_to_html_reader(chosen, overwrite=overwrite)
-                if out:
-                    converted_count += 1
-                    generated_files.append(out)
-            except Exception as e:
-                print(f"[ERROR] Failed to convert {chosen.name}: {e}")
-
-    print(f"\n=== Completed! Successfully converted {converted_count} documents. ===\n")
+    print(f"\n=== Successfully converted {converted_count} documents. ===\n")
     return generated_files
 
 def generate_study_hub_index(root_dir):
     root_path = Path(root_dir).resolve()
-    html_files = list(root_path.glob("**/*.html"))
-    html_files = [f for f in html_files if f.name.lower() not in {'mlc_study_hub.html', 'index.html'}]
+    
+    # We strictly search inside First Sem 1st Year/Subjects
+    subjects_dir = root_path / "First Sem 1st Year" / "Subjects"
+    if not subjects_dir.exists():
+        subjects_dir = root_path / "Subjects"
+    
+    html_files = list(subjects_dir.rglob("*.html")) if subjects_dir.exists() else []
 
-    by_folder = {}
+    # Map each subject group cleanly
+    by_subject = {
+        "Basic Legal and Judiciary Ethics": [],
+        "Criminal Law": [],
+        "Statutory Construction": []
+    }
+
     for h in sorted(html_files, key=lambda x: str(x)):
         rel = h.relative_to(root_path)
-        subject_group = rel.parent.name or "Core Library"
-        if subject_group not in by_folder:
-            by_folder[subject_group] = []
-        by_folder[subject_group].append((h, rel))
+        rel_str = str(rel).replace('\\\\', '/').replace('\\', '/')
+        
+        # Categorize
+        cat = "Other Subjects"
+        for sname in by_subject.keys():
+            if sname.lower() in str(rel).lower():
+                cat = sname
+                break
+        
+        if cat not in by_subject:
+            by_subject[cat] = []
+            
+        by_subject[cat].append((h, rel_str))
 
-    cards_html = []
-    for group_name, files in by_folder.items():
-        cards_html.append(f'<div class="hub-group"><h2 class="hub-group-title">📂 {html.escape(group_name)}</h2><div class="hub-grid">')
-        for fpath, rel_path in files:
+    groups_html = []
+    subject_icons = {
+        "Basic Legal and Judiciary Ethics": "⚖️",
+        "Criminal Law": "🏛️",
+        "Statutory Construction": "📜"
+    }
+
+    for group_name, files in by_subject.items():
+        if not files:
+            continue
+        icon = subject_icons.get(group_name, "📚")
+        cards_html = []
+        for fpath, rel_str in files:
             doc_name = fpath.stem.replace('_', ' ')
-            rel_str = str(rel_path).replace('\\\\', '/').replace('\\', '/')
             mp3_file = fpath.with_suffix('.mp3')
             has_mp3 = mp3_file.exists()
             mp3_badge = '<span class="badge-audio">🎙️ MP3 Audio</span>' if has_mp3 else ''
+            is_digest = 'digest' in doc_name.lower()
+            type_badge = '<span class="badge-reader">Case Digest</span>' if is_digest else '<span class="badge-outline">Course Outline</span>'
             
             cards_html.append(f'''
               <div class="hub-card">
                 <div class="hub-card-header">
-                  <span class="badge-reader">HTML Reader</span>
+                  {type_badge}
                   {mp3_badge}
                 </div>
                 <h3 class="hub-card-title"><a href="{rel_str}">{html.escape(doc_name)}</a></h3>
@@ -1820,14 +1698,22 @@ def generate_study_hub_index(root_dir):
                 </div>
               </div>
             ''')
-        cards_html.append('</div></div>')
+
+        groups_html.append(f'''
+          <div class="hub-group">
+            <h2 class="hub-group-title">{icon} {html.escape(group_name)}</h2>
+            <div class="hub-grid">
+              {''.join(cards_html)}
+            </div>
+          </div>
+        ''')
 
     hub_page = f'''<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MLC Interactive Study Hub • Natural Speech Readers</title>
+  <title>MLC Law Library & Interactive Audio Suite</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -1841,7 +1727,9 @@ def generate_study_hub_index(root_dir):
       --text-secondary: #cbd5e1;
       --text-muted: #94a3b8;
       --accent-gold: #fbbf24;
+      --accent-gold-dark: #d97706;
       --accent-blue: #38bdf8;
+      --accent-emerald: #34d399;
       --font-ui: 'Inter', -apple-system, sans-serif;
       --font-heading: 'Cinzel', serif;
     }}
@@ -1850,35 +1738,43 @@ def generate_study_hub_index(root_dir):
       background-color: var(--bg-primary);
       color: var(--text-primary);
       font-family: var(--font-ui);
-      padding: 3rem 1.5rem;
+      padding: 3.5rem 1.5rem;
       min-height: 100vh;
     }}
     .hub-container {{ max-width: 1100px; margin: 0 auto; }}
     .hub-header {{ text-align: center; margin-bottom: 3.5rem; }}
-    .hub-title {{ font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: var(--accent-gold); margin-bottom: 0.5rem; }}
-    .hub-subtitle {{ color: var(--text-muted); font-size: 1.05rem; }}
-    .hub-group {{ margin-bottom: 2.5rem; }}
-    .hub-group-title {{ font-size: 1.25rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 1.25rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }}
+    .hub-badge {{ display: inline-block; background: rgba(251, 191, 36, 0.15); color: var(--accent-gold); font-size: 0.78rem; font-weight: 700; padding: 0.3rem 0.8rem; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; border: 1px solid rgba(251, 191, 36, 0.3); }}
+    .hub-title {{ font-family: var(--font-heading); font-size: 2.3rem; font-weight: 800; color: var(--accent-gold); margin-bottom: 0.75rem; letter-spacing: 0.03em; }}
+    .hub-subtitle {{ color: var(--text-muted); font-size: 1.05rem; max-width: 650px; margin: 0 auto; line-height: 1.6; }}
+    .hub-group {{ margin-bottom: 3rem; }}
+    .hub-group-title {{ font-size: 1.3rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1.25rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 0.5rem; }}
     .hub-grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.25rem; }}
-    .hub-card {{ background-color: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.2s ease; }}
-    .hub-card:hover {{ transform: translateY(-3px); border-color: var(--accent-blue); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); }}
-    .hub-card-header {{ display: flex; gap: 0.5rem; margin-bottom: 0.75rem; }}
-    .badge-reader {{ background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.55rem; border-radius: 6px; }}
-    .badge-audio {{ background: rgba(52, 211, 153, 0.15); color: #34d399; font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.55rem; border-radius: 6px; }}
-    .hub-card-title {{ font-size: 1.05rem; font-weight: 600; line-height: 1.4; margin-bottom: 1.25rem; }}
-    .hub-card-title a {{ color: var(--text-primary); text-decoration: none; }}
+    .hub-card {{ background-color: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.2s ease; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2); }}
+    .hub-card:hover {{ transform: translateY(-3px); border-color: var(--accent-blue); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); }}
+    .hub-card-header {{ display: flex; gap: 0.5rem; margin-bottom: 0.85rem; }}
+    .badge-reader {{ background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); font-size: 0.72rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid rgba(56, 189, 248, 0.3); }}
+    .badge-outline {{ background: rgba(192, 132, 252, 0.15); color: #c084fc; font-size: 0.72rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid rgba(192, 132, 252, 0.3); }}
+    .badge-audio {{ background: rgba(52, 211, 153, 0.15); color: #34d399; font-size: 0.72rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid rgba(52, 211, 153, 0.3); }}
+    .hub-card-title {{ font-size: 1.05rem; font-weight: 600; line-height: 1.45; margin-bottom: 1.5rem; }}
+    .hub-card-title a {{ color: var(--text-primary); text-decoration: none; transition: color 0.15s ease; }}
     .hub-card-title a:hover {{ color: var(--accent-gold); }}
-    .btn-open {{ display: inline-block; background: linear-gradient(135deg, var(--accent-gold), #d97706); color: #0b1120; font-weight: 700; font-size: 0.85rem; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none; text-align: center; transition: filter 0.15s ease; }}
-    .btn-open:hover {{ filter: brightness(1.1); }}
+    .hub-card-actions {{ margin-top: auto; }}
+    .btn-open {{ display: inline-block; background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark)); color: #0b1120; font-weight: 700; font-size: 0.85rem; padding: 0.55rem 1.1rem; border-radius: 8px; text-decoration: none; text-align: center; transition: filter 0.15s ease, transform 0.15s ease; }}
+    .btn-open:hover {{ filter: brightness(1.1); transform: scale(1.02); }}
+    footer {{ text-align: center; margin-top: 4rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border-color); padding-top: 2rem; }}
   </style>
 </head>
 <body>
   <div class="hub-container">
     <header class="hub-header">
+      <div class="hub-badge">Manila Law College • Juris Doctor Program</div>
       <h1 class="hub-title">MLC Law Library & Audio Hub</h1>
-      <p class="hub-subtitle">Interactive Full-Text Readers with Natural Voice Synthesis & Studio MP3 Podcasts</p>
+      <p class="hub-subtitle">Interactive Full-Text Readers with Natural Voice Synthesis, ALAC Reasoning, and Studio Podcasts</p>
     </header>
-    {''.join(cards_html)}
+    {''.join(groups_html)}
+    <footer>
+      <div>Manila Law College (MLC) • Academic Year 2026–2027 • First Semester Subjects</div>
+    </footer>
   </div>
 </body>
 </html>
@@ -1919,7 +1815,12 @@ def main():
             convert_file_to_html_reader(p, overwrite=not args.no_overwrite)
         generate_study_hub_index(root_mlc)
     else:
-        scan_and_convert_directory(root_mlc, overwrite=not args.no_overwrite)
+        # Default: scan First Sem 1st Year/Subjects
+        subjects_dir = root_mlc / "First Sem 1st Year" / "Subjects"
+        if subjects_dir.exists():
+            scan_and_convert_directory(subjects_dir, overwrite=not args.no_overwrite)
+        else:
+            scan_and_convert_directory(root_mlc, overwrite=not args.no_overwrite)
         generate_study_hub_index(root_mlc)
 
 if __name__ == "__main__":
