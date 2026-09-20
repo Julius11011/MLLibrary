@@ -1,0 +1,2994 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Criminal Law comprehensive review notes and study materials.">
+  <title>Criminal Law Case Digest</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0f172a;
+      --bg-secondary: #1e293b;
+      --bg-tertiary: #334155;
+      --bg-card: rgba(30, 41, 59, 0.75);
+      --bg-card-hover: rgba(51, 65, 85, 0.85);
+      --border-color: rgba(148, 163, 184, 0.18);
+      --border-focus: #38bdf8;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --accent-gold: #fbbf24;
+      --accent-gold-dark: #d97706;
+      --accent-blue: #38bdf8;
+      --accent-indigo: #818cf8;
+      --accent-emerald: #34d399;
+      --accent-rose: #fb7185;
+      --highlight-reading: rgba(56, 189, 248, 0.28);
+      --font-body: 'Merriweather', Georgia, serif;
+      --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-heading: 'Cinzel', serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --sidebar-width: 320px;
+      --header-height: 72px;
+      --content-max-width: 880px;
+      --base-font-size: 17px;
+      --line-height: 1.85;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+      --glass-blur: blur(14px);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #ffffff;
+      --bg-tertiary: #e2e8f0;
+      --bg-card: rgba(255, 255, 255, 0.9);
+      --bg-card-hover: rgba(241, 245, 249, 0.98);
+      --border-color: rgba(203, 213, 225, 0.85);
+      --border-focus: #0284c7;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --accent-gold: #b45309;
+      --accent-gold-dark: #92400e;
+      --accent-blue: #0284c7;
+      --accent-indigo: #4f46e5;
+      --accent-emerald: #059669;
+      --accent-rose: #e11d48;
+      --highlight-reading: rgba(2, 132, 199, 0.18);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+    }
+
+    [data-theme="sepia"] {
+      --bg-primary: #fbf0d9;
+      --bg-secondary: #f4e4c1;
+      --bg-tertiary: #ecd6a7;
+      --bg-card: rgba(244, 228, 193, 0.9);
+      --bg-card-hover: rgba(236, 214, 167, 0.98);
+      --border-color: rgba(180, 150, 110, 0.45);
+      --border-focus: #9a6700;
+      --text-primary: #2d241e;
+      --text-secondary: #4a3b32;
+      --text-muted: #786455;
+      --accent-gold: #a75d00;
+      --accent-gold-dark: #8c4c00;
+      --accent-blue: #2c6e91;
+      --accent-indigo: #5d4a82;
+      --accent-emerald: #2e7d32;
+      --accent-rose: #c2185b;
+      --highlight-reading: rgba(200, 150, 50, 0.28);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: var(--base-font-size);
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      line-height: var(--line-height);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.25s ease, color 0.25s ease;
+      overflow-x: hidden;
+    }
+
+    /* Top Reading Progress Bar */
+    #readingProgressBar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue));
+      z-index: 999;
+      transition: width 0.1s ease;
+    }
+
+    /* Top Sticky Navigation Bar */
+    header.app-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--header-height);
+      background-color: rgba(15, 23, 42, 0.88);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      gap: 1rem;
+    }
+
+    [data-theme="light"] header.app-header {
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    [data-theme="sepia"] header.app-header {
+      background-color: rgba(251, 240, 217, 0.92);
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0f172a;
+      font-weight: 800;
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      box-shadow: 0 2px 8px rgba(251, 191, 36, 0.35);
+      text-decoration: none;
+    }
+
+    .brand-titles {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: var(--font-ui);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 300px;
+    }
+
+    .brand-subtitle {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      color: var(--accent-gold);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Global TTS Controls Toolbar */
+    .tts-toolbar {
+      display: flex;
+      align-items: center;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      padding: 0.35rem 0.65rem;
+      border-radius: 40px;
+      gap: 0.45rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .tts-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-primary);
+      cursor: pointer;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      font-size: 0.95rem;
+    }
+
+    .tts-btn:hover {
+      background-color: var(--bg-tertiary);
+      color: var(--accent-gold);
+    }
+
+    .tts-btn.primary {
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+      color: #0f172a;
+      font-weight: 700;
+      box-shadow: 0 2px 6px rgba(251, 191, 36, 0.4);
+    }
+
+    .tts-btn.primary:hover {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
+
+    .tts-status-badge {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.55rem;
+      border-radius: 20px;
+      background-color: var(--bg-tertiary);
+      color: var(--text-muted);
+      min-width: 90px;
+      text-align: center;
+    }
+
+    .tts-status-badge.speaking {
+      background-color: rgba(56, 189, 248, 0.2);
+      color: var(--accent-blue);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      animation: pulseGlow 1.5s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      from { box-shadow: 0 0 4px rgba(56, 189, 248, 0.2); }
+      to { box-shadow: 0 0 10px rgba(56, 189, 248, 0.5); }
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .control-select {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 0.4rem 0.65rem;
+      border-radius: 8px;
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .control-select:focus {
+      border-color: var(--border-focus);
+    }
+
+    .icon-btn {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+
+    .icon-btn:hover {
+      background-color: var(--bg-tertiary);
+      border-color: var(--border-focus);
+    }
+
+    /* Main Application Layout */
+    .app-layout {
+      display: flex;
+      flex: 1;
+      position: relative;
+    }
+
+    /* Sticky Sidebar Navigation */
+    aside.app-sidebar {
+      width: var(--sidebar-width);
+      height: calc(100vh - var(--header-height));
+      position: sticky;
+      top: var(--header-height);
+      background-color: var(--bg-secondary);
+      border-right: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      overflow-y: auto;
+      z-index: 50;
+      transition: transform 0.3s ease;
+    }
+
+    .sidebar-header {
+      padding: 1.25rem 1rem 0.75rem 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .sidebar-search {
+      position: relative;
+      width: 100%;
+    }
+
+    .sidebar-search input {
+      width: 100%;
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.5rem 0.75rem 0.5rem 2rem;
+      color: var(--text-primary);
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .sidebar-search input:focus {
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+    }
+
+    .sidebar-search .search-icon {
+      position: absolute;
+      left: 0.65rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    .toc-container {
+      padding: 0.75rem 0.5rem;
+      flex: 1;
+    }
+
+    .toc-nav ul {
+      list-style: none;
+    }
+
+    .toc-nav li {
+      margin-bottom: 0.2rem;
+    }
+
+    .toc-link {
+      display: block;
+      padding: 0.45rem 0.75rem;
+      border-radius: 6px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      font-weight: 500;
+      line-height: 1.4;
+      transition: all 0.2s ease;
+      border-left: 2px solid transparent;
+    }
+
+    .toc-link:hover {
+      background-color: var(--bg-tertiary);
+      color: var(--text-primary);
+    }
+
+    .toc-link.active {
+      background-color: rgba(56, 189, 248, 0.12);
+      color: var(--accent-blue);
+      border-left-color: var(--accent-blue);
+      font-weight: 600;
+    }
+
+    .toc-link.level-2 {
+      padding-left: 1.25rem;
+      font-size: 0.78rem;
+    }
+
+    .toc-link.level-3 {
+      padding-left: 1.75rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Main Content Container */
+    main.app-content {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      padding: 2.5rem 2rem;
+      overflow-y: visible;
+    }
+
+    .content-wrapper {
+      max-width: var(--content-max-width);
+      width: 100%;
+    }
+
+    /* Document Header Banner */
+    .document-hero {
+      background: linear-gradient(145deg, var(--bg-card), var(--bg-secondary));
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2.25rem 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .document-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue), var(--accent-indigo));
+    }
+
+    .doc-badge {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      background: rgba(251, 191, 36, 0.15);
+      color: var(--accent-gold);
+      border: 1px solid rgba(251, 191, 36, 0.3);
+      margin-bottom: 0.85rem;
+    }
+
+    .doc-main-title {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+    }
+
+    .doc-subtitle {
+      font-family: var(--font-ui);
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .doc-meta-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    /* Section & Content Styling */
+    section.doc-section {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2.25rem;
+      box-shadow: var(--shadow-md);
+      transition: border-color 0.2s ease;
+    }
+
+    section.doc-section:hover {
+      border-color: rgba(148, 163, 184, 0.35);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+      line-height: 1.4;
+    }
+
+    .section-title.level-2 {
+      font-size: 1.2rem;
+      color: var(--text-primary);
+    }
+
+    .section-title.level-3 {
+      font-size: 1.05rem;
+      color: var(--accent-blue);
+    }
+
+    .section-listen-btn {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.3rem 0.7rem;
+      border-radius: 20px;
+      background-color: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: all 0.2s ease;
+    }
+
+    .section-listen-btn:hover {
+      background-color: var(--accent-gold);
+      color: #0f172a;
+      border-color: var(--accent-gold);
+    }
+
+    /* Read Units & Paragraphs */
+    .read-unit {
+      position: relative;
+      margin-bottom: 1.15rem;
+      padding: 0.4rem 0.7rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .read-unit:hover {
+      background-color: rgba(148, 163, 184, 0.08);
+    }
+
+    .read-unit.is-speaking {
+      background-color: var(--highlight-reading) !important;
+      border-left: 3px solid var(--accent-blue);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
+    }
+
+    .bullet-point {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+    }
+
+    .bullet-dot {
+      color: var(--accent-gold);
+      font-weight: bold;
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+
+    .bullet-num {
+      color: var(--accent-blue);
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .bullet-content {
+      flex: 1;
+    }
+
+    .reader-quote {
+      border-left: 4px solid var(--accent-gold);
+      padding: 0.75rem 1.25rem;
+      background-color: rgba(251, 191, 36, 0.06);
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: var(--text-secondary);
+      margin: 1.25rem 0;
+    }
+
+    .reader-code {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1rem;
+      overflow-x: auto;
+      line-height: 1.5;
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+      margin: 1.25rem 0;
+    }
+
+    .reader-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-ui);
+      font-size: 0.88rem;
+    }
+
+    .reader-table th, .reader-table td {
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border-color);
+      text-align: left;
+    }
+
+    .reader-table th {
+      background-color: var(--bg-secondary);
+      color: var(--accent-gold);
+      font-weight: 600;
+    }
+
+    .reader-table tr:nth-child(even) {
+      background-color: rgba(148, 163, 184, 0.04);
+    }
+
+    /* Case Elements Badges */
+    .case-element {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .case-badge {
+      font-family: var(--font-ui);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+      flex-shrink: 0;
+      margin-top: 0.25rem;
+    }
+
+    .badge-facts { background: rgba(56, 189, 248, 0.18); color: var(--accent-blue); border: 1px solid rgba(56, 189, 248, 0.35); }
+    .badge-issue { background: rgba(251, 191, 36, 0.18); color: var(--accent-gold); border: 1px solid rgba(251, 191, 36, 0.35); }
+    .badge-held { background: rgba(52, 211, 153, 0.18); color: var(--accent-emerald); border: 1px solid rgba(52, 211, 153, 0.35); }
+    .badge-doctrine { background: rgba(251, 113, 133, 0.18); color: var(--accent-rose); border: 1px solid rgba(251, 113, 133, 0.35); }
+
+    .legal-citation {
+      font-weight: 600;
+      color: var(--accent-gold);
+      border-bottom: 1px dotted rgba(251, 191, 36, 0.5);
+    }
+
+    .section-divider {
+      border: 0;
+      height: 1px;
+      background: var(--border-color);
+      margin: 1.5rem 0;
+    }
+
+    /* Floating TTS Trigger on Selection */
+    #floatingTtsTrigger {
+      position: absolute;
+      display: none;
+      z-index: 1000;
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+      color: #0f172a;
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 20px;
+      padding: 0.4rem 0.85rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      cursor: pointer;
+      transform: translateX(-50%);
+      transition: transform 0.15s ease, filter 0.15s ease;
+    }
+
+    #floatingTtsTrigger:hover {
+      transform: translateX(-50%) scale(1.05);
+      filter: brightness(1.1);
+    }
+
+    /* Footer */
+    footer.app-footer {
+      background-color: var(--bg-secondary);
+      border-top: 1px solid var(--border-color);
+      padding: 1.5rem;
+      text-align: center;
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: auto;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 900px) {
+      aside.app-sidebar {
+        position: fixed;
+        left: 0;
+        top: var(--header-height);
+        transform: translateX(-100%);
+        box-shadow: var(--shadow-lg);
+      }
+
+      aside.app-sidebar.open {
+        transform: translateX(0);
+      }
+
+      .brand-title {
+        max-width: 180px;
+      }
+
+      .tts-status-badge {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="readingProgressBar"></div>
+
+  <!-- App Header -->
+  <header class="app-header">
+    <div class="brand-section">
+      <button class="icon-btn" id="toggleSidebarBtn" title="Toggle Table of Contents">☰</button>
+      <a href="#" class="brand-logo" title="MLC Law Reader">⚖</a>
+      <div class="brand-titles">
+        <span class="brand-title">Criminal Law Case Digest</span>
+        <span class="brand-subtitle">Criminal Law • Interactive Reader</span>
+      </div>
+    </div>
+
+    <!-- TTS Toolbar -->
+    <div class="tts-toolbar">
+      <button class="tts-btn" id="ttsPrevBtn" title="Previous Paragraph (P)">⏮</button>
+      <button class="tts-btn primary" id="ttsPlayPauseBtn" title="Play / Pause (Space)">
+        <span id="ttsPlayIcon">▶</span>
+        <span id="ttsPauseIcon" style="display:none;">⏸</span>
+      </button>
+      <button class="tts-btn" id="ttsStopBtn" title="Stop (Esc)">⏹</button>
+      <button class="tts-btn" id="ttsNextBtn" title="Next Paragraph (N)">⏭</button>
+      <span class="tts-status-badge" id="ttsStatus">Ready</span>
+    </div>
+
+    <!-- Right Controls -->
+    <div class="header-actions">
+      <select class="control-select" id="ttsSpeedSelect" title="Reading Speed (Deliberate Study Pace)">
+        <option value="0.75">0.75x (Slow)</option>
+        <option value="0.85">0.85x (Very Clear)</option>
+        <option value="0.9" selected>0.9x (Deliberate)</option>
+        <option value="1.0">1.0x (Normal)</option>
+        <option value="1.15">1.15x</option>
+        <option value="1.25">1.25x</option>
+        <option value="1.5">1.5x</option>
+      </select>
+      <select class="control-select" id="ttsVoiceSelect" title="Speech Voice (Neural Natural Voices First)" style="max-width: 155px;">
+        <option value="default">Natural Voice (Auto)</option>
+      </select>
+      <button class="icon-btn" id="fontDecBtn" title="Decrease Font Size ( - )">A-</button>
+      <button class="icon-btn" id="fontIncBtn" title="Increase Font Size ( + )">A+</button>
+      <select class="control-select" id="themeSelect" title="Visual Theme">
+        <option value="dark">🌙 Dark</option>
+        <option value="sepia">📜 Sepia</option>
+        <option value="light">☀️ Light</option>
+      </select>
+    </div>
+  </header>
+
+  <!-- Layout Container -->
+  <div class="app-layout">
+    <!-- Table of Contents Sidebar -->
+    <aside class="app-sidebar" id="appSidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-search">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="sidebarSearch" placeholder="Search topics, cases... ( / )" autocomplete="off">
+        </div>
+      </div>
+      <div class="toc-container">
+        <nav class="toc-nav">
+          <ul id="tocList">
+            <li><a href="#sec-intro" class="toc-link level-1">Criminal Law Case Digest</a></li>
+            <li><a href="#sec-1-criminal-law-1-book-i-rpc" class="toc-link level-2">CRIMINAL LAW 1 (BOOK I, RPC)</a></li>
+            <li><a href="#sec-2-i-syllabus-topic-statutory-provision" class="toc-link level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</a></li>
+            <li><a href="#sec-3-ii-facts-of-the-case" class="toc-link level-2">II. FACTS OF THE CASE</a></li>
+            <li><a href="#sec-4-iii-substantive-legal-issues" class="toc-link level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</a></li>
+            <li><a href="#sec-5-iv-the-ruling-alac-methodology" class="toc-link level-2">IV. THE RULING (ALAC METHODOLOGY)</a></li>
+            <li><a href="#sec-6-v-key-criminal-law-doctrines-established" class="toc-link level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</a></li>
+            <li><a href="#sec-7-i-syllabus-topic-statutory-provision" class="toc-link level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</a></li>
+            <li><a href="#sec-8-ii-facts-of-the-case" class="toc-link level-2">II. FACTS OF THE CASE</a></li>
+            <li><a href="#sec-9-iii-substantive-legal-issues" class="toc-link level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</a></li>
+            <li><a href="#sec-10-iv-the-ruling-alac-methodology" class="toc-link level-2">IV. THE RULING (ALAC METHODOLOGY)</a></li>
+            <li><a href="#sec-11-v-key-criminal-law-doctrines-established" class="toc-link level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</a></li>
+            <li><a href="#sec-12-i-syllabus-topic-statutory-provision" class="toc-link level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</a></li>
+            <li><a href="#sec-13-ii-facts-of-the-case" class="toc-link level-2">II. FACTS OF THE CASE</a></li>
+            <li><a href="#sec-14-iii-substantive-legal-issues" class="toc-link level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</a></li>
+            <li><a href="#sec-15-iv-the-ruling-alac-methodology" class="toc-link level-2">IV. THE RULING (ALAC METHODOLOGY)</a></li>
+            <li><a href="#sec-16-v-key-criminal-law-doctrines-established" class="toc-link level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</a></li>
+            <li><a href="#sec-17-i-syllabus-topic-statutory-provision" class="toc-link level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</a></li>
+            <li><a href="#sec-18-ii-facts-of-the-case" class="toc-link level-2">II. FACTS OF THE CASE</a></li>
+            <li><a href="#sec-19-iii-substantive-legal-issues" class="toc-link level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</a></li>
+            <li><a href="#sec-20-iv-the-ruling-alac-methodology" class="toc-link level-2">IV. THE RULING (ALAC METHODOLOGY)</a></li>
+            <li><a href="#sec-21-v-key-criminal-law-doctrines-established" class="toc-link level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</a></li>
+            <li><a href="#sec-22-i-syllabus-topic-statutory-provision" class="toc-link level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</a></li>
+            <li><a href="#sec-23-ii-facts-of-the-case" class="toc-link level-2">II. FACTS OF THE CASE</a></li>
+            <li><a href="#sec-24-iii-substantive-legal-issues" class="toc-link level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</a></li>
+            <li><a href="#sec-25-iv-the-ruling-alac-methodology" class="toc-link level-2">IV. THE RULING (ALAC METHODOLOGY)</a></li>
+            <li><a href="#sec-26-v-key-criminal-law-doctrines-established" class="toc-link level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</a></li>
+            <li><a href="#sec-27-i-syllabus-topic-statutory-provision" class="toc-link level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</a></li>
+            <li><a href="#sec-28-ii-facts-of-the-case" class="toc-link level-2">II. FACTS OF THE CASE</a></li>
+            <li><a href="#sec-29-iii-substantive-legal-issues" class="toc-link level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</a></li>
+            <li><a href="#sec-30-iv-the-ruling-alac-methodology" class="toc-link level-2">IV. THE RULING (ALAC METHODOLOGY)</a></li>
+            <li><a href="#sec-31-v-key-criminal-law-doctrines-established" class="toc-link level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</a></li>
+            <li><a href="#sec-32-i-syllabus-topic-statutory-provision" class="toc-link level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</a></li>
+            <li><a href="#sec-33-ii-facts-of-the-case" class="toc-link level-2">II. FACTS OF THE CASE</a></li>
+            <li><a href="#sec-34-iii-substantive-legal-issues" class="toc-link level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</a></li>
+            <li><a href="#sec-35-iv-the-ruling-alac-methodology" class="toc-link level-2">IV. THE RULING (ALAC METHODOLOGY)</a></li>
+            <li><a href="#sec-36-v-key-criminal-law-doctrines-established" class="toc-link level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</a></li>
+            <li><a href="#sec-37-i-syllabus-topic-statutory-provision" class="toc-link level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</a></li>
+            <li><a href="#sec-38-ii-facts-of-the-case" class="toc-link level-2">II. FACTS OF THE CASE</a></li>
+            <li><a href="#sec-39-iii-substantive-legal-issues" class="toc-link level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</a></li>
+            <li><a href="#sec-40-iv-the-ruling-alac-methodology" class="toc-link level-2">IV. THE RULING (ALAC METHODOLOGY)</a></li>
+            <li><a href="#sec-41-v-key-criminal-law-doctrines-established" class="toc-link level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</a></li>
+            <li><a href="#sec-42-i-syllabus-topic-statutory-provision" class="toc-link level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</a></li>
+            <li><a href="#sec-43-ii-facts-of-the-case" class="toc-link level-2">II. FACTS OF THE CASE</a></li>
+            <li><a href="#sec-44-iii-substantive-legal-issues" class="toc-link level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</a></li>
+            <li><a href="#sec-45-iv-the-ruling-alac-methodology" class="toc-link level-2">IV. THE RULING (ALAC METHODOLOGY)</a></li>
+            <li><a href="#sec-46-v-key-criminal-law-doctrines-established" class="toc-link level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</a></li>
+            <li><a href="#sec-47-i-syllabus-topic-statutory-provision" class="toc-link level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</a></li>
+            <li><a href="#sec-48-ii-facts-of-the-case" class="toc-link level-2">II. FACTS OF THE CASE</a></li>
+            <li><a href="#sec-49-iii-substantive-legal-issues" class="toc-link level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</a></li>
+            <li><a href="#sec-50-iv-the-ruling-alac-methodology" class="toc-link level-2">IV. THE RULING (ALAC METHODOLOGY)</a></li>
+            <li><a href="#sec-51-v-key-criminal-law-doctrines-established" class="toc-link level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</a></li>
+            <li><a href="#sec-52-i-syllabus-topic-statutory-provision" class="toc-link level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</a></li>
+            <li><a href="#sec-53-ii-facts-of-the-case" class="toc-link level-2">II. FACTS OF THE CASE</a></li>
+            <li><a href="#sec-54-iii-substantive-legal-issues" class="toc-link level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</a></li>
+            <li><a href="#sec-55-iv-the-ruling-alac-methodology" class="toc-link level-2">IV. THE RULING (ALAC METHODOLOGY)</a></li>
+            <li><a href="#sec-56-v-key-criminal-law-doctrines-established" class="toc-link level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</a></li>
+            <li><a href="#sec-57-i-syllabus-topic-statutory-provision" class="toc-link level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</a></li>
+            <li><a href="#sec-58-ii-facts-of-the-case" class="toc-link level-2">II. FACTS OF THE CASE</a></li>
+            <li><a href="#sec-59-iii-substantive-legal-issues" class="toc-link level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</a></li>
+            <li><a href="#sec-60-iv-the-ruling-alac-methodology" class="toc-link level-2">IV. THE RULING (ALAC METHODOLOGY)</a></li>
+            <li><a href="#sec-61-v-key-criminal-law-doctrines-established" class="toc-link level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</a></li>
+            <li><a href="#sec-62-i-syllabus-topic-statutory-provision" class="toc-link level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</a></li>
+            <li><a href="#sec-63-ii-facts-of-the-case" class="toc-link level-2">II. FACTS OF THE CASE</a></li>
+            <li><a href="#sec-64-iii-substantive-legal-issues" class="toc-link level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</a></li>
+            <li><a href="#sec-65-iv-the-ruling-alac-methodology" class="toc-link level-2">IV. THE RULING (ALAC METHODOLOGY)</a></li>
+            <li><a href="#sec-66-v-key-criminal-law-doctrines-established" class="toc-link level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</a></li>
+            <li><a href="#sec-67-i-syllabus-topic-statutory-provision" class="toc-link level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</a></li>
+            <li><a href="#sec-68-ii-facts-of-the-case" class="toc-link level-2">II. FACTS OF THE CASE</a></li>
+            <li><a href="#sec-69-iii-substantive-legal-issues" class="toc-link level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</a></li>
+            <li><a href="#sec-70-iv-the-ruling-alac-methodology" class="toc-link level-2">IV. THE RULING (ALAC METHODOLOGY)</a></li>
+            <li><a href="#sec-71-v-key-criminal-law-doctrines-established" class="toc-link level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</a></li>
+            <li><a href="#sec-72-i-syllabus-topic-statutory-provision" class="toc-link level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</a></li>
+            <li><a href="#sec-73-ii-facts-of-the-case" class="toc-link level-2">II. FACTS OF THE CASE</a></li>
+            <li><a href="#sec-74-iii-substantive-legal-issues" class="toc-link level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</a></li>
+            <li><a href="#sec-75-iv-the-ruling-alac-methodology" class="toc-link level-2">IV. THE RULING (ALAC METHODOLOGY)</a></li>
+            <li><a href="#sec-76-v-key-criminal-law-doctrines-established" class="toc-link level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</a></li>
+            <li><a href="#sec-77-i-syllabus-topic-statutory-provision" class="toc-link level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</a></li>
+            <li><a href="#sec-78-ii-facts-of-the-case" class="toc-link level-2">II. FACTS OF THE CASE</a></li>
+            <li><a href="#sec-79-iii-substantive-legal-issues" class="toc-link level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</a></li>
+            <li><a href="#sec-80-iv-the-ruling-alac-methodology" class="toc-link level-2">IV. THE RULING (ALAC METHODOLOGY)</a></li>
+            <li><a href="#sec-81-v-key-criminal-law-doctrines-established" class="toc-link level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</a></li>
+            <li><a href="#sec-82-i-syllabus-topic-statutory-provision" class="toc-link level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</a></li>
+            <li><a href="#sec-83-ii-facts-of-the-case" class="toc-link level-2">II. FACTS OF THE CASE</a></li>
+            <li><a href="#sec-84-iii-substantive-legal-issues" class="toc-link level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</a></li>
+            <li><a href="#sec-85-iv-the-ruling-alac-methodology" class="toc-link level-2">IV. THE RULING (ALAC METHODOLOGY)</a></li>
+            <li><a href="#sec-86-v-key-criminal-law-doctrines-established" class="toc-link level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</a></li>
+            <li><a href="#sec-87-i-syllabus-topic-statutory-provision" class="toc-link level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</a></li>
+            <li><a href="#sec-88-ii-facts-of-the-case" class="toc-link level-2">II. FACTS OF THE CASE</a></li>
+            <li><a href="#sec-89-iii-substantive-legal-issues" class="toc-link level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</a></li>
+            <li><a href="#sec-90-iv-the-ruling-alac-methodology" class="toc-link level-2">IV. THE RULING (ALAC METHODOLOGY)</a></li>
+            <li><a href="#sec-91-v-key-criminal-law-doctrines-established" class="toc-link level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</a></li>
+            <li><a href="#sec-92-i-syllabus-topic-statutory-provision" class="toc-link level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</a></li>
+            <li><a href="#sec-93-ii-facts-of-the-case" class="toc-link level-2">II. FACTS OF THE CASE</a></li>
+            <li><a href="#sec-94-iii-substantive-legal-issues" class="toc-link level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</a></li>
+            <li><a href="#sec-95-iv-the-ruling-alac-methodology" class="toc-link level-2">IV. THE RULING (ALAC METHODOLOGY)</a></li>
+            <li><a href="#sec-96-v-key-criminal-law-doctrines-established" class="toc-link level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</a></li>
+            <li><a href="#sec-97-i-syllabus-topic-statutory-provision" class="toc-link level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</a></li>
+            <li><a href="#sec-98-ii-facts-of-the-case" class="toc-link level-2">II. FACTS OF THE CASE</a></li>
+            <li><a href="#sec-99-iii-substantive-legal-issues" class="toc-link level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</a></li>
+            <li><a href="#sec-100-iv-the-ruling-alac-methodology" class="toc-link level-2">IV. THE RULING (ALAC METHODOLOGY)</a></li>
+            <li><a href="#sec-101-v-key-criminal-law-doctrines-established" class="toc-link level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</a></li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="app-content" id="mainContentArea">
+      <div class="content-wrapper" id="contentWrapper">
+        <!-- Hero Header -->
+        <div class="document-hero">
+          <span class="doc-badge">Criminal Law</span>
+          <h1 class="doc-main-title">Criminal Law Case Digest</h1>
+          <p class="doc-subtitle">Criminal Law comprehensive review notes and study materials.</p>
+          <div class="doc-meta-bar">
+            <div class="meta-item"><span>📑</span> <span>102 Sections</span></div>
+            <div class="meta-item"><span>🔊</span> <span id="totalUnitsCounter">590 Read Units</span></div>
+            <div class="meta-item"><span>⏱</span> <span>~129 min read</span></div>
+            <div class="meta-item"><span>🎙</span> <span>Intelligent Natural Speech</span></div>
+          </div>
+          
+        </div>
+
+        <!-- Document Sections -->
+        
+        <section class="doc-section" id="sec-intro">
+          <header class="section-header">
+            <h2 class="section-title level-1">Criminal Law Case Digest</h2>
+            <button class="section-listen-btn" onclick="readSection('sec-intro')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Criminal Law 1 • Master ALAC Case Digest Compendium</p>
+        <p class="read-unit" data-unit-type="paragraph">MANILA LAW COLLEGE • Criminal Law 1 (Book I, Revised Penal Code)</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-1-criminal-law-1-book-i-rpc">
+          <header class="section-header">
+            <h3 class="section-title level-2">CRIMINAL LAW 1 (BOOK I, RPC)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-1-criminal-law-1-book-i-rpc')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><strong>Master ALAC Case Digest Compendium (Answer - Legal Basis - Application - Conclusion)</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Manila Law College • First Semester, AY 2026-2027</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Rigorous Law School Case Digest Compendium Formatted via ALAC Method (Answer - Legal Basis - Application -</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>Conclusion)</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>CASE 1: People of the Philippines v. Custodio Gonzales, Sr.</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>G.R. No. 80762, March 19, 1990 | 183 SCRA 309 | Ponente: Sarmiento, J.</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-2-i-syllabus-topic-statutory-provision">
+          <header class="section-header">
+            <h3 class="section-title level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-2-i-syllabus-topic-statutory-provision')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Syllabus Coverage: II. Felonies  —  Elements: Act Required for Criminal Liability</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Governing Statutory Article: Article 3, Revised Penal Code (Felonies Committed by Deceit or Fault)</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-3-ii-facts-of-the-case">
+          <header class="section-header">
+            <h3 class="section-title level-2">II. FACTS OF THE CASE</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-3-ii-facts-of-the-case')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Lloyd Peñacerrada was killed in Iloilo. Months after the incident, a lone eyewitness, Jose Huntoria (a tenant of the</p>
+        <p class="read-unit" data-unit-type="paragraph">victim), testified that he saw spouses Augusto and Fausta Gonzales, their sons, and appellant Custodio Gonzales,</p>
+        <p class="read-unit" data-unit-type="paragraph">Sr. stabbing the victim. Custodio raised the defense of alibi, claiming he was asleep in his house at the time of the</p>
+        <p class="read-unit" data-unit-type="paragraph">killing. The trial court and Court of Appeals convicted him of Murder based solely on the uncorroborated testimony</p>
+        <p class="read-unit" data-unit-type="paragraph">of Huntoria.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-4-iii-substantive-legal-issues">
+          <header class="section-header">
+            <h3 class="section-title level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-4-iii-substantive-legal-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Whether the delayed, uncorroborated testimony of a lone eyewitness is sufficient to establish an overt felonious</p>
+        <p class="read-unit" data-unit-type="paragraph">act and overcome the constitutional presumption of innocence beyond reasonable doubt.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-5-iv-the-ruling-alac-methodology">
+          <header class="section-header">
+            <h3 class="section-title level-2">IV. THE RULING (ALAC METHODOLOGY)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-5-iv-the-ruling-alac-methodology')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><strong>A  —  ANSWER: NO. The uncorroborated and delayed testimony of a lone biased eyewitness fails to prove an overt</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">act of participation and cannot sustain a conviction for murder.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>L  —  LEGAL BASIS: Article 3, Revised Penal Code; Article III, Section 14(2), 1987 Constitution (Presumption of</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Innocence). A felony requires an overt bodily act; criminal liability cannot be anchored on doubtful, delayed</p>
+        <p class="read-unit" data-unit-type="paragraph">eyewitness testimony.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>A  —  APPLICATION: Huntoria&#x27;s testimony suffered from material inconsistencies, delay of several months in</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">reporting to authorities, and bias as a tenant of the deceased. No physical or medical evidence connected Custodio</p>
+        <p class="read-unit" data-unit-type="paragraph">to the murder weapon or wounds. Mere presence or suspicion without proof of an overt participating act does not</p>
+        <p class="read-unit" data-unit-type="paragraph">generate criminal culpability.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>C  —  CONCLUSION: The Supreme Court REVERSED the conviction and ACQUITTED Custodio Gonzales, Sr. on</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">reasonable doubt.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-6-v-key-criminal-law-doctrines-established">
+          <header class="section-header">
+            <h3 class="section-title level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-6-v-key-criminal-law-doctrines-established')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: Criminal liability under Article 3 of the RPC requires proof of an external, overt bodily act beyond</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">reasonable doubt.</p>
+        <p class="read-unit" data-unit-type="paragraph">Criminal Law 1 • Master ALAC Case Digest Compendium</p>
+        <p class="read-unit" data-unit-type="paragraph">MANILA LAW COLLEGE • Criminal Law 1 (Book I, Revised Penal Code)</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: The constitutional presumption of innocence prevails over uncorroborated, delayed eyewitness</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">accounts.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>CASE 2: People of the Philippines v. Romana Silvestre and Martin Atienza</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>56 Phil. 353 (1931) | Ponente: Villa-Real, J.</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-7-i-syllabus-topic-statutory-provision">
+          <header class="section-header">
+            <h3 class="section-title level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-7-i-syllabus-topic-statutory-provision')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Syllabus Coverage:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Governing Statutory Article:</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-8-ii-facts-of-the-case">
+          <header class="section-header">
+            <h3 class="section-title level-2">II. FACTS OF THE CASE</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-8-ii-facts-of-the-case')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Martin Atienza entered a neighbor&#x27;s house, announced his intention to burn it down, and ignited the roof. Romana</p>
+        <p class="read-unit" data-unit-type="paragraph">Silvestre (his cohabitant) stood nearby, listened, and watched the fire without raising an alarm or calling for help.</p>
+        <p class="read-unit" data-unit-type="paragraph">Forty-eight (48) houses were destroyed in the resulting conflagration. Silvestre was convicted of Arson as an</p>
+        <p class="read-unit" data-unit-type="paragraph">accomplice by the trial court for failing to stop Atienza.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-9-iii-substantive-legal-issues">
+          <header class="section-header">
+            <h3 class="section-title level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-9-iii-substantive-legal-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Whether a person who is passively present at the scene of a crime and remains silent without preventing its</p>
+        <p class="read-unit" data-unit-type="paragraph">commission is criminally liable by omission under Article 3 of the Revised Penal Code.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-10-iv-the-ruling-alac-methodology">
+          <header class="section-header">
+            <h3 class="section-title level-2">IV. THE RULING (ALAC METHODOLOGY)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-10-iv-the-ruling-alac-methodology')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><strong>A  —  ANSWER: NO. Mere passive presence and silence at the scene of a crime, in the absence of a positive legal</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">duty to act or prior conspiracy, does not constitute a punishable criminal omission.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>L  —  LEGAL BASIS: Article 3, Revised Penal Code (Felonies by Omission); Article 18, RPC (Accomplices). Criminal</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">omission requires the breach of an explicit positive legal duty imposed by statute.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>A  —  APPLICATION: Under Philippine law, there is no statutory obligation for a private individual or cohabitant to</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">prevent another from committing arson or to raise an alarm under pain of criminal prosecution. Silvestre did not</p>
+        <p class="read-unit" data-unit-type="paragraph">cooperate in the execution of the fire, gave no moral encouragement, and had no legal duty to stop Atienza.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>C  —  CONCLUSION: The Supreme Court ACQUITTED Romana Silvestre of all criminal liability, while AFFIRMING the</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">conviction of Martin Atienza as principal in Arson.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-11-v-key-criminal-law-doctrines-established">
+          <header class="section-header">
+            <h3 class="section-title level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-11-v-key-criminal-law-doctrines-established')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: To incur criminal liability by omission under Article 3, there must be a specific positive legal duty to act</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">created by law.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: Mere passive presence, silence, or failure to report a crime in progress does not make one a principal or</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">accomplice.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>CASE 3: United States v. Ah Chong</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>15 Phil. 488 (1910) | Ponente: Carson, J.</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-12-i-syllabus-topic-statutory-provision">
+          <header class="section-header">
+            <h3 class="section-title level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-12-i-syllabus-topic-statutory-provision')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Syllabus Coverage:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Governing Statutory Article:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Criminal Law 1 • Master ALAC Case Digest Compendium</p>
+        <p class="read-unit" data-unit-type="paragraph">MANILA LAW COLLEGE • Criminal Law 1 (Book I, Revised Penal Code)</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-13-ii-facts-of-the-case">
+          <header class="section-header">
+            <h3 class="section-title level-2">II. FACTS OF THE CASE</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-13-ii-facts-of-the-case')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Ah Chong, a cook in Fort McKinley, was asleep in his room. To secure the door against frequent robberies in the</p>
+        <p class="read-unit" data-unit-type="paragraph">area, he placed a chair against it. Awakened in the dead of night by someone violently forcing the door open, Ah</p>
+        <p class="read-unit" data-unit-type="paragraph">Chong called out twice, &#x27;Who is there?&#x27; Receiving no answer and believing he was being attacked by a ladron</p>
+        <p class="read-unit" data-unit-type="paragraph">(robber), he grabbed a kitchen knife and fatally struck the intruder, who turned out to be his roommate, Pascual</p>
+        <p class="read-unit" data-unit-type="paragraph">Gualberto.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-14-iii-substantive-legal-issues">
+          <header class="section-header">
+            <h3 class="section-title level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-14-iii-substantive-legal-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Whether an act committed under an honest and reasonable mistake of fact negates criminal intent (dolo) and</p>
+        <p class="read-unit" data-unit-type="paragraph">exempts the actor from criminal liability.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-15-iv-the-ruling-alac-methodology">
+          <header class="section-header">
+            <h3 class="section-title level-2">IV. THE RULING (ALAC METHODOLOGY)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-15-iv-the-ruling-alac-methodology')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><strong>A  —  ANSWER: YES. Honest mistake of fact negates felonious intent (mens rea).</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>L  —  LEGAL BASIS: Article 3, Revised Penal Code; Maxim &#x27;Ignorantia Facti Excusat&#x27; (Mistake of fact excuses); Article</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">11(1), RPC (Self-Defense).</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>A  —  APPLICATION: Under the circumstances, Ah Chong had no felonious intent. He acted under an honest mistake</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">of fact without negligence, believing his life was in imminent peril from a nocturnal robber. Had the facts been as</p>
+        <p class="read-unit" data-unit-type="paragraph">he reasonably believed, his act of striking the intruder would have constituted complete, lawful self-defense.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>C  —  CONCLUSION: The Supreme Court REVERSED the conviction and ACQUITTED Ah Chong of all criminal liability.</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-16-v-key-criminal-law-doctrines-established">
+          <header class="section-header">
+            <h3 class="section-title level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-16-v-key-criminal-law-doctrines-established')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: Mistake of Fact (Ah Chong Doctrine): Requisites: (1) The act would have been lawful had the facts been</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">as the accused believed; (2) The intention in performing the act was lawful; (3) The mistake was honest and not due</p>
+        <p class="read-unit" data-unit-type="paragraph">to negligence.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: Actus non facit reum, nisi mens sit rea (An act does not make a person guilty unless the mind is guilty).</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>CASE 4: People of the Philippines v. Antonio Oanis and Alberto Galanta</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>74 Phil. 257 (1943) | Ponente: Moran, J.</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-17-i-syllabus-topic-statutory-provision">
+          <header class="section-header">
+            <h3 class="section-title level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-17-i-syllabus-topic-statutory-provision')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Syllabus Coverage:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Governing Statutory Article:</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-18-ii-facts-of-the-case">
+          <header class="section-header">
+            <h3 class="section-title level-2">II. FACTS OF THE CASE</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-18-ii-facts-of-the-case')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Police officers Oanis and Galanta were instructed to arrest Anselmo Balagtas, a notorious escaped convict who was</p>
+        <p class="read-unit" data-unit-type="paragraph">armed and dangerous. Entering a room where Balagtas was rumored to be sleeping with a paramour, the officers</p>
+        <p class="read-unit" data-unit-type="paragraph">saw a man sleeping with his back turned. Without verifying his identity or ordering him to surrender, both officers</p>
+        <p class="read-unit" data-unit-type="paragraph">immediately opened fire, riddling the sleeping man with bullets. The victim was not Balagtas, but Serapio Tecson,</p>
+        <p class="read-unit" data-unit-type="paragraph">an innocent, unarmed citizen.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-19-iii-substantive-legal-issues">
+          <header class="section-header">
+            <h3 class="section-title level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-19-iii-substantive-legal-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Whether the police officers can invoke mistake of fact or fulfillment of duty to justify killing an innocent sleeping</p>
+        <p class="read-unit" data-unit-type="paragraph">person mistaken for an escaped outlaw.</p>
+        <p class="read-unit" data-unit-type="paragraph">Criminal Law 1 • Master ALAC Case Digest Compendium</p>
+        <p class="read-unit" data-unit-type="paragraph">MANILA LAW COLLEGE • Criminal Law 1 (Book I, Revised Penal Code)</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-20-iv-the-ruling-alac-methodology">
+          <header class="section-header">
+            <h3 class="section-title level-2">IV. THE RULING (ALAC METHODOLOGY)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-20-iv-the-ruling-alac-methodology')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><strong>A  —  ANSWER: NO. Mistake of fact is unavailable when the mistake arises from gross negligence; the officers are</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">guilty of Murder.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>L  —  LEGAL BASIS: Article 3, RPC (Culpa &amp; Gross Negligence); Article 11(5), RPC (Fulfillment of Duty); Article 248,</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">RPC (Murder qualified by Treachery).</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>A  —  APPLICATION: Unlike in Ah Chong, the officers were under no imminent danger because the victim was asleep</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">with his back turned. They failed to exercise even minimum precautions to ascertain the victim&#x27;s identity before</p>
+        <p class="read-unit" data-unit-type="paragraph">firing. Shooting a defenseless sleeping man constitutes gross negligence and treachery, disqualifying both mistake</p>
+        <p class="read-unit" data-unit-type="paragraph">of fact and fulfillment of duty.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>C  —  CONCLUSION: The Supreme Court CONVICTED Oanis and Galanta of Homicide (with mitigating circumstance</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">of incomplete fulfillment of duty) and sentenced them accordingly.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-21-v-key-criminal-law-doctrines-established">
+          <header class="section-header">
+            <h3 class="section-title level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-21-v-key-criminal-law-doctrines-established')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: Mistake of fact is inapplicable when the actor acted with reckless negligence or where no actual danger</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">existed.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: In fulfillment of duty under Article 11(5), the use of lethal force is authorized only when strictly</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">necessary to overcome active resistance.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>CASE 5: Aristotel Valenzuela v. People of the Philippines</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>G.R. No. 160188, June 21, 2007 | 525 SCRA 306 | Ponente: Tinga, J.</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-22-i-syllabus-topic-statutory-provision">
+          <header class="section-header">
+            <h3 class="section-title level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-22-i-syllabus-topic-statutory-provision')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Syllabus Coverage:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Governing Statutory Article:</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-23-ii-facts-of-the-case">
+          <header class="section-header">
+            <h3 class="section-title level-2">II. FACTS OF THE CASE</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-23-ii-facts-of-the-case')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Valenzuela and a companion hauled cases of Tide detergent bars out of the SM Supermarket in Mandaluyong City,</p>
+        <p class="read-unit" data-unit-type="paragraph">loaded them into a pushcart, and transferred them into a taxi. As the taxi was about to exit the parking area,</p>
+        <p class="read-unit" data-unit-type="paragraph">security guards intercepted the vehicle and recovered the stolen goods. Valenzuela argued that since he was</p>
+        <p class="read-unit" data-unit-type="paragraph">intercepted before leaving the supermarket premises, the crime was only Frustrated Theft.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-24-iii-substantive-legal-issues">
+          <header class="section-header">
+            <h3 class="section-title level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-24-iii-substantive-legal-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Whether under Article 308 of the Revised Penal Code, there is a crime of &#x27;Frustrated Theft.&#x27;</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-25-iv-the-ruling-alac-methodology">
+          <header class="section-header">
+            <h3 class="section-title level-2">IV. THE RULING (ALAC METHODOLOGY)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-25-iv-the-ruling-alac-methodology')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><strong>A  —  ANSWER: NO. Theft is consummated upon the unlawful taking (apoderamiento) and complete control over</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">the property, regardless of subsequent interception.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>L  —  LEGAL BASIS: Articles 6 and 308, Revised Penal Code (Elements of Theft and Stages of Execution).</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>A  —  APPLICATION: Under Article 308, the essential element of theft is &#x27;taking&#x27; (apoderamiento) with intent to</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">gain. The moment the thief obtains physical possession and unlawful control over the property without the</p>
+        <p class="read-unit" data-unit-type="paragraph">owner&#x27;s consent, the taking is complete, and theft is consummated. There is no middle stage between attempted</p>
+        <p class="read-unit" data-unit-type="paragraph">taking and consummated taking.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>C  —  CONCLUSION: The Supreme Court CONVICTED Valenzuela of CONSUMMATED THEFT, formally abandoning all</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">prior inconsistent rulings on frustrated theft.</p>
+        <p class="read-unit" data-unit-type="paragraph">Criminal Law 1 • Master ALAC Case Digest Compendium</p>
+        <p class="read-unit" data-unit-type="paragraph">MANILA LAW COLLEGE • Criminal Law 1 (Book I, Revised Penal Code)</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-26-v-key-criminal-law-doctrines-established">
+          <header class="section-header">
+            <h3 class="section-title level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-26-v-key-criminal-law-doctrines-established')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: Landmark Valenzuela Doctrine: Theft has only two stages of execution — Attempted Theft and</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Consummated Theft. Frustrated Theft does not exist under Philippine law.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: Unlawful taking is complete the moment the offender acquires dominion and control over the personal</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">property of another.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>CASE 6: People of the Philippines v. Marivic Genosa</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>G.R. No. 135981, January 15, 2004 | 419 SCRA 537 | Ponente: Panganiban, J.</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-27-i-syllabus-topic-statutory-provision">
+          <header class="section-header">
+            <h3 class="section-title level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-27-i-syllabus-topic-statutory-provision')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Syllabus Coverage:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Governing Statutory Article:</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-28-ii-facts-of-the-case">
+          <header class="section-header">
+            <h3 class="section-title level-2">II. FACTS OF THE CASE</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-28-ii-facts-of-the-case')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Marivic Genosa was subjected to severe, repeated physical and psychological beatings by her alcoholic husband,</p>
+        <p class="read-unit" data-unit-type="paragraph">Ben Genosa, throughout their marriage. During their final altercation, the husband viciously battered her while</p>
+        <p class="read-unit" data-unit-type="paragraph">eight months pregnant. After he fell asleep, Marivic, fearing that he would wake up and kill her and her unborn</p>
+        <p class="read-unit" data-unit-type="paragraph">child, took a pipe and shot him, resulting in his death. She raised the defense of Battered Woman Syndrome</p>
+        <p class="read-unit" data-unit-type="paragraph">(BWS).</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-29-iii-substantive-legal-issues">
+          <header class="section-header">
+            <h3 class="section-title level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-29-iii-substantive-legal-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Whether Battered Woman Syndrome (BWS) qualifies as self-defense or a mitigating circumstance under the</p>
+        <p class="read-unit" data-unit-type="paragraph">Revised Penal Code.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-30-iv-the-ruling-alac-methodology">
+          <header class="section-header">
+            <h3 class="section-title level-2">IV. THE RULING (ALAC METHODOLOGY)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-30-iv-the-ruling-alac-methodology')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><strong>A  —  ANSWER: YES. While acute battered state did not satisfy the strict immediacy requirement of unlawful</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">aggression for complete self-defense under the old RPC, BWS constitutes a mitigating circumstance analogous to</p>
+        <p class="read-unit" data-unit-type="paragraph">passion, obfuscation, and illness, and is recognized as a complete defense under R.A. 9262.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>L  —  LEGAL BASIS: Article 11(1), Article 13(9-10), RPC; Republic Act No. 9262 (Anti-Violence Against Women and</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Their Children Act of 2004).</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>A  —  APPLICATION: BWS is characterized by a recurring cycle of violence: (1) tension-building, (2) acute battering</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">incident, and (3) tranquil, loving state. An expert psychiatric evaluation established that Marivic suffered from</p>
+        <p class="read-unit" data-unit-type="paragraph">BWS. The Court applied two mitigating circumstances (analogous illness and passion/obfuscation) to reduce her</p>
+        <p class="read-unit" data-unit-type="paragraph">penalty and allow her immediate release on served time.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>C  —  CONCLUSION: The Supreme Court REDUCED the penalty to 6 years of Prision Correccional to 14 years of</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Reclusion Temporal and ORDERED her immediate release on parole.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-31-v-key-criminal-law-doctrines-established">
+          <header class="section-header">
+            <h3 class="section-title level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-31-v-key-criminal-law-doctrines-established')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: Landmark Genosa Doctrine: Battered Woman Syndrome is recognized in Philippine jurisprudence, later</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">codified into law under Section 26 of R.A. 9262 as a complete absolutory defense.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: BWS recognizes that cumulative trauma alters a woman&#x27;s perception of danger, establishing that the</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">threat of violence is constant and acute.</p>
+        <p class="read-unit" data-unit-type="paragraph">Criminal Law 1 • Master ALAC Case Digest Compendium</p>
+        <p class="read-unit" data-unit-type="paragraph">MANILA LAW COLLEGE • Criminal Law 1 (Book I, Revised Penal Code)</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>CASE 7: People of the Philippines v. Bayotas</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>G.R. No. 102007, September 2, 1994 | 236 SCRA 239 | Ponente: Romero, J.</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-32-i-syllabus-topic-statutory-provision">
+          <header class="section-header">
+            <h3 class="section-title level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-32-i-syllabus-topic-statutory-provision')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Syllabus Coverage:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Governing Statutory Article:</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-33-ii-facts-of-the-case">
+          <header class="section-header">
+            <h3 class="section-title level-2">II. FACTS OF THE CASE</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-33-ii-facts-of-the-case')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Rogelio Bayotas was convicted of Rape and sentenced to Reclusion Perpetua by the RTC. While his appeal was</p>
+        <p class="read-unit" data-unit-type="paragraph">pending before the Supreme Court, Bayotas died at the National Bilibid Prison Hospital. The Solicitor General</p>
+        <p class="read-unit" data-unit-type="paragraph">argued that while criminal liability was extinguished by death, civil liability ex delicto survived and could be claimed</p>
+        <p class="read-unit" data-unit-type="paragraph">against the estate of the deceased.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-34-iii-substantive-legal-issues">
+          <header class="section-header">
+            <h3 class="section-title level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-34-iii-substantive-legal-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Whether the death of an accused pending appeal of his conviction extinguishes both his criminal liability and his</p>
+        <p class="read-unit" data-unit-type="paragraph">civil liability arising from the crime (ex delicto).</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-35-iv-the-ruling-alac-methodology">
+          <header class="section-header">
+            <h3 class="section-title level-2">IV. THE RULING (ALAC METHODOLOGY)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-35-iv-the-ruling-alac-methodology')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><strong>A  —  ANSWER: YES. Death of the accused pending appeal extinguishes both criminal liability and civil liability solely</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">based on the crime (ex delicto).</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>L  —  LEGAL BASIS: Article 89(1), Revised Penal Code; Article 1157, Civil Code (Sources of Obligation); Rule 111,</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Rules of Court.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>A  —  APPLICATION: Civil liability ex delicto is conditioned upon the finality of criminal conviction. When the</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">accused dies before final judgment, no final conviction exists. Consequently, the criminal action and the civil</p>
+        <p class="read-unit" data-unit-type="paragraph">liability arising from the felony are totally extinguished. However, civil actions based on other independent sources</p>
+        <p class="read-unit" data-unit-type="paragraph">of obligation (law, contracts, quasi-contracts, quasi-delicts under Arts. 32, 33, 34, 2176 Civil Code) may be pursued</p>
+        <p class="read-unit" data-unit-type="paragraph">in a separate civil action against the estate.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>C  —  CONCLUSION: The Supreme Court DECLARED the criminal and civil liability ex delicto of Rogelio Bayotas</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">EXTINGUISHED, and DISMISSED the criminal appeal.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-36-v-key-criminal-law-doctrines-established">
+          <header class="section-header">
+            <h3 class="section-title level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-36-v-key-criminal-law-doctrines-established')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: Landmark Bayotas Doctrine: Death of the convict pending appeal totally extinguishes criminal liability</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">and civil liability ex delicto.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: Independent civil liabilities under Articles 32, 33, 34, and 2176 of the Civil Code survive and may be filed</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">separately against the estate.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>CASE 8: People of the Philippines v. Simon</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>G.R. No. 930280, July 29, 1994 | 234 SCRA 555 | Ponente: Regalado, J.</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-37-i-syllabus-topic-statutory-provision">
+          <header class="section-header">
+            <h3 class="section-title level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-37-i-syllabus-topic-statutory-provision')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Syllabus Coverage:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Governing Statutory Article:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Criminal Law 1 • Master ALAC Case Digest Compendium</p>
+        <p class="read-unit" data-unit-type="paragraph">MANILA LAW COLLEGE • Criminal Law 1 (Book I, Revised Penal Code)</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-38-ii-facts-of-the-case">
+          <header class="section-header">
+            <h3 class="section-title level-2">II. FACTS OF THE CASE</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-38-ii-facts-of-the-case')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Martin Simon was caught selling 3.8 grams of marijuana in 1988 and sentenced to Life Imprisonment under the</p>
+        <p class="read-unit" data-unit-type="paragraph">Dangerous Drugs Act of 1972 (R.A. 6425). While his appeal was pending, Republic Act No. 7659 amended the</p>
+        <p class="read-unit" data-unit-type="paragraph">penalties under the Dangerous Drugs Act, graduating penalties according to the quantity of drugs seized and</p>
+        <p class="read-unit" data-unit-type="paragraph">making quantities below 750 grams punishable by correctional/afflictive penalties under the Revised Penal Code.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-39-iii-substantive-legal-issues">
+          <header class="section-header">
+            <h3 class="section-title level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-39-iii-substantive-legal-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Whether the graduated penalty system of the Revised Penal Code and the Indeterminate Sentence Law (ISLAW)</p>
+        <p class="read-unit" data-unit-type="paragraph">apply to offenses under Special Penal Laws that adopt RPC penalties by reference.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-40-iv-the-ruling-alac-methodology">
+          <header class="section-header">
+            <h3 class="section-title level-2">IV. THE RULING (ALAC METHODOLOGY)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-40-iv-the-ruling-alac-methodology')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><strong>A  —  ANSWER: YES. Retroactive application of favorable penal statutes and supplementary operation of Book I of</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">the RPC.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>L  —  LEGAL BASIS: Article 22, Revised Penal Code (Favorable Retroactivity); Article 10, RPC (Supplementary</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Application); Act No. 4103 (Indeterminate Sentence Law).</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>A  —  APPLICATION: Since R.A. 7659 imposed lighter penalties for small quantities of drugs and adopted the RPC</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">penalty scale (Prision Correccional to Reclusion Temporal), it must be given retroactive effect in favor of Simon</p>
+        <p class="read-unit" data-unit-type="paragraph">under Article 22. Furthermore, since the penalty became divisible, the Indeterminate Sentence Law applies,</p>
+        <p class="read-unit" data-unit-type="paragraph">entitling Simon to a minimum and maximum term.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>C  —  CONCLUSION: The Supreme Court MODIFIED the sentence to an indeterminate penalty of 6 months of</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Arresto Mayor to 6 years of Prision Correccional, and ORDERED his immediate release for having served more than</p>
+        <p class="read-unit" data-unit-type="paragraph">the maximum term.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-41-v-key-criminal-law-doctrines-established">
+          <header class="section-header">
+            <h3 class="section-title level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-41-v-key-criminal-law-doctrines-established')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: Landmark Simon Doctrine: When a special law adopts the penalty scale and periods of the Revised Penal</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Code, the rules in Book I of the RPC on modifying circumstances and the Indeterminate Sentence Law apply fully.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: Penal statutes that reduce penalties must be applied retroactively to pending appeals under Article 22</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">of the RPC.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>CASE 9: Enrile v. Salazar</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>G.R. No. 92163, June 5, 1990 | 186 SCRA 217 | Ponente: Narvasa, J.</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-42-i-syllabus-topic-statutory-provision">
+          <header class="section-header">
+            <h3 class="section-title level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-42-i-syllabus-topic-statutory-provision')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Syllabus Coverage:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Governing Statutory Article:</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-43-ii-facts-of-the-case">
+          <header class="section-header">
+            <h3 class="section-title level-2">II. FACTS OF THE CASE</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-43-ii-facts-of-the-case')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Senator Juan Ponce Enrile was arrested and charged with &#x27;Rebellion with Murder and Multiple Frustrated Murder&#x27;</p>
+        <p class="read-unit" data-unit-type="paragraph">following the failed December 1989 military coup against the Aquino government. The prosecution sought to deny</p>
+        <p class="read-unit" data-unit-type="paragraph">him bail by characterizing the offense as a complex crime under Article 48 of the Revised Penal Code, punishable</p>
+        <p class="read-unit" data-unit-type="paragraph">by death/reclusion perpetua.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-44-iii-substantive-legal-issues">
+          <header class="section-header">
+            <h3 class="section-title level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-44-iii-substantive-legal-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Whether common crimes (such as murder, homicide, arson) committed in furtherance of rebellion are absorbed in</p>
+        <p class="read-unit" data-unit-type="paragraph">the single crime of Simple Rebellion, or can form a complex crime under Article 48 of the Revised Penal Code.</p>
+        <p class="read-unit" data-unit-type="paragraph">Criminal Law 1 • Master ALAC Case Digest Compendium</p>
+        <p class="read-unit" data-unit-type="paragraph">MANILA LAW COLLEGE • Criminal Law 1 (Book I, Revised Penal Code)</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-45-iv-the-ruling-alac-methodology">
+          <header class="section-header">
+            <h3 class="section-title level-2">IV. THE RULING (ALAC METHODOLOGY)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-45-iv-the-ruling-alac-methodology')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><strong>A  —  ANSWER: Absorbed in Simple Rebellion. There is no complex crime of Rebellion with Murder.</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>L  —  LEGAL BASIS: People v. Hernandez, 99 Phil. 515 (1956); Article 48, Revised Penal Code; Article 134 &amp; 135, RPC</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">(Rebellion).</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>A  —  APPLICATION: Rebellion is a single crime consisting of a political movement to overthrow the government. All</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">acts of violence, killing, destruction of property, and skirmishes committed as a means to execute the rebellion or</p>
+        <p class="read-unit" data-unit-type="paragraph">in furtherance thereof are absorbed as essential ingredients of rebellion. They cannot be prosecuted separately or</p>
+        <p class="read-unit" data-unit-type="paragraph">complexed under Article 48 to increase penalties.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>C  —  CONCLUSION: The Supreme Court GRANTED bail to Senator Enrile, holding that the charge against him was</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">simple rebellion, a bailable offense.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-46-v-key-criminal-law-doctrines-established">
+          <header class="section-header">
+            <h3 class="section-title level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-46-v-key-criminal-law-doctrines-established')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: Hernandez &amp; Enrile Doctrine: Rebellion absorbs all common crimes committed in furtherance of political</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">rebellion. There is no crime of &#x27;Rebellion Complexed with Murder.&#x27;</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: Complex crimes under Article 48 do not apply to crimes that inherently encompass multiple acts of</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">violence as a unified political felony.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>CASE 10: Ivler v. Hon. Maria Rowena Modesto-San Pedro</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>G.R. No. 172716, November 17, 2010 | 635 SCRA 191 | Ponente: Carpio, J.</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-47-i-syllabus-topic-statutory-provision">
+          <header class="section-header">
+            <h3 class="section-title level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-47-i-syllabus-topic-statutory-provision')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Syllabus Coverage:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Governing Statutory Article:</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-48-ii-facts-of-the-case">
+          <header class="section-header">
+            <h3 class="section-title level-2">II. FACTS OF THE CASE</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-48-ii-facts-of-the-case')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Jason Ivler was involved in a vehicular collision along Ortigas Avenue that resulted in the death of Undersecretary</p>
+        <p class="read-unit" data-unit-type="paragraph">Nestor Ponce, Jr. and injuries to Evangeline Ponce. Ivler was charged with two separate offenses under Article 365:</p>
+        <p class="read-unit" data-unit-type="paragraph">(1) Reckless Imprudence Resulting in Slight Physical Injuries, and (2) Reckless Imprudence Resulting in Homicide</p>
+        <p class="read-unit" data-unit-type="paragraph">and Damage to Property. Ivler pleaded guilty to the slight physical injuries case, and then moved to quash the</p>
+        <p class="read-unit" data-unit-type="paragraph">homicide case on the ground of Double Jeopardy.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-49-iii-substantive-legal-issues">
+          <header class="section-header">
+            <h3 class="section-title level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-49-iii-substantive-legal-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Whether a prior conviction for Reckless Imprudence Resulting in Slight Physical Injuries bars a subsequent</p>
+        <p class="read-unit" data-unit-type="paragraph">prosecution for Reckless Imprudence Resulting in Homicide arising from the exact same vehicular accident under</p>
+        <p class="read-unit" data-unit-type="paragraph">the Double Jeopardy clause.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-50-iv-the-ruling-alac-methodology">
+          <header class="section-header">
+            <h3 class="section-title level-2">IV. THE RULING (ALAC METHODOLOGY)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-50-iv-the-ruling-alac-methodology')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><strong>A  —  ANSWER: YES. Double jeopardy bars the second prosecution.</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>L  —  LEGAL BASIS: Article 365, Revised Penal Code (Criminal Negligence / Quasi-Offenses); Article III, Section 21,</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">1987 Constitution (Double Jeopardy); Section 7, Rule 117, Rules of Court.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>A  —  APPLICATION: Under Article 365, the crime punished is the reckless act itself (the mental state of</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">negligence/imprudence), not the resulting damages. Reckless imprudence is a single quasi-offense, not a mere</p>
+        <p class="read-unit" data-unit-type="paragraph">modality of committing dolo felonies. Once an accused is convicted or acquitted of reckless imprudence for a</p>
+        <p class="read-unit" data-unit-type="paragraph">single vehicular act, double jeopardy attaches to all consequences resulting from that single act.</p>
+        <p class="read-unit" data-unit-type="paragraph">Criminal Law 1 • Master ALAC Case Digest Compendium</p>
+        <p class="read-unit" data-unit-type="paragraph">MANILA LAW COLLEGE • Criminal Law 1 (Book I, Revised Penal Code)</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>C  —  CONCLUSION: The Supreme Court REVERSED the trial court and ORDERED the dismissal of the second</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">information on grounds of Double Jeopardy.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-51-v-key-criminal-law-doctrines-established">
+          <header class="section-header">
+            <h3 class="section-title level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-51-v-key-criminal-law-doctrines-established')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: Landmark Ivler Doctrine: Reckless Imprudence under Article 365 of the RPC is a single, distinct quasi-</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">crime. The law penalizes the negligent act, not the resulting physical injuries or deaths.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: A single reckless act cannot be split into multiple criminal prosecutions; conviction for one consequence</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">bars prosecution for all other consequences under Double Jeopardy.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>CASE 11: Joseph Ejercito Estrada v. Sandiganbayan</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>G.R. No. 148560, November 19, 2001 | 369 SCRA 394 | Ponente: Bellosillo, J.</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-52-i-syllabus-topic-statutory-provision">
+          <header class="section-header">
+            <h3 class="section-title level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-52-i-syllabus-topic-statutory-provision')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Syllabus Coverage: II. Felonies  —  Mala In Se vs. Mala Prohibita</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Governing Statutory Article: Republic Act No. 7080 (Plunder Law as Amended by R.A. 7659)</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-53-ii-facts-of-the-case">
+          <header class="section-header">
+            <h3 class="section-title level-2">II. FACTS OF THE CASE</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-53-ii-facts-of-the-case')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Former President Joseph Estrada was charged with Plunder under R.A. 7080 for amassing ill-gotten wealth through</p>
+        <p class="read-unit" data-unit-type="paragraph">jueteng collections, misappropriation of tobacco excise taxes, and anomalous stock transactions. Estrada</p>
+        <p class="read-unit" data-unit-type="paragraph">challenged the constitutionality of the Plunder Law, claiming it was void for vagueness and unconstitutionally</p>
+        <p class="read-unit" data-unit-type="paragraph">eliminated the requirement of mens rea (criminal intent) by creating a malum prohibitum offense of</p>
+        <p class="read-unit" data-unit-type="paragraph">unprecedented severity.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-54-iii-substantive-legal-issues">
+          <header class="section-header">
+            <h3 class="section-title level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-54-iii-substantive-legal-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Whether the crime of Plunder under R.A. 7080 is malum in se requiring proof of criminal intent (mens rea) beyond</p>
+        <p class="read-unit" data-unit-type="paragraph">reasonable doubt.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-55-iv-the-ruling-alac-methodology">
+          <header class="section-header">
+            <h3 class="section-title level-2">IV. THE RULING (ALAC METHODOLOGY)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-55-iv-the-ruling-alac-methodology')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><strong>A  —  ANSWER: YES. Plunder is a malum in se offense requiring proof of criminal intent (mens rea) for each</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">component predicate crime.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>L  —  LEGAL BASIS: Republic Act No. 7080, Section 2; Article 3, Revised Penal Code; Article III, Section 14(2), 1987</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Constitution.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>A  —  APPLICATION: Plunder is an accumulation of inherently immoral acts (bribery, malversation, extortion, theft</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">of public funds) that are malum in se under the Revised Penal Code. The legislative deliberations of R.A. 7080</p>
+        <p class="read-unit" data-unit-type="paragraph">expressly show that the lawmakers intended plunder to be malum in se, requiring proof of felonious intent to</p>
+        <p class="read-unit" data-unit-type="paragraph">defraud the government and amass ill-gotten wealth beyond reasonable doubt.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>C  —  CONCLUSION: The Supreme Court UPHELD the constitutionality of the Plunder Law and confirmed that mens</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">rea must be established by the prosecution.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-56-v-key-criminal-law-doctrines-established">
+          <header class="section-header">
+            <h3 class="section-title level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-56-v-key-criminal-law-doctrines-established')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: Landmark Estrada Doctrine: Plunder under R.A. 7080 is malum in se, not malum prohibitum. The</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">prosecution must prove mens rea and criminal intent.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: Statutory crimes composed of inherent mala in se predicate acts retain their character as mala in se</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">requiring felonious intent.</p>
+        <p class="read-unit" data-unit-type="paragraph">Criminal Law 1 • Master ALAC Case Digest Compendium</p>
+        <p class="read-unit" data-unit-type="paragraph">MANILA LAW COLLEGE • Criminal Law 1 (Book I, Revised Penal Code)</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>CASE 12: United States v. H.N. Bull</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>15 Phil. 7 (1910) | Ponente: Elliott, J.</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-57-i-syllabus-topic-statutory-provision">
+          <header class="section-header">
+            <h3 class="section-title level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-57-i-syllabus-topic-statutory-provision')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Syllabus Coverage:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Governing Statutory Article:</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-58-ii-facts-of-the-case">
+          <header class="section-header">
+            <h3 class="section-title level-2">II. FACTS OF THE CASE</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-58-ii-facts-of-the-case')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">H.N. Bull, master of a Norwegian merchant steamship, transported cattle and livestock from Formosa (Taiwan) into</p>
+        <p class="read-unit" data-unit-type="paragraph">the port of Manila. During the voyage, the animals were not provided with suitable food, water, and stalls as</p>
+        <p class="read-unit" data-unit-type="paragraph">required by Act No. 55 of the Philippine Commission, resulting in injury and death of cattle while within Philippine</p>
+        <p class="read-unit" data-unit-type="paragraph">territorial waters.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-59-iii-substantive-legal-issues">
+          <header class="section-header">
+            <h3 class="section-title level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-59-iii-substantive-legal-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Whether Philippine courts have territorial criminal jurisdiction over offenses committed aboard foreign merchant</p>
+        <p class="read-unit" data-unit-type="paragraph">vessels entering Philippine territorial waters.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-60-iv-the-ruling-alac-methodology">
+          <header class="section-header">
+            <h3 class="section-title level-2">IV. THE RULING (ALAC METHODOLOGY)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-60-iv-the-ruling-alac-methodology')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><strong>A  —  ANSWER: YES. Philippine courts have criminal jurisdiction under the English Rule over foreign merchant</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">vessels when the offense affects the peace and order of Philippine territory.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>L  —  LEGAL BASIS: Article 2, Revised Penal Code; Public International Law; French Rule vs. English Rule.</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>A  —  APPLICATION: Under the English Rule adopted in the Philippines, crimes committed aboard foreign merchant</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">vessels entering territorial waters and ports are triable by local courts, unless the offense affects only the internal</p>
+        <p class="read-unit" data-unit-type="paragraph">discipline of the ship. Transporting livestock without statutory protections into Philippine ports directly impacts</p>
+        <p class="read-unit" data-unit-type="paragraph">local quarantine, agriculture, and public order.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>C  —  CONCLUSION: The Supreme Court AFFIRMED the jurisdiction and conviction of Captain Bull.</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-61-v-key-criminal-law-doctrines-established">
+          <header class="section-header">
+            <h3 class="section-title level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-61-v-key-criminal-law-doctrines-established')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: The English Rule governs Philippine territorial jurisdiction: Crimes aboard foreign merchant vessels in</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Philippine waters are subject to local jurisdiction unless they affect purely internal vessel matters.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: Foreign merchant ships entering local waters subject themselves to the territorial laws of the coastal</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">State.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>CASE 13: People of the Philippines v. Lo-lo and Saraw</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>43 Phil. 19 (1922) | Ponente: Malcolm, J.</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-62-i-syllabus-topic-statutory-provision">
+          <header class="section-header">
+            <h3 class="section-title level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-62-i-syllabus-topic-statutory-provision')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Syllabus Coverage:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Governing Statutory Article:</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-63-ii-facts-of-the-case">
+          <header class="section-header">
+            <h3 class="section-title level-2">II. FACTS OF THE CASE</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-63-ii-facts-of-the-case')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Six Moros, including Lo-lo and Saraw, armed with bolos and spears, boarded a Dutch merchant vessel on the high</p>
+        <p class="read-unit" data-unit-type="paragraph">seas between the Philippines and the Dutch East Indies (Indonesia). They attacked the crew, forced the passengers</p>
+        <p class="read-unit" data-unit-type="paragraph">into a boat without provisions, raped two women, and robbed the cargo. They later landed in the Sulu Archipelago</p>
+        <p class="read-unit" data-unit-type="paragraph">and were captured by Philippine constabulary.</p>
+        <p class="read-unit" data-unit-type="paragraph">Criminal Law 1 • Master ALAC Case Digest Compendium</p>
+        <p class="read-unit" data-unit-type="paragraph">MANILA LAW COLLEGE • Criminal Law 1 (Book I, Revised Penal Code)</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-64-iii-substantive-legal-issues">
+          <header class="section-header">
+            <h3 class="section-title level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-64-iii-substantive-legal-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Whether Philippine courts have criminal jurisdiction over crimes of piracy committed on the high seas outside</p>
+        <p class="read-unit" data-unit-type="paragraph">territorial waters by foreign nationals against a foreign vessel.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-65-iv-the-ruling-alac-methodology">
+          <header class="section-header">
+            <h3 class="section-title level-2">IV. THE RULING (ALAC METHODOLOGY)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-65-iv-the-ruling-alac-methodology')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><strong>A  —  ANSWER: YES. Piracy is a crime against the law of nations (hostes humani generis); universal jurisdiction</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">allows any sovereign State where the pirates are captured to punish them.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>L  —  LEGAL BASIS: Article 2(5), Article 122, Revised Penal Code; Universal Jurisdiction under International Law.</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>A  —  APPLICATION: Pirates are in law hostes humani generis (enemies of the human race). Piracy is a universal</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">crime against all mankind. It can be punished by any sovereign state that apprehends the offenders, regardless of</p>
+        <p class="read-unit" data-unit-type="paragraph">the nationality of the victims, the flag of the vessel, or the location of the offense on the high seas.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>C  —  CONCLUSION: The Supreme Court AFFIRMED the conviction of Lo-lo and Saraw for Piracy and sentenced them</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">to Death (modified to Reclusion Perpetua under prevailing law).</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-66-v-key-criminal-law-doctrines-established">
+          <header class="section-header">
+            <h3 class="section-title level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-66-v-key-criminal-law-doctrines-established')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: Universal Jurisdiction over Piracy: Piracy is triable by any court of any country where the offenders are</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">captured, as an exception to territoriality.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: Pirates are hostes humani generis and are subject to universal criminal jurisdiction on the high seas.</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>CASE 14: United States v. James L. Brobst</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>14 Phil. 310 (1909) | Ponente: Carson, J.</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-67-i-syllabus-topic-statutory-provision">
+          <header class="section-header">
+            <h3 class="section-title level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-67-i-syllabus-topic-statutory-provision')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Syllabus Coverage:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Governing Statutory Article:</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-68-ii-facts-of-the-case">
+          <header class="section-header">
+            <h3 class="section-title level-2">II. FACTS OF THE CASE</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-68-ii-facts-of-the-case')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Brobst, an American mine manager in Masbate, struck an indigenous worker (Mann) in the ribs with his fist for</p>
+        <p class="read-unit" data-unit-type="paragraph">entering an unauthorized area. The worker stumbled, complained of intense chest pain, and died a few hours later.</p>
+        <p class="read-unit" data-unit-type="paragraph">A medical autopsy revealed that the worker suffered from an enlarged, diseased spleen which ruptured as a result</p>
+        <p class="read-unit" data-unit-type="paragraph">of the blow, causing fatal internal hemorrhage.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-69-iii-substantive-legal-issues">
+          <header class="section-header">
+            <h3 class="section-title level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-69-iii-substantive-legal-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Whether an accused who strikes a person is criminally liable for homicide when the blow causes fatal internal</p>
+        <p class="read-unit" data-unit-type="paragraph">rupture due to an underlying pre-existing illness unknown to the accused.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-70-iv-the-ruling-alac-methodology">
+          <header class="section-header">
+            <h3 class="section-title level-2">IV. THE RULING (ALAC METHODOLOGY)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-70-iv-the-ruling-alac-methodology')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><strong>A  —  ANSWER: YES. Proximate cause makes the actor liable for the death despite the pre-existing diseased</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">condition of the victim.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>L  —  LEGAL BASIS: Article 4, Paragraph 1, Revised Penal Code (Proximate Cause); Maxim &#x27;El que es causa de la</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">causa es causa del mal causado.&#x27;</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>A  —  APPLICATION: Under Article 4(1), criminal liability is incurred by any person committing a felony although the</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">wrongful act done be different from what was intended. The fist blow was unlawful and was the proximate cause</p>
+        <p class="read-unit" data-unit-type="paragraph">of the rupture of the diseased spleen. A wrongdoer takes his victim as he finds him; a pre-existing medical infirmity</p>
+        <p class="read-unit" data-unit-type="paragraph">does not break the chain of proximate causation.</p>
+        <p class="read-unit" data-unit-type="paragraph">Criminal Law 1 • Master ALAC Case Digest Compendium</p>
+        <p class="read-unit" data-unit-type="paragraph">MANILA LAW COLLEGE • Criminal Law 1 (Book I, Revised Penal Code)</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>C  —  CONCLUSION: The Supreme Court CONVICTED Brobst of Homicide (with the mitigating circumstance of lack of</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">intent to commit so grave a wrong under Art. 13[3]).</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-71-v-key-criminal-law-doctrines-established">
+          <header class="section-header">
+            <h3 class="section-title level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-71-v-key-criminal-law-doctrines-established')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: Proximate Cause in Criminal Law: The actor is criminally liable for the death of the victim if his unlawful</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">blow was the direct or efficient cause that set in motion the chain of events producing death.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: A pre-existing illness or physical vulnerability of the victim does not relieve the aggressor of criminal</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">liability for homicide.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>CASE 15: People of the Philippines v. Fernando Iligan</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>G.R. No. 75369, November 26, 1990 | 191 SCRA 643 | Ponente: Fernan, C.J.</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-72-i-syllabus-topic-statutory-provision">
+          <header class="section-header">
+            <h3 class="section-title level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-72-i-syllabus-topic-statutory-provision')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Syllabus Coverage:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Governing Statutory Article:</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-73-ii-facts-of-the-case">
+          <header class="section-header">
+            <h3 class="section-title level-2">II. FACTS OF THE CASE</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-73-ii-facts-of-the-case')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Fernando Iligan hacked Esmeraldo Quinones, Jr. on the forehead with a bolo during a street fight, inflicting a non-</p>
+        <p class="read-unit" data-unit-type="paragraph">mortal, superficial laceration. The victim fled the scene on foot. Half an hour later, the victim was found dead on</p>
+        <p class="read-unit" data-unit-type="paragraph">the highway two kilometers away, his skull crushed by an unidentified speeding vehicular hit-and-run driver.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-74-iii-substantive-legal-issues">
+          <header class="section-header">
+            <h3 class="section-title level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-74-iii-substantive-legal-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Whether the accused is criminally liable for the homicide of a victim whose death was directly caused by an</p>
+        <p class="read-unit" data-unit-type="paragraph">independent vehicular hit-and-run after fleeing the initial assault.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-75-iv-the-ruling-alac-methodology">
+          <header class="section-header">
+            <h3 class="section-title level-2">IV. THE RULING (ALAC METHODOLOGY)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-75-iv-the-ruling-alac-methodology')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><strong>A  —  ANSWER: NO. The vehicular collision was an active, intervening efficient cause (novus actus interveniens) that</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">broke the chain of proximate causation.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>L  —  LEGAL BASIS: Article 4, Paragraph 1, Revised Penal Code; Principles of Intervening Efficient Cause in Proximate</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Causation.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>A  —  APPLICATION: To hold an assailant liable for death under Article 4(1), the felonious act must be the proximate</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">cause of death. Here, the bolo wound was superficial and non-mortal. The death was caused entirely by a separate</p>
+        <p class="read-unit" data-unit-type="paragraph">vehicular run-over that occurred kilometers away. This unexpected vehicular event was an independent efficient</p>
+        <p class="read-unit" data-unit-type="paragraph">cause that severed the causal connection from the initial hack wound.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>C  —  CONCLUSION: The Supreme Court ACQUITTED Iligan of Homicide and CONVICTED him only of Less Serious</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Physical Injuries for the bolo wound.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-76-v-key-criminal-law-doctrines-established">
+          <header class="section-header">
+            <h3 class="section-title level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-76-v-key-criminal-law-doctrines-established')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: An independent intervening cause (novus actus interveniens) that is completely unrelated to the initial</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">unlawful act breaks the causal chain and relieves the accused of liability for the ultimate fatal result.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: Assailant is only liable for the specific injuries actually inflicted when death is caused by an independent</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">subsequent event.</p>
+        <p class="read-unit" data-unit-type="paragraph">Criminal Law 1 • Master ALAC Case Digest Compendium</p>
+        <p class="read-unit" data-unit-type="paragraph">MANILA LAW COLLEGE • Criminal Law 1 (Book I, Revised Penal Code)</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>CASE 16: Sulpicio Intod v. Court of Appeals</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>G.R. No. 103119, October 21, 1992 | 215 SCRA 52 | Ponente: Campos, Jr., J.</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-77-i-syllabus-topic-statutory-provision">
+          <header class="section-header">
+            <h3 class="section-title level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-77-i-syllabus-topic-statutory-provision')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Syllabus Coverage:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Governing Statutory Article:</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-78-ii-facts-of-the-case">
+          <header class="section-header">
+            <h3 class="section-title level-2">II. FACTS OF THE CASE</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-78-ii-facts-of-the-case')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Intod and three armed companions went to the house of Bernardina Palangpangan with the deliberate intention</p>
+        <p class="read-unit" data-unit-type="paragraph">to kill her due to a land feud. Firing all their firearms simultaneously, they riddled her bedroom with bullets.</p>
+        <p class="read-unit" data-unit-type="paragraph">Unknown to the assailants, Palangpangan was not in the room, having traveled to another municipality earlier that</p>
+        <p class="read-unit" data-unit-type="paragraph">day.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-79-iii-substantive-legal-issues">
+          <header class="section-header">
+            <h3 class="section-title level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-79-iii-substantive-legal-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Whether firing at an empty bedroom where the intended victim is absent constitutes Attempted Murder or an</p>
+        <p class="read-unit" data-unit-type="paragraph">Impossible Crime under Article 4, Paragraph 2 of the Revised Penal Code.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-80-iv-the-ruling-alac-methodology">
+          <header class="section-header">
+            <h3 class="section-title level-2">IV. THE RULING (ALAC METHODOLOGY)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-80-iv-the-ruling-alac-methodology')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><strong>A  —  ANSWER: Impossible Crime. Firing at an empty room constitutes an Impossible Crime of murder due to</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">physical impossibility of execution.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>L  —  LEGAL BASIS: Article 4, Paragraph 2, and Article 59, Revised Penal Code (Impossible Crimes).</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>A  —  APPLICATION: An impossible crime requires: (1) an act against persons or property; (2) evil felonious intent;</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">and (3) accomplishment is inherently impossible due to physical or legal impossibility or ineffectual means. Since</p>
+        <p class="read-unit" data-unit-type="paragraph">Palangpangan was completely absent from the house, it was physically impossible to kill her. The crime could not</p>
+        <p class="read-unit" data-unit-type="paragraph">be attempted murder because the subjective and objective phases could never produce murder.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>C  —  CONCLUSION: The Supreme Court MODIFIED the conviction from Attempted Murder to IMPOSSIBLE CRIME</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">under Article 4(2) in relation to Article 59, imposing Arresto Mayor.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-81-v-key-criminal-law-doctrines-established">
+          <header class="section-header">
+            <h3 class="section-title level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-81-v-key-criminal-law-doctrines-established')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: Landmark Intod Doctrine: Firing upon an empty bed or absent person is an Impossible Crime due to</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">factual/physical impossibility.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: Impossible crimes are penalized under Article 59 to suppress the dangerous social propensity of the</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">actor despite the impossibility of actual injury.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>CASE 17: People of the Philippines v. Rodolfo Olarbe</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>G.R. No. 227421, July 23, 2018 | 872 SCRA 479 | Ponente: Bersamin, J.</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-82-i-syllabus-topic-statutory-provision">
+          <header class="section-header">
+            <h3 class="section-title level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-82-i-syllabus-topic-statutory-provision')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Syllabus Coverage:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Governing Statutory Article:</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-83-ii-facts-of-the-case">
+          <header class="section-header">
+            <h3 class="section-title level-2">II. FACTS OF THE CASE</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-83-ii-facts-of-the-case')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Arnis master and farmer Rodolfo Olarbe and his common-law wife were asleep in their rural hut when an armed</p>
+        <p class="read-unit" data-unit-type="paragraph">man (Arca) forcibly barged into the house in the dead of night, aimed a shotgun at Olarbe, and hacked Olarbe with</p>
+        <p class="read-unit" data-unit-type="paragraph">Criminal Law 1 • Master ALAC Case Digest Compendium</p>
+        <p class="read-unit" data-unit-type="paragraph">MANILA LAW COLLEGE • Criminal Law 1 (Book I, Revised Penal Code)</p>
+        <p class="read-unit" data-unit-type="paragraph">a bolo. Olarbe grappled with the intruder, disarmed him, and in the ensuing violent struggle, struck Arca with the</p>
+        <p class="read-unit" data-unit-type="paragraph">bolo and an axe, killing him.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-84-iii-substantive-legal-issues">
+          <header class="section-header">
+            <h3 class="section-title level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-84-iii-substantive-legal-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Whether the killing was justified under the justifying circumstance of Self-Defense under Article 11, Paragraph 1 of</p>
+        <p class="read-unit" data-unit-type="paragraph">the Revised Penal Code.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-85-iv-the-ruling-alac-methodology">
+          <header class="section-header">
+            <h3 class="section-title level-2">IV. THE RULING (ALAC METHODOLOGY)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-85-iv-the-ruling-alac-methodology')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><strong>A  —  ANSWER: YES. The accused acted in complete and lawful Self-Defense against an unprovoked, lethal</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">nocturnal attack inside his own dwelling.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>L  —  LEGAL BASIS: Article 11, Paragraph 1, Revised Penal Code (Self-Defense); Elements of Unlawful Aggression and</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Reasonable Necessity.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>A  —  APPLICATION: Unlawful aggression was continuous and grave, occurring inside Olarbe&#x27;s home at midnight. In</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">evaluating the reasonable necessity of the means employed, the law does not require calm, mechanical</p>
+        <p class="read-unit" data-unit-type="paragraph">proportionality; it recognizes the instinctive reaction of a person defending his life in mortal combat. Olarbe had no</p>
+        <p class="read-unit" data-unit-type="paragraph">duty to retreat inside his own home (Castle Doctrine).</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>C  —  CONCLUSION: The Supreme Court REVERSED the conviction and ACQUITTED Rodolfo Olarbe of all charges.</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-86-v-key-criminal-law-doctrines-established">
+          <header class="section-header">
+            <h3 class="section-title level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-86-v-key-criminal-law-doctrines-established')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: Reasonable necessity of means in self-defense is judged based on the instinctive reaction of the</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">defender under mortal peril, not retrospective mathematical balance.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: A person attacked in his own home is not required to retreat (Castle Doctrine in Philippine self-defense</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">jurisprudence).</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>CASE 18: People of the Philippines v. Mamerto Narvaez</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>G.R. Nos. L-33466-67, April 20, 1983 | 121 SCRA 389 | Ponente: Makasiar, J.</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-87-i-syllabus-topic-statutory-provision">
+          <header class="section-header">
+            <h3 class="section-title level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-87-i-syllabus-topic-statutory-provision')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Syllabus Coverage:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Governing Statutory Article:</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-88-ii-facts-of-the-case">
+          <header class="section-header">
+            <h3 class="section-title level-2">II. FACTS OF THE CASE</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-88-ii-facts-of-the-case')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Narvaez was resting inside his house when two men (Fleischer and Rubia) began erecting a wire fence on disputed</p>
+        <p class="read-unit" data-unit-type="paragraph">land, which cut off Narvaez&#x27;s access to the highway and trapped his residence. When Narvaez pleaded with them</p>
+        <p class="read-unit" data-unit-type="paragraph">to stop, they ridiculed him. Narvaez grabbed his shotgun and shot both men, killing them.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-89-iii-substantive-legal-issues">
+          <header class="section-header">
+            <h3 class="section-title level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-89-iii-substantive-legal-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Whether the killing of persons unlawfully encroaching on real property constitutes lawful defense of property or</p>
+        <p class="read-unit" data-unit-type="paragraph">incomplete self-defense.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-90-iv-the-ruling-alac-methodology">
+          <header class="section-header">
+            <h3 class="section-title level-2">IV. THE RULING (ALAC METHODOLOGY)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-90-iv-the-ruling-alac-methodology')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><strong>A  —  ANSWER: Incomplete Self-Defense under Art. 13(1) in relation to Art. 69.</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>L  —  LEGAL BASIS: Article 11(1), Article 13(1), Article 69, Revised Penal Code (Defense of Property and Incomplete</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Defense).</p>
+        <p class="read-unit" data-unit-type="paragraph">Criminal Law 1 • Master ALAC Case Digest Compendium</p>
+        <p class="read-unit" data-unit-type="paragraph">MANILA LAW COLLEGE • Criminal Law 1 (Book I, Revised Penal Code)</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>A  —  APPLICATION: Human life is vastly superior to property rights; one cannot kill a mere trespasser to protect</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">land. However, the unlawful destruction of Narvaez&#x27;s property and fence constituted an unlawful aggression</p>
+        <p class="read-unit" data-unit-type="paragraph">against his property rights. Because the second requisite (reasonable necessity of means) was absent, Narvaez was</p>
+        <p class="read-unit" data-unit-type="paragraph">entitled to privileged mitigating incomplete self-defense and passion/obfuscation.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>C  —  CONCLUSION: The Supreme Court CONVICTED Narvaez of Homicide with privileged mitigating circumstances,</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">drastically reducing his penalty and ordering his release on served time.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-91-v-key-criminal-law-doctrines-established">
+          <header class="section-header">
+            <h3 class="section-title level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-91-v-key-criminal-law-doctrines-established')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: Defense of property alone does not justify homicide; reasonable necessity requires that force must be</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">proportionate and life must not be taken for mere property.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: Unlawful aggression against property gives rise to Incomplete Self-Defense under Article 13(1) and</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Article 69.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>CASE 19: People of the Philippines v. Bonoan</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>64 Phil. 87 (1937) | Ponente: Laurel, J.</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-92-i-syllabus-topic-statutory-provision">
+          <header class="section-header">
+            <h3 class="section-title level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-92-i-syllabus-topic-statutory-provision')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Syllabus Coverage:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Governing Statutory Article:</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-93-ii-facts-of-the-case">
+          <header class="section-header">
+            <h3 class="section-title level-2">II. FACTS OF THE CASE</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-93-ii-facts-of-the-case')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Celestino Bonoan fatally stabbed Carlos Guison in Manila. The defense proved that Bonoan suffered from</p>
+        <p class="read-unit" data-unit-type="paragraph">dementia praecox (schizophrenia), had been committed to the National Psychopathic Hospital multiple times, and</p>
+        <p class="read-unit" data-unit-type="paragraph">exhibited total mental derangement, hallucinations, and irrational behavior before and immediately after the</p>
+        <p class="read-unit" data-unit-type="paragraph">killing.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-94-iii-substantive-legal-issues">
+          <header class="section-header">
+            <h3 class="section-title level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-94-iii-substantive-legal-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Whether the accused is exempt from criminal liability by reason of insanity under Article 12, Paragraph 1 of the</p>
+        <p class="read-unit" data-unit-type="paragraph">Revised Penal Code.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-95-iv-the-ruling-alac-methodology">
+          <header class="section-header">
+            <h3 class="section-title level-2">IV. THE RULING (ALAC METHODOLOGY)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-95-iv-the-ruling-alac-methodology')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><strong>A  —  ANSWER: YES. The accused was completely deprived of reason and intelligence at the time of the commission</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">of the act.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>L  —  LEGAL BASIS: Article 12, Paragraph 1, Revised Penal Code (Exemption by Reason of Insanity); M&#x27;Naghten /</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">Complete Deprivation of Reason Test.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>A  —  APPLICATION: Philippine law follows the test of complete deprivation of intelligence. Insanity under Article</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">12(1) exists when there is a complete absence of the power to discern right from wrong, or total deprivation of</p>
+        <p class="read-unit" data-unit-type="paragraph">reason. Expert psychiatric testimony and hospital records established that Bonoan&#x27;s schizophrenia completely</p>
+        <p class="read-unit" data-unit-type="paragraph">destroyed his capacity to understand the criminality of his act.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>C  —  CONCLUSION: The Supreme Court REVERSED the conviction, ACQUITTED Bonoan on ground of Insanity, and</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">ORDERED his commitment to the National Psychopathic Hospital.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-96-v-key-criminal-law-doctrines-established">
+          <header class="section-header">
+            <h3 class="section-title level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-96-v-key-criminal-law-doctrines-established')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: Landmark Bonoan Test for Insanity: The defense must prove complete deprivation of intelligence,</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">reason, or discernment at the precise time of the commission of the crime.</p>
+        <p class="read-unit" data-unit-type="paragraph">Criminal Law 1 • Master ALAC Case Digest Compendium</p>
+        <p class="read-unit" data-unit-type="paragraph">MANILA LAW COLLEGE • Criminal Law 1 (Book I, Revised Penal Code)</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: Acquittal by reason of insanity requires mandatory judicial commitment of the insane person to a</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">medical psychiatric facility.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>CASE 20: Basilio v. Court of Appeals</strong></p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>G.R. No. 113433, March 17, 2000 | 328 SCRA 341 | Ponente: Pardo, J.</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-97-i-syllabus-topic-statutory-provision">
+          <header class="section-header">
+            <h3 class="section-title level-2">I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-97-i-syllabus-topic-statutory-provision')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Syllabus Coverage:</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Governing Statutory Article:</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-98-ii-facts-of-the-case">
+          <header class="section-header">
+            <h3 class="section-title level-2">II. FACTS OF THE CASE</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-98-ii-facts-of-the-case')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Simplicio Pronebo was convicted of Reckless Imprudence Resulting in Damage to Property with Double Homicide</p>
+        <p class="read-unit" data-unit-type="paragraph">for a vehicular collision while driving a passenger truck owned by petitioner Basilio. The judgment ordered the</p>
+        <p class="read-unit" data-unit-type="paragraph">driver to pay civil indemnities. Upon return of the writ of execution unsatisfied due to the driver&#x27;s insolvency, the</p>
+        <p class="read-unit" data-unit-type="paragraph">trial court issued a writ of subsidiary execution against Basilio as employer under Article 103 of the Revised Penal</p>
+        <p class="read-unit" data-unit-type="paragraph">Code.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-99-iii-substantive-legal-issues">
+          <header class="section-header">
+            <h3 class="section-title level-2">III. SUBSTANTIVE LEGAL ISSUE(S)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-99-iii-substantive-legal-issues')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">Whether an employer is subsidiarily liable under Article 103 of the RPC for civil liabilities of an employee convicted</p>
+        <p class="read-unit" data-unit-type="paragraph">of a crime committed in the discharge of duties.</p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-100-iv-the-ruling-alac-methodology">
+          <header class="section-header">
+            <h3 class="section-title level-2">IV. THE RULING (ALAC METHODOLOGY)</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-100-iv-the-ruling-alac-methodology')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph"><strong>A  —  ANSWER: YES. Subsidiary civil liability under Art. 103 attaches automatically upon proof of employee&#x27;s</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">insolvency.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>L  —  LEGAL BASIS: Articles 102 and 103, Revised Penal Code (Subsidiary Civil Liability of Employers); Rule 111, Rules</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">of Court.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>A  —  APPLICATION: Under Article 103, an employer is subsidiarily liable for felonies committed by his employees in</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">the discharge of their duties. The conviction of the employee is binding and conclusive upon the employer as to</p>
+        <p class="read-unit" data-unit-type="paragraph">civil liability. Once the sheriff returns the execution against the employee unsatisfied by reason of insolvency,</p>
+        <p class="read-unit" data-unit-type="paragraph">subsidiary execution against the employer immediately issues.</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>C  —  CONCLUSION: The Supreme Court AFFIRMED the subsidiary execution against the employer Basilio.</strong></p>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sec-101-v-key-criminal-law-doctrines-established">
+          <header class="section-header">
+            <h3 class="section-title level-2">V. KEY CRIMINAL LAW DOCTRINES ESTABLISHED</h3>
+            <button class="section-listen-btn" onclick="readSection('sec-101-v-key-criminal-law-doctrines-established')" title="Read this topic aloud with natural pacing">🔊 Listen Topic</button>
+          </header>
+          <div class="section-body">
+            <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: Landmark Basilio Doctrine: Requisites for Subsidiary Liability under Art. 103: (1) Employer-employee</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">relationship; (2) Employer is engaged in industry; (3) Crime committed in discharge of duty; (4) Employee is</p>
+        <p class="read-unit" data-unit-type="paragraph">insolvent.</p>
+        <p class="read-unit" data-unit-type="paragraph">•</p>
+        <p class="read-unit" data-unit-type="paragraph"><strong>• Doctrine: The judgment of conviction against the employee is conclusive upon the employer regarding civil</strong></p>
+        <p class="read-unit" data-unit-type="paragraph">indemnity ex delicto.</p>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <footer class="app-footer">
+    <p>MLC Interactive Legal Study Hub • Natural Cadence Web Speech Synthesis Engine</p>
+    <p style="margin-top: 0.25rem; opacity: 0.7;">Click any paragraph to start reading aloud • Fully compatible with Brave Read Aloud & extensions</p>
+  </footer>
+
+  <!-- Floating Selection Audio Trigger -->
+  <button id="floatingTtsTrigger" aria-label="Read Selection Aloud">🔊 Read Selection</button>
+
+  <!-- Natural Voice & Speech Synthesis Application Logic -->
+  <script>
+    (function() {
+      // 1. Theme Management
+      const themeSelect = document.getElementById('themeSelect');
+      const savedTheme = localStorage.getItem('mlc_reader_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      themeSelect.value = savedTheme;
+
+      themeSelect.addEventListener('change', (e) => {
+        document.documentElement.setAttribute('data-theme', e.target.value);
+        localStorage.setItem('mlc_reader_theme', e.target.value);
+      });
+
+      // 2. Font Size Controls
+      let currentFontSize = parseInt(localStorage.getItem('mlc_font_size') || '17', 10);
+      document.documentElement.style.fontSize = currentFontSize + 'px';
+
+      document.getElementById('fontIncBtn').addEventListener('click', () => {
+        if (currentFontSize < 26) {
+          currentFontSize += 1;
+          document.documentElement.style.fontSize = currentFontSize + 'px';
+          localStorage.setItem('mlc_font_size', currentFontSize);
+        }
+      });
+
+      document.getElementById('fontDecBtn').addEventListener('click', () => {
+        if (currentFontSize > 12) {
+          currentFontSize -= 1;
+          document.documentElement.style.fontSize = currentFontSize + 'px';
+          localStorage.setItem('mlc_font_size', currentFontSize);
+        }
+      });
+
+      // 3. Sidebar Mobile Toggle & Search
+      const sidebar = document.getElementById('appSidebar');
+      const toggleSidebarBtn = document.getElementById('toggleSidebarBtn');
+      toggleSidebarBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+      });
+
+      const searchInput = document.getElementById('sidebarSearch');
+      const tocItems = document.querySelectorAll('.toc-nav li');
+      searchInput.addEventListener('input', (e) => {
+        const q = e.target.value.toLowerCase().trim();
+        tocItems.forEach(li => {
+          const txt = li.textContent.toLowerCase();
+          li.style.display = txt.includes(q) ? '' : 'none';
+        });
+      });
+
+      // 4. Reading Progress Bar
+      window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / (height || 1)) * 100;
+        document.getElementById('readingProgressBar').style.width = scrolled + '%';
+      });
+
+      // =========================================================================
+      // 5. ENHANCED NATURAL SPEECH SYNTHESIS ENGINE
+      // =========================================================================
+      const synth = window.speechSynthesis;
+      let readUnits = [];
+      let currentUnitIndex = -1;
+      let isPaused = false;
+      let voices = [];
+      let nextUtteranceTimeout = null;
+      let lastSectionId = null;
+
+      const playPauseBtn = document.getElementById('ttsPlayPauseBtn');
+      const stopBtn = document.getElementById('ttsStopBtn');
+      const nextBtn = document.getElementById('ttsNextBtn');
+      const prevBtn = document.getElementById('ttsPrevBtn');
+      const playIcon = document.getElementById('ttsPlayIcon');
+      const pauseIcon = document.getElementById('ttsPauseIcon');
+      const statusBadge = document.getElementById('ttsStatus');
+      const speedSelect = document.getElementById('ttsSpeedSelect');
+      const voiceSelect = document.getElementById('ttsVoiceSelect');
+
+      function updateReadUnits() {
+        readUnits = Array.from(document.querySelectorAll('.read-unit'));
+      }
+      updateReadUnits();
+
+      // Intelligent Voice Ranking (Prefers Natural / Neural / High-Tier Human Voices)
+      function scoreVoice(v) {
+        const name = (v.name || '').toLowerCase();
+        let score = 0;
+        if (v.lang.startsWith('en')) score += 50;
+        if (v.lang === 'en-US' || v.lang === 'en-GB') score += 20;
+        if (name.includes('natural') || name.includes('neural') || name.includes('online')) score += 100;
+        if (name.includes('jenny') || name.includes('guy') || name.includes('aria') || name.includes('ryan') || name.includes('sonia')) score += 80;
+        if (name.includes('google') && !name.includes('legacy')) score += 70;
+        if (name.includes('premium') || name.includes('enhanced') || name.includes('siri')) score += 60;
+        if (name.includes('david') || name.includes('zira') || name.includes('mark')) score += 30;
+        return score;
+      }
+
+      function populateVoiceList() {
+        if (!synth) return;
+        const allVoices = synth.getVoices();
+        const enVoices = allVoices.filter(v => v.lang.startsWith('en'));
+        enVoices.sort((a, b) => scoreVoice(b) - scoreVoice(a));
+        voices = enVoices;
+
+        voiceSelect.innerHTML = '';
+        voices.forEach((v, idx) => {
+          const opt = document.createElement('option');
+          opt.value = idx;
+          const isNatural = (v.name.toLowerCase().includes('natural') || v.name.toLowerCase().includes('neural') || v.name.toLowerCase().includes('online'));
+          opt.textContent = (isNatural ? '✨ ' : '') + v.name + ' (' + v.lang + ')';
+          if (idx === 0) opt.selected = true;
+          voiceSelect.appendChild(opt);
+        });
+      }
+
+      if (synth) {
+        populateVoiceList();
+        if (speechSynthesis.onvoiceschanged !== undefined) {
+          speechSynthesis.onvoiceschanged = populateVoiceList;
+        }
+      }
+
+      // Smart Legal Phonetic Pre-Processor (Expands abbreviations & introduces natural prosody)
+      function prepareSpeechText(unit) {
+        let text = (unit.innerText || unit.textContent || '').trim();
+        const parentSec = unit.closest('section.doc-section');
+        const unitType = unit.getAttribute('data-unit-type') || '';
+        const badgeLabel = unit.getAttribute('data-badge-label') || '';
+
+        // Label announcing for case components
+        if (badgeLabel) {
+          if (badgeLabel.includes('DOCTRINE') || badgeLabel.includes('PRINCIPLE')) {
+            text = 'Key Doctrine: ' + text;
+          } else if (badgeLabel.includes('FACTS')) {
+            text = 'Case Facts: ' + text.replace(/^FACTS:?\\s*/i, '');
+          } else if (badgeLabel.includes('ISSUE')) {
+            text = 'Legal Issue: ' + text.replace(/^ISSUE:?\\s*/i, '');
+          } else if (badgeLabel.includes('HELD') || badgeLabel.includes('RULING')) {
+            text = 'Court Ruling and Held: ' + text.replace(/^(HELD|RULING):?\\s*/i, '');
+          }
+        } else if (unitType === 'quote') {
+          text = 'Quote: ' + text;
+        } else if (unitType === 'numbered') {
+          text = text.replace(/^(\d+)\.\\s*/, 'Item $1: ');
+        }
+
+        // Clean & expand common legal abbreviations for natural pronunciation
+        text = text
+          .replace(/\bG\.R\.\s*No\.?\s*([\d\-]+)/gi, 'G R Number $1')
+          .replace(/\bSCRA\b/g, 'S-C-R-A')
+          .replace(/\bPhil\.\s*(\d+)/gi, 'Philippine Reports volume $1')
+          .replace(/\bArt\.\s*(\d+)/gi, 'Article $1')
+          .replace(/\bArts\.\s*([\d,\s\-]+)/gi, 'Articles $1')
+          .replace(/\bSec\.\s*(\d+)/gi, 'Section $1')
+          .replace(/\bSecs\.\s*([\d,\s\-]+)/gi, 'Sections $1')
+          .replace(/\bPar\.\s*(\d+)/gi, 'Paragraph $1')
+          .replace(/\bPars\.\s*([\d,\s\-]+)/gi, 'Paragraphs $1')
+          .replace(/\bRPC\b/g, 'Revised Penal Code')
+          .replace(/\bCPR\b/g, 'Code of Professional Responsibility')
+          .replace(/\bCPRA\b/g, 'Code of Professional Responsibility and Accountability')
+          .replace(/\bConst\.\b/gi, 'Constitution')
+          .replace(/\bP\.D\.\s*No\.?\s*(\d+)/gi, 'Presidential Decree Number $1')
+          .replace(/\bR\.A\.\s*No\.?\s*(\d+)/gi, 'Republic Act Number $1')
+          .replace(/\bA\.C\.\s*No\.?\s*([A-Za-z0-9\-]+)/gi, 'Administrative Case Number $1')
+          .replace(/\bA\.M\.\s*No\.?\s*([A-Za-z0-9\-]+)/gi, 'Administrative Matter Number $1')
+          .replace(/\bet\s+al\./gi, 'and others')
+          .replace(/\bi\.e\./gi, 'that is')
+          .replace(/\be\.g\./gi, 'for example')
+          .replace(/\bviz\./gi, 'namely')
+          .replace(/\s+v(?:s)?\.\s+/gi, ' versus ')
+          .replace(/—/g, ', — ')
+          .replace(/–/g, ', ')
+          .replace(/;\s*/g, ';, ') // Introduce micro-pause at semicolons
+          .replace(/:\s*/g, ': ... ') // Introduce clear pause at colons
+          .replace(/\(([a-z\d])\)/gi, 'sub-item $1, ');
+
+        return text.trim();
+      }
+
+      // 5.1 Mobile Background Audio Carrier & WakeLock
+      let wakeLock = null;
+      let audioCtx = null;
+      let silentGain = null;
+      let oscillator = null;
+
+      function startKeepAliveAudio() {
+        try {
+          if (!audioCtx) {
+            const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+            if (AudioContextClass) {
+              audioCtx = new AudioContextClass();
+              oscillator = audioCtx.createOscillator();
+              silentGain = audioCtx.createGain();
+              silentGain.gain.setValueAtTime(0.0001, audioCtx.currentTime); // Inaudible keep-alive signal
+              oscillator.frequency.setValueAtTime(440, audioCtx.currentTime);
+              oscillator.connect(silentGain);
+              silentGain.connect(audioCtx.destination);
+              oscillator.start();
+            }
+          }
+          if (audioCtx && audioCtx.state === 'suspended') {
+            audioCtx.resume();
+          }
+        } catch (e) {}
+      }
+
+      function stopKeepAliveAudio() {
+        try {
+          if (audioCtx && audioCtx.state === 'running') {
+            audioCtx.suspend();
+          }
+        } catch (e) {}
+      }
+
+      async function requestWakeLock() {
+        try {
+          if ('wakeLock' in navigator) {
+            wakeLock = await navigator.wakeLock.request('screen');
+          }
+        } catch (err) {}
+      }
+
+      function releaseWakeLock() {
+        if (wakeLock) {
+          wakeLock.release().catch(() => {});
+          wakeLock = null;
+        }
+      }
+
+      function updateMediaSession(trackTitle) {
+        if ('mediaSession' in navigator) {
+          navigator.mediaSession.metadata = new MediaMetadata({
+            title: trackTitle || document.title,
+            artist: 'MLC Law Library',
+            album: 'Legal Audio Reader'
+          });
+          navigator.mediaSession.setActionHandler('play', () => playPauseBtn.click());
+          navigator.mediaSession.setActionHandler('pause', () => playPauseBtn.click());
+          navigator.mediaSession.setActionHandler('nexttrack', () => nextBtn.click());
+          navigator.mediaSession.setActionHandler('previoustrack', () => prevBtn.click());
+        }
+      }
+
+      function setSpeakingState(speaking, paused = false) {
+        if (speaking && !paused) {
+          playIcon.style.display = 'none';
+          pauseIcon.style.display = 'inline';
+          statusBadge.textContent = 'Speaking...';
+          statusBadge.className = 'tts-status-badge speaking';
+          startKeepAliveAudio();
+          requestWakeLock();
+        } else if (paused) {
+          playIcon.style.display = 'inline';
+          pauseIcon.style.display = 'none';
+          statusBadge.textContent = 'Paused';
+          statusBadge.className = 'tts-status-badge';
+          stopKeepAliveAudio();
+          releaseWakeLock();
+        } else {
+          playIcon.style.display = 'inline';
+          pauseIcon.style.display = 'none';
+          statusBadge.textContent = 'Ready';
+          statusBadge.className = 'tts-status-badge';
+          stopKeepAliveAudio();
+          releaseWakeLock();
+          clearHighlights();
+        }
+      }
+
+      function clearHighlights() {
+        readUnits.forEach(u => u.classList.remove('is-speaking'));
+      }
+
+      function highlightUnit(idx) {
+        clearHighlights();
+        if (idx >= 0 && idx < readUnits.length) {
+          const unit = readUnits[idx];
+          unit.classList.add('is-speaking');
+          unit.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+
+      // =========================================================================
+      // Native Multi-Utterance Queueing Engine (Persists through Android Minimization)
+      // =========================================================================
+      const QUEUE_AHEAD_COUNT = 8;
+      let isPlaying = false;
+      let nextQueueIdx = 0;
+
+      function createUtteranceForIndex(idx) {
+        if (idx < 0 || idx >= readUnits.length) return null;
+        const unit = readUnits[idx];
+        const currentSection = unit.closest('section.doc-section');
+        const currentSecId = currentSection ? currentSection.id : null;
+        
+        let processedText = prepareSpeechText(unit);
+        if (currentSecId && currentSecId !== lastSectionId && currentSection) {
+          const headerEl = currentSection.querySelector('.section-title');
+          if (headerEl) {
+            processedText = 'New Topic: ' + headerEl.innerText.trim() + ' ... ... ' + processedText;
+          }
+          lastSectionId = currentSecId;
+        }
+
+        if (!processedText) return null;
+
+        const utterance = new SpeechSynthesisUtterance(processedText);
+        utterance.rate = parseFloat(speedSelect.value) || 0.9;
+        utterance.pitch = 1.0;
+
+        const selectedVoiceIdx = voiceSelect.value;
+        if (selectedVoiceIdx !== 'default' && voices[selectedVoiceIdx]) {
+          utterance.voice = voices[selectedVoiceIdx];
+        } else if (voices.length > 0) {
+          utterance.voice = voices[0];
+        }
+
+        utterance.onstart = () => {
+          currentUnitIndex = idx;
+          highlightUnit(idx);
+          updateMediaSession(processedText);
+          setSpeakingState(true, false);
+        };
+
+        utterance.onend = () => {
+          if (isPlaying && !isPaused) {
+            fillSpeechQueue();
+            if (idx >= readUnits.length - 1) {
+              setSpeakingState(false);
+              isPlaying = false;
+            }
+          }
+        };
+
+        utterance.onerror = (e) => {
+          if (e.error !== 'interrupted' && e.error !== 'canceled') {
+            console.warn('TTS error:', e);
+          }
+        };
+
+        return utterance;
+      }
+
+      function fillSpeechQueue() {
+        if (!isPlaying || isPaused || !synth) return;
+        while (nextQueueIdx < readUnits.length && nextQueueIdx < currentUnitIndex + QUEUE_AHEAD_COUNT) {
+          const u = createUtteranceForIndex(nextQueueIdx);
+          nextQueueIdx++;
+          if (u) {
+            synth.speak(u);
+          }
+        }
+      }
+
+      function startPlaybackFrom(idx) {
+        if (!synth) return;
+        synth.cancel();
+        isPlaying = true;
+        isPaused = false;
+        currentUnitIndex = idx;
+        lastSectionId = null;
+        nextQueueIdx = idx;
+        setSpeakingState(true, false);
+        fillSpeechQueue();
+      }
+
+      playPauseBtn.addEventListener('click', () => {
+        if (!synth) return;
+        if (isPlaying && !isPaused) {
+          synth.pause();
+          isPaused = true;
+          setSpeakingState(true, true);
+        } else if (isPaused) {
+          synth.resume();
+          isPaused = false;
+          setSpeakingState(true, false);
+          fillSpeechQueue();
+        } else {
+          startPlaybackFrom(currentUnitIndex >= 0 ? currentUnitIndex : 0);
+        }
+      });
+
+      stopBtn.addEventListener('click', () => {
+        if (!synth) return;
+        synth.cancel();
+        isPlaying = false;
+        isPaused = false;
+        setSpeakingState(false);
+        currentUnitIndex = -1;
+        lastSectionId = null;
+      });
+
+      nextBtn.addEventListener('click', () => {
+        if (!synth) return;
+        const target = Math.min(readUnits.length - 1, (currentUnitIndex >= 0 ? currentUnitIndex : 0) + 1);
+        startPlaybackFrom(target);
+      });
+
+      prevBtn.addEventListener('click', () => {
+        if (!synth) return;
+        const target = Math.max(0, (currentUnitIndex >= 0 ? currentUnitIndex : 0) - 1);
+        startPlaybackFrom(target);
+      });
+
+      speedSelect.addEventListener('change', () => {
+        if (isPlaying) {
+          startPlaybackFrom(currentUnitIndex >= 0 ? currentUnitIndex : 0);
+        }
+      });
+
+      voiceSelect.addEventListener('change', () => {
+        if (isPlaying) {
+          startPlaybackFrom(currentUnitIndex >= 0 ? currentUnitIndex : 0);
+        }
+      });
+
+      // Click on any paragraph to read from that exact spot with natural cadence
+      document.getElementById('contentWrapper').addEventListener('click', (e) => {
+        const unit = e.target.closest('.read-unit');
+        if (unit) {
+          const idx = readUnits.indexOf(unit);
+          if (idx !== -1) {
+            startPlaybackFrom(idx);
+          }
+        }
+      });
+
+      // Section Quick-Listen Handler
+      window.readSection = function(sectionId) {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          const firstUnit = el.querySelector('.read-unit');
+          if (firstUnit) {
+            const idx = readUnits.indexOf(firstUnit);
+            if (idx !== -1) {
+              startPlaybackFrom(idx);
+            }
+          }
+        }
+      };
+      window.readSection = function(sectionId) {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          const firstUnit = el.querySelector('.read-unit');
+          if (firstUnit) {
+            const idx = readUnits.indexOf(firstUnit);
+            if (idx !== -1) {
+              isPaused = false;
+              lastSectionId = null; // force announcement of section
+              speakUnit(idx);
+            }
+          }
+        }
+      };
+
+      // Floating Selection Audio Button (with natural legal abbreviation expander)
+      const floatBtn = document.getElementById('floatingTtsTrigger');
+      document.addEventListener('mouseup', (e) => {
+        if (e.target.closest('#floatingTtsTrigger') || e.target.closest('.tts-toolbar') || e.target.closest('header')) return;
+        const sel = window.getSelection().toString().trim();
+        if (sel.length > 2) {
+          const rect = window.getSelection().getRangeAt(0).getBoundingClientRect();
+          floatBtn.style.top = (window.scrollY + rect.top - 44) + 'px';
+          floatBtn.style.left = (window.scrollX + rect.left + (rect.width / 2)) + 'px';
+          floatBtn.style.display = 'block';
+        } else {
+          floatBtn.style.display = 'none';
+        }
+      });
+
+      floatBtn.addEventListener('click', () => {
+        const sel = window.getSelection().toString().trim();
+        if (sel && synth) {
+          synth.cancel();
+          const dummyUnit = document.createElement('div');
+          dummyUnit.innerText = sel;
+          const naturalText = prepareSpeechText(dummyUnit);
+
+          const utterance = new SpeechSynthesisUtterance(naturalText);
+          utterance.rate = parseFloat(speedSelect.value) || 0.9;
+          utterance.pitch = 1.0;
+
+          const selectedVoiceIdx = voiceSelect.value;
+          if (selectedVoiceIdx !== 'default' && voices[selectedVoiceIdx]) {
+            utterance.voice = voices[selectedVoiceIdx];
+          } else if (voices.length > 0) {
+            utterance.voice = voices[0];
+          }
+
+          synth.speak(utterance);
+          setSpeakingState(true);
+          floatBtn.style.display = 'none';
+        }
+      });
+
+      // Keyboard Navigation
+      document.addEventListener('keydown', (e) => {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA') return;
+        if (e.code === 'Space') {
+          e.preventDefault();
+          playPauseBtn.click();
+        } else if (e.code === 'Escape') {
+          stopBtn.click();
+        } else if (e.key === 'n' || e.key === 'N') {
+          nextBtn.click();
+        } else if (e.key === 'p' || e.key === 'P') {
+          prevBtn.click();
+        } else if (e.key === 'd' || e.key === 'D') {
+          themeSelect.value = 'dark';
+          themeSelect.dispatchEvent(new Event('change'));
+        } else if (e.key === 's' || e.key === 'S') {
+          themeSelect.value = 'sepia';
+          themeSelect.dispatchEvent(new Event('change'));
+        } else if (e.key === 'l' || e.key === 'L') {
+          themeSelect.value = 'light';
+          themeSelect.dispatchEvent(new Event('change'));
+        } else if (e.key === '+' || e.key === '=') {
+          document.getElementById('fontIncBtn').click();
+        } else if (e.key === '-') {
+          document.getElementById('fontDecBtn').click();
+        } else if (e.key === '/') {
+          e.preventDefault();
+          searchInput.focus();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
