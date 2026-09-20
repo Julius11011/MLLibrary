@@ -99,192 +99,264 @@
       height: 3px;
       background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue));
       width: 0%;
-      z-index: 9999;
+      z-index: 1000;
       transition: width 0.1s ease;
     }
 
-    /* App Header */
-    header.app-header {
-      height: var(--header-height);
-      background-color: var(--bg-secondary);
-      border-bottom: 1px solid var(--border-color);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 1.25rem;
+    /* Floating Selection Reader Trigger */
+    #floatingTtsTrigger {
+      position: absolute;
+      display: none;
+      z-index: 999;
+      background: var(--accent-gold);
+      color: #0b1120;
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+      cursor: pointer;
+      border: none;
+      transform: translate(-50%, -100%);
+      transition: transform 0.15s ease, background-color 0.15s ease;
+    }
+    #floatingTtsTrigger:hover {
+      background: var(--accent-gold-dark);
+      color: #ffffff;
+      transform: translate(-50%, -105%) scale(1.05);
+    }
+
+    /* Header & Navigation Bar */
+    header {
       position: sticky;
       top: 0;
       z-index: 100;
-      backdrop-filter: blur(8px);
+      background-color: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-color);
+      height: var(--header-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      backdrop-filter: blur(10px);
     }
 
-    .brand-section {
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn-icon {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: all 0.15s ease;
+    }
+    .btn-icon:hover {
+      background-color: var(--bg-tertiary);
+      border-color: var(--border-focus);
+      color: var(--accent-gold);
+    }
+
+    .brand-title {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--accent-gold);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 340px;
+    }
+
+    .subject-pill {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--accent-blue);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    .header-actions {
       display: flex;
       align-items: center;
       gap: 0.75rem;
     }
 
-    .brand-logo {
-      font-size: 1.4rem;
-    }
-
-    .brand-info {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .brand-title {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: var(--accent-gold);
-      letter-spacing: 0.04em;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 320px;
-    }
-
-    .brand-subject {
-      font-family: var(--font-ui);
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      font-weight: 600;
-    }
-
-    /* TTS Toolbar */
-    .tts-toolbar {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .toolbar-group {
-      display: flex;
-      align-items: center;
-      background-color: var(--bg-secondary);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 0.2rem 0.4rem;
-      gap: 0.35rem;
-    }
-
-    .icon-btn {
-      background: none;
-      border: none;
-      color: var(--text-secondary);
-      cursor: pointer;
-      font-size: 0.95rem;
-      padding: 0.35rem 0.55rem;
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.15s ease;
-    }
-
-    .icon-btn:hover {
+    .select-control {
       background-color: var(--bg-tertiary);
-      color: var(--text-primary);
-    }
-
-    .icon-btn.primary {
-      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
-      color: #0b1120;
-      font-weight: 700;
-    }
-
-    .icon-btn.primary:hover {
-      filter: brightness(1.1);
-      transform: scale(1.02);
-    }
-
-    .toolbar-select {
-      background-color: var(--bg-secondary);
       border: 1px solid var(--border-color);
       color: var(--text-primary);
       font-family: var(--font-ui);
-      font-size: 0.8rem;
-      padding: 0.3rem 0.5rem;
+      font-size: 0.85rem;
+      padding: 6px 10px;
       border-radius: 6px;
       outline: none;
       cursor: pointer;
     }
+    .select-control:focus {
+      border-color: var(--border-focus);
+    }
+
+    /* TTS Audio Control Bar */
+    .tts-toolbar {
+      background-color: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.6rem 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      font-family: var(--font-ui);
+      font-size: 0.88rem;
+    }
+
+    .tts-controls-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-tts {
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+      border: none;
+      color: #0b1120;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 7px 16px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      transition: transform 0.1s ease, filter 0.15s ease;
+    }
+    .btn-tts:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+    }
+    .btn-tts:active {
+      transform: translateY(1px);
+    }
+
+    .btn-tts-secondary {
+      background-color: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 7px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: all 0.15s ease;
+    }
+    .btn-tts-secondary:hover {
+      border-color: var(--border-focus);
+      color: var(--accent-gold);
+    }
 
     .tts-status-badge {
-      font-family: var(--font-ui);
-      font-size: 0.72rem;
-      font-weight: 600;
-      padding: 0.2rem 0.55rem;
-      border-radius: 12px;
-      background-color: var(--bg-tertiary);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
       color: var(--text-muted);
+      background: var(--bg-tertiary);
+      padding: 4px 10px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
     }
-
     .tts-status-badge.speaking {
-      background-color: rgba(56, 189, 248, 0.2);
-      color: var(--accent-blue);
-      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: var(--accent-emerald);
+      border-color: var(--accent-emerald);
+    }
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background-color: currentColor;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .speaking .pulse-dot {
+      animation: pulse 1.2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(0.9); opacity: 0.6; }
+      50% { transform: scale(1.3); opacity: 1; }
+      100% { transform: scale(0.9); opacity: 0.6; }
     }
 
-    /* Main Container */
-    .app-main-layout {
+    /* Main Content Layout */
+    .app-layout {
       display: flex;
       flex: 1;
       position: relative;
     }
 
-    /* Sidebar Navigation (TOC) */
-    aside.app-sidebar {
+    /* Table of Contents Sidebar */
+    .sidebar-toc {
       width: var(--sidebar-width);
       background-color: var(--bg-secondary);
       border-right: 1px solid var(--border-color);
-      height: calc(100vh - var(--header-height));
       position: sticky;
-      top: var(--header-height);
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      z-index: 50;
+      top: calc(var(--header-height) + 49px);
+      height: calc(100vh - var(--header-height) - 49px);
+      overflow-y: auto;
+      padding: 1.25rem 1rem;
       flex-shrink: 0;
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .sidebar-header {
-      padding: 1rem;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .sidebar-search {
+    .toc-search-box {
       width: 100%;
       background-color: var(--bg-primary);
       border: 1px solid var(--border-color);
       color: var(--text-primary);
       font-family: var(--font-ui);
       font-size: 0.82rem;
-      padding: 0.5rem 0.75rem;
+      padding: 8px 12px;
       border-radius: 6px;
+      margin-bottom: 1rem;
       outline: none;
-      transition: border-color 0.2s ease;
     }
-
-    .sidebar-search:focus {
+    .toc-search-box:focus {
       border-color: var(--border-focus);
     }
 
-    .sidebar-nav {
-      flex: 1;
-      overflow-y: auto;
-      padding: 0.75rem 0.5rem;
+    .toc-heading {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      padding-left: 0.5rem;
     }
 
-    .sidebar-nav ul {
+    .toc-list {
       list-style: none;
-    }
-
-    .sidebar-nav li {
-      margin-bottom: 0.25rem;
     }
 
     .toc-link {
@@ -292,290 +364,255 @@
       color: var(--text-secondary);
       text-decoration: none;
       font-family: var(--font-ui);
-      font-size: 0.82rem;
+      font-size: 0.84rem;
       line-height: 1.4;
-      padding: 0.5rem 0.75rem;
+      padding: 7px 10px;
       border-radius: 6px;
-      transition: all 0.15s ease;
+      margin-bottom: 2px;
       border-left: 2px solid transparent;
-      white-space: nowrap;
+      transition: all 0.15s ease;
       overflow: hidden;
       text-overflow: ellipsis;
+      white-space: nowrap;
     }
-
-    .toc-link.level-2 {
-      padding-left: 1.5rem;
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
-
     .toc-link:hover {
       background-color: var(--bg-tertiary);
       color: var(--accent-gold);
     }
-
     .toc-link.active {
-      background-color: rgba(56, 189, 248, 0.12);
-      color: var(--accent-blue);
-      border-left-color: var(--accent-blue);
+      background-color: var(--bg-tertiary);
+      color: var(--accent-gold);
+      border-left-color: var(--accent-gold);
       font-weight: 600;
     }
+    .toc-link.level-2 {
+      padding-left: 22px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
 
-    /* Main Content Area */
-    main.content-area {
+    /* Main Reading Article Container */
+    .reader-main {
       flex: 1;
       max-width: 900px;
       margin: 0 auto;
-      padding: 2.5rem 2rem 5rem 2rem;
+      padding: 2.5rem 2rem 6rem;
     }
 
-    /* Hero Card */
-    .doc-hero-card {
-      background-color: var(--bg-secondary);
+    .doc-meta-banner {
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .doc-headline {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--accent-gold);
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.02em;
+    }
+    .doc-stats {
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    /* Studio Native MP3 Audio Player */
+    .studio-audio-player {
+      background: var(--bg-secondary);
       border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 2rem;
+      border-left: 4px solid var(--accent-emerald);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
       margin-bottom: 2.5rem;
       box-shadow: var(--shadow-md);
-      position: relative;
-      overflow: hidden;
     }
-
-    .doc-hero-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 100%;
-      background: linear-gradient(180deg, var(--accent-gold), var(--accent-blue));
-    }
-
-    .doc-hero-subject {
-      font-family: var(--font-ui);
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--accent-gold);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 0.5rem;
-    }
-
-    .doc-hero-title {
-      font-family: var(--font-heading);
-      font-size: 1.85rem;
-      font-weight: 800;
-      color: var(--text-primary);
-      line-height: 1.3;
-      margin-bottom: 1rem;
-    }
-
-    .doc-meta-stats {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.25rem;
-      font-family: var(--font-ui);
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    /* Studio Audio Player */
-    .studio-audio-player {
-      margin-top: 1.5rem;
-      background-color: var(--bg-primary);
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      padding: 1rem;
-    }
-
     .audio-player-header {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      margin-bottom: 0.75rem;
+      justify-content: space-between;
+      margin-bottom: 0.85rem;
       font-family: var(--font-ui);
-      font-size: 0.8rem;
     }
-
     .audio-badge {
+      font-size: 0.8rem;
       font-weight: 700;
       color: var(--accent-emerald);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
     }
-
     .audio-filename {
+      font-size: 0.78rem;
       color: var(--text-muted);
       font-family: var(--font-mono);
-      font-size: 0.75rem;
     }
-
-    audio.native-audio-element {
+    .native-audio-element {
       width: 100%;
-      height: 40px;
       outline: none;
+      border-radius: 30px;
     }
 
-    /* Case Section & Flowing Prose */
-    section.doc-section {
-      margin-bottom: 3.5rem;
+    /* Document Sections & Continuous Body Elements */
+    .doc-section {
+      margin-bottom: 3rem;
+      scroll-margin-top: calc(var(--header-height) + 60px);
     }
-
     .section-divider {
       border: 0;
       height: 1px;
-      background: var(--border-color);
-      margin: 3.5rem 0;
+      background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+      margin: 3rem 0;
     }
 
+    /* Case Header Card */
     .case-header-card {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
+      border-left: 5px solid var(--accent-gold);
       border-radius: 10px;
       padding: 1.25rem 1.5rem;
-      margin-bottom: 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
+      margin-bottom: 1.5rem;
       box-shadow: var(--shadow-sm);
     }
-
     .case-number-pill {
-      font-family: var(--font-ui);
-      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+      display: inline-block;
+      background: var(--accent-gold);
       color: #0b1120;
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
       font-weight: 800;
-      font-size: 0.78rem;
-      padding: 0.35rem 0.75rem;
-      border-radius: 20px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
       letter-spacing: 0.05em;
-      white-space: nowrap;
     }
-
     .case-header-title {
       font-family: var(--font-heading);
       font-size: 1.35rem;
       font-weight: 700;
       color: var(--text-primary);
-      line-height: 1.3;
+      line-height: 1.35;
     }
 
     .topic-header-card {
-      background: var(--card-bg);
-      border-left: 4px solid var(--accent-gold);
+      background: var(--bg-secondary);
+      border-left: 4px solid var(--accent-blue);
       border-radius: 8px;
       padding: 1rem 1.25rem;
       margin-bottom: 1.5rem;
     }
-
     .topic-header-title {
       font-family: var(--font-heading);
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--accent-gold);
-    }
-
-    .subtopic-header-card {
-      margin: 1.5rem 0 1rem 0;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 0.4rem;
-    }
-
-    .subtopic-header-title {
-      font-family: var(--font-ui);
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: 700;
       color: var(--accent-blue);
     }
 
-    .case-citation-banner {
-      background-color: var(--bg-tertiary);
-      border-left: 3px solid var(--accent-blue);
-      border-radius: 6px;
-      padding: 0.6rem 1rem;
-      font-family: var(--font-ui);
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+    .subtopic-header-card {
+      margin: 1.5rem 0 1rem;
     }
-
-    .case-subheading {
+    .subtopic-header-title {
       font-family: var(--font-ui);
       font-size: 1.05rem;
       font-weight: 700;
       color: var(--accent-gold);
-      margin: 2rem 0 0.85rem 0;
+    }
+
+    /* Case Citation Banner */
+    .case-citation-banner {
+      background-color: var(--bg-tertiary);
+      border: 1px dashed var(--border-color);
+      border-radius: 8px;
+      padding: 0.75rem 1.25rem;
+      margin-bottom: 1.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--text-secondary);
       display: flex;
       align-items: center;
-      gap: 0.4rem;
-      letter-spacing: 0.02em;
+      gap: 0.6rem;
+    }
+    .citation-icon {
+      font-size: 1.1rem;
     }
 
+    /* Subheadings within Case (Facts, Issue, Ruling) */
+    .case-subheading {
+      font-family: var(--font-ui);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 1.75rem 0 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.4rem;
+    }
     .subheading-accent {
       color: var(--accent-gold);
-      font-weight: 800;
+      font-size: 1.2rem;
     }
 
-    /* Continuous Flowing Body Paragraphs */
+    /* Continuous Flowing Paragraphs */
     .case-paragraph {
       margin-bottom: 1.25rem;
-      line-height: 1.85;
-      color: var(--text-primary);
       text-align: justify;
-      transition: background-color 0.2s ease, transform 0.15s ease;
-      padding: 0.35rem 0.5rem;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    .case-paragraph:hover {
-      background-color: rgba(255, 255, 255, 0.03);
-    }
-
-    /* ALAC Inline Badges & Paragraphs */
-    .alac-paragraph {
-      margin-bottom: 1.25rem;
+      text-justify: inter-word;
       line-height: 1.85;
+      padding: 4px 6px;
+      border-radius: 6px;
+      transition: background-color 0.15s ease;
     }
 
+    /* ALAC & Reasoning Paragraph Badges */
+    .alac-paragraph {
+      background: rgba(255, 255, 255, 0.02);
+      border-left: 3px solid var(--border-color);
+      padding: 0.6rem 0.85rem;
+      margin-bottom: 1.25rem;
+    }
     .alac-badge {
       display: inline-block;
       font-family: var(--font-ui);
-      font-size: 0.72rem;
+      font-size: 0.75rem;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      padding: 0.2rem 0.55rem;
-      border-radius: 5px;
+      padding: 2px 7px;
+      border-radius: 4px;
       margin-right: 0.5rem;
-      vertical-align: middle;
+      vertical-align: baseline;
     }
-
-    .badge-ans { background-color: rgba(56, 189, 248, 0.18); color: var(--accent-blue); border: 1px solid rgba(56, 189, 248, 0.4); }
-    .badge-law { background-color: rgba(251, 191, 36, 0.18); color: var(--accent-gold); border: 1px solid rgba(251, 191, 36, 0.4); }
-    .badge-app { background-color: rgba(192, 132, 252, 0.18); color: var(--accent-purple); border: 1px solid rgba(192, 132, 252, 0.4); }
-    .badge-con { background-color: rgba(248, 113, 113, 0.18); color: var(--accent-crimson); border: 1px solid rgba(248, 113, 113, 0.4); }
-    .badge-syn { background-color: rgba(52, 211, 153, 0.18); color: var(--accent-emerald); border: 1px solid rgba(52, 211, 153, 0.4); }
-    .badge-gen { background-color: rgba(148, 163, 184, 0.18); color: var(--text-secondary); border: 1px solid rgba(148, 163, 184, 0.4); }
+    .badge-ans { background: rgba(56, 189, 248, 0.2); color: var(--accent-blue); border: 1px solid var(--accent-blue); }
+    .badge-law { background: rgba(192, 132, 252, 0.2); color: var(--accent-purple); border: 1px solid var(--accent-purple); }
+    .badge-app { background: rgba(251, 191, 36, 0.2); color: var(--accent-gold); border: 1px solid var(--accent-gold); }
+    .badge-con { background: rgba(52, 211, 153, 0.2); color: var(--accent-emerald); border: 1px solid var(--accent-emerald); }
+    .badge-syn { background: rgba(248, 113, 113, 0.2); color: var(--accent-crimson); border: 1px solid var(--accent-crimson); }
+    .badge-gen { background: rgba(148, 163, 184, 0.2); color: var(--text-secondary); border: 1px solid var(--border-color); }
 
     /* Bullet Points */
     .bullet-point {
       display: flex;
-      align-items: flex-start;
-      gap: 0.6rem;
-      margin-bottom: 0.85rem;
-      padding-left: 0.5rem;
-      line-height: 1.75;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+      padding: 2px 6px;
+      border-radius: 4px;
     }
-
     .bullet-dot {
       color: var(--accent-gold);
-      font-weight: 700;
+      font-size: 1.2rem;
+      line-height: 1;
     }
-
     .bullet-content {
       flex: 1;
+      text-align: justify;
     }
 
     /* Tables */
@@ -585,165 +622,117 @@
       border: 1px solid var(--border-color);
       border-radius: 8px;
     }
-
     .reader-table {
       width: 100%;
       border-collapse: collapse;
+      font-size: 0.92rem;
       font-family: var(--font-ui);
-      font-size: 0.85rem;
+    }
+    .reader-table th, .reader-table td {
+      padding: 10px 14px;
+      border: 1px solid var(--border-color);
       text-align: left;
     }
-
     .reader-table th {
-      background-color: var(--bg-tertiary);
-      color: var(--accent-gold);
+      background-color: var(--bg-secondary);
       font-weight: 700;
-      padding: 0.75rem 1rem;
-      border-bottom: 1px solid var(--border-color);
+      color: var(--accent-gold);
+    }
+    .reader-table tr:nth-child(even) {
+      background-color: rgba(255, 255, 255, 0.02);
     }
 
-    .reader-table td {
-      padding: 0.75rem 1rem;
-      border-bottom: 1px solid var(--border-color);
-      color: var(--text-secondary);
-    }
-
-    .reader-table tr:last-child td {
-      border-bottom: none;
-    }
-
-    /* TTS Active Unit Highlighting */
+    /* Active TTS Highlight */
     .read-unit.is-speaking {
       background-color: var(--highlight-bg) !important;
-      outline: 2px solid var(--highlight-border);
-      border-radius: 6px;
-      box-shadow: 0 0 16px rgba(251, 191, 36, 0.3);
-      transition: all 0.15s ease;
+      border-left: 3px solid var(--highlight-border) !important;
+      border-radius: 4px;
+      box-shadow: 0 0 15px rgba(251, 191, 36, 0.15);
     }
 
-    /* Floating Selection Trigger */
-    #floatingTtsTrigger {
-      display: none;
-      position: absolute;
-      z-index: 1000;
-      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
-      color: #0b1120;
-      font-family: var(--font-ui);
-      font-size: 0.78rem;
-      font-weight: 700;
-      border: none;
-      border-radius: 20px;
-      padding: 0.4rem 0.85rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-      cursor: pointer;
-      transform: translateX(-50%);
-      transition: transform 0.15s ease, filter 0.15s ease;
-    }
-
-    #floatingTtsTrigger:hover {
-      transform: translateX(-50%) scale(1.05);
-      filter: brightness(1.1);
-    }
-
-    /* Footer */
-    footer.app-footer {
-      background-color: var(--bg-secondary);
-      border-top: 1px solid var(--border-color);
-      padding: 1.5rem;
-      text-align: center;
-      font-family: var(--font-ui);
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      margin-top: auto;
-    }
-
+    /* Responsive adjustments */
     @media (max-width: 900px) {
-      aside.app-sidebar {
+      .sidebar-toc {
         position: fixed;
         left: 0;
         top: var(--header-height);
+        height: calc(100vh - var(--header-height));
+        z-index: 500;
         transform: translateX(-100%);
         box-shadow: var(--shadow-lg);
       }
-
-      aside.app-sidebar.open {
+      .sidebar-toc.open {
         transform: translateX(0);
       }
-
-      .brand-title {
-        max-width: 160px;
-      }
-
-      .tts-status-badge {
-        display: none;
+      .reader-main {
+        padding: 1.5rem 1rem 5rem;
       }
     }
   </style>
 </head>
 <body>
   <div id="readingProgressBar"></div>
+  <button id="floatingTtsTrigger" title="Read Selected Text">▶ Read Selection</button>
 
-  <!-- App Header -->
-  <header class="app-header">
-    <div class="brand-section">
-      <button class="icon-btn" id="toggleSidebarBtn" title="Toggle Table of Contents">☰</button>
-      <div class="brand-logo">⚖️</div>
-      <div class="brand-info">
-        <span class="brand-title">Statutory Construction (StatCon)</span>
-        <span class="brand-subject">Statutory Construction</span>
+  <header>
+    <div class="header-left">
+      <button class="btn-icon" id="toggleSidebarBtn" title="Toggle Table of Contents">☰</button>
+      <div>
+        <h1 class="brand-title">Statutory Construction (StatCon)</h1>
+        <span class="subject-pill">Statutory Construction</span>
       </div>
     </div>
-
-    <!-- Speech Synthesis Toolbar -->
-    <div class="tts-toolbar">
-      <div class="toolbar-group">
-        <button class="icon-btn" id="prevBtn" title="Previous (P)">⏮</button>
-        <button class="icon-btn primary" id="playPauseBtn" title="Play / Pause (Space)">
-          <span id="playIcon">▶</span>
-          <span id="pauseIcon" style="display:none;">⏸</span>
-        </button>
-        <button class="icon-btn" id="stopBtn" title="Stop (Esc)">⏹</button>
-        <button class="icon-btn" id="nextBtn" title="Next (N)">⏭</button>
-      </div>
-
-      <div class="toolbar-group">
-        <select id="speedSelect" class="toolbar-select" title="Reading Speed">
-          <option value="0.75">0.75x</option>
-          <option value="0.9" selected>0.90x (Deliberate)</option>
-          <option value="1.0">1.00x</option>
-          <option value="1.15">1.15x</option>
-          <option value="1.25">1.25x</option>
-          <option value="1.5">1.50x</option>
-        </select>
-        <select id="voiceSelect" class="toolbar-select" title="Select Natural Voice" style="max-width: 130px;">
-          <option value="default">Auto Voice</option>
-        </select>
-      </div>
-
-      <div class="toolbar-group">
-        <button class="icon-btn" id="fontDecBtn" title="Decrease Font (-)">A-</button>
-        <button class="icon-btn" id="fontIncBtn" title="Increase Font (+)">A+</button>
-        <select id="themeSelect" class="toolbar-select" title="Switch Theme">
-          <option value="dark">Dark</option>
-          <option value="sepia">Sepia</option>
-          <option value="light">Light</option>
-        </select>
-      </div>
-
-      <span id="ttsStatusBadge" class="tts-status-badge">Ready</span>
+    <div class="header-actions">
+      <button class="btn-icon" id="fontDecBtn" title="Decrease Font Size">A-</button>
+      <button class="btn-icon" id="fontIncBtn" title="Increase Font Size">A+</button>
+      <select class="select-control" id="themeSelect" title="Select Theme">
+        <option value="dark">🌙 Dark</option>
+        <option value="sepia">📜 Sepia</option>
+        <option value="light">☀️ Light</option>
+      </select>
     </div>
   </header>
 
-  <!-- Main Body Layout -->
-  <div class="app-main-layout">
-    <!-- Table of Contents Sidebar -->
-    <aside class="app-sidebar" id="sidebarNav">
-      <div class="sidebar-header">
-        <input type="text" id="sidebarSearch" class="sidebar-search" placeholder="🔍 Filter Topics / Cases..." />
+  <div class="tts-toolbar">
+    <div class="tts-controls-group">
+      <button class="btn-tts" id="playPauseBtn">
+        <span id="playIcon">▶</span>
+        <span id="pauseIcon" style="display:none;">⏸</span>
+        <span id="playBtnText">Read Aloud</span>
+      </button>
+      <button class="btn-tts-secondary" id="prevBtn" title="Previous Paragraph (Key: P)">⏮ Prev</button>
+      <button class="btn-tts-secondary" id="nextBtn" title="Next Paragraph (Key: N)">Next ⏭</button>
+      <button class="btn-tts-secondary" id="stopBtn" title="Stop Speech (Key: Esc)">⏹ Stop</button>
+    </div>
+
+    <div class="tts-controls-group">
+      <label for="voiceSelect" style="font-size:0.8rem; color:var(--text-muted);">Voice:</label>
+      <select class="select-control" id="voiceSelect" style="max-width: 220px;">
+        <option value="default">Auto Best Voice</option>
+      </select>
+
+      <label for="speedSelect" style="font-size:0.8rem; color:var(--text-muted);">Speed:</label>
+      <select class="select-control" id="speedSelect">
+        <option value="0.8">0.8x</option>
+        <option value="0.9" selected>0.9x (Natural)</option>
+        <option value="1.0">1.0x (Standard)</option>
+        <option value="1.1">1.1x</option>
+        <option value="1.2">1.2x</option>
+      </select>
+
+      <div class="tts-status-badge" id="ttsStatusBadge">
+        <span class="pulse-dot"></span>
+        <span id="statusText">Ready</span>
       </div>
-      <nav class="sidebar-nav">
-        <ul id="tocList">
-          <li><a href="#sec-overview" class="toc-link level-1" title="Statutory Construction (StatCon)">Statutory Construction (StatCon)</a></li>
+    </div>
+  </div>
+
+  <div class="app-layout">
+    <nav class="sidebar-toc" id="sidebarNav">
+      <input type="text" class="toc-search-box" id="sidebarSearch" placeholder="🔍 Filter topics & cases..." />
+      <div class="toc-heading">Table of Contents</div>
+      <ul class="toc-list" id="tocList">
+        <li><a href="#sec-overview" class="toc-link level-1" title="Statutory Construction (StatCon)">Statutory Construction (StatCon)</a></li>
 <li><a href="#sec-1-1-nature-purpose-and-definition" class="toc-link level-1" title="1. NATURE, PURPOSE, AND DEFINITION">1. NATURE, PURPOSE, AND DEFINITION</a></li>
 <li><a href="#sec-2-2-the-6-step-methodology-for-statutory-construction" class="toc-link level-1" title="2. THE 6-STEP METHODOLOGY FOR STATUTORY CONSTRUCTION">2. THE 6-STEP METHODOLOGY FOR STATUTORY CONSTRUCTION</a></li>
 <li><a href="#sec-3-step-0-the-threshold-rule---the-plain-meaning-rule-verba-leg" class="toc-link level-1" title="STEP 0: The Threshold Rule  -  The Plain Meaning Rule (Verba Legis)">STEP 0: The Threshold Rule  -  The Plain Meaning Rule (Verba Legis)</a></li>
@@ -775,26 +764,22 @@
 <li><a href="#sec-29-4-align-with-constitution-policy-demonstrate-that-the-constr" class="toc-link level-1" title="4. Align with Constitution &amp; Policy: Demonstrate that the construction upholds constitutional boundaries and prevents absurdity.">4. Align with Constitution &amp; Policy: Demonstrate that the construction upholds constitutional boundaries and prevents absurdity.</a></li>
 <li><a href="#sec-30-5-state-holding-ruling-articulate-the-precise-legal-conseque" class="toc-link level-1" title="5. State Holding / Ruling: Articulate the precise legal consequence, obligation, or relief awarded under the interpreted law.">5. State Holding / Ruling: Articulate the precise legal consequence, obligation, or relief awarded under the interpreted law.</a></li>
 <li><a href="#sec-31-3-statutory-construction-master-quick-reference-matrix" class="toc-link level-1" title="3. STATUTORY CONSTRUCTION MASTER QUICK-REFERENCE MATRIX">3. STATUTORY CONSTRUCTION MASTER QUICK-REFERENCE MATRIX</a></li>
-        </ul>
-      </nav>
-    </aside>
+      </ul>
+    </nav>
 
-    <!-- Reading Content Area -->
-    <main class="content-area">
-      <div class="content-wrapper" id="contentWrapper">
-        <!-- Hero Header Card -->
-        <div class="doc-hero-card">
-          <div class="doc-hero-subject">Statutory Construction</div>
-          <h1 class="doc-hero-title">Statutory Construction (StatCon)</h1>
-          <div class="doc-meta-stats">
-            <span>📑 32 Topics / Cases</span>
-            <span>📖 51 Narrative Units</span>
-            <span>⏱ ~20 min study read</span>
-          </div>
-          
+    <main class="reader-main" id="mainArticle">
+      <div class="doc-meta-banner">
+        <h1 class="doc-headline">Statutory Construction (StatCon)</h1>
+        <div class="doc-stats">
+          <span>📚 32 Sections</span>
+          <span>⏱️ ~20 min read</span>
+          <span>🎓 Manila Law College</span>
         </div>
+      </div>
 
-        <!-- Rendered Sections -->
+      
+
+      <div id="contentWrapper">
         <section id="sec-overview" class="doc-section">
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>STATUTORY CONSTRUCTION (STATCON)</strong></p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><em>A Comprehensive Step-by-Step Methodology and Practical Guide in Philippine Jurisprudence</em></p>
@@ -947,35 +932,30 @@
     </main>
   </div>
 
-  <button id="floatingTtsTrigger">🔊 Read Selection</button>
-
-  <footer class="app-footer">
-    <div>Manila Law College (MLC) • Juris Doctor Compendium & Interactive Audio Suite</div>
-  </footer>
-
   <script>
     (function() {
       const synth = window.speechSynthesis;
+      let voices = [];
+      const readUnits = Array.from(document.querySelectorAll('.read-unit'));
       const playPauseBtn = document.getElementById('playPauseBtn');
       const playIcon = document.getElementById('playIcon');
       const pauseIcon = document.getElementById('pauseIcon');
+      const playBtnText = document.getElementById('playBtnText');
       const stopBtn = document.getElementById('stopBtn');
       const prevBtn = document.getElementById('prevBtn');
       const nextBtn = document.getElementById('nextBtn');
-      const speedSelect = document.getElementById('speedSelect');
       const voiceSelect = document.getElementById('voiceSelect');
-      const themeSelect = document.getElementById('themeSelect');
-      const fontIncBtn = document.getElementById('fontIncBtn');
-      const fontDecBtn = document.getElementById('fontDecBtn');
+      const speedSelect = document.getElementById('speedSelect');
       const statusBadge = document.getElementById('ttsStatusBadge');
+      const progressBar = document.getElementById('readingProgressBar');
       const toggleSidebarBtn = document.getElementById('toggleSidebarBtn');
       const sidebarNav = document.getElementById('sidebarNav');
       const sidebarSearch = document.getElementById('sidebarSearch');
       const tocList = document.getElementById('tocList');
-      const progressBar = document.getElementById('readingProgressBar');
-      const readUnits = Array.from(document.querySelectorAll('.read-unit'));
+      const themeSelect = document.getElementById('themeSelect');
+      const fontIncBtn = document.getElementById('fontIncBtn');
+      const fontDecBtn = document.getElementById('fontDecBtn');
 
-      let voices = [];
       let currentUnitIndex = -1;
       let isPaused = false;
       let isSpeaking = false;
@@ -1100,60 +1080,96 @@
         return total;
       }
 
-      function expandRomanNumerals(txt) {
-        // 1. Topic Roman Numeral Headings: "I. FACTS", "XVI. CONCLUSION"
-        txt = txt.replace(/\b([IVXLCDM]+)\.\s+/g, function(match, roman) {
-          const val = romanToInt(roman);
-          return val ? 'Topic ' + val + ': ' : match;
+      const ORDINALS = {
+        'I': 'the first', 'II': 'the second', 'III': 'the third', 'IV': 'the fourth', 'V': 'the fifth',
+        'VI': 'the sixth', 'VII': 'the seventh', 'VIII': 'the eighth', 'IX': 'the ninth', 'X': 'the tenth'
+      };
+
+      function expandRomanAndPhonetics(txt) {
+        if (!txt) return '';
+
+        // Master Unified Table: Citations + Cyber & Digital Laws
+        const replacements = [
+          [/\bA\.C\.\s*(?:No\.?\s*)?([A-Za-z0-9\-]+)/gi, 'Administrative Case Number $1'],
+          [/\bA\.M\.\s*(?:No\.?\s*)?([A-Za-z0-9\-]+)/gi, 'Administrative Matter Number $1'],
+          [/\bG\.R\.\s*Nos\.?\s*([A-Za-z0-9\-,\s]+)/gi, 'JEE-AR Numbers $1'],
+          [/\bG\.R\.\s*(?:No\.?\s*)?([A-Za-z0-9\-]+)/gi, 'JEE-AR Number $1'],
+          [/\bG\.R\.\b/gi, 'JEE-AR'],
+          [/\bP\.D\.\s*(?:No\.?\s*)?(\d+)/gi, 'Presidential Decree Number $1'],
+          [/\bPD\s*(\d+)/gi, 'Presidential Decree $1'],
+          [/\bP\.D\.\b/gi, 'Presidential Decree'],
+          [/\bR\.A\.\s*(?:No\.?\s*)?(\d+)/gi, 'Republic Act Number $1'],
+          [/\bRA\s*(\d+)/gi, 'Republic Act $1'],
+          [/\bR\.A\.\b/gi, 'Republic Act'],
+          [/\bPhil\.\s*(\d+)/gi, 'Philippine Reports volume $1'],
+          [/\bPhil\.\b/gi, 'Phil'],
+          [/\bSCRA\b/g, 'SKRA'],
+          [/\bCPRA\b/g, 'SIP-ruh'],
+          [/\bCPR\b/g, 'Code of Professional Responsibility'],
+          [/\bDPA\b/g, 'DEE-PEE-AY'],
+          [/\bITA\b/g, 'EYE-tuh'],
+          [/\bOSAEC\b/g, 'OH-sak'],
+          [/\bAFASA\b/g, 'ah-FAH-suh'],
+          [/\bCPA\b/g, 'Cybercrime Prevention Act'],
+          [/\bREED\b/g, 'REED'],
+          [/\bDICT\b/g, 'DIK-tee'],
+          [/\bCICC\b/g, 'SIK-see'],
+          [/\bRPC\b/g, 'Revised Penal Code'],
+          [/\bIn\s+re\b/gi, 'in Ree'],
+          [/\bet\s+al\./gi, 'et AHL,'],
+          [/\bet\s+al\b/gi, 'et AHL,'],
+          [/\bi\.e\./gi, 'that is,'],
+          [/\be\.g\./gi, 'for example,'],
+          [/\bArt\.\s*(\d+)/gi, 'Article $1'],
+          [/\bArts\.\s*([\d,\s\-]+)/gi, 'Articles $1'],
+          [/\bSec\.\s*(\d+)/gi, 'Section $1'],
+          [/\bSecs\.\s*([\d,\s\-]+)/gi, 'Sections $1'],
+          [/\bPar\.\s*(\d+)/gi, 'Paragraph $1'],
+          [/\s+v(?:s)?\.\s+/gi, ' versus ']
+        ];
+
+        replacements.forEach(([pattern, rep]) => {
+          txt = txt.replace(pattern, rep);
         });
 
-        // 2. Legal prefix + Roman: Canon II, Part I, Chapter XVI, Article XIV, Rule IV, Book I
+        // Roman numeral expansions for headings
+        txt = txt.replace(/(^|\n|\.\s+|;\s+)([IVXLCDM]+)\.\s+/gi, function(match, prefix, roman) {
+          const val = romanToInt(roman);
+          return val ? prefix + 'Topic ' + val + ': ' : match;
+        });
+
+        // Names with ordinals: e.g. Macario Ramos II, King Henry VIII
+        txt = txt.replace(/\b([A-Z][a-z]+)\s+([IVXLCDM](1, 4))\b/g, function(match, name, roman) {
+          if (/^(?:Canon|Part|Chapter|Article|Title|Book|Section|Sec|Art|Vol|Volume|Rule|Topic|Case|No|Nos)$/i.test(name)) {
+            return match;
+          }
+          const upperR = roman.toUpperCase();
+          return ORDINALS[upperR] ? name + ' ' + ORDINALS[upperR] : match;
+        });
+
+        // Statutory & structural labels
         txt = txt.replace(/\b(Canon|Part|Chapter|Article|Title|Book|Section|Sec|Art|Vol|Volume|Rule)\s+([IVXLCDM]+)\b/gi, function(match, prefix, roman) {
           const val = romanToInt(roman);
           return val ? prefix + ' ' + val : match;
         });
 
-        // 3. Parenthesized Roman numerals: (i), (ii), (iv), (xvi)
+        // Parenthesized roman numerals (i), (ii), etc.
         txt = txt.replace(/\(([ivxlcdm]+)\)/gi, function(match, roman) {
           const val = romanToInt(roman);
           return val ? 'sub-item ' + val + ', ' : match;
         });
 
-        return txt;
+        // Smooth intonation pauses
+        txt = txt.replace(/:\s*/g, ': ... ');
+        txt = txt.replace(/;\s*/g, ';, ');
+        txt = txt.replace(/\s*—\s*/g, ' — ... ');
+
+        return txt.trim();
       }
 
       function prepareSpeechText(unitEl) {
         let text = unitEl.innerText || unitEl.textContent || '';
-        
-        // Expand Roman Numerals first so "Canon II" becomes "Canon 2", "XVI" becomes "16"
-        text = expandRomanNumerals(text);
-
-        text = text
-          .replace(/\bSCRA\b/g, 'S-C-R-A')
-          .replace(/\bPhil\.\s*(\d+)/gi, 'Philippine Reports volume $1')
-          .replace(/\bArt\.\s*(\d+)/gi, 'Article $1')
-          .replace(/\bArts\.\s*([\d,\s\-]+)/gi, 'Articles $1')
-          .replace(/\bSec\.\s*(\d+)/gi, 'Section $1')
-          .replace(/\bSecs\.\s*([\d,\s\-]+)/gi, 'Sections $1')
-          .replace(/\bPar\.\s*(\d+)/gi, 'Paragraph $1')
-          .replace(/\bRPC\b/g, 'Revised Penal Code')
-          .replace(/\bCPR\b/g, 'Code of Professional Responsibility')
-          .replace(/\bCPRA\b/g, 'Code of Professional Responsibility and Accountability')
-          .replace(/\bConst\.\b/gi, 'Constitution')
-          .replace(/\bP\.D\.\s*No\.?\s*(\d+)/gi, 'Presidential Decree Number $1')
-          .replace(/\bR\.A\.\s*No\.?\s*(\d+)/gi, 'Republic Act Number $1')
-          .replace(/\bA\.C\.\s*No\.?\s*([A-Za-z0-9\-]+)/gi, 'Administrative Case Number $1')
-          .replace(/\bA\.M\.\s*No\.?\s*([A-Za-z0-9\-]+)/gi, 'Administrative Matter Number $1')
-          .replace(/\bG\.R\.\s*No\.?\s*([A-Za-z0-9\-]+)/gi, 'G-R Number $1')
-          .replace(/\bet\s+al\./gi, 'and others')
-          .replace(/\bi\.e\./gi, 'that is')
-          .replace(/\be\.g\./gi, 'for example')
-          .replace(/\bviz\./gi, 'namely')
-          .replace(/\s+v(?:s)?\.\s+/gi, ' versus ')
-          .replace(/;\s*/g, ';, ')
-          .replace(/:\s*/g, ': ... ');
-
-        return text.trim();
+        return expandRomanAndPhonetics(text);
       }
 
       function setSpeakingState(speaking, paused = false) {
@@ -1203,12 +1219,15 @@
         highlightUnit(idx);
 
         let speechText = prepareSpeechText(unit);
+        
+        // Topic change notification cue
         const currentSec = unit.closest('section.doc-section');
         const currentSecId = currentSec ? currentSec.id : null;
         if (currentSecId && currentSecId !== lastSectionId && currentSec) {
           const headerEl = currentSec.querySelector('.case-header-title') || currentSec.querySelector('.topic-header-title') || currentSec.querySelector('.subtopic-header-title');
           if (headerEl) {
-            speechText = 'Now Reading: ' + headerEl.innerText.trim() + ' ... ... ' + speechText;
+            const topicTitle = expandRomanAndPhonetics(headerEl.innerText.trim());
+            speechText = 'Now Reading: ' + topicTitle + ' ... ... ' + speechText;
           }
           lastSectionId = currentSecId;
         }
@@ -1308,7 +1327,7 @@
         const sel = window.getSelection().toString().trim();
         if (sel && synth) {
           synth.cancel();
-          const utterance = new SpeechSynthesisUtterance(expandRomanNumerals(sel));
+          const utterance = new SpeechSynthesisUtterance(expandRomanAndPhonetics(sel));
           utterance.rate = parseFloat(speedSelect.value) || 0.9;
           const selVoiceIdx = voiceSelect.value;
           if (selVoiceIdx !== 'default' && voices[selVoiceIdx]) {
