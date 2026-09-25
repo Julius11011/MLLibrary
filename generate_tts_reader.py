@@ -1721,7 +1721,7 @@ def generate_study_hub_index(root_dir):
             mp3_file = fpath.with_suffix('.mp3')
             has_mp3 = mp3_file.exists()
             mp3_badge = '<span class="badge-audio">🎙️ MP3 Audio</span>' if has_mp3 else ''
-            is_digest = 'digest' in doc_name.lower()
+            is_digest = 'digest' in doc_name.lower() or 'case' in doc_name.lower()
             type_badge = '<span class="badge-reader">Case Digest</span>' if is_digest else '<span class="badge-outline">Course Outline</span>'
             
             cards_html.append(f'''
