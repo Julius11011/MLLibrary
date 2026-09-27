@@ -16,7 +16,8 @@ All 275 assigned Supreme Court landmark decisions in **Criminal Law 1 (Book I, A
 
 ### A. The Master ALAC Case Digest Compendium (All 275 Cases with Facts & Issues):
 1. **Studio Neural Voice MP3 Podcast (`.mp3`):**
-   - Path: [`Criminal_Law_1_Complete_275_Landmark_ALAC_Case_Digests.mp3`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Criminal%20Law/Criminal_Law_1_Complete_275_Landmark_ALAC_Case_Digests.mp3) (265.86 MB / 278.77 MB)
+   - Local Path: [`Criminal_Law_1_Complete_275_Landmark_ALAC_Case_Digests.mp3`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Criminal%20Law/Criminal_Law_1_Complete_275_Landmark_ALAC_Case_Digests.mp3) (265.86 MB)
+   - Live GitHub CDN Link: [Download / Stream 275 Cases MP3](https://github.com/Julius11011/MLLibrary/releases/download/audio-v0/Criminal_Law_1_Complete_275_Landmark_ALAC_Case_Digests.mp3)
    - Features: High-fidelity Microsoft Edge TTS (`en-US-JennyNeural`), Rule 4 cardinal Roman numeral spoken pronunciations, phonetic legal citations ("JEE-AR", "SKRA", "Philippine Reports"), case transition announcements ("Now Reading: CASE X: ..."), and natural punctuation pauses.
 2. **Adobe PDF Document (`.pdf`):**
    - Path: [`Criminal_Law_1_Complete_275_Landmark_ALAC_Case_Digests.pdf`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Criminal%20Law/Criminal_Law_1_Complete_275_Landmark_ALAC_Case_Digests.pdf) (1.31 MB)
@@ -28,7 +29,8 @@ All 275 assigned Supreme Court landmark decisions in **Criminal Law 1 (Book I, A
 
 ### B. The Philippine Criminal Law Book I Treatise (Articles 1–113):
 1. **Studio Neural Voice MP3 Podcast (`.mp3`):**
-   - Path: [`Philippine_Criminal_Law_Book_One_Treatise.mp3`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Criminal%20Law/Philippine_Criminal_Law_Book_One_Treatise.mp3) (37.90 MB / 39.74 MB)
+   - Local Path: [`Philippine_Criminal_Law_Book_One_Treatise.mp3`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Criminal%20Law/Philippine_Criminal_Law_Book_One_Treatise.mp3) (37.90 MB)
+   - Live GitHub CDN Link: [Download / Stream Treatise MP3](https://github.com/Julius11011/MLLibrary/releases/download/audio-v0/Philippine_Criminal_Law_Book_One_Treatise.mp3)
 2. **Adobe PDF Document (`.pdf`):**
    - Path: [`Philippine_Criminal_Law_Book_One_Treatise.pdf`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Criminal%20Law/Philippine_Criminal_Law_Book_One_Treatise.pdf) (599.4 KB)
 3. **Microsoft Word Document (`.docx`):**
