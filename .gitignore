@@ -42,4 +42,15 @@ Desktop.ini
 *.mp3
 temp_*
 _temp_*
+build_*.py
+crim_*.py
+digest_data_*.py
+treatise_*.py
+generate_consti_*.py
+generate_crim_*.py
+generate_all_consti_digests.py
 generate_new_canons_mp3.py
+generate_1987_constitutional_law_docs.py
+generate_case_digest_titles_paragraph_format.py
+convert_*.py
+

@@ -1,0 +1,2319 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Constitutional Law 1 Case Digest Titles | MLC Law Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0b1120;
+      --bg-secondary: #131d31;
+      --bg-tertiary: #1e293b;
+      --border-color: rgba(148, 163, 184, 0.14);
+      --border-focus: #fbbf24;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --accent-gold: #fbbf24;
+      --accent-gold-dark: #d97706;
+      --accent-blue: #38bdf8;
+      --accent-emerald: #34d399;
+      --accent-crimson: #f87171;
+      --accent-purple: #c084fc;
+      --highlight-bg: rgba(251, 191, 36, 0.22);
+      --highlight-border: #fbbf24;
+      --card-bg: rgba(19, 29, 49, 0.7);
+      --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Merriweather', Georgia, serif;
+      --font-heading: 'Cinzel', serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --sidebar-width: 320px;
+      --header-height: 64px;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    }
+
+    [data-theme="sepia"] {
+      --bg-primary: #fbf7ee;
+      --bg-secondary: #f4ecd8;
+      --bg-tertiary: #e9dfc4;
+      --border-color: rgba(120, 97, 65, 0.18);
+      --border-focus: #b45309;
+      --text-primary: #2d241e;
+      --text-secondary: #4a3e35;
+      --text-muted: #786c60;
+      --accent-gold: #b45309;
+      --accent-gold-dark: #92400e;
+      --accent-blue: #0284c7;
+      --accent-emerald: #059669;
+      --accent-crimson: #dc2626;
+      --accent-purple: #7c3aed;
+      --highlight-bg: rgba(217, 119, 6, 0.2);
+      --highlight-border: #b45309;
+      --card-bg: rgba(244, 236, 216, 0.85);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8fafc;
+      --bg-tertiary: #f1f5f9;
+      --border-color: #e2e8f0;
+      --border-focus: #d97706;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --accent-gold: #d97706;
+      --accent-gold-dark: #b45309;
+      --accent-blue: #0284c7;
+      --accent-emerald: #059669;
+      --accent-crimson: #dc2626;
+      --accent-purple: #7c3aed;
+      --highlight-bg: rgba(254, 240, 138, 0.5);
+      --highlight-border: #eab308;
+      --card-bg: rgba(248, 250, 252, 0.9);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.8;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    /* Scroll Progress Bar */
+    #readingProgressBar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue));
+      width: 0%;
+      z-index: 1000;
+      transition: width 0.1s ease;
+    }
+
+    /* Floating Selection Reader Trigger */
+    #floatingTtsTrigger {
+      position: absolute;
+      display: none;
+      z-index: 999;
+      background: var(--accent-gold);
+      color: #0b1120;
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+      cursor: pointer;
+      border: none;
+      transform: translate(-50%, -100%);
+      transition: transform 0.15s ease, background-color 0.15s ease;
+    }
+    #floatingTtsTrigger:hover {
+      background: var(--accent-gold-dark);
+      color: #ffffff;
+      transform: translate(-50%, -105%) scale(1.05);
+    }
+
+    /* Header & Navigation Bar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-color);
+      height: var(--header-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn-icon {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: all 0.15s ease;
+    }
+    .btn-icon:hover {
+      background-color: var(--bg-tertiary);
+      border-color: var(--border-focus);
+      color: var(--accent-gold);
+    }
+
+    .brand-title {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--accent-gold);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 340px;
+    }
+
+    .subject-pill {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--accent-blue);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .select-control {
+      background-color: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      padding: 6px 10px;
+      border-radius: 6px;
+      outline: none;
+      cursor: pointer;
+    }
+    .select-control:focus {
+      border-color: var(--border-focus);
+    }
+
+    /* TTS Audio Control Bar */
+    .tts-toolbar {
+      background-color: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.6rem 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      font-family: var(--font-ui);
+      font-size: 0.88rem;
+    }
+
+    .tts-controls-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-tts {
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+      border: none;
+      color: #0b1120;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 7px 16px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      transition: transform 0.1s ease, filter 0.15s ease;
+    }
+    .btn-tts:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+    }
+    .btn-tts:active {
+      transform: translateY(1px);
+    }
+
+    .btn-tts-secondary {
+      background-color: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 7px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: all 0.15s ease;
+    }
+    .btn-tts-secondary:hover {
+      border-color: var(--border-focus);
+      color: var(--accent-gold);
+    }
+
+    .tts-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: var(--bg-tertiary);
+      padding: 4px 10px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+    }
+    .tts-status-badge.speaking {
+      color: var(--accent-emerald);
+      border-color: var(--accent-emerald);
+    }
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background-color: currentColor;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .speaking .pulse-dot {
+      animation: pulse 1.2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(0.9); opacity: 0.6; }
+      50% { transform: scale(1.3); opacity: 1; }
+      100% { transform: scale(0.9); opacity: 0.6; }
+    }
+
+    /* Main Content Layout */
+    .app-layout {
+      display: flex;
+      flex: 1;
+      position: relative;
+    }
+
+    /* Table of Contents Sidebar */
+    .sidebar-toc {
+      width: var(--sidebar-width);
+      background-color: var(--bg-secondary);
+      border-right: 1px solid var(--border-color);
+      position: sticky;
+      top: calc(var(--header-height) + 49px);
+      height: calc(100vh - var(--header-height) - 49px);
+      overflow-y: auto;
+      padding: 1.25rem 1rem;
+      flex-shrink: 0;
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .toc-search-box {
+      width: 100%;
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      padding: 8px 12px;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      outline: none;
+    }
+    .toc-search-box:focus {
+      border-color: var(--border-focus);
+    }
+
+    .toc-heading {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      padding-left: 0.5rem;
+    }
+
+    .toc-list {
+      list-style: none;
+    }
+
+    .toc-link {
+      display: block;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-family: var(--font-ui);
+      font-size: 0.84rem;
+      line-height: 1.4;
+      padding: 7px 10px;
+      border-radius: 6px;
+      margin-bottom: 2px;
+      border-left: 2px solid transparent;
+      transition: all 0.15s ease;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .toc-link:hover {
+      background-color: var(--bg-tertiary);
+      color: var(--accent-gold);
+    }
+    .toc-link.active {
+      background-color: var(--bg-tertiary);
+      color: var(--accent-gold);
+      border-left-color: var(--accent-gold);
+      font-weight: 600;
+    }
+    .toc-link.level-2 {
+      padding-left: 22px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Main Reading Article Container */
+    .reader-main {
+      flex: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 6rem;
+    }
+
+    .doc-meta-banner {
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .doc-headline {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--accent-gold);
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.02em;
+    }
+    .doc-stats {
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    /* Studio Native MP3 Audio Player */
+    .studio-audio-player {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-emerald);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-md);
+    }
+    .audio-player-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.85rem;
+      font-family: var(--font-ui);
+    }
+    .audio-badge {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent-emerald);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .audio-filename {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+    .native-audio-element {
+      width: 100%;
+      outline: none;
+      border-radius: 30px;
+    }
+
+    /* Document Sections & Continuous Body Elements */
+    .doc-section {
+      margin-bottom: 3rem;
+      scroll-margin-top: calc(var(--header-height) + 60px);
+    }
+    .section-divider {
+      border: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+      margin: 3rem 0;
+    }
+
+    /* Case Header Card */
+    .case-header-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-left: 5px solid var(--accent-gold);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .case-number-pill {
+      display: inline-block;
+      background: var(--accent-gold);
+      color: #0b1120;
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+    .case-header-title {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.35;
+    }
+
+    .topic-header-card {
+      background: var(--bg-secondary);
+      border-left: 4px solid var(--accent-blue);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .topic-header-title {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent-blue);
+    }
+
+    .subtopic-header-card {
+      margin: 1.5rem 0 1rem;
+    }
+    .subtopic-header-title {
+      font-family: var(--font-ui);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+    }
+
+    /* Case Citation Banner */
+    .case-citation-banner {
+      background-color: var(--bg-tertiary);
+      border: 1px dashed var(--border-color);
+      border-radius: 8px;
+      padding: 0.75rem 1.25rem;
+      margin-bottom: 1.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .citation-label {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      background: rgba(251, 191, 36, 0.12);
+      border: 1px solid rgba(251, 191, 36, 0.25);
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+
+    /* Subheadings within Case (Facts, Issue, Ruling) */
+    .case-subheading {
+      font-family: var(--font-ui);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 1.75rem 0 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.4rem;
+    }
+    .subheading-accent {
+      color: var(--accent-gold);
+      font-size: 1.2rem;
+    }
+
+    /* Continuous Flowing Paragraphs */
+    .case-paragraph {
+      margin-bottom: 1.25rem;
+      text-align: justify;
+      text-justify: inter-word;
+      line-height: 1.85;
+      padding: 4px 6px;
+      border-radius: 6px;
+      transition: background-color 0.15s ease;
+    }
+
+    /* ALAC & Reasoning Paragraph Badges */
+    .alac-paragraph {
+      background: rgba(255, 255, 255, 0.02);
+      border-left: 3px solid var(--border-color);
+      padding: 0.6rem 0.85rem;
+      margin-bottom: 1.25rem;
+    }
+    .alac-badge {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-right: 0.5rem;
+      vertical-align: baseline;
+    }
+    .badge-ans { background: rgba(56, 189, 248, 0.2); color: var(--accent-blue); border: 1px solid var(--accent-blue); }
+    .badge-law { background: rgba(192, 132, 252, 0.2); color: var(--accent-purple); border: 1px solid var(--accent-purple); }
+    .badge-app { background: rgba(251, 191, 36, 0.2); color: var(--accent-gold); border: 1px solid var(--accent-gold); }
+    .badge-con { background: rgba(52, 211, 153, 0.2); color: var(--accent-emerald); border: 1px solid var(--accent-emerald); }
+    .badge-syn { background: rgba(248, 113, 113, 0.2); color: var(--accent-crimson); border: 1px solid var(--accent-crimson); }
+    .badge-gen { background: rgba(148, 163, 184, 0.2); color: var(--text-secondary); border: 1px solid var(--border-color); }
+
+    /* Bullet Points */
+    .bullet-point {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .bullet-dot {
+      color: var(--accent-gold);
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+    .bullet-content {
+      flex: 1;
+      text-align: justify;
+    }
+
+    /* Tables */
+    .table-responsive {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+    }
+    .reader-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      font-family: var(--font-ui);
+    }
+    .reader-table th, .reader-table td {
+      padding: 10px 14px;
+      border: 1px solid var(--border-color);
+      text-align: left;
+    }
+    .reader-table th {
+      background-color: var(--bg-secondary);
+      font-weight: 700;
+      color: var(--accent-gold);
+    }
+    .reader-table tr:nth-child(even) {
+      background-color: rgba(255, 255, 255, 0.02);
+    }
+
+    /* Active TTS Highlight */
+    .read-unit.is-speaking {
+      background-color: var(--highlight-bg) !important;
+      border-left: 3px solid var(--highlight-border) !important;
+      border-radius: 4px;
+      box-shadow: 0 0 15px rgba(251, 191, 36, 0.15);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+      .sidebar-toc {
+        position: fixed;
+        left: 0;
+        top: var(--header-height);
+        height: calc(100vh - var(--header-height));
+        z-index: 500;
+        transform: translateX(-100%);
+        box-shadow: var(--shadow-lg);
+      }
+      .sidebar-toc.open {
+        transform: translateX(0);
+      }
+      .reader-main {
+        padding: 1.5rem 1rem 5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="readingProgressBar"></div>
+  <button id="floatingTtsTrigger" title="Read Selected Text">Read Selection</button>
+
+  <header>
+    <div class="header-left">
+      <button class="btn-icon" id="toggleSidebarBtn" title="Toggle Table of Contents">☰</button>
+      <div>
+        <h1 class="brand-title">Constitutional Law 1 Case Digest Titles</h1>
+        <span class="subject-pill">Constitutional Law</span>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button class="btn-icon" id="fontDecBtn" title="Decrease Font Size">A-</button>
+      <button class="btn-icon" id="fontIncBtn" title="Increase Font Size">A+</button>
+      <select class="select-control" id="themeSelect" title="Select Theme">
+        <option value="dark">Dark</option>
+        <option value="sepia">Sepia</option>
+        <option value="light">Light</option>
+      </select>
+    </div>
+  </header>
+
+  <div class="tts-toolbar">
+    <div class="tts-controls-group">
+      <button class="btn-tts" id="playPauseBtn">
+        <span id="playIcon">▶</span>
+        <span id="pauseIcon" style="display:none;">❚❚</span>
+        <span id="playBtnText">Read Aloud</span>
+      </button>
+      <button class="btn-tts-secondary" id="prevBtn" title="Previous Paragraph (Key: P)">Previous</button>
+      <button class="btn-tts-secondary" id="nextBtn" title="Next Paragraph (Key: N)">Next</button>
+      <button class="btn-tts-secondary" id="stopBtn" title="Stop Speech (Key: Esc)">Stop</button>
+    </div>
+
+    <div class="tts-controls-group">
+      <label for="voiceSelect" style="font-size:0.8rem; color:var(--text-muted);">Voice:</label>
+      <select class="select-control" id="voiceSelect" style="max-width: 220px;">
+        <option value="default">Auto Best Voice</option>
+      </select>
+
+      <label for="speedSelect" style="font-size:0.8rem; color:var(--text-muted);">Speed:</label>
+      <select class="select-control" id="speedSelect">
+        <option value="0.8">0.8x</option>
+        <option value="0.9" selected>0.9x (Natural)</option>
+        <option value="1.0">1.0x (Standard)</option>
+        <option value="1.1">1.1x</option>
+        <option value="1.2">1.2x</option>
+      </select>
+
+      <div class="tts-status-badge" id="ttsStatusBadge">
+        <span class="pulse-dot"></span>
+        <span id="statusText">Ready</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="app-layout">
+    <nav class="sidebar-toc" id="sidebarNav">
+      <input type="text" class="toc-search-box" id="sidebarSearch" placeholder="Filter topics & cases..." />
+      <div class="toc-heading">Table of Contents</div>
+      <ul class="toc-list" id="tocList">
+        <li><a href="#sec-overview" class="toc-link level-1" title="Constitutional Law 1 Case Digest Titles">Constitutional Law 1 Case Digest Titles</a></li>
+<li><a href="#sec-1-case-1-de-leon-vs-esguerra" class="toc-link level-1" title="CASE 1.  De Leon vs. Esguerra">CASE 1.  De Leon vs. Esguerra</a></li>
+<li><a href="#sec-2-case-2-lambino-vs-comelec" class="toc-link level-1" title="CASE 2.  Lambino vs. COMELEC">CASE 2.  Lambino vs. COMELEC</a></li>
+<li><a href="#sec-3-case-3-imbong-vs-comelec" class="toc-link level-1" title="CASE 3.  Imbong vs. COMELEC">CASE 3.  Imbong vs. COMELEC</a></li>
+<li><a href="#sec-4-case-4-defensor-santiago-vs-comelec" class="toc-link level-1" title="CASE 4.  Defensor-Santiago vs. COMELEC">CASE 4.  Defensor-Santiago vs. COMELEC</a></li>
+<li><a href="#sec-5-case-5-lambino-vs-comelec-resolution-on-mr" class="toc-link level-1" title="CASE 5.  Lambino vs. COMELEC (Resolution on MR)">CASE 5.  Lambino vs. COMELEC (Resolution on MR)</a></li>
+<li><a href="#sec-6-case-6-gonzales-vs-comelec" class="toc-link level-1" title="CASE 6.  Gonzales vs. COMELEC">CASE 6.  Gonzales vs. COMELEC</a></li>
+<li><a href="#sec-7-case-7-occea-vs-comelec" class="toc-link level-1" title="CASE 7.  Occeña vs. COMELEC">CASE 7.  Occeña vs. COMELEC</a></li>
+<li><a href="#sec-8-case-8-almario-vs-alba" class="toc-link level-1" title="CASE 8.  Almario vs. Alba">CASE 8.  Almario vs. Alba</a></li>
+<li><a href="#sec-9-case-9-tolentino-vs-comelec" class="toc-link level-1" title="CASE 9.  Tolentino vs. COMELEC">CASE 9.  Tolentino vs. COMELEC</a></li>
+<li><a href="#sec-10-case-10-javellana-vs-executive-secretary" class="toc-link level-1" title="CASE 10.  Javellana vs. Executive Secretary">CASE 10.  Javellana vs. Executive Secretary</a></li>
+<li><a href="#sec-11-case-11-the-holy-see-vs-rosario" class="toc-link level-1" title="CASE 11.  The Holy See vs. Rosario">CASE 11.  The Holy See vs. Rosario</a></li>
+<li><a href="#sec-12-case-12-liang-vs-people" class="toc-link level-1" title="CASE 12.  Liang vs. People">CASE 12.  Liang vs. People</a></li>
+<li><a href="#sec-13-case-13-arigo-vs-swift" class="toc-link level-1" title="CASE 13.  Arigo vs. Swift">CASE 13.  Arigo vs. Swift</a></li>
+<li><a href="#sec-14-case-14-seafdec-vs-nlrc" class="toc-link level-1" title="CASE 14.  SEAFDEC vs. NLRC">CASE 14.  SEAFDEC vs. NLRC</a></li>
+<li><a href="#sec-15-case-15-callado-vs-irri" class="toc-link level-1" title="CASE 15.  Callado vs. IRRI">CASE 15.  Callado vs. IRRI</a></li>
+<li><a href="#sec-16-case-16-dfa-vs-nlrc" class="toc-link level-1" title="CASE 16.  DFA vs. NLRC">CASE 16.  DFA vs. NLRC</a></li>
+<li><a href="#sec-17-case-17-fontanilla-vs-maliaman" class="toc-link level-1" title="CASE 17.  Fontanilla vs. Maliaman">CASE 17.  Fontanilla vs. Maliaman</a></li>
+<li><a href="#sec-18-case-18-farolan-vs-cta" class="toc-link level-1" title="CASE 18.  Farolan vs. CTA">CASE 18.  Farolan vs. CTA</a></li>
+<li><a href="#sec-19-case-19-china-national-machinery-equipment-corp-vs-santamari" class="toc-link level-1" title="CASE 19.  China National Machinery &amp; Equipment Corp. vs. Santamaria">CASE 19.  China National Machinery &amp; Equipment Corp. vs. Santamaria</a></li>
+<li><a href="#sec-20-case-20-civil-aeronautics-administration-vs-ca" class="toc-link level-1" title="CASE 20.  Civil Aeronautics Administration vs. CA">CASE 20.  Civil Aeronautics Administration vs. CA</a></li>
+<li><a href="#sec-21-case-21-meritt-vs-government-of-the-philippine-islands" class="toc-link level-1" title="CASE 21.  Meritt vs. Government of the Philippine Islands">CASE 21.  Meritt vs. Government of the Philippine Islands</a></li>
+<li><a href="#sec-22-case-22-republic-vs-feliciano" class="toc-link level-1" title="CASE 22.  Republic vs. Feliciano">CASE 22.  Republic vs. Feliciano</a></li>
+<li><a href="#sec-23-case-23-up-vs-dizon" class="toc-link level-1" title="CASE 23.  UP vs. Dizon">CASE 23.  UP vs. Dizon</a></li>
+<li><a href="#sec-24-case-24-city-of-manila-vs-teotico" class="toc-link level-1" title="CASE 24.  City of Manila vs. Teotico">CASE 24.  City of Manila vs. Teotico</a></li>
+<li><a href="#sec-25-case-25-usa-vs-ruiz" class="toc-link level-1" title="CASE 25.  USA vs. Ruiz">CASE 25.  USA vs. Ruiz</a></li>
+<li><a href="#sec-26-case-26-froilan-vs-pan-oriental-shipping" class="toc-link level-1" title="CASE 26.  Froilan vs. Pan Oriental Shipping">CASE 26.  Froilan vs. Pan Oriental Shipping</a></li>
+<li><a href="#sec-27-case-27-municipality-of-san-miguel-vs-fernandez" class="toc-link level-1" title="CASE 27.  Municipality of San Miguel vs. Fernandez">CASE 27.  Municipality of San Miguel vs. Fernandez</a></li>
+<li><a href="#sec-28-case-28-municipality-of-makati-vs-ca" class="toc-link level-1" title="CASE 28.  Municipality of Makati vs. CA">CASE 28.  Municipality of Makati vs. CA</a></li>
+<li><a href="#sec-29-case-29-wylie-vs-rarang" class="toc-link level-1" title="CASE 29.  Wylie vs. Rarang">CASE 29.  Wylie vs. Rarang</a></li>
+<li><a href="#sec-30-case-30-mmda-vs-bel-air-village-association-inc" class="toc-link level-1" title="CASE 30.  MMDA vs. Bel-Air Village Association, Inc.">CASE 30.  MMDA vs. Bel-Air Village Association, Inc.</a></li>
+<li><a href="#sec-31-case-31-pasei-vs-drilon" class="toc-link level-1" title="CASE 31.  PASEI vs. Drilon">CASE 31.  PASEI vs. Drilon</a></li>
+<li><a href="#sec-32-case-32-tio-vs-videogram-regulatory-board" class="toc-link level-1" title="CASE 32.  Tio vs. Videogram Regulatory Board">CASE 32.  Tio vs. Videogram Regulatory Board</a></li>
+<li><a href="#sec-33-case-33-acebedo-optical-company-inc-vs-ca" class="toc-link level-1" title="CASE 33.  Acebedo Optical Company, Inc. vs. CA">CASE 33.  Acebedo Optical Company, Inc. vs. CA</a></li>
+<li><a href="#sec-34-case-34-taxicab-operators-of-mm-vs-bot" class="toc-link level-1" title="CASE 34.  Taxicab Operators of MM vs. BOT">CASE 34.  Taxicab Operators of MM vs. BOT</a></li>
+<li><a href="#sec-35-case-35-del-mar-vs-pagcor" class="toc-link level-1" title="CASE 35.  Del Mar vs. PAGCOR">CASE 35.  Del Mar vs. PAGCOR</a></li>
+<li><a href="#sec-36-case-36-angeles-university-foundation-vs-city-of-angeles" class="toc-link level-1" title="CASE 36.  Angeles University Foundation vs. City of Angeles">CASE 36.  Angeles University Foundation vs. City of Angeles</a></li>
+<li><a href="#sec-37-case-37-southern-luzon-drug-corporation-vs-dswd" class="toc-link level-1" title="CASE 37.  Southern Luzon Drug Corporation vs. DSWD">CASE 37.  Southern Luzon Drug Corporation vs. DSWD</a></li>
+<li><a href="#sec-38-case-38-republic-vs-salem-investment-corporation" class="toc-link level-1" title="CASE 38.  Republic vs. Salem Investment Corporation">CASE 38.  Republic vs. Salem Investment Corporation</a></li>
+<li><a href="#sec-39-case-39-estate-of-salud-jimenez-vs-peza" class="toc-link level-1" title="CASE 39.  Estate of Salud Jimenez vs. PEZA">CASE 39.  Estate of Salud Jimenez vs. PEZA</a></li>
+<li><a href="#sec-40-case-40-mciaa-vs-lozada-jr" class="toc-link level-1" title="CASE 40.  MCIAA vs. Lozada, Jr.">CASE 40.  MCIAA vs. Lozada, Jr.</a></li>
+<li><a href="#sec-41-case-41-republic-vs-lim" class="toc-link level-1" title="CASE 41.  Republic vs. Lim">CASE 41.  Republic vs. Lim</a></li>
+<li><a href="#sec-42-case-42-heirs-of-alberto-suguitan-vs-city-of-mandaluyong" class="toc-link level-1" title="CASE 42.  Heirs of Alberto Suguitan vs. City of Mandaluyong">CASE 42.  Heirs of Alberto Suguitan vs. City of Mandaluyong</a></li>
+<li><a href="#sec-43-case-43-smi-development-corporation-vs-republic" class="toc-link level-1" title="CASE 43.  SMI Development Corporation vs. Republic">CASE 43.  SMI Development Corporation vs. Republic</a></li>
+<li><a href="#sec-44-case-44-philippine-press-institute-vs-comelec" class="toc-link level-1" title="CASE 44.  Philippine Press Institute vs. COMELEC">CASE 44.  Philippine Press Institute vs. COMELEC</a></li>
+<li><a href="#sec-45-case-45-telebap-inc-vs-comelec" class="toc-link level-1" title="CASE 45.  TELEBAP, Inc. vs. COMELEC">CASE 45.  TELEBAP, Inc. vs. COMELEC</a></li>
+<li><a href="#sec-46-case-46-heirs-of-juancho-ardona-vs-reyes" class="toc-link level-1" title="CASE 46.  Heirs of Juancho Ardona vs. Reyes">CASE 46.  Heirs of Juancho Ardona vs. Reyes</a></li>
+<li><a href="#sec-47-case-47-osg-vs-ayala-land-incorporated" class="toc-link level-1" title="CASE 47.  OSG vs. Ayala Land Incorporated">CASE 47.  OSG vs. Ayala Land Incorporated</a></li>
+<li><a href="#sec-48-case-48-mosqueda-vs-pilipino-banana-growers-exporters" class="toc-link level-1" title="CASE 48.  Mosqueda vs. Pilipino Banana Growers &amp; Exporters">CASE 48.  Mosqueda vs. Pilipino Banana Growers &amp; Exporters</a></li>
+<li><a href="#sec-49-case-49-secretary-of-dpwh-vs-spouses-tecson" class="toc-link level-1" title="CASE 49.  Secretary of DPWH vs. Spouses Tecson">CASE 49.  Secretary of DPWH vs. Spouses Tecson</a></li>
+<li><a href="#sec-50-case-50-npc-vs-heirs-of-macabangkit-sangkay" class="toc-link level-1" title="CASE 50.  NPC vs. Heirs of Macabangkit Sangkay">CASE 50.  NPC vs. Heirs of Macabangkit Sangkay</a></li>
+<li><a href="#sec-51-case-51-epza-now-peza-vs-pulido" class="toc-link level-1" title="CASE 51.  EPZA (now PEZA) vs. Pulido">CASE 51.  EPZA (now PEZA) vs. Pulido</a></li>
+<li><a href="#sec-52-case-52-republic-vs-judge-mupas-and-piatco" class="toc-link level-1" title="CASE 52.  Republic vs. Judge Mupas and PIATCO">CASE 52.  Republic vs. Judge Mupas and PIATCO</a></li>
+<li><a href="#sec-53-case-53-lbp-vs-dalauta" class="toc-link level-1" title="CASE 53.  LBP vs. Dalauta">CASE 53.  LBP vs. Dalauta</a></li>
+<li><a href="#sec-54-case-54-alfonso-vs-lbp-and-dar" class="toc-link level-1" title="CASE 54.  Alfonso vs. LBP and DAR">CASE 54.  Alfonso vs. LBP and DAR</a></li>
+<li><a href="#sec-55-case-55-mmda-vs-concerned-residents-of-manila-bay" class="toc-link level-1" title="CASE 55.  MMDA vs. Concerned Residents of Manila Bay">CASE 55.  MMDA vs. Concerned Residents of Manila Bay</a></li>
+<li><a href="#sec-56-case-56-belgica-vs-ochoa-jr" class="toc-link level-1" title="CASE 56.  Belgica vs. Ochoa, Jr.">CASE 56.  Belgica vs. Ochoa, Jr.</a></li>
+<li><a href="#sec-57-case-57-gonzales-iii-vs-office-of-the-president" class="toc-link level-1" title="CASE 57.  Gonzales III vs. Office of the President">CASE 57.  Gonzales III vs. Office of the President</a></li>
+<li><a href="#sec-58-case-58-garcia-vs-executive-secretary" class="toc-link level-1" title="CASE 58.  Garcia vs. Executive Secretary">CASE 58.  Garcia vs. Executive Secretary</a></li>
+<li><a href="#sec-59-case-59-oposa-vs-factoran-jr" class="toc-link level-1" title="CASE 59.  Oposa vs. Factoran, Jr.">CASE 59.  Oposa vs. Factoran, Jr.</a></li>
+<li><a href="#sec-60-case-60-cadet-1cl-cudia-vs-superintendent-of-pma" class="toc-link level-1" title="CASE 60.  Cadet 1CL Cudia vs. Superintendent of PMA">CASE 60.  Cadet 1CL Cudia vs. Superintendent of PMA</a></li>
+<li><a href="#sec-61-case-61-behest-loans-committee-vs-desierto" class="toc-link level-1" title="CASE 61.  Behest Loans Committee vs. Desierto">CASE 61.  Behest Loans Committee vs. Desierto</a></li>
+<li><a href="#sec-62-case-62-isagani-cruz-vs-secretary-of-denr" class="toc-link level-1" title="CASE 62.  Isagani Cruz vs. Secretary of DENR">CASE 62.  Isagani Cruz vs. Secretary of DENR</a></li>
+<li><a href="#sec-63-case-63-resident-marine-mammals-vs-sec-angelo-reyes" class="toc-link level-1" title="CASE 63.  Resident Marine Mammals vs. Sec. Angelo Reyes">CASE 63.  Resident Marine Mammals vs. Sec. Angelo Reyes</a></li>
+<li><a href="#sec-64-case-64-roy-iii-vs-chairperson-herbosa" class="toc-link level-1" title="CASE 64.  Roy III vs. Chairperson Herbosa">CASE 64.  Roy III vs. Chairperson Herbosa</a></li>
+<li><a href="#sec-65-case-65-pnoc-vs-keppel-philippines-holdings-inc" class="toc-link level-1" title="CASE 65.  PNOC vs. Keppel Philippines Holdings, Inc.">CASE 65.  PNOC vs. Keppel Philippines Holdings, Inc.</a></li>
+<li><a href="#sec-66-case-66-lagman-vs-executive-secretary" class="toc-link level-1" title="CASE 66.  Lagman vs. Executive Secretary">CASE 66.  Lagman vs. Executive Secretary</a></li>
+<li><a href="#sec-67-case-67-trillanes-iv-vs-hon-oscar-pimentel-sr" class="toc-link level-1" title="CASE 67.  Trillanes IV vs. Hon. Oscar Pimentel, Sr.">CASE 67.  Trillanes IV vs. Hon. Oscar Pimentel, Sr.</a></li>
+<li><a href="#sec-68-case-68-aquino-vs-comelec" class="toc-link level-1" title="CASE 68.  Aquino vs. COMELEC">CASE 68.  Aquino vs. COMELEC</a></li>
+<li><a href="#sec-69-case-69-bagabuyo-vs-comelec" class="toc-link level-1" title="CASE 69.  Bagabuyo vs. COMELEC">CASE 69.  Bagabuyo vs. COMELEC</a></li>
+<li><a href="#sec-70-case-70-sema-vs-comelec" class="toc-link level-1" title="CASE 70.  Sema vs. COMELEC">CASE 70.  Sema vs. COMELEC</a></li>
+<li><a href="#sec-71-case-71-people-vs-jalosjos" class="toc-link level-1" title="CASE 71.  People vs. Jalosjos">CASE 71.  People vs. Jalosjos</a></li>
+<li><a href="#sec-72-case-72-osmea-vs-pendatun" class="toc-link level-1" title="CASE 72.  Osmeña vs. Pendatun">CASE 72.  Osmeña vs. Pendatun</a></li>
+<li><a href="#sec-73-case-73-pobre-vs-santiago" class="toc-link level-1" title="CASE 73.  Pobre vs. Santiago">CASE 73.  Pobre vs. Santiago</a></li>
+<li><a href="#sec-74-case-74-liban-vs-gordon" class="toc-link level-1" title="CASE 74.  Liban vs. Gordon">CASE 74.  Liban vs. Gordon</a></li>
+<li><a href="#sec-75-case-75-baguilat-vs-speaker-alvarez" class="toc-link level-1" title="CASE 75.  Baguilat vs. Speaker Alvarez">CASE 75.  Baguilat vs. Speaker Alvarez</a></li>
+<li><a href="#sec-76-case-76-pimentel-vs-hret" class="toc-link level-1" title="CASE 76.  Pimentel vs. HRET">CASE 76.  Pimentel vs. HRET</a></li>
+<li><a href="#sec-77-case-77-vilando-vs-hret" class="toc-link level-1" title="CASE 77.  Vilando vs. HRET">CASE 77.  Vilando vs. HRET</a></li>
+<li><a href="#sec-78-case-78-reyes-vs-comelec" class="toc-link level-1" title="CASE 78.  Reyes vs. COMELEC">CASE 78.  Reyes vs. COMELEC</a></li>
+<li><a href="#sec-79-case-79-velasco-vs-speaker-belmonte" class="toc-link level-1" title="CASE 79.  Velasco vs. Speaker Belmonte">CASE 79.  Velasco vs. Speaker Belmonte</a></li>
+<li><a href="#sec-80-case-80-abayon-vs-comelec" class="toc-link level-1" title="CASE 80.  Abayon vs. COMELEC">CASE 80.  Abayon vs. COMELEC</a></li>
+<li><a href="#sec-81-case-81-abakada-guro-vs-purisima" class="toc-link level-1" title="CASE 81.  ABAKADA Guro vs. Purisima">CASE 81.  ABAKADA Guro vs. Purisima</a></li>
+<li><a href="#sec-82-case-82-garcilliano-vs-house-of-representatives" class="toc-link level-1" title="CASE 82.  Garcilliano vs. House of Representatives">CASE 82.  Garcilliano vs. House of Representatives</a></li>
+<li><a href="#sec-83-case-83-senate-of-the-philippines-vs-ermita" class="toc-link level-1" title="CASE 83.  Senate of the Philippines vs. Ermita">CASE 83.  Senate of the Philippines vs. Ermita</a></li>
+<li><a href="#sec-84-case-84-neri-vs-senate" class="toc-link level-1" title="CASE 84.  Neri vs. Senate">CASE 84.  Neri vs. Senate</a></li>
+<li><a href="#sec-85-case-85-akbayan-vs-thomas-aquino" class="toc-link level-1" title="CASE 85.  AKBAYAN vs. Thomas Aquino">CASE 85.  AKBAYAN vs. Thomas Aquino</a></li>
+<li><a href="#sec-86-case-86-gudani-vs-senga" class="toc-link level-1" title="CASE 86.  Gudani vs. Senga">CASE 86.  Gudani vs. Senga</a></li>
+<li><a href="#sec-87-case-87-arnault-vs-nazareno" class="toc-link level-1" title="CASE 87.  Arnault vs. Nazareno">CASE 87.  Arnault vs. Nazareno</a></li>
+<li><a href="#sec-88-case-88-noreco-vs-sangguniang-panlungsod-of-dumaguete" class="toc-link level-1" title="CASE 88.  NORECO vs. Sangguniang Panlungsod of Dumaguete">CASE 88.  NORECO vs. Sangguniang Panlungsod of Dumaguete</a></li>
+<li><a href="#sec-89-case-89-david-vs-macapagal-arroyo" class="toc-link level-1" title="CASE 89.  David vs. Macapagal-Arroyo">CASE 89.  David vs. Macapagal-Arroyo</a></li>
+<li><a href="#sec-90-case-90-lecaroz-vs-sandiganbayan" class="toc-link level-1" title="CASE 90.  Lecaroz vs. Sandiganbayan">CASE 90.  Lecaroz vs. Sandiganbayan</a></li>
+<li><a href="#sec-91-case-91-re-em-no-03-010-comelec-order" class="toc-link level-1" title="CASE 91.  RE: EM No. 03-010 (COMELEC Order)">CASE 91.  RE: EM No. 03-010 (COMELEC Order)</a></li>
+<li><a href="#sec-92-case-92-republic-vs-sereno" class="toc-link level-1" title="CASE 92.  Republic vs. Sereno">CASE 92.  Republic vs. Sereno</a></li>
+<li><a href="#sec-93-case-93-estrada-vs-desierto" class="toc-link level-1" title="CASE 93.  Estrada vs. Desierto">CASE 93.  Estrada vs. Desierto</a></li>
+<li><a href="#sec-94-case-94-civil-liberties-union-vs-executive-secretary" class="toc-link level-1" title="CASE 94.  Civil Liberties Union vs. Executive Secretary">CASE 94.  Civil Liberties Union vs. Executive Secretary</a></li>
+<li><a href="#sec-95-case-95-clarificatory-resolution-in-clu-anti-graft-league-vs" class="toc-link level-1" title="CASE 95.  Clarificatory Resolution in CLU &amp; Anti-Graft League vs. Juico">CASE 95.  Clarificatory Resolution in CLU &amp; Anti-Graft League vs. Juico</a></li>
+<li><a href="#sec-96-case-96-public-interest-center-inc-vs-elma" class="toc-link level-1" title="CASE 96.  Public Interest Center Inc. vs. Elma">CASE 96.  Public Interest Center Inc. vs. Elma</a></li>
+<li><a href="#sec-97-case-97-soliven-vs-makasiar-beltran-vs-makasiar" class="toc-link level-1" title="CASE 97.  Soliven vs. Makasiar / Beltran vs. Makasiar">CASE 97.  Soliven vs. Makasiar / Beltran vs. Makasiar</a></li>
+<li><a href="#sec-98-case-98-marcos-vs-manglapus" class="toc-link level-1" title="CASE 98.  Marcos vs. Manglapus">CASE 98.  Marcos vs. Manglapus</a></li>
+<li><a href="#sec-99-case-99-ocampo-vs-rear-admiral-enriquez" class="toc-link level-1" title="CASE 99.  Ocampo vs. Rear Admiral Enriquez">CASE 99.  Ocampo vs. Rear Admiral Enriquez</a></li>
+<li><a href="#sec-100-case-100-psalm-vs-commissioner-of-internal-revenue" class="toc-link level-1" title="CASE 100.  PSALM vs. Commissioner of Internal Revenue">CASE 100.  PSALM vs. Commissioner of Internal Revenue</a></li>
+<li><a href="#sec-101-case-101-ganzon-vs-ca" class="toc-link level-1" title="CASE 101.  Ganzon vs. CA">CASE 101.  Ganzon vs. CA</a></li>
+<li><a href="#sec-102-case-102-lacson-vs-romero" class="toc-link level-1" title="CASE 102.  Lacson vs. Romero">CASE 102.  Lacson vs. Romero</a></li>
+<li><a href="#sec-103-case-103-aguinaldo-vs-president-aquino-iii" class="toc-link level-1" title="CASE 103.  Aguinaldo vs. President Aquino III">CASE 103.  Aguinaldo vs. President Aquino III</a></li>
+<li><a href="#sec-104-case-104-in-re-valenzuela-and-vallarta" class="toc-link level-1" title="CASE 104.  In Re: Valenzuela and Vallarta">CASE 104.  In Re: Valenzuela and Vallarta</a></li>
+<li><a href="#sec-105-case-105-atty-velicaria-garafil-vs-office-of-the-president" class="toc-link level-1" title="CASE 105.  Atty. Velicaria-Garafil vs. Office of the President">CASE 105.  Atty. Velicaria-Garafil vs. Office of the President</a></li>
+<li><a href="#sec-106-case-106-de-castro-vs-jbc" class="toc-link level-1" title="CASE 106.  De Castro vs. JBC">CASE 106.  De Castro vs. JBC</a></li>
+<li><a href="#sec-107-case-107-de-rama-vs-ca" class="toc-link level-1" title="CASE 107.  De Rama vs. CA">CASE 107.  De Rama vs. CA</a></li>
+<li><a href="#sec-108-case-108-funa-vs-coa-chair" class="toc-link level-1" title="CASE 108.  Funa vs. COA Chair">CASE 108.  Funa vs. COA Chair</a></li>
+<li><a href="#sec-109-case-109-kulayan-vs-tan" class="toc-link level-1" title="CASE 109.  Kulayan vs. Tan">CASE 109.  Kulayan vs. Tan</a></li>
+<li><a href="#sec-110-case-110-ibp-vs-zamora" class="toc-link level-1" title="CASE 110.  IBP vs. Zamora">CASE 110.  IBP vs. Zamora</a></li>
+<li><a href="#sec-111-case-111-padilla-vs-congress-of-the-philippines" class="toc-link level-1" title="CASE 111.  Padilla vs. Congress of the Philippines">CASE 111.  Padilla vs. Congress of the Philippines</a></li>
+<li><a href="#sec-112-case-112-olaguer-vs-military-commission-no-34" class="toc-link level-1" title="CASE 112.  Olaguer vs. Military Commission No. 34">CASE 112.  Olaguer vs. Military Commission No. 34</a></li>
+<li><a href="#sec-113-case-113-macapagal-arroyo-vs-people" class="toc-link level-1" title="CASE 113.  Macapagal-Arroyo vs. People">CASE 113.  Macapagal-Arroyo vs. People</a></li>
+<li><a href="#sec-114-case-114-monsanto-vs-factoran" class="toc-link level-1" title="CASE 114.  Monsanto vs. Factoran">CASE 114.  Monsanto vs. Factoran</a></li>
+<li><a href="#sec-115-case-115-garcia-vs-chairman" class="toc-link level-1" title="CASE 115.  Garcia vs. Chairman">CASE 115.  Garcia vs. Chairman</a></li>
+<li><a href="#sec-116-case-116-in-re-wilfredo-sumulong-torres" class="toc-link level-1" title="CASE 116.  In Re: Wilfredo Sumulong Torres">CASE 116.  In Re: Wilfredo Sumulong Torres</a></li>
+<li><a href="#sec-117-case-117-philconsa-vs-enriquez" class="toc-link level-1" title="CASE 117.  PHILCONSA vs. Enriquez">CASE 117.  PHILCONSA vs. Enriquez</a></li>
+<li><a href="#sec-118-case-118-araullo-vs-aquino-dap-case" class="toc-link level-1" title="CASE 118.  Araullo vs. Aquino (DAP Case)">CASE 118.  Araullo vs. Aquino (DAP Case)</a></li>
+<li><a href="#sec-119-case-119-garcia-vs-drilon" class="toc-link level-1" title="CASE 119.  Garcia vs. Drilon">CASE 119.  Garcia vs. Drilon</a></li>
+<li><a href="#sec-120-case-120-vinuya-vs-executive-secretary" class="toc-link level-1" title="CASE 120.  Vinuya vs. Executive Secretary">CASE 120.  Vinuya vs. Executive Secretary</a></li>
+<li><a href="#sec-121-case-121-save-the-sc-judicial-independence-movement-vs-aboli" class="toc-link level-1" title="CASE 121.  Save the SC Judicial Independence Movement vs. Abolition of JDF">CASE 121.  Save the SC Judicial Independence Movement vs. Abolition of JDF</a></li>
+<li><a href="#sec-122-case-122-isaaa-vs-greenpeace-southeast-asia" class="toc-link level-1" title="CASE 122.  ISAAA vs. Greenpeace Southeast Asia">CASE 122.  ISAAA vs. Greenpeace Southeast Asia</a></li>
+<li><a href="#sec-123-case-123-southwing-heavy-industries-inc-vs-executive-secreta" class="toc-link level-1" title="CASE 123.  Southwing Heavy Industries, Inc. vs. Executive Secretary">CASE 123.  Southwing Heavy Industries, Inc. vs. Executive Secretary</a></li>
+<li><a href="#sec-124-case-124-saguisag-vs-executive-secretary-ochoa" class="toc-link level-1" title="CASE 124.  Saguisag vs. Executive Secretary Ochoa">CASE 124.  Saguisag vs. Executive Secretary Ochoa</a></li>
+<li><a href="#sec-125-case-125-west-tower-condominium-corp-vs-fpic" class="toc-link level-1" title="CASE 125.  West Tower Condominium Corp. vs. FPIC">CASE 125.  West Tower Condominium Corp. vs. FPIC</a></li>
+<li><a href="#sec-126-case-126-segovia-vs-the-climate-change-commission" class="toc-link level-1" title="CASE 126.  Segovia vs. The Climate Change Commission">CASE 126.  Segovia vs. The Climate Change Commission</a></li>
+<li><a href="#sec-127-case-127-southern-hemisphere-engagement-network-vs-atc" class="toc-link level-1" title="CASE 127.  Southern Hemisphere Engagement Network vs. ATC">CASE 127.  Southern Hemisphere Engagement Network vs. ATC</a></li>
+<li><a href="#sec-128-case-128-disini-jr-vs-secretary-of-justice" class="toc-link level-1" title="CASE 128.  Disini, Jr. vs. Secretary of Justice">CASE 128.  Disini, Jr. vs. Secretary of Justice</a></li>
+<li><a href="#sec-129-case-129-imbong-vs-ochoa" class="toc-link level-1" title="CASE 129.  Imbong vs. Ochoa">CASE 129.  Imbong vs. Ochoa</a></li>
+<li><a href="#sec-130-case-130-spark-vs-quezon-city" class="toc-link level-1" title="CASE 130.  SPARK vs. Quezon City">CASE 130.  SPARK vs. Quezon City</a></li>
+<li><a href="#sec-131-case-131-lalican-vs-vergara" class="toc-link level-1" title="CASE 131.  Lalican vs. Vergara">CASE 131.  Lalican vs. Vergara</a></li>
+<li><a href="#sec-132-case-132-drilon-vs-lim" class="toc-link level-1" title="CASE 132.  Drilon vs. Lim">CASE 132.  Drilon vs. Lim</a></li>
+<li><a href="#sec-133-case-133-republic-vs-ca" class="toc-link level-1" title="CASE 133.  Republic vs. CA">CASE 133.  Republic vs. CA</a></li>
+<li><a href="#sec-134-case-134-re-coa-opinion-on-appraised-value-of-retired-justic" class="toc-link level-1" title="CASE 134.  Re: COA Opinion on Appraised Value of Retired Justices&#x27; Properties">CASE 134.  Re: COA Opinion on Appraised Value of Retired Justices&#x27; Properties</a></li>
+<li><a href="#sec-135-case-135-in-re-first-indorsement-from-hon-raul-m-gonzalez" class="toc-link level-1" title="CASE 135.  In Re First Indorsement from Hon. Raul M. Gonzalez">CASE 135.  In Re First Indorsement from Hon. Raul M. Gonzalez</a></li>
+<li><a href="#sec-136-case-136-maceda-vs-vasquez" class="toc-link level-1" title="CASE 136.  Maceda vs. Vasquez">CASE 136.  Maceda vs. Vasquez</a></li>
+<li><a href="#sec-137-case-137-de-vera-vs-pelayo" class="toc-link level-1" title="CASE 137.  De Vera vs. Pelayo">CASE 137.  De Vera vs. Pelayo</a></li>
+<li><a href="#sec-138-case-138-ampong-vs-csc" class="toc-link level-1" title="CASE 138.  Ampong vs. CSC">CASE 138.  Ampong vs. CSC</a></li>
+<li><a href="#sec-139-case-139-carpio-morales-vs-ca-binay" class="toc-link level-1" title="CASE 139.  Carpio-Morales vs. CA &amp; Binay">CASE 139.  Carpio-Morales vs. CA &amp; Binay</a></li>
+<li><a href="#sec-140-case-140-estipona-vs-lobrigo" class="toc-link level-1" title="CASE 140.  Estipona vs. Lobrigo">CASE 140.  Estipona vs. Lobrigo</a></li>
+<li><a href="#sec-141-case-141-mamiscal-vs-clerk-of-court-abdullah" class="toc-link level-1" title="CASE 141.  Mamiscal vs. Clerk of Court Abdullah">CASE 141.  Mamiscal vs. Clerk of Court Abdullah</a></li>
+<li><a href="#sec-142-case-142-sm-land-vs-bcda" class="toc-link level-1" title="CASE 142.  SM Land vs. BCDA">CASE 142.  SM Land vs. BCDA</a></li>
+<li><a href="#sec-143-case-143-sesbreo-vs-ca" class="toc-link level-1" title="CASE 143.  Sesbreño vs. CA">CASE 143.  Sesbreño vs. CA</a></li>
+<li><a href="#sec-144-case-144-re-problem-of-delays-in-cases-before-sandiganbayan" class="toc-link level-1" title="CASE 144.  Re: Problem of Delays in Cases Before Sandiganbayan">CASE 144.  Re: Problem of Delays in Cases Before Sandiganbayan</a></li>
+<li><a href="#sec-145-case-145-re-report-on-judicial-audit-in-rtc-br-56-mandaue" class="toc-link level-1" title="CASE 145.  Re: Report on Judicial Audit in RTC Br. 56 Mandaue">CASE 145.  Re: Report on Judicial Audit in RTC Br. 56 Mandaue</a></li>
+<li><a href="#sec-146-case-146-chavez-vs-jbc" class="toc-link level-1" title="CASE 146.  Chavez vs. JBC">CASE 146.  Chavez vs. JBC</a></li>
+<li><a href="#sec-147-case-147-jardeleza-vs-chief-justice-sereno" class="toc-link level-1" title="CASE 147.  Jardeleza vs. Chief Justice Sereno">CASE 147.  Jardeleza vs. Chief Justice Sereno</a></li>
+<li><a href="#sec-148-case-148-umali-vs-jbc" class="toc-link level-1" title="CASE 148.  Umali vs. JBC">CASE 148.  Umali vs. JBC</a></li>
+<li><a href="#sec-149-case-149-judge-villanueva-vs-jbc" class="toc-link level-1" title="CASE 149.  Judge Villanueva vs. JBC">CASE 149.  Judge Villanueva vs. JBC</a></li>
+      </ul>
+    </nav>
+
+    <main class="reader-main" id="mainArticle">
+      <div class="doc-meta-banner">
+        <h1 class="doc-headline">Constitutional Law 1 Case Digest Titles</h1>
+        <div class="doc-stats">
+          <span>150 Sections</span>
+          <span>~186 min read</span>
+          <span>Manila Law College</span>
+        </div>
+      </div>
+
+      
+        <div class="studio-audio-player">
+          <div class="audio-player-header">
+            <span class="audio-badge">Studio Voice Podcast (Cloud Stream)</span>
+            <span class="audio-filename">Constitutional Law 1 Case Digest Titles.mp3</span>
+          </div>
+          <audio controls preload="metadata" class="native-audio-element">
+            <source src="https://github.com/Julius11011/MLLibrary/releases/download/audio-v0/Constitutional.Law.1.Case.Digest.Titles.mp3" type="audio/mpeg">
+            <source src="https://github.com/Julius11011/MLLibrary/releases/download/audio-v0/Constitutional%20Law%201%20Case%20Digest%20Titles.mp3" type="audio/mpeg">
+            <source src="https://github.com/Julius11011/MLLibrary/releases/download/audio-v1/Constitutional.Law.1.Case.Digest.Titles.mp3" type="audio/mpeg">
+            <source src="https://github.com/Julius11011/MLLibrary/releases/download/audio-v1/Constitutional%20Law%201%20Case%20Digest%20Titles.mp3" type="audio/mpeg">
+            <source src="https://github.com/Julius11011/MLLibrary/releases/download/audio-v2/Constitutional.Law.1.Case.Digest.Titles.mp3" type="audio/mpeg">
+            <source src="https://github.com/Julius11011/MLLibrary/releases/download/audio-v2/Constitutional%20Law%201%20Case%20Digest%20Titles.mp3" type="audio/mpeg">
+            <source src="Constitutional Law 1 Case Digest Titles.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        
+
+      <div id="contentWrapper">
+        <section id="sec-overview" class="doc-section">
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>MANILA LAW COLLEGE • JURIS DOCTOR PROGRAM</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>CONSTITUTIONAL LAW 1</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><em>Masterlist of Assigned Landmark Cases &amp; Digest Titles  -  Paragraph Edition</em></p>
+<div class="table-responsive read-unit" data-unit-type="table"><table class="reader-table"><tr><th>★  MASTER CASE DIRECTORY  -  PARAGRAPH COMPENDIUM
+Format: Paragraph Reading Edition (Non-Tabular Continuous Layout)
+Course: Constitutional Law 1 (1987 Philippine Constitution)
+Total Landmark Cases: 149 Assigned Supreme Court Decisions (Topics I to VII)
+Each entry contains: Case Number, Complete Title, Official Citation, Promulgation Date, and Key Constitutional Doctrine / Principle.</th></tr></table></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Topic I: The Philippine Constitution</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Subject Scope: Amendments, Revision, Ratification, Effectivity, and Judicial Review • 10 Assigned Cases</strong></p>
+</section>
+<hr class="section-divider" />
+<section id="sec-1-case-1-de-leon-vs-esguerra" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 1</span><h2 class="case-header-title">De Leon vs. Esguerra</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>153 SCRA 602, No. L-78059, August 31, 1987</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Effectivity of the 1987 Constitution upon ratification on February 2, 1987 (Art. XVIII, Sec. 27); designation of barangay officials.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-2-case-2-lambino-vs-comelec" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 2</span><h2 class="case-header-title">Lambino vs. COMELEC</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 174153, October 25, 2006</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Difference between Amendment and Revision; Two-Part Test (Quantitative and Qualitative Test); People&#x27;s Initiative requirements.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-3-case-3-imbong-vs-comelec" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 3</span><h2 class="case-header-title">Imbong vs. COMELEC</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>35 SCRA 28 (1970)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Authority of Congress acting as a constituent assembly to call a Constitutional Convention (Art. XVII, Sec. 3).</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-4-case-4-defensor-santiago-vs-comelec" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 4</span><h2 class="case-header-title">Defensor-Santiago vs. COMELEC</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 127325, March 19, 1997</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Inadequacy of RA 6735 for Constitutional Amendments via People&#x27;s Initiative; 12%/3% registered voter requirements and 5-year bar.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-5-case-5-lambino-vs-comelec-resolution-on-mr" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 5</span><h2 class="case-header-title">Lambino vs. COMELEC (Resolution on MR)</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 174153, November 21, 2006</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Affirmation of dismissal of People&#x27;s Initiative petition; requirement of direct proposal by the people.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-6-case-6-gonzales-vs-comelec" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 6</span><h2 class="case-header-title">Gonzales vs. COMELEC</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>21 SCRA 774 (1967)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Submission of proposed constitutional amendments simultaneously with regular general elections is permissible.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-7-case-7-occea-vs-comelec" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 7</span><h2 class="case-header-title">Occeña vs. COMELEC</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>104 SCRA 1 (1981)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Adequacy of time for voters to study proposed constitutional amendments prior to plebiscite.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-8-case-8-almario-vs-alba" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 8</span><h2 class="case-header-title">Almario vs. Alba</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>127 SCRA 69 (1984)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Doctrine of proper submission in constitutional plebiscites; voters&#x27; freedom of choice.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-9-case-9-tolentino-vs-comelec" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 9</span><h2 class="case-header-title">Tolentino vs. COMELEC</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>41 SCRA 702 (1971)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Doctrine of Proper Submission; prohibition against piecemeal ratification of constitutional revisions.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-10-case-10-javellana-vs-executive-secretary" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 10</span><h2 class="case-header-title">Javellana vs. Executive Secretary</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>50 SCRA 30 (1973)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Judicial review of constitutional amendments, political question doctrine, and validity of ratification via Citizens Assemblies.</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Topic II: The Philippines as a State</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Subject Scope: National Territory, Sovereignty, State Immunity, and Exceptions • 19 Assigned Cases</strong></p>
+</section>
+<hr class="section-divider" />
+<section id="sec-11-case-11-the-holy-see-vs-rosario" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 11</span><h2 class="case-header-title">The Holy See vs. Rosario</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>238 SCRA 524, December 1, 1994</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>State Immunity of foreign sovereign states; distinction between acts jure imperii (sovereign) and jure gestionis (commercial).</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-12-case-12-liang-vs-people" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 12</span><h2 class="case-header-title">Liang vs. People</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 125865, January 28, 2000</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Immunity of international agency officials (Asian Development Bank); defamatory acts not covered by official acts immunity.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-13-case-13-arigo-vs-swift" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 13</span><h2 class="case-header-title">Arigo vs. Swift</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 206501, September 16, 2014</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>USS Guardian grounding on Tubbataha Reef; state immunity of foreign military commanders performing sovereign military functions; VFA application.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-14-case-14-seafdec-vs-nlrc" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 14</span><h2 class="case-header-title">SEAFDEC vs. NLRC</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>241 SCRA 580 (1995)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Immunity of international organizations from labor jurisdiction and domestic tribunal processes.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-15-case-15-callado-vs-irri" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 15</span><h2 class="case-header-title">Callado vs. IRRI</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>244 SCRA 210 (1995)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Immunity of International Rice Research Institute (IRRI) from local labor dispute proceedings pursuant to headquarters agreement.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-16-case-16-dfa-vs-nlrc" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 16</span><h2 class="case-header-title">DFA vs. NLRC</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 113191, September 18, 1996</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Immunity of Asian Development Bank; DFA diplomatic certification is conclusive on courts.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-17-case-17-fontanilla-vs-maliaman" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 17</span><h2 class="case-header-title">Fontanilla vs. Maliaman</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>194 SCRA 486 (1991)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Immunity of incorporated government agencies; National Irrigation Administration (NIA) liable for torts when performing proprietary functions.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-18-case-18-farolan-vs-cta" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 18</span><h2 class="case-header-title">Farolan vs. CTA</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>217 SCRA 298 (1993)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Unincorporated government agencies performing purely governmental functions (Bureau of Customs) enjoy state immunity from damage suits.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-19-case-19-china-national-machinery-equipment-corp-vs-santamari" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 19</span><h2 class="case-header-title">China National Machinery &amp; Equipment Corp. vs. Santamaria</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 185572, February 7, 2012</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Commercial nature of Northrail contract excludes foreign government corporation from claiming sovereign immunity.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-20-case-20-civil-aeronautics-administration-vs-ca" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 20</span><h2 class="case-header-title">Civil Aeronautics Administration vs. CA</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. L-51806, November 8, 1968</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Operation of international airport is a proprietary function; CAA is suable for torts and damages resulting from airport maintenance.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-21-case-21-meritt-vs-government-of-the-philippine-islands" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 21</span><h2 class="case-header-title">Meritt vs. Government of the Philippine Islands</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>34 Phil. 311, March 21, 1916</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Classic doctrine that statutory consent to be sued (suability) is not an admission of liability (liability).</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-22-case-22-republic-vs-feliciano" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 22</span><h2 class="case-header-title">Republic vs. Feliciano</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>148 SCRA 424 (1987)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Doctrine of non-suability of the State; necessity of express statutory authority to sue the Republic.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-23-case-23-up-vs-dizon" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 23</span><h2 class="case-header-title">UP vs. Dizon</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 171182, August 23, 2012</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Procedure for money claims against state universities; exclusive primary jurisdiction of the Commission on Audit (COA) under PD 1445.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-24-case-24-city-of-manila-vs-teotico" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 24</span><h2 class="case-header-title">City of Manila vs. Teotico</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. L-23052, January 29, 1968</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Liability of local governments for defective public works and streets under Article 2189 of the Civil Code as a special law.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-25-case-25-usa-vs-ruiz" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 25</span><h2 class="case-header-title">USA vs. Ruiz</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>136 SCRA 487 (1985)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Restrictive doctrine of state immunity; commercial contract for naval base wharf repair is proprietary in character.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-26-case-26-froilan-vs-pan-oriental-shipping" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 26</span><h2 class="case-header-title">Froilan vs. Pan Oriental Shipping</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. L-6060, September 30, 1950</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Implied waiver of state immunity when the government files a complaint against a private party, opening itself to counterclaims.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-27-case-27-municipality-of-san-miguel-vs-fernandez" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 27</span><h2 class="case-header-title">Municipality of San Miguel vs. Fernandez</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>130 SCRA 56 (1984)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Consent to be sued does not include consent to execution; municipal and public funds are exempt from execution and garnishment.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-28-case-28-municipality-of-makati-vs-ca" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 28</span><h2 class="case-header-title">Municipality of Makati vs. CA</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>190 SCRA 206 (1990)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Garnishment of municipal funds is prohibited without prior legislative appropriation ordinance.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-29-case-29-wylie-vs-rarang" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 29</span><h2 class="case-header-title">Wylie vs. Rarang</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>209 SCRA 357 (1992)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>State immunity cannot be used as a shield to perpetrate an injustice; public officers are personally liable for ultra vires and defamatory acts.</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Topic III: The Fundamental Powers of the State</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Subject Scope: Police Power, Eminent Domain (Just Compensation), and Taxation • 25 Assigned Cases</strong></p>
+</section>
+<hr class="section-divider" />
+<section id="sec-30-case-30-mmda-vs-bel-air-village-association-inc" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 30</span><h2 class="case-header-title">MMDA vs. Bel-Air Village Association, Inc.</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>328 SCRA 836, March 27, 2000</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Police power is inherently legislative; MMDA is an administrative coordinator and lacks delegated police power or ordinance-making powers.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-31-case-31-pasei-vs-drilon" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 31</span><h2 class="case-header-title">PASEI vs. Drilon</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>163 SCRA 386 (1988)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Valid exercise of police power in temporarily suspending the deployment of female domestic workers abroad for welfare protection.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-32-case-32-tio-vs-videogram-regulatory-board" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 32</span><h2 class="case-header-title">Tio vs. Videogram Regulatory Board</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>151 SCRA 208 (1987)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Interplay of police power and regulatory taxation over the videogram industry to curb piracy and promote public morals.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-33-case-33-acebedo-optical-company-inc-vs-ca" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 33</span><h2 class="case-header-title">Acebedo Optical Company, Inc. vs. CA</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>329 SCRA 314 (2000)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Delegation of police power to city mayors; mayor cannot impose conditions beyond statutory professional regulations in issuing permits.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-34-case-34-taxicab-operators-of-mm-vs-bot" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 34</span><h2 class="case-header-title">Taxicab Operators of MM vs. BOT</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>117 SCRA 597 (1982)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Phasing out of taxicabs older than 6 years in Metro Manila is a valid exercise of police power for commuter safety and pollution control.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-35-case-35-del-mar-vs-pagcor" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 35</span><h2 class="case-header-title">Del Mar vs. PAGCOR</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>346 SCRA 485 (2000)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>PAGCOR charter does not grant authority to operate or franchise jai-alai betting operations through private joint ventures.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-36-case-36-angeles-university-foundation-vs-city-of-angeles" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 36</span><h2 class="case-header-title">Angeles University Foundation vs. City of Angeles</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 189999, June 27, 2012</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Building permit fees are regulatory police power impositions, not taxes; non-stock educational institutions are not exempt from permit fees.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-37-case-37-southern-luzon-drug-corporation-vs-dswd" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 37</span><h2 class="case-header-title">Southern Luzon Drug Corporation vs. DSWD</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 199669, April 25, 2017</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>The 20% Senior Citizen and PWD discount is a valid exercise of Police Power, not Eminent Domain; tax deduction is sufficient.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-38-case-38-republic-vs-salem-investment-corporation" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 38</span><h2 class="case-header-title">Republic vs. Salem Investment Corporation</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 137569, June 23, 2000</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Requisites for valid eminent domain; necessity of establishing a genuine public use before private property is taken.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-39-case-39-estate-of-salud-jimenez-vs-peza" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 39</span><h2 class="case-header-title">Estate of Salud Jimenez vs. PEZA</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>349 SCRA 240, January 16, 2001</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Abandonment of public purpose in expropriation entitles previous landowner to reacquire the expropriated property.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-40-case-40-mciaa-vs-lozada-jr" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 40</span><h2 class="case-header-title">MCIAA vs. Lozada, Jr.</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 176625, February 25, 2010</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Right of former owners to repurchase expropriated airport lot upon abandonment of the airport expansion project.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-41-case-41-republic-vs-lim" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 41</span><h2 class="case-header-title">Republic vs. Lim</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 161656, June 29, 2005</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Non-payment of just compensation within 5 years from finality of expropriation judgment entitles owner to recover possession.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-42-case-42-heirs-of-alberto-suguitan-vs-city-of-mandaluyong" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 42</span><h2 class="case-header-title">Heirs of Alberto Suguitan vs. City of Mandaluyong</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>328 SCRA 137, March 14, 2000</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>LGU expropriation under Section 19 of the Local Government Code requires an Ordinance enacted by the Sanggunian, not a mere resolution.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-43-case-43-smi-development-corporation-vs-republic" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 43</span><h2 class="case-header-title">SMI Development Corporation vs. Republic</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>323 SCRA 862, January 28, 2000</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Definiteness of public use in eminent domain; expropriation must serve a clearly specified public purpose.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-44-case-44-philippine-press-institute-vs-comelec" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 44</span><h2 class="case-header-title">Philippine Press Institute vs. COMELEC</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 119694, May 22, 1995</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Compelling print media to provide free &#x27;Comelec Space&#x27; constitutes taking of private property without just compensation.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-45-case-45-telebap-inc-vs-comelec" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 45</span><h2 class="case-header-title">TELEBAP, Inc. vs. COMELEC</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>289 SCRA 337, April 21, 1998</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Requirement of free broadcast airtime for Comelec is a valid condition of public airwave franchises under police power.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-46-case-46-heirs-of-juancho-ardona-vs-reyes" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 46</span><h2 class="case-header-title">Heirs of Juancho Ardona vs. Reyes</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>125 SCRA 220 (1983)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Concept of public use in eminent domain encompasses tourism development, economic infrastructure, and social promotion.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-47-case-47-osg-vs-ayala-land-incorporated" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 47</span><h2 class="case-header-title">OSG vs. Ayala Land Incorporated</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 177056, September 18, 2009</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Prohibiting shopping malls from charging parking fees is an unconstitutional taking of private property without compensation.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-48-case-48-mosqueda-vs-pilipino-banana-growers-exporters" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 48</span><h2 class="case-header-title">Mosqueda vs. Pilipino Banana Growers &amp; Exporters</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 189185, August 16, 2016</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>City ordinance banning aerial spraying is an unreasonable and oppressive police power measure violating due process and equal protection.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-49-case-49-secretary-of-dpwh-vs-spouses-tecson" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 49</span><h2 class="case-header-title">Secretary of DPWH vs. Spouses Tecson</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 179334, April 21, 2015</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Determination of just compensation is based on the fair market value at the time of taking, plus legal interest until fully paid.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-50-case-50-npc-vs-heirs-of-macabangkit-sangkay" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 50</span><h2 class="case-header-title">NPC vs. Heirs of Macabangkit Sangkay</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>656 SCRA 60 (2011)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Inverse condemnation; construction of underground hydroelectric tunnel without compensation is a taking; action does not prescribe.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-51-case-51-epza-now-peza-vs-pulido" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 51</span><h2 class="case-header-title">EPZA (now PEZA) vs. Pulido</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>656 SCRA 315 (2011)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Application of the Doctrine of the Law of the Case in determining just compensation valuation.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-52-case-52-republic-vs-judge-mupas-and-piatco" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 52</span><h2 class="case-header-title">Republic vs. Judge Mupas and PIATCO</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 181892, September 8, 2015</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Valuation methodology in NAIA Terminal 3 expropriation; replacement cost method and depreciated structural value.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-53-case-53-lbp-vs-dalauta" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 53</span><h2 class="case-header-title">LBP vs. Dalauta</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 190004, August 8, 2017</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Judicial determination of just compensation is an exclusive court power; DARAB administrative formulas serve as non-binding guidelines.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-54-case-54-alfonso-vs-lbp-and-dar" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 54</span><h2 class="case-header-title">Alfonso vs. LBP and DAR</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 181912, November 29, 2016</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Trial courts must consider statutory factors in RA 6657 and DAR formulas in judicially computing agrarian just compensation.</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Topic IV: State Policies, Principles and General Considerations</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Subject Scope: Republicanism, Separation of Powers, Ecology, Nationalist Provisions, Regalian Doctrine • 11 Assigned Cases</strong></p>
+</section>
+<hr class="section-divider" />
+<section id="sec-55-case-55-mmda-vs-concerned-residents-of-manila-bay" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 55</span><h2 class="case-header-title">MMDA vs. Concerned Residents of Manila Bay</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. Nos. 171947-48, February 15, 2011</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Continuing Mandamus; separation of powers does not bar the Supreme Court from directing executive agencies to perform ministerial duties to clean Manila Bay.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-56-case-56-belgica-vs-ochoa-jr" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 56</span><h2 class="case-header-title">Belgica vs. Ochoa, Jr.</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 208566, November 19, 2013</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Unconstitutionality of the PDAF / Pork Barrel System; violation of separation of powers and non-delegation doctrine; Two Fundamental Tests of delegation.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-57-case-57-gonzales-iii-vs-office-of-the-president" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 57</span><h2 class="case-header-title">Gonzales III vs. Office of the President</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 196231, January 28, 2014</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Constitutional independence of the Office of the Ombudsman; President cannot administratively discipline the Deputy Ombudsman.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-58-case-58-garcia-vs-executive-secretary" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 58</span><h2 class="case-header-title">Garcia vs. Executive Secretary</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 198554, July 30, 2012</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Civilian supremacy over the military (Art. II, Sec. 3); President&#x27;s power to create fact-finding and truth commissions.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-59-case-59-oposa-vs-factoran-jr" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 59</span><h2 class="case-header-title">Oposa vs. Factoran, Jr.</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>224 SCRA 792 (1993)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Intergenerational responsibility; the right to a balanced and healthful ecology (Art. II, Sec. 16) is self-executing and confers legal standing on minors.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-60-case-60-cadet-1cl-cudia-vs-superintendent-of-pma" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 60</span><h2 class="case-header-title">Cadet 1CL Cudia vs. Superintendent of PMA</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 211362, February 24, 2015</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Academic freedom of military institutions includes the right to dismiss cadets who violate the Honor Code, provided minimum due process is observed.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-61-case-61-behest-loans-committee-vs-desierto" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 61</span><h2 class="case-header-title">Behest Loans Committee vs. Desierto</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 130140, October 25, 1999</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>State right to recover ill-gotten wealth under Art. XI, Sec. 15; prescription for behest loans starts from discovery by investigative committee.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-62-case-62-isagani-cruz-vs-secretary-of-denr" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 62</span><h2 class="case-header-title">Isagani Cruz vs. Secretary of DENR</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 135385, December 6, 2000</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Regalian Doctrine (Art. XII, Sec. 2) vs Indigenous Peoples&#x27; Rights Act (IPRA / RA 8371); recognition of ancestral domain ownership.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-63-case-63-resident-marine-mammals-vs-sec-angelo-reyes" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 63</span><h2 class="case-header-title">Resident Marine Mammals vs. Sec. Angelo Reyes</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 180771, April 21, 2015</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Legal standing of human stewards on behalf of cetacean species; unconstitutionality of Service Contract No. 46 in Tañon Strait protected seascape.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-64-case-64-roy-iii-vs-chairperson-herbosa" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 64</span><h2 class="case-header-title">Roy III vs. Chairperson Herbosa</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 207246, November 22, 2016</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>The 60-40 Filipino ownership rule for public utilities (Art. XII, Sec. 11) applies separately to both voting shares and beneficial ownership.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-65-case-65-pnoc-vs-keppel-philippines-holdings-inc" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 65</span><h2 class="case-header-title">PNOC vs. Keppel Philippines Holdings, Inc.</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 202050, July 25, 2016</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Constitutional prohibition against foreign acquisition of private lands (Art. XII, Sec. 7); option contracts granting land purchase to foreign corporations are void.</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Topic V: Legislative Department</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Subject Scope: Bicameral Congress, Privileges, Disqualifications, Inquiries, Impeachment, and Legislative Veto • 27 Assigned Cases</strong></p>
+</section>
+<hr class="section-divider" />
+<section id="sec-66-case-66-lagman-vs-executive-secretary" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 66</span><h2 class="case-header-title">Lagman vs. Executive Secretary</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 231658, July 4, 2017</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Delegated emergency powers; martial law proclamation in Mindanao; separate vs joint review powers of Congress and the Supreme Court.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-67-case-67-trillanes-iv-vs-hon-oscar-pimentel-sr" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 67</span><h2 class="case-header-title">Trillanes IV vs. Hon. Oscar Pimentel, Sr.</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 179817, June 27, 2008</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Election to the Senate does not confer immunity from criminal detention for coup d&#x27;état; legislative work cannot be performed inside prison.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-68-case-68-aquino-vs-comelec" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 68</span><h2 class="case-header-title">Aquino vs. COMELEC</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 189793, April 7, 2010</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Constitutional apportionment of legislative districts; the 250,000 population requirement applies to cities, not to whole provinces.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-69-case-69-bagabuyo-vs-comelec" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 69</span><h2 class="case-header-title">Bagabuyo vs. COMELEC</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 176970, December 8, 2008</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Reapportionment of legislative districts via statute does not require a plebiscite under Article X, Section 10.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-70-case-70-sema-vs-comelec" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 70</span><h2 class="case-header-title">Sema vs. COMELEC</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 177597, July 16, 2008</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Power to create legislative districts belongs exclusively to the national Congress; ARMM regional assembly cannot create provinces or districts.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-71-case-71-people-vs-jalosjos" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 71</span><h2 class="case-header-title">People vs. Jalosjos</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>324 SCRA 689, February 3, 2000</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Parliamentary immunity from arrest (Art. VI, Sec. 11) is unavailable for offenses punishable by more than 6 years imprisonment.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-72-case-72-osmea-vs-pendatun" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 72</span><h2 class="case-header-title">Osmeña vs. Pendatun</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>109 Phil. 863 (1960)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Speech and debate clause protects legislators from external liability, but the House retains inherent disciplinary power to suspend its members.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-73-case-73-pobre-vs-santiago" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 73</span><h2 class="case-header-title">Pobre vs. Santiago</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>A.C. No. 7399, August 25, 2009</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Absolute parliamentary immunity of Senators for speeches delivered on the Senate floor bars disciplinary disbarment proceedings.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-74-case-74-liban-vs-gordon" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 74</span><h2 class="case-header-title">Liban vs. Gordon</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 175352, July 15, 2009 / Jan 18, 2011</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Incompatible offices under Art. VI, Sec. 13; holding the office of Philippine Red Cross Chairman does not forfeit Senate seat.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-75-case-75-baguilat-vs-speaker-alvarez" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 75</span><h2 class="case-header-title">Baguilat vs. Speaker Alvarez</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 227757, July 25, 2017</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Internal election of House officers and recognition of Minority Leader is a non-justiciable political question.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-76-case-76-pimentel-vs-hret" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 76</span><h2 class="case-header-title">Pimentel vs. HRET</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>393 SCRA 227 (2002)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Independence and constitutional composition of the House of Representatives Electoral Tribunal (HRET).</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-77-case-77-vilando-vs-hret" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 77</span><h2 class="case-header-title">Vilando vs. HRET</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>656 SCRA 17 (2011)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Exclusive jurisdiction of HRET over election, returns, and qualifications of House members.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-78-case-78-reyes-vs-comelec" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 78</span><h2 class="case-header-title">Reyes vs. COMELEC</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 207264, June 25, 2013</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Jurisdiction transition from COMELEC to HRET requires three requisites: valid proclamation, proper oath, and assumption of office.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-79-case-79-velasco-vs-speaker-belmonte" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 79</span><h2 class="case-header-title">Velasco vs. Speaker Belmonte</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 211140, January 12, 2016</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Ministerial duty of the House Speaker to administer oath to the candidate conclusively declared winner by final Supreme Court judgment.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-80-case-80-abayon-vs-comelec" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 80</span><h2 class="case-header-title">Abayon vs. COMELEC</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 189434, February 11, 2010</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>HRET has exclusive jurisdiction over qualifications and election disputes involving Party-List representatives once proclaimed and seated.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-81-case-81-abakada-guro-vs-purisima" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 81</span><h2 class="case-header-title">ABAKADA Guro vs. Purisima</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 166715, August 14, 2008</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Three kinds of legislative oversight: scrutiny, investigation, and supervision; unconstitutionality of legislative veto post-enactment.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-82-case-82-garcilliano-vs-house-of-representatives" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 82</span><h2 class="case-header-title">Garcilliano vs. House of Representatives</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 170338, December 23, 2008</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Power of legislative inquiry (Art. VI, Sec. 21) requires publication of inquiry rules of procedure in newspapers of general circulation or Official Gazette.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-83-case-83-senate-of-the-philippines-vs-ermita" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 83</span><h2 class="case-header-title">Senate of the Philippines vs. Ermita</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 169777, April 20, 2006</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Unconstitutionality of EO 464; Executive Privilege cannot be invoked as an blanket ban preventing cabinet officials from attending inquiries.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-84-case-84-neri-vs-senate" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 84</span><h2 class="case-header-title">Neri vs. Senate</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 180643, September 5, 2008</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Elements of Presidential Communications Privilege: relation to quintessential presidential power, authored by close advisors, valid claim.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-85-case-85-akbayan-vs-thomas-aquino" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 85</span><h2 class="case-header-title">AKBAYAN vs. Thomas Aquino</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 170516, July 16, 2008</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Executive privilege over diplomatic and treaty negotiations (JPEPA) during pendency of international treaty formulation.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-86-case-86-gudani-vs-senga" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 86</span><h2 class="case-header-title">Gudani vs. Senga</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 170561, August 15, 2006</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>President as Commander-in-Chief may order military officers not to testify before legislative inquiries without prior presidential clearance.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-87-case-87-arnault-vs-nazareno" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 87</span><h2 class="case-header-title">Arnault vs. Nazareno</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. L-3820, July 18, 1950</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Inherent power of Congress to punish recalcitrant witnesses for contempt and commit them to prison until they answer proper inquiries.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-88-case-88-noreco-vs-sangguniang-panlungsod-of-dumaguete" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 88</span><h2 class="case-header-title">NORECO vs. Sangguniang Panlungsod of Dumaguete</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>155 SCRA 421 (1987)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Local legislative councils (Sanggunian) do not possess inherent power to punish for contempt in the absence of express statutory grant.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-89-case-89-david-vs-macapagal-arroyo" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 89</span><h2 class="case-header-title">David vs. Macapagal-Arroyo</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 171396, May 3, 2006</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Presidential immunity from suit during incumbency; President cannot be sued in court while holding office, but remains subject to impeachment.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-90-case-90-lecaroz-vs-sandiganbayan" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 90</span><h2 class="case-header-title">Lecaroz vs. Sandiganbayan</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>128 SCRA 324 (1984)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Impeachable officers cannot be charged criminally before the Sandiganbayan for offenses warranting removal until removed via impeachment.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-91-case-91-re-em-no-03-010-comelec-order" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 91</span><h2 class="case-header-title">RE: EM No. 03-010 (COMELEC Order)</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>A.M. No. 03-8-22-SC, September 16, 2003</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Exclusivity of impeachment mechanism for constitutional commissioners; disciplinary jurisdiction.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-92-case-92-republic-vs-sereno" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 92</span><h2 class="case-header-title">Republic vs. Sereno</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 237428, June 19, 2018</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Quo warranto against an impeachable officer for lack of constitutional qualifications and integrity is legally distinct from impeachment.</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Topic VI: Executive Department</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Subject Scope: The Presidency, Succession, Prohibitions, Powers (Control, Appointment, Military, Clemency) • 26 Assigned Cases</strong></p>
+</section>
+<hr class="section-divider" />
+<section id="sec-93-case-93-estrada-vs-desierto" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 93</span><h2 class="case-header-title">Estrada vs. Desierto</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. Nos. 146710-15, March 2, 2001</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Constructive resignation of the President; permanent vacancy under Art. VII, Sec. 8; totality of prior, contemporaneous, and subsequent acts.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-94-case-94-civil-liberties-union-vs-executive-secretary" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 94</span><h2 class="case-header-title">Civil Liberties Union vs. Executive Secretary</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>194 SCRA 317 (1991)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Article VII, Section 13 imposes a strict prohibition on Cabinet members holding multiple appointive offices, stricter than Article IX-B.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-95-case-95-clarificatory-resolution-in-clu-anti-graft-league-vs" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 95</span><h2 class="case-header-title">Clarificatory Resolution in CLU &amp; Anti-Graft League vs. Juico</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 83896, August 1, 1991</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Ex-officio positions closely related to primary department functions and uncompensated are exempt from multiple office ban.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-96-case-96-public-interest-center-inc-vs-elma" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 96</span><h2 class="case-header-title">Public Interest Center Inc. vs. Elma</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 138965, June 30, 2006</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Holding concurrent offices of Chief Presidential Legal Counsel and PCGG Chairman violates the constitutional ban on multiple offices.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-97-case-97-soliven-vs-makasiar-beltran-vs-makasiar" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 97</span><h2 class="case-header-title">Soliven vs. Makasiar / Beltran vs. Makasiar</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>167 SCRA 393 (1988)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Presidential immunity is a personal privilege of the President and does not prevent the President from initiating criminal libel complaints.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-98-case-98-marcos-vs-manglapus" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 98</span><h2 class="case-header-title">Marcos vs. Manglapus</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>177 SCRA 668 (1989)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Residual executive power of the President under Art. VII, Sec. 1 to protect peace and order and prevent entry of destabilizing former dictator.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-99-case-99-ocampo-vs-rear-admiral-enriquez" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 99</span><h2 class="case-header-title">Ocampo vs. Rear Admiral Enriquez</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 225973, November 8, 2016</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Presidential discretion under executive control powers to allow burial of former President Marcos at Libingan ng mga Bayani.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-100-case-100-psalm-vs-commissioner-of-internal-revenue" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 100</span><h2 class="case-header-title">PSALM vs. Commissioner of Internal Revenue</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 198146, August 8, 2017</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Presidential power of control over government corporations; mandatory administrative settlement of disputes between state agencies.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-101-case-101-ganzon-vs-ca" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 101</span><h2 class="case-header-title">Ganzon vs. CA</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>200 SCRA 271 (1991)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>General supervision over local government units under Art. X, Sec. 4 does not include control; Secretary cannot arbitrarily suspend elected mayors.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-102-case-102-lacson-vs-romero" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 102</span><h2 class="case-header-title">Lacson vs. Romero</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>84 Phil. 740 (1949)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Four stages of appointing process: nomination, confirmation, issuance of commission, and acceptance by the appointee.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-103-case-103-aguinaldo-vs-president-aquino-iii" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 103</span><h2 class="case-header-title">Aguinaldo vs. President Aquino III</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 224302, November 29, 2016</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Presidential appointment power from JBC shortlists; clustering of nominees for multiple Sandiganbayan vacancies is unconstitutional.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-104-case-104-in-re-valenzuela-and-vallarta" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 104</span><h2 class="case-header-title">In Re: Valenzuela and Vallarta</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>298 SCRA 408, November 9, 1998</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Prohibition on midnight appointments under Art. VII, Sec. 15 applies to appointments in the Judiciary.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-105-case-105-atty-velicaria-garafil-vs-office-of-the-president" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 105</span><h2 class="case-header-title">Atty. Velicaria-Garafil vs. Office of the President</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 203372, June 16, 2015</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Requisites of midnight appointment; validity of Executive Order No. 2 revoking midnight appointments lacking complete transmission.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-106-case-106-de-castro-vs-jbc" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 106</span><h2 class="case-header-title">De Castro vs. JBC</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 191002, April 20, 2010</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>The constitutional ban on midnight appointments (Art. VII, Sec. 15) does not apply to appointments to the Supreme Court (Art. VIII, Sec. 4[1]).</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-107-case-107-de-rama-vs-ca" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 107</span><h2 class="case-header-title">De Rama vs. CA</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>353 SCRA 94, February 28, 2001</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Appointments made prior to the commencement of the election ban period are valid and do not constitute midnight appointments.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-108-case-108-funa-vs-coa-chair" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 108</span><h2 class="case-header-title">Funa vs. COA Chair</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 192791, April 24, 2012</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Prohibition on promotional appointment of an incumbent Commissioner to the office of COA Chairman for a fresh 7-year term.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-109-case-109-kulayan-vs-tan" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 109</span><h2 class="case-header-title">Kulayan vs. Tan</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 187298, July 3, 2012</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Calling out powers under Commander-in-Chief clause belong exclusively to the President; provincial governors cannot call out the AFP.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-110-case-110-ibp-vs-zamora" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 110</span><h2 class="case-header-title">IBP vs. Zamora</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 141284, August 15, 2000</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Judicial review of the factual basis of calling out the armed forces to assist the Philippine National Police in joint visibility patrols.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-111-case-111-padilla-vs-congress-of-the-philippines" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 111</span><h2 class="case-header-title">Padilla vs. Congress of the Philippines</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 231671, July 25, 2017</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Congress is not required to convene in joint session to approve martial law unless it intends to revoke or extend the proclamation.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-112-case-112-olaguer-vs-military-commission-no-34" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 112</span><h2 class="case-header-title">Olaguer vs. Military Commission No. 34</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>150 SCRA 144 (1987)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Open Court Doctrine; military tribunals have no jurisdiction over civilians when civil courts are functioning under martial law.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-113-case-113-macapagal-arroyo-vs-people" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 113</span><h2 class="case-header-title">Macapagal-Arroyo vs. People</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 220598, July 19, 2016</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Doctrine of Command Responsibility applies in armed conflict/IHL, but does not substitute for proof of overt acts in plunder prosecutions.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-114-case-114-monsanto-vs-factoran" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 114</span><h2 class="case-header-title">Monsanto vs. Factoran</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>170 SCRA 190 (1989)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Absolute pardon relieves penalty but does not erase guilt or automatically restore an employee to public office without fresh appointment.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-115-case-115-garcia-vs-chairman" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 115</span><h2 class="case-header-title">Garcia vs. Chairman</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 75025, September 14, 1993</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Executive clemency by the President and eligibility for reinstatement to civil service without back salaries.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-116-case-116-in-re-wilfredo-sumulong-torres" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 116</span><h2 class="case-header-title">In Re: Wilfredo Sumulong Torres</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>251 SCRA 709, December 29, 1995</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Violation of the terms of a conditional pardon authorizes the President to order the immediate rearrest and recommitment of the convict.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-117-case-117-philconsa-vs-enriquez" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 117</span><h2 class="case-header-title">PHILCONSA vs. Enriquez</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>235 SCRA 506, August 9, 1994</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Power of impoundment; executive refusal to spend appropriated funds requires express statutory authority and guidelines.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-118-case-118-araullo-vs-aquino-dap-case" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 118</span><h2 class="case-header-title">Araullo vs. Aquino (DAP Case)</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 209287, February 3, 2015</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Unconstitutionality of Disbursement Acceleration Program (DAP) cross-border transfers and pooling of unobligated funds under Art. VI, Sec. 25(5).</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Topic VII: Judicial Department</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Subject Scope: Judicial Power, Requisites of Judicial Review, Safeguards of Independence, The Supreme Court, and JBC • 31 Assigned Cases</strong></p>
+</section>
+<hr class="section-divider" />
+<section id="sec-119-case-119-garcia-vs-drilon" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 119</span><h2 class="case-header-title">Garcia vs. Drilon</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>699 SCRA 352 (2013)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Expanded judicial power under Art. VIII, Sec. 1 to correct grave abuse of discretion; constitutionality of Anti-VAWC Act (RA 9262).</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-120-case-120-vinuya-vs-executive-secretary" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 120</span><h2 class="case-header-title">Vinuya vs. Executive Secretary</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 162230, April 28, 2010</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Political Question Doctrine; executive discretion in foreign affairs regarding diplomatic claims of Filipino comfort women against Japan.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-121-case-121-save-the-sc-judicial-independence-movement-vs-aboli" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 121</span><h2 class="case-header-title">Save the SC Judicial Independence Movement vs. Abolition of JDF</h2></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Citation: </strong><em>UDK-15143, January 21, 2015</em></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Actual case or controversy requisite; premature challenge against proposed legislative bill abolishing the Judiciary Development Fund.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-122-case-122-isaaa-vs-greenpeace-southeast-asia" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 122</span><h2 class="case-header-title">ISAAA vs. Greenpeace Southeast Asia</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 209271, July 26, 2016</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Moot and academic doctrine exceptions: capable of repetition yet evading review and paramount public interest (Bt talong field trials).</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-123-case-123-southwing-heavy-industries-inc-vs-executive-secreta" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 123</span><h2 class="case-header-title">Southwing Heavy Industries, Inc. vs. Executive Secretary</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 164171, February 20, 2006</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Direct injury test for legal standing (locus standi); validity of Executive Order No. 156 banning importation of used motor vehicles.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-124-case-124-saguisag-vs-executive-secretary-ochoa" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 124</span><h2 class="case-header-title">Saguisag vs. Executive Secretary Ochoa</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 212426, January 12, 2016</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Legislator&#x27;s standing to challenge the Enhanced Defense Cooperation Agreement (EDCA) as an executive agreement vs treaty.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-125-case-125-west-tower-condominium-corp-vs-fpic" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 125</span><h2 class="case-header-title">West Tower Condominium Corp. vs. FPIC</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 194239, June 16, 2015</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Writ of Kalikasan; legal standing of condominium corporation and residents to sue for pipeline oil leaks affecting public health and safety.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-126-case-126-segovia-vs-the-climate-change-commission" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 126</span><h2 class="case-header-title">Segovia vs. The Climate Change Commission</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 211010, March 7, 2017</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Writ of Kalikasan vs Writ of Continuing Mandamus; Road Sharing Principle and lack of specific ministerial duty to partition roadways.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-127-case-127-southern-hemisphere-engagement-network-vs-atc" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 127</span><h2 class="case-header-title">Southern Hemisphere Engagement Network vs. ATC</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>632 SCRA 146 (2010)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Prohibition against third-party standing; facial challenge on overbreadth and vagueness is permissible only in free speech, not penal laws.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-128-case-128-disini-jr-vs-secretary-of-justice" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 128</span><h2 class="case-header-title">Disini, Jr. vs. Secretary of Justice</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 203335, February 18, 2014</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Facial challenge against provisions of the Cybercrime Prevention Act of 2012 (RA 10175); void for vagueness and overbreadth in online libel.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-129-case-129-imbong-vs-ochoa" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 129</span><h2 class="case-header-title">Imbong vs. Ochoa</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 204819, April 8, 2014</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Facial challenge against the Reproductive Health Law (RA 10354); protection of the life of the unborn from conception under Art. II, Sec. 12.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-130-case-130-spark-vs-quezon-city" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 130</span><h2 class="case-header-title">SPARK vs. Quezon City</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 225442, August 8, 2017</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Facial challenge against city curfew ordinances for minors; application of strict scrutiny test to protect freedom of movement and assembly.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-131-case-131-lalican-vs-vergara" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 131</span><h2 class="case-header-title">Lalican vs. Vergara</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>276 SCRA 518 (1997)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>The &#x27;lis mota&#x27; of the case; courts will not pass upon a constitutional question if the case can be disposed of on other legal grounds.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-132-case-132-drilon-vs-lim" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 132</span><h2 class="case-header-title">Drilon vs. Lim</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 112497, August 4, 1994</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Doctrine of Purposeful Hesitation; courts proceed with caution before striking down statutes or ordinances as unconstitutional.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-133-case-133-republic-vs-ca" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 133</span><h2 class="case-header-title">Republic vs. CA</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 79732, November 8, 1993</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Doctrine of Operative Fact; recognizing the legal consequences and rights accrued under a statute prior to its judicial declaration of invalidity.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-134-case-134-re-coa-opinion-on-appraised-value-of-retired-justic" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 134</span><h2 class="case-header-title">Re: COA Opinion on Appraised Value of Retired Justices&#x27; Properties</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>A.M. No. 11-7-10-SC, July 31, 2012</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Fiscal Autonomy of the Judiciary under Art. VIII, Sec. 3; COA cannot audit or interfere with Supreme Court constitutional fiscal prerogatives.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-135-case-135-in-re-first-indorsement-from-hon-raul-m-gonzalez" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 135</span><h2 class="case-header-title">In Re First Indorsement from Hon. Raul M. Gonzalez</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>A.M. No. 88-4-5433, April 15, 1988</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Independence of Supreme Court Justices; Tanodbayan/Ombudsman has no jurisdiction to investigate incumbent Justices for judicial acts.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-136-case-136-maceda-vs-vasquez" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 136</span><h2 class="case-header-title">Maceda vs. Vasquez</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>221 SCRA 464 (1993)</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Ombudsman must refer criminal and administrative complaints against judges arising from judicial duties to the Supreme Court for determination.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-137-case-137-de-vera-vs-pelayo" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 137</span><h2 class="case-header-title">De Vera vs. Pelayo</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>335 SCRA 281, July 6, 2000</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Administrative supervision over all courts and court personnel is the exclusive constitutional prerogative of the Supreme Court.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-138-case-138-ampong-vs-csc" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 138</span><h2 class="case-header-title">Ampong vs. CSC</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 167916, August 26, 2008</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Civil Service Commission has no authority to investigate or discipline court personnel without Supreme Court clearance.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-139-case-139-carpio-morales-vs-ca-binay" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 139</span><h2 class="case-header-title">Carpio-Morales vs. CA &amp; Binay</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. Nos. 217126-27, November 10, 2015</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Abandonment of the Condonation / Aguinaldo Doctrine; unconstitutionality of Section 14, par. 2 of RA 6770 restricting court injunctions.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-140-case-140-estipona-vs-lobrigo" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 140</span><h2 class="case-header-title">Estipona vs. Lobrigo</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 226679, August 15, 2017</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Exclusive rule-making power of the Supreme Court under Art. VIII, Sec. 5(5); Section 23 of RA 9165 banning plea bargaining in drug cases is unconstitutional.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-141-case-141-mamiscal-vs-clerk-of-court-abdullah" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 141</span><h2 class="case-header-title">Mamiscal vs. Clerk of Court Abdullah</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>A.M. No. SCC-13-18-J, July 1, 2015</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Sole disciplinary authority of the Supreme Court over personnel of Shari&#x27;a Courts.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-142-case-142-sm-land-vs-bcda" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 142</span><h2 class="case-header-title">SM Land vs. BCDA</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 203655, September 7, 2015</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Supreme Court En Banc voting, quorum, and modification of established doctrinal pronouncements.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-143-case-143-sesbreo-vs-ca" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 143</span><h2 class="case-header-title">Sesbreño vs. CA</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 161390, April 16, 2008</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Constitutional period to decide cases under Art. VIII, Sec. 15; directory nature of periods for lower courts without prejudice to administrative liability.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-144-case-144-re-problem-of-delays-in-cases-before-sandiganbayan" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 144</span><h2 class="case-header-title">Re: Problem of Delays in Cases Before Sandiganbayan</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>A.M. No. 00-8-05-SC, November 28, 2001</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Constitutional duty to observe statutory and constitutional deadlines in rendering judicial decisions.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-145-case-145-re-report-on-judicial-audit-in-rtc-br-56-mandaue" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 145</span><h2 class="case-header-title">Re: Report on Judicial Audit in RTC Br. 56 Mandaue</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>A.M. No. 09-7-284-RTC, February 16, 2011</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Sanctions for gross inefficiency and failure to decide cases within the constitutional period.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-146-case-146-chavez-vs-jbc" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 146</span><h2 class="case-header-title">Chavez vs. JBC</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 202242, April 16, 2013</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Constitutional composition of the Judicial and Bar Council under Art. VIII, Sec. 8; Congress is entitled to only one representative with one vote.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-147-case-147-jardeleza-vs-chief-justice-sereno" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 147</span><h2 class="case-header-title">Jardeleza vs. Chief Justice Sereno</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 213181, August 19, 2014</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Due process in JBC proceedings; invocation of JBC Rule 10, Sec. 2 on integrity challenges requires notice and opportunity to explain.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-148-case-148-umali-vs-jbc" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 148</span><h2 class="case-header-title">Umali vs. JBC</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 228628, July 25, 2017</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>Reiteration of Chavez doctrine; half-vote arrangement between Senate and House representatives in JBC is constitutionally permissible.</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-149-case-149-judge-villanueva-vs-jbc" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 149</span><h2 class="case-header-title">Judge Villanueva vs. JBC</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>Citation: </strong><em>G.R. No. 211833, April 7, 2015</em></span></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>Key Legal Doctrine: </strong>JBC policy requiring 5 years service for first-level judges before promotion to second-level courts is a valid exercise of rule-making discretion.</p>
+</section>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    (function() {
+      const synth = window.speechSynthesis;
+      let voices = [];
+      const readUnits = Array.from(document.querySelectorAll('.read-unit'));
+      const playPauseBtn = document.getElementById('playPauseBtn');
+      const playIcon = document.getElementById('playIcon');
+      const pauseIcon = document.getElementById('pauseIcon');
+      const playBtnText = document.getElementById('playBtnText');
+      const stopBtn = document.getElementById('stopBtn');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const voiceSelect = document.getElementById('voiceSelect');
+      const speedSelect = document.getElementById('speedSelect');
+      const statusBadge = document.getElementById('ttsStatusBadge');
+      const progressBar = document.getElementById('readingProgressBar');
+      const toggleSidebarBtn = document.getElementById('toggleSidebarBtn');
+      const sidebarNav = document.getElementById('sidebarNav');
+      const sidebarSearch = document.getElementById('sidebarSearch');
+      const tocList = document.getElementById('tocList');
+      const themeSelect = document.getElementById('themeSelect');
+      const fontIncBtn = document.getElementById('fontIncBtn');
+      const fontDecBtn = document.getElementById('fontDecBtn');
+
+      let currentUnitIndex = -1;
+      let isPaused = false;
+      let isSpeaking = false;
+      let lastSectionId = null;
+
+      // 1. Sidebar Toggle & Instant Live Filter
+      toggleSidebarBtn.addEventListener('click', () => {
+        sidebarNav.classList.toggle('open');
+      });
+
+      sidebarSearch.addEventListener('input', (e) => {
+        const q = e.target.value.toLowerCase();
+        const items = tocList.querySelectorAll('li');
+        items.forEach(li => {
+          const txt = li.textContent.toLowerCase();
+          li.style.display = txt.includes(q) ? '' : 'none';
+        });
+      });
+
+      // 2. Theme & Font Scaling
+      themeSelect.addEventListener('change', (e) => {
+        document.documentElement.setAttribute('data-theme', e.target.value);
+        localStorage.setItem('mlc_theme', e.target.value);
+      });
+      const savedTheme = localStorage.getItem('mlc_theme');
+      if (savedTheme) {
+        themeSelect.value = savedTheme;
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      }
+
+      let currentFontSize = 17;
+      fontIncBtn.addEventListener('click', () => {
+        if (currentFontSize < 24) {
+          currentFontSize += 1;
+          document.documentElement.style.fontSize = currentFontSize + 'px';
+        }
+      });
+      fontDecBtn.addEventListener('click', () => {
+        if (currentFontSize > 13) {
+          currentFontSize -= 1;
+          document.documentElement.style.fontSize = currentFontSize + 'px';
+        }
+      });
+
+      // 3. Scroll Progress & Active TOC Link Sync
+      window.addEventListener('scroll', () => {
+        const sTop = window.scrollY;
+        const dHeight = document.documentElement.scrollHeight - window.innerHeight;
+        if (dHeight > 0) {
+          progressBar.style.width = ((sTop / dHeight) * 100) + '%';
+        }
+
+        // Sync TOC Active Link
+        const sections = document.querySelectorAll('section.doc-section');
+        let currentActive = null;
+        sections.forEach(sec => {
+          const rect = sec.getBoundingClientRect();
+          if (rect.top <= 140 && rect.bottom >= 140) {
+            currentActive = sec.id;
+          }
+        });
+        if (currentActive) {
+          document.querySelectorAll('.toc-link').forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + currentActive);
+          });
+        }
+      });
+
+      // 4. Voice Population with High-Quality Natural Neural Prioritization
+      function populateVoices() {
+        if (!synth) return;
+        voices = synth.getVoices();
+        voiceSelect.innerHTML = '<option value="default">Auto Best Voice</option>';
+
+        // Score voices: prioritize Neural, Natural, English-US / UK / AU
+        const scored = voices.map((v, i) => {
+          let score = 0;
+          const name = v.name.toLowerCase();
+          if (name.includes('natural') || name.includes('neural') || name.includes('online')) score += 50;
+          if (name.includes('jenny') || name.includes('guy') || name.includes('aria') || name.includes('google')) score += 30;
+          if (v.lang.startsWith('en')) score += 20;
+          return { voice: v, index: i, score };
+        }).sort((a, b) => b.score - a.score);
+
+        scored.forEach(item => {
+          if (item.voice.lang.startsWith('en') || item.score > 20) {
+            const opt = document.createElement('option');
+            opt.value = item.index;
+            opt.textContent = `${item.voice.name} (${item.voice.lang})`;
+            voiceSelect.appendChild(opt);
+          }
+        });
+      }
+
+      if (synth) {
+        populateVoices();
+        if (speechSynthesis.onvoiceschanged !== undefined) {
+          speechSynthesis.onvoiceschanged = populateVoices;
+        }
+      }
+
+      // 5. Smart Legal Phonetic, Deduplication & Roman Numeral Expander
+      function romanToInt(roman) {
+        const map = {
+          'M': 1000, 'CM': 900, 'D': 500, 'CD': 400,
+          'C': 100, 'XC': 90, 'L': 50, 'XL': 40,
+          'X': 10, 'IX': 9, 'V': 5, 'IV': 4, 'I': 1
+        };
+        const s = roman.toUpperCase();
+        let total = 0, i = 0;
+        while (i < s.length) {
+          if (i + 1 < s.length && map[s.substr(i, 2)]) {
+            total += map[s.substr(i, 2)];
+            i += 2;
+          } else if (map[s[i]]) {
+            total += map[s[i]];
+            i += 1;
+          } else {
+            return null;
+          }
+        }
+        return total;
+      }
+
+      const ORDINALS = {
+        'I': 'the first', 'II': 'the second', 'III': 'the third', 'IV': 'the fourth', 'V': 'the fifth',
+        'VI': 'the sixth', 'VII': 'the seventh', 'VIII': 'the eighth', 'IX': 'the ninth', 'X': 'the tenth'
+      };
+
+      function cleanSmartReading(txt) {
+        if (!txt) return '';
+
+        // A. Strip all emojis and decorative symbols completely without surrogates
+        txt = Array.from(txt).filter(c => {
+          const cp = c.codePointAt(0);
+          return cp < 0x2000 || (cp > 0x2BFF && cp < 0x1F000);
+        }).join('');
+        txt = txt.replace(/[•§]/g, ' ');
+
+        // B. Smart Number-Word Deduplication: e.g. "one (1) year" -> "one year", "three (3) months" -> "three months"
+        const numWordPattern = /\b(zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|twenty-five|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand|million)\s*\(\s*\d+\s*\)/gi;
+        txt = txt.replace(numWordPattern, '$1');
+
+        // Reverse Number-Word: e.g. "1 (one)" -> "one", "30 (thirty)" -> "thirty"
+        txt = txt.replace(/\b\d+\s*\(\s*([a-zA-Z\-]+)\s*\)/g, '$1');
+
+        // C. Smart Tag / Bracket Deduplication:
+        // Strip single letter ALAC tags: [A], [L], [A], [C], [A - ANSWER], [L - LEGAL BASIS]
+        txt = txt.replace(/\[\s*[A-Z]\s*[\-–—]?\s*(?:ANSWER|LEGAL\s+BASIS|APPLICATION|ANALYSIS|CONCLUSION)?\s*\]\s*/gi, '');
+
+        // Deduplicate [Tag] Tag ... -> Tag ...
+        txt = txt.replace(/\[\s*([^\]]+)\s*\]\s*[:\-–—]?\s*([\s\S]*)/g, function(match, tag, rest) {
+          tag = tag.trim();
+          if (rest.toLowerCase().startsWith(tag.toLowerCase())) {
+            return rest;
+          }
+          return tag + ': ' + rest;
+        });
+
+        // Deduplicate adjacent identical words/phrases: e.g. "Applicable Applicable" -> "Applicable"
+        txt = txt.replace(/\b([A-Za-z](3,))\b\s+\1\b/gi, '$1');
+
+        // Clean up double colons or punctuation artifacts
+        txt = txt.replace(/:\s*:/g, ':');
+        txt = txt.replace(/\s+/g, ' ').trim();
+        return txt;
+      }
+
+      function expandRomanAndPhonetics(txt) {
+        if (!txt) return '';
+
+        // Run smart deduplication first
+        txt = cleanSmartReading(txt);
+
+        // Master Unified Table: Citations + Cyber & Digital Laws
+        const replacements = [
+          [/\bA\.C\.\s*(?:No\.?\s*)?([A-Za-z0-9\-]+)/gi, 'Administrative Case Number $1'],
+          [/\bA\.M\.\s*(?:No\.?\s*)?([A-Za-z0-9\-]+)/gi, 'Administrative Matter Number $1'],
+          [/\bG\.R\.\s*Nos\.?\s*([A-Za-z0-9\-,\s]+)/gi, 'JEE-AR Numbers $1'],
+          [/\bG\.R\.\s*(?:No\.?\s*)?([A-Za-z0-9\-]+)/gi, 'JEE-AR Number $1'],
+          [/\bG\.R\.\b/gi, 'JEE-AR'],
+          [/\bP\.D\.\s*(?:No\.?\s*)?(\d+)/gi, 'Presidential Decree Number $1'],
+          [/\bPD\s*(\d+)/gi, 'Presidential Decree $1'],
+          [/\bP\.D\.\b/gi, 'Presidential Decree'],
+          [/\bR\.A\.\s*(?:No\.?\s*)?(\d+)/gi, 'Republic Act Number $1'],
+          [/\bRA\s*(\d+)/gi, 'Republic Act $1'],
+          [/\bR\.A\.\b/gi, 'Republic Act'],
+          [/\bPhil\.\s*(\d+)/gi, 'Philippine Reports volume $1'],
+          [/\bPhil\.\b/gi, 'Phil'],
+          [/\bSCRA\b/g, 'SKRA'],
+          [/\bCPRA\b/g, 'SIP-ruh'],
+          [/\bCJCA\b/g, 'SEE-JAY-SEE-AY'],
+          [/\bCPR\b/g, 'Code of Professional Responsibility'],
+          [/\bCCCP\b/g, 'Code of Conduct for Court Personnel'],
+          [/\bJIO\b/g, 'Judicial Integrity Office'],
+          [/\bOCA\b/g, 'Office of the Court Administrator'],
+          [/\bDPA\b/g, 'DEE-PEE-AY'],
+          [/\bITA\b/g, 'EYE-tuh'],
+          [/\bOSAEC\b/g, 'OH-sak'],
+          [/\bAFASA\b/g, 'ah-FAH-suh'],
+          [/\bCPA\b/g, 'Cybercrime Prevention Act'],
+          [/\bREED\b/g, 'REED'],
+          [/\bDICT\b/g, 'DIK-tee'],
+          [/\bCICC\b/g, 'SIK-see'],
+          [/\bRPC\b/g, 'Revised Penal Code'],
+          [/\bIn\s+re\b/gi, 'in Ree'],
+          [/\bet\s+al\./gi, 'et AHL,'],
+          [/\bet\s+al\b/gi, 'et AHL,'],
+          [/\bi\.e\./gi, 'that is,'],
+          [/\be\.g\./gi, 'for example,'],
+          [/\bArt\.\s*(\d+)/gi, 'Article $1'],
+          [/\bArts\.\s*([\d,\s\-]+)/gi, 'Articles $1'],
+          [/\bSec\.\s*(\d+)/gi, 'Section $1'],
+          [/\bSecs\.\s*([\d,\s\-]+)/gi, 'Sections $1'],
+          [/\bPar\.\s*(\d+)/gi, 'Paragraph $1'],
+          [/\s+v(?:s)?\.\s+/gi, ' versus ']
+        ];
+
+        replacements.forEach(([pattern, rep]) => {
+          txt = txt.replace(pattern, rep);
+        });
+
+        // Roman numeral expansions for headings
+        txt = txt.replace(/(^|\n|\.\s+|;\s+)([IVXLCDM]+)\.\s+/gi, function(match, prefix, roman) {
+          const val = romanToInt(roman);
+          return val ? prefix + 'Topic ' + val + ': ' : match;
+        });
+
+        // Names with ordinals: e.g. Macario Ramos II, King Henry VIII
+        txt = txt.replace(/\b([A-Z][a-z]+)\s+([IVXLCDM](1, 4))\b/g, function(match, name, roman) {
+          if (/^(?:Canon|Part|Chapter|Article|Title|Book|Section|Sec|Art|Vol|Volume|Rule|Topic|Case|No|Nos)$/i.test(name)) {
+            return match;
+          }
+          const upperR = roman.toUpperCase();
+          return ORDINALS[upperR] ? name + ' ' + ORDINALS[upperR] : match;
+        });
+
+        // Statutory & structural labels
+        txt = txt.replace(/\b(Canon|Part|Chapter|Article|Title|Book|Section|Sec|Art|Vol|Volume|Rule)\s+([IVXLCDM]+)\b/gi, function(match, prefix, roman) {
+          const val = romanToInt(roman);
+          return val ? prefix + ' ' + val : match;
+        });
+
+        // Parenthesized roman numerals (i), (ii), etc.
+        txt = txt.replace(/\(([ivxlcdm]+)\)/gi, function(match, roman) {
+          const val = romanToInt(roman);
+          return val ? 'sub-item ' + val + ', ' : match;
+        });
+
+        // Smooth intonation pauses
+        txt = txt.replace(/:\s*/g, ': ... ');
+        txt = txt.replace(/;\s*/g, ';, ');
+        txt = txt.replace(/\s*—\s*/g, ' — ... ');
+
+        return txt.trim();
+      }
+
+      function prepareSpeechText(unitEl) {
+        let text = unitEl.innerText || unitEl.textContent || '';
+        return expandRomanAndPhonetics(text);
+      }
+
+      function setSpeakingState(speaking, paused = false) {
+        isSpeaking = speaking;
+        isPaused = paused;
+        if (speaking && !paused) {
+          playIcon.style.display = 'none';
+          pauseIcon.style.display = 'inline';
+          statusBadge.textContent = 'Speaking...';
+          statusBadge.className = 'tts-status-badge speaking';
+        } else if (paused) {
+          playIcon.style.display = 'inline';
+          pauseIcon.style.display = 'none';
+          statusBadge.textContent = 'Paused';
+          statusBadge.className = 'tts-status-badge';
+        } else {
+          playIcon.style.display = 'inline';
+          pauseIcon.style.display = 'none';
+          statusBadge.textContent = 'Ready';
+          statusBadge.className = 'tts-status-badge';
+          clearHighlights();
+        }
+      }
+
+      function clearHighlights() {
+        readUnits.forEach(u => u.classList.remove('is-speaking'));
+      }
+
+      function highlightUnit(idx) {
+        clearHighlights();
+        if (idx >= 0 && idx < readUnits.length) {
+          const unit = readUnits[idx];
+          unit.classList.add('is-speaking');
+          unit.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+
+      function speakUnit(idx) {
+        if (!synth || idx < 0 || idx >= readUnits.length) {
+          setSpeakingState(false);
+          return;
+        }
+
+        synth.cancel();
+        currentUnitIndex = idx;
+        const unit = readUnits[idx];
+        highlightUnit(idx);
+
+        let speechText = prepareSpeechText(unit);
+        
+        // Topic change notification cue
+        const currentSec = unit.closest('section.doc-section');
+        const currentSecId = currentSec ? currentSec.id : null;
+        if (currentSecId && currentSecId !== lastSectionId && currentSec) {
+          const headerEl = currentSec.querySelector('.case-header-title') || currentSec.querySelector('.topic-header-title') || currentSec.querySelector('.subtopic-header-title');
+          if (headerEl) {
+            const topicTitle = expandRomanAndPhonetics(headerEl.innerText.trim());
+            speechText = 'Now Reading: ' + topicTitle + ' ... ... ' + speechText;
+          }
+          lastSectionId = currentSecId;
+        }
+
+        const utterance = new SpeechSynthesisUtterance(speechText);
+        utterance.rate = parseFloat(speedSelect.value) || 0.9;
+        utterance.pitch = 1.0;
+
+        const selVoiceIdx = voiceSelect.value;
+        if (selVoiceIdx !== 'default' && voices[selVoiceIdx]) {
+          utterance.voice = voices[selVoiceIdx];
+        } else if (voices.length > 0) {
+          utterance.voice = voices[0];
+        }
+
+        utterance.onstart = () => {
+          setSpeakingState(true, false);
+        };
+
+        utterance.onend = () => {
+          if (isSpeaking && !isPaused) {
+            if (idx + 1 < readUnits.length) {
+              speakUnit(idx + 1);
+            } else {
+              setSpeakingState(false);
+            }
+          }
+        };
+
+        utterance.onerror = (e) => {
+          if (e.error !== 'interrupted' && e.error !== 'canceled') {
+            console.warn('TTS error:', e);
+          }
+        };
+
+        synth.speak(utterance);
+      }
+
+      playPauseBtn.addEventListener('click', () => {
+        if (!synth) return;
+        if (isSpeaking && !isPaused) {
+          synth.pause();
+          setSpeakingState(true, true);
+        } else if (isPaused) {
+          synth.resume();
+          setSpeakingState(true, false);
+        } else {
+          speakUnit(currentUnitIndex >= 0 ? currentUnitIndex : 0);
+        }
+      });
+
+      stopBtn.addEventListener('click', () => {
+        if (!synth) return;
+        synth.cancel();
+        setSpeakingState(false);
+        currentUnitIndex = -1;
+        lastSectionId = null;
+      });
+
+      nextBtn.addEventListener('click', () => {
+        const target = Math.min(readUnits.length - 1, (currentUnitIndex >= 0 ? currentUnitIndex : 0) + 1);
+        speakUnit(target);
+      });
+
+      prevBtn.addEventListener('click', () => {
+        const target = Math.max(0, (currentUnitIndex >= 0 ? currentUnitIndex : 0) - 1);
+        speakUnit(target);
+      });
+
+      // Click on any paragraph to start speaking from that exact unit
+      document.getElementById('contentWrapper').addEventListener('click', (e) => {
+        const unit = e.target.closest('.read-unit');
+        if (unit) {
+          const idx = readUnits.indexOf(unit);
+          if (idx !== -1) {
+            speakUnit(idx);
+          }
+        }
+      });
+
+      // Floating Selection Reader
+      const floatBtn = document.getElementById('floatingTtsTrigger');
+      document.addEventListener('mouseup', (e) => {
+        if (e.target.closest('#floatingTtsTrigger') || e.target.closest('.tts-toolbar') || e.target.closest('header')) return;
+        const sel = window.getSelection().toString().trim();
+        if (sel.length > 2) {
+          const rect = window.getSelection().getRangeAt(0).getBoundingClientRect();
+          floatBtn.style.top = (window.scrollY + rect.top - 44) + 'px';
+          floatBtn.style.left = (window.scrollX + rect.left + (rect.width / 2)) + 'px';
+          floatBtn.style.display = 'block';
+        } else {
+          floatBtn.style.display = 'none';
+        }
+      });
+
+      floatBtn.addEventListener('click', () => {
+        const sel = window.getSelection().toString().trim();
+        if (sel && synth) {
+          synth.cancel();
+          const utterance = new SpeechSynthesisUtterance(expandRomanAndPhonetics(sel));
+          utterance.rate = parseFloat(speedSelect.value) || 0.9;
+          const selVoiceIdx = voiceSelect.value;
+          if (selVoiceIdx !== 'default' && voices[selVoiceIdx]) {
+            utterance.voice = voices[selVoiceIdx];
+          }
+          synth.speak(utterance);
+          floatBtn.style.display = 'none';
+        }
+      });
+
+      // Keyboard Shortcuts
+      document.addEventListener('keydown', (e) => {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA') return;
+        if (e.code === 'Space') {
+          e.preventDefault();
+          playPauseBtn.click();
+        } else if (e.key === 'Escape') {
+          stopBtn.click();
+        } else if (e.key === 'n' || e.key === 'N') {
+          nextBtn.click();
+        } else if (e.key === 'p' || e.key === 'P') {
+          prevBtn.click();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

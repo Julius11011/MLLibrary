@@ -1757,19 +1757,62 @@ def scan_and_convert_directory(dir_path, overwrite=True):
 def generate_study_hub_index(root_dir):
     root_path = Path(root_dir).resolve()
     
-    # We strictly search inside First Sem 1st Year/Subjects
+    # Strictly scan First Sem 1st Year/Subjects
     subjects_dir = root_path / "First Sem 1st Year" / "Subjects"
     if not subjects_dir.exists():
         subjects_dir = root_path / "Subjects"
     
     html_files = list(subjects_dir.rglob("*.html")) if subjects_dir.exists() else []
 
-    # Map each subject group cleanly
+    # Map each subject group cleanly with explicit support for Constitutional Law & Criminal Law
     by_subject = {
         "Basic Legal and Judiciary Ethics": [],
+        "Constitutional Law": [],
         "Criminal Law": [],
         "Statutory Construction": []
     }
+
+    subject_info = {
+        "Basic Legal and Judiciary Ethics": {
+            "icon": "⚖️",
+            "tag": "BLJE",
+            "desc": "Code of Professional Responsibility and Accountability (CPRA, A.M. No. 22-09-01-SC), Canons of Ethics, & Landmark Precedents",
+            "accent": "#c084fc",
+            "badge_class": "badge-ethics"
+        },
+        "Constitutional Law": {
+            "icon": "🏛️",
+            "tag": "CONSTI-1",
+            "desc": "The 1987 Philippine Constitution, State Immunity Doctrine, Separation of Powers, Judicial Review, & Landmark ALAC Digests",
+            "accent": "#38bdf8",
+            "badge_class": "badge-consti"
+        },
+        "Criminal Law": {
+            "icon": "🛡️",
+            "tag": "CRIM-1",
+            "desc": "Revised Penal Code (Act No. 3815) Book I (Articles 1–113), Felonies, Criminal Liability, Modifying Circumstances, & Supreme Court Doctrines",
+            "accent": "#f87171",
+            "badge_class": "badge-crim"
+        },
+        "Statutory Construction": {
+            "icon": "📜",
+            "tag": "STATCON",
+            "desc": "Canons of Statutory Interpretation, Latin Maxims, Legislative Intent, Extrinsic/Intrinsic Aids, & Case Law Analysis",
+            "accent": "#34d399",
+            "badge_class": "badge-statcon"
+        },
+        "Other Subjects": {
+            "icon": "📚",
+            "tag": "GENERAL",
+            "desc": "Supplementary Legal Compilations and Juris Doctor Course Modules",
+            "accent": "#fbbf24",
+            "badge_class": "badge-other"
+        }
+    }
+
+    total_modules = 0
+    total_audio_count = 0
+    total_digest_count = 0
 
     for h in sorted(html_files, key=lambda x: str(x)):
         rel = h.relative_to(root_path)
@@ -1786,41 +1829,105 @@ def generate_study_hub_index(root_dir):
             by_subject[cat] = []
             
         by_subject[cat].append((h, rel_str))
+        total_modules += 1
 
     groups_html = []
 
     for group_name, files in by_subject.items():
         if not files:
             continue
+        info = subject_info.get(group_name, subject_info["Other Subjects"])
         cards_html = []
         for fpath, rel_str in files:
             doc_name = fpath.stem.replace('_', ' ')
-            mp3_file = fpath.with_suffix('.mp3')
-            has_mp3 = mp3_file.exists()
-            mp3_badge = '<span class="badge-audio">MP3 Podcast</span>' if has_mp3 else ''
-            is_digest = 'digest' in doc_name.lower() or 'case' in doc_name.lower()
-            type_badge = '<span class="badge-reader">Case Digest</span>' if is_digest else '<span class="badge-outline">Course Outline</span>'
             
+            # Companion format paths
+            mp3_file = fpath.with_suffix('.mp3')
+            pdf_file = fpath.with_suffix('.pdf')
+            docx_file = fpath.with_suffix('.docx')
+            
+            has_mp3 = mp3_file.exists()
+            has_pdf = pdf_file.exists()
+            has_docx = docx_file.exists()
+
+            mp3_rel = str(mp3_file.relative_to(root_path)).replace('\\\\', '/').replace('\\', '/') if has_mp3 else ''
+            pdf_rel = str(pdf_file.relative_to(root_path)).replace('\\\\', '/').replace('\\', '/') if has_pdf else ''
+            docx_rel = str(docx_file.relative_to(root_path)).replace('\\\\', '/').replace('\\', '/') if has_docx else ''
+
+            if has_mp3:
+                total_audio_count += 1
+            
+            # Type categorization
+            d_lower = doc_name.lower()
+            if 'digest' in d_lower:
+                type_badge = '<span class="badge-type badge-digest">⚖️ Case Digest</span>'
+                total_digest_count += 1
+            elif 'outline' in d_lower:
+                type_badge = '<span class="badge-type badge-outline">📋 Course Outline</span>'
+            elif 'lecture' in d_lower:
+                type_badge = '<span class="badge-type badge-lecture">📖 Comprehensive Lecture</span>'
+            elif 'canon' in d_lower:
+                type_badge = '<span class="badge-type badge-canon">📜 CPRA Canons</span>'
+            elif 'case' in d_lower or 'landmark' in d_lower:
+                type_badge = '<span class="badge-type badge-cases">🏛️ Landmark Cases</span>'
+                total_digest_count += 1
+            else:
+                type_badge = '<span class="badge-type badge-module">📚 Study Module</span>'
+            
+            # Format availability pills
+            format_pills = []
+            format_pills.append('<span class="fmt-pill fmt-html" title="Interactive Full-Text Reader with Web Speech Synthesis">📖 HTML Reader</span>')
+            if has_mp3:
+                size_mb = mp3_file.stat().st_size / (1024 * 1024)
+                format_pills.append(f'<span class="fmt-pill fmt-mp3" title="Studio Neural Voice MP3 Podcast ({size_mb:.1f} MB)">🎙️ MP3 Podcast</span>')
+            if has_pdf:
+                format_pills.append('<span class="fmt-pill fmt-pdf" title="Adobe PDF Format">📄 PDF</span>')
+            if has_docx:
+                format_pills.append('<span class="fmt-pill fmt-docx" title="Microsoft Word DOCX">📝 DOCX</span>')
+
+            # Quick resource links
+            resource_actions = []
+            if has_mp3:
+                resource_actions.append(f'<a href="{mp3_rel}" class="btn-sub btn-sub-audio" download title="Download Studio MP3 Podcast">🎧 Podcast</a>')
+            if has_pdf:
+                resource_actions.append(f'<a href="{pdf_rel}" class="btn-sub btn-sub-pdf" target="_blank" title="View PDF Document">📄 PDF</a>')
+            if has_docx:
+                resource_actions.append(f'<a href="{docx_rel}" class="btn-sub btn-sub-docx" download title="Download Word DOCX Document">📝 DOCX</a>')
+
             cards_html.append(f'''
-              <div class="hub-card">
+              <div class="hub-card" data-subject="{html.escape(group_name)}" data-title="{html.escape(doc_name.lower())}" data-has-audio="{str(has_mp3).lower()}" data-is-digest="{str('digest' in d_lower or 'case' in d_lower).lower()}">
                 <div class="hub-card-header">
                   {type_badge}
-                  {mp3_badge}
+                  <div class="fmt-pills-row">
+                    {''.join(format_pills)}
+                  </div>
                 </div>
                 <h3 class="hub-card-title"><a href="{rel_str}">{html.escape(doc_name)}</a></h3>
-                <div class="hub-card-actions">
-                  <a href="{rel_str}" class="btn-open">Open Reader →</a>
+                <div class="hub-card-footer">
+                  <a href="{rel_str}" class="btn-open">📖 Open Interactive Reader →</a>
+                  <div class="hub-sub-actions">
+                    {''.join(resource_actions)}
+                  </div>
                 </div>
               </div>
             ''')
 
         groups_html.append(f'''
-          <div class="hub-group">
-            <h2 class="hub-group-title">{html.escape(group_name)}</h2>
+          <section class="hub-group" data-subject-group="{html.escape(group_name)}">
+            <div class="hub-group-header">
+              <div class="hub-group-title-wrap">
+                <span class="hub-group-icon">{info['icon']}</span>
+                <div>
+                  <h2 class="hub-group-title">{html.escape(group_name)}</h2>
+                  <p class="hub-group-desc">{html.escape(info['desc'])}</p>
+                </div>
+              </div>
+              <span class="hub-group-count">{len(files)} Modules</span>
+            </div>
             <div class="hub-grid">
               {''.join(cards_html)}
             </div>
-          </div>
+          </section>
         ''')
 
     hub_page = f'''<!DOCTYPE html>
@@ -1828,69 +1935,536 @@ def generate_study_hub_index(root_dir):
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MLC Law Library & Interactive Audio Suite</title>
+  <title>MLC Law Library & Interactive Audio Suite | Manila Law College</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {{
-      --bg-primary: #0b1120;
-      --bg-secondary: #131d31;
-      --bg-tertiary: #1e293b;
-      --border-color: rgba(148, 163, 184, 0.16);
+      --bg-primary: #080d1a;
+      --bg-secondary: #0f172a;
+      --bg-card: rgba(19, 29, 49, 0.75);
+      --bg-card-hover: rgba(28, 41, 68, 0.85);
+      --border-color: rgba(148, 163, 184, 0.14);
+      --border-hover: rgba(56, 189, 248, 0.4);
       --text-primary: #f8fafc;
       --text-secondary: #cbd5e1;
       --text-muted: #94a3b8;
       --accent-gold: #fbbf24;
       --accent-gold-dark: #d97706;
+      --accent-gold-light: #fef3c7;
       --accent-blue: #38bdf8;
       --accent-emerald: #34d399;
-      --font-ui: 'Inter', -apple-system, sans-serif;
+      --accent-purple: #c084fc;
+      --accent-rose: #fb7185;
+      --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       --font-heading: 'Cinzel', serif;
     }}
     * {{ box-sizing: border-box; margin: 0; padding: 0; }}
     body {{
-      background-color: var(--bg-primary);
+      background: radial-gradient(circle at 50% 0%, #172554 0%, var(--bg-primary) 70%);
       color: var(--text-primary);
       font-family: var(--font-ui);
-      padding: 3.5rem 1.5rem;
+      padding: 3rem 1.5rem 5rem;
       min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
     }}
-    .hub-container {{ max-width: 1100px; margin: 0 auto; }}
-    .hub-header {{ text-align: center; margin-bottom: 3.5rem; }}
-    .hub-badge {{ display: inline-block; background: rgba(251, 191, 36, 0.15); color: var(--accent-gold); font-size: 0.78rem; font-weight: 700; padding: 0.3rem 0.8rem; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; border: 1px solid rgba(251, 191, 36, 0.3); }}
-    .hub-title {{ font-family: var(--font-heading); font-size: 2.3rem; font-weight: 800; color: var(--accent-gold); margin-bottom: 0.75rem; letter-spacing: 0.03em; }}
-    .hub-subtitle {{ color: var(--text-muted); font-size: 1.05rem; max-width: 650px; margin: 0 auto; line-height: 1.6; }}
-    .hub-group {{ margin-bottom: 3rem; }}
-    .hub-group-title {{ font-size: 1.3rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1.25rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.6rem; letter-spacing: 0.02em; }}
-    .hub-grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.25rem; }}
-    .hub-card {{ background-color: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.2s ease; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2); }}
-    .hub-card:hover {{ transform: translateY(-3px); border-color: var(--accent-blue); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); }}
-    .hub-card-header {{ display: flex; gap: 0.5rem; margin-bottom: 0.85rem; }}
-    .badge-reader {{ background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); font-size: 0.72rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid rgba(56, 189, 248, 0.3); text-transform: uppercase; letter-spacing: 0.04em; }}
-    .badge-outline {{ background: rgba(192, 132, 252, 0.15); color: #c084fc; font-size: 0.72rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid rgba(192, 132, 252, 0.3); text-transform: uppercase; letter-spacing: 0.04em; }}
-    .badge-audio {{ background: rgba(52, 211, 153, 0.15); color: #34d399; font-size: 0.72rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid rgba(52, 211, 153, 0.3); text-transform: uppercase; letter-spacing: 0.04em; }}
-    .hub-card-title {{ font-size: 1.05rem; font-weight: 600; line-height: 1.45; margin-bottom: 1.5rem; }}
-    .hub-card-title a {{ color: var(--text-primary); text-decoration: none; transition: color 0.15s ease; }}
-    .hub-card-title a:hover {{ color: var(--accent-gold); }}
-    .hub-card-actions {{ margin-top: auto; }}
-    .btn-open {{ display: inline-block; background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark)); color: #0b1120; font-weight: 700; font-size: 0.85rem; padding: 0.55rem 1.1rem; border-radius: 8px; text-decoration: none; text-align: center; transition: filter 0.15s ease, transform 0.15s ease; }}
-    .btn-open:hover {{ filter: brightness(1.1); transform: scale(1.02); }}
-    footer {{ text-align: center; margin-top: 4rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border-color); padding-top: 2rem; }}
+    .hub-container {{ max-width: 1200px; margin: 0 auto; }}
+    
+    /* Header Section */
+    .hub-header {{ text-align: center; margin-bottom: 3rem; }}
+    .hub-badge {{
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(251, 191, 36, 0.12);
+      color: var(--accent-gold);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.4rem 1.1rem;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.25rem;
+      border: 1px solid rgba(251, 191, 36, 0.3);
+      backdrop-filter: blur(8px);
+    }}
+    .hub-title {{
+      font-family: var(--font-heading);
+      font-size: 2.75rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #ffffff 30%, var(--accent-gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.85rem;
+      letter-spacing: 0.02em;
+    }}
+    .hub-subtitle {{
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      max-width: 780px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+    }}
+
+    /* Stat Counters Grid */
+    .hub-stats-grid {{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }}
+    .stat-card {{
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.25rem 1rem;
+      text-align: center;
+      backdrop-filter: blur(6px);
+      transition: border-color 0.2s;
+    }}
+    .stat-card:hover {{ border-color: rgba(251, 191, 36, 0.35); }}
+    .stat-val {{
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--accent-gold);
+      font-family: var(--font-heading);
+      line-height: 1.2;
+    }}
+    .stat-label {{
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 0.35rem;
+    }}
+
+    /* Search & Filter Bar */
+    .hub-controls {{
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 3rem;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }}
+    .search-input-wrap {{
+      position: relative;
+      margin-bottom: 1.25rem;
+    }}
+    .search-icon {{
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      pointer-events: none;
+    }}
+    .hub-search-input {{
+      width: 100%;
+      padding: 0.9rem 1rem 0.9rem 2.85rem;
+      background: rgba(8, 13, 26, 0.7);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      font-family: var(--font-ui);
+      transition: all 0.2s ease;
+    }}
+    .hub-search-input:focus {{
+      outline: none;
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+    }}
+    .hub-filters {{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+    }}
+    .filter-chip {{
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.45rem 0.9rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+    }}
+    .filter-chip:hover {{
+      background: rgba(56, 189, 248, 0.15);
+      border-color: var(--accent-blue);
+      color: var(--text-primary);
+    }}
+    .filter-chip.active {{
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+      border-color: var(--accent-gold);
+      color: #080d1a;
+      font-weight: 700;
+    }}
+    .results-count {{
+      margin-left: auto;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }}
+
+    /* Subject Groups */
+    .hub-group {{
+      margin-bottom: 3.5rem;
+      transition: opacity 0.2s ease;
+    }}
+    .hub-group-header {{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid var(--border-color);
+    }}
+    .hub-group-title-wrap {{
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+    }}
+    .hub-group-icon {{
+      font-size: 1.75rem;
+      line-height: 1;
+      padding: 0.4rem;
+      background: rgba(30, 41, 59, 0.6);
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+    }}
+    .hub-group-title {{
+      font-family: var(--font-heading);
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+    }}
+    .hub-group-desc {{
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 0.3rem;
+      max-width: 750px;
+      line-height: 1.45;
+    }}
+    .hub-group-count {{
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--accent-blue);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.3rem 0.75rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      white-space: nowrap;
+    }}
+
+    /* Cards Grid */
+    .hub-grid {{
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.5rem;
+    }}
+    .hub-card {{
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      backdrop-filter: blur(8px);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }}
+    .hub-card:hover {{
+      transform: translateY(-4px);
+      background: var(--bg-card-hover);
+      border-color: var(--border-hover);
+      box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.15);
+    }}
+    .hub-card.hidden {{
+      display: none !important;
+    }}
+    .hub-card-header {{
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+    }}
+    .fmt-pills-row {{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }}
+    .badge-type {{
+      align-self: flex-start;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }}
+    .badge-digest {{ background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); border: 1px solid rgba(56, 189, 248, 0.3); }}
+    .badge-outline {{ background: rgba(192, 132, 252, 0.15); color: var(--accent-purple); border: 1px solid rgba(192, 132, 252, 0.3); }}
+    .badge-lecture {{ background: rgba(251, 191, 36, 0.15); color: var(--accent-gold); border: 1px solid rgba(251, 191, 36, 0.3); }}
+    .badge-canon {{ background: rgba(52, 211, 153, 0.15); color: var(--accent-emerald); border: 1px solid rgba(52, 211, 153, 0.3); }}
+    .badge-cases {{ background: rgba(251, 113, 133, 0.15); color: var(--accent-rose); border: 1px solid rgba(251, 113, 133, 0.3); }}
+    .badge-module {{ background: rgba(148, 163, 184, 0.15); color: var(--text-secondary); border: 1px solid rgba(148, 163, 184, 0.3); }}
+
+    .fmt-pill {{
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 0.18rem 0.5rem;
+      border-radius: 4px;
+      border: 1px solid transparent;
+    }}
+    .fmt-html {{ background: rgba(56, 189, 248, 0.1); color: #7dd3fc; border-color: rgba(56, 189, 248, 0.2); }}
+    .fmt-mp3 {{ background: rgba(52, 211, 153, 0.12); color: #6ee7b7; border-color: rgba(52, 211, 153, 0.25); }}
+    .fmt-pdf {{ background: rgba(251, 146, 60, 0.1); color: #fdba74; border-color: rgba(251, 146, 60, 0.2); }}
+    .fmt-docx {{ background: rgba(168, 85, 247, 0.1); color: #d8b4fe; border-color: rgba(168, 85, 247, 0.2); }}
+
+    .hub-card-title {{
+      font-size: 1.12rem;
+      font-weight: 700;
+      line-height: 1.45;
+      margin-bottom: 1.75rem;
+    }}
+    .hub-card-title a {{
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }}
+    .hub-card-title a:hover {{
+      color: var(--accent-gold);
+    }}
+
+    .hub-card-footer {{
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }}
+    .btn-open {{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+      color: #080d1a;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.7rem 1.25rem;
+      border-radius: 10px;
+      text-decoration: none;
+      text-align: center;
+      transition: filter 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+      box-shadow: 0 4px 12px rgba(217, 119, 6, 0.3);
+    }}
+    .btn-open:hover {{
+      filter: brightness(1.1);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(217, 119, 6, 0.45);
+    }}
+    .hub-sub-actions {{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }}
+    .btn-sub {{
+      flex: 1;
+      min-width: 75px;
+      text-align: center;
+      font-size: 0.74rem;
+      font-weight: 600;
+      padding: 0.35rem 0.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      border: 1px solid var(--border-color);
+      background: rgba(30, 41, 59, 0.5);
+      color: var(--text-secondary);
+    }}
+    .btn-sub:hover {{
+      background: rgba(56, 189, 248, 0.2);
+      border-color: var(--accent-blue);
+      color: var(--text-primary);
+    }}
+    .btn-sub-audio:hover {{
+      background: rgba(52, 211, 153, 0.2);
+      border-color: var(--accent-emerald);
+      color: #a7f3d0;
+    }}
+    .btn-sub-pdf:hover {{
+      background: rgba(251, 146, 60, 0.2);
+      border-color: #fb923c;
+      color: #fed7aa;
+    }}
+    .btn-sub-docx:hover {{
+      background: rgba(168, 85, 247, 0.2);
+      border-color: #c084fc;
+      color: #f3e8ff;
+    }}
+
+    footer {{
+      text-align: center;
+      margin-top: 5rem;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      border-top: 1px solid var(--border-color);
+      padding-top: 2.5rem;
+      line-height: 1.6;
+    }}
+    footer a {{ color: var(--accent-gold); text-decoration: none; }}
+
+    @media (max-width: 768px) {{
+      .hub-title {{ font-size: 2rem; }}
+      .hub-grid {{ grid-template-columns: 1fr; }}
+      .hub-filters {{ justify-content: center; }}
+      .results-count {{ width: 100%; text-align: center; margin-top: 0.5rem; }}
+    }}
   </style>
 </head>
 <body>
   <div class="hub-container">
     <header class="hub-header">
-      <div class="hub-badge">Manila Law College • Juris Doctor Program</div>
-      <h1 class="hub-title">MLC Law Library & Audio Hub</h1>
-      <p class="hub-subtitle">Interactive Full-Text Readers with Natural Voice Synthesis, ALAC Reasoning, and Studio Podcasts</p>
+      <div class="hub-badge">🏛️ Manila Law College • Juris Doctor Program</div>
+      <h1 class="hub-title">MLC Law Library &amp; Audio Hub</h1>
+      <p class="hub-subtitle">Interactive Full-Text Legal Readers with Natural Voice Synthesis, ALAC Reasoning Precedents, and High-Fidelity Studio Podcasts</p>
     </header>
-    {''.join(groups_html)}
+
+    <!-- Stats Overview -->
+    <div class="hub-stats-grid">
+      <div class="stat-card">
+        <div class="stat-val">{len([k for k, v in by_subject.items() if v])}</div>
+        <div class="stat-label">Core JD Subjects</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">{total_modules}</div>
+        <div class="stat-label">Digital Modules</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">{total_audio_count}</div>
+        <div class="stat-label">Studio Podcasts</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">{total_digest_count}</div>
+        <div class="stat-label">ALAC Case Digests</div>
+      </div>
+    </div>
+
+    <!-- Search and Filter Suite -->
+    <div class="hub-controls">
+      <div class="search-input-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="hubSearch" class="hub-search-input" placeholder="Search case digests, topics, lecture titles, articles, or doctrines...">
+      </div>
+      <div class="hub-filters">
+        <span class="filter-chip active" data-filter="all">All Subjects</span>
+        <span class="filter-chip" data-filter="Basic Legal and Judiciary Ethics">⚖️ Legal Ethics</span>
+        <span class="filter-chip" data-filter="Constitutional Law">🏛️ Constitutional Law</span>
+        <span class="filter-chip" data-filter="Criminal Law">🛡️ Criminal Law</span>
+        <span class="filter-chip" data-filter="Statutory Construction">📜 Statutory Construction</span>
+        <span class="filter-chip" data-filter="audio-only">🎙️ MP3 Podcasts</span>
+        <span class="filter-chip" data-filter="digest-only">⚖️ Case Digests</span>
+        <span class="results-count" id="resultsCount">Showing all {total_modules} modules</span>
+      </div>
+    </div>
+
+    <!-- Subject Modules -->
+    <main id="hubMain">
+      {''.join(groups_html)}
+    </main>
+
     <footer>
-      <div>Manila Law College (MLC) • Academic Year 2026–2027 • First Semester Subjects</div>
+      <div>Manila Law College (MLC) • Academic Year 2026–2027 • Juris Doctor First Semester</div>
+      <div style="margin-top: 0.4rem; font-size: 0.8rem; color: var(--text-muted);">
+        Interactive Speech Synthesis &amp; Studio Audio Engine • Pure Paragraph Editions
+      </div>
     </footer>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {{
+      const searchInput = document.getElementById('hubSearch');
+      const filterChips = document.querySelectorAll('.filter-chip');
+      const cards = document.querySelectorAll('.hub-card');
+      const groups = document.querySelectorAll('.hub-group');
+      const resultsCount = document.getElementById('resultsCount');
+
+      let currentFilter = 'all';
+      let currentQuery = '';
+
+      function filterCards() {{
+        let visibleCount = 0;
+
+        cards.forEach(card => {{
+          const cardSubject = card.getAttribute('data-subject') || '';
+          const cardTitle = card.getAttribute('data-title') || '';
+          const hasAudio = card.getAttribute('data-has-audio') === 'true';
+          const isDigest = card.getAttribute('data-is-digest') === 'true';
+
+          let matchesFilter = true;
+          if (currentFilter === 'all') {{
+            matchesFilter = true;
+          }} else if (currentFilter === 'audio-only') {{
+            matchesFilter = hasAudio;
+          }} else if (currentFilter === 'digest-only') {{
+            matchesFilter = isDigest;
+          }} else {{
+            matchesFilter = (cardSubject === currentFilter);
+          }}
+
+          let matchesQuery = true;
+          if (currentQuery) {{
+            matchesQuery = cardTitle.includes(currentQuery) || cardSubject.toLowerCase().includes(currentQuery);
+          }}
+
+          if (matchesFilter && matchesQuery) {{
+            card.classList.remove('hidden');
+            visibleCount++;
+          }} else {{
+            card.classList.add('hidden');
+          }}
+        }});
+
+        // Hide empty groups
+        groups.forEach(group => {{
+          const groupCards = group.querySelectorAll('.hub-card:not(.hidden)');
+          if (groupCards.length === 0) {{
+            group.style.display = 'none';
+          }} else {{
+            group.style.display = 'block';
+          }}
+        }});
+
+        resultsCount.textContent = `Showing ${{visibleCount}} of ${{cards.length}} modules`;
+      }}
+
+      searchInput.addEventListener('input', (e) => {{
+        currentQuery = e.target.value.toLowerCase().trim();
+        filterCards();
+      }});
+
+      filterChips.forEach(chip => {{
+        chip.addEventListener('click', () => {{
+          filterChips.forEach(c => c.classList.remove('active'));
+          chip.classList.add('active');
+          currentFilter = chip.getAttribute('data-filter');
+          filterCards();
+        }});
+      }});
+    }});
+  </script>
 </body>
 </html>
 '''
