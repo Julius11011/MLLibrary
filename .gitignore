@@ -41,3 +41,5 @@ Desktop.ini
 # MP3 Audio Files & Temporary Chunks (Hosted on GitHub Releases)
 *.mp3
 temp_*
+_temp_*
+generate_new_canons_mp3.py
