@@ -72,7 +72,7 @@ def slugify(text):
 
 # Regex patterns for high-precision legal document structure
 CASE_HEADING_RE = re.compile(
-    r'^(CASE\s+\d+[:\.]?.*)',
+    r'^(CASE\s+\d+[:\.]?.*|^\d+\.\s+[A-Z0-9\s\.,\(\)\'\-&]+?\s+V[\.S]?\s+.*)',
     re.IGNORECASE
 )
 
