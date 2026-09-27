@@ -390,6 +390,36 @@ def generate_reader_html(doc_title, subject_tag, sections, mp3_filename=None):
         dot_stem = re.sub(r'[ &()]', '.', stem)
         dot_name = re.sub(r'\.+', '.', dot_stem).strip('.') + '.mp3'
         
+        # Additional common aliases (e.g. New.Canons.its.Section.mp3)
+        candidate_names = [
+            dot_name,
+            mp3_filename,
+            encoded_mp3,
+        ]
+        if "canons & its section" in mp3_filename.lower() or "new" in mp3_filename.lower():
+            candidate_names.extend([
+                "New.Canons.its.Section.mp3",
+                "%5BNew%5D%20Canons%20%26%20its%20Section.mp3",
+                "[New] Canons & its Section.mp3",
+                "Canons.its.Section.mp3",
+                "Canons.and.its.Section.mp3"
+            ])
+            
+        tags = ["audio-v0", "audio-v1", "audio-v2"]
+        source_elements = []
+        seen_urls = set()
+        
+        for tag in tags:
+            for cname in candidate_names:
+                url_cname = urllib.parse.quote(cname) if not cname.startswith('%') and any(c in cname for c in ' &()[]') else cname
+                url = f"https://github.com/Julius11011/MLLibrary/releases/download/{tag}/{url_cname}"
+                if url not in seen_urls:
+                    seen_urls.add(url)
+                    source_elements.append(f'            <source src="{url}" type="audio/mpeg">')
+                    
+        source_elements.append(f'            <source src="{html.escape(mp3_filename)}" type="audio/mpeg">')
+        sources_str = "\n".join(source_elements)
+        
         mp3_player_html = f'''
         <div class="studio-audio-player">
           <div class="audio-player-header">
@@ -397,13 +427,7 @@ def generate_reader_html(doc_title, subject_tag, sections, mp3_filename=None):
             <span class="audio-filename">{html.escape(mp3_filename)}</span>
           </div>
           <audio controls preload="metadata" class="native-audio-element">
-            <source src="https://github.com/Julius11011/MLLibrary/releases/download/audio-v0/{dot_name}" type="audio/mpeg">
-            <source src="https://github.com/Julius11011/MLLibrary/releases/download/audio-v0/{encoded_mp3}" type="audio/mpeg">
-            <source src="https://github.com/Julius11011/MLLibrary/releases/download/audio-v1/{dot_name}" type="audio/mpeg">
-            <source src="https://github.com/Julius11011/MLLibrary/releases/download/audio-v1/{encoded_mp3}" type="audio/mpeg">
-            <source src="https://github.com/Julius11011/MLLibrary/releases/download/audio-v2/{dot_name}" type="audio/mpeg">
-            <source src="https://github.com/Julius11011/MLLibrary/releases/download/audio-v2/{encoded_mp3}" type="audio/mpeg">
-            <source src="{html.escape(mp3_filename)}" type="audio/mpeg">
+{sources_str}
             Your browser does not support the audio element.
           </audio>
         </div>
