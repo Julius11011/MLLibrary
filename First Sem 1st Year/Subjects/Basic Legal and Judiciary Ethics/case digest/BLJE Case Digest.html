@@ -535,10 +535,20 @@
       color: var(--text-secondary);
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.75rem;
     }
-    .citation-icon {
-      font-size: 1.1rem;
+    .citation-label {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      background: rgba(251, 191, 36, 0.12);
+      border: 1px solid rgba(251, 191, 36, 0.25);
+      padding: 2px 7px;
+      border-radius: 4px;
     }
 
     /* Subheadings within Case (Facts, Issue, Ruling) */
@@ -672,7 +682,7 @@
 </head>
 <body>
   <div id="readingProgressBar"></div>
-  <button id="floatingTtsTrigger" title="Read Selected Text">▶ Read Selection</button>
+  <button id="floatingTtsTrigger" title="Read Selected Text">Read Selection</button>
 
   <header>
     <div class="header-left">
@@ -686,9 +696,9 @@
       <button class="btn-icon" id="fontDecBtn" title="Decrease Font Size">A-</button>
       <button class="btn-icon" id="fontIncBtn" title="Increase Font Size">A+</button>
       <select class="select-control" id="themeSelect" title="Select Theme">
-        <option value="dark">🌙 Dark</option>
-        <option value="sepia">📜 Sepia</option>
-        <option value="light">☀️ Light</option>
+        <option value="dark">Dark</option>
+        <option value="sepia">Sepia</option>
+        <option value="light">Light</option>
       </select>
     </div>
   </header>
@@ -697,12 +707,12 @@
     <div class="tts-controls-group">
       <button class="btn-tts" id="playPauseBtn">
         <span id="playIcon">▶</span>
-        <span id="pauseIcon" style="display:none;">⏸</span>
+        <span id="pauseIcon" style="display:none;">❚❚</span>
         <span id="playBtnText">Read Aloud</span>
       </button>
-      <button class="btn-tts-secondary" id="prevBtn" title="Previous Paragraph (Key: P)">⏮ Prev</button>
-      <button class="btn-tts-secondary" id="nextBtn" title="Next Paragraph (Key: N)">Next ⏭</button>
-      <button class="btn-tts-secondary" id="stopBtn" title="Stop Speech (Key: Esc)">⏹ Stop</button>
+      <button class="btn-tts-secondary" id="prevBtn" title="Previous Paragraph (Key: P)">Previous</button>
+      <button class="btn-tts-secondary" id="nextBtn" title="Next Paragraph (Key: N)">Next</button>
+      <button class="btn-tts-secondary" id="stopBtn" title="Stop Speech (Key: Esc)">Stop</button>
     </div>
 
     <div class="tts-controls-group">
@@ -729,7 +739,7 @@
 
   <div class="app-layout">
     <nav class="sidebar-toc" id="sidebarNav">
-      <input type="text" class="toc-search-box" id="sidebarSearch" placeholder="🔍 Filter topics & cases..." />
+      <input type="text" class="toc-search-box" id="sidebarSearch" placeholder="Filter topics & cases..." />
       <div class="toc-heading">Table of Contents</div>
       <ul class="toc-list" id="tocList">
         <li><a href="#sec-overview" class="toc-link level-1" title="BLJE Case Digest">BLJE Case Digest</a></li>
@@ -804,16 +814,16 @@
       <div class="doc-meta-banner">
         <h1 class="doc-headline">BLJE Case Digest</h1>
         <div class="doc-stats">
-          <span>📚 65 Sections</span>
-          <span>⏱️ ~360 min read</span>
-          <span>🎓 Manila Law College</span>
+          <span>65 Sections</span>
+          <span>~360 min read</span>
+          <span>Manila Law College</span>
         </div>
       </div>
 
       
         <div class="studio-audio-player">
           <div class="audio-player-header">
-            <span class="audio-badge">🎙️ Studio Voice Podcast (Cloud Stream)</span>
+            <span class="audio-badge">Studio Voice Podcast (Cloud Stream)</span>
             <span class="audio-filename">BLJE Case Digest.mp3</span>
           </div>
           <audio controls preload="metadata" class="native-audio-element">
@@ -840,7 +850,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-1-case-13-re-lorenzo-larry-gadon" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 13</span><h2 class="case-header-title">Re: Lorenzo &quot;Larry&quot; Gadon</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 13521, June 27, 2023 | Per Curiam (En Banc)</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 13521, June 27, 2023 | Per Curiam (En Banc)</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Atty. Lorenzo Gadon was captured on a viral video clip hurling extremely foul, misogynistic, and abusive vulgarities against journalist Raissa Robles. The Supreme Court motu proprio issued a show-cause order and placed him under preventive suspension. The Court evaluated whether his public conduct and repeated profane outbursts over social media violated his ethical duties as an officer of the court.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -857,7 +867,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-2-case-14-ventura-v-atty-samson" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 14</span><h2 class="case-header-title">Ventura v. Atty. Samson</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 9608, November 27, 2012 | 686 SCRA 430</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 9608, November 27, 2012 | 686 SCRA 430</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Complainant engaged the services of respondent Atty. Samson to handle a civil case. The respondent demanded and received substantial professional fees and filing expenses. However, he failed to file the necessary complaint, failed to inform the client of the status of the case, and when demanded to return the case funds, refused to refund the unused amounts, giving evasive excuses.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -874,7 +884,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-3-case-15-guevarra-v-atty-eala" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 15</span><h2 class="case-header-title">Guevarra v. Atty. Eala</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 7136, August 1, 2007 | 529 SCRA 1</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 7136, August 1, 2007 | 529 SCRA 1</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Complainant Joselano Guevarra filed a disbarment complaint against Atty. Jose Emmanuel &#x27;Noli&#x27; Eala for grossly immoral conduct. While still lawfully married, Atty. Eala engaged in an adulterous relationship with complainant&#x27;s wife, Irene Moje, flaunted their relationship in public social events, lived together with her, and sired a child with her.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -891,7 +901,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-4-case-16-magayanes-v-vasquez" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 16</span><h2 class="case-header-title">Magayanes v. Vasquez</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.M. No. MTJ-23-014, April 11, 2024</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.M. No. MTJ-23-014, April 11, 2024</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">A verified administrative complaint was lodged against a presiding judge for gross misconduct, undue delay in resolving motions, and inappropriate fraternization with party litigants. The complainant established that the judge had off-the-record communications with an opposing counsel and accepted hospitality during the pendency of a disputed land matter.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -908,7 +918,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-5-case-17-linsangan-v-atty-nicomedes-tolentino" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 17</span><h2 class="case-header-title">Linsangan v. Atty. Nicomedes Tolentino</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 6672, September 4, 2009 | 598 SCRA 133</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 6672, September 4, 2009 | 598 SCRA 133</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Atty. Nicomedes Tolentino operated a law practice where he authorized paralegals and non-lawyer agents (labour &#x27;runners&#x27;) to solicit seafarers with maritime money claims. He distributed calling cards promising financial loans, payment of hospital bills, and 30% commission rates, effectively ambulance-chasing overseas workers.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -925,7 +935,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-6-case-18-philippine-lawyers-association-v-agrava" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 18</span><h2 class="case-header-title">Philippine Lawyers Association v. Agrava</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. L-12426, February 16, 1959 | 105 Phil. 173</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. L-12426, February 16, 1959 | 105 Phil. 173</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">The Director of the Philippine Patent Office issued a circular requiring all lawyers who wish to practice before the Patent Office to pass a special examination administered by that agency. The Philippine Lawyers Association filed a petition for prohibition contending that the Patent Director had no authority to regulate or examine members of the Bar.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -942,7 +952,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-7-case-19-cayetano-v-monsod" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 19</span><h2 class="case-header-title">Cayetano v. Monsod</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 100113, September 3, 1991 | 201 SCRA 210</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 100113, September 3, 1991 | 201 SCRA 210</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Christian Monsod was nominated by President Aquino as Chairman of the Commission on Elections (COMELEC). Renato Cayetano challenged the nomination on the ground that Monsod did not possess the constitutional qualification of having been engaged in the &#x27;practice of law&#x27; for at least ten years, since his past career involved executive management, investment banking, and socio-civic leadership.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -959,7 +969,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-8-case-20-manalang-v-atty-cristina-benosa-buendia" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 20</span><h2 class="case-header-title">Manalang v. Atty. Cristina Benosa Buendia</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 12079, November 10, 2020</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 12079, November 10, 2020</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Complainants engaged Atty. Buendia for the declaration of nullity of their marriages and paid professional fees of P270,000. Atty. Buendia presented fabricated court decisions and falsified Certificates of Finality purporting to be from the RTC of Malolos, Bulacan. Upon verification, the court verified that no such cases were ever filed or decided.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -976,7 +986,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-9-case-21-david-v-atty-diosdado-m-rongcal-et-al" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 21</span><h2 class="case-header-title">David v. Atty. Diosdado M. Rongcal, et al.</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 12103, June 23, 2020 | 939 SCRA 1</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 12103, June 23, 2020 | 939 SCRA 1</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Complainant filed a disbarment complaint against respondents (PAO lawyers) for filing an allegedly groundless criminal case for estafa against her on behalf of an indigent client. Complainant claimed the lawyers harassed her and failed to evaluate the legal merits before filing.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -993,7 +1003,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-10-case-22-genato-v-atty-eligio-p-mallari" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 22</span><h2 class="case-header-title">Genato v. Atty. Eligio P. Mallari</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 12486, October 15, 2019 | 924 SCRA 228</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 12486, October 15, 2019 | 924 SCRA 228</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Atty. Mallari was involved in a property dispute with complainant William Genato. When a traffic officer flagged down his vehicle for a violation, Atty. Mallari engaged in abusive conduct, arrogantly flashed his law credentials, and later filed a flurry of baseless suits against the judges and justices handling his cases, accusing them of bias without foundation.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1010,7 +1020,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-11-case-23-atty-honesto-ancheta-cabarroguis-v-atty-danilo-a-bas" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 23</span><h2 class="case-header-title">Atty. Honesto Ancheta Cabarroguis v. Atty. Danilo A. Basa</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 8789, March 1, 2020</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 8789, March 1, 2020</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Complainant Atty. Cabarroguis charged respondent Atty. Basa with conflict of interest and unfaithfulness to a former client. Atty. Basa had previously represented the complainant in corporate and financial transactions and subsequently represented the adverse party in a collection lawsuit involving the exact same underlying accounts.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1027,7 +1037,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-12-case-24-query-of-atty-karen-m-silverio-buffe" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 24</span><h2 class="case-header-title">Query of Atty. Karen M. Silverio-Buffe</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.M. No. 08-6-352-RTC, August 19, 2009 | 596 SCRA 378</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.M. No. 08-6-352-RTC, August 19, 2009 | 596 SCRA 378</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Atty. Silverio-Buffe, a former Clerk of Court of RTC Romblon, resigned from the Judiciary and immediately engaged in private practice within the same territorial jurisdiction. She queried whether Section 7(b)(2) of R.A. 6713 (Code of Conduct and Ethical Standards for Public Officials and Employees) prohibiting former public officials from practicing before their former office for one year applied to lawyers resigned from the court.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1044,7 +1054,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-13-case-25-gabucan-v-atty-florencio-a-narido-jr" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 25</span><h2 class="case-header-title">Gabucan v. Atty. Florencio A. Narido, Jr.</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 12019, September 3, 2019 | 917 SCRA 1</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 12019, September 3, 2019 | 917 SCRA 1</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Complainant engaged respondent Atty. Narido to represent him in an ejectment case. Complainant entrusted original land titles and legal documents to respondent. During the pendency of the case, respondent initiated business ventures with the opposing party, refused to return complainant&#x27;s title documents, and filed an adverse claim on the client&#x27;s property for alleged unpaid fees.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1061,7 +1071,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-14-case-26-sison-v-atty-lourdes-philina-b-dumlao" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 26</span><h2 class="case-header-title">Sison v. Atty. Lourdes Philina B. Dumlao</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 11959, April 28, 2021</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 11959, April 28, 2021</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Complainant sought preliminary legal advice from respondent Atty. Dumlao via online messaging regarding an intra-family property and estate issue. Although no formal written retainer agreement was signed and no fees were paid, complainant disclosed sensitive family facts. Later, Atty. Dumlao represented an adverse relative in the probate litigation concerning the same estate.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1078,7 +1088,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-15-case-27-land-bank-of-the-philippines-v-pamintuan" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 27</span><h2 class="case-header-title">Land Bank of the Philippines v. Pamintuan</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 167886, October 25, 2005 | 474 SCRA 344</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 167886, October 25, 2005 | 474 SCRA 344</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">In an agrarian reform dispute, private counsel appeared on behalf of Land Bank of the Philippines (LBP) without the necessary statutory authorization from the Office of the Government Corporate Counsel (OGCC) or the statutory deputation from the Office of the Solicitor General (OSG).</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1095,7 +1105,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-16-case-28-mahunot-v-atty-lord-m-marapao" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 28</span><h2 class="case-header-title">Mahunot v. Atty. Lord M. Marapao</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 10297, March 9, 2022</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 10297, March 9, 2022</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Respondent Atty. Marapao drafted and filed multiple groundless and harassing criminal complaints for falsification and perjury against complainant to coerce him into surrendering possession of a disputed parcel of land. The prosecutorial offices repeatedly dismissed the charges for utter lack of probable cause.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1112,7 +1122,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-17-case-29-tiongson-v-atty-michael-flores" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 29</span><h2 class="case-header-title">Tiongson v. Atty. Michael Flores</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 12423, September 1, 2020</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 12423, September 1, 2020</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Atty. Flores notarized a Deed of Absolute Sale where one of the executing parties was already deceased on the date of alleged acknowledgment. Complainant showed that the signature of the decedent was forged and that respondent never verified the personal appearance or competent identity of the signatories.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1129,7 +1139,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-18-case-30-palma-v-maduramente" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 30</span><h2 class="case-header-title">Palma v. Maduramente</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 13995, January 30, 2024</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 13995, January 30, 2024</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Atty. Maduramente represented a client in a real estate transaction and accepted client funds for the express purpose of paying capital gains taxes and transfer fees to the Bureau of Internal Revenue (BIR). Instead of remitting the funds, he converted them to his personal use, causing the client to incur substantial tax penalties and surcharges.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1146,7 +1156,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-19-case-31-buenavista-properties-inc-v-deloria" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 31</span><h2 class="case-header-title">Buenavista Properties, Inc. v. Deloria</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 12160, August 14, 2018 | 877 SCRA 1</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 12160, August 14, 2018 | 877 SCRA 1</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Complainant engaged respondent Atty. Deloria to handle land registration proceedings. The respondent collected acceptance and litigation fees but abandoned the case, failed to attend hearings resulting in the dismissal of the petition, and subsequently went into hiding without returning the client&#x27;s case records.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1163,7 +1173,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-20-case-32-legaspi-v-gonzales" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 32</span><h2 class="case-header-title">Legaspi v. Gonzales</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 12076, July 28, 2020</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 12076, July 28, 2020</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Atty. Gonzales notarized an Extrajudicial Settlement with Deed of Absolute Sale without requiring the personal presence of the co-heirs. The heirs proved that they never signed the deed and that one of the purported signatories was working abroad in the Middle East on the date of execution.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1180,7 +1190,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-21-case-33-atty-ulep-v-legal-clinic-inc" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 33</span><h2 class="case-header-title">Atty. Ulep v. Legal Clinic, Inc.</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>Bar Matter No. 553, June 17, 1993 | 223 SCRA 378</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>Bar Matter No. 553, June 17, 1993 | 223 SCRA 378</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">The Legal Clinic, Inc. published advertisements in major newspapers offering legal services for &#x27;secret marriages,&#x27; expedited divorces in Guam, annulments, and corporate set-ups, staffed by non-lawyers and paralegals promising quick, cheap solutions.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1197,7 +1207,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-22-case-34-khan-jr-v-simbillo" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 34</span><h2 class="case-header-title">Khan, Jr. v. Simbillo</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 5299, August 19, 2003 | 409 SCRA 299</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 5299, August 19, 2003 | 409 SCRA 299</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Atty. Rizalino Simbillo advertised his legal practice in daily newspapers (Philippine Daily Inquirer) as an &#x27;Annulment of Marriage Specialist&#x27; promising quick and guaranteed results. When investigated, he defended his ads by arguing that advertising legal services should be treated like any modern commercial service.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1214,7 +1224,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-23-case-35-linsangan-v-atty-nicomedes-tolentino-re-affirmed" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 35</span><h2 class="case-header-title">Linsangan v. Atty. Nicomedes Tolentino (Re-Affirmed)</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 6672, September 4, 2009</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 6672, September 4, 2009</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Re-affirmed landmark doctrine on ambulance-chasing where respondent lawyer employed non-lawyer runners and supplied financial advances to maritime workers to secure exclusive legal retainers.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1231,7 +1241,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-24-case-36-villatuya-v-tabalingcos" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 36</span><h2 class="case-header-title">Villatuya v. Tabalingcos</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 6622, July 10, 2012 | 676 SCRA 37</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 6622, July 10, 2012 | 676 SCRA 37</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Complainant charged respondent Atty. Tabalingcos with bigamy and gross immorality. Respondent contracted two simultaneous marriages during the subsistence of his first marriage without securing any judicial declaration of nullity. Additionally, respondent engaged in false statements in his public personal data sheets.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1248,7 +1258,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-25-case-37-palencia-v-linsangan-et-al" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 37</span><h2 class="case-header-title">Palencia v. Linsangan, et al.</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 10557, July 10, 2018 | 871 SCRA 202</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 10557, July 10, 2018 | 871 SCRA 202</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Complainant, an injured overseas seaman, retained respondents Attys. Pedro and Gerard Linsangan to pursue disability compensation. The lawyers advanced medical loans and made complainant execute an irrevocable special power of attorney. When the foreign employer settled the claim for US$95,000, respondents withheld the bulk of the proceeds, deducting exorbitant 35% fees and loan interests.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1265,7 +1275,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-26-case-38-zamora-v-gallanosa" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 38</span><h2 class="case-header-title">Zamora v. Gallanosa</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 10738, September 14, 2020</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 10738, September 14, 2020</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Complainant engaged Atty. Gallanosa to handle an appeal before the Court of Appeals and paid the full filing fees and professional fees. Atty. Gallanosa failed to file the required Appellant&#x27;s Brief within the reglementary period despite multiple extensions, resulting in the final dismissal of the appeal and the loss of complainant&#x27;s property.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1282,7 +1292,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-27-case-39-rebarter-v-villa" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 39</span><h2 class="case-header-title">Rebarter v. Villa</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 12516, August 4, 2025</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 12516, August 4, 2025</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Atty. Villa engaged in improper forum shopping and concealed the existence of a prior pending petition before the Court of Appeals when filing a subsequent injunction before the Regional Trial Court on the same cause of action and involving the same parties.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1299,7 +1309,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-28-case-40-office-of-the-court-administrator-v-judge-ruiz" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 40</span><h2 class="case-header-title">Office of the Court Administrator v. Judge Ruiz</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.M. No. RTJ-13-2361, February 2, 2016 | 782 SCRA 630</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.M. No. RTJ-13-2361, February 2, 2016 | 782 SCRA 630</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">A judicial audit conducted by the OCA revealed that respondent RTC Judge Ruiz incurred monumental delays in deciding more than one hundred cases submitted for decision beyond the constitutional 90-day period, failed to submit quarterly case reports, and falsified his monthly Certificates of Service to collect salaries.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1316,7 +1326,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-29-case-41-so-v-lee" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 41</span><h2 class="case-header-title">So v. Lee</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>B.M. No. 3288, April 10, 2019 | 900 SCRA 320</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>B.M. No. 3288, April 10, 2019 | 900 SCRA 320</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Complainant charged respondent lawyer with filing deceptive pleadings, misquoting statutory provisions, and altering the official transcripts of stenographic notes to mislead the trial court regarding the testimony of an opposing witness.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1333,7 +1343,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-30-case-42-roque-v-intermediate-appellate-court" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 42</span><h2 class="case-header-title">Roque v. Intermediate Appellate Court</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. L-66935, November 11, 1985 | 139 SCRA 596</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. L-66935, November 11, 1985 | 139 SCRA 596</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Counsel for petitioner repeatedly filed repetitive motions for reconsideration that reiterated identical arguments already thoroughly evaluated and denied by the appellate court, deliberately stalling the execution of a final and executory judgment.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1350,7 +1360,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-31-case-43-atty-pedro-aguirre-v-atty-crispin-reyes" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 43</span><h2 class="case-header-title">Atty. Pedro Aguirre v. Atty. Crispin Reyes</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 4355, January 8, 2020</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 4355, January 8, 2020</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Complainant Atty. Aguirre charged respondent Atty. Reyes with gross misconduct and malicious prosecution for repeatedly filing false administrative and criminal complaints against him across different tribunals to damage his professional reputation after losing a corporate dispute.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1367,7 +1377,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-32-case-44-mabini-v-raga" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 44</span><h2 class="case-header-title">Mabini v. Raga</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.M. No. P-06-2150, June 21, 2006 | 491 SCRA 525</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.M. No. P-06-2150, June 21, 2006 | 491 SCRA 525</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">A court sheriff (Raga) collected sheriff&#x27;s execution expenses directly from a party litigant without submitting the required liquidation estimate, without securing court approval, and without issuing an official court receipt.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1384,7 +1394,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-33-case-45-re-show-cause-order-in-calida-v-sereno-quo-warranto" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 45</span><h2 class="case-header-title">Re: Show Cause Order in Calida v. Sereno (Quo Warranto Ethics Case)</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.M. No. 18-06-01-SC, July 17, 2018 | 871 SCRA 442</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.M. No. 18-06-01-SC, July 17, 2018 | 871 SCRA 442</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">During the pendency of the quo warranto proceedings against then Chief Justice Maria Lourdes Sereno, several lawyers, including the respondent herself and external counsel, held press conferences, public speeches, and media interviews denouncing the sitting Supreme Court justices as &#x27;biased,&#x27; &#x27;incompetent,&#x27; and &#x27;violators of the Constitution.&#x27;</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1401,7 +1411,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-34-case-46-abs-cbn-corporation-et-al-v-andal-ampatuan-jr" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 46</span><h2 class="case-header-title">ABS-CBN Corporation, et al. v. Andal Ampatuan, Jr.</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 227004, April 25, 2023</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 227004, April 25, 2023</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Petitioner media companies challenged the trial court&#x27;s order prohibiting media coverage and discussions of the Maguindanao Massacre trial based on the sub judice rule, asserting freedom of speech and of the press.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1418,7 +1428,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-35-case-47-bruselas-jr-v-mallari" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 47</span><h2 class="case-header-title">Bruselas, Jr. v. Mallari</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 9683, April 18, 2023</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 9683, April 18, 2023</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Atty. Eligio Mallari filed multiple administrative and criminal complaints against Court of Appeals Associate Justice Bruselas, Jr. and his division colleagues after they rendered an adverse decision against his client. In his pleadings, Atty. Mallari accused the justices of accepting bribes and being &#x27;ignorant of the law&#x27; without presenting any shred of proof.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1435,7 +1445,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-36-case-48-domingo-et-al-v-badoy-partosa" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 48</span><h2 class="case-header-title">Domingo, et al. v. Badoy-Partosa</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.M. No. 22-09-16-SC, August 2023</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.M. No. 22-09-16-SC, August 2023</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Administrative complaint filed against a public official/lawyer for making derogatory, malicious, and red-tagging public statements on social media and broadcast programs against human rights lawyers, judicial officers, and court orders.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1452,7 +1462,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-37-case-49-ariel-aga-muhlach-v-executive-judge-ma-angela-acompa" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 49</span><h2 class="case-header-title">Ariel &quot;Aga&quot; Muhlach v. Executive Judge Ma. Angela Acompanado-Arroyo</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.M. No. RTJ-15-2439, August 26, 2015 | 768 SCRA 155</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.M. No. RTJ-15-2439, August 26, 2015 | 768 SCRA 155</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Actor/politician Aga Muhlach filed an administrative complaint against an RTC Executive Judge for alleged bias, gross ignorance of the law, and undue delay in resolving an election registration appeal involving his voter disqualification case in Camarines Sur.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1469,7 +1479,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-38-case-50-bellosillo-v-the-board-of-governors-of-the-ibp" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 50</span><h2 class="case-header-title">Bellosillo v. The Board of Governors of the IBP</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 126980, March 31, 2006 | 486 SCRA 152</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 126980, March 31, 2006 | 486 SCRA 152</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Petitioners challenged elections in the Integrated Bar of the Philippines (IBP) where factions and fraternity alliances allegedly engaged in partisan campaigning, vote-buying, and political maneuvering to secure national IBP officer positions.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1486,7 +1496,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-39-case-51-heirs-of-sotto-v-palicte" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 51</span><h2 class="case-header-title">Heirs of Sotto v. Palicte</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 159691, February 17, 2014 | 716 SCRA 175</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 159691, February 17, 2014 | 716 SCRA 175</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Counsel for the petitioners filed a succession of multiple petitions before different courts and the Supreme Court involving the exact same parcel of land, despite five prior final judgments confirming title in favor of respondent Palicte. Counsel disguised each petition with minor rewording to re-litigate the decades-old dispute.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1503,7 +1513,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-40-case-52-crisostomo-et-al-v-nazareno" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 52</span><h2 class="case-header-title">Crisostomo, et al. v. Nazareno</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 6677, June 10, 2014 | 725 SCRA 439</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 6677, June 10, 2014 | 725 SCRA 439</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Atty. Nazareno notarized false declarations in voter registration affidavits and petitions for exclusion of voters. He was established to have signed as notary public without the affiants personally appearing before him and while knowing that the factual statements were fabricated for partisan political purposes.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1520,7 +1530,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-41-case-53-kimteng-et-al-v-atty-young-et-al" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 53</span><h2 class="case-header-title">Kimteng, et al. v. Atty. Young, et al.</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 210554, August 5, 2015 | 765 SCRA 555</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 210554, August 5, 2015 | 765 SCRA 555</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Petitioners charged respondents Attys. Young and associates with perjury and unethical practice for submitting an alleged false affidavit in a pending SEC intra-corporate dispute. The lawyers were executing their duties based on client instructions and available corporate records.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1537,7 +1547,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-42-case-54-dural-v-atty-carlo-bong-carag" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 54</span><h2 class="case-header-title">Dural v. Atty. Carlo &quot;Bong&quot; Carag</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 13612, January 16, 2023</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 13612, January 16, 2023</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Atty. Carag served as corporate counsel and director in a mining company. He drafted agreements that facilitated corporate transactions while simultaneously representing adverse minority shareholders in an intra-corporate dispute involving the exact same corporate assets.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1554,7 +1564,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-43-case-55-ziga-v-judge-ramon-areola" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 55</span><h2 class="case-header-title">Ziga v. Judge Ramon Areola</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.M. No. MTJ-99-1203, June 10, 2003 | 403 SCRA 241</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.M. No. MTJ-99-1203, June 10, 2003 | 403 SCRA 241</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Complainant charged an MTC Judge with gross ignorance of the law and bias for issuing a search warrant in a civil property boundary dispute where no criminal offense was alleged or established.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1571,7 +1581,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-44-case-56-rosca-v-delmendo" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 56</span><h2 class="case-header-title">Rosca v. Delmendo</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 11795, November 21, 2023</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 11795, November 21, 2023</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Complainant engaged Atty. Delmendo to handle an administrative land appeal before the Department of Agrarian Reform (DAR). The respondent received P150,000 as acceptance and filing fees but failed to file the appeal, failed to update the client, and went completely unreachable for two years.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1588,7 +1598,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-45-case-57-maderada-v-judge-mediodea" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 57</span><h2 class="case-header-title">Maderada v. Judge Mediodea</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.M. No. MTJ-02-1459, October 14, 2003 | 413 SCRA 313</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.M. No. MTJ-02-1459, October 14, 2003 | 413 SCRA 313</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">A Clerk of Court (Maderada) was charged by the Presiding Judge with unauthorized practice of law for appearing as counsel for her family members in a civil lawsuit without securing written authority from the Supreme Court.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1605,7 +1615,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-46-case-58-catu-v-atty-rellosa" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 58</span><h2 class="case-header-title">Catu v. Atty. Rellosa</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 5738, February 19, 2008 | 546 SCRA 209</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 5738, February 19, 2008 | 546 SCRA 209</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Atty. Rellosa, an elected Barangay Captain (Punong Barangay), entered his appearance as counsel for respondents in an ejectment case filed before his own barangay conciliation body (Lupong Tagapamayapa) and later before the Metropolitan Trial Court.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1622,7 +1632,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-47-case-59-judge-suzanne-d-cobarrubias-nabaza-v-atty-lavandero" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 59</span><h2 class="case-header-title">Judge Suzanne D. Cobarrubias-Nabaza v. Atty. Lavandero</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 12323, March 14, 2022</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 12323, March 14, 2022</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">A presiding judge filed an administrative complaint against Atty. Lavandero for disrespectful conduct and making insolent, contemptuous, and defamatory remarks against the judge during open court hearings and in filed pleadings.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1639,7 +1649,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-48-case-60-trovela-v-robles" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 60</span><h2 class="case-header-title">Trovela v. Robles</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 11550, June 4, 2018 | 864 SCRA 1</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 11550, June 4, 2018 | 864 SCRA 1</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Atty. Robles represented an insurance company and entered into a settlement agreement with an unrepresented indigent claimant without advising the claimant to seek independent legal counsel, leading the claimant to sign a release for a grossly inadequate compensation amount.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1656,7 +1666,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-49-case-61-query-of-atty-karen-m-silverio-buffe-en-banc-resolut" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 61</span><h2 class="case-header-title">Query of Atty. Karen M. Silverio-Buffe (En Banc Resolution)</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.M. No. 08-6-352-RTC, August 19, 2009</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.M. No. 08-6-352-RTC, August 19, 2009</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">En Banc clarification regarding the scope of Section 7(b)(2) of R.A. 6713 and Section 1, Canon 3 of the Code of Conduct for Court Personnel, confirming the absolute prohibition against former court lawyers handling any matter before the court branch where they served within one year.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1673,7 +1683,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-50-case-62-penalties-under-ra-no-3019-and-ra-6713-section-32" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 62</span><h2 class="case-header-title">Penalties Under R.A. No. 3019 and R.A. 6713, Section 32</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>Statutory &amp; Administrative Synthesis (En Banc)</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>Statutory &amp; Administrative Synthesis (En Banc)</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Review of the interaction between criminal convictions under the Anti-Graft and Corrupt Practices Act (R.A. 3019), administrative sanctions under the Code of Conduct for Public Officials (R.A. 6713), and automatic disciplinary disbarment of lawyer-public officials.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1690,7 +1700,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-51-case-63-pimentel-v-legal-education-board" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 63</span><h2 class="case-header-title">Pimentel v. Legal Education Board</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 230642, September 10, 2019 | En Banc</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 230642, September 10, 2019 | En Banc</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Petitioners challenged the constitutionality of R.A. 7662 (Legal Education Reform Act) and LEB issuances, specifically the mandatory PhiLSAT exam as an absolute exclusionary cutoff for admission to law school, the mandatory LL.M. requirement for all law faculty, and LEB regulations on MCLE and pre-bar internships.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1707,7 +1717,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-52-case-64-re-anonymous-complaint-against-atty-cresencio-p-co-u" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 64</span><h2 class="case-header-title">Re: Anonymous Complaint Against Atty. Cresencio P. Co Untian, Jr.</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 5900, April 10, 2019 | 900 SCRA 1</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 5900, April 10, 2019 | 900 SCRA 1</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">An anonymous administrative complaint was filed against Atty. Co Untian, a law professor, for engaging in sexual harassment against female law students, sending sexually suggestive messages, making inappropriate physical advances, and demanding sexual favors in exchange for passing grades.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1724,7 +1734,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-53-case-65-re-statement-of-the-up-law-faculty-on-allegations-of" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 65</span><h2 class="case-header-title">Re: Statement of the UP Law Faculty on Allegations of Plagiarism (Vinuya Decision)</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.M. No. 10-10-4-SC, March 8, 2011 | 644 SCRA 543</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.M. No. 10-10-4-SC, March 8, 2011 | 644 SCRA 543</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Thirty-seven (37) members of the University of the Philippines College of Law faculty issued and published a public institutional statement demanding the resignation of Supreme Court Associate Justice Mariano Del Castillo over alleged judicial plagiarism in the Vinuya comfort women decision, characterizing the Court&#x27;s ruling as a &#x27;reprehensible act of dishonesty&#x27; and a &#x27;grave national disgrace.&#x27;</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1741,7 +1751,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-54-case-66-sevilla-v-atty-marcelo-c-millo" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 66</span><h2 class="case-header-title">Sevilla v. Atty. Marcelo C. Millo</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 10697, March 25, 2019</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 10697, March 25, 2019</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Complainant engaged Atty. Millo to represent him in an appealed property case before the DARAB. The respondent collected professional fees but failed to file the required memorandum, failed to inform the client of the dismissal of the appeal, and refused to communicate when the adverse party executed the judgment.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1758,7 +1768,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-55-case-67-viesca-v-gilinsky" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 67</span><h2 class="case-header-title">Viesca v. Gilinsky</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 171698, July 4, 2007 | 526 SCRA 533</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 171698, July 4, 2007 | 526 SCRA 533</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">In an international child custody and family law dispute, counsel for respondent engaged in deceptive procedural tactics, suppressing material foreign court orders and misrepresenting marital status to secure conflicting ex parte local custody decrees.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1775,7 +1785,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-56-case-68-re-disturbing-social-media-posts-of-lawyers-law-prof" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 68</span><h2 class="case-header-title">Re: Disturbing Social Media Posts of Lawyers / Law Professors</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.M. No. 21-06-20-SC, April 11, 2023 | En Banc</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.M. No. 21-06-20-SC, April 11, 2023 | En Banc</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">The Supreme Court motu proprio took cognizance of several viral social media posts, blog entries, and online videos by lawyers and law professors containing foul language, homophobic slurs, derogatory memes against LGBTQ+ individuals, and misogynistic commentary under the guise of private social media banter.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1792,7 +1802,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-57-case-69-in-re-atty-lorenzo-g-gadons-viral-video-against-rais" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 69</span><h2 class="case-header-title">In Re: Atty. Lorenzo G. Gadon&#x27;s Viral Video Against Raissa Robles</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 13521, June 27, 2023 | En Banc Resolution</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 13521, June 27, 2023 | En Banc Resolution</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Detailed disciplinary resolution evaluating Atty. Gadon&#x27;s defenses that his viral video was an exercise of political free speech and personal private expression on social media outside of active courtroom litigation.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1809,7 +1819,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-58-case-70-abs-cbn-corporation-et-al-v-andal-ampatuan-jr-re-aff" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 70</span><h2 class="case-header-title">ABS-CBN Corporation, et al. v. Andal Ampatuan, Jr. (Re-Affirmed)</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 227004, April 25, 2023 | 948 SCRA 1</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 227004, April 25, 2023 | 948 SCRA 1</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Re-affirmed comprehensive guidelines on the sub judice rule in high-profile criminal litigation, balancing freedom of public information with the imperative to prevent trial by publicity and judicial intimidation.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1826,7 +1836,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-59-case-71-serrano-v-cruz-angeles-et-al" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 71</span><h2 class="case-header-title">Serrano v. Cruz-Angeles, et al.</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 10985, February 20, 2024</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 10985, February 20, 2024</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Complainant engaged respondent Attys. Cruz-Angeles and partner for the titling and clearing of real estate property. Complainant paid P350,000 as professional and mobilization fees. Respondents failed to render any substantial legal service, failed to account for the funds, and made misleading representations regarding the status of the land registration proceedings.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1843,7 +1853,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-60-case-72-request-of-the-public-attorneys-office-to-delete-sec" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 72</span><h2 class="case-header-title">Request of the Public Attorney&#x27;s Office to Delete Section 22, Canon III of the CPRA</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.M. No. 23-05-05-SC, July 11, 2023 | En Banc</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.M. No. 23-05-05-SC, July 11, 2023 | En Banc</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">The Public Attorney&#x27;s Office (PAO), through its Chief Public Attorney, filed a formal request seeking the deletion of Section 22, Canon III of the newly promulgated CPRA. Section 22 limits conflict-of-interest disqualifications in public legal aid offices to the specific lawyer handling the case, thereby allowing different PAO lawyers within the same district office to represent opposing co-accused or opposing parties in separate cases. PAO claimed this compromised their institutional integrity and violated the RPC on betrayal of trust.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1860,7 +1870,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-61-case-73-inocente-v-st-vincent-foundation-for-children-and-ag" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 73</span><h2 class="case-header-title">Inocente v. St. Vincent Foundation for Children and Aging, Inc.</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 202621, June 22, 2016 | 794 SCRA 250</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 202621, June 22, 2016 | 794 SCRA 250</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">In a labor dispute, a former corporate counsel for a charitable foundation later accepted a retainer to represent dismissed foundation employees in a labor lawsuit against the exact same foundation, utilizing insider corporate knowledge acquired during previous corporate representation.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1877,7 +1887,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-62-case-74-floreswinda-v-juni-v-atty-mario-t-juni" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 74</span><h2 class="case-header-title">Floreswinda V. Juni v. Atty. Mario T. Juni</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 11599, September 15, 2021</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 11599, September 15, 2021</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Complainant charged her husband, Atty. Juni, with gross immorality and abandonment for abandoning his lawful family, refusing to provide child support, and cohabiting openly with another woman in another province.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1894,7 +1904,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-63-case-75-hosoya-v-contado" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 75</span><h2 class="case-header-title">Hosoya v. Contado</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 10731, October 5, 2021</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 10731, October 5, 2021</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Complainant, a foreign national, engaged respondent Atty. Contado to purchase real property in the Philippines and transfer the title. The respondent collected P2,500,000 but failed to purchase the property, presented forged receipts, and converted the money for personal investments.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -1911,7 +1921,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
 <hr class="section-divider" />
 <section id="sec-64-case-76-venzon-v-peleo-iii" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 76</span><h2 class="case-header-title">Venzon v. Peleo III</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>A.C. No. 9354, August 20, 2019 | 914 SCRA 1</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>A.C. No. 9354, August 20, 2019 | 914 SCRA 1</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
 <p class="read-unit case-paragraph" data-unit-type="paragraph">Complainant filed a disbarment complaint against respondent Atty. Peleo III for chronic refusal to pay lawful just debts, issuing bouncing checks (BP 22), and evading court summonses across multiple civil collection suits.</p>
 <p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE ETHICAL ISSUE:</strong></p>
@@ -2054,7 +2064,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
         }
       }
 
-      // 5. Smart Legal Phonetic & Roman Numeral Expander
+      // 5. Smart Legal Phonetic, Deduplication & Roman Numeral Expander
       function romanToInt(roman) {
         const map = {
           'M': 1000, 'CM': 900, 'D': 500, 'CD': 400,
@@ -2082,8 +2092,50 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
         'VI': 'the sixth', 'VII': 'the seventh', 'VIII': 'the eighth', 'IX': 'the ninth', 'X': 'the tenth'
       };
 
+      function cleanSmartReading(txt) {
+        if (!txt) return '';
+
+        // A. Strip all emojis and decorative symbols completely without surrogates
+        txt = Array.from(txt).filter(c => {
+          const cp = c.codePointAt(0);
+          return cp < 0x2000 || (cp > 0x2BFF && cp < 0x1F000);
+        }).join('');
+        txt = txt.replace(/[•§]/g, ' ');
+
+        // B. Smart Number-Word Deduplication: e.g. "one (1) year" -> "one year", "three (3) months" -> "three months"
+        const numWordPattern = /\b(zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|twenty-five|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand|million)\s*\(\s*\d+\s*\)/gi;
+        txt = txt.replace(numWordPattern, '$1');
+
+        // Reverse Number-Word: e.g. "1 (one)" -> "one", "30 (thirty)" -> "thirty"
+        txt = txt.replace(/\b\d+\s*\(\s*([a-zA-Z\-]+)\s*\)/g, '$1');
+
+        // C. Smart Tag / Bracket Deduplication:
+        // Strip single letter ALAC tags: [A], [L], [A], [C], [A - ANSWER], [L - LEGAL BASIS]
+        txt = txt.replace(/\[\s*[A-Z]\s*[\-–—]?\s*(?:ANSWER|LEGAL\s+BASIS|APPLICATION|ANALYSIS|CONCLUSION)?\s*\]\s*/gi, '');
+
+        // Deduplicate [Tag] Tag ... -> Tag ...
+        txt = txt.replace(/\[\s*([^\]]+)\s*\]\s*[:\-–—]?\s*([\s\S]*)/g, function(match, tag, rest) {
+          tag = tag.trim();
+          if (rest.toLowerCase().startsWith(tag.toLowerCase())) {
+            return rest;
+          }
+          return tag + ': ' + rest;
+        });
+
+        // Deduplicate adjacent identical words/phrases: e.g. "Applicable Applicable" -> "Applicable"
+        txt = txt.replace(/\b([A-Za-z](3,))\b\s+\1\b/gi, '$1');
+
+        // Clean up double colons or punctuation artifacts
+        txt = txt.replace(/:\s*:/g, ':');
+        txt = txt.replace(/\s+/g, ' ').trim();
+        return txt;
+      }
+
       function expandRomanAndPhonetics(txt) {
         if (!txt) return '';
+
+        // Run smart deduplication first
+        txt = cleanSmartReading(txt);
 
         // Master Unified Table: Citations + Cyber & Digital Laws
         const replacements = [
@@ -2102,7 +2154,11 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
           [/\bPhil\.\b/gi, 'Phil'],
           [/\bSCRA\b/g, 'SKRA'],
           [/\bCPRA\b/g, 'SIP-ruh'],
+          [/\bCJCA\b/g, 'SEE-JAY-SEE-AY'],
           [/\bCPR\b/g, 'Code of Professional Responsibility'],
+          [/\bCCCP\b/g, 'Code of Conduct for Court Personnel'],
+          [/\bJIO\b/g, 'Judicial Integrity Office'],
+          [/\bOCA\b/g, 'Office of the Court Administrator'],
           [/\bDPA\b/g, 'DEE-PEE-AY'],
           [/\bITA\b/g, 'EYE-tuh'],
           [/\bOSAEC\b/g, 'OH-sak'],

@@ -535,10 +535,20 @@
       color: var(--text-secondary);
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.75rem;
     }
-    .citation-icon {
-      font-size: 1.1rem;
+    .citation-label {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      background: rgba(251, 191, 36, 0.12);
+      border: 1px solid rgba(251, 191, 36, 0.25);
+      padding: 2px 7px;
+      border-radius: 4px;
     }
 
     /* Subheadings within Case (Facts, Issue, Ruling) */
@@ -672,7 +682,7 @@
 </head>
 <body>
   <div id="readingProgressBar"></div>
-  <button id="floatingTtsTrigger" title="Read Selected Text">▶ Read Selection</button>
+  <button id="floatingTtsTrigger" title="Read Selected Text">Read Selection</button>
 
   <header>
     <div class="header-left">
@@ -686,9 +696,9 @@
       <button class="btn-icon" id="fontDecBtn" title="Decrease Font Size">A-</button>
       <button class="btn-icon" id="fontIncBtn" title="Increase Font Size">A+</button>
       <select class="select-control" id="themeSelect" title="Select Theme">
-        <option value="dark">🌙 Dark</option>
-        <option value="sepia">📜 Sepia</option>
-        <option value="light">☀️ Light</option>
+        <option value="dark">Dark</option>
+        <option value="sepia">Sepia</option>
+        <option value="light">Light</option>
       </select>
     </div>
   </header>
@@ -697,12 +707,12 @@
     <div class="tts-controls-group">
       <button class="btn-tts" id="playPauseBtn">
         <span id="playIcon">▶</span>
-        <span id="pauseIcon" style="display:none;">⏸</span>
+        <span id="pauseIcon" style="display:none;">❚❚</span>
         <span id="playBtnText">Read Aloud</span>
       </button>
-      <button class="btn-tts-secondary" id="prevBtn" title="Previous Paragraph (Key: P)">⏮ Prev</button>
-      <button class="btn-tts-secondary" id="nextBtn" title="Next Paragraph (Key: N)">Next ⏭</button>
-      <button class="btn-tts-secondary" id="stopBtn" title="Stop Speech (Key: Esc)">⏹ Stop</button>
+      <button class="btn-tts-secondary" id="prevBtn" title="Previous Paragraph (Key: P)">Previous</button>
+      <button class="btn-tts-secondary" id="nextBtn" title="Next Paragraph (Key: N)">Next</button>
+      <button class="btn-tts-secondary" id="stopBtn" title="Stop Speech (Key: Esc)">Stop</button>
     </div>
 
     <div class="tts-controls-group">
@@ -729,7 +739,7 @@
 
   <div class="app-layout">
     <nav class="sidebar-toc" id="sidebarNav">
-      <input type="text" class="toc-search-box" id="sidebarSearch" placeholder="🔍 Filter topics & cases..." />
+      <input type="text" class="toc-search-box" id="sidebarSearch" placeholder="Filter topics & cases..." />
       <div class="toc-heading">Table of Contents</div>
       <ul class="toc-list" id="tocList">
         <li><a href="#sec-overview" class="toc-link level-1" title="Statutory Construction (StatCon)">Statutory Construction (StatCon)</a></li>
@@ -771,16 +781,16 @@
       <div class="doc-meta-banner">
         <h1 class="doc-headline">Statutory Construction (StatCon)</h1>
         <div class="doc-stats">
-          <span>📚 32 Sections</span>
-          <span>⏱️ ~20 min read</span>
-          <span>🎓 Manila Law College</span>
+          <span>32 Sections</span>
+          <span>~20 min read</span>
+          <span>Manila Law College</span>
         </div>
       </div>
 
       
         <div class="studio-audio-player">
           <div class="audio-player-header">
-            <span class="audio-badge">🎙️ Studio Voice Podcast (Cloud Stream)</span>
+            <span class="audio-badge">Studio Voice Podcast (Cloud Stream)</span>
             <span class="audio-filename">Statutory Construction (StatCon).mp3</span>
           </div>
           <audio controls preload="metadata" class="native-audio-element">
@@ -1074,7 +1084,7 @@
         }
       }
 
-      // 5. Smart Legal Phonetic & Roman Numeral Expander
+      // 5. Smart Legal Phonetic, Deduplication & Roman Numeral Expander
       function romanToInt(roman) {
         const map = {
           'M': 1000, 'CM': 900, 'D': 500, 'CD': 400,
@@ -1102,8 +1112,50 @@
         'VI': 'the sixth', 'VII': 'the seventh', 'VIII': 'the eighth', 'IX': 'the ninth', 'X': 'the tenth'
       };
 
+      function cleanSmartReading(txt) {
+        if (!txt) return '';
+
+        // A. Strip all emojis and decorative symbols completely without surrogates
+        txt = Array.from(txt).filter(c => {
+          const cp = c.codePointAt(0);
+          return cp < 0x2000 || (cp > 0x2BFF && cp < 0x1F000);
+        }).join('');
+        txt = txt.replace(/[•§]/g, ' ');
+
+        // B. Smart Number-Word Deduplication: e.g. "one (1) year" -> "one year", "three (3) months" -> "three months"
+        const numWordPattern = /\b(zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|twenty-five|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand|million)\s*\(\s*\d+\s*\)/gi;
+        txt = txt.replace(numWordPattern, '$1');
+
+        // Reverse Number-Word: e.g. "1 (one)" -> "one", "30 (thirty)" -> "thirty"
+        txt = txt.replace(/\b\d+\s*\(\s*([a-zA-Z\-]+)\s*\)/g, '$1');
+
+        // C. Smart Tag / Bracket Deduplication:
+        // Strip single letter ALAC tags: [A], [L], [A], [C], [A - ANSWER], [L - LEGAL BASIS]
+        txt = txt.replace(/\[\s*[A-Z]\s*[\-–—]?\s*(?:ANSWER|LEGAL\s+BASIS|APPLICATION|ANALYSIS|CONCLUSION)?\s*\]\s*/gi, '');
+
+        // Deduplicate [Tag] Tag ... -> Tag ...
+        txt = txt.replace(/\[\s*([^\]]+)\s*\]\s*[:\-–—]?\s*([\s\S]*)/g, function(match, tag, rest) {
+          tag = tag.trim();
+          if (rest.toLowerCase().startsWith(tag.toLowerCase())) {
+            return rest;
+          }
+          return tag + ': ' + rest;
+        });
+
+        // Deduplicate adjacent identical words/phrases: e.g. "Applicable Applicable" -> "Applicable"
+        txt = txt.replace(/\b([A-Za-z](3,))\b\s+\1\b/gi, '$1');
+
+        // Clean up double colons or punctuation artifacts
+        txt = txt.replace(/:\s*:/g, ':');
+        txt = txt.replace(/\s+/g, ' ').trim();
+        return txt;
+      }
+
       function expandRomanAndPhonetics(txt) {
         if (!txt) return '';
+
+        // Run smart deduplication first
+        txt = cleanSmartReading(txt);
 
         // Master Unified Table: Citations + Cyber & Digital Laws
         const replacements = [
@@ -1122,7 +1174,11 @@
           [/\bPhil\.\b/gi, 'Phil'],
           [/\bSCRA\b/g, 'SKRA'],
           [/\bCPRA\b/g, 'SIP-ruh'],
+          [/\bCJCA\b/g, 'SEE-JAY-SEE-AY'],
           [/\bCPR\b/g, 'Code of Professional Responsibility'],
+          [/\bCCCP\b/g, 'Code of Conduct for Court Personnel'],
+          [/\bJIO\b/g, 'Judicial Integrity Office'],
+          [/\bOCA\b/g, 'Office of the Court Administrator'],
           [/\bDPA\b/g, 'DEE-PEE-AY'],
           [/\bITA\b/g, 'EYE-tuh'],
           [/\bOSAEC\b/g, 'OH-sak'],

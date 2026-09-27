@@ -535,10 +535,20 @@
       color: var(--text-secondary);
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.75rem;
     }
-    .citation-icon {
-      font-size: 1.1rem;
+    .citation-label {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      background: rgba(251, 191, 36, 0.12);
+      border: 1px solid rgba(251, 191, 36, 0.25);
+      padding: 2px 7px;
+      border-radius: 4px;
     }
 
     /* Subheadings within Case (Facts, Issue, Ruling) */
@@ -672,7 +682,7 @@
 </head>
 <body>
   <div id="readingProgressBar"></div>
-  <button id="floatingTtsTrigger" title="Read Selected Text">▶ Read Selection</button>
+  <button id="floatingTtsTrigger" title="Read Selected Text">Read Selection</button>
 
   <header>
     <div class="header-left">
@@ -686,9 +696,9 @@
       <button class="btn-icon" id="fontDecBtn" title="Decrease Font Size">A-</button>
       <button class="btn-icon" id="fontIncBtn" title="Increase Font Size">A+</button>
       <select class="select-control" id="themeSelect" title="Select Theme">
-        <option value="dark">🌙 Dark</option>
-        <option value="sepia">📜 Sepia</option>
-        <option value="light">☀️ Light</option>
+        <option value="dark">Dark</option>
+        <option value="sepia">Sepia</option>
+        <option value="light">Light</option>
       </select>
     </div>
   </header>
@@ -697,12 +707,12 @@
     <div class="tts-controls-group">
       <button class="btn-tts" id="playPauseBtn">
         <span id="playIcon">▶</span>
-        <span id="pauseIcon" style="display:none;">⏸</span>
+        <span id="pauseIcon" style="display:none;">❚❚</span>
         <span id="playBtnText">Read Aloud</span>
       </button>
-      <button class="btn-tts-secondary" id="prevBtn" title="Previous Paragraph (Key: P)">⏮ Prev</button>
-      <button class="btn-tts-secondary" id="nextBtn" title="Next Paragraph (Key: N)">Next ⏭</button>
-      <button class="btn-tts-secondary" id="stopBtn" title="Stop Speech (Key: Esc)">⏹ Stop</button>
+      <button class="btn-tts-secondary" id="prevBtn" title="Previous Paragraph (Key: P)">Previous</button>
+      <button class="btn-tts-secondary" id="nextBtn" title="Next Paragraph (Key: N)">Next</button>
+      <button class="btn-tts-secondary" id="stopBtn" title="Stop Speech (Key: Esc)">Stop</button>
     </div>
 
     <div class="tts-controls-group">
@@ -729,7 +739,7 @@
 
   <div class="app-layout">
     <nav class="sidebar-toc" id="sidebarNav">
-      <input type="text" class="toc-search-box" id="sidebarSearch" placeholder="🔍 Filter topics & cases..." />
+      <input type="text" class="toc-search-box" id="sidebarSearch" placeholder="Filter topics & cases..." />
       <div class="toc-heading">Table of Contents</div>
       <ul class="toc-list" id="tocList">
         <li><a href="#sec-overview" class="toc-link level-1" title="Criminal Law Case Digest">Criminal Law Case Digest</a></li>
@@ -760,16 +770,16 @@
       <div class="doc-meta-banner">
         <h1 class="doc-headline">Criminal Law Case Digest</h1>
         <div class="doc-stats">
-          <span>📚 21 Sections</span>
-          <span>⏱️ ~138 min read</span>
-          <span>🎓 Manila Law College</span>
+          <span>21 Sections</span>
+          <span>~138 min read</span>
+          <span>Manila Law College</span>
         </div>
       </div>
 
       
         <div class="studio-audio-player">
           <div class="audio-player-header">
-            <span class="audio-badge">🎙️ Studio Voice Podcast (Cloud Stream)</span>
+            <span class="audio-badge">Studio Voice Podcast (Cloud Stream)</span>
             <span class="audio-filename">Criminal Law Case Digest.mp3</span>
           </div>
           <audio controls preload="metadata" class="native-audio-element">
@@ -796,7 +806,7 @@ Rigorous Law School Case Digest Compendium Formatted via ALAC Method (Answer - L
 <hr class="section-divider" />
 <section id="sec-1-case-1-people-of-the-philippines-v-custodio-gonzales-sr" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 1</span><h2 class="case-header-title">People of the Philippines v. Custodio Gonzales, Sr.</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 80762, March 19, 1990 | 183 SCRA 309 | Ponente: Sarmiento, J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 80762, March 19, 1990 | 183 SCRA 309 | Ponente: Sarmiento, J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Coverage: </strong>II. Felonies  -  Elements: Act Required for Criminal Liability</div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Governing Statutory Article: </strong>Article 3, Revised Penal Code (Felonies Committed by Deceit or Fault)</div></div>
@@ -816,7 +826,7 @@ Rigorous Law School Case Digest Compendium Formatted via ALAC Method (Answer - L
 <hr class="section-divider" />
 <section id="sec-2-case-2-people-of-the-philippines-v-romana-silvestre-and-mart" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 2</span><h2 class="case-header-title">People of the Philippines v. Romana Silvestre and Martin Atienza</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>56 Phil. 353 (1931) | Ponente: Villa-Real, J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>56 Phil. 353 (1931) | Ponente: Villa-Real, J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Coverage: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Governing Statutory Article: </strong></div></div>
@@ -836,7 +846,7 @@ Rigorous Law School Case Digest Compendium Formatted via ALAC Method (Answer - L
 <hr class="section-divider" />
 <section id="sec-3-case-3-united-states-v-ah-chong" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 3</span><h2 class="case-header-title">United States v. Ah Chong</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>15 Phil. 488 (1910) | Ponente: Carson, J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>15 Phil. 488 (1910) | Ponente: Carson, J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Coverage: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Governing Statutory Article: </strong></div></div>
@@ -856,7 +866,7 @@ Rigorous Law School Case Digest Compendium Formatted via ALAC Method (Answer - L
 <hr class="section-divider" />
 <section id="sec-4-case-4-people-of-the-philippines-v-antonio-oanis-and-alberto" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 4</span><h2 class="case-header-title">People of the Philippines v. Antonio Oanis and Alberto Galanta</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>74 Phil. 257 (1943) | Ponente: Moran, J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>74 Phil. 257 (1943) | Ponente: Moran, J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Coverage: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Governing Statutory Article: </strong></div></div>
@@ -876,7 +886,7 @@ Rigorous Law School Case Digest Compendium Formatted via ALAC Method (Answer - L
 <hr class="section-divider" />
 <section id="sec-5-case-5-aristotel-valenzuela-v-people-of-the-philippines" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 5</span><h2 class="case-header-title">Aristotel Valenzuela v. People of the Philippines</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 160188, June 21, 2007 | 525 SCRA 306 | Ponente: Tinga, J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 160188, June 21, 2007 | 525 SCRA 306 | Ponente: Tinga, J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Coverage: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Governing Statutory Article: </strong></div></div>
@@ -896,7 +906,7 @@ Rigorous Law School Case Digest Compendium Formatted via ALAC Method (Answer - L
 <hr class="section-divider" />
 <section id="sec-6-case-6-people-of-the-philippines-v-marivic-genosa" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 6</span><h2 class="case-header-title">People of the Philippines v. Marivic Genosa</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 135981, January 15, 2004 | 419 SCRA 537 | Ponente: Panganiban, J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 135981, January 15, 2004 | 419 SCRA 537 | Ponente: Panganiban, J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Coverage: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Governing Statutory Article: </strong></div></div>
@@ -916,7 +926,7 @@ Rigorous Law School Case Digest Compendium Formatted via ALAC Method (Answer - L
 <hr class="section-divider" />
 <section id="sec-7-case-7-people-of-the-philippines-v-bayotas" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 7</span><h2 class="case-header-title">People of the Philippines v. Bayotas</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 102007, September 2, 1994 | 236 SCRA 239 | Ponente: Romero, J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 102007, September 2, 1994 | 236 SCRA 239 | Ponente: Romero, J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Coverage: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Governing Statutory Article: </strong></div></div>
@@ -936,7 +946,7 @@ Rigorous Law School Case Digest Compendium Formatted via ALAC Method (Answer - L
 <hr class="section-divider" />
 <section id="sec-8-case-8-people-of-the-philippines-v-simon" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 8</span><h2 class="case-header-title">People of the Philippines v. Simon</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 930280, July 29, 1994 | 234 SCRA 555 | Ponente: Regalado, J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 930280, July 29, 1994 | 234 SCRA 555 | Ponente: Regalado, J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Coverage: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Governing Statutory Article: </strong></div></div>
@@ -956,7 +966,7 @@ Rigorous Law School Case Digest Compendium Formatted via ALAC Method (Answer - L
 <hr class="section-divider" />
 <section id="sec-9-case-9-enrile-v-salazar" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 9</span><h2 class="case-header-title">Enrile v. Salazar</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 92163, June 5, 1990 | 186 SCRA 217 | Ponente: Narvasa, J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 92163, June 5, 1990 | 186 SCRA 217 | Ponente: Narvasa, J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Coverage: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Governing Statutory Article: </strong></div></div>
@@ -976,7 +986,7 @@ Rigorous Law School Case Digest Compendium Formatted via ALAC Method (Answer - L
 <hr class="section-divider" />
 <section id="sec-10-case-10-ivler-v-hon-maria-rowena-modesto-san-pedro" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 10</span><h2 class="case-header-title">Ivler v. Hon. Maria Rowena Modesto-San Pedro</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 172716, November 17, 2010 | 635 SCRA 191 | Ponente: Carpio, J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 172716, November 17, 2010 | 635 SCRA 191 | Ponente: Carpio, J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Coverage: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Governing Statutory Article: </strong></div></div>
@@ -996,7 +1006,7 @@ Rigorous Law School Case Digest Compendium Formatted via ALAC Method (Answer - L
 <hr class="section-divider" />
 <section id="sec-11-case-11-joseph-ejercito-estrada-v-sandiganbayan" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 11</span><h2 class="case-header-title">Joseph Ejercito Estrada v. Sandiganbayan</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 148560, November 19, 2001 | 369 SCRA 394 | Ponente: Bellosillo, J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 148560, November 19, 2001 | 369 SCRA 394 | Ponente: Bellosillo, J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Coverage: </strong>II. Felonies  -  Mala In Se vs. Mala Prohibita</div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Governing Statutory Article: </strong>Republic Act No. 7080 (Plunder Law as Amended by R.A. 7659)</div></div>
@@ -1016,7 +1026,7 @@ Rigorous Law School Case Digest Compendium Formatted via ALAC Method (Answer - L
 <hr class="section-divider" />
 <section id="sec-12-case-12-united-states-v-hn-bull" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 12</span><h2 class="case-header-title">United States v. H.N. Bull</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>15 Phil. 7 (1910) | Ponente: Elliott, J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>15 Phil. 7 (1910) | Ponente: Elliott, J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Coverage: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Governing Statutory Article: </strong></div></div>
@@ -1036,7 +1046,7 @@ Rigorous Law School Case Digest Compendium Formatted via ALAC Method (Answer - L
 <hr class="section-divider" />
 <section id="sec-13-case-13-people-of-the-philippines-v-lo-lo-and-saraw" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 13</span><h2 class="case-header-title">People of the Philippines v. Lo-lo and Saraw</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>43 Phil. 19 (1922) | Ponente: Malcolm, J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>43 Phil. 19 (1922) | Ponente: Malcolm, J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Coverage: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Governing Statutory Article: </strong></div></div>
@@ -1056,7 +1066,7 @@ Rigorous Law School Case Digest Compendium Formatted via ALAC Method (Answer - L
 <hr class="section-divider" />
 <section id="sec-14-case-14-united-states-v-james-l-brobst" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 14</span><h2 class="case-header-title">United States v. James L. Brobst</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>14 Phil. 310 (1909) | Ponente: Carson, J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>14 Phil. 310 (1909) | Ponente: Carson, J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Coverage: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Governing Statutory Article: </strong></div></div>
@@ -1076,7 +1086,7 @@ Rigorous Law School Case Digest Compendium Formatted via ALAC Method (Answer - L
 <hr class="section-divider" />
 <section id="sec-15-case-15-people-of-the-philippines-v-fernando-iligan" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 15</span><h2 class="case-header-title">People of the Philippines v. Fernando Iligan</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 75369, November 26, 1990 | 191 SCRA 643 | Ponente: Fernan, C.J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 75369, November 26, 1990 | 191 SCRA 643 | Ponente: Fernan, C.J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Coverage: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Governing Statutory Article: </strong></div></div>
@@ -1096,7 +1106,7 @@ Rigorous Law School Case Digest Compendium Formatted via ALAC Method (Answer - L
 <hr class="section-divider" />
 <section id="sec-16-case-16-sulpicio-intod-v-court-of-appeals" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 16</span><h2 class="case-header-title">Sulpicio Intod v. Court of Appeals</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 103119, October 21, 1992 | 215 SCRA 52 | Ponente: Campos, Jr., J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 103119, October 21, 1992 | 215 SCRA 52 | Ponente: Campos, Jr., J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Coverage: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Governing Statutory Article: </strong></div></div>
@@ -1116,7 +1126,7 @@ Rigorous Law School Case Digest Compendium Formatted via ALAC Method (Answer - L
 <hr class="section-divider" />
 <section id="sec-17-case-17-people-of-the-philippines-v-rodolfo-olarbe" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 17</span><h2 class="case-header-title">People of the Philippines v. Rodolfo Olarbe</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 227421, July 23, 2018 | 872 SCRA 479 | Ponente: Bersamin, J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 227421, July 23, 2018 | 872 SCRA 479 | Ponente: Bersamin, J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Coverage: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Governing Statutory Article: </strong></div></div>
@@ -1136,7 +1146,7 @@ Rigorous Law School Case Digest Compendium Formatted via ALAC Method (Answer - L
 <hr class="section-divider" />
 <section id="sec-18-case-18-people-of-the-philippines-v-mamerto-narvaez" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 18</span><h2 class="case-header-title">People of the Philippines v. Mamerto Narvaez</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. Nos. L-33466-67, April 20, 1983 | 121 SCRA 389 | Ponente: Makasiar, J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. Nos. L-33466-67, April 20, 1983 | 121 SCRA 389 | Ponente: Makasiar, J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Coverage: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Governing Statutory Article: </strong></div></div>
@@ -1156,7 +1166,7 @@ Rigorous Law School Case Digest Compendium Formatted via ALAC Method (Answer - L
 <hr class="section-divider" />
 <section id="sec-19-case-19-people-of-the-philippines-v-bonoan" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 19</span><h2 class="case-header-title">People of the Philippines v. Bonoan</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>64 Phil. 87 (1937) | Ponente: Laurel, J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>64 Phil. 87 (1937) | Ponente: Laurel, J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Coverage: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Governing Statutory Article: </strong></div></div>
@@ -1176,7 +1186,7 @@ Rigorous Law School Case Digest Compendium Formatted via ALAC Method (Answer - L
 <hr class="section-divider" />
 <section id="sec-20-case-20-basilio-v-court-of-appeals" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 20</span><h2 class="case-header-title">Basilio v. Court of Appeals</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 113433, March 17, 2000 | 328 SCRA 341 | Ponente: Pardo, J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 113433, March 17, 2000 | 328 SCRA 341 | Ponente: Pardo, J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SYLLABUS TOPIC &amp; STATUTORY PROVISION</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Coverage: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Governing Statutory Article: </strong></div></div>
@@ -1322,7 +1332,7 @@ Rigorous Law School Case Digest Compendium Formatted via ALAC Method (Answer - L
         }
       }
 
-      // 5. Smart Legal Phonetic & Roman Numeral Expander
+      // 5. Smart Legal Phonetic, Deduplication & Roman Numeral Expander
       function romanToInt(roman) {
         const map = {
           'M': 1000, 'CM': 900, 'D': 500, 'CD': 400,
@@ -1350,8 +1360,50 @@ Rigorous Law School Case Digest Compendium Formatted via ALAC Method (Answer - L
         'VI': 'the sixth', 'VII': 'the seventh', 'VIII': 'the eighth', 'IX': 'the ninth', 'X': 'the tenth'
       };
 
+      function cleanSmartReading(txt) {
+        if (!txt) return '';
+
+        // A. Strip all emojis and decorative symbols completely without surrogates
+        txt = Array.from(txt).filter(c => {
+          const cp = c.codePointAt(0);
+          return cp < 0x2000 || (cp > 0x2BFF && cp < 0x1F000);
+        }).join('');
+        txt = txt.replace(/[•§]/g, ' ');
+
+        // B. Smart Number-Word Deduplication: e.g. "one (1) year" -> "one year", "three (3) months" -> "three months"
+        const numWordPattern = /\b(zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|twenty-five|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand|million)\s*\(\s*\d+\s*\)/gi;
+        txt = txt.replace(numWordPattern, '$1');
+
+        // Reverse Number-Word: e.g. "1 (one)" -> "one", "30 (thirty)" -> "thirty"
+        txt = txt.replace(/\b\d+\s*\(\s*([a-zA-Z\-]+)\s*\)/g, '$1');
+
+        // C. Smart Tag / Bracket Deduplication:
+        // Strip single letter ALAC tags: [A], [L], [A], [C], [A - ANSWER], [L - LEGAL BASIS]
+        txt = txt.replace(/\[\s*[A-Z]\s*[\-–—]?\s*(?:ANSWER|LEGAL\s+BASIS|APPLICATION|ANALYSIS|CONCLUSION)?\s*\]\s*/gi, '');
+
+        // Deduplicate [Tag] Tag ... -> Tag ...
+        txt = txt.replace(/\[\s*([^\]]+)\s*\]\s*[:\-–—]?\s*([\s\S]*)/g, function(match, tag, rest) {
+          tag = tag.trim();
+          if (rest.toLowerCase().startsWith(tag.toLowerCase())) {
+            return rest;
+          }
+          return tag + ': ' + rest;
+        });
+
+        // Deduplicate adjacent identical words/phrases: e.g. "Applicable Applicable" -> "Applicable"
+        txt = txt.replace(/\b([A-Za-z](3,))\b\s+\1\b/gi, '$1');
+
+        // Clean up double colons or punctuation artifacts
+        txt = txt.replace(/:\s*:/g, ':');
+        txt = txt.replace(/\s+/g, ' ').trim();
+        return txt;
+      }
+
       function expandRomanAndPhonetics(txt) {
         if (!txt) return '';
+
+        // Run smart deduplication first
+        txt = cleanSmartReading(txt);
 
         // Master Unified Table: Citations + Cyber & Digital Laws
         const replacements = [
@@ -1370,7 +1422,11 @@ Rigorous Law School Case Digest Compendium Formatted via ALAC Method (Answer - L
           [/\bPhil\.\b/gi, 'Phil'],
           [/\bSCRA\b/g, 'SKRA'],
           [/\bCPRA\b/g, 'SIP-ruh'],
+          [/\bCJCA\b/g, 'SEE-JAY-SEE-AY'],
           [/\bCPR\b/g, 'Code of Professional Responsibility'],
+          [/\bCCCP\b/g, 'Code of Conduct for Court Personnel'],
+          [/\bJIO\b/g, 'Judicial Integrity Office'],
+          [/\bOCA\b/g, 'Office of the Court Administrator'],
           [/\bDPA\b/g, 'DEE-PEE-AY'],
           [/\bITA\b/g, 'EYE-tuh'],
           [/\bOSAEC\b/g, 'OH-sak'],

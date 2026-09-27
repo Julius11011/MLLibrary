@@ -535,10 +535,20 @@
       color: var(--text-secondary);
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.75rem;
     }
-    .citation-icon {
-      font-size: 1.1rem;
+    .citation-label {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      background: rgba(251, 191, 36, 0.12);
+      border: 1px solid rgba(251, 191, 36, 0.25);
+      padding: 2px 7px;
+      border-radius: 4px;
     }
 
     /* Subheadings within Case (Facts, Issue, Ruling) */
@@ -672,7 +682,7 @@
 </head>
 <body>
   <div id="readingProgressBar"></div>
-  <button id="floatingTtsTrigger" title="Read Selected Text">▶ Read Selection</button>
+  <button id="floatingTtsTrigger" title="Read Selected Text">Read Selection</button>
 
   <header>
     <div class="header-left">
@@ -686,9 +696,9 @@
       <button class="btn-icon" id="fontDecBtn" title="Decrease Font Size">A-</button>
       <button class="btn-icon" id="fontIncBtn" title="Increase Font Size">A+</button>
       <select class="select-control" id="themeSelect" title="Select Theme">
-        <option value="dark">🌙 Dark</option>
-        <option value="sepia">📜 Sepia</option>
-        <option value="light">☀️ Light</option>
+        <option value="dark">Dark</option>
+        <option value="sepia">Sepia</option>
+        <option value="light">Light</option>
       </select>
     </div>
   </header>
@@ -697,12 +707,12 @@
     <div class="tts-controls-group">
       <button class="btn-tts" id="playPauseBtn">
         <span id="playIcon">▶</span>
-        <span id="pauseIcon" style="display:none;">⏸</span>
+        <span id="pauseIcon" style="display:none;">❚❚</span>
         <span id="playBtnText">Read Aloud</span>
       </button>
-      <button class="btn-tts-secondary" id="prevBtn" title="Previous Paragraph (Key: P)">⏮ Prev</button>
-      <button class="btn-tts-secondary" id="nextBtn" title="Next Paragraph (Key: N)">Next ⏭</button>
-      <button class="btn-tts-secondary" id="stopBtn" title="Stop Speech (Key: Esc)">⏹ Stop</button>
+      <button class="btn-tts-secondary" id="prevBtn" title="Previous Paragraph (Key: P)">Previous</button>
+      <button class="btn-tts-secondary" id="nextBtn" title="Next Paragraph (Key: N)">Next</button>
+      <button class="btn-tts-secondary" id="stopBtn" title="Stop Speech (Key: Esc)">Stop</button>
     </div>
 
     <div class="tts-controls-group">
@@ -729,7 +739,7 @@
 
   <div class="app-layout">
     <nav class="sidebar-toc" id="sidebarNav">
-      <input type="text" class="toc-search-box" id="sidebarSearch" placeholder="🔍 Filter topics & cases..." />
+      <input type="text" class="toc-search-box" id="sidebarSearch" placeholder="Filter topics & cases..." />
       <div class="toc-heading">Table of Contents</div>
       <ul class="toc-list" id="tocList">
         <li><a href="#sec-overview" class="toc-link level-1" title="Statutory Construction Case Digest">Statutory Construction Case Digest</a></li>
@@ -760,16 +770,16 @@
       <div class="doc-meta-banner">
         <h1 class="doc-headline">Statutory Construction Case Digest</h1>
         <div class="doc-stats">
-          <span>📚 21 Sections</span>
-          <span>⏱️ ~208 min read</span>
-          <span>🎓 Manila Law College</span>
+          <span>21 Sections</span>
+          <span>~208 min read</span>
+          <span>Manila Law College</span>
         </div>
       </div>
 
       
         <div class="studio-audio-player">
           <div class="audio-player-header">
-            <span class="audio-badge">🎙️ Studio Voice Podcast (Cloud Stream)</span>
+            <span class="audio-badge">Studio Voice Podcast (Cloud Stream)</span>
             <span class="audio-filename">Statutory Construction Case Digest.mp3</span>
           </div>
           <audio controls preload="metadata" class="native-audio-element">
@@ -796,7 +806,7 @@ Rigorous Law School Case Digest Compendium on Statutory Interpretation &amp; Leg
 <hr class="section-divider" />
 <section id="sec-1-case-1-caltex-philippines-inc-v-enrico-palomar-postmaster-ge" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 1</span><h2 class="case-header-title">Caltex (Philippines), Inc. v. Enrico Palomar (Postmaster General)</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. L-19650, September 29, 1966 | 18 SCRA 247 | Ponente: Castro, J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. L-19650, September 29, 1966 | 18 SCRA 247 | Ponente: Castro, J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SUBJECT MATTER &amp; PROVISION SCRUTINIZED</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Classification: </strong>I. Background of the Study  -  Nature and Concept of Statutory Construction</div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Statutory Provision Scrutinized: </strong>Section 1954(a) of the Revised Administrative Code (Postal Non-Mailable Matter - Lotteries and Gift Enterprises)</div></div>
@@ -825,7 +835,7 @@ Rigorous Law School Case Digest Compendium on Statutory Interpretation &amp; Leg
 <hr class="section-divider" />
 <section id="sec-2-case-2-taada-v-tuvera" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 2</span><h2 class="case-header-title">Tañada v. Tuvera</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. L-63915, April 24, 1985 (136 SCRA 27) &amp; Resolution, December 29, 1986 (146 SCRA 446) | Ponente: Cruz, J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. L-63915, April 24, 1985 (136 SCRA 27) &amp; Resolution, December 29, 1986 (146 SCRA 446) | Ponente: Cruz, J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SUBJECT MATTER &amp; PROVISION SCRUTINIZED</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Classification: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Statutory Provision Scrutinized: </strong></div></div>
@@ -854,7 +864,7 @@ Rigorous Law School Case Digest Compendium on Statutory Interpretation &amp; Leg
 <hr class="section-divider" />
 <section id="sec-3-case-3-bolos-v-bolos" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 3</span><h2 class="case-header-title">Bolos v. Bolos</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 186400, October 20, 2010 | 634 SCRA 429 | Ponente: Mendoza, J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 186400, October 20, 2010 | 634 SCRA 429 | Ponente: Mendoza, J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SUBJECT MATTER &amp; PROVISION SCRUTINIZED</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Classification: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Statutory Provision Scrutinized: </strong></div></div>
@@ -883,7 +893,7 @@ Rigorous Law School Case Digest Compendium on Statutory Interpretation &amp; Leg
 <hr class="section-divider" />
 <section id="sec-4-case-4-people-v-patricio-amigo" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 4</span><h2 class="case-header-title">People v. Patricio Amigo</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 116719, January 18, 1996 | 252 SCRA 43 | Ponente: Melo, J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 116719, January 18, 1996 | 252 SCRA 43 | Ponente: Melo, J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SUBJECT MATTER &amp; PROVISION SCRUTINIZED</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Classification: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Statutory Provision Scrutinized: </strong></div></div>
@@ -912,7 +922,7 @@ Rigorous Law School Case Digest Compendium on Statutory Interpretation &amp; Leg
 <hr class="section-divider" />
 <section id="sec-5-case-5-people-v-purisima" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 5</span><h2 class="case-header-title">People v. Purisima</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. Nos. L-42050-66, November 20, 1978 | 86 SCRA 542 | Ponente: Muñoz Palma, J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. Nos. L-42050-66, November 20, 1978 | 86 SCRA 542 | Ponente: Muñoz Palma, J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SUBJECT MATTER &amp; PROVISION SCRUTINIZED</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Classification: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Statutory Provision Scrutinized: </strong></div></div>
@@ -936,7 +946,7 @@ Rigorous Law School Case Digest Compendium on Statutory Interpretation &amp; Leg
 <hr class="section-divider" />
 <section id="sec-6-case-6-people-v-mapa" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 6</span><h2 class="case-header-title">People v. Mapa</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. L-22301, August 30, 1967 | 20 SCRA 1164 | Ponente: Fernando, J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. L-22301, August 30, 1967 | 20 SCRA 1164 | Ponente: Fernando, J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SUBJECT MATTER &amp; PROVISION SCRUTINIZED</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Classification: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Statutory Provision Scrutinized: </strong></div></div>
@@ -965,7 +975,7 @@ Rigorous Law School Case Digest Compendium on Statutory Interpretation &amp; Leg
 <hr class="section-divider" />
 <section id="sec-7-case-7-endencia-v-david" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 7</span><h2 class="case-header-title">Endencia v. David</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. L-6355-56, August 31, 1953 | 93 Phil. 696 | Ponente: Montemayor, J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. L-6355-56, August 31, 1953 | 93 Phil. 696 | Ponente: Montemayor, J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SUBJECT MATTER &amp; PROVISION SCRUTINIZED</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Classification: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Statutory Provision Scrutinized: </strong></div></div>
@@ -994,7 +1004,7 @@ Rigorous Law School Case Digest Compendium on Statutory Interpretation &amp; Leg
 <hr class="section-divider" />
 <section id="sec-8-case-8-alonzo-v-intermediate-appellate-court" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 8</span><h2 class="case-header-title">Alonzo v. Intermediate Appellate Court</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 72873, May 28, 1987 | 150 SCRA 259 | Ponente: Cruz, J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 72873, May 28, 1987 | 150 SCRA 259 | Ponente: Cruz, J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SUBJECT MATTER &amp; PROVISION SCRUTINIZED</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Classification: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Statutory Provision Scrutinized: </strong></div></div>
@@ -1023,7 +1033,7 @@ Rigorous Law School Case Digest Compendium on Statutory Interpretation &amp; Leg
 <hr class="section-divider" />
 <section id="sec-9-case-9-chavez-v-judicial-and-bar-council" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 9</span><h2 class="case-header-title">Chavez v. Judicial and Bar Council</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 202242, July 17, 2012 | 676 SCRA 566 | Ponente: Mendoza, J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 202242, July 17, 2012 | 676 SCRA 566 | Ponente: Mendoza, J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SUBJECT MATTER &amp; PROVISION SCRUTINIZED</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Classification: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Statutory Provision Scrutinized: </strong></div></div>
@@ -1052,7 +1062,7 @@ Rigorous Law School Case Digest Compendium on Statutory Interpretation &amp; Leg
 <hr class="section-divider" />
 <section id="sec-10-case-10-centeno-v-villalon-pornillos" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 10</span><h2 class="case-header-title">Centeno v. Villalon-Pornillos</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 113092, September 1, 1994 | 236 SCRA 197 | Ponente: Regalado, J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 113092, September 1, 1994 | 236 SCRA 197 | Ponente: Regalado, J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SUBJECT MATTER &amp; PROVISION SCRUTINIZED</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Classification: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Statutory Provision Scrutinized: </strong></div></div>
@@ -1081,7 +1091,7 @@ Rigorous Law School Case Digest Compendium on Statutory Interpretation &amp; Leg
 <hr class="section-divider" />
 <section id="sec-11-case-11-ramirez-v-court-of-appeals" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 11</span><h2 class="case-header-title">Ramirez v. Court of Appeals</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 93833, September 25, 1995 | 248 SCRA 590 | Ponente: Hermosisima, Jr., J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 93833, September 25, 1995 | 248 SCRA 590 | Ponente: Hermosisima, Jr., J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SUBJECT MATTER &amp; PROVISION SCRUTINIZED</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Classification: </strong>III. Basic Guidelines in Construction  -  Considerations within the Statute</div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Statutory Provision Scrutinized: </strong>Section 1 of Republic Act No. 4200 (Anti-Wiretapping Act)</div></div>
@@ -1110,7 +1120,7 @@ Rigorous Law School Case Digest Compendium on Statutory Interpretation &amp; Leg
 <hr class="section-divider" />
 <section id="sec-12-case-12-pelizloy-realty-corporation-v-the-province-of-bengue" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 12</span><h2 class="case-header-title">Pelizloy Realty Corporation v. The Province of Benguet</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 183137, April 10, 2013 | 695 SCRA 491 | Ponente: Bersamin, J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 183137, April 10, 2013 | 695 SCRA 491 | Ponente: Bersamin, J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SUBJECT MATTER &amp; PROVISION SCRUTINIZED</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Classification: </strong>III. Basic Guidelines in Construction  -  Considerations within the Statute</div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Statutory Provision Scrutinized: </strong>Section 140 in relation to Section 131(b) of Republic Act No. 7160 (Local Government Code of 1991)</div></div>
@@ -1139,7 +1149,7 @@ Rigorous Law School Case Digest Compendium on Statutory Interpretation &amp; Leg
 <hr class="section-divider" />
 <section id="sec-13-case-13-eugenio-v-drilon" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 13</span><h2 class="case-header-title">Eugenio v. Drilon</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 109404, January 22, 1996 | 252 SCRA 106 | Ponente: Hermosisima, Jr., J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 109404, January 22, 1996 | 252 SCRA 106 | Ponente: Hermosisima, Jr., J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SUBJECT MATTER &amp; PROVISION SCRUTINIZED</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Classification: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Statutory Provision Scrutinized: </strong></div></div>
@@ -1168,7 +1178,7 @@ Rigorous Law School Case Digest Compendium on Statutory Interpretation &amp; Leg
 <hr class="section-divider" />
 <section id="sec-14-case-14-mmda-v-garin" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 14</span><h2 class="case-header-title">MMDA v. Garin</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 130230, April 15, 2005 | 456 SCRA 176 | Ponente: Chico-Nazario, J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 130230, April 15, 2005 | 456 SCRA 176 | Ponente: Chico-Nazario, J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SUBJECT MATTER &amp; PROVISION SCRUTINIZED</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Classification: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Statutory Provision Scrutinized: </strong></div></div>
@@ -1197,7 +1207,7 @@ Rigorous Law School Case Digest Compendium on Statutory Interpretation &amp; Leg
 <hr class="section-divider" />
 <section id="sec-15-case-15-cir-v-sm-prime-holdings-inc" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 15</span><h2 class="case-header-title">CIR v. SM Prime Holdings, Inc.</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 183505, February 26, 2010 | 613 SCRA 774 | Ponente: Corona, J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 183505, February 26, 2010 | 613 SCRA 774 | Ponente: Corona, J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SUBJECT MATTER &amp; PROVISION SCRUTINIZED</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Classification: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Statutory Provision Scrutinized: </strong></div></div>
@@ -1226,7 +1236,7 @@ Rigorous Law School Case Digest Compendium on Statutory Interpretation &amp; Leg
 <hr class="section-divider" />
 <section id="sec-16-case-16-mustang-lumber-inc-v-court-of-appeals" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 16</span><h2 class="case-header-title">Mustang Lumber, Inc. v. Court of Appeals</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 104988, June 18, 1996 | 257 SCRA 430 | Ponente: Davide, Jr., J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 104988, June 18, 1996 | 257 SCRA 430 | Ponente: Davide, Jr., J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SUBJECT MATTER &amp; PROVISION SCRUTINIZED</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Classification: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Statutory Provision Scrutinized: </strong></div></div>
@@ -1255,7 +1265,7 @@ Rigorous Law School Case Digest Compendium on Statutory Interpretation &amp; Leg
 <hr class="section-divider" />
 <section id="sec-17-case-17-krivenko-v-register-of-deeds" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 17</span><h2 class="case-header-title">Krivenko v. Register of Deeds</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. L-630, November 15, 1947 | 79 Phil. 461 | Ponente: Moran, C.J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. L-630, November 15, 1947 | 79 Phil. 461 | Ponente: Moran, C.J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SUBJECT MATTER &amp; PROVISION SCRUTINIZED</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Classification: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Statutory Provision Scrutinized: </strong></div></div>
@@ -1284,7 +1294,7 @@ Rigorous Law School Case Digest Compendium on Statutory Interpretation &amp; Leg
 <hr class="section-divider" />
 <section id="sec-18-case-18-francisco-v-house-of-representatives" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 18</span><h2 class="case-header-title">Francisco v. House of Representatives</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 160261, November 10, 2003 | 415 SCRA 44 | Ponente: Carpio Morales, J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 160261, November 10, 2003 | 415 SCRA 44 | Ponente: Carpio Morales, J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SUBJECT MATTER &amp; PROVISION SCRUTINIZED</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Classification: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Statutory Provision Scrutinized: </strong></div></div>
@@ -1313,7 +1323,7 @@ Rigorous Law School Case Digest Compendium on Statutory Interpretation &amp; Leg
 <hr class="section-divider" />
 <section id="sec-19-case-19-de-castro-v-judicial-and-bar-council" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 19</span><h2 class="case-header-title">De Castro v. Judicial and Bar Council</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 191002, April 20, 2010 | 618 SCRA 639 | Ponente: Bersamin, J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 191002, April 20, 2010 | 618 SCRA 639 | Ponente: Bersamin, J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SUBJECT MATTER &amp; PROVISION SCRUTINIZED</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Classification: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Statutory Provision Scrutinized: </strong></div></div>
@@ -1342,7 +1352,7 @@ Rigorous Law School Case Digest Compendium on Statutory Interpretation &amp; Leg
 <hr class="section-divider" />
 <section id="sec-20-case-20-engle-v-commission-on-elections" class="doc-section">
 <div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 20</span><h2 class="case-header-title">Engle v. Commission on Elections</h2></div>
-<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text"><strong><em>G.R. No. 215995, January 19, 2016 | 779 SCRA 355 | Ponente: Leonen, J.</em></strong></span></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong><em>G.R. No. 215995, January 19, 2016 | 779 SCRA 355 | Ponente: Leonen, J.</em></strong></span></div>
 <h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. SUBJECT MATTER &amp; PROVISION SCRUTINIZED</strong></h3>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Syllabus Classification: </strong></div></div>
 <div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>• Statutory Provision Scrutinized: </strong></div></div>
@@ -1497,7 +1507,7 @@ Rigorous Law School Case Digest Compendium on Statutory Interpretation &amp; Leg
         }
       }
 
-      // 5. Smart Legal Phonetic & Roman Numeral Expander
+      // 5. Smart Legal Phonetic, Deduplication & Roman Numeral Expander
       function romanToInt(roman) {
         const map = {
           'M': 1000, 'CM': 900, 'D': 500, 'CD': 400,
@@ -1525,8 +1535,50 @@ Rigorous Law School Case Digest Compendium on Statutory Interpretation &amp; Leg
         'VI': 'the sixth', 'VII': 'the seventh', 'VIII': 'the eighth', 'IX': 'the ninth', 'X': 'the tenth'
       };
 
+      function cleanSmartReading(txt) {
+        if (!txt) return '';
+
+        // A. Strip all emojis and decorative symbols completely without surrogates
+        txt = Array.from(txt).filter(c => {
+          const cp = c.codePointAt(0);
+          return cp < 0x2000 || (cp > 0x2BFF && cp < 0x1F000);
+        }).join('');
+        txt = txt.replace(/[•§]/g, ' ');
+
+        // B. Smart Number-Word Deduplication: e.g. "one (1) year" -> "one year", "three (3) months" -> "three months"
+        const numWordPattern = /\b(zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|twenty-five|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand|million)\s*\(\s*\d+\s*\)/gi;
+        txt = txt.replace(numWordPattern, '$1');
+
+        // Reverse Number-Word: e.g. "1 (one)" -> "one", "30 (thirty)" -> "thirty"
+        txt = txt.replace(/\b\d+\s*\(\s*([a-zA-Z\-]+)\s*\)/g, '$1');
+
+        // C. Smart Tag / Bracket Deduplication:
+        // Strip single letter ALAC tags: [A], [L], [A], [C], [A - ANSWER], [L - LEGAL BASIS]
+        txt = txt.replace(/\[\s*[A-Z]\s*[\-–—]?\s*(?:ANSWER|LEGAL\s+BASIS|APPLICATION|ANALYSIS|CONCLUSION)?\s*\]\s*/gi, '');
+
+        // Deduplicate [Tag] Tag ... -> Tag ...
+        txt = txt.replace(/\[\s*([^\]]+)\s*\]\s*[:\-–—]?\s*([\s\S]*)/g, function(match, tag, rest) {
+          tag = tag.trim();
+          if (rest.toLowerCase().startsWith(tag.toLowerCase())) {
+            return rest;
+          }
+          return tag + ': ' + rest;
+        });
+
+        // Deduplicate adjacent identical words/phrases: e.g. "Applicable Applicable" -> "Applicable"
+        txt = txt.replace(/\b([A-Za-z](3,))\b\s+\1\b/gi, '$1');
+
+        // Clean up double colons or punctuation artifacts
+        txt = txt.replace(/:\s*:/g, ':');
+        txt = txt.replace(/\s+/g, ' ').trim();
+        return txt;
+      }
+
       function expandRomanAndPhonetics(txt) {
         if (!txt) return '';
+
+        // Run smart deduplication first
+        txt = cleanSmartReading(txt);
 
         // Master Unified Table: Citations + Cyber & Digital Laws
         const replacements = [
@@ -1545,7 +1597,11 @@ Rigorous Law School Case Digest Compendium on Statutory Interpretation &amp; Leg
           [/\bPhil\.\b/gi, 'Phil'],
           [/\bSCRA\b/g, 'SKRA'],
           [/\bCPRA\b/g, 'SIP-ruh'],
+          [/\bCJCA\b/g, 'SEE-JAY-SEE-AY'],
           [/\bCPR\b/g, 'Code of Professional Responsibility'],
+          [/\bCCCP\b/g, 'Code of Conduct for Court Personnel'],
+          [/\bJIO\b/g, 'Judicial Integrity Office'],
+          [/\bOCA\b/g, 'Office of the Court Administrator'],
           [/\bDPA\b/g, 'DEE-PEE-AY'],
           [/\bITA\b/g, 'EYE-tuh'],
           [/\bOSAEC\b/g, 'OH-sak'],

@@ -5,12 +5,15 @@ MLC Universal Text-to-Speech (Read Aloud) HTML Reader Generator
 ===============================================================
 Converts legal study materials (.docx) across all MLC folders
 into interactive, high-readability HTML web applications featuring:
-  - Natural, Human-like Cadence & Intonation with Smart Legal Phonetic Expansions
+  - Smart Reading Normalization & Deduplication:
+      * Word-Number pairs: 'one (1)' -> 'one', 'thirty (30)' -> 'thirty'
+      * Bracketed duplicate tags: '[Applicable] Applicable' -> 'Applicable', '[Answer] Answer:' -> 'Answer:'
+      * Elimination of all emojis/icons from spoken streams and visual UI for luxury typography aesthetic
   - Master Unified Table (Citations + Cyber & Digital Laws: SKRA, JEE-AR, SIP-ruh, DEE-PEE-AY, etc.)
-  - Roman Numeral Cardinal & Ordinal Pronunciation
+  - Roman Numeral Cardinal & Ordinal Spoken Pronunciation
   - Topic Change Audio Notifications ("Now Reading: CASE X: ...")
   - Smooth Intonation Pauses at Colons, Semicolons, Commas, and Periods
-  - Continuous, Flowing Body Paragraphs with Modern Legal Typography (No Chat-Like Fragmentation)
+  - Continuous, Flowing Body Paragraphs with Modern Legal Typography
   - Streamlined, Clean Table of Contents (TOC) focused on Main Topics & Sub Topics
   - Clear Visual Hierarchy: Case Badges, Citation Banners, Subheadings, ALAC Inline Badges & Tables
   - Native Studio MP3 Podcast Audio Player Integration with GitHub CDN Cloud Streaming
@@ -269,7 +272,7 @@ def parse_docx_file(file_path, doc_title=""):
         # D. Check for Case Citation Line (e.g. A.C. No. 13521, June 27, 2023 | Per Curiam)
         if expect_citation and (len(raw_text) < 180 and any(k in raw_text for k in ["SCRA", "G.R.", "A.C.", "A.M.", "Phil.", "Ponente", "Curiam", "En Banc", "|"])):
             current_sec["units"].append(
-                f'<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-icon">⚖️</span> <span class="citation-text">{formatted_text}</span></div>'
+                f'<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text">{formatted_text}</span></div>'
             )
             expect_citation = False
             continue
@@ -390,7 +393,7 @@ def generate_reader_html(doc_title, subject_tag, sections, mp3_filename=None):
         mp3_player_html = f'''
         <div class="studio-audio-player">
           <div class="audio-player-header">
-            <span class="audio-badge">🎙️ Studio Voice Podcast (Cloud Stream)</span>
+            <span class="audio-badge">Studio Voice Podcast (Cloud Stream)</span>
             <span class="audio-filename">{html.escape(mp3_filename)}</span>
           </div>
           <audio controls preload="metadata" class="native-audio-element">
@@ -943,10 +946,20 @@ def generate_reader_html(doc_title, subject_tag, sections, mp3_filename=None):
       color: var(--text-secondary);
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.75rem;
     }}
-    .citation-icon {{
-      font-size: 1.1rem;
+    .citation-label {{
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      background: rgba(251, 191, 36, 0.12);
+      border: 1px solid rgba(251, 191, 36, 0.25);
+      padding: 2px 7px;
+      border-radius: 4px;
     }}
 
     /* Subheadings within Case (Facts, Issue, Ruling) */
@@ -1080,7 +1093,7 @@ def generate_reader_html(doc_title, subject_tag, sections, mp3_filename=None):
 </head>
 <body>
   <div id="readingProgressBar"></div>
-  <button id="floatingTtsTrigger" title="Read Selected Text">▶ Read Selection</button>
+  <button id="floatingTtsTrigger" title="Read Selected Text">Read Selection</button>
 
   <header>
     <div class="header-left">
@@ -1094,9 +1107,9 @@ def generate_reader_html(doc_title, subject_tag, sections, mp3_filename=None):
       <button class="btn-icon" id="fontDecBtn" title="Decrease Font Size">A-</button>
       <button class="btn-icon" id="fontIncBtn" title="Increase Font Size">A+</button>
       <select class="select-control" id="themeSelect" title="Select Theme">
-        <option value="dark">🌙 Dark</option>
-        <option value="sepia">📜 Sepia</option>
-        <option value="light">☀️ Light</option>
+        <option value="dark">Dark</option>
+        <option value="sepia">Sepia</option>
+        <option value="light">Light</option>
       </select>
     </div>
   </header>
@@ -1105,12 +1118,12 @@ def generate_reader_html(doc_title, subject_tag, sections, mp3_filename=None):
     <div class="tts-controls-group">
       <button class="btn-tts" id="playPauseBtn">
         <span id="playIcon">▶</span>
-        <span id="pauseIcon" style="display:none;">⏸</span>
+        <span id="pauseIcon" style="display:none;">❚❚</span>
         <span id="playBtnText">Read Aloud</span>
       </button>
-      <button class="btn-tts-secondary" id="prevBtn" title="Previous Paragraph (Key: P)">⏮ Prev</button>
-      <button class="btn-tts-secondary" id="nextBtn" title="Next Paragraph (Key: N)">Next ⏭</button>
-      <button class="btn-tts-secondary" id="stopBtn" title="Stop Speech (Key: Esc)">⏹ Stop</button>
+      <button class="btn-tts-secondary" id="prevBtn" title="Previous Paragraph (Key: P)">Previous</button>
+      <button class="btn-tts-secondary" id="nextBtn" title="Next Paragraph (Key: N)">Next</button>
+      <button class="btn-tts-secondary" id="stopBtn" title="Stop Speech (Key: Esc)">Stop</button>
     </div>
 
     <div class="tts-controls-group">
@@ -1137,7 +1150,7 @@ def generate_reader_html(doc_title, subject_tag, sections, mp3_filename=None):
 
   <div class="app-layout">
     <nav class="sidebar-toc" id="sidebarNav">
-      <input type="text" class="toc-search-box" id="sidebarSearch" placeholder="🔍 Filter topics & cases..." />
+      <input type="text" class="toc-search-box" id="sidebarSearch" placeholder="Filter topics & cases..." />
       <div class="toc-heading">Table of Contents</div>
       <ul class="toc-list" id="tocList">
         {toc_html}
@@ -1148,9 +1161,9 @@ def generate_reader_html(doc_title, subject_tag, sections, mp3_filename=None):
       <div class="doc-meta-banner">
         <h1 class="doc-headline">{escaped_title}</h1>
         <div class="doc-stats">
-          <span>📚 {total_sections} Sections</span>
-          <span>⏱️ ~{reading_time_minutes} min read</span>
-          <span>🎓 Manila Law College</span>
+          <span>{total_sections} Sections</span>
+          <span>~{reading_time_minutes} min read</span>
+          <span>Manila Law College</span>
         </div>
       </div>
 
@@ -1287,7 +1300,7 @@ def generate_reader_html(doc_title, subject_tag, sections, mp3_filename=None):
         }}
       }}
 
-      // 5. Smart Legal Phonetic & Roman Numeral Expander
+      // 5. Smart Legal Phonetic, Deduplication & Roman Numeral Expander
       function romanToInt(roman) {{
         const map = {{
           'M': 1000, 'CM': 900, 'D': 500, 'CD': 400,
@@ -1315,8 +1328,50 @@ def generate_reader_html(doc_title, subject_tag, sections, mp3_filename=None):
         'VI': 'the sixth', 'VII': 'the seventh', 'VIII': 'the eighth', 'IX': 'the ninth', 'X': 'the tenth'
       }};
 
+      function cleanSmartReading(txt) {{
+        if (!txt) return '';
+
+        // A. Strip all emojis and decorative symbols completely without surrogates
+        txt = Array.from(txt).filter(c => {{
+          const cp = c.codePointAt(0);
+          return cp < 0x2000 || (cp > 0x2BFF && cp < 0x1F000);
+        }}).join('');
+        txt = txt.replace(/[•§]/g, ' ');
+
+        // B. Smart Number-Word Deduplication: e.g. "one (1) year" -> "one year", "three (3) months" -> "three months"
+        const numWordPattern = /\\b(zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|twenty-five|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand|million)\\s*\\(\\s*\\d+\\s*\\)/gi;
+        txt = txt.replace(numWordPattern, '$1');
+
+        // Reverse Number-Word: e.g. "1 (one)" -> "one", "30 (thirty)" -> "thirty"
+        txt = txt.replace(/\\b\\d+\\s*\\(\\s*([a-zA-Z\\-]+)\\s*\\)/g, '$1');
+
+        // C. Smart Tag / Bracket Deduplication:
+        // Strip single letter ALAC tags: [A], [L], [A], [C], [A - ANSWER], [L - LEGAL BASIS]
+        txt = txt.replace(/\\[\\s*[A-Z]\\s*[\\-–—]?\\s*(?:ANSWER|LEGAL\\s+BASIS|APPLICATION|ANALYSIS|CONCLUSION)?\\s*\\]\\s*/gi, '');
+
+        // Deduplicate [Tag] Tag ... -> Tag ...
+        txt = txt.replace(/\\[\\s*([^\\]]+)\\s*\\]\\s*[:\\-–—]?\\s*([\\s\\S]*)/g, function(match, tag, rest) {{
+          tag = tag.trim();
+          if (rest.toLowerCase().startsWith(tag.toLowerCase())) {{
+            return rest;
+          }}
+          return tag + ': ' + rest;
+        }});
+
+        // Deduplicate adjacent identical words/phrases: e.g. "Applicable Applicable" -> "Applicable"
+        txt = txt.replace(/\\b([A-Za-z]{3,})\\b\\s+\\1\\b/gi, '$1');
+
+        // Clean up double colons or punctuation artifacts
+        txt = txt.replace(/:\\s*:/g, ':');
+        txt = txt.replace(/\\s+/g, ' ').trim();
+        return txt;
+      }}
+
       function expandRomanAndPhonetics(txt) {{
         if (!txt) return '';
+
+        // Run smart deduplication first
+        txt = cleanSmartReading(txt);
 
         // Master Unified Table: Citations + Cyber & Digital Laws
         const replacements = [
@@ -1335,7 +1390,11 @@ def generate_reader_html(doc_title, subject_tag, sections, mp3_filename=None):
           [/\\bPhil\\.\\b/gi, 'Phil'],
           [/\\bSCRA\\b/g, 'SKRA'],
           [/\\bCPRA\\b/g, 'SIP-ruh'],
+          [/\\bCJCA\\b/g, 'SEE-JAY-SEE-AY'],
           [/\\bCPR\\b/g, 'Code of Professional Responsibility'],
+          [/\\bCCCP\\b/g, 'Code of Conduct for Court Personnel'],
+          [/\\bJIO\\b/g, 'Judicial Integrity Office'],
+          [/\\bOCA\\b/g, 'Office of the Court Administrator'],
           [/\\bDPA\\b/g, 'DEE-PEE-AY'],
           [/\\bITA\\b/g, 'EYE-tuh'],
           [/\\bOSAEC\\b/g, 'OH-sak'],
@@ -1705,22 +1764,16 @@ def generate_study_hub_index(root_dir):
         by_subject[cat].append((h, rel_str))
 
     groups_html = []
-    subject_icons = {
-        "Basic Legal and Judiciary Ethics": "⚖️",
-        "Criminal Law": "🏛️",
-        "Statutory Construction": "📜"
-    }
 
     for group_name, files in by_subject.items():
         if not files:
             continue
-        icon = subject_icons.get(group_name, "📚")
         cards_html = []
         for fpath, rel_str in files:
             doc_name = fpath.stem.replace('_', ' ')
             mp3_file = fpath.with_suffix('.mp3')
             has_mp3 = mp3_file.exists()
-            mp3_badge = '<span class="badge-audio">🎙️ MP3 Audio</span>' if has_mp3 else ''
+            mp3_badge = '<span class="badge-audio">MP3 Podcast</span>' if has_mp3 else ''
             is_digest = 'digest' in doc_name.lower() or 'case' in doc_name.lower()
             type_badge = '<span class="badge-reader">Case Digest</span>' if is_digest else '<span class="badge-outline">Course Outline</span>'
             
@@ -1739,7 +1792,7 @@ def generate_study_hub_index(root_dir):
 
         groups_html.append(f'''
           <div class="hub-group">
-            <h2 class="hub-group-title">{icon} {html.escape(group_name)}</h2>
+            <h2 class="hub-group-title">{html.escape(group_name)}</h2>
             <div class="hub-grid">
               {''.join(cards_html)}
             </div>
@@ -1785,14 +1838,14 @@ def generate_study_hub_index(root_dir):
     .hub-title {{ font-family: var(--font-heading); font-size: 2.3rem; font-weight: 800; color: var(--accent-gold); margin-bottom: 0.75rem; letter-spacing: 0.03em; }}
     .hub-subtitle {{ color: var(--text-muted); font-size: 1.05rem; max-width: 650px; margin: 0 auto; line-height: 1.6; }}
     .hub-group {{ margin-bottom: 3rem; }}
-    .hub-group-title {{ font-size: 1.3rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1.25rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.6rem; display: flex; align-items: center; gap: 0.5rem; }}
+    .hub-group-title {{ font-size: 1.3rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1.25rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.6rem; letter-spacing: 0.02em; }}
     .hub-grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.25rem; }}
     .hub-card {{ background-color: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.2s ease; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2); }}
     .hub-card:hover {{ transform: translateY(-3px); border-color: var(--accent-blue); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); }}
     .hub-card-header {{ display: flex; gap: 0.5rem; margin-bottom: 0.85rem; }}
-    .badge-reader {{ background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); font-size: 0.72rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid rgba(56, 189, 248, 0.3); }}
-    .badge-outline {{ background: rgba(192, 132, 252, 0.15); color: #c084fc; font-size: 0.72rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid rgba(192, 132, 252, 0.3); }}
-    .badge-audio {{ background: rgba(52, 211, 153, 0.15); color: #34d399; font-size: 0.72rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid rgba(52, 211, 153, 0.3); }}
+    .badge-reader {{ background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); font-size: 0.72rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid rgba(56, 189, 248, 0.3); text-transform: uppercase; letter-spacing: 0.04em; }}
+    .badge-outline {{ background: rgba(192, 132, 252, 0.15); color: #c084fc; font-size: 0.72rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid rgba(192, 132, 252, 0.3); text-transform: uppercase; letter-spacing: 0.04em; }}
+    .badge-audio {{ background: rgba(52, 211, 153, 0.15); color: #34d399; font-size: 0.72rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid rgba(52, 211, 153, 0.3); text-transform: uppercase; letter-spacing: 0.04em; }}
     .hub-card-title {{ font-size: 1.05rem; font-weight: 600; line-height: 1.45; margin-bottom: 1.5rem; }}
     .hub-card-title a {{ color: var(--text-primary); text-decoration: none; transition: color 0.15s ease; }}
     .hub-card-title a:hover {{ color: var(--accent-gold); }}
