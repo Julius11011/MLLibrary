@@ -2730,10 +2730,12 @@ def generate_study_hub_index(root_dir):
     total_modules = 0
     total_audio_count = 0
     total_digest_count = 0
+    doc_lookup_map = {}
 
     for h in sorted(html_files, key=lambda x: str(x)):
         rel = h.relative_to(root_path)
-        rel_str = str(rel).replace('\\\\', '/').replace('\\', '/')
+        rel_str = str(rel).replace('\\', '/')
+        doc_lookup_map[h.name] = rel_str
         
         # Categorize
         cat = "Other Subjects"
@@ -2767,9 +2769,9 @@ def generate_study_hub_index(root_dir):
             has_pdf = pdf_file.exists()
             has_docx = docx_file.exists()
 
-            mp3_rel = str(mp3_file.relative_to(root_path)).replace('\\\\', '/').replace('\\', '/') if has_mp3 else ''
-            pdf_rel = str(pdf_file.relative_to(root_path)).replace('\\\\', '/').replace('\\', '/') if has_pdf else ''
-            docx_rel = str(docx_file.relative_to(root_path)).replace('\\\\', '/').replace('\\', '/') if has_docx else ''
+            mp3_rel = str(mp3_file.relative_to(root_path)).replace('\\', '/') if has_mp3 else ''
+            pdf_rel = str(pdf_file.relative_to(root_path)).replace('\\', '/') if has_pdf else ''
+            docx_rel = str(docx_file.relative_to(root_path)).replace('\\', '/') if has_docx else ''
 
             if has_mp3:
                 total_audio_count += 1
@@ -2811,7 +2813,7 @@ def generate_study_hub_index(root_dir):
             if has_docx:
                 resource_actions.append(f'<a href="{docx_rel}" class="btn-sub btn-sub-docx" download title="Download Word DOCX Document">📝 DOCX</a>')
 
-            cards_html.append(f'''
+            cards_html.append(f"""
               <div class="hub-card" data-subject="{html.escape(group_name)}" data-title="{html.escape(doc_name.lower())}" data-has-audio="{str(has_mp3).lower()}" data-is-digest="{str('digest' in d_lower or 'case' in d_lower).lower()}">
                 <div class="hub-card-header">
                   {type_badge}
@@ -2827,9 +2829,9 @@ def generate_study_hub_index(root_dir):
                   </div>
                 </div>
               </div>
-            ''')
+            """)
 
-        groups_html.append(f'''
+        groups_html.append(f"""
           <section class="hub-group" data-subject-group="{html.escape(group_name)}">
             <div class="hub-group-header">
               <div class="hub-group-title-wrap">
@@ -2845,9 +2847,11 @@ def generate_study_hub_index(root_dir):
               {''.join(cards_html)}
             </div>
           </section>
-        ''')
+        """)
 
-    hub_page = f'''<!DOCTYPE html>
+    doc_lookup_json = json.dumps(doc_lookup_map)
+
+    hub_page = f"""<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
@@ -2927,7 +2931,7 @@ def generate_study_hub_index(root_dir):
     /* Stat Counters Grid */
     .hub-stats-grid {{
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 1rem;
       margin-bottom: 3rem;
     }}
@@ -2938,9 +2942,22 @@ def generate_study_hub_index(root_dir):
       padding: 1.25rem 1rem;
       text-align: center;
       backdrop-filter: blur(6px);
-      transition: border-color 0.2s;
+      transition: all 0.2s ease;
     }}
-    .stat-card:hover {{ border-color: rgba(251, 191, 36, 0.35); }}
+    .stat-card:hover {{
+      border-color: rgba(251, 191, 36, 0.4);
+      transform: translateY(-2px);
+    }}
+    .stat-card.stat-bookmarks-card {{
+      border-color: rgba(251, 191, 36, 0.35);
+      background: rgba(251, 191, 36, 0.04);
+      cursor: pointer;
+    }}
+    .stat-card.stat-bookmarks-card:hover {{
+      border-color: var(--accent-gold);
+      background: rgba(251, 191, 36, 0.09);
+      box-shadow: 0 6px 20px rgba(251, 191, 36, 0.2);
+    }}
     .stat-val {{
       font-size: 1.85rem;
       font-weight: 800;
@@ -3024,6 +3041,14 @@ def generate_study_hub_index(root_dir):
       border-color: var(--accent-gold);
       color: #080d1a;
       font-weight: 700;
+    }}
+    .filter-chip.chip-bookmarks {{
+      border-color: rgba(251, 191, 36, 0.35);
+      color: var(--accent-gold);
+    }}
+    .filter-chip.chip-bookmarks.active {{
+      background: linear-gradient(135deg, #fbbf24, #d97706);
+      color: #080d1a;
     }}
     .results-count {{
       margin-left: auto;
@@ -3137,6 +3162,9 @@ def generate_study_hub_index(root_dir):
     .badge-canon {{ background: rgba(52, 211, 153, 0.15); color: var(--accent-emerald); border: 1px solid rgba(52, 211, 153, 0.3); }}
     .badge-cases {{ background: rgba(251, 113, 133, 0.15); color: var(--accent-rose); border: 1px solid rgba(251, 113, 133, 0.3); }}
     .badge-module {{ background: rgba(148, 163, 184, 0.15); color: var(--text-secondary); border: 1px solid rgba(148, 163, 184, 0.3); }}
+    .badge-slot-1 {{ background: rgba(251, 191, 36, 0.15); color: var(--accent-gold); border: 1px solid rgba(251, 191, 36, 0.35); }}
+    .badge-slot-2 {{ background: rgba(52, 211, 153, 0.15); color: var(--accent-emerald); border: 1px solid rgba(52, 211, 153, 0.35); }}
+    .badge-slot-3 {{ background: rgba(192, 132, 252, 0.15); color: var(--accent-purple); border: 1px solid rgba(192, 132, 252, 0.35); }}
 
     .fmt-pill {{
       font-size: 0.68rem;
@@ -3277,6 +3305,10 @@ def generate_study_hub_index(root_dir):
         <div class="stat-val">{total_digest_count}</div>
         <div class="stat-label">ALAC Case Digests</div>
       </div>
+      <div class="stat-card stat-bookmarks-card" id="statBookmarksCard" title="Click to view all saved bookmarks across all subjects">
+        <div class="stat-val" id="totalBookmarksCount">0</div>
+        <div class="stat-label">🔖 Saved Bookmarks</div>
+      </div>
     </div>
 
     <!-- Search and Filter Suite -->
@@ -3287,6 +3319,7 @@ def generate_study_hub_index(root_dir):
       </div>
       <div class="hub-filters">
         <span class="filter-chip active" data-filter="all">All Subjects</span>
+        <span class="filter-chip chip-bookmarks" data-filter="bookmarks-only" id="filterBookmarksChip">🔖 My Bookmarks (<span id="chipBookmarksCount">0</span>)</span>
         <span class="filter-chip" data-filter="Basic Legal and Judiciary Ethics">⚖️ Legal Ethics</span>
         <span class="filter-chip" data-filter="Constitutional Law">🏛️ Constitutional Law</span>
         <span class="filter-chip" data-filter="Criminal Law">🛡️ Criminal Law</span>
@@ -3296,6 +3329,26 @@ def generate_study_hub_index(root_dir):
         <span class="results-count" id="resultsCount">Showing all {total_modules} modules</span>
       </div>
     </div>
+
+    <!-- Master Bookmarks Section -->
+    <section class="hub-group" id="hubBookmarksSection" data-subject-group="bookmarks-only">
+      <div class="hub-group-header">
+        <div class="hub-group-title-wrap">
+          <span class="hub-group-icon">🔖</span>
+          <div>
+            <h2 class="hub-group-title">My Saved Study Bookmarks</h2>
+            <p class="hub-group-desc">Live index of all marked paragraphs, doctrines, and review points across all your legal subjects</p>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <span class="hub-group-count" id="hubBookmarksCountBadge">0 Bookmarks</span>
+          <button id="clearAllBookmarksBtn" class="btn-sub" style="color: var(--accent-rose); border-color: rgba(251, 113, 133, 0.3); display: none; cursor: pointer;">✕ Clear All</button>
+        </div>
+      </div>
+      <div class="hub-grid" id="hubBookmarksGrid">
+        <!-- Populated dynamically via JS -->
+      </div>
+    </section>
 
     <!-- Subject Modules -->
     <main id="hubMain">
@@ -3311,6 +3364,8 @@ def generate_study_hub_index(root_dir):
   </div>
 
   <script>
+    const DOC_LOOKUP = {doc_lookup_json};
+
     document.addEventListener('DOMContentLoaded', () => {{
       const searchInput = document.getElementById('hubSearch');
       const filterChips = document.querySelectorAll('.filter-chip');
@@ -3318,8 +3373,137 @@ def generate_study_hub_index(root_dir):
       const groups = document.querySelectorAll('.hub-group');
       const resultsCount = document.getElementById('resultsCount');
 
+      const totalBookmarksCountEl = document.getElementById('totalBookmarksCount');
+      const chipBookmarksCountEl = document.getElementById('chipBookmarksCount');
+      const hubBookmarksCountBadge = document.getElementById('hubBookmarksCountBadge');
+      const hubBookmarksGrid = document.getElementById('hubBookmarksGrid');
+      const hubBookmarksSection = document.getElementById('hubBookmarksSection');
+      const statBookmarksCard = document.getElementById('statBookmarksCard');
+      const clearAllBookmarksBtn = document.getElementById('clearAllBookmarksBtn');
+
       let currentFilter = 'all';
       let currentQuery = '';
+
+      function loadAndRenderBookmarks() {{
+        const allBm = [];
+        for (let i = 0; i < localStorage.length; i++) {{
+          const key = localStorage.key(i);
+          if (key && key.startsWith('mlc_bm_')) {{
+            try {{
+              const data = JSON.parse(localStorage.getItem(key));
+              const docFilename = key.replace('mlc_bm_', '');
+              const docRelPath = DOC_LOOKUP[docFilename] || docFilename;
+              
+              if (data) {{
+                for (let slot = 1; slot <= 3; slot++) {{
+                  if (data[slot] && data[slot].unitIndex !== undefined) {{
+                    allBm.push({{
+                      key: key,
+                      slot: slot,
+                      filename: docFilename,
+                      relPath: docRelPath,
+                      ...data[slot]
+                    }});
+                  }}
+                }}
+              }}
+            }} catch (e) {{}}
+          }}
+        }}
+
+        // Update counts
+        const count = allBm.length;
+        if (totalBookmarksCountEl) totalBookmarksCountEl.textContent = count;
+        if (chipBookmarksCountEl) chipBookmarksCountEl.textContent = count;
+        if (hubBookmarksCountBadge) hubBookmarksCountBadge.textContent = `${{count}} Bookmark${{count === 1 ? '' : 's'}}`;
+        if (clearAllBookmarksBtn) clearAllBookmarksBtn.style.display = count > 0 ? 'inline-block' : 'none';
+
+        // Render cards
+        if (!hubBookmarksGrid) return;
+        hubBookmarksGrid.innerHTML = '';
+
+        if (count === 0) {{
+          hubBookmarksGrid.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; padding: 2.5rem 1.5rem; background: var(--bg-card); border: 1px dashed var(--border-color); border-radius: 14px;">
+              <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔖</div>
+              <div style="font-family: var(--font-heading); font-size: 1.15rem; color: var(--accent-gold); margin-bottom: 0.4rem;">No Saved Bookmarks Yet</div>
+              <p style="color: var(--text-muted); font-size: 0.85rem; max-width: 520px; margin: 0 auto; line-height: 1.5;">
+                Open any subject reader module and hover over paragraphs to set <strong>🔖 1</strong>, <strong>⭐ 2</strong>, or <strong>📌 3</strong>. They will automatically sync and appear here.
+              </p>
+            </div>
+          `;
+          return;
+        }}
+
+        allBm.forEach(bm => {{
+          const slotIcon = bm.slot === 1 ? '🔖' : bm.slot === 2 ? '⭐' : '📌';
+          const slotColor = bm.slot === 1 ? 'var(--accent-gold)' : bm.slot === 2 ? 'var(--accent-emerald)' : 'var(--accent-purple)';
+          const docTitleClean = bm.filename.replace('.html', '').replace(/_/g, ' ');
+          
+          const bmCard = document.createElement('div');
+          bmCard.className = `hub-card bookmark-item-card`;
+          bmCard.setAttribute('data-subject', bm.subject || 'Law Subject');
+          bmCard.setAttribute('data-title', `${{bm.topic || ''}} ${{docTitleClean}} ${{bm.snippet || ''}}`.toLowerCase());
+
+          bmCard.innerHTML = `
+            <div class="hub-card-header">
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <span class="badge-type badge-slot-${{bm.slot}}">${{slotIcon}} Bookmark ${{bm.slot}}</span>
+                <span style="font-size: 0.72rem; color: var(--text-muted);">${{bm.timestamp || ''}}</span>
+              </div>
+              <div class="fmt-pills-row">
+                <span class="fmt-pill fmt-html">📚 ${{bm.subject || 'Law Subject'}}</span>
+                <span class="fmt-pill fmt-docx">📍 ${{bm.location || 'Paragraph'}}</span>
+              </div>
+            </div>
+            <div>
+              <div style="font-size: 0.78rem; font-weight: 600; color: var(--accent-blue); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.04em;">${{docTitleClean}}</div>
+              <h3 class="hub-card-title" style="font-size: 1.05rem; margin-bottom: 0.75rem;"><a href="${{bm.relPath}}">${{bm.topic || 'Bookmarked Section'}}</a></h3>
+              <div style="background: rgba(0, 0, 0, 0.25); padding: 8px 10px; border-radius: 6px; border-left: 3px solid ${{slotColor}}; font-size: 0.8rem; line-height: 1.4; color: var(--text-secondary); margin-bottom: 1.25rem;">
+                "${{bm.snippet || 'Bookmarked text'}}..."
+              </div>
+            </div>
+            <div class="hub-card-footer">
+              <a href="${{bm.relPath}}" class="btn-open">📖 Open Reader at Bookmark →</a>
+              <div class="hub-sub-actions">
+                <button class="btn-sub btn-remove-bm" data-key="${{bm.key}}" data-slot="${{bm.slot}}" style="color: var(--accent-rose); cursor: pointer;">✕ Remove</button>
+              </div>
+            </div>
+          `;
+          hubBookmarksGrid.appendChild(bmCard);
+        }});
+
+        // Bind remove buttons
+        hubBookmarksGrid.querySelectorAll('.btn-remove-bm').forEach(btn => {{
+          btn.addEventListener('click', (e) => {{
+            e.stopPropagation();
+            const key = btn.getAttribute('data-key');
+            const slot = parseInt(btn.getAttribute('data-slot'), 10);
+            try {{
+              const data = JSON.parse(localStorage.getItem(key)) || {{}};
+              data[slot] = null;
+              localStorage.setItem(key, JSON.stringify(data));
+              loadAndRenderBookmarks();
+              filterCards();
+            }} catch (err) {{}}
+          }});
+        }});
+      }}
+
+      if (clearAllBookmarksBtn) {{
+        clearAllBookmarksBtn.addEventListener('click', () => {{
+          if (confirm('Are you sure you want to clear all bookmarks across all subjects?')) {{
+            const keysToRemove = [];
+            for (let i = 0; i < localStorage.length; i++) {{
+              const key = localStorage.key(i);
+              if (key && key.startsWith('mlc_bm_')) keysToRemove.push(key);
+            }}
+            keysToRemove.forEach(k => localStorage.removeItem(k));
+            loadAndRenderBookmarks();
+            filterCards();
+          }}
+        }});
+      }}
 
       function filterCards() {{
         let visibleCount = 0;
@@ -3333,6 +3517,8 @@ def generate_study_hub_index(root_dir):
           let matchesFilter = true;
           if (currentFilter === 'all') {{
             matchesFilter = true;
+          }} else if (currentFilter === 'bookmarks-only') {{
+            matchesFilter = false; // Hide regular subject cards when in bookmarks-only view
           }} else if (currentFilter === 'audio-only') {{
             matchesFilter = hasAudio;
           }} else if (currentFilter === 'digest-only') {{
@@ -3354,17 +3540,64 @@ def generate_study_hub_index(root_dir):
           }}
         }});
 
+        // Filter bookmark cards inside bookmarks grid
+        const bmCards = document.querySelectorAll('.bookmark-item-card');
+        let visibleBmCount = 0;
+        bmCards.forEach(bmCard => {{
+          const bmSubject = bmCard.getAttribute('data-subject') || '';
+          const bmTitle = bmCard.getAttribute('data-title') || '';
+
+          let matchesFilter = true;
+          if (currentFilter === 'all' || currentFilter === 'bookmarks-only') {{
+            matchesFilter = true;
+          }} else if (currentFilter === 'audio-only' || currentFilter === 'digest-only') {{
+            matchesFilter = false;
+          }} else {{
+            matchesFilter = (bmSubject === currentFilter);
+          }}
+
+          let matchesQuery = true;
+          if (currentQuery) {{
+            matchesQuery = bmTitle.includes(currentQuery) || bmSubject.toLowerCase().includes(currentQuery);
+          }}
+
+          if (matchesFilter && matchesQuery) {{
+            bmCard.classList.remove('hidden');
+            visibleBmCount++;
+          }} else {{
+            bmCard.classList.add('hidden');
+          }}
+        }});
+
+        // Handle bookmarks section visibility
+        if (hubBookmarksSection) {{
+          if (currentFilter === 'bookmarks-only') {{
+            hubBookmarksSection.style.display = 'block';
+          }} else if (currentFilter === 'all') {{
+            hubBookmarksSection.style.display = 'block';
+          }} else if (currentFilter === 'audio-only' || currentFilter === 'digest-only') {{
+            hubBookmarksSection.style.display = 'none';
+          }} else {{
+            hubBookmarksSection.style.display = visibleBmCount > 0 ? 'block' : 'none';
+          }}
+        }}
+
         // Hide empty groups
         groups.forEach(group => {{
+          if (group.id === 'hubBookmarksSection') return;
           const groupCards = group.querySelectorAll('.hub-card:not(.hidden)');
-          if (groupCards.length === 0) {{
+          if (groupCards.length === 0 || currentFilter === 'bookmarks-only') {{
             group.style.display = 'none';
           }} else {{
             group.style.display = 'block';
           }}
         }});
 
-        resultsCount.textContent = `Showing ${{visibleCount}} of ${{cards.length}} modules`;
+        if (currentFilter === 'bookmarks-only') {{
+          resultsCount.textContent = `Showing ${{visibleBmCount}} saved bookmark${{visibleBmCount === 1 ? '' : 's'}}`;
+        }} else {{
+          resultsCount.textContent = `Showing ${{visibleCount}} of ${{cards.length}} modules`;
+        }}
       }}
 
       searchInput.addEventListener('input', (e) => {{
@@ -3380,11 +3613,27 @@ def generate_study_hub_index(root_dir):
           filterCards();
         }});
       }});
+
+      if (statBookmarksCard) {{
+        statBookmarksCard.addEventListener('click', () => {{
+          filterChips.forEach(c => c.classList.remove('active'));
+          const bmChip = document.getElementById('filterBookmarksChip');
+          if (bmChip) bmChip.classList.add('active');
+          currentFilter = 'bookmarks-only';
+          filterCards();
+          if (hubBookmarksSection) {{
+            hubBookmarksSection.scrollIntoView({{ behavior: 'smooth', block: 'start' }});
+          }}
+        }});
+      }}
+
+      loadAndRenderBookmarks();
+      filterCards();
     }});
   </script>
 </body>
 </html>
-'''
+"""
 
     out_hub = root_path / "MLC_Study_Hub.html"
     out_idx = root_path / "index.html"
