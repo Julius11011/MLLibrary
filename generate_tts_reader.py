@@ -1589,7 +1589,6 @@ READER_HTML_TEMPLATE = r'''<!DOCTYPE html>
           </div>
         </div>
       </div>
-      </div>
       <button class="btn-icon" id="fontDecBtn" title="Decrease Font Size">A-</button>
       <button class="btn-icon" id="fontIncBtn" title="Increase Font Size">A+</button>
       <select class="select-control" id="themeSelect" title="Select Theme">
@@ -2268,9 +2267,7 @@ __SECTIONS_HTML__
 
         // 4. Snippet
         let rawText = unit.innerText || unit.textContent || '';
-        rawText = rawText.replace(/^(?:🔖|⭐|📌)[^
-]+
-?/, '').trim();
+        rawText = rawText.replace(/^[🔖⭐📌][^\n]*\n?/, '').trim();
         const snippet = rawText.substring(0, 110) + (rawText.length > 110 ? '...' : '');
 
         return {
