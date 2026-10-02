@@ -860,29 +860,30 @@
 
     /* ------------------------------------------------------------- */
     /* 3 SPECIAL BOOKMARKING SYSTEM                                  */
-    /* ------------------------------------------------------------- */
+    /* ============================================================= */
     .bookmark-nav-wrapper {
       position: relative;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
     }
-
     .bookmark-count-badge {
       position: absolute;
       top: -4px;
       right: -4px;
-      background: var(--accent-gold);
-      color: #0b1120;
+      background: var(--accent-crimson);
+      color: #fff;
       font-size: 0.65rem;
       font-weight: 800;
-      width: 17px;
+      min-width: 17px;
       height: 17px;
-      border-radius: 50%;
+      border-radius: 9999px;
       display: flex;
       align-items: center;
       justify-content: center;
-      line-height: 1;
-      border: 1px solid var(--bg-secondary);
-      box-shadow: var(--shadow-sm);
+      padding: 0 4px;
+      border: 2px solid var(--bg-secondary);
+      box-shadow: 0 0 6px rgba(248, 113, 113, 0.6);
+      pointer-events: none;
     }
 
     /* Bookmarks Dropdown Popover */
@@ -890,43 +891,40 @@
       position: absolute;
       top: calc(100% + 10px);
       right: 0;
-      width: 360px;
-      max-width: 90vw;
-      background-color: var(--bg-secondary);
+      width: 380px;
+      max-width: 92vw;
+      background: var(--bg-secondary);
       border: 1px solid var(--border-color);
-      border-radius: 12px;
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
-      z-index: 1001;
-      padding: 1rem;
+      border-radius: 14px;
+      padding: 1.1rem;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
+      z-index: 200;
       display: none;
-      backdrop-filter: blur(14px);
+      flex-direction: column;
+      gap: 0.85rem;
+      backdrop-filter: blur(16px);
       animation: bookmarkFadeIn 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .bookmarks-dropdown.open {
-      display: block;
+      display: flex;
     }
-
     @keyframes bookmarkFadeIn {
-      from { opacity: 0; transform: translateY(-8px); }
-      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(-8px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
     }
-
     .bookmarks-dropdown-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding-bottom: 0.6rem;
-      margin-bottom: 0.75rem;
       border-bottom: 1px solid var(--border-color);
     }
     .bookmarks-title {
       font-family: var(--font-heading);
-      font-size: 0.95rem;
-      font-weight: 800;
+      font-size: 0.92rem;
+      font-weight: 700;
       color: var(--accent-gold);
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      letter-spacing: 0.03em;
     }
     .bookmarks-sub {
       font-size: 0.72rem;
@@ -945,7 +943,7 @@
     .bookmark-slot-card {
       background: var(--bg-primary);
       border: 1px solid var(--border-color);
-      border-radius: 8px;
+      border-radius: 10px;
       padding: 0.75rem 0.85rem;
       transition: all 0.2s ease;
     }
@@ -957,17 +955,22 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.45rem;
     }
     .slot-badge {
-      font-size: 0.72rem;
+      font-size: 0.75rem;
       font-weight: 700;
       font-family: var(--font-ui);
       letter-spacing: 0.04em;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 7px;
+      border-radius: 4px;
     }
-    .badge-slot-1 { color: var(--accent-gold); }
-    .badge-slot-2 { color: var(--accent-emerald); }
-    .badge-slot-3 { color: var(--accent-purple); }
+    .badge-slot-1 { color: var(--accent-gold); background: rgba(251, 191, 36, 0.12); border: 1px solid rgba(251, 191, 36, 0.25); }
+    .badge-slot-2 { color: var(--accent-emerald); background: rgba(52, 211, 153, 0.12); border: 1px solid rgba(52, 211, 153, 0.25); }
+    .badge-slot-3 { color: var(--accent-purple); background: rgba(192, 132, 252, 0.12); border: 1px solid rgba(192, 132, 252, 0.25); }
 
     .btn-slot-clear {
       background: transparent;
@@ -985,10 +988,44 @@
       background: rgba(248, 113, 113, 0.15);
     }
 
-    .slot-content {
-      font-size: 0.82rem;
+    .slot-meta-box {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      margin-bottom: 0.45rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 1px dashed var(--border-color);
+      font-size: 0.74rem;
+      font-family: var(--font-ui);
+    }
+    .slot-meta-row {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      line-height: 1.35;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .slot-meta-label {
+      font-weight: 700;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+    .slot-meta-val {
       color: var(--text-secondary);
-      line-height: 1.45;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .slot-meta-val.val-subject { color: var(--accent-blue); font-weight: 600; }
+    .slot-meta-val.val-topic { color: var(--accent-gold-light); font-weight: 600; }
+    .slot-meta-val.val-location { color: var(--accent-emerald); font-weight: 500; }
+
+    .slot-content {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
       margin-bottom: 0.5rem;
       font-family: var(--font-body);
       max-height: 48px;
@@ -997,23 +1034,19 @@
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 4px 6px;
+      border-radius: 4px;
+      border-left: 2px solid rgba(148, 163, 184, 0.3);
     }
     .slot-content.empty {
       font-style: italic;
       color: var(--text-muted);
       font-family: var(--font-ui);
       font-size: 0.78rem;
-    }
-
-    .slot-section-title {
-      font-family: var(--font-ui);
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--accent-blue);
-      margin-bottom: 3px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      background: transparent;
+      border-left: none;
+      padding: 0;
     }
 
     .slot-actions {
@@ -1058,7 +1091,7 @@
       box-shadow: var(--shadow-md);
       z-index: 10;
       backdrop-filter: blur(6px);
-      opacity: 0.9;
+      opacity: 0.95;
     }
     .read-unit:hover .unit-bookmark-tools {
       display: flex;
@@ -1067,14 +1100,20 @@
       background: transparent;
       border: none;
       cursor: pointer;
-      font-size: 0.85rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      font-family: var(--font-ui);
       line-height: 1;
-      padding: 2px 4px;
+      padding: 3px 5px;
       border-radius: 4px;
       transition: transform 0.15s ease, filter 0.15s ease;
+      color: var(--text-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
     }
     .btn-unit-bm:hover {
-      transform: scale(1.2);
+      transform: scale(1.15);
       filter: drop-shadow(0 0 4px var(--accent-gold));
     }
 
@@ -1095,19 +1134,18 @@
     .bookmark-ribbon {
       display: inline-flex;
       align-items: center;
-      gap: 4px;
+      gap: 5px;
       font-family: var(--font-ui);
-      font-size: 0.7rem;
+      font-size: 0.72rem;
       font-weight: 700;
-      padding: 2px 7px;
+      padding: 3px 9px;
       border-radius: 4px;
-      margin-bottom: 6px;
-      letter-spacing: 0.04em;
+      margin-bottom: 7px;
+      letter-spacing: 0.03em;
     }
-    .ribbon-slot-1 { background: rgba(251, 191, 36, 0.2); color: var(--accent-gold); border: 1px solid var(--accent-gold); }
-    .ribbon-slot-2 { background: rgba(52, 211, 153, 0.2); color: var(--accent-emerald); border: 1px solid var(--accent-emerald); }
-    .ribbon-slot-3 { background: rgba(192, 132, 252, 0.2); color: var(--accent-purple); border: 1px solid var(--accent-purple); }
-
+    .ribbon-slot-1 { background: rgba(251, 191, 36, 0.18); color: var(--accent-gold); border: 1px solid var(--accent-gold); }
+    .ribbon-slot-2 { background: rgba(52, 211, 153, 0.18); color: var(--accent-emerald); border: 1px solid var(--accent-emerald); }
+    .ribbon-slot-3 { background: rgba(192, 132, 252, 0.18); color: var(--accent-purple); border: 1px solid var(--accent-purple); }
     /* Target Jump Flash Animation */
     @keyframes bookmarkTargetFlash {
       0% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.7); }
@@ -1135,54 +1173,67 @@
     </div>
     <div class="header-actions">
       <div class="bookmark-nav-wrapper">
-        <button class="btn-icon" id="bookmarksMenuBtn" title="Saved Bookmarks (3 Special Slots - Key: B)">
+        <button class="btn-icon" id="bookmarksMenuBtn" title="Saved Bookmarks (Key: B)">
           🔖
           <span class="bookmark-count-badge" id="bookmarkCountBadge" style="display:none;">0</span>
         </button>
         <div class="bookmarks-dropdown" id="bookmarksDropdown">
           <div class="bookmarks-dropdown-header">
             <div class="bookmarks-title">🔖 Study Bookmarks</div>
-            <span class="bookmarks-sub">3 Special Slots</span>
+            <span class="bookmarks-sub">3 Quick Slots</span>
           </div>
           <div class="bookmarks-slots-container">
-            <!-- Slot 1 -->
+            <!-- Bookmark 1 -->
             <div class="bookmark-slot-card slot-1" id="slotCard1">
               <div class="slot-card-header">
-                <span class="slot-badge badge-slot-1">🔖 Slot 1: Primary Study Point</span>
-                <button class="btn-slot-clear" data-slot="1" title="Clear this bookmark">✕</button>
+                <span class="slot-badge badge-slot-1">🔖 Bookmark 1</span>
+                <button class="btn-slot-clear" data-slot="1" title="Clear Bookmark 1">✕</button>
               </div>
-              <div class="slot-section-title" id="slotSecTitle1" style="display:none;"></div>
-              <div class="slot-content empty" id="slotContent1">No bookmark set. Click 🔖 on any paragraph.</div>
+              <div class="slot-meta-box" id="slotMeta1" style="display:none;">
+                <div class="slot-meta-row"><span class="slot-meta-label">📚 Subject:</span> <span class="slot-meta-val val-subject" id="slotSubject1"></span></div>
+                <div class="slot-meta-row"><span class="slot-meta-label">📌 Topic:</span> <span class="slot-meta-val val-topic" id="slotTopic1"></span></div>
+                <div class="slot-meta-row"><span class="slot-meta-label">📍 Location:</span> <span class="slot-meta-val val-location" id="slotLocation1"></span></div>
+              </div>
+              <div class="slot-content empty" id="slotContent1">No bookmark set. Click 🔖 1 on any paragraph.</div>
               <div class="slot-actions" id="slotActions1" style="display:none;">
-                <button class="btn-slot-jump" data-slot="1">Jump to Paragraph →</button>
+                <button class="btn-slot-jump" data-slot="1">Jump to Bookmark →</button>
               </div>
             </div>
-            <!-- Slot 2 -->
+            <!-- Bookmark 2 -->
             <div class="bookmark-slot-card slot-2" id="slotCard2">
               <div class="slot-card-header">
-                <span class="slot-badge badge-slot-2">⭐ Slot 2: Landmark Doctrine</span>
-                <button class="btn-slot-clear" data-slot="2" title="Clear this bookmark">✕</button>
+                <span class="slot-badge badge-slot-2">⭐ Bookmark 2</span>
+                <button class="btn-slot-clear" data-slot="2" title="Clear Bookmark 2">✕</button>
               </div>
-              <div class="slot-section-title" id="slotSecTitle2" style="display:none;"></div>
-              <div class="slot-content empty" id="slotContent2">No bookmark set. Click ⭐ on any paragraph.</div>
+              <div class="slot-meta-box" id="slotMeta2" style="display:none;">
+                <div class="slot-meta-row"><span class="slot-meta-label">📚 Subject:</span> <span class="slot-meta-val val-subject" id="slotSubject2"></span></div>
+                <div class="slot-meta-row"><span class="slot-meta-label">📌 Topic:</span> <span class="slot-meta-val val-topic" id="slotTopic2"></span></div>
+                <div class="slot-meta-row"><span class="slot-meta-label">📍 Location:</span> <span class="slot-meta-val val-location" id="slotLocation2"></span></div>
+              </div>
+              <div class="slot-content empty" id="slotContent2">No bookmark set. Click ⭐ 2 on any paragraph.</div>
               <div class="slot-actions" id="slotActions2" style="display:none;">
-                <button class="btn-slot-jump" data-slot="2">Jump to Paragraph →</button>
+                <button class="btn-slot-jump" data-slot="2">Jump to Bookmark →</button>
               </div>
             </div>
-            <!-- Slot 3 -->
+            <!-- Bookmark 3 -->
             <div class="bookmark-slot-card slot-3" id="slotCard3">
               <div class="slot-card-header">
-                <span class="slot-badge badge-slot-3">📌 Slot 3: High-Yield Review</span>
-                <button class="btn-slot-clear" data-slot="3" title="Clear this bookmark">✕</button>
+                <span class="slot-badge badge-slot-3">📌 Bookmark 3</span>
+                <button class="btn-slot-clear" data-slot="3" title="Clear Bookmark 3">✕</button>
               </div>
-              <div class="slot-section-title" id="slotSecTitle3" style="display:none;"></div>
-              <div class="slot-content empty" id="slotContent3">No bookmark set. Click 📌 on any paragraph.</div>
+              <div class="slot-meta-box" id="slotMeta3" style="display:none;">
+                <div class="slot-meta-row"><span class="slot-meta-label">📚 Subject:</span> <span class="slot-meta-val val-subject" id="slotSubject3"></span></div>
+                <div class="slot-meta-row"><span class="slot-meta-label">📌 Topic:</span> <span class="slot-meta-val val-topic" id="slotTopic3"></span></div>
+                <div class="slot-meta-row"><span class="slot-meta-label">📍 Location:</span> <span class="slot-meta-val val-location" id="slotLocation3"></span></div>
+              </div>
+              <div class="slot-content empty" id="slotContent3">No bookmark set. Click 📌 3 on any paragraph.</div>
               <div class="slot-actions" id="slotActions3" style="display:none;">
-                <button class="btn-slot-jump" data-slot="3">Jump to Paragraph →</button>
+                <button class="btn-slot-jump" data-slot="3">Jump to Bookmark →</button>
               </div>
             </div>
           </div>
         </div>
+      </div>
       </div>
       <button class="btn-icon" id="fontDecBtn" title="Decrease Font Size">A-</button>
       <button class="btn-icon" id="fontIncBtn" title="Increase Font Size">A+</button>
@@ -2659,10 +2710,71 @@ The Supreme Court En Banc synthesized the canonical rules on the survival of civ
       const bookmarksDropdown = document.getElementById('bookmarksDropdown');
       const bookmarkCountBadge = document.getElementById('bookmarkCountBadge');
 
+      function getBookmarkMetadata(unitIdx) {
+        if (unitIdx < 0 || unitIdx >= readUnits.length) return null;
+        const unit = readUnits[unitIdx];
+
+        // 1. Subject
+        const subjectEl = document.querySelector('.subject-pill') || document.querySelector('.brand-title');
+        let subjectName = subjectEl ? subjectEl.textContent.trim() : 'Law Subject';
+        if (!subjectName || subjectName === 'undefined') subjectName = document.title.split(' - ')[0] || 'Law Subject';
+
+        // 2. Topic
+        const sec = unit.closest('section.doc-section');
+        let topicName = 'General Topic';
+        if (sec) {
+          const h = sec.querySelector('.case-header-title') ||
+                    sec.querySelector('.topic-header-title') ||
+                    sec.querySelector('.subtopic-header-title') ||
+                    sec.querySelector('.canon-title') ||
+                    sec.querySelector('h2') ||
+                    sec.querySelector('h3');
+          if (h) topicName = h.innerText.trim();
+        }
+
+        // 3. Location
+        let locationName = '';
+        if (unit.classList.contains('topic-header-card') || unit.tagName === 'H1' || unit.tagName === 'H2' || unit.tagName === 'H3') {
+          locationName = 'Topic Header';
+        } else if (unit.closest('.case-facts-box') || unit.classList.contains('case-facts-box')) {
+          locationName = 'Facts Section';
+        } else if (unit.closest('.case-ruling-box') || unit.classList.contains('case-ruling-box') || unit.closest('.alac-ruling-box')) {
+          locationName = 'Ruling / Holding';
+        } else if (unit.closest('.case-issue-box') || unit.classList.contains('case-issue-box')) {
+          locationName = 'Legal Issue';
+        } else if (unit.closest('.doctrine-box') || unit.classList.contains('doctrine-box')) {
+          locationName = 'Doctrine Summary';
+        } else {
+          if (sec) {
+            const secUnits = Array.from(sec.querySelectorAll('.read-unit'));
+            const uIdxInSec = secUnits.indexOf(unit);
+            locationName = uIdxInSec >= 0 ? 'Paragraph ' + (uIdxInSec + 1) : 'Paragraph ' + (unitIdx + 1);
+          } else {
+            locationName = 'Paragraph ' + (unitIdx + 1);
+          }
+        }
+
+        // 4. Snippet
+        let rawText = unit.innerText || unit.textContent || '';
+        rawText = rawText.replace(/^(?:🔖|⭐|📌)[^
+]+
+?/, '').trim();
+        const snippet = rawText.substring(0, 110) + (rawText.length > 110 ? '...' : '');
+
+        return {
+          unitIndex: unitIdx,
+          subject: subjectName,
+          topic: topicName,
+          location: locationName,
+          snippet: snippet,
+          timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+        };
+      }
+
       function updateBookmarkUI() {
         let activeCount = 0;
 
-        // Clear existing ribbon badges & class names
+        // Clear existing ribbons
         readUnits.forEach(u => {
           u.classList.remove('bookmarked-slot-1', 'bookmarked-slot-2', 'bookmarked-slot-3');
           const oldRibbon = u.querySelector('.bookmark-ribbon');
@@ -2671,7 +2783,10 @@ The Supreme Court En Banc synthesized the canonical rules on the survival of civ
 
         for (let slot = 1; slot <= 3; slot++) {
           const bm = bookmarks[slot];
-          const secTitleEl = document.getElementById('slotSecTitle' + slot);
+          const metaBoxEl = document.getElementById('slotMeta' + slot);
+          const subjEl = document.getElementById('slotSubject' + slot);
+          const topicEl = document.getElementById('slotTopic' + slot);
+          const locEl = document.getElementById('slotLocation' + slot);
           const contentEl = document.getElementById('slotContent' + slot);
           const actionsEl = document.getElementById('slotActions' + slot);
 
@@ -2680,31 +2795,29 @@ The Supreme Court En Banc synthesized the canonical rules on the survival of civ
             const targetUnit = readUnits[bm.unitIndex];
             targetUnit.classList.add('bookmarked-slot-' + slot);
 
-            // Add ribbon badge
+            // Add ribbon
             const ribbon = document.createElement('div');
             ribbon.className = 'bookmark-ribbon ribbon-slot-' + slot;
-            const iconName = slot === 1 ? '🔖 Slot 1: Primary Study Point' : slot === 2 ? '⭐ Slot 2: Landmark Doctrine' : '📌 Slot 3: High-Yield Review';
-            ribbon.innerHTML = iconName;
+            const slotIcon = slot === 1 ? '🔖' : slot === 2 ? '⭐' : '📌';
+            const locText = bm.location ? ' • ' + bm.location : '';
+            ribbon.innerHTML = `${slotIcon} Bookmark ${slot} • ${bm.topic}${locText}`;
             targetUnit.insertBefore(ribbon, targetUnit.firstChild);
 
-            if (secTitleEl) {
-              secTitleEl.textContent = bm.sectionTitle || 'Section Bookmark';
-              secTitleEl.style.display = 'block';
-            }
+            if (metaBoxEl) metaBoxEl.style.display = 'flex';
+            if (subjEl) subjEl.textContent = bm.subject || 'Law Subject';
+            if (topicEl) topicEl.textContent = bm.topic || 'Topic';
+            if (locEl) locEl.textContent = bm.location || 'Paragraph';
+
             if (contentEl) {
-              contentEl.textContent = bm.snippet || 'Bookmarked paragraph';
+              contentEl.textContent = bm.snippet || 'Bookmarked text';
               contentEl.classList.remove('empty');
             }
-            if (actionsEl) {
-              actionsEl.style.display = 'flex';
-            }
+            if (actionsEl) actionsEl.style.display = 'flex';
           } else {
-            if (secTitleEl) secTitleEl.style.display = 'none';
+            if (metaBoxEl) metaBoxEl.style.display = 'none';
             if (contentEl) {
-              const defaultTxt = slot === 1 ? 'No bookmark set. Click 🔖 on any paragraph.' :
-                                 slot === 2 ? 'No bookmark set. Click ⭐ on any paragraph.' :
-                                 'No bookmark set. Click 📌 on any paragraph.';
-              contentEl.textContent = defaultTxt;
+              const iconChar = slot === 1 ? '🔖 1' : slot === 2 ? '⭐ 2' : '📌 3';
+              contentEl.textContent = 'No bookmark set. Click ' + iconChar + ' on any paragraph.';
               contentEl.classList.add('empty');
             }
             if (actionsEl) actionsEl.style.display = 'none';
@@ -2732,23 +2845,9 @@ The Supreme Court En Banc synthesized the canonical rules on the survival of civ
         if (unitIdx < 0 || unitIdx >= readUnits.length) return;
         const currentBm = bookmarks[slot];
         if (currentBm && currentBm.unitIndex === unitIdx) {
-          // Toggle off
           bookmarks[slot] = null;
         } else {
-          const unit = readUnits[unitIdx];
-          const sec = unit.closest('section.doc-section');
-          let secTitle = 'Study Document';
-          if (sec) {
-            const h = sec.querySelector('.case-header-title') || sec.querySelector('.topic-header-title') || sec.querySelector('.subtopic-header-title');
-            if (h) secTitle = h.innerText.trim();
-          }
-          const snippet = (unit.innerText || unit.textContent || '').replace(/^(?:🔖|⭐|📌)[^\n]+\n?/, '').trim().substring(0, 110) + '...';
-          bookmarks[slot] = {
-            unitIndex: unitIdx,
-            sectionTitle: secTitle,
-            snippet: snippet,
-            timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-          };
+          bookmarks[slot] = getBookmarkMetadata(unitIdx);
         }
         saveBookmarks();
       }
@@ -2760,18 +2859,18 @@ The Supreme Court En Banc synthesized the canonical rules on the survival of civ
           if (bookmarksDropdown) bookmarksDropdown.classList.remove('open');
           targetUnit.scrollIntoView({ behavior: 'smooth', block: 'center' });
           targetUnit.classList.remove('bookmark-flash-target');
-          void targetUnit.offsetWidth; // trigger reflow
+          void targetUnit.offsetWidth;
           targetUnit.classList.add('bookmark-flash-target');
         }
       }
 
-      // Inject in-paragraph hover bookmark tools to each .read-unit
+      // Inject hover buttons to each unit
       readUnits.forEach((unit, idx) => {
         const tools = document.createElement('div');
         tools.className = 'unit-bookmark-tools';
-        tools.innerHTML = '<button class="btn-unit-bm bm-1" data-slot="1" title="Set Bookmark 1: Primary (🔖)">🔖</button>' +
-                          '<button class="btn-unit-bm bm-2" data-slot="2" title="Set Bookmark 2: Landmark (⭐)">⭐</button>' +
-                          '<button class="btn-unit-bm bm-3" data-slot="3" title="Set Bookmark 3: Review (📌)">📌</button>';
+        tools.innerHTML = '<button class="btn-unit-bm bm-1" data-slot="1" title="Set Bookmark 1">🔖 1</button>' +
+                          '<button class="btn-unit-bm bm-2" data-slot="2" title="Set Bookmark 2">⭐ 2</button>' +
+                          '<button class="btn-unit-bm bm-3" data-slot="3" title="Set Bookmark 3">📌 3</button>';
         
         tools.addEventListener('click', (e) => {
           e.stopPropagation();
@@ -2799,7 +2898,7 @@ The Supreme Court En Banc synthesized the canonical rules on the survival of civ
         });
       }
 
-      // Handle Slot Jump & Clear buttons inside dropdown
+      // Handle Slot Jump & Clear buttons
       if (bookmarksDropdown) {
         bookmarksDropdown.addEventListener('click', (e) => {
           e.stopPropagation();
@@ -2819,9 +2918,7 @@ The Supreme Court En Banc synthesized the canonical rules on the survival of civ
         });
       }
 
-      updateBookmarkUI();
-
-      // Keyboard shortcut: 'b' to toggle bookmarks
+      updateBookmarkUI();      // Keyboard shortcut: 'b' to toggle bookmarks
       document.addEventListener('keydown', (e) => {
         if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA') return;
         if (e.key === 'b' || e.key === 'B') {
