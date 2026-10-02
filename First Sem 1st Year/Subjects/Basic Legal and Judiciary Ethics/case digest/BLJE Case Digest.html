@@ -2154,7 +2154,6 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
       let currentUnitIndex = -1;
       let isPaused = false;
       let isSpeaking = false;
-      let lastSectionId = null;
 
       // 1. Sidebar Minimize / Maximize & Responsive Adaptations
       function isMobile() {
@@ -2533,20 +2532,7 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
         const unit = readUnits[idx];
         highlightUnit(idx);
 
-        let speechText = prepareSpeechText(unit);
-        
-        // Topic change notification cue
-        const currentSec = unit.closest('section.doc-section');
-        const currentSecId = currentSec ? currentSec.id : null;
-        if (currentSecId && currentSecId !== lastSectionId && currentSec) {
-          const headerEl = currentSec.querySelector('.case-header-title') || currentSec.querySelector('.topic-header-title') || currentSec.querySelector('.subtopic-header-title');
-          if (headerEl) {
-            const topicTitle = expandRomanAndPhonetics(headerEl.innerText.trim());
-            speechText = 'Now Reading: ' + topicTitle + ' ... ... ' + speechText;
-          }
-          lastSectionId = currentSecId;
-        }
-
+        const speechText = prepareSpeechText(unit);
         const utterance = new SpeechSynthesisUtterance(speechText);
         utterance.rate = (speedSelect ? parseFloat(speedSelect.value) : 0.9) || 0.9;
         utterance.pitch = 1.0;
@@ -2602,7 +2588,6 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
           synth.cancel();
           setSpeakingState(false);
           currentUnitIndex = -1;
-          lastSectionId = null;
           clearHighlights();
         });
       }
