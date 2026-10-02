@@ -517,6 +517,7 @@ READER_HTML_TEMPLATE = r'''<!DOCTYPE html>
       justify-content: center;
       cursor: pointer;
       font-size: 1.1rem;
+      text-decoration: none;
       transition: all 0.15s ease;
     }
     .btn-icon:hover {
@@ -1221,7 +1222,7 @@ READER_HTML_TEMPLATE = r'''<!DOCTYPE html>
 
   <header>
     <div class="header-left">
-      <button class="btn-icon" id="toggleSidebarBtn" title="Toggle Table of Contents (Ctrl+B)">☰</button>
+      <a href="https://mllibrary.juliusrayn-balitbit.workers.dev/" class="btn-icon" id="mainMenuBtn" title="Return to Main Menu (Study Hub)">☰</a>
       <div>
         <h1 class="brand-title">__ESCAPED_TITLE__</h1>
         <span class="subject-pill">__ESCAPED_SUBJECT_TAG__</span>
@@ -1320,7 +1321,6 @@ __SECTIONS_HTML__
       const speedSelect = document.getElementById('speedSelect');
       const statusBadge = document.getElementById('ttsStatusBadge');
       const progressBar = document.getElementById('readingProgressBar');
-      const toggleSidebarBtn = document.getElementById('toggleSidebarBtn');
       const minimizeSidebarBtn = document.getElementById('minimizeSidebarBtn');
       const restoreSidebarBtn = document.getElementById('restoreSidebarBtn');
       const sidebarOverlay = document.getElementById('sidebarOverlay');
@@ -1367,12 +1367,6 @@ __SECTIONS_HTML__
         }
       } catch (e) {}
 
-      if (toggleSidebarBtn) {
-        toggleSidebarBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          toggleSidebar();
-        });
-      }
       if (minimizeSidebarBtn) {
         minimizeSidebarBtn.addEventListener('click', (e) => {
           e.stopPropagation();
