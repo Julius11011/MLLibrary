@@ -1,7 +1,6 @@
 # Antigravity Handoff Summary
 
 **Date:** September 28, 2026  
-**Subject:** Complete First Year First Semester Law Library & Interactive Audio Suite  
 **Master Workspace:** `C:\Users\JR\Downloads\14All-All41\MLC`  
 **GitHub Repository:** [https://github.com/Julius11011/MLLibrary](https://github.com/Julius11011/MLLibrary)  
 **Cloudflare Deployment:** [https://mllibrary.juliusrayn-balitbit.workers.dev](https://mllibrary.juliusrayn-balitbit.workers.dev)  
@@ -9,91 +8,80 @@
 
 ---
 
-## 1. Executive Summary & Complete Subject Suites
+## 1. Executive Summary & Session Activities
 
-All 4 core subjects in **First Year, First Semester (Juris Doctor Program, Manila Law College)** are fully compiled, verified on disk, and integrated with multi-format deliverables: **Microsoft Word (`.docx`)**, **Adobe PDF (`.pdf`)**, **Interactive HTML Readers (`.html`)**, and **Studio Neural Voice MP3 Audio Podcasts (`.mp3`)**.
+### A. PhilHealth Konsulta API v1.1 – Software Solution Validation Testing (Stage 2 / 3rd Endorsement)
+Conducted comprehensive defect analysis, schema mapping reviews against the Konsulta Data Dictionary (Annex A), and QA statement formulation for **CLinic EZ v2.4.1** (Nextstep Software Corporation):
+- **Overall Evaluation Result:** **FAILED** (Cases 1, 2, and 3).
+- **Consolidated Findings:** Evaluated 21 detailed technical findings across printed forms (eKAS/ePRES), frontend UI screens, and exported decrypted XML payloads (`<PROFILING>`, `<ENLISTMENTS>`, `<SOAPS>`, `<DIAGNOSTICS>`, `<MEDICINES>`).
+- **Core Defect Themes Identified:**
+  1. *Missing UI Data Encoding Capabilities:* Absence of frontend forms to encode comprehensive Menstrual History (`<MENSHIST>`), granular laboratory test sub-parameters (`<CBC>`, `<LIPIDPROFILE>`, etc.), and medication prescription/dispensing pricing details (`<MEDICINE>`), leading to unverified, hardcoded, or blank XML attributes.
+  2. *Schema & Conditional Rule Violations:* Invalid XML structure (e.g. merging immunization records violating 1-to-1 rules), populating conditional remarks (`pGenSurveyRem`) on normal general survey (`pGenSurveyId="1"`), and generating invalid/deprecated codes (`pBloodType="N/A"`, inactive diagnostic IDs 17 and 19).
+  3. *Date & Transaction Synchronization Mismatches:* Discrepancies between system enlistment dates and PHIC Masterlist assignment dates, encounter dates vs. profiling transaction dates, and mismatched Case Number formats (20 chars on eKAS vs. 21 chars in XML).
+  4. *Clinical Logic & Data Mapping Flaws:* Tagging infant patients with adult smoking/alcohol statuses, populating non-applicable pregnancy counters with `"0"`/`"X"` instead of blanks, and displaying contradictory physical exam states ("Essentially Normal" appended with severe abnormal findings).
 
 ---
 
-## 2. Comprehensive Deliverables Inventory by Subject
+## 2. Validation Test Cases (Cases 1 – 3) QA Summary
+
+### **Case 1: Pediatric Encounter (Status: FAILED)**
+- **eKAS Printing:** Missing `Transaction No.:` on printed form.
+- **Enlistment Date:** `pEnlistDate="2026-09-17"` conflicts with PHIC Masterlist date `2026-04-08`.
+- **Immunization:** `<IMMUNIZATION>` merges custom vaccine text with standard child codes (violating 1-to-1 tag rule).
+- **Social History:** Infant incorrectly tagged as "Quit" (`"X"`) for smoking/alcohol with `"0"` counts.
+- **Pregnancy History:** `<PREGHIST>` populated with `"0"` and `"X"` placeholders instead of blanks (`""`) when `pIsApplicable="N"`.
+- **Physical Exam & Blood Type:** Hardcoded `pZScore`, unencoded physical metrics, and invalid `pBloodType="N/A"`.
+
+### **Case 2: Adult Consultation & Diagnostics (Status: FAILED)**
+- **ePRES Printing:** Unexpected date printed in lower-right corner during 'NOMED' scenario.
+- **Masterlist & Age Mismatch:** Recurring enlistment date discrepancy; off-by-one day age difference between UI (18 days) and XML (17 days).
+- **General Survey:** UI displays non-standard `"Abnormal"` instead of DTD standard `"Altered Sensorium"`.
+- **SOAP Mapping & Verification:** Inability to validate NCD and ECG results due to missing UI proof; Tranche 2 `<SOAPS><PEMISC>` generated with empty attributes; incorrect Profiling prefix (`PP...`) used on SOAP transaction number (`pHciTransNo`).
+
+### **Case 3: Comprehensive Multi-Service & Prescription (Status: FAILED)**
+- **Case Number Length:** eKAS prints 20 characters (`...0003`) while XML reflects 21 characters (`...00003`).
+- **ePRES Non-Compliance:** Omission of mandated unlisted/free-text "Other Drug" outside standard library.
+- **Menstrual History:** Optional fields blank in XML due to missing UI encoding forms.
+- **General Survey Rule Violation:** Populated `pGenSurveyRem="FINE"` when `pGenSurveyId="1"` (remarks only permitted when `pGenSurveyId == 2`).
+- **Physical Exam Contradiction:** UI mixes "Essentially Normal" with severe abnormal findings; profiling dates do not match PE encounter dates.
+- **Diagnostic Orders vs. Results:** 13 orders requested vs. 16 result tags generated (orphaned `<OTHERDIAGEXAM>`, and inactive tests `<PPDTest>` ID 17 and `<RBS>` ID 19).
+- **Missing UI for Diagnostics & Pharmacy:** UI accepts single generic result (e.g. `Result: 36` for CBC) while XML contains dozens of unencoded laboratory sub-parameters; UI lacks fields for medicine pricing, dosage instructions, and dispensing personnel.
+
+---
+
+## 3. Law Library Deliverables & Hub Status
+
+All core subjects in **First Year, First Semester (Juris Doctor Program, Manila Law College)** remain fully compiled, verified on disk, and accessible via the master navigation portal:
 
 ### A. Criminal Law (Book I, Articles 1–113 & 275 Landmark Cases)
-*Primary Folder:* [`First Sem 1st Year\Subjects\Criminal Law\`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Criminal%20Law/)  
-*Reference Folder:* [`First Sem 1st Year\Criminal Law\`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Criminal%20Law/)
+- **Folder:** [`First Sem 1st Year\Subjects\Criminal Law\`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Criminal%20Law/)
+- **Complete ALAC Digests (275 Cases):** MP3 Podcast (265.86 MB) | PDF (1.31 MB) | Word DOCX | HTML Reader (276 Sections)
+- **Book One Treatise (Articles 1–113):** MP3 Podcast (37.90 MB) | PDF (599.4 KB) | Word DOCX | HTML Reader (245 Sections)
+- **Lectures & Outline:** Complete DOCX, PDF, HTML, and MP3 audio suites.
 
-1. **Criminal Law 1 Complete 275 Landmark ALAC Case Digests:**
-   - **MP3 Podcast (265.86 MB):** [`Criminal_Law_1_Complete_275_Landmark_ALAC_Case_Digests.mp3`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Criminal%20Law/Criminal_Law_1_Complete_275_Landmark_ALAC_Case_Digests.mp3) | [GitHub CDN Stream](https://github.com/Julius11011/MLLibrary/releases/download/audio-v0/Criminal_Law_1_Complete_275_Landmark_ALAC_Case_Digests.mp3)
-   - **PDF Document (1.31 MB):** [`Criminal_Law_1_Complete_275_Landmark_ALAC_Case_Digests.pdf`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Criminal%20Law/Criminal_Law_1_Complete_275_Landmark_ALAC_Case_Digests.pdf)
-   - **Word DOCX (92.4 KB):** [`Criminal_Law_1_Complete_275_Landmark_ALAC_Case_Digests.docx`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Criminal%20Law/Criminal_Law_1_Complete_275_Landmark_ALAC_Case_Digests.docx)
-   - **Interactive HTML Reader (276 Sections):** [`Criminal_Law_1_Complete_275_Landmark_ALAC_Case_Digests.html`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Criminal%20Law/Criminal_Law_1_Complete_275_Landmark_ALAC_Case_Digests.html)
+### B. Constitutional Law 1 (1987 Constitution & 149 Landmark Cases)
+- **Folder:** [`First Sem 1st Year\Subjects\Constitutional Law\`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Constitutional%20Law/)
+- **Complete ALAC Digests (149 Cases):** MP3 Podcast (174.7 MB) | PDF (127 Pages / 1.05 MB) | Word DOCX | HTML Reader (150 Sections)
+- **Titles & Lectures:** Complete DOCX, PDF, HTML, and MP3 suites.
 
-2. **Philippine Criminal Law Book One Codal Treatise (Articles 1–113):**
-   - **MP3 Podcast (37.90 MB):** [`Philippine_Criminal_Law_Book_One_Treatise.mp3`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Criminal%20Law/Philippine_Criminal_Law_Book_One_Treatise.mp3) | [GitHub CDN Stream](https://github.com/Julius11011/MLLibrary/releases/download/audio-v0/Philippine_Criminal_Law_Book_One_Treatise.mp3)
-   - **PDF Document (599.4 KB):** [`Philippine_Criminal_Law_Book_One_Treatise.pdf`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Criminal%20Law/Philippine_Criminal_Law_Book_One_Treatise.pdf)
-   - **Word DOCX (79.7 KB):** [`Philippine_Criminal_Law_Book_One_Treatise.docx`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Criminal%20Law/Philippine_Criminal_Law_Book_One_Treatise.docx)
-   - **Interactive HTML Reader (245 Sections):** [`Philippine_Criminal_Law_Book_One_Treatise.html`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Criminal%20Law/Philippine_Criminal_Law_Book_One_Treatise.html)
-
-3. **Criminal Law 1 Lecture & Course Outline:**
-   - [`Criminal Law 1 Lecture.docx`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Criminal%20Law/Criminal%20Law%201%20Lecture.docx) | [`.pdf`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Criminal%20Law/Criminal%20Law%201%20Lecture.pdf) | [`.html`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Criminal%20Law/Criminal%20Law%201%20Lecture.html) | [`.mp3`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Criminal%20Law/Criminal%20Law%201%20Lecture.mp3)
-   - [`Criminal Law 1 - Course Outline and Complete Topics.docx`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Criminal%20Law/Criminal%20Law%201%20-%20Course%20Outline%20and%20Complete%20Topics.docx) | [`.pdf`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Criminal%20Law/Criminal%20Law%201%20-%20Course%20Outline%20and%20Complete%20Topics.pdf) | [`.html`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Criminal%20Law/Criminal%20Law%201%20-%20Course%20Outline%20and%20Complete%20Topics.html) | [`.mp3`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Criminal%20Law/Criminal%20Law%201%20-%20Course%20Outline%20and%20Complete%20Topics.mp3)
-
----
-
-### B. Constitutional Law 1 (1987 Philippine Constitution & 149 Landmark Cases)
-*Primary Folder:* [`First Sem 1st Year\Subjects\Constitutional Law\`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Constitutional%20Law/)  
-*Reference Folder:* [`First Sem 1st Year\Constitutional Law\`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Constitutional%20Law/)
-
-1. **Constitutional Law 1 Complete ALAC Case Digests (149 Cases with Facts & Issues):**
-   - **MP3 Podcast (174.7 MB):** [`Constitutional Law 1 Case Digests.mp3`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Constitutional%20Law/case%20digest/Constitutional%20Law%201%20Case%20Digests.mp3) | [GitHub CDN Stream](https://github.com/Julius11011/MLLibrary/releases/download/audio-v0/Constitutional_Law_1_Case_Digests.mp3)
-   - **PDF Document (127 Pages / 1.05 MB):** [`Constitutional Law 1 Case Digests.pdf`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Constitutional%20Law/case%20digest/Constitutional%20Law%201%20Case%20Digests.pdf)
-   - **Word DOCX (165.6 KB):** [`Constitutional Law 1 Case Digests.docx`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Constitutional%20Law/case%20digest/Constitutional%20Law%201%20Case%20Digests.docx)
-   - **Interactive HTML Reader (150 Sections):** [`Constitutional Law 1 Case Digests.html`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Constitutional%20Law/case%20digest/Constitutional%20Law%201%20Case%20Digests.html)
-
-2. **Constitutional Law 1 Case Digest Titles & Lecture:**
-   - [`Constitutional Law 1 Case Digest Titles.docx`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Constitutional%20Law/Constitutional%20Law%201%20Case%20Digest%20Titles.docx) | [`.pdf`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Constitutional%20Law/Constitutional%20Law%201%20Case%20Digest%20Titles.pdf) | [`.html`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Constitutional%20Law/Constitutional%20Law%201%20Case%20Digest%20Titles.html) | [`.mp3`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Constitutional%20Law/Constitutional%20Law%201%20Case%20Digest%20Titles.mp3)
-   - [`Constitutional Law 1 Lecture.docx`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Constitutional%20Law/Constitutional%20Law%201%20Lecture.docx) | [`.pdf`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Constitutional%20Law/Constitutional%20Law%201%20Lecture.pdf) | [`.html`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Constitutional%20Law/Constitutional%20Law%201%20Lecture.html) | [`.mp3`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Constitutional%20Law/Constitutional%20Law%201%20Lecture.mp3)
-
----
-
-### C. Statutory Construction (All 103 Landmark Syllabus Cases)
-*Primary Folder:* [`First Sem 1st Year\Subjects\Statutory Construction\`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Statutory%20Construction/)  
-*Reference Folder:* [`First Sem 1st Year\Statutory Construction\`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Statutory%20Construction/)
-
-1. **Statutory Construction Complete Syllabus ALAC Case Digests (Chapters I–VI / 103 Cases):**
-   - **MP3 Podcast (131.20 MB):** [`Statutory_Construction_Complete_Syllabus_ALAC_Case_Digests.mp3`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Statutory%20Construction/case%20digest/Statutory_Construction_Complete_Syllabus_ALAC_Case_Digests.mp3)
-   - **PDF Document (3.45 MB):** [`Statutory_Construction_Complete_Syllabus_ALAC_Case_Digests.pdf`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Statutory%20Construction/case%20digest/Statutory_Construction_Complete_Syllabus_ALAC_Case_Digests.pdf)
-   - **Word DOCX (828.2 KB):** [`Statutory_Construction_Complete_Syllabus_ALAC_Case_Digests.docx`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Statutory%20Construction/case%20digest/Statutory_Construction_Complete_Syllabus_ALAC_Case_Digests.docx)
-   - **Interactive HTML Reader (100 Sections):** [`Statutory_Construction_Complete_Syllabus_ALAC_Case_Digests.html`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Statutory%20Construction/case%20digest/Statutory_Construction_Complete_Syllabus_ALAC_Case_Digests.html)
-
-2. **Statutory Construction (StatCon), Core Digest & Week 7 Cases:**
-   - [`Statutory Construction (StatCon).docx`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Statutory%20Construction/Statutory%20Construction%20(StatCon).docx) | [`.pdf`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Statutory%20Construction/Statutory%20Construction%20(StatCon).pdf) | [`.html`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Statutory%20Construction/Statutory%20Construction%20(StatCon).html) | [`.mp3`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Statutory%20Construction/Statutory%20Construction%20(StatCon).mp3)
-   - [`Statutory Construction Case Digest.docx`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Statutory%20Construction/case%20digest/Statutory%20Construction%20Case%20Digest.docx) | [`.pdf`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Statutory%20Construction/case%20digest/Statutory%20Construction%20Case%20Digest.pdf) | [`.html`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Statutory%20Construction/case%20digest/Statutory%20Construction%20Case%20Digest.html) | [`.mp3`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Statutory%20Construction/case%20digest/Statutory%20Construction%20Case%20Digest.mp3)
-   - [`Statutory_Construction_Week_7_Cases.docx`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Statutory%20Construction/week%207/Statutory_Construction_Week_7_Cases.docx) | [`.pdf`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Statutory%20Construction/week%207/Statutory_Construction_Week_7_Cases.pdf) | [`.html`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Statutory%20Construction/week%207/Statutory_Construction_Week_7_Cases.html) | [`.mp3`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Statutory%20Construction/week%207/Statutory_Construction_Week_7_Cases.mp3)
-
----
+### C. Statutory Construction (103 Syllabus Cases)
+- **Folder:** [`First Sem 1st Year\Subjects\Statutory Construction\`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Statutory%20Construction/)
+- **Complete ALAC Digests (Chapters I–VI):** MP3 Podcast (131.20 MB) | PDF (3.45 MB) | Word DOCX | HTML Reader (100 Sections)
+- **Core Digests & Week 7 Cases:** Complete multi-format suites.
 
 ### D. Basic Legal and Judiciary Ethics (BLJE / 2025 CJCA A.M. No. 25-04-04-SC)
-*Primary Folder:* [`First Sem 1st Year\Subjects\Basic Legal and Judiciary Ethics\`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Basic%20Legal%20and%20Judiciary%20Ethics/)
+- **Folder:** [`First Sem 1st Year\Subjects\Basic Legal and Judiciary Ethics\`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Basic%20Legal%20and%20Judiciary%20Ethics/)
+- **Canons & Sections / Case Digests / Definitions:** Complete DOCX, PDF, HTML, and MP3 suites.
 
-1. **Canons & Its Section (2025 CJCA A.M. No. 25-04-04-SC):**
-   - [`Canons & its Section(   A.M.-NO.-25-04-04-SC ).docx`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Basic%20Legal%20and%20Judiciary%20Ethics/Canons%20&%20its%20Section(%20%20%20A.M.-NO.-25-04-04-SC%20).docx) | [`.pdf`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Basic%20Legal%20and%20Judiciary%20Ethics/Canons%20&%20its%20Section(%20%20%20A.M.-NO.-25-04-04-SC%20).pdf) | [`.html`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Basic%20Legal%20and%20Judiciary%20Ethics/Canons%20&%20its%20Section(%20%20%20A.M.-NO.-25-04-04-SC%20).html) | [`.mp3`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Basic%20Legal%20and%20Judiciary%20Ethics/Canons%20&%20its%20Section(%20%20%20A.M.-NO.-25-04-04-SC%20).mp3)
-2. **BLJE Case Digest & Canons Definitions:**
-   - [`BLJE Case Digest.docx`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Basic%20Legal%20and%20Judiciary%20Ethics/case%20digest/BLJE%20Case%20Digest.docx) | [`.pdf`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Basic%20Legal%20and%20Judiciary%20Ethics/case%20digest/BLJE%20Case%20Digest.pdf) | [`.html`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Basic%20Legal%20and%20Judiciary%20Ethics/case%20digest/BLJE%20Case%20Digest.html) | [`.mp3`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Basic%20Legal%20and%20Judiciary%20Ethics/case%20digest/BLJE%20Case%20Digest.mp3)
-   - [`Canons & definition.docx`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Basic%20Legal%20and%20Judiciary%20Ethics/Canons%20&%20definition.docx) | [`.pdf`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Basic%20Legal%20and%20Judiciary%20Ethics/Canons%20&%20definition.pdf) | [`.html`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Basic%20Legal%20and%20Judiciary%20Ethics/Canons%20&%20definition.html) | [`.mp3`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Basic%20Legal%20and%20Judiciary%20Ethics/Canons%20&%20definition.mp3)
-
----
-
-## 3. Master Navigation Portal
-
-- **Study Hub & Portal Files:** [`index.html`](file:///C:/Users/JR/Downloads/14All-All41/MLC/index.html) and [`MLC_Study_Hub.html`](file:///C:/Users/JR/Downloads/14All-All41/MLC/MLC_Study_Hub.html)
-  - Features real-time search, instant subject category filtering, dark/sepia/light theme switching, integrated MP3 podcast streaming buttons, and direct PDF downloads across all 15 core modules.
+### E. Master Navigation Portal
+- **Files:** [`index.html`](file:///C:/Users/JR/Downloads/14All-All41/MLC/index.html) and [`MLC_Study_Hub.html`](file:///C:/Users/JR/Downloads/14All-All41/MLC/MLC_Study_Hub.html)
+- Features instant search, subject category tabs, dark/sepia/light theme switcher, integrated MP3 podcast streaming, and direct PDF downloads.
 
 ---
 
-## 4. Safety Guardrails & Compliance
-
-- **Rule 1 (No Deletions):** Local parent, root, and sibling directories remain completely intact and preserved.
-- **Rule 2 (Local Storage vs. Git Tracking):** Local folders preserved on disk; syllabus and study modules structured for deployment.
-- **Rule 3 (Privacy Protection):** Student records, undertakings, and personal files remain strictly untracked and excluded.
-- **Rule 4 (Roman Numeral Spoken Pronunciation):** Strict cardinal numeral speech synthesis rules applied ("Canon 1", "Canon 2", "Topic 1", "Article 14", "JEE-AR Number").
-- **Rule 5 (Context Precedence & Handoff First):** Handoff documentation maintained and synchronized.
+## 4. Safety Guardrails & Compliance Status
+- **Rule 1 (Absolute Prohibition on Deletions):** All local files, root directories, and parent folders remain strictly preserved.
+- **Rule 2 (Storage vs. Git Tracking):** Clean Git tree maintained; only designated subject modules tracked.
+- **Rule 3 (Privacy Protection):** Student records, undertakings, and personal files strictly untracked and protected.
+- **Rule 4 (Roman Numeral Spoken Pronunciation in TTS):** Speech synthesis rules enforce cardinal pronunciation ("Canon 1", "Canon 2", "Topic 1", "Article 14", "JEE-AR Number").
+- **Rule 5 (Context Precedence & Handoff First):** Handoff documentation synchronized.
