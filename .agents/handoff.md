@@ -4,7 +4,7 @@
 **Master Workspace:** `C:\Users\JR\Downloads\14All-All41` (and `C:\Users\JR\Downloads\14All-All41\MLC`)  
 **GitHub Repository:** [https://github.com/Julius11011/MLLibrary](https://github.com/Julius11011/MLLibrary)  
 **Cloudflare Deployment:** [https://mllibrary.juliusrayn-balitbit.workers.dev](https://mllibrary.juliusrayn-balitbit.workers.dev)  
-**Latest Git Commit:** `5527048` (Clean working tree, synchronized with `origin/main`)  
+**Latest Git Commit:** `7c0114f` (Clean working tree, synchronized with `origin/main`)  
 **Active Guardrails Files:** [`AGENTS.md`](file:///C:/Users/JR/Downloads/14All-All41/AGENTS.md) | [`GEMINI.md`](file:///C:/Users/JR/Downloads/14All-All41/GEMINI.md) | [`ANTIGRAVITY_AUTORUN_PERMISSIONS_AND_SAFETY_GUIDE.md`](file:///C:/Users/JR/Downloads/14All-All41/ANTIGRAVITY_AUTORUN_PERMISSIONS_AND_SAFETY_GUIDE.md)
 
 ---
@@ -32,7 +32,11 @@ Documented and configured the autonomous execution model and strict safety guard
 
 ### B. MLLibrary Universal Reader & Interactive Audio Suite Upgrades
 Implemented major UX/UI enhancements across the MLLibrary reader engine and regenerated all 110+ subject HTML documents and master hubs:
-1. **3 Special Bookmarking System**:
+1. **Master Study Bookmarks Hub (Main Menu `index.html` & `MLC_Study_Hub.html`)**:
+   - **Interactive Stats Grid Counter**: Added a 5th card `🔖 Saved Bookmarks` in `<div class="hub-stats-grid">` showing total saved bookmarks across all subjects. Clicking the card immediately switches view and scrolls to the Bookmarks section.
+   - **Filter Chip `🔖 My Bookmarks (N)`**: Added in `.hub-filters` for 1-click isolated view of all bookmarks.
+   - **Master Bookmarks Section**: Aggregates all bookmarks across all subjects from `localStorage` (`mlc_bm_*`), rendering cards with slot badges (`[🔖 1]`, `[⭐ 2]`, `[📌 3]`), Subject, Topic, Location, snippet quote, direct jump buttons, and single/bulk clear actions.
+2. **3 Special Bookmarking System in Reader**:
    - **3 Dedicated Numbered Bookmark Slots**: `🔖 Bookmark 1` (Gold), `⭐ Bookmark 2` (Emerald), `📌 Bookmark 3` (Purple).
    - **Comprehensive Metadata Display**: Each slot card in the navbar popover displays the **Subject**, **Topic**, **Specific Location** (e.g., *Paragraph 2*, *Ruling / Holding*, *Facts Section*), and text snippet.
    - **Sidebar Table of Contents (`#tocList`) Badges**: Real-time bookmark badges (`[🔖 1]`, `[⭐ 2]`, `[📌 3]`) are dynamically injected next to the corresponding topic title in the sidebar TOC for fast navigation.
