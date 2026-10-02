@@ -825,8 +825,8 @@ READER_HTML_TEMPLATE = r'''<!DOCTYPE html>
     /* Floating / Fixed Restore Sidebar Tab when Minimized */
     #restoreSidebarBtn {
       position: fixed;
-      left: 1.25rem;
-      bottom: 1.75rem;
+      left: 1rem;
+      top: calc(var(--sticky-top-total) + 14px);
       z-index: 90;
       background: var(--bg-secondary);
       border: 1px solid var(--accent-gold);
@@ -834,7 +834,7 @@ READER_HTML_TEMPLATE = r'''<!DOCTYPE html>
       font-family: var(--font-ui);
       font-size: 0.82rem;
       font-weight: 700;
-      padding: 8px 14px;
+      padding: 7px 14px;
       border-radius: 20px;
       box-shadow: var(--shadow-lg);
       cursor: pointer;
