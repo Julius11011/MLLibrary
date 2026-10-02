@@ -353,9 +353,1525 @@ def parse_docx_file(file_path, doc_title=""):
 # 3. HTML GENERATOR & TEMPLATE
 # ==============================================================================
 
+READER_HTML_TEMPLATE = r'''<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>__ESCAPED_TITLE__ | MLC Law Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0b1120;
+      --bg-secondary: #131d31;
+      --bg-tertiary: #1e293b;
+      --border-color: rgba(148, 163, 184, 0.14);
+      --border-focus: #fbbf24;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --accent-gold: #fbbf24;
+      --accent-gold-dark: #d97706;
+      --accent-blue: #38bdf8;
+      --accent-emerald: #34d399;
+      --accent-crimson: #f87171;
+      --accent-purple: #c084fc;
+      --highlight-bg: rgba(251, 191, 36, 0.22);
+      --highlight-border: #fbbf24;
+      --card-bg: rgba(19, 29, 49, 0.7);
+      --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Merriweather', Georgia, serif;
+      --font-heading: 'Cinzel', serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --sidebar-width: 320px;
+      --header-height: 60px;
+      --toolbar-height: 52px;
+      --sticky-top-total: calc(var(--header-height) + var(--toolbar-height));
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    }
+
+    [data-theme="sepia"] {
+      --bg-primary: #fbf7ee;
+      --bg-secondary: #f4ecd8;
+      --bg-tertiary: #e9dfc4;
+      --border-color: rgba(120, 97, 65, 0.18);
+      --border-focus: #b45309;
+      --text-primary: #2d241e;
+      --text-secondary: #4a3e35;
+      --text-muted: #786c60;
+      --accent-gold: #b45309;
+      --accent-gold-dark: #92400e;
+      --accent-blue: #0284c7;
+      --accent-emerald: #059669;
+      --accent-crimson: #dc2626;
+      --accent-purple: #7c3aed;
+      --highlight-bg: rgba(217, 119, 6, 0.2);
+      --highlight-border: #b45309;
+      --card-bg: rgba(244, 236, 216, 0.85);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8fafc;
+      --bg-tertiary: #f1f5f9;
+      --border-color: #e2e8f0;
+      --border-focus: #d97706;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --accent-gold: #d97706;
+      --accent-gold-dark: #b45309;
+      --accent-blue: #0284c7;
+      --accent-emerald: #059669;
+      --accent-crimson: #dc2626;
+      --accent-purple: #7c3aed;
+      --highlight-bg: rgba(254, 240, 138, 0.5);
+      --highlight-border: #eab308;
+      --card-bg: rgba(248, 250, 252, 0.9);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.8;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    /* Scroll Progress Bar */
+    #readingProgressBar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue));
+      width: 0%;
+      z-index: 1000;
+      transition: width 0.1s ease;
+    }
+
+    /* Floating Selection Reader Trigger */
+    #floatingTtsTrigger {
+      position: absolute;
+      display: none;
+      z-index: 999;
+      background: var(--accent-gold);
+      color: #0b1120;
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+      cursor: pointer;
+      border: none;
+      transform: translate(-50%, -100%);
+      transition: transform 0.15s ease, background-color 0.15s ease;
+    }
+    #floatingTtsTrigger:hover {
+      background: var(--accent-gold-dark);
+      color: #ffffff;
+      transform: translate(-50%, -105%) scale(1.05);
+    }
+
+    /* Header & Navigation Bar - STICKY TOP */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-color);
+      height: var(--header-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn-icon {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: all 0.15s ease;
+    }
+    .btn-icon:hover {
+      background-color: var(--bg-tertiary);
+      border-color: var(--border-focus);
+      color: var(--accent-gold);
+    }
+
+    .brand-title {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--accent-gold);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 340px;
+    }
+
+    .subject-pill {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--accent-blue);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .select-control {
+      background-color: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      padding: 6px 10px;
+      border-radius: 6px;
+      outline: none;
+      cursor: pointer;
+    }
+    .select-control:focus {
+      border-color: var(--border-focus);
+    }
+
+    /* TTS Audio Control Bar - STICKY UNDER HEADER */
+    .tts-toolbar {
+      position: sticky;
+      top: var(--header-height);
+      z-index: 95;
+      background-color: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.55rem 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      font-family: var(--font-ui);
+      font-size: 0.88rem;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .tts-controls-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-tts {
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+      border: none;
+      color: #0b1120;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 7px 16px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      transition: transform 0.1s ease, filter 0.15s ease;
+    }
+    .btn-tts:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+    }
+    .btn-tts:active {
+      transform: translateY(1px);
+    }
+
+    .btn-tts-secondary {
+      background-color: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 7px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: all 0.15s ease;
+    }
+    .btn-tts-secondary:hover {
+      border-color: var(--border-focus);
+      color: var(--accent-gold);
+    }
+
+    .btn-tts-stop {
+      border-color: rgba(248, 113, 113, 0.35);
+      color: var(--accent-crimson);
+    }
+    .btn-tts-stop:hover {
+      background-color: rgba(248, 113, 113, 0.15);
+      border-color: var(--accent-crimson);
+      color: #ffffff;
+    }
+
+    .tts-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: var(--bg-tertiary);
+      padding: 4px 10px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      transition: all 0.2s ease;
+    }
+    .tts-status-badge.speaking {
+      color: var(--accent-emerald);
+      border-color: var(--accent-emerald);
+      background: rgba(52, 211, 153, 0.1);
+    }
+    .tts-status-badge.paused {
+      color: var(--accent-gold);
+      border-color: var(--accent-gold);
+      background: rgba(251, 191, 36, 0.1);
+    }
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background-color: currentColor;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .speaking .pulse-dot {
+      animation: pulse 1.2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(0.9); opacity: 0.6; }
+      50% { transform: scale(1.3); opacity: 1; }
+      100% { transform: scale(0.9); opacity: 0.6; }
+    }
+
+    /* Main Content Layout */
+    .app-layout {
+      display: flex;
+      flex: 1;
+      position: relative;
+      width: 100%;
+    }
+
+    /* Table of Contents Sidebar */
+    .sidebar-toc {
+      width: var(--sidebar-width);
+      background-color: var(--bg-secondary);
+      border-right: 1px solid var(--border-color);
+      position: sticky;
+      top: var(--sticky-top-total);
+      height: calc(100vh - var(--sticky-top-total));
+      overflow-y: auto;
+      padding: 1.25rem 1rem;
+      flex-shrink: 0;
+      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  padding 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  opacity 0.2s ease;
+      z-index: 80;
+    }
+
+    /* Sidebar Minimized / Collapsed state */
+    body.sidebar-collapsed .sidebar-toc,
+    .sidebar-toc.minimized {
+      width: 0 !important;
+      min-width: 0 !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      border-right: none !important;
+      opacity: 0 !important;
+      overflow: hidden !important;
+      pointer-events: none !important;
+      transform: translateX(-15px);
+    }
+
+    .toc-header-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.85rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .toc-heading {
+      font-family: var(--font-ui);
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent-gold);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-toc-minimize {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      cursor: pointer;
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.05rem;
+      line-height: 1;
+      transition: all 0.15s ease;
+    }
+    .btn-toc-minimize:hover {
+      background: var(--accent-gold);
+      color: #0b1120;
+      border-color: var(--accent-gold);
+    }
+
+    .toc-search-box {
+      width: 100%;
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      padding: 8px 12px;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      outline: none;
+    }
+    .toc-search-box:focus {
+      border-color: var(--border-focus);
+    }
+
+    .toc-list {
+      list-style: none;
+    }
+
+    .toc-link {
+      display: block;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      padding: 6px 10px 6px 12px;
+      border-radius: 4px;
+      margin-bottom: 2px;
+      border-left: 2px solid transparent;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: all 0.15s ease;
+    }
+    .toc-link:hover {
+      background-color: var(--bg-tertiary);
+      color: var(--accent-gold);
+      border-left-color: var(--accent-gold);
+    }
+    .toc-link.active {
+      background-color: var(--bg-tertiary);
+      color: var(--accent-gold);
+      border-left-color: var(--accent-gold);
+      font-weight: 600;
+    }
+    .toc-link.level-2 {
+      padding-left: 22px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Floating / Fixed Restore Sidebar Tab when Minimized */
+    #restoreSidebarBtn {
+      position: fixed;
+      left: 1.25rem;
+      bottom: 1.75rem;
+      z-index: 90;
+      background: var(--bg-secondary);
+      border: 1px solid var(--accent-gold);
+      color: var(--accent-gold);
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    body.sidebar-collapsed #restoreSidebarBtn {
+      display: flex;
+    }
+    #restoreSidebarBtn:hover {
+      background: var(--accent-gold);
+      color: #0b1120;
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 8px 24px rgba(251, 191, 36, 0.35);
+    }
+
+    /* Header toggle button active status */
+    body.sidebar-collapsed #toggleSidebarBtn {
+      background-color: var(--bg-tertiary);
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+    }
+
+    /* Main Reading Article Container - Adapts width smoothly */
+    .reader-main {
+      flex: 1;
+      width: 100%;
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 6rem;
+      transition: max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Responsive Expanded Width when Sidebar is Minimized */
+    body.sidebar-collapsed .reader-main {
+      max-width: 1200px;
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+
+    @media (min-width: 1600px) {
+      .reader-main {
+        max-width: 1020px;
+      }
+      body.sidebar-collapsed .reader-main {
+        max-width: 1400px;
+      }
+    }
+
+    .doc-meta-banner {
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .doc-headline {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--accent-gold);
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.02em;
+    }
+    .doc-stats {
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    /* Studio Native MP3 Audio Player */
+    .studio-audio-player {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-emerald);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-md);
+    }
+    .audio-player-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.85rem;
+      font-family: var(--font-ui);
+    }
+    .audio-badge {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent-emerald);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .audio-filename {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+    .native-audio-element {
+      width: 100%;
+      outline: none;
+      border-radius: 30px;
+    }
+
+    /* Document Sections & Continuous Body Elements */
+    .doc-section {
+      margin-bottom: 3rem;
+      scroll-margin-top: calc(var(--sticky-top-total) + 20px);
+    }
+    .section-divider {
+      border: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+      margin: 3rem 0;
+    }
+
+    /* Case Header Card */
+    .case-header-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-left: 5px solid var(--accent-gold);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .case-number-pill {
+      display: inline-block;
+      background: var(--accent-gold);
+      color: #0b1120;
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+    .case-header-title {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.35;
+    }
+
+    .topic-header-card {
+      background: var(--bg-secondary);
+      border-left: 4px solid var(--accent-blue);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .topic-header-title {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent-blue);
+    }
+
+    .subtopic-header-card {
+      margin: 1.5rem 0 1rem;
+    }
+    .subtopic-header-title {
+      font-family: var(--font-ui);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+    }
+
+    /* Case Citation Banner */
+    .case-citation-banner {
+      background-color: var(--bg-tertiary);
+      border: 1px dashed var(--border-color);
+      border-radius: 8px;
+      padding: 0.75rem 1.25rem;
+      margin-bottom: 1.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .citation-label {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      background: rgba(251, 191, 36, 0.12);
+      border: 1px solid rgba(251, 191, 36, 0.25);
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+
+    /* Subheadings within Case (Facts, Issue, Ruling) */
+    .case-subheading {
+      font-family: var(--font-ui);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 1.75rem 0 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.4rem;
+    }
+    .subheading-accent {
+      color: var(--accent-gold);
+      font-size: 1.2rem;
+    }
+
+    /* Continuous Flowing Paragraphs */
+    .case-paragraph {
+      margin-bottom: 1.25rem;
+      text-align: justify;
+      text-justify: inter-word;
+      line-height: 1.85;
+      padding: 4px 6px;
+      border-radius: 6px;
+      transition: background-color 0.15s ease;
+    }
+
+    /* ALAC & Reasoning Paragraph Badges */
+    .alac-paragraph {
+      background: rgba(255, 255, 255, 0.02);
+      border-left: 3px solid var(--border-color);
+      padding: 0.6rem 0.85rem;
+      margin-bottom: 1.25rem;
+    }
+    .alac-badge {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-right: 0.5rem;
+      vertical-align: baseline;
+    }
+    .badge-ans { background: rgba(56, 189, 248, 0.2); color: var(--accent-blue); border: 1px solid var(--accent-blue); }
+    .badge-law { background: rgba(192, 132, 252, 0.2); color: var(--accent-purple); border: 1px solid var(--accent-purple); }
+    .badge-app { background: rgba(251, 191, 36, 0.2); color: var(--accent-gold); border: 1px solid var(--accent-gold); }
+    .badge-con { background: rgba(52, 211, 153, 0.2); color: var(--accent-emerald); border: 1px solid var(--accent-emerald); }
+    .badge-syn { background: rgba(248, 113, 113, 0.2); color: var(--accent-crimson); border: 1px solid var(--accent-crimson); }
+    .badge-gen { background: rgba(148, 163, 184, 0.2); color: var(--text-secondary); border: 1px solid var(--border-color); }
+
+    /* Bullet Points */
+    .bullet-point {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .bullet-dot {
+      color: var(--accent-gold);
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+    .bullet-content {
+      flex: 1;
+      text-align: justify;
+    }
+
+    /* Tables */
+    .table-responsive {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+    }
+    .reader-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      font-family: var(--font-ui);
+    }
+    .reader-table th, .reader-table td {
+      padding: 10px 14px;
+      border: 1px solid var(--border-color);
+      text-align: left;
+    }
+    .reader-table th {
+      background-color: var(--bg-secondary);
+      font-weight: 700;
+      color: var(--accent-gold);
+    }
+    .reader-table tr:nth-child(even) {
+      background-color: rgba(255, 255, 255, 0.02);
+    }
+
+    /* Active TTS Highlight */
+    .read-unit.is-speaking {
+      background-color: var(--highlight-bg) !important;
+      border-left: 3px solid var(--highlight-border) !important;
+      border-radius: 4px;
+      box-shadow: 0 0 15px rgba(251, 191, 36, 0.15);
+    }
+
+    /* Responsive adjustments for Tablets and Mobile */
+    @media (max-width: 900px) {
+      :root {
+        --header-height: 56px;
+        --toolbar-height: auto;
+      }
+      .tts-toolbar {
+        top: var(--header-height);
+        padding: 0.5rem 1rem;
+        gap: 0.6rem;
+      }
+      .tts-controls-group {
+        flex-wrap: wrap;
+      }
+      .sidebar-toc {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        width: 300px;
+        max-width: 85vw;
+        z-index: 1000;
+        transform: translateX(-100%);
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        background-color: var(--bg-secondary);
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        padding: 1.25rem 1rem !important;
+      }
+      .sidebar-toc.open {
+        transform: translateX(0) !important;
+      }
+      body.sidebar-collapsed .sidebar-toc {
+        transform: translateX(-100%) !important;
+      }
+      #restoreSidebarBtn {
+        display: none !important;
+      }
+      .reader-main {
+        padding: 1.5rem 1rem 5rem !important;
+        max-width: 100% !important;
+      }
+      body.sidebar-collapsed .reader-main {
+        padding: 1.5rem 1rem 5rem !important;
+        max-width: 100% !important;
+      }
+      #sidebarOverlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.65);
+        backdrop-filter: blur(4px);
+        z-index: 999;
+        display: none;
+      }
+      #sidebarOverlay.active {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="readingProgressBar"></div>
+  <button id="floatingTtsTrigger" title="Read Selected Text">Read Selection</button>
+  <button id="restoreSidebarBtn" title="Show Table of Contents (Ctrl+B)">☰ Table of Contents</button>
+  <div id="sidebarOverlay"></div>
+
+  <header>
+    <div class="header-left">
+      <button class="btn-icon" id="toggleSidebarBtn" title="Toggle Table of Contents (Ctrl+B)">☰</button>
+      <div>
+        <h1 class="brand-title">__ESCAPED_TITLE__</h1>
+        <span class="subject-pill">__ESCAPED_SUBJECT_TAG__</span>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button class="btn-icon" id="fontDecBtn" title="Decrease Font Size">A-</button>
+      <button class="btn-icon" id="fontIncBtn" title="Increase Font Size">A+</button>
+      <select class="select-control" id="themeSelect" title="Select Theme">
+        <option value="dark">Dark</option>
+        <option value="sepia">Sepia</option>
+        <option value="light">Light</option>
+      </select>
+    </div>
+  </header>
+
+  <div class="tts-toolbar">
+    <div class="tts-controls-group">
+      <button class="btn-tts" id="playPauseBtn">
+        <span id="playIcon">▶</span>
+        <span id="pauseIcon" style="display:none;">❚❚</span>
+        <span id="playBtnText">Read Aloud</span>
+      </button>
+      <button class="btn-tts-secondary" id="prevBtn" title="Previous Paragraph (Key: P)">Previous</button>
+      <button class="btn-tts-secondary" id="nextBtn" title="Next Paragraph (Key: N)">Next</button>
+      <button class="btn-tts-secondary btn-tts-stop" id="stopBtn" title="Stop Reading Aloud (Key: Esc)">⏹ Stop</button>
+    </div>
+
+    <div class="tts-controls-group">
+      <label for="voiceSelect" style="font-size:0.8rem; color:var(--text-muted);">Voice:</label>
+      <select class="select-control" id="voiceSelect" style="max-width: 220px;">
+        <option value="default">Auto Best Voice</option>
+      </select>
+
+      <label for="speedSelect" style="font-size:0.8rem; color:var(--text-muted);">Speed:</label>
+      <select class="select-control" id="speedSelect">
+        <option value="0.8">0.8x</option>
+        <option value="0.9" selected>0.9x (Natural)</option>
+        <option value="1.0">1.0x (Standard)</option>
+        <option value="1.1">1.1x</option>
+        <option value="1.2">1.2x</option>
+      </select>
+
+      <div class="tts-status-badge" id="ttsStatusBadge">
+        <span class="pulse-dot"></span>
+        <span id="statusText">Ready</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="app-layout">
+    <nav class="sidebar-toc" id="sidebarNav">
+      <div class="toc-header-bar">
+        <div class="toc-heading">
+          <span>Table of Contents</span>
+        </div>
+        <button class="btn-toc-minimize" id="minimizeSidebarBtn" title="Minimize / Toggle Sidebar (Ctrl+B)">☰</button>
+      </div>
+      <input type="text" class="toc-search-box" id="sidebarSearch" placeholder="Filter topics & cases..." />
+      <ul class="toc-list" id="tocList">
+__TOC_HTML__
+      </ul>
+    </nav>
+
+    <main class="reader-main" id="mainArticle">
+      <div class="doc-meta-banner">
+        <h1 class="doc-headline">__ESCAPED_TITLE__</h1>
+        <div class="doc-stats">
+          <span>__TOTAL_SECTIONS__ Sections</span>
+          <span>~__READING_TIME__ min read</span>
+          <span>Manila Law College</span>
+        </div>
+      </div>
+
+      __MP3_PLAYER_HTML__
+
+      <div id="contentWrapper">
+__SECTIONS_HTML__
+      </div>
+    </main>
+  </div>
+
+  <script>
+    (function() {
+      const synth = window.speechSynthesis;
+      let voices = [];
+      const readUnits = Array.from(document.querySelectorAll('.read-unit'));
+      const playPauseBtn = document.getElementById('playPauseBtn');
+      const playIcon = document.getElementById('playIcon');
+      const pauseIcon = document.getElementById('pauseIcon');
+      const playBtnText = document.getElementById('playBtnText');
+      const stopBtn = document.getElementById('stopBtn');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const voiceSelect = document.getElementById('voiceSelect');
+      const speedSelect = document.getElementById('speedSelect');
+      const statusBadge = document.getElementById('ttsStatusBadge');
+      const progressBar = document.getElementById('readingProgressBar');
+      const toggleSidebarBtn = document.getElementById('toggleSidebarBtn');
+      const minimizeSidebarBtn = document.getElementById('minimizeSidebarBtn');
+      const restoreSidebarBtn = document.getElementById('restoreSidebarBtn');
+      const sidebarOverlay = document.getElementById('sidebarOverlay');
+      const sidebarNav = document.getElementById('sidebarNav');
+      const sidebarSearch = document.getElementById('sidebarSearch');
+      const tocList = document.getElementById('tocList');
+      const themeSelect = document.getElementById('themeSelect');
+      const fontIncBtn = document.getElementById('fontIncBtn');
+      const fontDecBtn = document.getElementById('fontDecBtn');
+
+      let currentUnitIndex = -1;
+      let isPaused = false;
+      let isSpeaking = false;
+      let lastSectionId = null;
+
+      // 1. Sidebar Minimize / Maximize & Responsive Adaptations
+      function isMobile() {
+        return window.innerWidth <= 900;
+      }
+
+      function toggleSidebar(forceState) {
+        if (isMobile()) {
+          const isOpen = (forceState !== undefined) ? forceState : !sidebarNav.classList.contains('open');
+          sidebarNav.classList.toggle('open', isOpen);
+          if (sidebarOverlay) {
+            sidebarOverlay.classList.toggle('active', isOpen);
+          }
+        } else {
+          // Desktop toggle minimize / maximize
+          const isCurrentlyCollapsed = document.body.classList.contains('sidebar-collapsed');
+          const shouldCollapse = (forceState !== undefined) ? forceState : !isCurrentlyCollapsed;
+          document.body.classList.toggle('sidebar-collapsed', shouldCollapse);
+          sidebarNav.classList.toggle('minimized', shouldCollapse);
+          try {
+            localStorage.setItem('mlc_sidebar_collapsed', shouldCollapse ? 'true' : 'false');
+          } catch (e) {}
+        }
+      }
+
+      // Restore saved sidebar state
+      try {
+        const savedCollapsed = localStorage.getItem('mlc_sidebar_collapsed');
+        if (!isMobile() && savedCollapsed === 'true') {
+          toggleSidebar(true);
+        }
+      } catch (e) {}
+
+      if (toggleSidebarBtn) {
+        toggleSidebarBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          toggleSidebar();
+        });
+      }
+      if (minimizeSidebarBtn) {
+        minimizeSidebarBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          toggleSidebar();
+        });
+      }
+      if (restoreSidebarBtn) {
+        restoreSidebarBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          toggleSidebar(false);
+        });
+      }
+      if (sidebarOverlay) {
+        sidebarOverlay.addEventListener('click', () => {
+          sidebarNav.classList.remove('open');
+          sidebarOverlay.classList.remove('active');
+        });
+      }
+
+      // Auto close mobile drawer when a TOC link is clicked
+      if (tocList) {
+        tocList.querySelectorAll('.toc-link').forEach(link => {
+          link.addEventListener('click', () => {
+            if (isMobile()) {
+              sidebarNav.classList.remove('open');
+              if (sidebarOverlay) sidebarOverlay.classList.remove('active');
+            }
+          });
+        });
+      }
+
+      // Instant live filter
+      if (sidebarSearch && tocList) {
+        sidebarSearch.addEventListener('input', (e) => {
+          const q = e.target.value.toLowerCase();
+          const items = tocList.querySelectorAll('li');
+          items.forEach(li => {
+            const txt = li.textContent.toLowerCase();
+            li.style.display = txt.includes(q) ? '' : 'none';
+          });
+        });
+      }
+
+      // 2. Theme & Font Scaling
+      if (themeSelect) {
+        themeSelect.addEventListener('change', (e) => {
+          document.documentElement.setAttribute('data-theme', e.target.value);
+          try { localStorage.setItem('mlc_theme', e.target.value); } catch(err) {}
+        });
+        try {
+          const savedTheme = localStorage.getItem('mlc_theme');
+          if (savedTheme) {
+            themeSelect.value = savedTheme;
+            document.documentElement.setAttribute('data-theme', savedTheme);
+          }
+        } catch(err) {}
+      }
+
+      let currentFontSize = 17;
+      if (fontIncBtn) {
+        fontIncBtn.addEventListener('click', () => {
+          if (currentFontSize < 24) {
+            currentFontSize += 1;
+            document.documentElement.style.fontSize = currentFontSize + 'px';
+          }
+        });
+      }
+      if (fontDecBtn) {
+        fontDecBtn.addEventListener('click', () => {
+          if (currentFontSize > 13) {
+            currentFontSize -= 1;
+            document.documentElement.style.fontSize = currentFontSize + 'px';
+          }
+        });
+      }
+
+      // 3. Scroll Progress & Active TOC Link Sync
+      window.addEventListener('scroll', () => {
+        const sTop = window.scrollY;
+        const dHeight = document.documentElement.scrollHeight - window.innerHeight;
+        if (dHeight > 0 && progressBar) {
+          progressBar.style.width = ((sTop / dHeight) * 100) + '%';
+        }
+
+        // Sync TOC Active Link
+        const sections = document.querySelectorAll('section.doc-section');
+        let currentActive = null;
+        sections.forEach(sec => {
+          const rect = sec.getBoundingClientRect();
+          if (rect.top <= 160 && rect.bottom >= 160) {
+            currentActive = sec.id;
+          }
+        });
+        if (currentActive) {
+          document.querySelectorAll('.toc-link').forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + currentActive);
+          });
+        }
+      });
+
+      // 4. Voice Population with High-Quality Natural Neural Prioritization
+      function populateVoices() {
+        if (!synth || !voiceSelect) return;
+        voices = synth.getVoices();
+        voiceSelect.innerHTML = '<option value="default">Auto Best Voice</option>';
+
+        const scored = voices.map((v, i) => {
+          let score = 0;
+          const name = v.name.toLowerCase();
+          const lang = v.lang.toLowerCase();
+
+          if (lang.startsWith('en')) score += 50;
+          if (lang.includes('ph') || lang.includes('fil')) score += 30;
+          if (lang.includes('us')) score += 20;
+          if (lang.includes('gb') || lang.includes('uk')) score += 15;
+          if (name.includes('natural')) score += 40;
+          if (name.includes('neural')) score += 40;
+          if (name.includes('online')) score += 25;
+          if (name.includes('multilingual')) score += 20;
+          if (name.includes('guy') || name.includes('aria') || name.includes('jenny') || name.includes('andrew')) score += 15;
+          if (v.default) score += 5;
+
+          return { voice: v, index: i, score: score };
+        });
+
+        scored.sort((a, b) => b.score - a.score);
+
+        scored.forEach(item => {
+          const opt = document.createElement('option');
+          opt.value = item.index;
+          opt.textContent = item.voice.name + ' (' + item.voice.lang + ')';
+          voiceSelect.appendChild(opt);
+        });
+      }
+
+      populateVoices();
+      if (speechSynthesis && speechSynthesis.onvoiceschanged !== undefined) {
+        speechSynthesis.onvoiceschanged = populateVoices;
+      }
+
+      // 5. Roman Numeral & Phonetics Normalization
+      function romanToInt(s) {
+        if (!s) return null;
+        s = s.toUpperCase().trim();
+        if (!/^[IVXLCDM]+$/.test(s)) return null;
+        const map = { 'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000 };
+        let total = 0;
+        let i = 0;
+        while (i < s.length) {
+          if (i + 1 < s.length && map[s[i]] < map[s[i+1]]) {
+            total += map[s[i+1]] - map[s[i]];
+            i += 2;
+          } else if (map[s[i]]) {
+            total += map[s[i]];
+            i += 1;
+          } else {
+            return null;
+          }
+        }
+        return total;
+      }
+
+      const ORDINALS = {
+        'I': 'the first', 'II': 'the second', 'III': 'the third', 'IV': 'the fourth', 'V': 'the fifth',
+        'VI': 'the sixth', 'VII': 'the seventh', 'VIII': 'the eighth', 'IX': 'the ninth', 'X': 'the tenth'
+      };
+
+      function cleanSmartReading(txt) {
+        if (!txt) return '';
+
+        // A. Strip all emojis and decorative symbols completely
+        txt = Array.from(txt).filter(c => {
+          const cp = c.codePointAt(0);
+          return cp < 0x2000 || (cp > 0x2BFF && cp < 0x1F000);
+        }).join('');
+        txt = txt.replace(/[•§]/g, ' ');
+
+        // B. Smart Number-Word Deduplication
+        const numWordPattern = /\b(zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|twenty-five|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand|million)\s*\(\s*\d+\s*\)/gi;
+        txt = txt.replace(numWordPattern, '$1');
+        txt = txt.replace(/\b\d+\s*\(\s*([a-zA-Z\-]+)\s*\)/g, '$1');
+
+        // C. Smart Tag / Bracket Deduplication
+        txt = txt.replace(/\[\s*[A-Z]\s*[\-–—]?\s*(?:ANSWER|LEGAL\s+BASIS|APPLICATION|ANALYSIS|CONCLUSION)?\s*\]\s*/gi, '');
+        txt = txt.replace(/\[\s*([^\]]+)\s*\]\s*[:\-–—]?\s*([\s\S]*)/g, function(match, tag, rest) {
+          tag = tag.trim();
+          if (rest.toLowerCase().startsWith(tag.toLowerCase())) {
+            return rest;
+          }
+          return tag + ': ' + rest;
+        });
+
+        txt = txt.replace(/\b([A-Za-z]{3,})\b\s+\1\b/gi, '$1');
+        txt = txt.replace(/:\s*:/g, ':');
+        txt = txt.replace(/\s+/g, ' ').trim();
+        return txt;
+      }
+
+      function expandRomanAndPhonetics(txt) {
+        if (!txt) return '';
+        txt = cleanSmartReading(txt);
+
+        const replacements = [
+          [/\bA\.C\.\s*(?:No\.?\s*)?([A-Za-z0-9\-]+)/gi, 'Administrative Case Number $1'],
+          [/\bA\.M\.\s*(?:No\.?\s*)?([A-Za-z0-9\-]+)/gi, 'Administrative Matter Number $1'],
+          [/\bG\.R\.\s*Nos\.?\s*([A-Za-z0-9\-,\s]+)/gi, 'JEE-AR Numbers $1'],
+          [/\bG\.R\.\s*(?:No\.?\s*)?([A-Za-z0-9\-]+)/gi, 'JEE-AR Number $1'],
+          [/\bG\.R\.\b/gi, 'JEE-AR'],
+          [/\bP\.D\.\s*(?:No\.?\s*)?(\d+)/gi, 'Presidential Decree Number $1'],
+          [/\bPD\s*(\d+)/gi, 'Presidential Decree $1'],
+          [/\bP\.D\.\b/gi, 'Presidential Decree'],
+          [/\bR\.A\.\s*(?:No\.?\s*)?(\d+)/gi, 'Republic Act Number $1'],
+          [/\bRA\s*(\d+)/gi, 'Republic Act $1'],
+          [/\bR\.A\.\b/gi, 'Republic Act'],
+          [/\bPhil\.\s*(\d+)/gi, 'Philippine Reports volume $1'],
+          [/\bPhil\.\b/gi, 'Phil'],
+          [/\bSCRA\b/g, 'SKRA'],
+          [/\bCPRA\b/g, 'SIP-ruh'],
+          [/\bCJCA\b/g, 'SEE-JAY-SEE-AY'],
+          [/\bCPR\b/g, 'Code of Professional Responsibility'],
+          [/\bCCCP\b/g, 'Code of Conduct for Court Personnel'],
+          [/\bJIO\b/g, 'Judicial Integrity Office'],
+          [/\bOCA\b/g, 'Office of the Court Administrator'],
+          [/\bDPA\b/g, 'DEE-PEE-AY'],
+          [/\bITA\b/g, 'EYE-tuh'],
+          [/\bOSAEC\b/g, 'OH-sak'],
+          [/\bAFASA\b/g, 'ah-FAH-suh'],
+          [/\bCPA\b/g, 'Cybercrime Prevention Act'],
+          [/\bREED\b/g, 'REED'],
+          [/\bDICT\b/g, 'DIK-tee'],
+          [/\bCICC\b/g, 'SIK-see'],
+          [/\bRPC\b/g, 'Revised Penal Code'],
+          [/\bIn\s+re\b/gi, 'in Ree'],
+          [/\bet\s+al\./gi, 'et AHL,'],
+          [/\bet\s+al\b/gi, 'et AHL,'],
+          [/\bi\.e\./gi, 'that is,'],
+          [/\be\.g\./gi, 'for example,'],
+          [/\bArt\.\s*(\d+)/gi, 'Article $1'],
+          [/\bArts\.\s*([\d,\s\-]+)/gi, 'Articles $1'],
+          [/\bSec\.\s*(\d+)/gi, 'Section $1'],
+          [/\bSecs\.\s*([\d,\s\-]+)/gi, 'Sections $1'],
+          [/\bPar\.\s*(\d+)/gi, 'Paragraph $1'],
+          [/\s+v(?:s)?\.\s+/gi, ' versus ']
+        ];
+
+        replacements.forEach(([pattern, rep]) => {
+          txt = txt.replace(pattern, rep);
+        });
+
+        txt = txt.replace(/(^|\n|\.\s+|;\s+)([IVXLCDM]+)\.\s+/gi, function(match, prefix, roman) {
+          const val = romanToInt(roman);
+          return val ? prefix + 'Topic ' + val + ': ' : match;
+        });
+
+        txt = txt.replace(/\b([A-Z][a-z]+)\s+([IVXLCDM]{1,4})\b/g, function(match, name, roman) {
+          if (/^(?:Canon|Part|Chapter|Article|Title|Book|Section|Sec|Art|Vol|Volume|Rule|Topic|Case|No|Nos)$/i.test(name)) {
+            return match;
+          }
+          const upperR = roman.toUpperCase();
+          return ORDINALS[upperR] ? name + ' ' + ORDINALS[upperR] : match;
+        });
+
+        txt = txt.replace(/\b(Canon|Part|Chapter|Article|Title|Book|Section|Sec|Art|Vol|Volume|Rule)\s+([IVXLCDM]+)\b/gi, function(match, prefix, roman) {
+          const val = romanToInt(roman);
+          return val ? prefix + ' ' + val : match;
+        });
+
+        txt = txt.replace(/\(([ivxlcdm]+)\)/gi, function(match, roman) {
+          const val = romanToInt(roman);
+          return val ? 'sub-item ' + val + ', ' : match;
+        });
+
+        txt = txt.replace(/:\s*/g, ': ... ');
+        txt = txt.replace(/;\s*/g, ';, ');
+        txt = txt.replace(/\s*—\s*/g, ' — ... ');
+
+        return txt.trim();
+      }
+
+      function prepareSpeechText(unitEl) {
+        let text = unitEl.innerText || unitEl.textContent || '';
+        return expandRomanAndPhonetics(text);
+      }
+
+      function setSpeakingState(speaking, paused = false) {
+        isSpeaking = speaking;
+        isPaused = paused;
+        if (speaking && !paused) {
+          if (playIcon) playIcon.style.display = 'none';
+          if (pauseIcon) pauseIcon.style.display = 'inline';
+          if (playBtnText) playBtnText.textContent = 'Pause';
+          if (statusBadge) {
+            statusBadge.innerHTML = '<span class="pulse-dot"></span><span>Speaking...</span>';
+            statusBadge.className = 'tts-status-badge speaking';
+          }
+        } else if (paused) {
+          if (playIcon) playIcon.style.display = 'inline';
+          if (pauseIcon) pauseIcon.style.display = 'none';
+          if (playBtnText) playBtnText.textContent = 'Resume';
+          if (statusBadge) {
+            statusBadge.innerHTML = '<span class="pulse-dot"></span><span>Paused</span>';
+            statusBadge.className = 'tts-status-badge paused';
+          }
+        } else {
+          if (playIcon) playIcon.style.display = 'inline';
+          if (pauseIcon) pauseIcon.style.display = 'none';
+          if (playBtnText) playBtnText.textContent = 'Read Aloud';
+          if (statusBadge) {
+            statusBadge.innerHTML = '<span class="pulse-dot"></span><span>Ready</span>';
+            statusBadge.className = 'tts-status-badge';
+          }
+          clearHighlights();
+        }
+      }
+
+      function clearHighlights() {
+        readUnits.forEach(u => u.classList.remove('is-speaking'));
+      }
+
+      function highlightUnit(idx) {
+        clearHighlights();
+        if (idx >= 0 && idx < readUnits.length) {
+          const unit = readUnits[idx];
+          unit.classList.add('is-speaking');
+          unit.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+
+      function speakUnit(idx) {
+        if (!synth || idx < 0 || idx >= readUnits.length) {
+          setSpeakingState(false);
+          return;
+        }
+
+        synth.cancel();
+        currentUnitIndex = idx;
+        const unit = readUnits[idx];
+        highlightUnit(idx);
+
+        let speechText = prepareSpeechText(unit);
+        
+        // Topic change notification cue
+        const currentSec = unit.closest('section.doc-section');
+        const currentSecId = currentSec ? currentSec.id : null;
+        if (currentSecId && currentSecId !== lastSectionId && currentSec) {
+          const headerEl = currentSec.querySelector('.case-header-title') || currentSec.querySelector('.topic-header-title') || currentSec.querySelector('.subtopic-header-title');
+          if (headerEl) {
+            const topicTitle = expandRomanAndPhonetics(headerEl.innerText.trim());
+            speechText = 'Now Reading: ' + topicTitle + ' ... ... ' + speechText;
+          }
+          lastSectionId = currentSecId;
+        }
+
+        const utterance = new SpeechSynthesisUtterance(speechText);
+        utterance.rate = (speedSelect ? parseFloat(speedSelect.value) : 0.9) || 0.9;
+        utterance.pitch = 1.0;
+
+        const selVoiceIdx = voiceSelect ? voiceSelect.value : 'default';
+        if (selVoiceIdx !== 'default' && voices[selVoiceIdx]) {
+          utterance.voice = voices[selVoiceIdx];
+        } else if (voices.length > 0) {
+          utterance.voice = voices[0];
+        }
+
+        utterance.onstart = () => {
+          setSpeakingState(true, false);
+        };
+
+        utterance.onend = () => {
+          if (isSpeaking && !isPaused) {
+            if (idx + 1 < readUnits.length) {
+              speakUnit(idx + 1);
+            } else {
+              setSpeakingState(false);
+            }
+          }
+        };
+
+        utterance.onerror = (e) => {
+          if (e.error !== 'interrupted' && e.error !== 'canceled') {
+            console.warn('TTS error:', e);
+          }
+        };
+
+        synth.speak(utterance);
+      }
+
+      if (playPauseBtn) {
+        playPauseBtn.addEventListener('click', () => {
+          if (!synth) return;
+          if (isSpeaking && !isPaused) {
+            synth.pause();
+            setSpeakingState(true, true);
+          } else if (isPaused) {
+            synth.resume();
+            setSpeakingState(true, false);
+          } else {
+            speakUnit(currentUnitIndex >= 0 ? currentUnitIndex : 0);
+          }
+        });
+      }
+
+      if (stopBtn) {
+        stopBtn.addEventListener('click', () => {
+          if (!synth) return;
+          synth.cancel();
+          setSpeakingState(false);
+          currentUnitIndex = -1;
+          lastSectionId = null;
+          clearHighlights();
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          const target = Math.min(readUnits.length - 1, (currentUnitIndex >= 0 ? currentUnitIndex : 0) + 1);
+          speakUnit(target);
+        });
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          const target = Math.max(0, (currentUnitIndex >= 0 ? currentUnitIndex : 0) - 1);
+          speakUnit(target);
+        });
+      }
+
+      // Click on any paragraph to start speaking from that exact unit
+      const contentWrap = document.getElementById('contentWrapper');
+      if (contentWrap) {
+        contentWrap.addEventListener('click', (e) => {
+          const unit = e.target.closest('.read-unit');
+          if (unit) {
+            const idx = readUnits.indexOf(unit);
+            if (idx !== -1) {
+              speakUnit(idx);
+            }
+          }
+        });
+      }
+
+      // Floating Selection Reader
+      const floatBtn = document.getElementById('floatingTtsTrigger');
+      if (floatBtn) {
+        document.addEventListener('mouseup', (e) => {
+          if (e.target.closest('#floatingTtsTrigger') || e.target.closest('.tts-toolbar') || e.target.closest('header')) return;
+          const sel = window.getSelection().toString().trim();
+          if (sel.length > 2) {
+            const rect = window.getSelection().getRangeAt(0).getBoundingClientRect();
+            floatBtn.style.top = (window.scrollY + rect.top - 44) + 'px';
+            floatBtn.style.left = (window.scrollX + rect.left + (rect.width / 2)) + 'px';
+            floatBtn.style.display = 'block';
+          } else {
+            floatBtn.style.display = 'none';
+          }
+        });
+
+        floatBtn.addEventListener('click', () => {
+          const sel = window.getSelection().toString().trim();
+          if (sel && synth) {
+            synth.cancel();
+            const utterance = new SpeechSynthesisUtterance(expandRomanAndPhonetics(sel));
+            utterance.rate = (speedSelect ? parseFloat(speedSelect.value) : 0.9) || 0.9;
+            const selVoiceIdx = voiceSelect ? voiceSelect.value : 'default';
+            if (selVoiceIdx !== 'default' && voices[selVoiceIdx]) {
+              utterance.voice = voices[selVoiceIdx];
+            }
+            synth.speak(utterance);
+            floatBtn.style.display = 'none';
+          }
+        });
+      }
+
+      // Keyboard Shortcuts
+      document.addEventListener('keydown', (e) => {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA') return;
+        if ((e.ctrlKey && (e.key === 'b' || e.key === 'B')) || (e.altKey && (e.key === 't' || e.key === 'T'))) {
+          e.preventDefault();
+          toggleSidebar();
+        } else if (e.code === 'Space') {
+          e.preventDefault();
+          if (playPauseBtn) playPauseBtn.click();
+        } else if (e.key === 'Escape') {
+          if (stopBtn) stopBtn.click();
+        } else if (e.key === 'n' || e.key === 'N') {
+          if (nextBtn) nextBtn.click();
+        } else if (e.key === 'p' || e.key === 'P') {
+          if (prevBtn) prevBtn.click();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>'''
+
 def generate_reader_html(doc_title, subject_tag, sections, mp3_filename=None):
     """
-    Renders the complete self-contained interactive reader HTML app.
+    Renders the complete self-contained interactive reader HTML app using token replacement.
     """
     escaped_title = html.escape(doc_title)
     escaped_subject_tag = html.escape(subject_tag)
@@ -432,1490 +1948,16 @@ def generate_reader_html(doc_title, subject_tag, sections, mp3_filename=None):
         </div>
         """
 
-    html_template = f"""<!DOCTYPE html>
-<html lang="en" data-theme="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{escaped_title} | MLC Law Library</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    :root {{
-      --bg-primary: #0b1120;
-      --bg-secondary: #131d31;
-      --bg-tertiary: #1e293b;
-      --border-color: rgba(148, 163, 184, 0.14);
-      --border-focus: #fbbf24;
-      --text-primary: #f8fafc;
-      --text-secondary: #cbd5e1;
-      --text-muted: #94a3b8;
-      --accent-gold: #fbbf24;
-      --accent-gold-dark: #d97706;
-      --accent-blue: #38bdf8;
-      --accent-emerald: #34d399;
-      --accent-crimson: #f87171;
-      --accent-purple: #c084fc;
-      --highlight-bg: rgba(251, 191, 36, 0.22);
-      --highlight-border: #fbbf24;
-      --card-bg: rgba(19, 29, 49, 0.7);
-      --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-body: 'Merriweather', Georgia, serif;
-      --font-heading: 'Cinzel', serif;
-      --font-mono: 'JetBrains Mono', monospace;
-      --sidebar-width: 320px;
-      --header-height: 60px;
-      --toolbar-height: 52px;
-      --sticky-top-total: calc(var(--header-height) + var(--toolbar-height));
-      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
-    }}
-
-    [data-theme="sepia"] {{
-      --bg-primary: #fbf7ee;
-      --bg-secondary: #f4ecd8;
-      --bg-tertiary: #e9dfc4;
-      --border-color: rgba(120, 97, 65, 0.18);
-      --border-focus: #b45309;
-      --text-primary: #2d241e;
-      --text-secondary: #4a3e35;
-      --text-muted: #786c60;
-      --accent-gold: #b45309;
-      --accent-gold-dark: #92400e;
-      --accent-blue: #0284c7;
-      --accent-emerald: #059669;
-      --accent-crimson: #dc2626;
-      --accent-purple: #7c3aed;
-      --highlight-bg: rgba(217, 119, 6, 0.2);
-      --highlight-border: #b45309;
-      --card-bg: rgba(244, 236, 216, 0.85);
-    }}
-
-    [data-theme="light"] {{
-      --bg-primary: #ffffff;
-      --bg-secondary: #f8fafc;
-      --bg-tertiary: #f1f5f9;
-      --border-color: #e2e8f0;
-      --border-focus: #d97706;
-      --text-primary: #0f172a;
-      --text-secondary: #334155;
-      --text-muted: #64748b;
-      --accent-gold: #d97706;
-      --accent-gold-dark: #b45309;
-      --accent-blue: #0284c7;
-      --accent-emerald: #059669;
-      --accent-crimson: #dc2626;
-      --accent-purple: #7c3aed;
-      --highlight-bg: rgba(254, 240, 138, 0.5);
-      --highlight-border: #eab308;
-      --card-bg: rgba(248, 250, 252, 0.9);
-    }}
-
-    * {{ box-sizing: border-box; margin: 0; padding: 0; }}
-
-    body {{
-      background-color: var(--bg-primary);
-      color: var(--text-primary);
-      font-family: var(--font-body);
-      font-size: 17px;
-      line-height: 1.8;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      transition: background-color 0.2s ease, color 0.2s ease;
-    }}
-
-    /* Scroll Progress Bar */
-    #readingProgressBar {{
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue));
-      width: 0%;
-      z-index: 1000;
-      transition: width 0.1s ease;
-    }}
-
-    /* Floating Selection Reader Trigger */
-    #floatingTtsTrigger {{
-      position: absolute;
-      display: none;
-      z-index: 999;
-      background: var(--accent-gold);
-      color: #0b1120;
-      font-family: var(--font-ui);
-      font-size: 0.8rem;
-      font-weight: 700;
-      padding: 6px 14px;
-      border-radius: 20px;
-      box-shadow: var(--shadow-lg);
-      cursor: pointer;
-      border: none;
-      transform: translate(-50%, -100%);
-      transition: transform 0.15s ease, background-color 0.15s ease;
-    }}
-    #floatingTtsTrigger:hover {{
-      background: var(--accent-gold-dark);
-      color: #ffffff;
-      transform: translate(-50%, -105%) scale(1.05);
-    }}
-
-    /* Header & Navigation Bar - STICKY TOP */
-    header {{
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background-color: var(--bg-secondary);
-      border-bottom: 1px solid var(--border-color);
-      height: var(--header-height);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 1.5rem;
-      backdrop-filter: blur(12px);
-    }}
-
-    .header-left {{
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }}
-
-    .btn-icon {{
-      background: transparent;
-      border: 1px solid var(--border-color);
-      color: var(--text-primary);
-      width: 38px;
-      height: 38px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-size: 1.1rem;
-      transition: all 0.15s ease;
-    }}
-    .btn-icon:hover {{
-      background-color: var(--bg-tertiary);
-      border-color: var(--border-focus);
-      color: var(--accent-gold);
-    }}
-
-    .brand-title {{
-      font-family: var(--font-heading);
-      font-size: 1.1rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      color: var(--accent-gold);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 340px;
-    }}
-
-    .subject-pill {{
-      display: inline-block;
-      font-family: var(--font-ui);
-      font-size: 0.72rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: 2px 8px;
-      border-radius: 4px;
-      background: rgba(56, 189, 248, 0.12);
-      color: var(--accent-blue);
-      border: 1px solid rgba(56, 189, 248, 0.25);
-    }}
-
-    .header-actions {{
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }}
-
-    .select-control {{
-      background-color: var(--bg-tertiary);
-      border: 1px solid var(--border-color);
-      color: var(--text-primary);
-      font-family: var(--font-ui);
-      font-size: 0.85rem;
-      padding: 6px 10px;
-      border-radius: 6px;
-      outline: none;
-      cursor: pointer;
-    }}
-    .select-control:focus {{
-      border-color: var(--border-focus);
-    }}
-
-    /* TTS Audio Control Bar - STICKY UNDER HEADER */
-    .tts-toolbar {{
-      position: sticky;
-      top: var(--header-height);
-      z-index: 95;
-      background-color: var(--bg-secondary);
-      border-bottom: 1px solid var(--border-color);
-      padding: 0.55rem 1.5rem;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      font-family: var(--font-ui);
-      font-size: 0.88rem;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
-      transition: background-color 0.2s ease, border-color 0.2s ease;
-    }}
-
-    .tts-controls-group {{
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }}
-
-    .btn-tts {{
-      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
-      border: none;
-      color: #0b1120;
-      font-weight: 700;
-      font-size: 0.85rem;
-      padding: 7px 16px;
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      cursor: pointer;
-      transition: transform 0.1s ease, filter 0.15s ease;
-    }}
-    .btn-tts:hover {{
-      filter: brightness(1.1);
-      transform: translateY(-1px);
-    }}
-    .btn-tts:active {{
-      transform: translateY(1px);
-    }}
-
-    .btn-tts-secondary {{
-      background-color: var(--bg-tertiary);
-      border: 1px solid var(--border-color);
-      color: var(--text-primary);
-      font-weight: 600;
-      font-size: 0.85rem;
-      padding: 7px 12px;
-      border-radius: 6px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-      transition: all 0.15s ease;
-    }}
-    .btn-tts-secondary:hover {{
-      border-color: var(--border-focus);
-      color: var(--accent-gold);
-    }}
-
-    .btn-tts-stop {{
-      border-color: rgba(248, 113, 113, 0.35);
-      color: var(--accent-crimson);
-    }}
-    .btn-tts-stop:hover {{
-      background-color: rgba(248, 113, 113, 0.15);
-      border-color: var(--accent-crimson);
-      color: #ffffff;
-    }}
-
-    .tts-status-badge {{
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      background: var(--bg-tertiary);
-      padding: 4px 10px;
-      border-radius: 12px;
-      border: 1px solid var(--border-color);
-      transition: all 0.2s ease;
-    }}
-    .tts-status-badge.speaking {{
-      color: var(--accent-emerald);
-      border-color: var(--accent-emerald);
-      background: rgba(52, 211, 153, 0.1);
-    }}
-    .tts-status-badge.paused {{
-      color: var(--accent-gold);
-      border-color: var(--accent-gold);
-      background: rgba(251, 191, 36, 0.1);
-    }}
-    .pulse-dot {{
-      width: 8px;
-      height: 8px;
-      background-color: currentColor;
-      border-radius: 50%;
-      display: inline-block;
-    }}
-    .speaking .pulse-dot {{
-      animation: pulse 1.2s infinite;
-    }}
-    @keyframes pulse {{
-      0% {{ transform: scale(0.9); opacity: 0.6; }}
-      50% {{ transform: scale(1.3); opacity: 1; }}
-      100% {{ transform: scale(0.9); opacity: 0.6; }}
-    }}
-
-    /* Main Content Layout */
-    .app-layout {{
-      display: flex;
-      flex: 1;
-      position: relative;
-      width: 100%;
-    }}
-
-    /* Table of Contents Sidebar */
-    .sidebar-toc {{
-      width: var(--sidebar-width);
-      background-color: var(--bg-secondary);
-      border-right: 1px solid var(--border-color);
-      position: sticky;
-      top: var(--sticky-top-total);
-      height: calc(100vh - var(--sticky-top-total));
-      overflow-y: auto;
-      padding: 1.25rem 1rem;
-      flex-shrink: 0;
-      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                  transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                  padding 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                  opacity 0.2s ease;
-      z-index: 80;
-    }}
-
-    /* Sidebar Minimized / Collapsed state */
-    body.sidebar-collapsed .sidebar-toc,
-    .sidebar-toc.minimized {{
-      width: 0 !important;
-      min-width: 0 !important;
-      padding: 0 !important;
-      margin: 0 !important;
-      border-right: none !important;
-      opacity: 0 !important;
-      overflow: hidden !important;
-      pointer-events: none !important;
-      transform: translateX(-15px);
-    }}
-
-    .toc-header-bar {{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 0.85rem;
-      padding-bottom: 0.4rem;
-      border-bottom: 1px solid var(--border-color);
-    }}
-
-    .toc-heading {{
-      font-family: var(--font-ui);
-      font-size: 0.76rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--accent-gold);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }}
-
-    .btn-toc-minimize {{
-      background: var(--bg-tertiary);
-      border: 1px solid var(--border-color);
-      color: var(--text-muted);
-      cursor: pointer;
-      width: 26px;
-      height: 26px;
-      border-radius: 6px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      transition: all 0.15s ease;
-    }}
-    .btn-toc-minimize:hover {{
-      background: var(--accent-gold);
-      color: #0b1120;
-      border-color: var(--accent-gold);
-    }}
-
-    .toc-search-box {{
-      width: 100%;
-      background-color: var(--bg-primary);
-      border: 1px solid var(--border-color);
-      color: var(--text-primary);
-      font-family: var(--font-ui);
-      font-size: 0.82rem;
-      padding: 8px 12px;
-      border-radius: 6px;
-      margin-bottom: 1rem;
-      outline: none;
-    }}
-    .toc-search-box:focus {{
-      border-color: var(--border-focus);
-    }}
-
-    .toc-list {{
-      list-style: none;
-    }}
-
-    .toc-link {{
-      display: block;
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-family: var(--font-ui);
-      font-size: 0.85rem;
-      padding: 6px 10px 6px 12px;
-      border-radius: 4px;
-      margin-bottom: 2px;
-      border-left: 2px solid transparent;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      transition: all 0.15s ease;
-    }}
-    .toc-link:hover {{
-      background-color: var(--bg-tertiary);
-      color: var(--accent-gold);
-      border-left-color: var(--accent-gold);
-    }}
-    .toc-link.active {{
-      background-color: var(--bg-tertiary);
-      color: var(--accent-gold);
-      border-left-color: var(--accent-gold);
-      font-weight: 600;
-    }}
-    .toc-link.level-2 {{
-      padding-left: 22px;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }}
-
-    /* Floating / Fixed Restore Sidebar Tab when Minimized */
-    #restoreSidebarBtn {{
-      position: fixed;
-      left: 1.25rem;
-      bottom: 1.75rem;
-      z-index: 90;
-      background: var(--bg-secondary);
-      border: 1px solid var(--accent-gold);
-      color: var(--accent-gold);
-      font-family: var(--font-ui);
-      font-size: 0.82rem;
-      font-weight: 700;
-      padding: 8px 14px;
-      border-radius: 20px;
-      box-shadow: var(--shadow-lg);
-      cursor: pointer;
-      display: none;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    }}
-    body.sidebar-collapsed #restoreSidebarBtn {{
-      display: flex;
-    }}
-    #restoreSidebarBtn:hover {{
-      background: var(--accent-gold);
-      color: #0b1120;
-      transform: translateY(-2px) scale(1.03);
-      box-shadow: 0 8px 24px rgba(251, 191, 36, 0.35);
-    }}
-
-    /* Header toggle button active status */
-    body.sidebar-collapsed #toggleSidebarBtn {{
-      background-color: var(--bg-tertiary);
-      border-color: var(--accent-gold);
-      color: var(--accent-gold);
-    }}
-
-    /* Main Reading Article Container - Adapts width smoothly */
-    .reader-main {{
-      flex: 1;
-      width: 100%;
-      max-width: 920px;
-      margin: 0 auto;
-      padding: 2.5rem 2rem 6rem;
-      transition: max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                  padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }}
-
-    /* Responsive Expanded Width when Sidebar is Minimized */
-    body.sidebar-collapsed .reader-main {{
-      max-width: 1200px;
-      padding-left: 3rem;
-      padding-right: 3rem;
-    }}
-
-    @media (min-width: 1600px) {{
-      .reader-main {{
-        max-width: 1020px;
-      }}
-      body.sidebar-collapsed .reader-main {{
-        max-width: 1400px;
-      }}
-    }}
-
-    .doc-meta-banner {{
-      margin-bottom: 2.5rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid var(--border-color);
-    }}
-    .doc-headline {{
-      font-family: var(--font-heading);
-      font-size: 2.2rem;
-      font-weight: 800;
-      color: var(--accent-gold);
-      line-height: 1.25;
-      margin-bottom: 0.75rem;
-      letter-spacing: 0.02em;
-    }}
-    .doc-stats {{
-      font-family: var(--font-ui);
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-    }}
-
-    /* Studio Native MP3 Audio Player */
-    .studio-audio-player {{
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-color);
-      border-left: 4px solid var(--accent-emerald);
-      border-radius: 10px;
-      padding: 1.25rem 1.5rem;
-      margin-bottom: 2.5rem;
-      box-shadow: var(--shadow-md);
-    }}
-    .audio-player-header {{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 0.85rem;
-      font-family: var(--font-ui);
-    }}
-    .audio-badge {{
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--accent-emerald);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }}
-    .audio-filename {{
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      font-family: var(--font-mono);
-    }}
-    .native-audio-element {{
-      width: 100%;
-      outline: none;
-      border-radius: 30px;
-    }}
-
-    /* Document Sections & Continuous Body Elements */
-    .doc-section {{
-      margin-bottom: 3rem;
-      scroll-margin-top: calc(var(--sticky-top-total) + 20px);
-    }}
-    .section-divider {{
-      border: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--border-color), transparent);
-      margin: 3rem 0;
-    }}
-
-    /* Case Header Card */
-    .case-header-card {{
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-left: 5px solid var(--accent-gold);
-      border-radius: 10px;
-      padding: 1.25rem 1.5rem;
-      margin-bottom: 1.5rem;
-      box-shadow: var(--shadow-sm);
-    }}
-    .case-number-pill {{
-      display: inline-block;
-      background: var(--accent-gold);
-      color: #0b1120;
-      font-family: var(--font-ui);
-      font-size: 0.72rem;
-      font-weight: 800;
-      padding: 2px 8px;
-      border-radius: 4px;
-      margin-bottom: 0.5rem;
-      letter-spacing: 0.05em;
-    }}
-    .case-header-title {{
-      font-family: var(--font-heading);
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      line-height: 1.35;
-    }}
-
-    .topic-header-card {{
-      background: var(--bg-secondary);
-      border-left: 4px solid var(--accent-blue);
-      border-radius: 8px;
-      padding: 1rem 1.25rem;
-      margin-bottom: 1.5rem;
-    }}
-    .topic-header-title {{
-      font-family: var(--font-heading);
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--accent-blue);
-    }}
-
-    .subtopic-header-card {{
-      margin: 1.5rem 0 1rem;
-    }}
-    .subtopic-header-title {{
-      font-family: var(--font-ui);
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--accent-gold);
-    }}
-
-    /* Case Citation Banner */
-    .case-citation-banner {{
-      background-color: var(--bg-tertiary);
-      border: 1px dashed var(--border-color);
-      border-radius: 8px;
-      padding: 0.75rem 1.25rem;
-      margin-bottom: 1.5rem;
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }}
-    .citation-label {{
-      display: inline-block;
-      font-family: var(--font-ui);
-      font-size: 0.72rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent-gold);
-      background: rgba(251, 191, 36, 0.12);
-      border: 1px solid rgba(251, 191, 36, 0.25);
-      padding: 2px 7px;
-      border-radius: 4px;
-    }}
-
-    /* Subheadings within Case (Facts, Issue, Ruling) */
-    .case-subheading {{
-      font-family: var(--font-ui);
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin: 1.75rem 0 0.75rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 0.4rem;
-    }}
-    .subheading-accent {{
-      color: var(--accent-gold);
-      font-size: 1.2rem;
-    }}
-
-    /* Continuous Flowing Paragraphs */
-    .case-paragraph {{
-      margin-bottom: 1.25rem;
-      text-align: justify;
-      text-justify: inter-word;
-      line-height: 1.85;
-      padding: 4px 6px;
-      border-radius: 6px;
-      transition: background-color 0.15s ease;
-    }}
-
-    /* ALAC & Reasoning Paragraph Badges */
-    .alac-paragraph {{
-      background: rgba(255, 255, 255, 0.02);
-      border-left: 3px solid var(--border-color);
-      padding: 0.6rem 0.85rem;
-      margin-bottom: 1.25rem;
-    }}
-    .alac-badge {{
-      display: inline-block;
-      font-family: var(--font-ui);
-      font-size: 0.75rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      padding: 2px 7px;
-      border-radius: 4px;
-      margin-right: 0.5rem;
-      vertical-align: baseline;
-    }}
-    .badge-ans {{ background: rgba(56, 189, 248, 0.2); color: var(--accent-blue); border: 1px solid var(--accent-blue); }}
-    .badge-law {{ background: rgba(192, 132, 252, 0.2); color: var(--accent-purple); border: 1px solid var(--accent-purple); }}
-    .badge-app {{ background: rgba(251, 191, 36, 0.2); color: var(--accent-gold); border: 1px solid var(--accent-gold); }}
-    .badge-con {{ background: rgba(52, 211, 153, 0.2); color: var(--accent-emerald); border: 1px solid var(--accent-emerald); }}
-    .badge-syn {{ background: rgba(248, 113, 113, 0.2); color: var(--accent-crimson); border: 1px solid var(--accent-crimson); }}
-    .badge-gen {{ background: rgba(148, 163, 184, 0.2); color: var(--text-secondary); border: 1px solid var(--border-color); }}
-
-    /* Bullet Points */
-    .bullet-point {{
-      display: flex;
-      align-items: baseline;
-      gap: 0.75rem;
-      margin-bottom: 0.75rem;
-      padding: 2px 6px;
-      border-radius: 4px;
-    }}
-    .bullet-dot {{
-      color: var(--accent-gold);
-      font-size: 1.2rem;
-      line-height: 1;
-    }}
-    .bullet-content {{
-      flex: 1;
-      text-align: justify;
-    }}
-
-    /* Tables */
-    .table-responsive {{
-      overflow-x: auto;
-      margin: 1.5rem 0;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-    }}
-    .reader-table {{
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.92rem;
-      font-family: var(--font-ui);
-    }}
-    .reader-table th, .reader-table td {{
-      padding: 10px 14px;
-      border: 1px solid var(--border-color);
-      text-align: left;
-    }}
-    .reader-table th {{
-      background-color: var(--bg-secondary);
-      font-weight: 700;
-      color: var(--accent-gold);
-    }}
-    .reader-table tr:nth-child(even) {{
-      background-color: rgba(255, 255, 255, 0.02);
-    }}
-
-    /* Active TTS Highlight */
-    .read-unit.is-speaking {{
-      background-color: var(--highlight-bg) !important;
-      border-left: 3px solid var(--highlight-border) !important;
-      border-radius: 4px;
-      box-shadow: 0 0 15px rgba(251, 191, 36, 0.15);
-    }}
-
-    /* Responsive adjustments for Tablets and Mobile */
-    @media (max-width: 900px) {{
-      :root {{
-        --header-height: 56px;
-        --toolbar-height: auto;
-      }}
-      .tts-toolbar {{
-        top: var(--header-height);
-        padding: 0.5rem 1rem;
-        gap: 0.6rem;
-      }}
-      .tts-controls-group {{
-        flex-wrap: wrap;
-      }}
-      .sidebar-toc {{
-        position: fixed;
-        left: 0;
-        top: 0;
-        height: 100vh;
-        width: 300px;
-        max-width: 85vw;
-        z-index: 1000;
-        transform: translateX(-100%);
-        box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-        background-color: var(--bg-secondary);
-        display: block !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-        pointer-events: auto !important;
-        padding: 1.25rem 1rem !important;
-      }}
-      .sidebar-toc.open {{
-        transform: translateX(0) !important;
-      }}
-      body.sidebar-collapsed .sidebar-toc {{
-        transform: translateX(-100%) !important;
-      }}
-      #restoreSidebarBtn {{
-        display: none !important;
-      }}
-      .reader-main {{
-        padding: 1.5rem 1rem 5rem !important;
-        max-width: 100% !important;
-      }}
-      body.sidebar-collapsed .reader-main {{
-        padding: 1.5rem 1rem 5rem !important;
-        max-width: 100% !important;
-      }}
-      #sidebarOverlay {{
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.65);
-        backdrop-filter: blur(4px);
-        z-index: 999;
-        display: none;
-      }}
-      #sidebarOverlay.active {{
-        display: block;
-      }}
-    }}
-  </style>
-</head>
-<body>
-  <div id="readingProgressBar"></div>
-  <button id="floatingTtsTrigger" title="Read Selected Text">Read Selection</button>
-  <button id="restoreSidebarBtn" title="Show Table of Contents (Ctrl+B)">☰ Table of Contents</button>
-  <div id="sidebarOverlay"></div>
-
-  <header>
-    <div class="header-left">
-      <button class="btn-icon" id="toggleSidebarBtn" title="Toggle Table of Contents (Ctrl+B)">☰</button>
-      <div>
-        <h1 class="brand-title">{escaped_title}</h1>
-        <span class="subject-pill">{escaped_subject_tag}</span>
-      </div>
-    </div>
-    <div class="header-actions">
-      <button class="btn-icon" id="fontDecBtn" title="Decrease Font Size">A-</button>
-      <button class="btn-icon" id="fontIncBtn" title="Increase Font Size">A+</button>
-      <select class="select-control" id="themeSelect" title="Select Theme">
-        <option value="dark">Dark</option>
-        <option value="sepia">Sepia</option>
-        <option value="light">Light</option>
-      </select>
-    </div>
-  </header>
-
-  <div class="tts-toolbar">
-    <div class="tts-controls-group">
-      <button class="btn-tts" id="playPauseBtn">
-        <span id="playIcon">▶</span>
-        <span id="pauseIcon" style="display:none;">❚❚</span>
-        <span id="playBtnText">Read Aloud</span>
-      </button>
-      <button class="btn-tts-secondary" id="prevBtn" title="Previous Paragraph (Key: P)">Previous</button>
-      <button class="btn-tts-secondary" id="nextBtn" title="Next Paragraph (Key: N)">Next</button>
-      <button class="btn-tts-secondary btn-tts-stop" id="stopBtn" title="Stop Reading Aloud (Key: Esc)">⏹ Stop</button>
-    </div>
-
-    <div class="tts-controls-group">
-      <label for="voiceSelect" style="font-size:0.8rem; color:var(--text-muted);">Voice:</label>
-      <select class="select-control" id="voiceSelect" style="max-width: 220px;">
-        <option value="default">Auto Best Voice</option>
-      </select>
-
-      <label for="speedSelect" style="font-size:0.8rem; color:var(--text-muted);">Speed:</label>
-      <select class="select-control" id="speedSelect">
-        <option value="0.8">0.8x</option>
-        <option value="0.9" selected>0.9x (Natural)</option>
-        <option value="1.0">1.0x (Standard)</option>
-        <option value="1.1">1.1x</option>
-        <option value="1.2">1.2x</option>
-      </select>
-
-      <div class="tts-status-badge" id="ttsStatusBadge">
-        <span class="pulse-dot"></span>
-        <span id="statusText">Ready</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="app-layout">
-    <nav class="sidebar-toc" id="sidebarNav">
-      <div class="toc-header-bar">
-        <div class="toc-heading">
-          <span>Table of Contents</span>
-        </div>
-        <button class="btn-toc-minimize" id="minimizeSidebarBtn" title="Minimize Sidebar (Ctrl+B)">◀</button>
-      </div>
-      <input type="text" class="toc-search-box" id="sidebarSearch" placeholder="Filter topics & cases..." />
-      <ul class="toc-list" id="tocList">
-{toc_html}
-      </ul>
-    </nav>
-
-    <main class="reader-main" id="mainArticle">
-      <div class="doc-meta-banner">
-        <h1 class="doc-headline">{escaped_title}</h1>
-        <div class="doc-stats">
-          <span>{total_sections} Sections</span>
-          <span>~{reading_time_minutes} min read</span>
-          <span>Manila Law College</span>
-        </div>
-      </div>
-
-      {mp3_player_html}
-
-      <div id="contentWrapper">
-{sections_html}
-      </div>
-    </main>
-  </div>
-
-  <script>
-    (function() {{
-      const synth = window.speechSynthesis;
-      let voices = [];
-      const readUnits = Array.from(document.querySelectorAll('.read-unit'));
-      const playPauseBtn = document.getElementById('playPauseBtn');
-      const playIcon = document.getElementById('playIcon');
-      const pauseIcon = document.getElementById('pauseIcon');
-      const playBtnText = document.getElementById('playBtnText');
-      const stopBtn = document.getElementById('stopBtn');
-      const prevBtn = document.getElementById('prevBtn');
-      const nextBtn = document.getElementById('nextBtn');
-      const voiceSelect = document.getElementById('voiceSelect');
-      const speedSelect = document.getElementById('speedSelect');
-      const statusBadge = document.getElementById('ttsStatusBadge');
-      const progressBar = document.getElementById('readingProgressBar');
-      const toggleSidebarBtn = document.getElementById('toggleSidebarBtn');
-      const minimizeSidebarBtn = document.getElementById('minimizeSidebarBtn');
-      const restoreSidebarBtn = document.getElementById('restoreSidebarBtn');
-      const sidebarOverlay = document.getElementById('sidebarOverlay');
-      const sidebarNav = document.getElementById('sidebarNav');
-      const sidebarSearch = document.getElementById('sidebarSearch');
-      const tocList = document.getElementById('tocList');
-      const themeSelect = document.getElementById('themeSelect');
-      const fontIncBtn = document.getElementById('fontIncBtn');
-      const fontDecBtn = document.getElementById('fontDecBtn');
-
-      let currentUnitIndex = -1;
-      let isPaused = false;
-      let isSpeaking = false;
-      let lastSectionId = null;
-
-      // 1. Sidebar Minimize / Maximize & Responsive Adaptations
-      function isMobile() {{
-        return window.innerWidth <= 900;
-      }}
-
-      function toggleSidebar(forceState) {{
-        if (isMobile()) {{
-          const isOpen = (forceState !== undefined) ? forceState : !sidebarNav.classList.contains('open');
-          sidebarNav.classList.toggle('open', isOpen);
-          if (sidebarOverlay) {{
-            sidebarOverlay.classList.toggle('active', isOpen);
-          }}
-        }} else {{
-          // Desktop minimize / maximize
-          const isCollapsed = (forceState !== undefined) ? forceState : !document.body.classList.contains('sidebar-collapsed');
-          document.body.classList.toggle('sidebar-collapsed', isCollapsed);
-          sidebarNav.classList.toggle('minimized', isCollapsed);
-          try {{
-            localStorage.setItem('mlc_sidebar_collapsed', isCollapsed ? 'true' : 'false');
-          }} catch (e) {{}}
-        }}
-      }}
-
-      // Restore saved sidebar state
-      try {{
-        const savedCollapsed = localStorage.getItem('mlc_sidebar_collapsed');
-        if (!isMobile() && savedCollapsed === 'true') {{
-          toggleSidebar(true);
-        }}
-      }} catch (e) {{}}
-
-      if (toggleSidebarBtn) {{
-        toggleSidebarBtn.addEventListener('click', () => toggleSidebar());
-      }}
-      if (minimizeSidebarBtn) {{
-        minimizeSidebarBtn.addEventListener('click', () => toggleSidebar(true));
-      }}
-      if (restoreSidebarBtn) {{
-        restoreSidebarBtn.addEventListener('click', () => toggleSidebar(false));
-      }}
-      if (sidebarOverlay) {{
-        sidebarOverlay.addEventListener('click', () => {{
-          sidebarNav.classList.remove('open');
-          sidebarOverlay.classList.remove('active');
-        }});
-      }}
-
-      // Auto close mobile drawer when a TOC link is clicked
-      tocList.querySelectorAll('.toc-link').forEach(link => {{
-        link.addEventListener('click', () => {{
-          if (isMobile()) {{
-            sidebarNav.classList.remove('open');
-            if (sidebarOverlay) sidebarOverlay.classList.remove('active');
-          }}
-        }});
-      }});
-
-      // Instant live filter
-      sidebarSearch.addEventListener('input', (e) => {{
-        const q = e.target.value.toLowerCase();
-        const items = tocList.querySelectorAll('li');
-        items.forEach(li => {{
-          const txt = li.textContent.toLowerCase();
-          li.style.display = txt.includes(q) ? '' : 'none';
-        }});
-      }});
-
-      // 2. Theme & Font Scaling
-      themeSelect.addEventListener('change', (e) => {{
-        document.documentElement.setAttribute('data-theme', e.target.value);
-        try {{ localStorage.setItem('mlc_theme', e.target.value); }} catch(err) {{}}
-      }});
-      try {{
-        const savedTheme = localStorage.getItem('mlc_theme');
-        if (savedTheme) {{
-          themeSelect.value = savedTheme;
-          document.documentElement.setAttribute('data-theme', savedTheme);
-        }}
-      }} catch(err) {{}}
-
-      let currentFontSize = 17;
-      fontIncBtn.addEventListener('click', () => {{
-        if (currentFontSize < 24) {{
-          currentFontSize += 1;
-          document.documentElement.style.fontSize = currentFontSize + 'px';
-        }}
-      }});
-      fontDecBtn.addEventListener('click', () => {{
-        if (currentFontSize > 13) {{
-          currentFontSize -= 1;
-          document.documentElement.style.fontSize = currentFontSize + 'px';
-        }}
-      }});
-
-      // 3. Scroll Progress & Active TOC Link Sync
-      window.addEventListener('scroll', () => {{
-        const sTop = window.scrollY;
-        const dHeight = document.documentElement.scrollHeight - window.innerHeight;
-        if (dHeight > 0) {{
-          progressBar.style.width = ((sTop / dHeight) * 100) + '%';
-        }}
-
-        // Sync TOC Active Link
-        const sections = document.querySelectorAll('section.doc-section');
-        let currentActive = null;
-        sections.forEach(sec => {{
-          const rect = sec.getBoundingClientRect();
-          if (rect.top <= 160 && rect.bottom >= 160) {{
-            currentActive = sec.id;
-          }}
-        }});
-        if (currentActive) {{
-          document.querySelectorAll('.toc-link').forEach(link => {{
-            link.classList.toggle('active', link.getAttribute('href') === '#' + currentActive);
-          }});
-        }}
-      }});
-
-      // 4. Voice Population with High-Quality Natural Neural Prioritization
-      function populateVoices() {{
-        if (!synth) return;
-        voices = synth.getVoices();
-        voiceSelect.innerHTML = '<option value="default">Auto Best Voice</option>';
-
-        const scored = voices.map((v, i) => {{
-          let score = 0;
-          const name = v.name.toLowerCase();
-          const lang = v.lang.toLowerCase();
-
-          if (lang.startsWith('en')) score += 50;
-          if (lang.includes('ph') || lang.includes('fil')) score += 30;
-          if (lang.includes('us')) score += 20;
-          if (lang.includes('gb') || lang.includes('uk')) score += 15;
-          if (name.includes('natural')) score += 40;
-          if (name.includes('neural')) score += 40;
-          if (name.includes('online')) score += 25;
-          if (name.includes('multilingual')) score += 20;
-          if (name.includes('guy') || name.includes('aria') || name.includes('jenny') || name.includes('andrew')) score += 15;
-          if (v.default) score += 5;
-
-          return {{ voice: v, index: i, score }};
-        }});
-
-        scored.sort((a, b) => b.score - a.score);
-
-        scored.forEach(item => {{
-          const opt = document.createElement('option');
-          opt.value = item.index;
-          opt.textContent = item.voice.name + ' (' + item.voice.lang + ')';
-          voiceSelect.appendChild(opt);
-        }});
-      }}
-
-      populateVoices();
-      if (speechSynthesis.onvoiceschanged !== undefined) {{
-        speechSynthesis.onvoiceschanged = populateVoices;
-      }}
-
-      // 5. Roman Numeral & Phonetics Normalization
-      function romanToInt(s) {{
-        if (!s) return null;
-        s = s.toUpperCase().trim();
-        if (!/^[IVXLCDM]+$/.test(s)) return null;
-        const map = {{ 'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000 }};
-        let total = 0;
-        let i = 0;
-        while (i < s.length) {{
-          if (i + 1 < s.length && map[s[i]] < map[s[i+1]]) {{
-            total += map[s[i+1]] - map[s[i]];
-            i += 2;
-          }} else if (map[s[i]]) {{
-            total += map[s[i]];
-            i += 1;
-          }} else {{
-            return null;
-          }}
-        }}
-        return total;
-      }}
-
-      const ORDINALS = {{
-        'I': 'the first', 'II': 'the second', 'III': 'the third', 'IV': 'the fourth', 'V': 'the fifth',
-        'VI': 'the sixth', 'VII': 'the seventh', 'VIII': 'the eighth', 'IX': 'the ninth', 'X': 'the tenth'
-      }};
-
-      function cleanSmartReading(txt) {{
-        if (!txt) return '';
-
-        // A. Strip all emojis and decorative symbols completely
-        txt = Array.from(txt).filter(c => {{
-          const cp = c.codePointAt(0);
-          return cp < 0x2000 || (cp > 0x2BFF && cp < 0x1F000);
-        }}).join('');
-        txt = txt.replace(/[•§]/g, ' ');
-
-        // B. Smart Number-Word Deduplication
-        const numWordPattern = /\b(zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|twenty-five|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand|million)\s*\(\s*\d+\s*\)/gi;
-        txt = txt.replace(numWordPattern, '$1');
-        txt = txt.replace(/\b\d+\s*\(\s*([a-zA-Z\-]+)\s*\)/g, '$1');
-
-        // C. Smart Tag / Bracket Deduplication
-        txt = txt.replace(/\[\s*[A-Z]\s*[\-–—]?\s*(?:ANSWER|LEGAL\s+BASIS|APPLICATION|ANALYSIS|CONCLUSION)?\s*\]\s*/gi, '');
-        txt = txt.replace(/\[\s*([^\]]+)\s*\]\s*[:\-–—]?\s*([\s\S]*)/g, function(match, tag, rest) {{
-          tag = tag.trim();
-          if (rest.toLowerCase().startsWith(tag.toLowerCase())) {{
-            return rest;
-          }}
-          return tag + ': ' + rest;
-        }});
-
-        txt = txt.replace(/\b([A-Za-z]{3,})\b\s+\1\b/gi, '$1');
-        txt = txt.replace(/:\s*:/g, ':');
-        txt = txt.replace(/\s+/g, ' ').trim();
-        return txt;
-      }}
-
-      function expandRomanAndPhonetics(txt) {{
-        if (!txt) return '';
-        txt = cleanSmartReading(txt);
-
-        const replacements = [
-          [/\bA\.C\.\s*(?:No\.?\s*)?([A-Za-z0-9\-]+)/gi, 'Administrative Case Number $1'],
-          [/\bA\.M\.\s*(?:No\.?\s*)?([A-Za-z0-9\-]+)/gi, 'Administrative Matter Number $1'],
-          [/\bG\.R\.\s*Nos\.?\s*([A-Za-z0-9\-,\s]+)/gi, 'JEE-AR Numbers $1'],
-          [/\bG\.R\.\s*(?:No\.?\s*)?([A-Za-z0-9\-]+)/gi, 'JEE-AR Number $1'],
-          [/\bG\.R\.\b/gi, 'JEE-AR'],
-          [/\bP\.D\.\s*(?:No\.?\s*)?(\d+)/gi, 'Presidential Decree Number $1'],
-          [/\bPD\s*(\d+)/gi, 'Presidential Decree $1'],
-          [/\bP\.D\.\b/gi, 'Presidential Decree'],
-          [/\bR\.A\.\s*(?:No\.?\s*)?(\d+)/gi, 'Republic Act Number $1'],
-          [/\bRA\s*(\d+)/gi, 'Republic Act $1'],
-          [/\bR\.A\.\b/gi, 'Republic Act'],
-          [/\bPhil\.\s*(\d+)/gi, 'Philippine Reports volume $1'],
-          [/\bPhil\.\b/gi, 'Phil'],
-          [/\bSCRA\b/g, 'SKRA'],
-          [/\bCPRA\b/g, 'SIP-ruh'],
-          [/\bCJCA\b/g, 'SEE-JAY-SEE-AY'],
-          [/\bCPR\b/g, 'Code of Professional Responsibility'],
-          [/\bCCCP\b/g, 'Code of Conduct for Court Personnel'],
-          [/\bJIO\b/g, 'Judicial Integrity Office'],
-          [/\bOCA\b/g, 'Office of the Court Administrator'],
-          [/\bDPA\b/g, 'DEE-PEE-AY'],
-          [/\bITA\b/g, 'EYE-tuh'],
-          [/\bOSAEC\b/g, 'OH-sak'],
-          [/\bAFASA\b/g, 'ah-FAH-suh'],
-          [/\bCPA\b/g, 'Cybercrime Prevention Act'],
-          [/\bREED\b/g, 'REED'],
-          [/\bDICT\b/g, 'DIK-tee'],
-          [/\bCICC\b/g, 'SIK-see'],
-          [/\bRPC\b/g, 'Revised Penal Code'],
-          [/\bIn\s+re\b/gi, 'in Ree'],
-          [/\bet\s+al\./gi, 'et AHL,'],
-          [/\bet\s+al\b/gi, 'et AHL,'],
-          [/\bi\.e\./gi, 'that is,'],
-          [/\be\.g\./gi, 'for example,'],
-          [/\bArt\.\s*(\d+)/gi, 'Article $1'],
-          [/\bArts\.\s*([\d,\s\-]+)/gi, 'Articles $1'],
-          [/\bSec\.\s*(\d+)/gi, 'Section $1'],
-          [/\bSecs\.\s*([\d,\s\-]+)/gi, 'Sections $1'],
-          [/\bPar\.\s*(\d+)/gi, 'Paragraph $1'],
-          [/\s+v(?:s)?\.\s+/gi, ' versus ']
-        ];
-
-        replacements.forEach(([pattern, rep]) => {{
-          txt = txt.replace(pattern, rep);
-        }});
-
-        txt = txt.replace(/(^|\n|\.\s+|;\s+)([IVXLCDM]+)\.\s+/gi, function(match, prefix, roman) {{
-          const val = romanToInt(roman);
-          return val ? prefix + 'Topic ' + val + ': ' : match;
-        }});
-
-        txt = txt.replace(/\b([A-Z][a-z]+)\s+([IVXLCDM]{1,4})\b/g, function(match, name, roman) {{
-          if (/^(?:Canon|Part|Chapter|Article|Title|Book|Section|Sec|Art|Vol|Volume|Rule|Topic|Case|No|Nos)$/i.test(name)) {{
-            return match;
-          }}
-          const upperR = roman.toUpperCase();
-          return ORDINALS[upperR] ? name + ' ' + ORDINALS[upperR] : match;
-        }});
-
-        txt = txt.replace(/\b(Canon|Part|Chapter|Article|Title|Book|Section|Sec|Art|Vol|Volume|Rule)\s+([IVXLCDM]+)\b/gi, function(match, prefix, roman) {{
-          const val = romanToInt(roman);
-          return val ? prefix + ' ' + val : match;
-        }});
-
-        txt = txt.replace(/\(([ivxlcdm]+)\)/gi, function(match, roman) {{
-          const val = romanToInt(roman);
-          return val ? 'sub-item ' + val + ', ' : match;
-        }});
-
-        txt = txt.replace(/:\s*/g, ': ... ');
-        txt = txt.replace(/;\s*/g, ';, ');
-        txt = txt.replace(/\s*—\s*/g, ' — ... ');
-
-        return txt.trim();
-      }}
-
-      function prepareSpeechText(unitEl) {{
-        let text = unitEl.innerText || unitEl.textContent || '';
-        return expandRomanAndPhonetics(text);
-      }}
-
-      function setSpeakingState(speaking, paused = false) {{
-        isSpeaking = speaking;
-        isPaused = paused;
-        if (speaking && !paused) {{
-          playIcon.style.display = 'none';
-          pauseIcon.style.display = 'inline';
-          playBtnText.textContent = 'Pause';
-          statusBadge.innerHTML = '<span class="pulse-dot"></span><span>Speaking...</span>';
-          statusBadge.className = 'tts-status-badge speaking';
-        }} else if (paused) {{
-          playIcon.style.display = 'inline';
-          pauseIcon.style.display = 'none';
-          playBtnText.textContent = 'Resume';
-          statusBadge.innerHTML = '<span class="pulse-dot"></span><span>Paused</span>';
-          statusBadge.className = 'tts-status-badge paused';
-        }} else {{
-          playIcon.style.display = 'inline';
-          pauseIcon.style.display = 'none';
-          playBtnText.textContent = 'Read Aloud';
-          statusBadge.innerHTML = '<span class="pulse-dot"></span><span>Ready</span>';
-          statusBadge.className = 'tts-status-badge';
-          clearHighlights();
-        }}
-      }}
-
-      function clearHighlights() {{
-        readUnits.forEach(u => u.classList.remove('is-speaking'));
-      }}
-
-      function highlightUnit(idx) {{
-        clearHighlights();
-        if (idx >= 0 && idx < readUnits.length) {{
-          const unit = readUnits[idx];
-          unit.classList.add('is-speaking');
-          unit.scrollIntoView({{ behavior: 'smooth', block: 'center' }});
-        }}
-      }}
-
-      function speakUnit(idx) {{
-        if (!synth || idx < 0 || idx >= readUnits.length) {{
-          setSpeakingState(false);
-          return;
-        }}
-
-        synth.cancel();
-        currentUnitIndex = idx;
-        const unit = readUnits[idx];
-        highlightUnit(idx);
-
-        let speechText = prepareSpeechText(unit);
-        
-        // Topic change notification cue
-        const currentSec = unit.closest('section.doc-section');
-        const currentSecId = currentSec ? currentSec.id : null;
-        if (currentSecId && currentSecId !== lastSectionId && currentSec) {{
-          const headerEl = currentSec.querySelector('.case-header-title') || currentSec.querySelector('.topic-header-title') || currentSec.querySelector('.subtopic-header-title');
-          if (headerEl) {{
-            const topicTitle = expandRomanAndPhonetics(headerEl.innerText.trim());
-            speechText = 'Now Reading: ' + topicTitle + ' ... ... ' + speechText;
-          }}
-          lastSectionId = currentSecId;
-        }}
-
-        const utterance = new SpeechSynthesisUtterance(speechText);
-        utterance.rate = parseFloat(speedSelect.value) || 0.9;
-        utterance.pitch = 1.0;
-
-        const selVoiceIdx = voiceSelect.value;
-        if (selVoiceIdx !== 'default' && voices[selVoiceIdx]) {{
-          utterance.voice = voices[selVoiceIdx];
-        }} else if (voices.length > 0) {{
-          utterance.voice = voices[0];
-        }}
-
-        utterance.onstart = () => {{
-          setSpeakingState(true, false);
-        }};
-
-        utterance.onend = () => {{
-          if (isSpeaking && !isPaused) {{
-            if (idx + 1 < readUnits.length) {{
-              speakUnit(idx + 1);
-            }} else {{
-              setSpeakingState(false);
-            }}
-          }}
-        }};
-
-        utterance.onerror = (e) => {{
-          if (e.error !== 'interrupted' && e.error !== 'canceled') {{
-            console.warn('TTS error:', e);
-          }}
-        }};
-
-        synth.speak(utterance);
-      }}
-
-      playPauseBtn.addEventListener('click', () => {{
-        if (!synth) return;
-        if (isSpeaking && !isPaused) {{
-          synth.pause();
-          setSpeakingState(true, true);
-        }} else if (isPaused) {{
-          synth.resume();
-          setSpeakingState(true, false);
-        }} else {{
-          speakUnit(currentUnitIndex >= 0 ? currentUnitIndex : 0);
-        }}
-      }});
-
-      stopBtn.addEventListener('click', () => {{
-        if (!synth) return;
-        synth.cancel();
-        setSpeakingState(false);
-        currentUnitIndex = -1;
-        lastSectionId = null;
-        clearHighlights();
-      }});
-
-      nextBtn.addEventListener('click', () => {{
-        const target = Math.min(readUnits.length - 1, (currentUnitIndex >= 0 ? currentUnitIndex : 0) + 1);
-        speakUnit(target);
-      }});
-
-      prevBtn.addEventListener('click', () => {{
-        const target = Math.max(0, (currentUnitIndex >= 0 ? currentUnitIndex : 0) - 1);
-        speakUnit(target);
-      }});
-
-      // Click on any paragraph to start speaking from that exact unit
-      const contentWrap = document.getElementById('contentWrapper');
-      if (contentWrap) {{
-        contentWrap.addEventListener('click', (e) => {{
-          const unit = e.target.closest('.read-unit');
-          if (unit) {{
-            const idx = readUnits.indexOf(unit);
-            if (idx !== -1) {{
-              speakUnit(idx);
-            }}
-          }}
-        }});
-      }}
-
-      // Floating Selection Reader
-      const floatBtn = document.getElementById('floatingTtsTrigger');
-      document.addEventListener('mouseup', (e) => {{
-        if (e.target.closest('#floatingTtsTrigger') || e.target.closest('.tts-toolbar') || e.target.closest('header')) return;
-        const sel = window.getSelection().toString().trim();
-        if (sel.length > 2) {{
-          const rect = window.getSelection().getRangeAt(0).getBoundingClientRect();
-          floatBtn.style.top = (window.scrollY + rect.top - 44) + 'px';
-          floatBtn.style.left = (window.scrollX + rect.left + (rect.width / 2)) + 'px';
-          floatBtn.style.display = 'block';
-        }} else {{
-          floatBtn.style.display = 'none';
-        }}
-      }});
-
-      floatBtn.addEventListener('click', () => {{
-        const sel = window.getSelection().toString().trim();
-        if (sel && synth) {{
-          synth.cancel();
-          const utterance = new SpeechSynthesisUtterance(expandRomanAndPhonetics(sel));
-          utterance.rate = parseFloat(speedSelect.value) || 0.9;
-          const selVoiceIdx = voiceSelect.value;
-          if (selVoiceIdx !== 'default' && voices[selVoiceIdx]) {{
-            utterance.voice = voices[selVoiceIdx];
-          }}
-          synth.speak(utterance);
-          floatBtn.style.display = 'none';
-        }}
-      }});
-
-      // Keyboard Shortcuts
-      document.addEventListener('keydown', (e) => {{
-        if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA') return;
-        if ((e.ctrlKey && (e.key === 'b' || e.key === 'B')) || (e.altKey && (e.key === 't' || e.key === 'T'))) {{
-          e.preventDefault();
-          toggleSidebar();
-        }} else if (e.code === 'Space') {{
-          e.preventDefault();
-          playPauseBtn.click();
-        }} else if (e.key === 'Escape') {{
-          stopBtn.click();
-        }} else if (e.key === 'n' || e.key === 'N') {{
-          nextBtn.click();
-        }} else if (e.key === 'p' || e.key === 'P') {{
-          prevBtn.click();
-        }}
-      }});
-    }})();
-  </script>
-</body>
-</html>
-"""
-    return html_template
-
-# ==============================================================================
-# 4. CONVERSION & HUB SCANNING
-# ==============================================================================
+    # Template token injection
+    rendered = READER_HTML_TEMPLATE
+    rendered = rendered.replace('__ESCAPED_TITLE__', escaped_title)
+    rendered = rendered.replace('__ESCAPED_SUBJECT_TAG__', escaped_subject_tag)
+    rendered = rendered.replace('__TOTAL_SECTIONS__', str(total_sections))
+    rendered = rendered.replace('__READING_TIME__', str(reading_time_minutes))
+    rendered = rendered.replace('__MP3_PLAYER_HTML__', mp3_player_html)
+    rendered = rendered.replace('__TOC_HTML__', toc_html)
+    rendered = rendered.replace('__SECTIONS_HTML__', sections_html)
+    return rendered
 
 def convert_file_to_html_reader(input_file_path, output_html_path=None, overwrite=True):
     path = Path(input_file_path).resolve()
