@@ -4,7 +4,7 @@
 **Master Workspace:** `C:\Users\JR\Downloads\14All-All41` (and `C:\Users\JR\Downloads\14All-All41\MLC`)  
 **GitHub Repository:** [https://github.com/Julius11011/MLLibrary](https://github.com/Julius11011/MLLibrary)  
 **Cloudflare Deployment:** [https://mllibrary.juliusrayn-balitbit.workers.dev](https://mllibrary.juliusrayn-balitbit.workers.dev)  
-**Latest Git Commit:** `17db7f1` (Clean working tree, synchronized with `origin/main`)  
+**Latest Git Commit:** `5527048` (Clean working tree, synchronized with `origin/main`)  
 **Active Guardrails Files:** [`AGENTS.md`](file:///C:/Users/JR/Downloads/14All-All41/AGENTS.md) | [`GEMINI.md`](file:///C:/Users/JR/Downloads/14All-All41/GEMINI.md) | [`ANTIGRAVITY_AUTORUN_PERMISSIONS_AND_SAFETY_GUIDE.md`](file:///C:/Users/JR/Downloads/14All-All41/ANTIGRAVITY_AUTORUN_PERMISSIONS_AND_SAFETY_GUIDE.md)
 
 ---
@@ -33,14 +33,11 @@ Documented and configured the autonomous execution model and strict safety guard
 ### B. MLLibrary Universal Reader & Interactive Audio Suite Upgrades
 Implemented major UX/UI enhancements across the MLLibrary reader engine and regenerated all 110+ subject HTML documents and master hubs:
 1. **3 Special Bookmarking System**:
-   - **3 Dedicated Color-Coded Bookmark Slots**:
-     - **Slot 1 (🔖 Gold)**: Primary Study Point / Last Read marker.
-     - **Slot 2 (⭐ Emerald)**: Landmark Doctrine / Key Case Holding.
-     - **Slot 3 (📌 Purple)**: High-Yield Review / Critical Exam Prep.
-   - **Navbar Bookmark Hub & Live Preview**: Accessible via a `🔖` button in `.header-actions` with an active bookmark count badge. Displays a dropdown card for each slot showing the section title, a live preview snippet (~110 characters), a **Jump ➔** button with smooth scrolling and target glowing pulse animation (`bookmarkTargetFlash`), and a clear button (✕).
-   - **In-Paragraph Quick Actions**: Hovering over any paragraph or `.read-unit` displays an interactive hover toolbar (`[🔖] [⭐] [📌]`) allowing instant bookmark assignment or toggling.
-   - **Visual Ribbon Badges**: Bookmarked paragraphs feature a colored left border, ambient background tint, and an embedded top ribbon badge (e.g., `🔖 Slot 1: Primary Study Point`).
-   - **Persistence & Keyboard Shortcut**: Bookmarks are saved in `localStorage` scoped per document (`mlc_bm_<filename>`). Keyboard shortcut <kbd>B</kbd> instantly opens/closes the bookmark preview dropdown.
+   - **3 Dedicated Numbered Bookmark Slots**: `🔖 Bookmark 1` (Gold), `⭐ Bookmark 2` (Emerald), `📌 Bookmark 3` (Purple).
+   - **Comprehensive Metadata Display**: Each slot card in the navbar popover displays the **Subject**, **Topic**, **Specific Location** (e.g., *Paragraph 2*, *Ruling / Holding*, *Facts Section*), and text snippet.
+   - **Sidebar Table of Contents (`#tocList`) Badges**: Real-time bookmark badges (`[🔖 1]`, `[⭐ 2]`, `[📌 3]`) are dynamically injected next to the corresponding topic title in the sidebar TOC for fast navigation.
+   - **In-Paragraph Hover Toolbar & Ribbons**: Hovering over any paragraph reveals `[🔖 1]`, `[⭐ 2]`, `[📌 3]` buttons; bookmarked paragraphs display an informative ribbon badge.
+   - **Keyboard Shortcut & Local Persistence**: <kbd>B</kbd> toggles the bookmark hub popover; bookmarks persist across browser restarts in `localStorage`.
 2. **Header Navigation to Main Menu**:
    - Updated the top-left header button (`#mainMenuBtn`) to directly link to the Master Main Menu / Study Hub: `https://mllibrary.juliusrayn-balitbit.workers.dev/`.
 3. **Direct Immediate Paragraph TTS**:
