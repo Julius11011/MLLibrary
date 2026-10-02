@@ -4,7 +4,7 @@
 **Master Workspace:** `C:\Users\JR\Downloads\14All-All41` (and `C:\Users\JR\Downloads\14All-All41\MLC`)  
 **GitHub Repository:** [https://github.com/Julius11011/MLLibrary](https://github.com/Julius11011/MLLibrary)  
 **Cloudflare Deployment:** [https://mllibrary.juliusrayn-balitbit.workers.dev](https://mllibrary.juliusrayn-balitbit.workers.dev)  
-**Latest Git Commit:** `2999f55` (Clean working tree, synchronized with `origin/main`)  
+**Latest Git Commit:** `c91ac26` (Clean working tree, synchronized with `origin/main`)  
 **Active Guardrails Files:** [`AGENTS.md`](file:///C:/Users/JR/Downloads/14All-All41/AGENTS.md) | [`GEMINI.md`](file:///C:/Users/JR/Downloads/14All-All41/GEMINI.md) | [`ANTIGRAVITY_AUTORUN_PERMISSIONS_AND_SAFETY_GUIDE.md`](file:///C:/Users/JR/Downloads/14All-All41/ANTIGRAVITY_AUTORUN_PERMISSIONS_AND_SAFETY_GUIDE.md)
 
 ---
@@ -31,13 +31,14 @@ Documented and configured the autonomous execution model and strict safety guard
 ---
 
 ### B. MLLibrary Universal Reader & Interactive Audio Suite Upgrades
-Implemented three major UX/UI enhancements across the MLLibrary reader engine and regenerated all 110+ subject HTML documents and master hubs:
+Implemented major UX/UI enhancements across the MLLibrary reader engine and regenerated all 110+ subject HTML documents and master hubs:
 1. **Stable & Sticky `.tts-toolbar`**:
    - Pinned beneath the header navigation bar (`position: sticky; top: var(--header-height); z-index: 95; backdrop-filter: blur(12px)`).
    - Allows users to scroll freely while keeping Play/Pause, Speed, Voice selection, and Stop controls in direct view.
    - Dedicated **⏹ Stop** button immediately calls `speechSynthesis.cancel()`, clears speaking highlights, and resets the status badge to "Ready" without scroll jumping or page reloads.
 2. **Sidebar TOC Minimize / Maximize Controls**:
-   - Multi-modal toggling: Top header button, in-sidebar chevron (`◀`), floating bottom-left restore tab (`☰ Table of Contents`), and keyboard shortcut <kbd>Ctrl</kbd> + <kbd>B</kbd> / <kbd>Alt</kbd> + <kbd>T</kbd>.
+   - Multi-modal toggling: Top header button (`☰`), in-sidebar button (`☰`), top-left restore tab (`☰ Table of Contents`), and keyboard shortcut <kbd>Ctrl</kbd> + <kbd>B</kbd> / <kbd>Alt</kbd> + <kbd>T</kbd>.
+   - Restored TOC button repositioned to top-left (`top: calc(var(--sticky-top-total) + 14px); left: 1rem;`) aligned with where the Table of Contents header is located.
    - Preference persistence in `localStorage.getItem('mlc_sidebar_collapsed')`.
 3. **Responsive `.reader-main` Adaptive Width**:
    - Smooth CSS width transition curve.
