@@ -32,23 +32,32 @@ Documented and configured the autonomous execution model and strict safety guard
 
 ### B. MLLibrary Universal Reader & Interactive Audio Suite Upgrades
 Implemented major UX/UI enhancements across the MLLibrary reader engine and regenerated all 110+ subject HTML documents and master hubs:
-1. **Header Navigation to Main Menu**:
-   - Updated the header button to directly link to the Master Main Menu / Study Hub: `https://mllibrary.juliusrayn-balitbit.workers.dev/`.
-2. **Direct Immediate Paragraph TTS**:
+1. **3 Special Bookmarking System**:
+   - **3 Dedicated Color-Coded Bookmark Slots**:
+     - **Slot 1 (🔖 Gold)**: Primary Study Point / Last Read marker.
+     - **Slot 2 (⭐ Emerald)**: Landmark Doctrine / Key Case Holding.
+     - **Slot 3 (📌 Purple)**: High-Yield Review / Critical Exam Prep.
+   - **Navbar Bookmark Hub & Live Preview**: Accessible via a `🔖` button in `.header-actions` with an active bookmark count badge. Displays a dropdown card for each slot showing the section title, a live preview snippet (~110 characters), a **Jump ➔** button with smooth scrolling and target glowing pulse animation (`bookmarkTargetFlash`), and a clear button (✕).
+   - **In-Paragraph Quick Actions**: Hovering over any paragraph or `.read-unit` displays an interactive hover toolbar (`[🔖] [⭐] [📌]`) allowing instant bookmark assignment or toggling.
+   - **Visual Ribbon Badges**: Bookmarked paragraphs feature a colored left border, ambient background tint, and an embedded top ribbon badge (e.g., `🔖 Slot 1: Primary Study Point`).
+   - **Persistence & Keyboard Shortcut**: Bookmarks are saved in `localStorage` scoped per document (`mlc_bm_<filename>`). Keyboard shortcut <kbd>B</kbd> instantly opens/closes the bookmark preview dropdown.
+2. **Header Navigation to Main Menu**:
+   - Updated the top-left header button (`#mainMenuBtn`) to directly link to the Master Main Menu / Study Hub: `https://mllibrary.juliusrayn-balitbit.workers.dev/`.
+3. **Direct Immediate Paragraph TTS**:
    - Removed the prepended *"Now Reading: [Topic Title]"* audio interruption cue.
    - When a user clicks or selects any paragraph, sentence, or section, the speech synthesizer immediately and directly begins reading that exact clicked unit.
-3. **Stable & Sticky `.tts-toolbar`**:
+4. **Stable & Sticky `.tts-toolbar`**:
    - Pinned beneath the header navigation bar (`position: sticky; top: var(--header-height); z-index: 95; backdrop-filter: blur(12px)`).
    - Dedicated **⏹ Stop** button immediately calls `speechSynthesis.cancel()`, clears speaking highlights, and resets the status badge to "Ready".
-4. **Sidebar TOC Minimize / Maximize Controls**:
+5. **Sidebar TOC Minimize / Maximize Controls**:
    - In-sidebar toggle button (`☰`), top-left restore tab (`☰ Table of Contents`), and keyboard shortcut <kbd>Ctrl</kbd> + <kbd>B</kbd> / <kbd>Alt</kbd> + <kbd>T</kbd>.
    - Restored TOC button repositioned to top-left (`top: calc(var(--sticky-top-total) + 14px); left: 1rem;`) aligned with the Table of Contents header.
    - Preference persistence in `localStorage.getItem('mlc_sidebar_collapsed')`.
-3. **Responsive `.reader-main` Adaptive Width**:
+6. **Responsive `.reader-main` Adaptive Width**:
    - Smooth CSS width transition curve.
    - Standard reading mode: constrained to `max-width: 920px` (or `1020px` on wide screens).
    - Wide reading mode (TOC minimized): dynamically expands to `max-width: 1200px` (or `1400px` on wide screens).
-4. **Batch Regeneration & Git Sync**:
+7. **Batch Regeneration & Git Sync**:
    - [generate_tts_reader.py](file:///C:/Users/JR/Downloads/14All-All41/MLC/generate_tts_reader.py) updated and executed across all 110 documents.
    - Master Hubs (`MLC_Study_Hub.html` and `index.html`) refreshed.
    - Staged, committed, and pushed to `origin/main`.

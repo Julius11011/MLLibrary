@@ -857,6 +857,266 @@
         display: block;
       }
     }
+
+    /* ------------------------------------------------------------- */
+    /* 3 SPECIAL BOOKMARKING SYSTEM                                  */
+    /* ------------------------------------------------------------- */
+    .bookmark-nav-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    .bookmark-count-badge {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      background: var(--accent-gold);
+      color: #0b1120;
+      font-size: 0.65rem;
+      font-weight: 800;
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      border: 1px solid var(--bg-secondary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Bookmarks Dropdown Popover */
+    .bookmarks-dropdown {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      width: 360px;
+      max-width: 90vw;
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+      z-index: 1001;
+      padding: 1rem;
+      display: none;
+      backdrop-filter: blur(14px);
+      animation: bookmarkFadeIn 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .bookmarks-dropdown.open {
+      display: block;
+    }
+
+    @keyframes bookmarkFadeIn {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .bookmarks-dropdown-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 0.6rem;
+      margin-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .bookmarks-title {
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--accent-gold);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .bookmarks-sub {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-family: var(--font-ui);
+    }
+
+    .bookmarks-slots-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .bookmark-slot-card {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.75rem 0.85rem;
+      transition: all 0.2s ease;
+    }
+    .bookmark-slot-card.slot-1 { border-left: 4px solid var(--accent-gold); }
+    .bookmark-slot-card.slot-2 { border-left: 4px solid var(--accent-emerald); }
+    .bookmark-slot-card.slot-3 { border-left: 4px solid var(--accent-purple); }
+
+    .slot-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.4rem;
+    }
+    .slot-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      font-family: var(--font-ui);
+      letter-spacing: 0.04em;
+    }
+    .badge-slot-1 { color: var(--accent-gold); }
+    .badge-slot-2 { color: var(--accent-emerald); }
+    .badge-slot-3 { color: var(--accent-purple); }
+
+    .btn-slot-clear {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 0.8rem;
+      padding: 2px 5px;
+      border-radius: 4px;
+      line-height: 1;
+      transition: all 0.15s ease;
+    }
+    .btn-slot-clear:hover {
+      color: var(--accent-crimson);
+      background: rgba(248, 113, 113, 0.15);
+    }
+
+    .slot-content {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.45;
+      margin-bottom: 0.5rem;
+      font-family: var(--font-body);
+      max-height: 48px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+    .slot-content.empty {
+      font-style: italic;
+      color: var(--text-muted);
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+    }
+
+    .slot-section-title {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent-blue);
+      margin-bottom: 3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .slot-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.5rem;
+    }
+    .btn-slot-jump {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .btn-slot-jump:hover {
+      background: var(--accent-gold);
+      color: #0b1120;
+      border-color: var(--accent-gold);
+    }
+
+    /* In-Paragraph Bookmark Hover Toolbar */
+    .read-unit {
+      position: relative;
+    }
+    .unit-bookmark-tools {
+      position: absolute;
+      right: 8px;
+      top: 4px;
+      display: none;
+      align-items: center;
+      gap: 4px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 2px 6px;
+      box-shadow: var(--shadow-md);
+      z-index: 10;
+      backdrop-filter: blur(6px);
+      opacity: 0.9;
+    }
+    .read-unit:hover .unit-bookmark-tools {
+      display: flex;
+    }
+    .btn-unit-bm {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 0.85rem;
+      line-height: 1;
+      padding: 2px 4px;
+      border-radius: 4px;
+      transition: transform 0.15s ease, filter 0.15s ease;
+    }
+    .btn-unit-bm:hover {
+      transform: scale(1.2);
+      filter: drop-shadow(0 0 4px var(--accent-gold));
+    }
+
+    /* Bookmark Indicators on Paragraphs */
+    .read-unit.bookmarked-slot-1 {
+      border-left: 4px solid var(--accent-gold) !important;
+      background: rgba(251, 191, 36, 0.08) !important;
+    }
+    .read-unit.bookmarked-slot-2 {
+      border-left: 4px solid var(--accent-emerald) !important;
+      background: rgba(52, 211, 153, 0.08) !important;
+    }
+    .read-unit.bookmarked-slot-3 {
+      border-left: 4px solid var(--accent-purple) !important;
+      background: rgba(192, 132, 252, 0.08) !important;
+    }
+
+    .bookmark-ribbon {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: var(--font-ui);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+      letter-spacing: 0.04em;
+    }
+    .ribbon-slot-1 { background: rgba(251, 191, 36, 0.2); color: var(--accent-gold); border: 1px solid var(--accent-gold); }
+    .ribbon-slot-2 { background: rgba(52, 211, 153, 0.2); color: var(--accent-emerald); border: 1px solid var(--accent-emerald); }
+    .ribbon-slot-3 { background: rgba(192, 132, 252, 0.2); color: var(--accent-purple); border: 1px solid var(--accent-purple); }
+
+    /* Target Jump Flash Animation */
+    @keyframes bookmarkTargetFlash {
+      0% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.7); }
+      50% { box-shadow: 0 0 25px 5px rgba(251, 191, 36, 0.5); }
+      100% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0); }
+    }
+    .bookmark-flash-target {
+      animation: bookmarkTargetFlash 1.6s ease-out;
+    }
   </style>
 </head>
 <body>
@@ -874,6 +1134,56 @@
       </div>
     </div>
     <div class="header-actions">
+      <div class="bookmark-nav-wrapper">
+        <button class="btn-icon" id="bookmarksMenuBtn" title="Saved Bookmarks (3 Special Slots - Key: B)">
+          🔖
+          <span class="bookmark-count-badge" id="bookmarkCountBadge" style="display:none;">0</span>
+        </button>
+        <div class="bookmarks-dropdown" id="bookmarksDropdown">
+          <div class="bookmarks-dropdown-header">
+            <div class="bookmarks-title">🔖 Study Bookmarks</div>
+            <span class="bookmarks-sub">3 Special Slots</span>
+          </div>
+          <div class="bookmarks-slots-container">
+            <!-- Slot 1 -->
+            <div class="bookmark-slot-card slot-1" id="slotCard1">
+              <div class="slot-card-header">
+                <span class="slot-badge badge-slot-1">🔖 Slot 1: Primary Study Point</span>
+                <button class="btn-slot-clear" data-slot="1" title="Clear this bookmark">✕</button>
+              </div>
+              <div class="slot-section-title" id="slotSecTitle1" style="display:none;"></div>
+              <div class="slot-content empty" id="slotContent1">No bookmark set. Click 🔖 on any paragraph.</div>
+              <div class="slot-actions" id="slotActions1" style="display:none;">
+                <button class="btn-slot-jump" data-slot="1">Jump to Paragraph →</button>
+              </div>
+            </div>
+            <!-- Slot 2 -->
+            <div class="bookmark-slot-card slot-2" id="slotCard2">
+              <div class="slot-card-header">
+                <span class="slot-badge badge-slot-2">⭐ Slot 2: Landmark Doctrine</span>
+                <button class="btn-slot-clear" data-slot="2" title="Clear this bookmark">✕</button>
+              </div>
+              <div class="slot-section-title" id="slotSecTitle2" style="display:none;"></div>
+              <div class="slot-content empty" id="slotContent2">No bookmark set. Click ⭐ on any paragraph.</div>
+              <div class="slot-actions" id="slotActions2" style="display:none;">
+                <button class="btn-slot-jump" data-slot="2">Jump to Paragraph →</button>
+              </div>
+            </div>
+            <!-- Slot 3 -->
+            <div class="bookmark-slot-card slot-3" id="slotCard3">
+              <div class="slot-card-header">
+                <span class="slot-badge badge-slot-3">📌 Slot 3: High-Yield Review</span>
+                <button class="btn-slot-clear" data-slot="3" title="Clear this bookmark">✕</button>
+              </div>
+              <div class="slot-section-title" id="slotSecTitle3" style="display:none;"></div>
+              <div class="slot-content empty" id="slotContent3">No bookmark set. Click 📌 on any paragraph.</div>
+              <div class="slot-actions" id="slotActions3" style="display:none;">
+                <button class="btn-slot-jump" data-slot="3">Jump to Paragraph →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <button class="btn-icon" id="fontDecBtn" title="Decrease Font Size">A-</button>
       <button class="btn-icon" id="fontIncBtn" title="Increase Font Size">A+</button>
       <select class="select-control" id="themeSelect" title="Select Theme">
@@ -5443,6 +5753,196 @@ Codal &amp; Treatise Mapping: Fully correlated to Articles 1 to 113 of the Revis
           if (nextBtn) nextBtn.click();
         } else if (e.key === 'p' || e.key === 'P') {
           if (prevBtn) prevBtn.click();
+        }
+      });
+
+      // -------------------------------------------------------------
+      // 3 SPECIAL BOOKMARKING SYSTEM LOGIC
+      // -------------------------------------------------------------
+      const storageKey = 'mlc_bm_' + (window.location.pathname.split('/').pop() || 'doc');
+      let bookmarks = { 1: null, 2: null, 3: null };
+
+      try {
+        const savedBm = localStorage.getItem(storageKey);
+        if (savedBm) {
+          bookmarks = Object.assign({ 1: null, 2: null, 3: null }, JSON.parse(savedBm));
+        }
+      } catch (e) {}
+
+      const bookmarksMenuBtn = document.getElementById('bookmarksMenuBtn');
+      const bookmarksDropdown = document.getElementById('bookmarksDropdown');
+      const bookmarkCountBadge = document.getElementById('bookmarkCountBadge');
+
+      function updateBookmarkUI() {
+        let activeCount = 0;
+
+        // Clear existing ribbon badges & class names
+        readUnits.forEach(u => {
+          u.classList.remove('bookmarked-slot-1', 'bookmarked-slot-2', 'bookmarked-slot-3');
+          const oldRibbon = u.querySelector('.bookmark-ribbon');
+          if (oldRibbon) oldRibbon.remove();
+        });
+
+        for (let slot = 1; slot <= 3; slot++) {
+          const bm = bookmarks[slot];
+          const secTitleEl = document.getElementById('slotSecTitle' + slot);
+          const contentEl = document.getElementById('slotContent' + slot);
+          const actionsEl = document.getElementById('slotActions' + slot);
+
+          if (bm && bm.unitIndex >= 0 && bm.unitIndex < readUnits.length) {
+            activeCount++;
+            const targetUnit = readUnits[bm.unitIndex];
+            targetUnit.classList.add('bookmarked-slot-' + slot);
+
+            // Add ribbon badge
+            const ribbon = document.createElement('div');
+            ribbon.className = 'bookmark-ribbon ribbon-slot-' + slot;
+            const iconName = slot === 1 ? '🔖 Slot 1: Primary Study Point' : slot === 2 ? '⭐ Slot 2: Landmark Doctrine' : '📌 Slot 3: High-Yield Review';
+            ribbon.innerHTML = iconName;
+            targetUnit.insertBefore(ribbon, targetUnit.firstChild);
+
+            if (secTitleEl) {
+              secTitleEl.textContent = bm.sectionTitle || 'Section Bookmark';
+              secTitleEl.style.display = 'block';
+            }
+            if (contentEl) {
+              contentEl.textContent = bm.snippet || 'Bookmarked paragraph';
+              contentEl.classList.remove('empty');
+            }
+            if (actionsEl) {
+              actionsEl.style.display = 'flex';
+            }
+          } else {
+            if (secTitleEl) secTitleEl.style.display = 'none';
+            if (contentEl) {
+              const defaultTxt = slot === 1 ? 'No bookmark set. Click 🔖 on any paragraph.' :
+                                 slot === 2 ? 'No bookmark set. Click ⭐ on any paragraph.' :
+                                 'No bookmark set. Click 📌 on any paragraph.';
+              contentEl.textContent = defaultTxt;
+              contentEl.classList.add('empty');
+            }
+            if (actionsEl) actionsEl.style.display = 'none';
+          }
+        }
+
+        if (bookmarkCountBadge) {
+          if (activeCount > 0) {
+            bookmarkCountBadge.textContent = activeCount;
+            bookmarkCountBadge.style.display = 'flex';
+          } else {
+            bookmarkCountBadge.style.display = 'none';
+          }
+        }
+      }
+
+      function saveBookmarks() {
+        try {
+          localStorage.setItem(storageKey, JSON.stringify(bookmarks));
+        } catch (e) {}
+        updateBookmarkUI();
+      }
+
+      function toggleBookmark(slot, unitIdx) {
+        if (unitIdx < 0 || unitIdx >= readUnits.length) return;
+        const currentBm = bookmarks[slot];
+        if (currentBm && currentBm.unitIndex === unitIdx) {
+          // Toggle off
+          bookmarks[slot] = null;
+        } else {
+          const unit = readUnits[unitIdx];
+          const sec = unit.closest('section.doc-section');
+          let secTitle = 'Study Document';
+          if (sec) {
+            const h = sec.querySelector('.case-header-title') || sec.querySelector('.topic-header-title') || sec.querySelector('.subtopic-header-title');
+            if (h) secTitle = h.innerText.trim();
+          }
+          const snippet = (unit.innerText || unit.textContent || '').replace(/^(?:🔖|⭐|📌)[^\n]+\n?/, '').trim().substring(0, 110) + '...';
+          bookmarks[slot] = {
+            unitIndex: unitIdx,
+            sectionTitle: secTitle,
+            snippet: snippet,
+            timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+          };
+        }
+        saveBookmarks();
+      }
+
+      function jumpToBookmark(slot) {
+        const bm = bookmarks[slot];
+        if (bm && bm.unitIndex >= 0 && bm.unitIndex < readUnits.length) {
+          const targetUnit = readUnits[bm.unitIndex];
+          if (bookmarksDropdown) bookmarksDropdown.classList.remove('open');
+          targetUnit.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          targetUnit.classList.remove('bookmark-flash-target');
+          void targetUnit.offsetWidth; // trigger reflow
+          targetUnit.classList.add('bookmark-flash-target');
+        }
+      }
+
+      // Inject in-paragraph hover bookmark tools to each .read-unit
+      readUnits.forEach((unit, idx) => {
+        const tools = document.createElement('div');
+        tools.className = 'unit-bookmark-tools';
+        tools.innerHTML = '<button class="btn-unit-bm bm-1" data-slot="1" title="Set Bookmark 1: Primary (🔖)">🔖</button>' +
+                          '<button class="btn-unit-bm bm-2" data-slot="2" title="Set Bookmark 2: Landmark (⭐)">⭐</button>' +
+                          '<button class="btn-unit-bm bm-3" data-slot="3" title="Set Bookmark 3: Review (📌)">📌</button>';
+        
+        tools.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const btn = e.target.closest('.btn-unit-bm');
+          if (btn) {
+            const slot = parseInt(btn.getAttribute('data-slot'), 10);
+            toggleBookmark(slot, idx);
+          }
+        });
+
+        unit.appendChild(tools);
+      });
+
+      // Toggle dropdown in navbar
+      if (bookmarksMenuBtn && bookmarksDropdown) {
+        bookmarksMenuBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          bookmarksDropdown.classList.toggle('open');
+        });
+
+        document.addEventListener('click', (e) => {
+          if (!e.target.closest('.bookmark-nav-wrapper')) {
+            bookmarksDropdown.classList.remove('open');
+          }
+        });
+      }
+
+      // Handle Slot Jump & Clear buttons inside dropdown
+      if (bookmarksDropdown) {
+        bookmarksDropdown.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const jumpBtn = e.target.closest('.btn-slot-jump');
+          if (jumpBtn) {
+            const slot = parseInt(jumpBtn.getAttribute('data-slot'), 10);
+            jumpToBookmark(slot);
+            return;
+          }
+          const clearBtn = e.target.closest('.btn-slot-clear');
+          if (clearBtn) {
+            const slot = parseInt(clearBtn.getAttribute('data-slot'), 10);
+            bookmarks[slot] = null;
+            saveBookmarks();
+            return;
+          }
+        });
+      }
+
+      updateBookmarkUI();
+
+      // Keyboard shortcut: 'b' to toggle bookmarks
+      document.addEventListener('keydown', (e) => {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA') return;
+        if (e.key === 'b' || e.key === 'B') {
+          if (!e.ctrlKey && !e.metaKey) {
+            e.preventDefault();
+            if (bookmarksDropdown) bookmarksDropdown.classList.toggle('open');
+          }
         }
       });
     })();
