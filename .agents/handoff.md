@@ -1,77 +1,78 @@
 # Antigravity Handoff Summary
 
 **Date:** October 2, 2026  
-**Master Workspace:** `C:\Users\JR\Downloads\14All-All41\MLC`  
+**Master Workspace:** `C:\Users\JR\Downloads\14All-All41` (and `C:\Users\JR\Downloads\14All-All41\MLC`)  
 **GitHub Repository:** [https://github.com/Julius11011/MLLibrary](https://github.com/Julius11011/MLLibrary)  
 **Cloudflare Deployment:** [https://mllibrary.juliusrayn-balitbit.workers.dev](https://mllibrary.juliusrayn-balitbit.workers.dev)  
-**Latest Git Commit:** `d2a3e3b` (Clean tree, synced with `origin/main`)
+**Latest Git Commit:** `2999f55` (Clean working tree, synchronized with `origin/main`)  
+**Active Guardrails Files:** [`AGENTS.md`](file:///C:/Users/JR/Downloads/14All-All41/AGENTS.md) | [`GEMINI.md`](file:///C:/Users/JR/Downloads/14All-All41/GEMINI.md) | [`ANTIGRAVITY_AUTORUN_PERMISSIONS_AND_SAFETY_GUIDE.md`](file:///C:/Users/JR/Downloads/14All-All41/ANTIGRAVITY_AUTORUN_PERMISSIONS_AND_SAFETY_GUIDE.md)
 
 ---
 
-## 1. Executive Summary & Latest Enhancements
+## 1. Executive Summary & Latest Accomplishments
 
-### MLLibrary Universal Reader & Interactive Audio Suite Upgrades
-Implemented three major UX/UI enhancements across the entire MLLibrary reader engine and regenerated all 110+ subject HTML documents and master hubs:
+### A. Auto-Run Permissions Architecture & Safety Guardrails
+Documented and configured the autonomous execution model and strict safety guardrails for Antigravity IDE and AGY CLI across the entire `14All-All41` workspace:
+1. **Permission Schema**:
+   ```json
+   {
+     "permissions": {
+       "allow": ["command(*)", "write_file(*)", "mcp(*)"],
+       "ask": [],
+       "deny": []
+     }
+   }
+   ```
+2. **Strict Sandboxing**: Confines all AI execution and file writes strictly inside `C:\Users\JR\Downloads\14All-All41\`, preventing escapes to Windows OS, AppData, or other user folders.
+3. **Absolute Deletion Ban**: Prohibits deletion of parent, root, or subdirectories regardless of prompt wording.
+4. **PowerShell Safety**: Banned dangerous commands (`Remove-Item -Recurse -Force`, `rmdir /s /q`, registry modifications, remote `Invoke-Expression` downloads, broad process termination, disk formatting).
+5. **Rules Synchronization**: Fully declared in `AGENTS.md`, `GEMINI.md`, and `ANTIGRAVITY_AUTORUN_PERMISSIONS_AND_SAFETY_GUIDE.md`.
 
+---
+
+### B. MLLibrary Universal Reader & Interactive Audio Suite Upgrades
+Implemented three major UX/UI enhancements across the MLLibrary reader engine and regenerated all 110+ subject HTML documents and master hubs:
 1. **Stable & Sticky `.tts-toolbar`**:
-   - Pinned the TTS audio toolbar directly beneath the sticky navigation header (`position: sticky; top: var(--header-height); z-index: 95; backdrop-filter: blur(12px)`).
-   - Allows users to scroll freely through long legal texts while keeping Play/Pause, Speed, Voice selection, and Stop controls immediately accessible.
-   - Enhanced Stop functionality: Clicking the dedicated **⏹ Stop** button (or pressing <kbd>Escape</kbd>) immediately cancels speech synthesis (`synth.cancel()`), removes active sentence highlights, and resets the status badge to "Ready" without jumping scroll position or requiring a page refresh.
-
+   - Pinned beneath the header navigation bar (`position: sticky; top: var(--header-height); z-index: 95; backdrop-filter: blur(12px)`).
+   - Allows users to scroll freely while keeping Play/Pause, Speed, Voice selection, and Stop controls in direct view.
+   - Dedicated **⏹ Stop** button immediately calls `speechSynthesis.cancel()`, clears speaking highlights, and resets the status badge to "Ready" without scroll jumping or page reloads.
 2. **Sidebar TOC Minimize / Maximize Controls**:
-   - Implemented multiple entry points for collapsing and restoring the Table of Contents:
-     - Header hamburger / TOC toggle button (`#toggleSidebarBtn`).
-     - In-sidebar minimize chevron button (`#minimizeSidebarBtn` `◀`).
-     - Floating bottom-left restore badge (`#restoreSidebarBtn` `☰ Table of Contents`) visible when sidebar is minimized.
-     - Global keyboard shortcut: <kbd>Ctrl</kbd> + <kbd>B</kbd> or <kbd>Alt</kbd> + <kbd>T</kbd>.
-   - Added preference persistence via `localStorage.getItem('mlc_sidebar_collapsed')` so user preferences persist across documents.
-
+   - Multi-modal toggling: Top header button, in-sidebar chevron (`◀`), floating bottom-left restore tab (`☰ Table of Contents`), and keyboard shortcut <kbd>Ctrl</kbd> + <kbd>B</kbd> / <kbd>Alt</kbd> + <kbd>T</kbd>.
+   - Preference persistence in `localStorage.getItem('mlc_sidebar_collapsed')`.
 3. **Responsive `.reader-main` Adaptive Width**:
-   - Created smooth CSS transition curves (`transition: max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease`).
-   - Standard reading mode (sidebar expanded): `max-width: 920px` (or `1020px` on ≥1600px screens) for optimal typographic line length.
-   - Wide reading mode (sidebar minimized): dynamically expands to `max-width: 1200px` (or `1400px` on ≥1600px screens) to maximize screen space.
+   - Smooth CSS width transition curve.
+   - Standard reading mode: constrained to `max-width: 920px` (or `1020px` on wide screens).
+   - Wide reading mode (TOC minimized): dynamically expands to `max-width: 1200px` (or `1400px` on wide screens).
+4. **Batch Regeneration & Git Sync**:
+   - [generate_tts_reader.py](file:///C:/Users/JR/Downloads/14All-All41/MLC/generate_tts_reader.py) updated and executed across all 110 documents.
+   - Master Hubs (`MLC_Study_Hub.html` and `index.html`) refreshed.
+   - Staged, committed, and pushed to `origin/main`.
 
 ---
 
 ## 2. Core Repository Files & Generators
 
-- **Generator Script:** [`generate_tts_reader.py`](file:///C:/Users/JR/Downloads/14All-All41/MLC/generate_tts_reader.py)
-  - Universal Python converter supporting docx-to-HTML conversion, custom legal phonetic normalization, Roman numeral spoken expansion, and responsive reader layouts.
-- **Master Study Hub:** [`MLC_Study_Hub.html`](file:///C:/Users/JR/Downloads/14All-All41/MLC/MLC_Study_Hub.html) / [`index.html`](file:///C:/Users/JR/Downloads/14All-All41/MLC/index.html)
-  - Dynamic searchable dashboard with category filters, audio streaming integration, and document statistics.
+- **Generator Script:** [`MLC\generate_tts_reader.py`](file:///C:/Users/JR/Downloads/14All-All41/MLC/generate_tts_reader.py)
+- **Master Study Hub:** [`MLC\MLC_Study_Hub.html`](file:///C:/Users/JR/Downloads/14All-All41/MLC/MLC_Study_Hub.html) / [`MLC\index.html`](file:///C:/Users/JR/Downloads/14All-All41/MLC/index.html)
+- **Permissions Guide:** [`ANTIGRAVITY_AUTORUN_PERMISSIONS_AND_SAFETY_GUIDE.md`](file:///C:/Users/JR/Downloads/14All-All41/ANTIGRAVITY_AUTORUN_PERMISSIONS_AND_SAFETY_GUIDE.md)
+- **Rules & Guardrails:** [`AGENTS.md`](file:///C:/Users/JR/Downloads/14All-All41/AGENTS.md) and [`GEMINI.md`](file:///C:/Users/JR/Downloads/14All-All41/GEMINI.md)
 
 ---
 
 ## 3. Law Library Deliverables & Hub Status
 
-All core subjects in **First Year, First Semester (Juris Doctor Program, Manila Law College)** are fully compiled, verified on disk, and synchronized:
-
-### A. Criminal Law (Book I, Articles 1–113 & 275 Landmark Cases)
-- **Folder:** [`First Sem 1st Year\Subjects\Criminal Law\`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Criminal%20Law/)
-- **Complete ALAC Digests (275 Cases):** MP3 Podcast (265.86 MB) | PDF (1.31 MB) | Word DOCX | HTML Reader (276 Sections)
-- **Book One Treatise (Articles 1–113):** MP3 Podcast (37.90 MB) | PDF (599.4 KB) | Word DOCX | HTML Reader (245 Sections)
-- **Lectures & Outline:** Complete DOCX, PDF, HTML, and MP3 audio suites.
-
-### B. Constitutional Law 1 (1987 Constitution & 149 Landmark Cases)
-- **Folder:** [`First Sem 1st Year\Subjects\Constitutional Law\`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Constitutional%20Law/)
-- **Complete ALAC Digests (149 Cases):** MP3 Podcast (174.7 MB) | PDF (127 Pages / 1.05 MB) | Word DOCX | HTML Reader (150 Sections)
-- **Titles & Lectures:** Complete DOCX, PDF, HTML, and MP3 suites.
-
-### C. Statutory Construction (103 Syllabus Cases)
-- **Folder:** [`First Sem 1st Year\Subjects\Statutory Construction\`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Statutory%20Construction/)
-- **Complete ALAC Digests (Chapters I–VI):** MP3 Podcast (131.20 MB) | PDF (3.45 MB) | Word DOCX | HTML Reader (100 Sections)
-- **Core Digests & Week 7 Cases:** Complete multi-format suites.
-
-### D. Basic Legal and Judiciary Ethics (BLJE / 2025 CJCA A.M. No. 25-04-04-SC)
-- **Folder:** [`First Sem 1st Year\Subjects\Basic Legal and Judiciary Ethics\`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Basic%20Legal%20and%20Judiciary%20Ethics/)
-- **Canons & Sections / Case Digests / Definitions:** Complete DOCX, PDF, HTML, and MP3 suites.
+All core subjects in **First Year, First Semester (Juris Doctor Program, Manila Law College)** remain fully compiled and synchronized:
+- **Criminal Law (Book I, Articles 1–113 & 275 Landmark Cases):** [`First Sem 1st Year\Subjects\Criminal Law\`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Criminal%20Law/)
+- **Constitutional Law 1 (1987 Constitution & 149 Landmark Cases):** [`First Sem 1st Year\Subjects\Constitutional Law\`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Constitutional%20Law/)
+- **Statutory Construction (103 Syllabus Cases):** [`First Sem 1st Year\Subjects\Statutory Construction\`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Statutory%20Construction/)
+- **Basic Legal and Judiciary Ethics (BLJE / 2025 CJCA A.M. No. 25-04-04-SC):** [`First Sem 1st Year\Subjects\Basic Legal and Judiciary Ethics\`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Basic%20Legal%20and%20Judiciary%20Ethics/)
 
 ---
 
 ## 4. Safety Guardrails & Compliance Status
-
-- **Rule 1 (Absolute Prohibition on Deletions):** All local files, root directories, and parent folders remain strictly preserved.
-- **Rule 2 (Storage vs. Git Tracking):** Clean Git tree maintained; designated subject modules tracked.
-- **Rule 3 (Privacy Protection):** Student records, undertakings, and personal files strictly untracked and protected.
-- **Rule 4 (Roman Numeral Spoken Pronunciation in TTS):** Speech synthesis rules enforce cardinal pronunciation ("Canon 1", "Canon 2", "Topic 1", "Article 14", "JEE-AR Number").
-- **Rule 5 (Context Precedence & Handoff First):** Handoff documentation synchronized.
+- **Rule 1 (Strict Sandbox):** Restricted to `C:\Users\JR\Downloads\14All-All41\`.
+- **Rule 2 (Absolute Prohibition on Deletions):** All local files, root directories, and parent folders remain strictly preserved.
+- **Rule 3 (Storage vs. Git Tracking):** Clean Git tree maintained; only designated subject modules tracked.
+- **Rule 4 (Privacy Protection):** Student records, undertakings, and personal files strictly untracked and protected.
+- **Rule 5 (Roman Numeral Spoken Pronunciation in TTS):** Speech synthesis rules enforce cardinal pronunciation ("Canon 1", "Canon 2", "Topic 1", "Article 14", "JEE-AR Number").
+- **Rule 6 (Context Precedence & Handoff First):** Handoff documentation synchronized.
