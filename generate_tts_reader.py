@@ -792,7 +792,10 @@ READER_HTML_TEMPLATE = r'''<!DOCTYPE html>
     }
 
     .toc-link {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
       color: var(--text-secondary);
       text-decoration: none;
       font-family: var(--font-ui);
@@ -801,10 +804,46 @@ READER_HTML_TEMPLATE = r'''<!DOCTYPE html>
       border-radius: 4px;
       margin-bottom: 2px;
       border-left: 2px solid transparent;
+      transition: all 0.15s ease;
+    }
+    .toc-link-text {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      transition: all 0.15s ease;
+      flex: 1;
+    }
+    .toc-bm-badges-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+    .toc-bm-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      font-family: var(--font-ui);
+      padding: 1px 5px;
+      border-radius: 4px;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      white-space: nowrap;
+    }
+    .toc-bm-badge.badge-slot-1 {
+      background: rgba(251, 191, 36, 0.22);
+      color: var(--accent-gold);
+      border: 1px solid rgba(251, 191, 36, 0.5);
+    }
+    .toc-bm-badge.badge-slot-2 {
+      background: rgba(52, 211, 153, 0.22);
+      color: var(--accent-emerald);
+      border: 1px solid rgba(52, 211, 153, 0.5);
+    }
+    .toc-bm-badge.badge-slot-3 {
+      background: rgba(192, 132, 252, 0.22);
+      color: var(--accent-purple);
+      border: 1px solid rgba(192, 132, 252, 0.5);
     }
     .toc-link:hover {
       background-color: var(--bg-tertiary);
@@ -2290,6 +2329,9 @@ __SECTIONS_HTML__
           if (oldRibbon) oldRibbon.remove();
         });
 
+        // Clear existing TOC bookmark badges
+        document.querySelectorAll('#tocList .toc-bm-badges-wrap').forEach(w => w.remove());
+
         for (let slot = 1; slot <= 3; slot++) {
           const bm = bookmarks[slot];
           const metaBoxEl = document.getElementById('slotMeta' + slot);
@@ -2311,6 +2353,25 @@ __SECTIONS_HTML__
             const locText = bm.location ? ' • ' + bm.location : '';
             ribbon.innerHTML = `${slotIcon} Bookmark ${slot} • ${bm.topic}${locText}`;
             targetUnit.insertBefore(ribbon, targetUnit.firstChild);
+
+            // Inject TOC badge into matching sidebar link
+            const sec = targetUnit.closest('section.doc-section');
+            if (sec && sec.id) {
+              const tocLink = document.querySelector(`#tocList a[href="#${sec.id}"]`);
+              if (tocLink) {
+                let badgesWrap = tocLink.querySelector('.toc-bm-badges-wrap');
+                if (!badgesWrap) {
+                  badgesWrap = document.createElement('span');
+                  badgesWrap.className = 'toc-bm-badges-wrap';
+                  tocLink.appendChild(badgesWrap);
+                }
+                const badge = document.createElement('span');
+                badge.className = `toc-bm-badge badge-slot-${slot}`;
+                badge.title = `Bookmark ${slot}: ${bm.location || ''}`;
+                badge.textContent = `${slotIcon} ${slot}`;
+                badgesWrap.appendChild(badge);
+              }
+            }
 
             if (metaBoxEl) metaBoxEl.style.display = 'flex';
             if (subjEl) subjEl.textContent = bm.subject || 'Law Subject';
@@ -2460,7 +2521,7 @@ def generate_reader_html(doc_title, subject_tag, sections, mp3_filename=None):
         s_id = s.get("id", "sec")
         s_lvl = s.get("level", 1)
         lvl_class = f"level-{s_lvl}"
-        toc_items.append(f'<li><a href="#{s_id}" class="toc-link {lvl_class}" title="{s_title}">{s_title}</a></li>')
+        toc_items.append(f'<li><a href="#{s_id}" class="toc-link {lvl_class}" title="{s_title}"><span class="toc-link-text">{s_title}</span></a></li>')
     toc_html = "\n".join(toc_items)
 
     # Build Content HTML

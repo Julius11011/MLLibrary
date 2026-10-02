@@ -437,7 +437,10 @@
     }
 
     .toc-link {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
       color: var(--text-secondary);
       text-decoration: none;
       font-family: var(--font-ui);
@@ -446,10 +449,46 @@
       border-radius: 4px;
       margin-bottom: 2px;
       border-left: 2px solid transparent;
+      transition: all 0.15s ease;
+    }
+    .toc-link-text {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      transition: all 0.15s ease;
+      flex: 1;
+    }
+    .toc-bm-badges-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+    .toc-bm-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      font-family: var(--font-ui);
+      padding: 1px 5px;
+      border-radius: 4px;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      white-space: nowrap;
+    }
+    .toc-bm-badge.badge-slot-1 {
+      background: rgba(251, 191, 36, 0.22);
+      color: var(--accent-gold);
+      border: 1px solid rgba(251, 191, 36, 0.5);
+    }
+    .toc-bm-badge.badge-slot-2 {
+      background: rgba(52, 211, 153, 0.22);
+      color: var(--accent-emerald);
+      border: 1px solid rgba(52, 211, 153, 0.5);
+    }
+    .toc-bm-badge.badge-slot-3 {
+      background: rgba(192, 132, 252, 0.22);
+      color: var(--accent-purple);
+      border: 1px solid rgba(192, 132, 252, 0.5);
     }
     .toc-link:hover {
       background-color: var(--bg-tertiary);
@@ -1288,28 +1327,28 @@
       </div>
       <input type="text" class="toc-search-box" id="sidebarSearch" placeholder="Filter topics & cases..." />
       <ul class="toc-list" id="tocList">
-<li><a href="#sec-overview" class="toc-link level-1" title="Canons &amp; definition">Canons &amp; definition</a></li>
-<li><a href="#sec-1-part-i-legal-ethics---code-of-professional-responsibility-an" class="toc-link level-1" title="PART I: LEGAL ETHICS  -  CODE OF PROFESSIONAL RESPONSIBILITY AND ACCOUNTABILITY (CPRA)">PART I: LEGAL ETHICS  -  CODE OF PROFESSIONAL RESPONSIBILITY AND ACCOUNTABILITY (CPRA)</a></li>
-<li><a href="#sec-2-canon-i-independence" class="toc-link level-1" title="Canon I: Independence">Canon I: Independence</a></li>
-<li><a href="#sec-3-canon-ii-propriety" class="toc-link level-1" title="Canon II: Propriety">Canon II: Propriety</a></li>
-<li><a href="#sec-4-canon-iii-fidelity" class="toc-link level-1" title="Canon III: Fidelity">Canon III: Fidelity</a></li>
-<li><a href="#sec-5-canon-iv-competence-and-diligence" class="toc-link level-1" title="Canon IV: Competence and Diligence">Canon IV: Competence and Diligence</a></li>
-<li><a href="#sec-6-canon-v-equality" class="toc-link level-1" title="Canon V: Equality">Canon V: Equality</a></li>
-<li><a href="#sec-7-canon-vi-accountability" class="toc-link level-1" title="Canon VI: Accountability">Canon VI: Accountability</a></li>
-<li><a href="#sec-8-part-ii-judicial-ethics---2025-code-of-judicial-conduct-and" class="toc-link level-1" title="PART II: JUDICIAL ETHICS  -  2025 CODE OF JUDICIAL CONDUCT AND ACCOUNTABILITY (CJCA)">PART II: JUDICIAL ETHICS  -  2025 CODE OF JUDICIAL CONDUCT AND ACCOUNTABILITY (CJCA)</a></li>
-<li><a href="#sec-9-canon-i-independence-sections-1-9" class="toc-link level-1" title="Canon I: Independence (Sections 1-9)">Canon I: Independence (Sections 1-9)</a></li>
-<li><a href="#sec-10-canon-ii-fidelity-sections-1-7" class="toc-link level-1" title="Canon II: Fidelity (Sections 1-7)">Canon II: Fidelity (Sections 1-7)</a></li>
-<li><a href="#sec-11-canon-iii-impartiality-sections-1-13" class="toc-link level-1" title="Canon III: Impartiality (Sections 1-13)">Canon III: Impartiality (Sections 1-13)</a></li>
-<li><a href="#sec-12-canon-iv-propriety-sections-1-29" class="toc-link level-1" title="Canon IV: Propriety (Sections 1-29)">Canon IV: Propriety (Sections 1-29)</a></li>
-<li><a href="#sec-13-canon-v-equality-sections-1-5" class="toc-link level-1" title="Canon V: Equality (Sections 1-5)">Canon V: Equality (Sections 1-5)</a></li>
-<li><a href="#sec-14-canon-vi-competence-and-diligence-sections-1-9" class="toc-link level-1" title="Canon VI: Competence and Diligence (Sections 1-9)">Canon VI: Competence and Diligence (Sections 1-9)</a></li>
-<li><a href="#sec-15-canon-vii-accountability-sections-1-34" class="toc-link level-1" title="Canon VII: Accountability (Sections 1-34)">Canon VII: Accountability (Sections 1-34)</a></li>
-<li><a href="#sec-16-part-iii-court-personnel-ethics---code-of-conduct-for-court" class="toc-link level-1" title="PART III: COURT PERSONNEL ETHICS  -  CODE OF CONDUCT FOR COURT PERSONNEL (CCCP)">PART III: COURT PERSONNEL ETHICS  -  CODE OF CONDUCT FOR COURT PERSONNEL (CCCP)</a></li>
-<li><a href="#sec-17-canon-i-fidelity-to-duty" class="toc-link level-1" title="Canon I: Fidelity to Duty">Canon I: Fidelity to Duty</a></li>
-<li><a href="#sec-18-canon-ii-confidentiality" class="toc-link level-1" title="Canon II: Confidentiality">Canon II: Confidentiality</a></li>
-<li><a href="#sec-19-canon-iii-conflict-of-interest" class="toc-link level-1" title="Canon III: Conflict of Interest">Canon III: Conflict of Interest</a></li>
-<li><a href="#sec-20-canon-iv-performance-of-duties" class="toc-link level-1" title="Canon IV: Performance of Duties">Canon IV: Performance of Duties</a></li>
-<li><a href="#sec-21-part-iv-historical-evolution-comparative-analysis" class="toc-link level-1" title="PART IV: HISTORICAL EVOLUTION &amp; COMPARATIVE ANALYSIS">PART IV: HISTORICAL EVOLUTION &amp; COMPARATIVE ANALYSIS</a></li>
+<li><a href="#sec-overview" class="toc-link level-1" title="Canons &amp; definition"><span class="toc-link-text">Canons &amp; definition</span></a></li>
+<li><a href="#sec-1-part-i-legal-ethics---code-of-professional-responsibility-an" class="toc-link level-1" title="PART I: LEGAL ETHICS  -  CODE OF PROFESSIONAL RESPONSIBILITY AND ACCOUNTABILITY (CPRA)"><span class="toc-link-text">PART I: LEGAL ETHICS  -  CODE OF PROFESSIONAL RESPONSIBILITY AND ACCOUNTABILITY (CPRA)</span></a></li>
+<li><a href="#sec-2-canon-i-independence" class="toc-link level-1" title="Canon I: Independence"><span class="toc-link-text">Canon I: Independence</span></a></li>
+<li><a href="#sec-3-canon-ii-propriety" class="toc-link level-1" title="Canon II: Propriety"><span class="toc-link-text">Canon II: Propriety</span></a></li>
+<li><a href="#sec-4-canon-iii-fidelity" class="toc-link level-1" title="Canon III: Fidelity"><span class="toc-link-text">Canon III: Fidelity</span></a></li>
+<li><a href="#sec-5-canon-iv-competence-and-diligence" class="toc-link level-1" title="Canon IV: Competence and Diligence"><span class="toc-link-text">Canon IV: Competence and Diligence</span></a></li>
+<li><a href="#sec-6-canon-v-equality" class="toc-link level-1" title="Canon V: Equality"><span class="toc-link-text">Canon V: Equality</span></a></li>
+<li><a href="#sec-7-canon-vi-accountability" class="toc-link level-1" title="Canon VI: Accountability"><span class="toc-link-text">Canon VI: Accountability</span></a></li>
+<li><a href="#sec-8-part-ii-judicial-ethics---2025-code-of-judicial-conduct-and" class="toc-link level-1" title="PART II: JUDICIAL ETHICS  -  2025 CODE OF JUDICIAL CONDUCT AND ACCOUNTABILITY (CJCA)"><span class="toc-link-text">PART II: JUDICIAL ETHICS  -  2025 CODE OF JUDICIAL CONDUCT AND ACCOUNTABILITY (CJCA)</span></a></li>
+<li><a href="#sec-9-canon-i-independence-sections-1-9" class="toc-link level-1" title="Canon I: Independence (Sections 1-9)"><span class="toc-link-text">Canon I: Independence (Sections 1-9)</span></a></li>
+<li><a href="#sec-10-canon-ii-fidelity-sections-1-7" class="toc-link level-1" title="Canon II: Fidelity (Sections 1-7)"><span class="toc-link-text">Canon II: Fidelity (Sections 1-7)</span></a></li>
+<li><a href="#sec-11-canon-iii-impartiality-sections-1-13" class="toc-link level-1" title="Canon III: Impartiality (Sections 1-13)"><span class="toc-link-text">Canon III: Impartiality (Sections 1-13)</span></a></li>
+<li><a href="#sec-12-canon-iv-propriety-sections-1-29" class="toc-link level-1" title="Canon IV: Propriety (Sections 1-29)"><span class="toc-link-text">Canon IV: Propriety (Sections 1-29)</span></a></li>
+<li><a href="#sec-13-canon-v-equality-sections-1-5" class="toc-link level-1" title="Canon V: Equality (Sections 1-5)"><span class="toc-link-text">Canon V: Equality (Sections 1-5)</span></a></li>
+<li><a href="#sec-14-canon-vi-competence-and-diligence-sections-1-9" class="toc-link level-1" title="Canon VI: Competence and Diligence (Sections 1-9)"><span class="toc-link-text">Canon VI: Competence and Diligence (Sections 1-9)</span></a></li>
+<li><a href="#sec-15-canon-vii-accountability-sections-1-34" class="toc-link level-1" title="Canon VII: Accountability (Sections 1-34)"><span class="toc-link-text">Canon VII: Accountability (Sections 1-34)</span></a></li>
+<li><a href="#sec-16-part-iii-court-personnel-ethics---code-of-conduct-for-court" class="toc-link level-1" title="PART III: COURT PERSONNEL ETHICS  -  CODE OF CONDUCT FOR COURT PERSONNEL (CCCP)"><span class="toc-link-text">PART III: COURT PERSONNEL ETHICS  -  CODE OF CONDUCT FOR COURT PERSONNEL (CCCP)</span></a></li>
+<li><a href="#sec-17-canon-i-fidelity-to-duty" class="toc-link level-1" title="Canon I: Fidelity to Duty"><span class="toc-link-text">Canon I: Fidelity to Duty</span></a></li>
+<li><a href="#sec-18-canon-ii-confidentiality" class="toc-link level-1" title="Canon II: Confidentiality"><span class="toc-link-text">Canon II: Confidentiality</span></a></li>
+<li><a href="#sec-19-canon-iii-conflict-of-interest" class="toc-link level-1" title="Canon III: Conflict of Interest"><span class="toc-link-text">Canon III: Conflict of Interest</span></a></li>
+<li><a href="#sec-20-canon-iv-performance-of-duties" class="toc-link level-1" title="Canon IV: Performance of Duties"><span class="toc-link-text">Canon IV: Performance of Duties</span></a></li>
+<li><a href="#sec-21-part-iv-historical-evolution-comparative-analysis" class="toc-link level-1" title="PART IV: HISTORICAL EVOLUTION &amp; COMPARATIVE ANALYSIS"><span class="toc-link-text">PART IV: HISTORICAL EVOLUTION &amp; COMPARATIVE ANALYSIS</span></a></li>
       </ul>
     </nav>
 
@@ -2123,6 +2162,9 @@ Modernizes judicial ethics under the SPJI 2022-2027 framework.</td></tr></table>
           if (oldRibbon) oldRibbon.remove();
         });
 
+        // Clear existing TOC bookmark badges
+        document.querySelectorAll('#tocList .toc-bm-badges-wrap').forEach(w => w.remove());
+
         for (let slot = 1; slot <= 3; slot++) {
           const bm = bookmarks[slot];
           const metaBoxEl = document.getElementById('slotMeta' + slot);
@@ -2144,6 +2186,25 @@ Modernizes judicial ethics under the SPJI 2022-2027 framework.</td></tr></table>
             const locText = bm.location ? ' • ' + bm.location : '';
             ribbon.innerHTML = `${slotIcon} Bookmark ${slot} • ${bm.topic}${locText}`;
             targetUnit.insertBefore(ribbon, targetUnit.firstChild);
+
+            // Inject TOC badge into matching sidebar link
+            const sec = targetUnit.closest('section.doc-section');
+            if (sec && sec.id) {
+              const tocLink = document.querySelector(`#tocList a[href="#${sec.id}"]`);
+              if (tocLink) {
+                let badgesWrap = tocLink.querySelector('.toc-bm-badges-wrap');
+                if (!badgesWrap) {
+                  badgesWrap = document.createElement('span');
+                  badgesWrap.className = 'toc-bm-badges-wrap';
+                  tocLink.appendChild(badgesWrap);
+                }
+                const badge = document.createElement('span');
+                badge.className = `toc-bm-badge badge-slot-${slot}`;
+                badge.title = `Bookmark ${slot}: ${bm.location || ''}`;
+                badge.textContent = `${slotIcon} ${slot}`;
+                badgesWrap.appendChild(badge);
+              }
+            }
 
             if (metaBoxEl) metaBoxEl.style.display = 'flex';
             if (subjEl) subjEl.textContent = bm.subject || 'Law Subject';

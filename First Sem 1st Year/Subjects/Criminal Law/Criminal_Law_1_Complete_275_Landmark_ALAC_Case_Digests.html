@@ -437,7 +437,10 @@
     }
 
     .toc-link {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
       color: var(--text-secondary);
       text-decoration: none;
       font-family: var(--font-ui);
@@ -446,10 +449,46 @@
       border-radius: 4px;
       margin-bottom: 2px;
       border-left: 2px solid transparent;
+      transition: all 0.15s ease;
+    }
+    .toc-link-text {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      transition: all 0.15s ease;
+      flex: 1;
+    }
+    .toc-bm-badges-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+    .toc-bm-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      font-family: var(--font-ui);
+      padding: 1px 5px;
+      border-radius: 4px;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      white-space: nowrap;
+    }
+    .toc-bm-badge.badge-slot-1 {
+      background: rgba(251, 191, 36, 0.22);
+      color: var(--accent-gold);
+      border: 1px solid rgba(251, 191, 36, 0.5);
+    }
+    .toc-bm-badge.badge-slot-2 {
+      background: rgba(52, 211, 153, 0.22);
+      color: var(--accent-emerald);
+      border: 1px solid rgba(52, 211, 153, 0.5);
+    }
+    .toc-bm-badge.badge-slot-3 {
+      background: rgba(192, 132, 252, 0.22);
+      color: var(--accent-purple);
+      border: 1px solid rgba(192, 132, 252, 0.5);
     }
     .toc-link:hover {
       background-color: var(--bg-tertiary);
@@ -1288,282 +1327,282 @@
       </div>
       <input type="text" class="toc-search-box" id="sidebarSearch" placeholder="Filter topics & cases..." />
       <ul class="toc-list" id="tocList">
-<li><a href="#sec-overview" class="toc-link level-1" title="Criminal Law 1 Complete 275 Landmark ALAC Case Digests">Criminal Law 1 Complete 275 Landmark ALAC Case Digests</a></li>
-<li><a href="#sec-1-case-1-people-v-marivic-genosa" class="toc-link level-1" title="CASE 1: People v. Marivic Genosa">CASE 1: People v. Marivic Genosa</a></li>
-<li><a href="#sec-2-case-2-norma-de-joya-v-jail-warden-of-batangas" class="toc-link level-1" title="CASE 2: Norma de Joya v. Jail Warden of Batangas">CASE 2: Norma de Joya v. Jail Warden of Batangas</a></li>
-<li><a href="#sec-3-case-3-people-v-santiago" class="toc-link level-1" title="CASE 3: People v. Santiago">CASE 3: People v. Santiago</a></li>
-<li><a href="#sec-4-case-4-united-states-v-pablo" class="toc-link level-1" title="CASE 4: United States v. Pablo">CASE 4: United States v. Pablo</a></li>
-<li><a href="#sec-5-case-5-in-re-kay-villegas-kami-inc" class="toc-link level-1" title="CASE 5: In re: Kay Villegas Kami, Inc.">CASE 5: In re: Kay Villegas Kami, Inc.</a></li>
-<li><a href="#sec-6-case-6-people-v-villaraza" class="toc-link level-1" title="CASE 6: People v. Villaraza">CASE 6: People v. Villaraza</a></li>
-<li><a href="#sec-7-case-7-us-v-diaz-conde" class="toc-link level-1" title="CASE 7: U.S. v. Diaz-Conde">CASE 7: U.S. v. Diaz-Conde</a></li>
-<li><a href="#sec-8-case-8-people-of-the-philippines-vs-roman-derilo-et-al" class="toc-link level-1" title="CASE 8: People of the Philippines vs. Roman Derilo et al.">CASE 8: People of the Philippines vs. Roman Derilo et al.</a></li>
-<li><a href="#sec-9-case-9-people-v-ferrer" class="toc-link level-1" title="CASE 9: People v. Ferrer">CASE 9: People v. Ferrer</a></li>
-<li><a href="#sec-10-case-10-pesigan-v-angeles" class="toc-link level-1" title="CASE 10: Pesigan v. Angeles">CASE 10: Pesigan v. Angeles</a></li>
-<li><a href="#sec-11-case-11-taada-v-tuvera" class="toc-link level-1" title="CASE 11: Tañada v. Tuvera">CASE 11: Tañada v. Tuvera</a></li>
-<li><a href="#sec-12-case-12-alfredo-romualdez-v-sandiganbayan" class="toc-link level-1" title="CASE 12: Alfredo Romualdez v. Sandiganbayan">CASE 12: Alfredo Romualdez v. Sandiganbayan</a></li>
-<li><a href="#sec-13-case-13-spark-v-quezon-city" class="toc-link level-1" title="CASE 13: SPARK v. Quezon City">CASE 13: SPARK v. Quezon City</a></li>
-<li><a href="#sec-14-case-14-united-states-v-sweet" class="toc-link level-1" title="CASE 14: United States v. Sweet">CASE 14: United States v. Sweet</a></li>
-<li><a href="#sec-15-case-15-raquiza-v-bradford" class="toc-link level-1" title="CASE 15: Raquiza v. Bradford">CASE 15: Raquiza v. Bradford</a></li>
-<li><a href="#sec-16-case-16-liang-v-people" class="toc-link level-1" title="CASE 16: Liang v. People">CASE 16: Liang v. People</a></li>
-<li><a href="#sec-17-case-17-minucher-v-court-of-appeals" class="toc-link level-1" title="CASE 17: Minucher v. Court of Appeals">CASE 17: Minucher v. Court of Appeals</a></li>
-<li><a href="#sec-18-case-18-vinuya-v-romulo" class="toc-link level-1" title="CASE 18: Vinuya v. Romulo">CASE 18: Vinuya v. Romulo</a></li>
-<li><a href="#sec-19-case-19-osmea-v-pendatun" class="toc-link level-1" title="CASE 19: Osmeña v. Pendatun">CASE 19: Osmeña v. Pendatun</a></li>
-<li><a href="#sec-20-case-20-people-v-jalosjos" class="toc-link level-1" title="CASE 20: People v. Jalosjos">CASE 20: People v. Jalosjos</a></li>
-<li><a href="#sec-21-case-21-united-states-v-bull" class="toc-link level-1" title="CASE 21: United States v. Bull">CASE 21: United States v. Bull</a></li>
-<li><a href="#sec-22-case-22-people-v-look-chaw" class="toc-link level-1" title="CASE 22: People v. Look Chaw">CASE 22: People v. Look Chaw</a></li>
-<li><a href="#sec-23-case-23-united-states-v-ah-sing" class="toc-link level-1" title="CASE 23: United States v. Ah Sing">CASE 23: United States v. Ah Sing</a></li>
-<li><a href="#sec-24-case-24-people-v-lo-lo-saraw" class="toc-link level-1" title="CASE 24: People v. Lo-lo &amp; Saraw">CASE 24: People v. Lo-lo &amp; Saraw</a></li>
-<li><a href="#sec-25-case-25-people-v-wong-cheng" class="toc-link level-1" title="CASE 25: People v. Wong Cheng">CASE 25: People v. Wong Cheng</a></li>
-<li><a href="#sec-26-case-26-miquiabas-v-commanding-general" class="toc-link level-1" title="CASE 26: Miquiabas v. Commanding General">CASE 26: Miquiabas v. Commanding General</a></li>
-<li><a href="#sec-27-case-27-suzette-nicolas-vs-alberto-romulo-smith-vfa-case" class="toc-link level-1" title="CASE 27: Suzette Nicolas vs. Alberto Romulo (Smith / VFA Case)">CASE 27: Suzette Nicolas vs. Alberto Romulo (Smith / VFA Case)</a></li>
-<li><a href="#sec-28-case-28-gumabon-v-director-of-prisons" class="toc-link level-1" title="CASE 28: Gumabon v. Director of Prisons">CASE 28: Gumabon v. Director of Prisons</a></li>
-<li><a href="#sec-29-case-29-people-v-narvaez" class="toc-link level-1" title="CASE 29: People v. Narvaez">CASE 29: People v. Narvaez</a></li>
-<li><a href="#sec-30-case-30-people-v-ringor" class="toc-link level-1" title="CASE 30: People v. Ringor">CASE 30: People v. Ringor</a></li>
-<li><a href="#sec-31-case-31-people-v-pimentel" class="toc-link level-1" title="CASE 31: People v. Pimentel">CASE 31: People v. Pimentel</a></li>
-<li><a href="#sec-32-case-32-people-v-lacson" class="toc-link level-1" title="CASE 32: People v. Lacson">CASE 32: People v. Lacson</a></li>
-<li><a href="#sec-33-case-33-joemar-ortega-vs-people-of-the-philippines" class="toc-link level-1" title="CASE 33: Joemar Ortega vs. People of the Philippines">CASE 33: Joemar Ortega vs. People of the Philippines</a></li>
-<li><a href="#sec-34-case-34-centeno-v-villalon-pornillos" class="toc-link level-1" title="CASE 34: Centeno v. Villalon-Pornillos">CASE 34: Centeno v. Villalon-Pornillos</a></li>
-<li><a href="#sec-35-case-35-people-v-abuyen" class="toc-link level-1" title="CASE 35: People v. Abuyen">CASE 35: People v. Abuyen</a></li>
-<li><a href="#sec-36-case-36-people-v-temporada" class="toc-link level-1" title="CASE 36: People v. Temporada">CASE 36: People v. Temporada</a></li>
-<li><a href="#sec-37-case-37-people-v-garcia" class="toc-link level-1" title="CASE 37: People v. Garcia">CASE 37: People v. Garcia</a></li>
-<li><a href="#sec-38-case-38-people-v-mesias" class="toc-link level-1" title="CASE 38: People v. Mesias">CASE 38: People v. Mesias</a></li>
-<li><a href="#sec-39-case-39-tuates-v-bersamin" class="toc-link level-1" title="CASE 39: Tuates v. Bersamin">CASE 39: Tuates v. Bersamin</a></li>
-<li><a href="#sec-40-case-40-benedicto-v-court-of-appeals" class="toc-link level-1" title="CASE 40: Benedicto v. Court of Appeals">CASE 40: Benedicto v. Court of Appeals</a></li>
-<li><a href="#sec-41-case-41-valenzuela-v-people" class="toc-link level-1" title="CASE 41: Valenzuela v. People">CASE 41: Valenzuela v. People</a></li>
-<li><a href="#sec-42-case-42-people-v-ojeda" class="toc-link level-1" title="CASE 42: People v. Ojeda">CASE 42: People v. Ojeda</a></li>
-<li><a href="#sec-43-case-43-lozano-v-martinez" class="toc-link level-1" title="CASE 43: Lozano v. Martinez">CASE 43: Lozano v. Martinez</a></li>
-<li><a href="#sec-44-case-44-magno-v-court-of-appeals" class="toc-link level-1" title="CASE 44: Magno v. Court of Appeals">CASE 44: Magno v. Court of Appeals</a></li>
-<li><a href="#sec-45-case-45-united-states-v-go-chico" class="toc-link level-1" title="CASE 45: United States v. Go Chico">CASE 45: United States v. Go Chico</a></li>
-<li><a href="#sec-46-case-46-estrada-v-sandiganbayan" class="toc-link level-1" title="CASE 46: Estrada v. Sandiganbayan">CASE 46: Estrada v. Sandiganbayan</a></li>
-<li><a href="#sec-47-case-47-people-v-quijada" class="toc-link level-1" title="CASE 47: People v. Quijada">CASE 47: People v. Quijada</a></li>
-<li><a href="#sec-48-case-48-teves-v-comelec" class="toc-link level-1" title="CASE 48: Teves v. COMELEC">CASE 48: Teves v. COMELEC</a></li>
-<li><a href="#sec-49-case-49-ladonga-v-people" class="toc-link level-1" title="CASE 49: Ladonga v. People">CASE 49: Ladonga v. People</a></li>
-<li><a href="#sec-50-case-50-people-v-gonzales" class="toc-link level-1" title="CASE 50: People v. Gonzales">CASE 50: People v. Gonzales</a></li>
-<li><a href="#sec-51-case-51-people-v-sylvestre-and-atienza" class="toc-link level-1" title="CASE 51: People v. Sylvestre and Atienza">CASE 51: People v. Sylvestre and Atienza</a></li>
-<li><a href="#sec-52-case-52-potenciano-evangelista-v-people" class="toc-link level-1" title="CASE 52: Potenciano Evangelista v. People">CASE 52: Potenciano Evangelista v. People</a></li>
-<li><a href="#sec-53-case-53-rimando-v-comelec" class="toc-link level-1" title="CASE 53: Rimando v. COMELEC">CASE 53: Rimando v. COMELEC</a></li>
-<li><a href="#sec-54-case-54-villareal-v-people-lenny-villa-hazing-case" class="toc-link level-1" title="CASE 54: Villareal v. People (Lenny Villa Hazing Case)">CASE 54: Villareal v. People (Lenny Villa Hazing Case)</a></li>
-<li><a href="#sec-55-case-55-maderazo-v-people" class="toc-link level-1" title="CASE 55: Maderazo v. People">CASE 55: Maderazo v. People</a></li>
-<li><a href="#sec-56-case-56-united-states-v-apostol" class="toc-link level-1" title="CASE 56: United States v. Apostol">CASE 56: United States v. Apostol</a></li>
-<li><a href="#sec-57-case-57-united-states-v-catolico" class="toc-link level-1" title="CASE 57: United States v. Catolico">CASE 57: United States v. Catolico</a></li>
-<li><a href="#sec-58-case-58-people-v-carmen" class="toc-link level-1" title="CASE 58: People v. Carmen">CASE 58: People v. Carmen</a></li>
-<li><a href="#sec-59-case-59-people-v-puno" class="toc-link level-1" title="CASE 59: People v. Puno">CASE 59: People v. Puno</a></li>
-<li><a href="#sec-60-case-60-people-v-delim" class="toc-link level-1" title="CASE 60: People v. Delim">CASE 60: People v. Delim</a></li>
-<li><a href="#sec-61-case-61-people-v-temblor" class="toc-link level-1" title="CASE 61: People v. Temblor">CASE 61: People v. Temblor</a></li>
-<li><a href="#sec-62-case-62-people-v-hassan" class="toc-link level-1" title="CASE 62: People v. Hassan">CASE 62: People v. Hassan</a></li>
-<li><a href="#sec-63-case-63-united-states-v-ah-chong" class="toc-link level-1" title="CASE 63: United States v. Ah Chong">CASE 63: United States v. Ah Chong</a></li>
-<li><a href="#sec-64-case-64-people-v-oanis" class="toc-link level-1" title="CASE 64: People v. Oanis">CASE 64: People v. Oanis</a></li>
-<li><a href="#sec-65-case-65-ivler-vs-hon-maria-rowena-modesto-san-pedro" class="toc-link level-1" title="CASE 65: Ivler vs. Hon. Maria Rowena Modesto-San Pedro">CASE 65: Ivler vs. Hon. Maria Rowena Modesto-San Pedro</a></li>
-<li><a href="#sec-66-case-66-people-v-pugay" class="toc-link level-1" title="CASE 66: People v. Pugay">CASE 66: People v. Pugay</a></li>
-<li><a href="#sec-67-case-67-united-states-v-brobst" class="toc-link level-1" title="CASE 67: United States v. Brobst">CASE 67: United States v. Brobst</a></li>
-<li><a href="#sec-68-case-68-people-v-mananquil" class="toc-link level-1" title="CASE 68: People v. Mananquil">CASE 68: People v. Mananquil</a></li>
-<li><a href="#sec-69-case-69-people-v-iligan" class="toc-link level-1" title="CASE 69: People v. Iligan">CASE 69: People v. Iligan</a></li>
-<li><a href="#sec-70-case-70-people-v-albuquerque" class="toc-link level-1" title="CASE 70: People v. Albuquerque">CASE 70: People v. Albuquerque</a></li>
-<li><a href="#sec-71-case-71-yadao-v-people" class="toc-link level-1" title="CASE 71: Yadao v. People">CASE 71: Yadao v. People</a></li>
-<li><a href="#sec-72-case-72-people-v-adriano" class="toc-link level-1" title="CASE 72: People v. Adriano">CASE 72: People v. Adriano</a></li>
-<li><a href="#sec-73-case-73-people-v-bendecio" class="toc-link level-1" title="CASE 73: People v. Bendecio">CASE 73: People v. Bendecio</a></li>
-<li><a href="#sec-74-case-74-people-v-gemoya" class="toc-link level-1" title="CASE 74: People v. Gemoya">CASE 74: People v. Gemoya</a></li>
-<li><a href="#sec-75-case-75-people-v-guillen" class="toc-link level-1" title="CASE 75: People v. Guillen">CASE 75: People v. Guillen</a></li>
-<li><a href="#sec-76-case-76-people-v-sabalones" class="toc-link level-1" title="CASE 76: People v. Sabalones">CASE 76: People v. Sabalones</a></li>
-<li><a href="#sec-77-case-77-people-v-hilario" class="toc-link level-1" title="CASE 77: People v. Hilario">CASE 77: People v. Hilario</a></li>
-<li><a href="#sec-78-case-78-people-v-balmores" class="toc-link level-1" title="CASE 78: People v. Balmores">CASE 78: People v. Balmores</a></li>
-<li><a href="#sec-79-case-79-intod-v-court-of-appeals" class="toc-link level-1" title="CASE 79: Intod v. Court of Appeals">CASE 79: Intod v. Court of Appeals</a></li>
-<li><a href="#sec-80-case-80-jacinto-v-people" class="toc-link level-1" title="CASE 80: Jacinto v. People">CASE 80: Jacinto v. People</a></li>
-<li><a href="#sec-81-case-81-united-states-v-eduave" class="toc-link level-1" title="CASE 81: United States v. Eduave">CASE 81: United States v. Eduave</a></li>
-<li><a href="#sec-82-case-82-people-v-enriquez" class="toc-link level-1" title="CASE 82: People v. Enriquez">CASE 82: People v. Enriquez</a></li>
-<li><a href="#sec-83-case-83-people-v-listerio" class="toc-link level-1" title="CASE 83: People v. Listerio">CASE 83: People v. Listerio</a></li>
-<li><a href="#sec-84-case-84-people-v-erinia" class="toc-link level-1" title="CASE 84: People v. Erinia">CASE 84: People v. Erinia</a></li>
-<li><a href="#sec-85-case-85-people-v-hernandez" class="toc-link level-1" title="CASE 85: People v. Hernandez">CASE 85: People v. Hernandez</a></li>
-<li><a href="#sec-86-case-86-people-v-orita" class="toc-link level-1" title="CASE 86: People v. Orita">CASE 86: People v. Orita</a></li>
-<li><a href="#sec-87-case-87-people-v-campuhan" class="toc-link level-1" title="CASE 87: People v. Campuhan">CASE 87: People v. Campuhan</a></li>
-<li><a href="#sec-88-case-88-people-vs-agao" class="toc-link level-1" title="CASE 88: People vs. Agao">CASE 88: People vs. Agao</a></li>
-<li><a href="#sec-89-case-89-cruz-v-people" class="toc-link level-1" title="CASE 89: Cruz v. People">CASE 89: Cruz v. People</a></li>
-<li><a href="#sec-90-case-90-lutap-v-people" class="toc-link level-1" title="CASE 90: Lutap v. People">CASE 90: Lutap v. People</a></li>
-<li><a href="#sec-91-case-91-united-states-v-adiao" class="toc-link level-1" title="CASE 91: United States v. Adiao">CASE 91: United States v. Adiao</a></li>
-<li><a href="#sec-92-case-92-people-v-dino" class="toc-link level-1" title="CASE 92: People v. Dino">CASE 92: People v. Dino</a></li>
-<li><a href="#sec-93-case-93-aristotel-valenzuela-v-people" class="toc-link level-1" title="CASE 93: Aristotel Valenzuela v. People">CASE 93: Aristotel Valenzuela v. People</a></li>
-<li><a href="#sec-94-case-94-people-v-lamahang" class="toc-link level-1" title="CASE 94: People v. Lamahang">CASE 94: People v. Lamahang</a></li>
-<li><a href="#sec-95-case-95-people-v-salvilla" class="toc-link level-1" title="CASE 95: People v. Salvilla">CASE 95: People v. Salvilla</a></li>
-<li><a href="#sec-96-case-96-people-v-bulalayao" class="toc-link level-1" title="CASE 96: People v. Bulalayao">CASE 96: People v. Bulalayao</a></li>
-<li><a href="#sec-97-case-97-people-v-borinaga" class="toc-link level-1" title="CASE 97: People v. Borinaga">CASE 97: People v. Borinaga</a></li>
-<li><a href="#sec-98-case-98-people-v-sy-pio" class="toc-link level-1" title="CASE 98: People v. Sy Pio">CASE 98: People v. Sy Pio</a></li>
-<li><a href="#sec-99-case-99-people-v-trinidad" class="toc-link level-1" title="CASE 99: People v. Trinidad">CASE 99: People v. Trinidad</a></li>
-<li><a href="#sec-100-case-100-people-v-ravelo" class="toc-link level-1" title="CASE 100: People v. Ravelo">CASE 100: People v. Ravelo</a></li>
-<li><a href="#sec-101-case-101-people-v-kalalo" class="toc-link level-1" title="CASE 101: People v. Kalalo">CASE 101: People v. Kalalo</a></li>
-<li><a href="#sec-102-case-102-guzman-jr-v-people" class="toc-link level-1" title="CASE 102: Guzman, Jr. v. People">CASE 102: Guzman, Jr. v. People</a></li>
-<li><a href="#sec-103-case-103-etino-v-people" class="toc-link level-1" title="CASE 103: Etino v. People">CASE 103: Etino v. People</a></li>
-<li><a href="#sec-104-case-104-people-v-peralta" class="toc-link level-1" title="CASE 104: People v. Peralta">CASE 104: People v. Peralta</a></li>
-<li><a href="#sec-105-case-105-united-states-v-bautista" class="toc-link level-1" title="CASE 105: United States v. Bautista">CASE 105: United States v. Bautista</a></li>
-<li><a href="#sec-106-case-106-quidet-v-people" class="toc-link level-1" title="CASE 106: Quidet v. People">CASE 106: Quidet v. People</a></li>
-<li><a href="#sec-107-case-107-people-v-belmonte" class="toc-link level-1" title="CASE 107: People v. Belmonte">CASE 107: People v. Belmonte</a></li>
-<li><a href="#sec-108-case-108-people-v-lago" class="toc-link level-1" title="CASE 108: People v. Lago">CASE 108: People v. Lago</a></li>
-<li><a href="#sec-109-case-109-people-v-real" class="toc-link level-1" title="CASE 109: People v. Real">CASE 109: People v. Real</a></li>
-<li><a href="#sec-110-case-110-people-v-ibasco" class="toc-link level-1" title="CASE 110: People v. Ibasco">CASE 110: People v. Ibasco</a></li>
-<li><a href="#sec-111-case-111-people-v-cajara" class="toc-link level-1" title="CASE 111: People v. Cajara">CASE 111: People v. Cajara</a></li>
-<li><a href="#sec-112-case-112-people-v-masonson" class="toc-link level-1" title="CASE 112: People v. Masonson">CASE 112: People v. Masonson</a></li>
-<li><a href="#sec-113-case-113-people-v-tolentino" class="toc-link level-1" title="CASE 113: People v. Tolentino">CASE 113: People v. Tolentino</a></li>
-<li><a href="#sec-114-case-114-people-v-layson" class="toc-link level-1" title="CASE 114: People v. Layson">CASE 114: People v. Layson</a></li>
-<li><a href="#sec-115-case-115-people-v-peralta" class="toc-link level-1" title="CASE 115: People v. Peralta">CASE 115: People v. Peralta</a></li>
-<li><a href="#sec-116-case-116-people-v-genosa" class="toc-link level-1" title="CASE 116: People v. Genosa">CASE 116: People v. Genosa</a></li>
-<li><a href="#sec-117-case-117-people-v-dulin" class="toc-link level-1" title="CASE 117: People v. Dulin">CASE 117: People v. Dulin</a></li>
-<li><a href="#sec-118-case-118-people-v-olarbe" class="toc-link level-1" title="CASE 118: People v. Olarbe">CASE 118: People v. Olarbe</a></li>
-<li><a href="#sec-119-case-119-nacnac-v-people" class="toc-link level-1" title="CASE 119: Nacnac v. People">CASE 119: Nacnac v. People</a></li>
-<li><a href="#sec-120-case-120-people-v-eduarte" class="toc-link level-1" title="CASE 120: People v. Eduarte">CASE 120: People v. Eduarte</a></li>
-<li><a href="#sec-121-case-121-people-v-apolinar" class="toc-link level-1" title="CASE 121: People v. Apolinar">CASE 121: People v. Apolinar</a></li>
-<li><a href="#sec-122-case-122-united-states-v-bumanglag" class="toc-link level-1" title="CASE 122: United States v. Bumanglag">CASE 122: United States v. Bumanglag</a></li>
-<li><a href="#sec-123-case-123-people-v-narvaez" class="toc-link level-1" title="CASE 123: People v. Narvaez">CASE 123: People v. Narvaez</a></li>
-<li><a href="#sec-124-case-124-united-states-v-esmedia" class="toc-link level-1" title="CASE 124: United States v. Esmedia">CASE 124: United States v. Esmedia</a></li>
-<li><a href="#sec-125-case-125-people-v-toring" class="toc-link level-1" title="CASE 125: People v. Toring">CASE 125: People v. Toring</a></li>
-<li><a href="#sec-126-case-126-masipequia-v-court-of-appeals" class="toc-link level-1" title="CASE 126: Masipequiña v. Court of Appeals">CASE 126: Masipequiña v. Court of Appeals</a></li>
-<li><a href="#sec-127-case-127-people-v-retubado" class="toc-link level-1" title="CASE 127: People v. Retubado">CASE 127: People v. Retubado</a></li>
-<li><a href="#sec-128-case-128-tan-v-standard-vacuum-oil-co" class="toc-link level-1" title="CASE 128: Tan v. Standard Vacuum Oil Co.">CASE 128: Tan v. Standard Vacuum Oil Co.</a></li>
-<li><a href="#sec-129-case-129-people-v-delima" class="toc-link level-1" title="CASE 129: People v. Delima">CASE 129: People v. Delima</a></li>
-<li><a href="#sec-130-case-130-people-v-belbes" class="toc-link level-1" title="CASE 130: People v. Belbes">CASE 130: People v. Belbes</a></li>
-<li><a href="#sec-131-case-131-cabanlig-v-sandiganbayan" class="toc-link level-1" title="CASE 131: Cabanlig v. Sandiganbayan">CASE 131: Cabanlig v. Sandiganbayan</a></li>
-<li><a href="#sec-132-case-132-tabuena-v-sandiganbayan" class="toc-link level-1" title="CASE 132: Tabuena v. Sandiganbayan">CASE 132: Tabuena v. Sandiganbayan</a></li>
-<li><a href="#sec-133-case-133-people-v-bonoan" class="toc-link level-1" title="CASE 133: People v. Bonoan">CASE 133: People v. Bonoan</a></li>
-<li><a href="#sec-134-case-134-people-v-ambal" class="toc-link level-1" title="CASE 134: People v. Ambal">CASE 134: People v. Ambal</a></li>
-<li><a href="#sec-135-case-135-people-v-puno" class="toc-link level-1" title="CASE 135: People v. Puno">CASE 135: People v. Puno</a></li>
-<li><a href="#sec-136-case-136-people-v-dungo" class="toc-link level-1" title="CASE 136: People v. Dungo">CASE 136: People v. Dungo</a></li>
-<li><a href="#sec-137-case-137-people-v-yam-id" class="toc-link level-1" title="CASE 137: People v. Yam-id">CASE 137: People v. Yam-id</a></li>
-<li><a href="#sec-138-case-138-people-v-valledor" class="toc-link level-1" title="CASE 138: People v. Valledor">CASE 138: People v. Valledor</a></li>
-<li><a href="#sec-139-case-139-people-v-belonio" class="toc-link level-1" title="CASE 139: People v. Belonio">CASE 139: People v. Belonio</a></li>
-<li><a href="#sec-140-case-140-people-v-pantoja" class="toc-link level-1" title="CASE 140: People v. Pantoja">CASE 140: People v. Pantoja</a></li>
-<li><a href="#sec-141-case-141-people-v-roa" class="toc-link level-1" title="CASE 141: People v. Roa">CASE 141: People v. Roa</a></li>
-<li><a href="#sec-142-case-142-people-v-buenaflor" class="toc-link level-1" title="CASE 142: People v. Buenaflor">CASE 142: People v. Buenaflor</a></li>
-<li><a href="#sec-143-case-143-people-v-nuez" class="toc-link level-1" title="CASE 143: People v. Nuñez">CASE 143: People v. Nuñez</a></li>
-<li><a href="#sec-144-case-144-people-v-taneo" class="toc-link level-1" title="CASE 144: People v. Taneo">CASE 144: People v. Taneo</a></li>
-<li><a href="#sec-145-case-145-guevarra-v-hon-ignacio-almodovar" class="toc-link level-1" title="CASE 145: Guevarra v. Hon. Ignacio Almodovar">CASE 145: Guevarra v. Hon. Ignacio Almodovar</a></li>
-<li><a href="#sec-146-case-146-people-v-doquea" class="toc-link level-1" title="CASE 146: People v. Doqueña">CASE 146: People v. Doqueña</a></li>
-<li><a href="#sec-147-case-147-people-v-navarro" class="toc-link level-1" title="CASE 147: People v. Navarro">CASE 147: People v. Navarro</a></li>
-<li><a href="#sec-148-case-148-jose-v-people" class="toc-link level-1" title="CASE 148: Jose v. People">CASE 148: Jose v. People</a></li>
-<li><a href="#sec-149-case-149-people-v-jacinto" class="toc-link level-1" title="CASE 149: People v. Jacinto">CASE 149: People v. Jacinto</a></li>
-<li><a href="#sec-150-case-150-people-v-arpon" class="toc-link level-1" title="CASE 150: People v. Arpon">CASE 150: People v. Arpon</a></li>
-<li><a href="#sec-151-case-151-sierra-v-people" class="toc-link level-1" title="CASE 151: Sierra v. People">CASE 151: Sierra v. People</a></li>
-<li><a href="#sec-152-case-152-people-v-bindoy" class="toc-link level-1" title="CASE 152: People v. Bindoy">CASE 152: People v. Bindoy</a></li>
-<li><a href="#sec-153-case-153-us-v-tanedo" class="toc-link level-1" title="CASE 153: U.S. v. Tanedo">CASE 153: U.S. v. Tanedo</a></li>
-<li><a href="#sec-154-case-154-pomoy-v-people" class="toc-link level-1" title="CASE 154: Pomoy v. People">CASE 154: Pomoy v. People</a></li>
-<li><a href="#sec-155-case-155-people-v-macal" class="toc-link level-1" title="CASE 155: People v. Macal">CASE 155: People v. Macal</a></li>
-<li><a href="#sec-156-case-156-people-v-delector" class="toc-link level-1" title="CASE 156: People v. Delector">CASE 156: People v. Delector</a></li>
-<li><a href="#sec-157-case-157-united-states-v-caballeros" class="toc-link level-1" title="CASE 157: United States v. Caballeros">CASE 157: United States v. Caballeros</a></li>
-<li><a href="#sec-158-case-158-united-states-v-exaltacion" class="toc-link level-1" title="CASE 158: United States v. Exaltacion">CASE 158: United States v. Exaltacion</a></li>
-<li><a href="#sec-159-case-159-people-v-anod" class="toc-link level-1" title="CASE 159: People v. Anod">CASE 159: People v. Anod</a></li>
-<li><a href="#sec-160-case-160-people-v-dansal" class="toc-link level-1" title="CASE 160: People v. Dansal">CASE 160: People v. Dansal</a></li>
-<li><a href="#sec-161-case-161-us-v-vicentillo" class="toc-link level-1" title="CASE 161: U.S. v. Vicentillo">CASE 161: U.S. v. Vicentillo</a></li>
-<li><a href="#sec-162-case-162-people-v-bandian" class="toc-link level-1" title="CASE 162: People v. Bandian">CASE 162: People v. Bandian</a></li>
-<li><a href="#sec-163-case-163-people-v-ural" class="toc-link level-1" title="CASE 163: People v. Ural">CASE 163: People v. Ural</a></li>
-<li><a href="#sec-164-case-164-people-v-reyes" class="toc-link level-1" title="CASE 164: People v. Reyes">CASE 164: People v. Reyes</a></li>
-<li><a href="#sec-165-case-165-people-v-leonor" class="toc-link level-1" title="CASE 165: People v. Leonor">CASE 165: People v. Leonor</a></li>
-<li><a href="#sec-166-case-166-miranda-v-people" class="toc-link level-1" title="CASE 166: Miranda v. People">CASE 166: Miranda v. People</a></li>
-<li><a href="#sec-167-case-167-urbano-v-people" class="toc-link level-1" title="CASE 167: Urbano v. People">CASE 167: Urbano v. People</a></li>
-<li><a href="#sec-168-case-168-oriente-v-people" class="toc-link level-1" title="CASE 168: Oriente v. People">CASE 168: Oriente v. People</a></li>
-<li><a href="#sec-169-case-169-people-v-racal" class="toc-link level-1" title="CASE 169: People v. Racal">CASE 169: People v. Racal</a></li>
-<li><a href="#sec-170-case-170-united-states-v-ampar" class="toc-link level-1" title="CASE 170: United States v. Ampar">CASE 170: United States v. Ampar</a></li>
-<li><a href="#sec-171-case-171-people-v-pajares" class="toc-link level-1" title="CASE 171: People v. Pajares">CASE 171: People v. Pajares</a></li>
-<li><a href="#sec-172-case-172-napone-jr-v-people" class="toc-link level-1" title="CASE 172: Napone, Jr. v. People">CASE 172: Napone, Jr. v. People</a></li>
-<li><a href="#sec-173-case-173-david-v-court-of-appeals" class="toc-link level-1" title="CASE 173: David v. Court of Appeals">CASE 173: David v. Court of Appeals</a></li>
-<li><a href="#sec-174-case-174-united-states-v-hicks" class="toc-link level-1" title="CASE 174: United States v. Hicks">CASE 174: United States v. Hicks</a></li>
-<li><a href="#sec-175-case-175-united-states-v-de-la-cruz" class="toc-link level-1" title="CASE 175: United States v. De la Cruz">CASE 175: United States v. De la Cruz</a></li>
-<li><a href="#sec-176-case-176-people-v-placer" class="toc-link level-1" title="CASE 176: People v. Placer">CASE 176: People v. Placer</a></li>
-<li><a href="#sec-177-case-177-de-vera-v-de-vera" class="toc-link level-1" title="CASE 177: De Vera v. De Vera">CASE 177: De Vera v. De Vera</a></li>
-<li><a href="#sec-178-case-178-people-v-quijano" class="toc-link level-1" title="CASE 178: People v. Quijano">CASE 178: People v. Quijano</a></li>
-<li><a href="#sec-179-case-179-people-v-javier" class="toc-link level-1" title="CASE 179: People v. Javier">CASE 179: People v. Javier</a></li>
-<li><a href="#sec-180-case-180-canta-v-people" class="toc-link level-1" title="CASE 180: Canta v. People">CASE 180: Canta v. People</a></li>
-<li><a href="#sec-181-case-181-eduarte-v-people" class="toc-link level-1" title="CASE 181: Eduarte v. People">CASE 181: Eduarte v. People</a></li>
-<li><a href="#sec-182-case-182-people-v-ordiales" class="toc-link level-1" title="CASE 182: People v. Ordiales">CASE 182: People v. Ordiales</a></li>
-<li><a href="#sec-183-case-183-people-v-torrida" class="toc-link level-1" title="CASE 183: People v. Torrida">CASE 183: People v. Torrida</a></li>
-<li><a href="#sec-184-case-184-people-v-rodil" class="toc-link level-1" title="CASE 184: People v. Rodil">CASE 184: People v. Rodil</a></li>
-<li><a href="#sec-185-case-185-united-states-v-manuel-rodriguez" class="toc-link level-1" title="CASE 185: United States v. Manuel Rodriguez">CASE 185: United States v. Manuel Rodriguez</a></li>
-<li><a href="#sec-186-case-186-united-states-v-licarte" class="toc-link level-1" title="CASE 186: United States v. Licarte">CASE 186: United States v. Licarte</a></li>
-<li><a href="#sec-187-case-187-people-v-pagal" class="toc-link level-1" title="CASE 187: People v. Pagal">CASE 187: People v. Pagal</a></li>
-<li><a href="#sec-188-case-188-people-v-daniel" class="toc-link level-1" title="CASE 188: People v. Daniel">CASE 188: People v. Daniel</a></li>
-<li><a href="#sec-189-case-189-people-v-ambis" class="toc-link level-1" title="CASE 189: People v. Ambis">CASE 189: People v. Ambis</a></li>
-<li><a href="#sec-190-case-190-people-v-kalipayan" class="toc-link level-1" title="CASE 190: People v. Kalipayan">CASE 190: People v. Kalipayan</a></li>
-<li><a href="#sec-191-case-191-people-v-verdad" class="toc-link level-1" title="CASE 191: People v. Verdad">CASE 191: People v. Verdad</a></li>
-<li><a href="#sec-192-case-192-people-v-syou-hu" class="toc-link level-1" title="CASE 192: People v. Syou Hu">CASE 192: People v. Syou Hu</a></li>
-<li><a href="#sec-193-case-193-people-v-abrazaldo" class="toc-link level-1" title="CASE 193: People v. Abrazaldo">CASE 193: People v. Abrazaldo</a></li>
-<li><a href="#sec-194-case-194-people-v-bermas" class="toc-link level-1" title="CASE 194: People v. Bermas">CASE 194: People v. Bermas</a></li>
-<li><a href="#sec-195-case-195-people-v-matbagon" class="toc-link level-1" title="CASE 195: People v. Matbagon">CASE 195: People v. Matbagon</a></li>
-<li><a href="#sec-196-case-196-people-v-arpa" class="toc-link level-1" title="CASE 196: People v. Arpa">CASE 196: People v. Arpa</a></li>
-<li><a href="#sec-197-case-197-people-v-manlolo" class="toc-link level-1" title="CASE 197: People v. Manlolo">CASE 197: People v. Manlolo</a></li>
-<li><a href="#sec-198-case-198-united-states-v-rodriguez" class="toc-link level-1" title="CASE 198: United States v. Rodriguez">CASE 198: United States v. Rodriguez</a></li>
-<li><a href="#sec-199-case-199-people-v-hipolito" class="toc-link level-1" title="CASE 199: People v. Hipolito">CASE 199: People v. Hipolito</a></li>
-<li><a href="#sec-200-case-200-people-v-nabual" class="toc-link level-1" title="CASE 200: People v. Nabual">CASE 200: People v. Nabual</a></li>
-<li><a href="#sec-201-case-201-united-states-v-manalinde" class="toc-link level-1" title="CASE 201: United States v. Manalinde">CASE 201: United States v. Manalinde</a></li>
-<li><a href="#sec-202-case-202-people-v-quianola" class="toc-link level-1" title="CASE 202: People v. Quiñanola">CASE 202: People v. Quiñanola</a></li>
-<li><a href="#sec-203-case-203-united-states-v-devela" class="toc-link level-1" title="CASE 203: United States v. Devela">CASE 203: United States v. Devela</a></li>
-<li><a href="#sec-204-case-204-people-v-sangalang" class="toc-link level-1" title="CASE 204: People v. Sangalang">CASE 204: People v. Sangalang</a></li>
-<li><a href="#sec-205-case-205-people-v-caete" class="toc-link level-1" title="CASE 205: People v. Cañete">CASE 205: People v. Cañete</a></li>
-<li><a href="#sec-206-case-206-people-v-dela-cruz" class="toc-link level-1" title="CASE 206: People v. Dela Cruz">CASE 206: People v. Dela Cruz</a></li>
-<li><a href="#sec-207-case-207-people-v-monte" class="toc-link level-1" title="CASE 207: People v. Monte">CASE 207: People v. Monte</a></li>
-<li><a href="#sec-208-case-208-people-v-torrefiel" class="toc-link level-1" title="CASE 208: People v. Torrefiel">CASE 208: People v. Torrefiel</a></li>
-<li><a href="#sec-209-case-209-people-v-alfanta" class="toc-link level-1" title="CASE 209: People v. Alfanta">CASE 209: People v. Alfanta</a></li>
-<li><a href="#sec-210-case-210-people-v-fuertes" class="toc-link level-1" title="CASE 210: People v. Fuertes">CASE 210: People v. Fuertes</a></li>
-<li><a href="#sec-211-case-211-people-v-puda" class="toc-link level-1" title="CASE 211: People v. Puda">CASE 211: People v. Puda</a></li>
-<li><a href="#sec-212-case-212-people-v-bondoy" class="toc-link level-1" title="CASE 212: People v. Bondoy">CASE 212: People v. Bondoy</a></li>
-<li><a href="#sec-213-case-213-people-v-sitchon" class="toc-link level-1" title="CASE 213: People v. Sitchon">CASE 213: People v. Sitchon</a></li>
-<li><a href="#sec-214-case-214-people-v-fernandez" class="toc-link level-1" title="CASE 214: People v. Fernandez">CASE 214: People v. Fernandez</a></li>
-<li><a href="#sec-215-case-215-people-v-cortes" class="toc-link level-1" title="CASE 215: People v. Cortes">CASE 215: People v. Cortes</a></li>
-<li><a href="#sec-216-case-216-people-v-bernabe" class="toc-link level-1" title="CASE 216: People v. Bernabe">CASE 216: People v. Bernabe</a></li>
-<li><a href="#sec-217-case-217-people-v-orilla" class="toc-link level-1" title="CASE 217: People v. Orilla">CASE 217: People v. Orilla</a></li>
-<li><a href="#sec-218-case-218-people-v-lomaque" class="toc-link level-1" title="CASE 218: People v. Lomaque">CASE 218: People v. Lomaque</a></li>
-<li><a href="#sec-219-case-219-people-v-macatanda" class="toc-link level-1" title="CASE 219: People v. Macatanda">CASE 219: People v. Macatanda</a></li>
-<li><a href="#sec-220-case-220-people-v-baltazar" class="toc-link level-1" title="CASE 220: People v. Baltazar">CASE 220: People v. Baltazar</a></li>
-<li><a href="#sec-221-case-221-people-v-dejaresco" class="toc-link level-1" title="CASE 221: People v. Dejaresco">CASE 221: People v. Dejaresco</a></li>
-<li><a href="#sec-222-case-222-people-v-camano" class="toc-link level-1" title="CASE 222: People v. Camano">CASE 222: People v. Camano</a></li>
-<li><a href="#sec-223-case-223-people-v-mondigo" class="toc-link level-1" title="CASE 223: People v. Mondigo">CASE 223: People v. Mondigo</a></li>
-<li><a href="#sec-224-case-224-people-v-cortes" class="toc-link level-1" title="CASE 224: People v. Cortes">CASE 224: People v. Cortes</a></li>
-<li><a href="#sec-225-case-225-people-v-lua-chu" class="toc-link level-1" title="CASE 225: People v. Lua Chu">CASE 225: People v. Lua Chu</a></li>
-<li><a href="#sec-226-case-226-united-states-v-phelps" class="toc-link level-1" title="CASE 226: United States v. Phelps">CASE 226: United States v. Phelps</a></li>
-<li><a href="#sec-227-case-227-people-v-bartolome" class="toc-link level-1" title="CASE 227: People v. Bartolome">CASE 227: People v. Bartolome</a></li>
-<li><a href="#sec-228-case-228-people-v-genosa" class="toc-link level-1" title="CASE 228: People v. Genosa">CASE 228: People v. Genosa</a></li>
-<li><a href="#sec-229-case-229-united-states-v-diris" class="toc-link level-1" title="CASE 229: United States v. Diris">CASE 229: United States v. Diris</a></li>
-<li><a href="#sec-230-case-230-people-v-ong-chiat-lay" class="toc-link level-1" title="CASE 230: People v. Ong Chiat Lay">CASE 230: People v. Ong Chiat Lay</a></li>
-<li><a href="#sec-231-case-231-united-states-v-indanan" class="toc-link level-1" title="CASE 231: United States v. Indanan">CASE 231: United States v. Indanan</a></li>
-<li><a href="#sec-232-case-232-people-v-kichi-omine" class="toc-link level-1" title="CASE 232: People v. Kichi Omine">CASE 232: People v. Kichi Omine</a></li>
-<li><a href="#sec-233-case-233-people-v-montealegre" class="toc-link level-1" title="CASE 233: People v. Montealegre">CASE 233: People v. Montealegre</a></li>
-<li><a href="#sec-234-case-234-people-v-simbra" class="toc-link level-1" title="CASE 234: People v. Simbra">CASE 234: People v. Simbra</a></li>
-<li><a href="#sec-235-case-235-people-v-nierra" class="toc-link level-1" title="CASE 235: People v. Nierra">CASE 235: People v. Nierra</a></li>
-<li><a href="#sec-236-case-236-people-v-doble" class="toc-link level-1" title="CASE 236: People v. Doble">CASE 236: People v. Doble</a></li>
-<li><a href="#sec-237-case-237-people-v-doctolero" class="toc-link level-1" title="CASE 237: People v. Doctolero">CASE 237: People v. Doctolero</a></li>
-<li><a href="#sec-238-case-238-people-v-talingdan" class="toc-link level-1" title="CASE 238: People v. Talingdan">CASE 238: People v. Talingdan</a></li>
-<li><a href="#sec-239-case-239-vino-v-people" class="toc-link level-1" title="CASE 239: Vino v. People">CASE 239: Vino v. People</a></li>
-<li><a href="#sec-240-case-240-people-v-echegaray" class="toc-link level-1" title="CASE 240: People v. Echegaray">CASE 240: People v. Echegaray</a></li>
-<li><a href="#sec-241-case-241-enrile-v-salazar" class="toc-link level-1" title="CASE 241: Enrile v. Salazar">CASE 241: Enrile v. Salazar</a></li>
-<li><a href="#sec-242-case-242-napolis-v-court-of-appeals" class="toc-link level-1" title="CASE 242: Napolis v. Court of Appeals">CASE 242: Napolis v. Court of Appeals</a></li>
-<li><a href="#sec-243-case-243-people-v-toling" class="toc-link level-1" title="CASE 243: People v. Toling">CASE 243: People v. Toling</a></li>
-<li><a href="#sec-244-case-244-people-v-salvilla" class="toc-link level-1" title="CASE 244: People v. Salvilla">CASE 244: People v. Salvilla</a></li>
-<li><a href="#sec-245-case-245-people-v-valdez" class="toc-link level-1" title="CASE 245: People v. Valdez">CASE 245: People v. Valdez</a></li>
-<li><a href="#sec-246-case-246-people-v-de-leon" class="toc-link level-1" title="CASE 246: People v. De Leon">CASE 246: People v. De Leon</a></li>
-<li><a href="#sec-247-case-247-people-v-simon" class="toc-link level-1" title="CASE 247: People v. Simon">CASE 247: People v. Simon</a></li>
-<li><a href="#sec-248-case-248-rosa-lim-v-people" class="toc-link level-1" title="CASE 248: Rosa Lim v. People">CASE 248: Rosa Lim v. People</a></li>
-<li><a href="#sec-249-case-249-people-v-gabres" class="toc-link level-1" title="CASE 249: People v. Gabres">CASE 249: People v. Gabres</a></li>
-<li><a href="#sec-250-case-250-people-v-lampaza" class="toc-link level-1" title="CASE 250: People v. Lampaza">CASE 250: People v. Lampaza</a></li>
-<li><a href="#sec-251-case-251-people-v-oyanib" class="toc-link level-1" title="CASE 251: People v. Oyanib">CASE 251: People v. Oyanib</a></li>
-<li><a href="#sec-252-case-252-people-v-ducosin" class="toc-link level-1" title="CASE 252: People v. Ducosin">CASE 252: People v. Ducosin</a></li>
-<li><a href="#sec-253-case-253-people-v-formigones" class="toc-link level-1" title="CASE 253: People v. Formigones">CASE 253: People v. Formigones</a></li>
-<li><a href="#sec-254-case-254-francisco-v-court-of-appeals" class="toc-link level-1" title="CASE 254: Francisco v. Court of Appeals">CASE 254: Francisco v. Court of Appeals</a></li>
-<li><a href="#sec-255-case-255-yusi-v-morales" class="toc-link level-1" title="CASE 255: Yusi v. Morales">CASE 255: Yusi v. Morales</a></li>
-<li><a href="#sec-256-case-256-cal-v-court-of-appeals" class="toc-link level-1" title="CASE 256: Cal v. Court of Appeals">CASE 256: Cal v. Court of Appeals</a></li>
-<li><a href="#sec-257-case-257-llamado-v-court-of-appeals" class="toc-link level-1" title="CASE 257: Llamado v. Court of Appeals">CASE 257: Llamado v. Court of Appeals</a></li>
-<li><a href="#sec-258-case-258-baclayon-v-mutia" class="toc-link level-1" title="CASE 258: Baclayon v. Mutia">CASE 258: Baclayon v. Mutia</a></li>
-<li><a href="#sec-259-case-259-bala-v-martinez" class="toc-link level-1" title="CASE 259: Bala v. Martinez">CASE 259: Bala v. Martinez</a></li>
-<li><a href="#sec-260-case-260-salgado-v-court-of-appeals" class="toc-link level-1" title="CASE 260: Salgado v. Court of Appeals">CASE 260: Salgado v. Court of Appeals</a></li>
-<li><a href="#sec-261-case-261-people-v-bayotas" class="toc-link level-1" title="CASE 261: People v. Bayotas">CASE 261: People v. Bayotas</a></li>
-<li><a href="#sec-262-case-262-people-v-dela-cruz" class="toc-link level-1" title="CASE 262: People v. Dela Cruz">CASE 262: People v. Dela Cruz</a></li>
-<li><a href="#sec-263-case-263-people-v-patriarca" class="toc-link level-1" title="CASE 263: People v. Patriarca">CASE 263: People v. Patriarca</a></li>
-<li><a href="#sec-264-case-264-people-v-casido" class="toc-link level-1" title="CASE 264: People v. Casido">CASE 264: People v. Casido</a></li>
-<li><a href="#sec-265-case-265-barrioquinto-v-fernandez" class="toc-link level-1" title="CASE 265: Barrioquinto v. Fernandez">CASE 265: Barrioquinto v. Fernandez</a></li>
-<li><a href="#sec-266-case-266-flora-v-oximana" class="toc-link level-1" title="CASE 266: Flora v. Oximana">CASE 266: Flora v. Oximana</a></li>
-<li><a href="#sec-267-case-267-pelobello-v-palatino" class="toc-link level-1" title="CASE 267: Pelobello v. Palatino">CASE 267: Pelobello v. Palatino</a></li>
-<li><a href="#sec-268-case-268-in-re-antonio-infante" class="toc-link level-1" title="CASE 268: In re: Antonio Infante">CASE 268: In re: Antonio Infante</a></li>
-<li><a href="#sec-269-case-269-chua-v-court-of-appeals" class="toc-link level-1" title="CASE 269: Chua v. Court of Appeals">CASE 269: Chua v. Court of Appeals</a></li>
-<li><a href="#sec-270-case-270-carpio-v-doroja" class="toc-link level-1" title="CASE 270: Carpio v. Doroja">CASE 270: Carpio v. Doroja</a></li>
-<li><a href="#sec-271-case-271-basilio-v-court-of-appeals" class="toc-link level-1" title="CASE 271: Basilio v. Court of Appeals">CASE 271: Basilio v. Court of Appeals</a></li>
-<li><a href="#sec-272-case-272-philippine-rabbit-v-court-of-appeals" class="toc-link level-1" title="CASE 272: Philippine Rabbit v. Court of Appeals">CASE 272: Philippine Rabbit v. Court of Appeals</a></li>
-<li><a href="#sec-273-case-273-quinto-v-andres" class="toc-link level-1" title="CASE 273: Quinto v. Andres">CASE 273: Quinto v. Andres</a></li>
-<li><a href="#sec-274-case-274-heirs-of-raymundo-castro-v-bustos" class="toc-link level-1" title="CASE 274: Heirs of Raymundo Castro v. Bustos">CASE 274: Heirs of Raymundo Castro v. Bustos</a></li>
-<li><a href="#sec-275-case-275-people-v-bayotas" class="toc-link level-1" title="CASE 275: People v. Bayotas">CASE 275: People v. Bayotas</a></li>
+<li><a href="#sec-overview" class="toc-link level-1" title="Criminal Law 1 Complete 275 Landmark ALAC Case Digests"><span class="toc-link-text">Criminal Law 1 Complete 275 Landmark ALAC Case Digests</span></a></li>
+<li><a href="#sec-1-case-1-people-v-marivic-genosa" class="toc-link level-1" title="CASE 1: People v. Marivic Genosa"><span class="toc-link-text">CASE 1: People v. Marivic Genosa</span></a></li>
+<li><a href="#sec-2-case-2-norma-de-joya-v-jail-warden-of-batangas" class="toc-link level-1" title="CASE 2: Norma de Joya v. Jail Warden of Batangas"><span class="toc-link-text">CASE 2: Norma de Joya v. Jail Warden of Batangas</span></a></li>
+<li><a href="#sec-3-case-3-people-v-santiago" class="toc-link level-1" title="CASE 3: People v. Santiago"><span class="toc-link-text">CASE 3: People v. Santiago</span></a></li>
+<li><a href="#sec-4-case-4-united-states-v-pablo" class="toc-link level-1" title="CASE 4: United States v. Pablo"><span class="toc-link-text">CASE 4: United States v. Pablo</span></a></li>
+<li><a href="#sec-5-case-5-in-re-kay-villegas-kami-inc" class="toc-link level-1" title="CASE 5: In re: Kay Villegas Kami, Inc."><span class="toc-link-text">CASE 5: In re: Kay Villegas Kami, Inc.</span></a></li>
+<li><a href="#sec-6-case-6-people-v-villaraza" class="toc-link level-1" title="CASE 6: People v. Villaraza"><span class="toc-link-text">CASE 6: People v. Villaraza</span></a></li>
+<li><a href="#sec-7-case-7-us-v-diaz-conde" class="toc-link level-1" title="CASE 7: U.S. v. Diaz-Conde"><span class="toc-link-text">CASE 7: U.S. v. Diaz-Conde</span></a></li>
+<li><a href="#sec-8-case-8-people-of-the-philippines-vs-roman-derilo-et-al" class="toc-link level-1" title="CASE 8: People of the Philippines vs. Roman Derilo et al."><span class="toc-link-text">CASE 8: People of the Philippines vs. Roman Derilo et al.</span></a></li>
+<li><a href="#sec-9-case-9-people-v-ferrer" class="toc-link level-1" title="CASE 9: People v. Ferrer"><span class="toc-link-text">CASE 9: People v. Ferrer</span></a></li>
+<li><a href="#sec-10-case-10-pesigan-v-angeles" class="toc-link level-1" title="CASE 10: Pesigan v. Angeles"><span class="toc-link-text">CASE 10: Pesigan v. Angeles</span></a></li>
+<li><a href="#sec-11-case-11-taada-v-tuvera" class="toc-link level-1" title="CASE 11: Tañada v. Tuvera"><span class="toc-link-text">CASE 11: Tañada v. Tuvera</span></a></li>
+<li><a href="#sec-12-case-12-alfredo-romualdez-v-sandiganbayan" class="toc-link level-1" title="CASE 12: Alfredo Romualdez v. Sandiganbayan"><span class="toc-link-text">CASE 12: Alfredo Romualdez v. Sandiganbayan</span></a></li>
+<li><a href="#sec-13-case-13-spark-v-quezon-city" class="toc-link level-1" title="CASE 13: SPARK v. Quezon City"><span class="toc-link-text">CASE 13: SPARK v. Quezon City</span></a></li>
+<li><a href="#sec-14-case-14-united-states-v-sweet" class="toc-link level-1" title="CASE 14: United States v. Sweet"><span class="toc-link-text">CASE 14: United States v. Sweet</span></a></li>
+<li><a href="#sec-15-case-15-raquiza-v-bradford" class="toc-link level-1" title="CASE 15: Raquiza v. Bradford"><span class="toc-link-text">CASE 15: Raquiza v. Bradford</span></a></li>
+<li><a href="#sec-16-case-16-liang-v-people" class="toc-link level-1" title="CASE 16: Liang v. People"><span class="toc-link-text">CASE 16: Liang v. People</span></a></li>
+<li><a href="#sec-17-case-17-minucher-v-court-of-appeals" class="toc-link level-1" title="CASE 17: Minucher v. Court of Appeals"><span class="toc-link-text">CASE 17: Minucher v. Court of Appeals</span></a></li>
+<li><a href="#sec-18-case-18-vinuya-v-romulo" class="toc-link level-1" title="CASE 18: Vinuya v. Romulo"><span class="toc-link-text">CASE 18: Vinuya v. Romulo</span></a></li>
+<li><a href="#sec-19-case-19-osmea-v-pendatun" class="toc-link level-1" title="CASE 19: Osmeña v. Pendatun"><span class="toc-link-text">CASE 19: Osmeña v. Pendatun</span></a></li>
+<li><a href="#sec-20-case-20-people-v-jalosjos" class="toc-link level-1" title="CASE 20: People v. Jalosjos"><span class="toc-link-text">CASE 20: People v. Jalosjos</span></a></li>
+<li><a href="#sec-21-case-21-united-states-v-bull" class="toc-link level-1" title="CASE 21: United States v. Bull"><span class="toc-link-text">CASE 21: United States v. Bull</span></a></li>
+<li><a href="#sec-22-case-22-people-v-look-chaw" class="toc-link level-1" title="CASE 22: People v. Look Chaw"><span class="toc-link-text">CASE 22: People v. Look Chaw</span></a></li>
+<li><a href="#sec-23-case-23-united-states-v-ah-sing" class="toc-link level-1" title="CASE 23: United States v. Ah Sing"><span class="toc-link-text">CASE 23: United States v. Ah Sing</span></a></li>
+<li><a href="#sec-24-case-24-people-v-lo-lo-saraw" class="toc-link level-1" title="CASE 24: People v. Lo-lo &amp; Saraw"><span class="toc-link-text">CASE 24: People v. Lo-lo &amp; Saraw</span></a></li>
+<li><a href="#sec-25-case-25-people-v-wong-cheng" class="toc-link level-1" title="CASE 25: People v. Wong Cheng"><span class="toc-link-text">CASE 25: People v. Wong Cheng</span></a></li>
+<li><a href="#sec-26-case-26-miquiabas-v-commanding-general" class="toc-link level-1" title="CASE 26: Miquiabas v. Commanding General"><span class="toc-link-text">CASE 26: Miquiabas v. Commanding General</span></a></li>
+<li><a href="#sec-27-case-27-suzette-nicolas-vs-alberto-romulo-smith-vfa-case" class="toc-link level-1" title="CASE 27: Suzette Nicolas vs. Alberto Romulo (Smith / VFA Case)"><span class="toc-link-text">CASE 27: Suzette Nicolas vs. Alberto Romulo (Smith / VFA Case)</span></a></li>
+<li><a href="#sec-28-case-28-gumabon-v-director-of-prisons" class="toc-link level-1" title="CASE 28: Gumabon v. Director of Prisons"><span class="toc-link-text">CASE 28: Gumabon v. Director of Prisons</span></a></li>
+<li><a href="#sec-29-case-29-people-v-narvaez" class="toc-link level-1" title="CASE 29: People v. Narvaez"><span class="toc-link-text">CASE 29: People v. Narvaez</span></a></li>
+<li><a href="#sec-30-case-30-people-v-ringor" class="toc-link level-1" title="CASE 30: People v. Ringor"><span class="toc-link-text">CASE 30: People v. Ringor</span></a></li>
+<li><a href="#sec-31-case-31-people-v-pimentel" class="toc-link level-1" title="CASE 31: People v. Pimentel"><span class="toc-link-text">CASE 31: People v. Pimentel</span></a></li>
+<li><a href="#sec-32-case-32-people-v-lacson" class="toc-link level-1" title="CASE 32: People v. Lacson"><span class="toc-link-text">CASE 32: People v. Lacson</span></a></li>
+<li><a href="#sec-33-case-33-joemar-ortega-vs-people-of-the-philippines" class="toc-link level-1" title="CASE 33: Joemar Ortega vs. People of the Philippines"><span class="toc-link-text">CASE 33: Joemar Ortega vs. People of the Philippines</span></a></li>
+<li><a href="#sec-34-case-34-centeno-v-villalon-pornillos" class="toc-link level-1" title="CASE 34: Centeno v. Villalon-Pornillos"><span class="toc-link-text">CASE 34: Centeno v. Villalon-Pornillos</span></a></li>
+<li><a href="#sec-35-case-35-people-v-abuyen" class="toc-link level-1" title="CASE 35: People v. Abuyen"><span class="toc-link-text">CASE 35: People v. Abuyen</span></a></li>
+<li><a href="#sec-36-case-36-people-v-temporada" class="toc-link level-1" title="CASE 36: People v. Temporada"><span class="toc-link-text">CASE 36: People v. Temporada</span></a></li>
+<li><a href="#sec-37-case-37-people-v-garcia" class="toc-link level-1" title="CASE 37: People v. Garcia"><span class="toc-link-text">CASE 37: People v. Garcia</span></a></li>
+<li><a href="#sec-38-case-38-people-v-mesias" class="toc-link level-1" title="CASE 38: People v. Mesias"><span class="toc-link-text">CASE 38: People v. Mesias</span></a></li>
+<li><a href="#sec-39-case-39-tuates-v-bersamin" class="toc-link level-1" title="CASE 39: Tuates v. Bersamin"><span class="toc-link-text">CASE 39: Tuates v. Bersamin</span></a></li>
+<li><a href="#sec-40-case-40-benedicto-v-court-of-appeals" class="toc-link level-1" title="CASE 40: Benedicto v. Court of Appeals"><span class="toc-link-text">CASE 40: Benedicto v. Court of Appeals</span></a></li>
+<li><a href="#sec-41-case-41-valenzuela-v-people" class="toc-link level-1" title="CASE 41: Valenzuela v. People"><span class="toc-link-text">CASE 41: Valenzuela v. People</span></a></li>
+<li><a href="#sec-42-case-42-people-v-ojeda" class="toc-link level-1" title="CASE 42: People v. Ojeda"><span class="toc-link-text">CASE 42: People v. Ojeda</span></a></li>
+<li><a href="#sec-43-case-43-lozano-v-martinez" class="toc-link level-1" title="CASE 43: Lozano v. Martinez"><span class="toc-link-text">CASE 43: Lozano v. Martinez</span></a></li>
+<li><a href="#sec-44-case-44-magno-v-court-of-appeals" class="toc-link level-1" title="CASE 44: Magno v. Court of Appeals"><span class="toc-link-text">CASE 44: Magno v. Court of Appeals</span></a></li>
+<li><a href="#sec-45-case-45-united-states-v-go-chico" class="toc-link level-1" title="CASE 45: United States v. Go Chico"><span class="toc-link-text">CASE 45: United States v. Go Chico</span></a></li>
+<li><a href="#sec-46-case-46-estrada-v-sandiganbayan" class="toc-link level-1" title="CASE 46: Estrada v. Sandiganbayan"><span class="toc-link-text">CASE 46: Estrada v. Sandiganbayan</span></a></li>
+<li><a href="#sec-47-case-47-people-v-quijada" class="toc-link level-1" title="CASE 47: People v. Quijada"><span class="toc-link-text">CASE 47: People v. Quijada</span></a></li>
+<li><a href="#sec-48-case-48-teves-v-comelec" class="toc-link level-1" title="CASE 48: Teves v. COMELEC"><span class="toc-link-text">CASE 48: Teves v. COMELEC</span></a></li>
+<li><a href="#sec-49-case-49-ladonga-v-people" class="toc-link level-1" title="CASE 49: Ladonga v. People"><span class="toc-link-text">CASE 49: Ladonga v. People</span></a></li>
+<li><a href="#sec-50-case-50-people-v-gonzales" class="toc-link level-1" title="CASE 50: People v. Gonzales"><span class="toc-link-text">CASE 50: People v. Gonzales</span></a></li>
+<li><a href="#sec-51-case-51-people-v-sylvestre-and-atienza" class="toc-link level-1" title="CASE 51: People v. Sylvestre and Atienza"><span class="toc-link-text">CASE 51: People v. Sylvestre and Atienza</span></a></li>
+<li><a href="#sec-52-case-52-potenciano-evangelista-v-people" class="toc-link level-1" title="CASE 52: Potenciano Evangelista v. People"><span class="toc-link-text">CASE 52: Potenciano Evangelista v. People</span></a></li>
+<li><a href="#sec-53-case-53-rimando-v-comelec" class="toc-link level-1" title="CASE 53: Rimando v. COMELEC"><span class="toc-link-text">CASE 53: Rimando v. COMELEC</span></a></li>
+<li><a href="#sec-54-case-54-villareal-v-people-lenny-villa-hazing-case" class="toc-link level-1" title="CASE 54: Villareal v. People (Lenny Villa Hazing Case)"><span class="toc-link-text">CASE 54: Villareal v. People (Lenny Villa Hazing Case)</span></a></li>
+<li><a href="#sec-55-case-55-maderazo-v-people" class="toc-link level-1" title="CASE 55: Maderazo v. People"><span class="toc-link-text">CASE 55: Maderazo v. People</span></a></li>
+<li><a href="#sec-56-case-56-united-states-v-apostol" class="toc-link level-1" title="CASE 56: United States v. Apostol"><span class="toc-link-text">CASE 56: United States v. Apostol</span></a></li>
+<li><a href="#sec-57-case-57-united-states-v-catolico" class="toc-link level-1" title="CASE 57: United States v. Catolico"><span class="toc-link-text">CASE 57: United States v. Catolico</span></a></li>
+<li><a href="#sec-58-case-58-people-v-carmen" class="toc-link level-1" title="CASE 58: People v. Carmen"><span class="toc-link-text">CASE 58: People v. Carmen</span></a></li>
+<li><a href="#sec-59-case-59-people-v-puno" class="toc-link level-1" title="CASE 59: People v. Puno"><span class="toc-link-text">CASE 59: People v. Puno</span></a></li>
+<li><a href="#sec-60-case-60-people-v-delim" class="toc-link level-1" title="CASE 60: People v. Delim"><span class="toc-link-text">CASE 60: People v. Delim</span></a></li>
+<li><a href="#sec-61-case-61-people-v-temblor" class="toc-link level-1" title="CASE 61: People v. Temblor"><span class="toc-link-text">CASE 61: People v. Temblor</span></a></li>
+<li><a href="#sec-62-case-62-people-v-hassan" class="toc-link level-1" title="CASE 62: People v. Hassan"><span class="toc-link-text">CASE 62: People v. Hassan</span></a></li>
+<li><a href="#sec-63-case-63-united-states-v-ah-chong" class="toc-link level-1" title="CASE 63: United States v. Ah Chong"><span class="toc-link-text">CASE 63: United States v. Ah Chong</span></a></li>
+<li><a href="#sec-64-case-64-people-v-oanis" class="toc-link level-1" title="CASE 64: People v. Oanis"><span class="toc-link-text">CASE 64: People v. Oanis</span></a></li>
+<li><a href="#sec-65-case-65-ivler-vs-hon-maria-rowena-modesto-san-pedro" class="toc-link level-1" title="CASE 65: Ivler vs. Hon. Maria Rowena Modesto-San Pedro"><span class="toc-link-text">CASE 65: Ivler vs. Hon. Maria Rowena Modesto-San Pedro</span></a></li>
+<li><a href="#sec-66-case-66-people-v-pugay" class="toc-link level-1" title="CASE 66: People v. Pugay"><span class="toc-link-text">CASE 66: People v. Pugay</span></a></li>
+<li><a href="#sec-67-case-67-united-states-v-brobst" class="toc-link level-1" title="CASE 67: United States v. Brobst"><span class="toc-link-text">CASE 67: United States v. Brobst</span></a></li>
+<li><a href="#sec-68-case-68-people-v-mananquil" class="toc-link level-1" title="CASE 68: People v. Mananquil"><span class="toc-link-text">CASE 68: People v. Mananquil</span></a></li>
+<li><a href="#sec-69-case-69-people-v-iligan" class="toc-link level-1" title="CASE 69: People v. Iligan"><span class="toc-link-text">CASE 69: People v. Iligan</span></a></li>
+<li><a href="#sec-70-case-70-people-v-albuquerque" class="toc-link level-1" title="CASE 70: People v. Albuquerque"><span class="toc-link-text">CASE 70: People v. Albuquerque</span></a></li>
+<li><a href="#sec-71-case-71-yadao-v-people" class="toc-link level-1" title="CASE 71: Yadao v. People"><span class="toc-link-text">CASE 71: Yadao v. People</span></a></li>
+<li><a href="#sec-72-case-72-people-v-adriano" class="toc-link level-1" title="CASE 72: People v. Adriano"><span class="toc-link-text">CASE 72: People v. Adriano</span></a></li>
+<li><a href="#sec-73-case-73-people-v-bendecio" class="toc-link level-1" title="CASE 73: People v. Bendecio"><span class="toc-link-text">CASE 73: People v. Bendecio</span></a></li>
+<li><a href="#sec-74-case-74-people-v-gemoya" class="toc-link level-1" title="CASE 74: People v. Gemoya"><span class="toc-link-text">CASE 74: People v. Gemoya</span></a></li>
+<li><a href="#sec-75-case-75-people-v-guillen" class="toc-link level-1" title="CASE 75: People v. Guillen"><span class="toc-link-text">CASE 75: People v. Guillen</span></a></li>
+<li><a href="#sec-76-case-76-people-v-sabalones" class="toc-link level-1" title="CASE 76: People v. Sabalones"><span class="toc-link-text">CASE 76: People v. Sabalones</span></a></li>
+<li><a href="#sec-77-case-77-people-v-hilario" class="toc-link level-1" title="CASE 77: People v. Hilario"><span class="toc-link-text">CASE 77: People v. Hilario</span></a></li>
+<li><a href="#sec-78-case-78-people-v-balmores" class="toc-link level-1" title="CASE 78: People v. Balmores"><span class="toc-link-text">CASE 78: People v. Balmores</span></a></li>
+<li><a href="#sec-79-case-79-intod-v-court-of-appeals" class="toc-link level-1" title="CASE 79: Intod v. Court of Appeals"><span class="toc-link-text">CASE 79: Intod v. Court of Appeals</span></a></li>
+<li><a href="#sec-80-case-80-jacinto-v-people" class="toc-link level-1" title="CASE 80: Jacinto v. People"><span class="toc-link-text">CASE 80: Jacinto v. People</span></a></li>
+<li><a href="#sec-81-case-81-united-states-v-eduave" class="toc-link level-1" title="CASE 81: United States v. Eduave"><span class="toc-link-text">CASE 81: United States v. Eduave</span></a></li>
+<li><a href="#sec-82-case-82-people-v-enriquez" class="toc-link level-1" title="CASE 82: People v. Enriquez"><span class="toc-link-text">CASE 82: People v. Enriquez</span></a></li>
+<li><a href="#sec-83-case-83-people-v-listerio" class="toc-link level-1" title="CASE 83: People v. Listerio"><span class="toc-link-text">CASE 83: People v. Listerio</span></a></li>
+<li><a href="#sec-84-case-84-people-v-erinia" class="toc-link level-1" title="CASE 84: People v. Erinia"><span class="toc-link-text">CASE 84: People v. Erinia</span></a></li>
+<li><a href="#sec-85-case-85-people-v-hernandez" class="toc-link level-1" title="CASE 85: People v. Hernandez"><span class="toc-link-text">CASE 85: People v. Hernandez</span></a></li>
+<li><a href="#sec-86-case-86-people-v-orita" class="toc-link level-1" title="CASE 86: People v. Orita"><span class="toc-link-text">CASE 86: People v. Orita</span></a></li>
+<li><a href="#sec-87-case-87-people-v-campuhan" class="toc-link level-1" title="CASE 87: People v. Campuhan"><span class="toc-link-text">CASE 87: People v. Campuhan</span></a></li>
+<li><a href="#sec-88-case-88-people-vs-agao" class="toc-link level-1" title="CASE 88: People vs. Agao"><span class="toc-link-text">CASE 88: People vs. Agao</span></a></li>
+<li><a href="#sec-89-case-89-cruz-v-people" class="toc-link level-1" title="CASE 89: Cruz v. People"><span class="toc-link-text">CASE 89: Cruz v. People</span></a></li>
+<li><a href="#sec-90-case-90-lutap-v-people" class="toc-link level-1" title="CASE 90: Lutap v. People"><span class="toc-link-text">CASE 90: Lutap v. People</span></a></li>
+<li><a href="#sec-91-case-91-united-states-v-adiao" class="toc-link level-1" title="CASE 91: United States v. Adiao"><span class="toc-link-text">CASE 91: United States v. Adiao</span></a></li>
+<li><a href="#sec-92-case-92-people-v-dino" class="toc-link level-1" title="CASE 92: People v. Dino"><span class="toc-link-text">CASE 92: People v. Dino</span></a></li>
+<li><a href="#sec-93-case-93-aristotel-valenzuela-v-people" class="toc-link level-1" title="CASE 93: Aristotel Valenzuela v. People"><span class="toc-link-text">CASE 93: Aristotel Valenzuela v. People</span></a></li>
+<li><a href="#sec-94-case-94-people-v-lamahang" class="toc-link level-1" title="CASE 94: People v. Lamahang"><span class="toc-link-text">CASE 94: People v. Lamahang</span></a></li>
+<li><a href="#sec-95-case-95-people-v-salvilla" class="toc-link level-1" title="CASE 95: People v. Salvilla"><span class="toc-link-text">CASE 95: People v. Salvilla</span></a></li>
+<li><a href="#sec-96-case-96-people-v-bulalayao" class="toc-link level-1" title="CASE 96: People v. Bulalayao"><span class="toc-link-text">CASE 96: People v. Bulalayao</span></a></li>
+<li><a href="#sec-97-case-97-people-v-borinaga" class="toc-link level-1" title="CASE 97: People v. Borinaga"><span class="toc-link-text">CASE 97: People v. Borinaga</span></a></li>
+<li><a href="#sec-98-case-98-people-v-sy-pio" class="toc-link level-1" title="CASE 98: People v. Sy Pio"><span class="toc-link-text">CASE 98: People v. Sy Pio</span></a></li>
+<li><a href="#sec-99-case-99-people-v-trinidad" class="toc-link level-1" title="CASE 99: People v. Trinidad"><span class="toc-link-text">CASE 99: People v. Trinidad</span></a></li>
+<li><a href="#sec-100-case-100-people-v-ravelo" class="toc-link level-1" title="CASE 100: People v. Ravelo"><span class="toc-link-text">CASE 100: People v. Ravelo</span></a></li>
+<li><a href="#sec-101-case-101-people-v-kalalo" class="toc-link level-1" title="CASE 101: People v. Kalalo"><span class="toc-link-text">CASE 101: People v. Kalalo</span></a></li>
+<li><a href="#sec-102-case-102-guzman-jr-v-people" class="toc-link level-1" title="CASE 102: Guzman, Jr. v. People"><span class="toc-link-text">CASE 102: Guzman, Jr. v. People</span></a></li>
+<li><a href="#sec-103-case-103-etino-v-people" class="toc-link level-1" title="CASE 103: Etino v. People"><span class="toc-link-text">CASE 103: Etino v. People</span></a></li>
+<li><a href="#sec-104-case-104-people-v-peralta" class="toc-link level-1" title="CASE 104: People v. Peralta"><span class="toc-link-text">CASE 104: People v. Peralta</span></a></li>
+<li><a href="#sec-105-case-105-united-states-v-bautista" class="toc-link level-1" title="CASE 105: United States v. Bautista"><span class="toc-link-text">CASE 105: United States v. Bautista</span></a></li>
+<li><a href="#sec-106-case-106-quidet-v-people" class="toc-link level-1" title="CASE 106: Quidet v. People"><span class="toc-link-text">CASE 106: Quidet v. People</span></a></li>
+<li><a href="#sec-107-case-107-people-v-belmonte" class="toc-link level-1" title="CASE 107: People v. Belmonte"><span class="toc-link-text">CASE 107: People v. Belmonte</span></a></li>
+<li><a href="#sec-108-case-108-people-v-lago" class="toc-link level-1" title="CASE 108: People v. Lago"><span class="toc-link-text">CASE 108: People v. Lago</span></a></li>
+<li><a href="#sec-109-case-109-people-v-real" class="toc-link level-1" title="CASE 109: People v. Real"><span class="toc-link-text">CASE 109: People v. Real</span></a></li>
+<li><a href="#sec-110-case-110-people-v-ibasco" class="toc-link level-1" title="CASE 110: People v. Ibasco"><span class="toc-link-text">CASE 110: People v. Ibasco</span></a></li>
+<li><a href="#sec-111-case-111-people-v-cajara" class="toc-link level-1" title="CASE 111: People v. Cajara"><span class="toc-link-text">CASE 111: People v. Cajara</span></a></li>
+<li><a href="#sec-112-case-112-people-v-masonson" class="toc-link level-1" title="CASE 112: People v. Masonson"><span class="toc-link-text">CASE 112: People v. Masonson</span></a></li>
+<li><a href="#sec-113-case-113-people-v-tolentino" class="toc-link level-1" title="CASE 113: People v. Tolentino"><span class="toc-link-text">CASE 113: People v. Tolentino</span></a></li>
+<li><a href="#sec-114-case-114-people-v-layson" class="toc-link level-1" title="CASE 114: People v. Layson"><span class="toc-link-text">CASE 114: People v. Layson</span></a></li>
+<li><a href="#sec-115-case-115-people-v-peralta" class="toc-link level-1" title="CASE 115: People v. Peralta"><span class="toc-link-text">CASE 115: People v. Peralta</span></a></li>
+<li><a href="#sec-116-case-116-people-v-genosa" class="toc-link level-1" title="CASE 116: People v. Genosa"><span class="toc-link-text">CASE 116: People v. Genosa</span></a></li>
+<li><a href="#sec-117-case-117-people-v-dulin" class="toc-link level-1" title="CASE 117: People v. Dulin"><span class="toc-link-text">CASE 117: People v. Dulin</span></a></li>
+<li><a href="#sec-118-case-118-people-v-olarbe" class="toc-link level-1" title="CASE 118: People v. Olarbe"><span class="toc-link-text">CASE 118: People v. Olarbe</span></a></li>
+<li><a href="#sec-119-case-119-nacnac-v-people" class="toc-link level-1" title="CASE 119: Nacnac v. People"><span class="toc-link-text">CASE 119: Nacnac v. People</span></a></li>
+<li><a href="#sec-120-case-120-people-v-eduarte" class="toc-link level-1" title="CASE 120: People v. Eduarte"><span class="toc-link-text">CASE 120: People v. Eduarte</span></a></li>
+<li><a href="#sec-121-case-121-people-v-apolinar" class="toc-link level-1" title="CASE 121: People v. Apolinar"><span class="toc-link-text">CASE 121: People v. Apolinar</span></a></li>
+<li><a href="#sec-122-case-122-united-states-v-bumanglag" class="toc-link level-1" title="CASE 122: United States v. Bumanglag"><span class="toc-link-text">CASE 122: United States v. Bumanglag</span></a></li>
+<li><a href="#sec-123-case-123-people-v-narvaez" class="toc-link level-1" title="CASE 123: People v. Narvaez"><span class="toc-link-text">CASE 123: People v. Narvaez</span></a></li>
+<li><a href="#sec-124-case-124-united-states-v-esmedia" class="toc-link level-1" title="CASE 124: United States v. Esmedia"><span class="toc-link-text">CASE 124: United States v. Esmedia</span></a></li>
+<li><a href="#sec-125-case-125-people-v-toring" class="toc-link level-1" title="CASE 125: People v. Toring"><span class="toc-link-text">CASE 125: People v. Toring</span></a></li>
+<li><a href="#sec-126-case-126-masipequia-v-court-of-appeals" class="toc-link level-1" title="CASE 126: Masipequiña v. Court of Appeals"><span class="toc-link-text">CASE 126: Masipequiña v. Court of Appeals</span></a></li>
+<li><a href="#sec-127-case-127-people-v-retubado" class="toc-link level-1" title="CASE 127: People v. Retubado"><span class="toc-link-text">CASE 127: People v. Retubado</span></a></li>
+<li><a href="#sec-128-case-128-tan-v-standard-vacuum-oil-co" class="toc-link level-1" title="CASE 128: Tan v. Standard Vacuum Oil Co."><span class="toc-link-text">CASE 128: Tan v. Standard Vacuum Oil Co.</span></a></li>
+<li><a href="#sec-129-case-129-people-v-delima" class="toc-link level-1" title="CASE 129: People v. Delima"><span class="toc-link-text">CASE 129: People v. Delima</span></a></li>
+<li><a href="#sec-130-case-130-people-v-belbes" class="toc-link level-1" title="CASE 130: People v. Belbes"><span class="toc-link-text">CASE 130: People v. Belbes</span></a></li>
+<li><a href="#sec-131-case-131-cabanlig-v-sandiganbayan" class="toc-link level-1" title="CASE 131: Cabanlig v. Sandiganbayan"><span class="toc-link-text">CASE 131: Cabanlig v. Sandiganbayan</span></a></li>
+<li><a href="#sec-132-case-132-tabuena-v-sandiganbayan" class="toc-link level-1" title="CASE 132: Tabuena v. Sandiganbayan"><span class="toc-link-text">CASE 132: Tabuena v. Sandiganbayan</span></a></li>
+<li><a href="#sec-133-case-133-people-v-bonoan" class="toc-link level-1" title="CASE 133: People v. Bonoan"><span class="toc-link-text">CASE 133: People v. Bonoan</span></a></li>
+<li><a href="#sec-134-case-134-people-v-ambal" class="toc-link level-1" title="CASE 134: People v. Ambal"><span class="toc-link-text">CASE 134: People v. Ambal</span></a></li>
+<li><a href="#sec-135-case-135-people-v-puno" class="toc-link level-1" title="CASE 135: People v. Puno"><span class="toc-link-text">CASE 135: People v. Puno</span></a></li>
+<li><a href="#sec-136-case-136-people-v-dungo" class="toc-link level-1" title="CASE 136: People v. Dungo"><span class="toc-link-text">CASE 136: People v. Dungo</span></a></li>
+<li><a href="#sec-137-case-137-people-v-yam-id" class="toc-link level-1" title="CASE 137: People v. Yam-id"><span class="toc-link-text">CASE 137: People v. Yam-id</span></a></li>
+<li><a href="#sec-138-case-138-people-v-valledor" class="toc-link level-1" title="CASE 138: People v. Valledor"><span class="toc-link-text">CASE 138: People v. Valledor</span></a></li>
+<li><a href="#sec-139-case-139-people-v-belonio" class="toc-link level-1" title="CASE 139: People v. Belonio"><span class="toc-link-text">CASE 139: People v. Belonio</span></a></li>
+<li><a href="#sec-140-case-140-people-v-pantoja" class="toc-link level-1" title="CASE 140: People v. Pantoja"><span class="toc-link-text">CASE 140: People v. Pantoja</span></a></li>
+<li><a href="#sec-141-case-141-people-v-roa" class="toc-link level-1" title="CASE 141: People v. Roa"><span class="toc-link-text">CASE 141: People v. Roa</span></a></li>
+<li><a href="#sec-142-case-142-people-v-buenaflor" class="toc-link level-1" title="CASE 142: People v. Buenaflor"><span class="toc-link-text">CASE 142: People v. Buenaflor</span></a></li>
+<li><a href="#sec-143-case-143-people-v-nuez" class="toc-link level-1" title="CASE 143: People v. Nuñez"><span class="toc-link-text">CASE 143: People v. Nuñez</span></a></li>
+<li><a href="#sec-144-case-144-people-v-taneo" class="toc-link level-1" title="CASE 144: People v. Taneo"><span class="toc-link-text">CASE 144: People v. Taneo</span></a></li>
+<li><a href="#sec-145-case-145-guevarra-v-hon-ignacio-almodovar" class="toc-link level-1" title="CASE 145: Guevarra v. Hon. Ignacio Almodovar"><span class="toc-link-text">CASE 145: Guevarra v. Hon. Ignacio Almodovar</span></a></li>
+<li><a href="#sec-146-case-146-people-v-doquea" class="toc-link level-1" title="CASE 146: People v. Doqueña"><span class="toc-link-text">CASE 146: People v. Doqueña</span></a></li>
+<li><a href="#sec-147-case-147-people-v-navarro" class="toc-link level-1" title="CASE 147: People v. Navarro"><span class="toc-link-text">CASE 147: People v. Navarro</span></a></li>
+<li><a href="#sec-148-case-148-jose-v-people" class="toc-link level-1" title="CASE 148: Jose v. People"><span class="toc-link-text">CASE 148: Jose v. People</span></a></li>
+<li><a href="#sec-149-case-149-people-v-jacinto" class="toc-link level-1" title="CASE 149: People v. Jacinto"><span class="toc-link-text">CASE 149: People v. Jacinto</span></a></li>
+<li><a href="#sec-150-case-150-people-v-arpon" class="toc-link level-1" title="CASE 150: People v. Arpon"><span class="toc-link-text">CASE 150: People v. Arpon</span></a></li>
+<li><a href="#sec-151-case-151-sierra-v-people" class="toc-link level-1" title="CASE 151: Sierra v. People"><span class="toc-link-text">CASE 151: Sierra v. People</span></a></li>
+<li><a href="#sec-152-case-152-people-v-bindoy" class="toc-link level-1" title="CASE 152: People v. Bindoy"><span class="toc-link-text">CASE 152: People v. Bindoy</span></a></li>
+<li><a href="#sec-153-case-153-us-v-tanedo" class="toc-link level-1" title="CASE 153: U.S. v. Tanedo"><span class="toc-link-text">CASE 153: U.S. v. Tanedo</span></a></li>
+<li><a href="#sec-154-case-154-pomoy-v-people" class="toc-link level-1" title="CASE 154: Pomoy v. People"><span class="toc-link-text">CASE 154: Pomoy v. People</span></a></li>
+<li><a href="#sec-155-case-155-people-v-macal" class="toc-link level-1" title="CASE 155: People v. Macal"><span class="toc-link-text">CASE 155: People v. Macal</span></a></li>
+<li><a href="#sec-156-case-156-people-v-delector" class="toc-link level-1" title="CASE 156: People v. Delector"><span class="toc-link-text">CASE 156: People v. Delector</span></a></li>
+<li><a href="#sec-157-case-157-united-states-v-caballeros" class="toc-link level-1" title="CASE 157: United States v. Caballeros"><span class="toc-link-text">CASE 157: United States v. Caballeros</span></a></li>
+<li><a href="#sec-158-case-158-united-states-v-exaltacion" class="toc-link level-1" title="CASE 158: United States v. Exaltacion"><span class="toc-link-text">CASE 158: United States v. Exaltacion</span></a></li>
+<li><a href="#sec-159-case-159-people-v-anod" class="toc-link level-1" title="CASE 159: People v. Anod"><span class="toc-link-text">CASE 159: People v. Anod</span></a></li>
+<li><a href="#sec-160-case-160-people-v-dansal" class="toc-link level-1" title="CASE 160: People v. Dansal"><span class="toc-link-text">CASE 160: People v. Dansal</span></a></li>
+<li><a href="#sec-161-case-161-us-v-vicentillo" class="toc-link level-1" title="CASE 161: U.S. v. Vicentillo"><span class="toc-link-text">CASE 161: U.S. v. Vicentillo</span></a></li>
+<li><a href="#sec-162-case-162-people-v-bandian" class="toc-link level-1" title="CASE 162: People v. Bandian"><span class="toc-link-text">CASE 162: People v. Bandian</span></a></li>
+<li><a href="#sec-163-case-163-people-v-ural" class="toc-link level-1" title="CASE 163: People v. Ural"><span class="toc-link-text">CASE 163: People v. Ural</span></a></li>
+<li><a href="#sec-164-case-164-people-v-reyes" class="toc-link level-1" title="CASE 164: People v. Reyes"><span class="toc-link-text">CASE 164: People v. Reyes</span></a></li>
+<li><a href="#sec-165-case-165-people-v-leonor" class="toc-link level-1" title="CASE 165: People v. Leonor"><span class="toc-link-text">CASE 165: People v. Leonor</span></a></li>
+<li><a href="#sec-166-case-166-miranda-v-people" class="toc-link level-1" title="CASE 166: Miranda v. People"><span class="toc-link-text">CASE 166: Miranda v. People</span></a></li>
+<li><a href="#sec-167-case-167-urbano-v-people" class="toc-link level-1" title="CASE 167: Urbano v. People"><span class="toc-link-text">CASE 167: Urbano v. People</span></a></li>
+<li><a href="#sec-168-case-168-oriente-v-people" class="toc-link level-1" title="CASE 168: Oriente v. People"><span class="toc-link-text">CASE 168: Oriente v. People</span></a></li>
+<li><a href="#sec-169-case-169-people-v-racal" class="toc-link level-1" title="CASE 169: People v. Racal"><span class="toc-link-text">CASE 169: People v. Racal</span></a></li>
+<li><a href="#sec-170-case-170-united-states-v-ampar" class="toc-link level-1" title="CASE 170: United States v. Ampar"><span class="toc-link-text">CASE 170: United States v. Ampar</span></a></li>
+<li><a href="#sec-171-case-171-people-v-pajares" class="toc-link level-1" title="CASE 171: People v. Pajares"><span class="toc-link-text">CASE 171: People v. Pajares</span></a></li>
+<li><a href="#sec-172-case-172-napone-jr-v-people" class="toc-link level-1" title="CASE 172: Napone, Jr. v. People"><span class="toc-link-text">CASE 172: Napone, Jr. v. People</span></a></li>
+<li><a href="#sec-173-case-173-david-v-court-of-appeals" class="toc-link level-1" title="CASE 173: David v. Court of Appeals"><span class="toc-link-text">CASE 173: David v. Court of Appeals</span></a></li>
+<li><a href="#sec-174-case-174-united-states-v-hicks" class="toc-link level-1" title="CASE 174: United States v. Hicks"><span class="toc-link-text">CASE 174: United States v. Hicks</span></a></li>
+<li><a href="#sec-175-case-175-united-states-v-de-la-cruz" class="toc-link level-1" title="CASE 175: United States v. De la Cruz"><span class="toc-link-text">CASE 175: United States v. De la Cruz</span></a></li>
+<li><a href="#sec-176-case-176-people-v-placer" class="toc-link level-1" title="CASE 176: People v. Placer"><span class="toc-link-text">CASE 176: People v. Placer</span></a></li>
+<li><a href="#sec-177-case-177-de-vera-v-de-vera" class="toc-link level-1" title="CASE 177: De Vera v. De Vera"><span class="toc-link-text">CASE 177: De Vera v. De Vera</span></a></li>
+<li><a href="#sec-178-case-178-people-v-quijano" class="toc-link level-1" title="CASE 178: People v. Quijano"><span class="toc-link-text">CASE 178: People v. Quijano</span></a></li>
+<li><a href="#sec-179-case-179-people-v-javier" class="toc-link level-1" title="CASE 179: People v. Javier"><span class="toc-link-text">CASE 179: People v. Javier</span></a></li>
+<li><a href="#sec-180-case-180-canta-v-people" class="toc-link level-1" title="CASE 180: Canta v. People"><span class="toc-link-text">CASE 180: Canta v. People</span></a></li>
+<li><a href="#sec-181-case-181-eduarte-v-people" class="toc-link level-1" title="CASE 181: Eduarte v. People"><span class="toc-link-text">CASE 181: Eduarte v. People</span></a></li>
+<li><a href="#sec-182-case-182-people-v-ordiales" class="toc-link level-1" title="CASE 182: People v. Ordiales"><span class="toc-link-text">CASE 182: People v. Ordiales</span></a></li>
+<li><a href="#sec-183-case-183-people-v-torrida" class="toc-link level-1" title="CASE 183: People v. Torrida"><span class="toc-link-text">CASE 183: People v. Torrida</span></a></li>
+<li><a href="#sec-184-case-184-people-v-rodil" class="toc-link level-1" title="CASE 184: People v. Rodil"><span class="toc-link-text">CASE 184: People v. Rodil</span></a></li>
+<li><a href="#sec-185-case-185-united-states-v-manuel-rodriguez" class="toc-link level-1" title="CASE 185: United States v. Manuel Rodriguez"><span class="toc-link-text">CASE 185: United States v. Manuel Rodriguez</span></a></li>
+<li><a href="#sec-186-case-186-united-states-v-licarte" class="toc-link level-1" title="CASE 186: United States v. Licarte"><span class="toc-link-text">CASE 186: United States v. Licarte</span></a></li>
+<li><a href="#sec-187-case-187-people-v-pagal" class="toc-link level-1" title="CASE 187: People v. Pagal"><span class="toc-link-text">CASE 187: People v. Pagal</span></a></li>
+<li><a href="#sec-188-case-188-people-v-daniel" class="toc-link level-1" title="CASE 188: People v. Daniel"><span class="toc-link-text">CASE 188: People v. Daniel</span></a></li>
+<li><a href="#sec-189-case-189-people-v-ambis" class="toc-link level-1" title="CASE 189: People v. Ambis"><span class="toc-link-text">CASE 189: People v. Ambis</span></a></li>
+<li><a href="#sec-190-case-190-people-v-kalipayan" class="toc-link level-1" title="CASE 190: People v. Kalipayan"><span class="toc-link-text">CASE 190: People v. Kalipayan</span></a></li>
+<li><a href="#sec-191-case-191-people-v-verdad" class="toc-link level-1" title="CASE 191: People v. Verdad"><span class="toc-link-text">CASE 191: People v. Verdad</span></a></li>
+<li><a href="#sec-192-case-192-people-v-syou-hu" class="toc-link level-1" title="CASE 192: People v. Syou Hu"><span class="toc-link-text">CASE 192: People v. Syou Hu</span></a></li>
+<li><a href="#sec-193-case-193-people-v-abrazaldo" class="toc-link level-1" title="CASE 193: People v. Abrazaldo"><span class="toc-link-text">CASE 193: People v. Abrazaldo</span></a></li>
+<li><a href="#sec-194-case-194-people-v-bermas" class="toc-link level-1" title="CASE 194: People v. Bermas"><span class="toc-link-text">CASE 194: People v. Bermas</span></a></li>
+<li><a href="#sec-195-case-195-people-v-matbagon" class="toc-link level-1" title="CASE 195: People v. Matbagon"><span class="toc-link-text">CASE 195: People v. Matbagon</span></a></li>
+<li><a href="#sec-196-case-196-people-v-arpa" class="toc-link level-1" title="CASE 196: People v. Arpa"><span class="toc-link-text">CASE 196: People v. Arpa</span></a></li>
+<li><a href="#sec-197-case-197-people-v-manlolo" class="toc-link level-1" title="CASE 197: People v. Manlolo"><span class="toc-link-text">CASE 197: People v. Manlolo</span></a></li>
+<li><a href="#sec-198-case-198-united-states-v-rodriguez" class="toc-link level-1" title="CASE 198: United States v. Rodriguez"><span class="toc-link-text">CASE 198: United States v. Rodriguez</span></a></li>
+<li><a href="#sec-199-case-199-people-v-hipolito" class="toc-link level-1" title="CASE 199: People v. Hipolito"><span class="toc-link-text">CASE 199: People v. Hipolito</span></a></li>
+<li><a href="#sec-200-case-200-people-v-nabual" class="toc-link level-1" title="CASE 200: People v. Nabual"><span class="toc-link-text">CASE 200: People v. Nabual</span></a></li>
+<li><a href="#sec-201-case-201-united-states-v-manalinde" class="toc-link level-1" title="CASE 201: United States v. Manalinde"><span class="toc-link-text">CASE 201: United States v. Manalinde</span></a></li>
+<li><a href="#sec-202-case-202-people-v-quianola" class="toc-link level-1" title="CASE 202: People v. Quiñanola"><span class="toc-link-text">CASE 202: People v. Quiñanola</span></a></li>
+<li><a href="#sec-203-case-203-united-states-v-devela" class="toc-link level-1" title="CASE 203: United States v. Devela"><span class="toc-link-text">CASE 203: United States v. Devela</span></a></li>
+<li><a href="#sec-204-case-204-people-v-sangalang" class="toc-link level-1" title="CASE 204: People v. Sangalang"><span class="toc-link-text">CASE 204: People v. Sangalang</span></a></li>
+<li><a href="#sec-205-case-205-people-v-caete" class="toc-link level-1" title="CASE 205: People v. Cañete"><span class="toc-link-text">CASE 205: People v. Cañete</span></a></li>
+<li><a href="#sec-206-case-206-people-v-dela-cruz" class="toc-link level-1" title="CASE 206: People v. Dela Cruz"><span class="toc-link-text">CASE 206: People v. Dela Cruz</span></a></li>
+<li><a href="#sec-207-case-207-people-v-monte" class="toc-link level-1" title="CASE 207: People v. Monte"><span class="toc-link-text">CASE 207: People v. Monte</span></a></li>
+<li><a href="#sec-208-case-208-people-v-torrefiel" class="toc-link level-1" title="CASE 208: People v. Torrefiel"><span class="toc-link-text">CASE 208: People v. Torrefiel</span></a></li>
+<li><a href="#sec-209-case-209-people-v-alfanta" class="toc-link level-1" title="CASE 209: People v. Alfanta"><span class="toc-link-text">CASE 209: People v. Alfanta</span></a></li>
+<li><a href="#sec-210-case-210-people-v-fuertes" class="toc-link level-1" title="CASE 210: People v. Fuertes"><span class="toc-link-text">CASE 210: People v. Fuertes</span></a></li>
+<li><a href="#sec-211-case-211-people-v-puda" class="toc-link level-1" title="CASE 211: People v. Puda"><span class="toc-link-text">CASE 211: People v. Puda</span></a></li>
+<li><a href="#sec-212-case-212-people-v-bondoy" class="toc-link level-1" title="CASE 212: People v. Bondoy"><span class="toc-link-text">CASE 212: People v. Bondoy</span></a></li>
+<li><a href="#sec-213-case-213-people-v-sitchon" class="toc-link level-1" title="CASE 213: People v. Sitchon"><span class="toc-link-text">CASE 213: People v. Sitchon</span></a></li>
+<li><a href="#sec-214-case-214-people-v-fernandez" class="toc-link level-1" title="CASE 214: People v. Fernandez"><span class="toc-link-text">CASE 214: People v. Fernandez</span></a></li>
+<li><a href="#sec-215-case-215-people-v-cortes" class="toc-link level-1" title="CASE 215: People v. Cortes"><span class="toc-link-text">CASE 215: People v. Cortes</span></a></li>
+<li><a href="#sec-216-case-216-people-v-bernabe" class="toc-link level-1" title="CASE 216: People v. Bernabe"><span class="toc-link-text">CASE 216: People v. Bernabe</span></a></li>
+<li><a href="#sec-217-case-217-people-v-orilla" class="toc-link level-1" title="CASE 217: People v. Orilla"><span class="toc-link-text">CASE 217: People v. Orilla</span></a></li>
+<li><a href="#sec-218-case-218-people-v-lomaque" class="toc-link level-1" title="CASE 218: People v. Lomaque"><span class="toc-link-text">CASE 218: People v. Lomaque</span></a></li>
+<li><a href="#sec-219-case-219-people-v-macatanda" class="toc-link level-1" title="CASE 219: People v. Macatanda"><span class="toc-link-text">CASE 219: People v. Macatanda</span></a></li>
+<li><a href="#sec-220-case-220-people-v-baltazar" class="toc-link level-1" title="CASE 220: People v. Baltazar"><span class="toc-link-text">CASE 220: People v. Baltazar</span></a></li>
+<li><a href="#sec-221-case-221-people-v-dejaresco" class="toc-link level-1" title="CASE 221: People v. Dejaresco"><span class="toc-link-text">CASE 221: People v. Dejaresco</span></a></li>
+<li><a href="#sec-222-case-222-people-v-camano" class="toc-link level-1" title="CASE 222: People v. Camano"><span class="toc-link-text">CASE 222: People v. Camano</span></a></li>
+<li><a href="#sec-223-case-223-people-v-mondigo" class="toc-link level-1" title="CASE 223: People v. Mondigo"><span class="toc-link-text">CASE 223: People v. Mondigo</span></a></li>
+<li><a href="#sec-224-case-224-people-v-cortes" class="toc-link level-1" title="CASE 224: People v. Cortes"><span class="toc-link-text">CASE 224: People v. Cortes</span></a></li>
+<li><a href="#sec-225-case-225-people-v-lua-chu" class="toc-link level-1" title="CASE 225: People v. Lua Chu"><span class="toc-link-text">CASE 225: People v. Lua Chu</span></a></li>
+<li><a href="#sec-226-case-226-united-states-v-phelps" class="toc-link level-1" title="CASE 226: United States v. Phelps"><span class="toc-link-text">CASE 226: United States v. Phelps</span></a></li>
+<li><a href="#sec-227-case-227-people-v-bartolome" class="toc-link level-1" title="CASE 227: People v. Bartolome"><span class="toc-link-text">CASE 227: People v. Bartolome</span></a></li>
+<li><a href="#sec-228-case-228-people-v-genosa" class="toc-link level-1" title="CASE 228: People v. Genosa"><span class="toc-link-text">CASE 228: People v. Genosa</span></a></li>
+<li><a href="#sec-229-case-229-united-states-v-diris" class="toc-link level-1" title="CASE 229: United States v. Diris"><span class="toc-link-text">CASE 229: United States v. Diris</span></a></li>
+<li><a href="#sec-230-case-230-people-v-ong-chiat-lay" class="toc-link level-1" title="CASE 230: People v. Ong Chiat Lay"><span class="toc-link-text">CASE 230: People v. Ong Chiat Lay</span></a></li>
+<li><a href="#sec-231-case-231-united-states-v-indanan" class="toc-link level-1" title="CASE 231: United States v. Indanan"><span class="toc-link-text">CASE 231: United States v. Indanan</span></a></li>
+<li><a href="#sec-232-case-232-people-v-kichi-omine" class="toc-link level-1" title="CASE 232: People v. Kichi Omine"><span class="toc-link-text">CASE 232: People v. Kichi Omine</span></a></li>
+<li><a href="#sec-233-case-233-people-v-montealegre" class="toc-link level-1" title="CASE 233: People v. Montealegre"><span class="toc-link-text">CASE 233: People v. Montealegre</span></a></li>
+<li><a href="#sec-234-case-234-people-v-simbra" class="toc-link level-1" title="CASE 234: People v. Simbra"><span class="toc-link-text">CASE 234: People v. Simbra</span></a></li>
+<li><a href="#sec-235-case-235-people-v-nierra" class="toc-link level-1" title="CASE 235: People v. Nierra"><span class="toc-link-text">CASE 235: People v. Nierra</span></a></li>
+<li><a href="#sec-236-case-236-people-v-doble" class="toc-link level-1" title="CASE 236: People v. Doble"><span class="toc-link-text">CASE 236: People v. Doble</span></a></li>
+<li><a href="#sec-237-case-237-people-v-doctolero" class="toc-link level-1" title="CASE 237: People v. Doctolero"><span class="toc-link-text">CASE 237: People v. Doctolero</span></a></li>
+<li><a href="#sec-238-case-238-people-v-talingdan" class="toc-link level-1" title="CASE 238: People v. Talingdan"><span class="toc-link-text">CASE 238: People v. Talingdan</span></a></li>
+<li><a href="#sec-239-case-239-vino-v-people" class="toc-link level-1" title="CASE 239: Vino v. People"><span class="toc-link-text">CASE 239: Vino v. People</span></a></li>
+<li><a href="#sec-240-case-240-people-v-echegaray" class="toc-link level-1" title="CASE 240: People v. Echegaray"><span class="toc-link-text">CASE 240: People v. Echegaray</span></a></li>
+<li><a href="#sec-241-case-241-enrile-v-salazar" class="toc-link level-1" title="CASE 241: Enrile v. Salazar"><span class="toc-link-text">CASE 241: Enrile v. Salazar</span></a></li>
+<li><a href="#sec-242-case-242-napolis-v-court-of-appeals" class="toc-link level-1" title="CASE 242: Napolis v. Court of Appeals"><span class="toc-link-text">CASE 242: Napolis v. Court of Appeals</span></a></li>
+<li><a href="#sec-243-case-243-people-v-toling" class="toc-link level-1" title="CASE 243: People v. Toling"><span class="toc-link-text">CASE 243: People v. Toling</span></a></li>
+<li><a href="#sec-244-case-244-people-v-salvilla" class="toc-link level-1" title="CASE 244: People v. Salvilla"><span class="toc-link-text">CASE 244: People v. Salvilla</span></a></li>
+<li><a href="#sec-245-case-245-people-v-valdez" class="toc-link level-1" title="CASE 245: People v. Valdez"><span class="toc-link-text">CASE 245: People v. Valdez</span></a></li>
+<li><a href="#sec-246-case-246-people-v-de-leon" class="toc-link level-1" title="CASE 246: People v. De Leon"><span class="toc-link-text">CASE 246: People v. De Leon</span></a></li>
+<li><a href="#sec-247-case-247-people-v-simon" class="toc-link level-1" title="CASE 247: People v. Simon"><span class="toc-link-text">CASE 247: People v. Simon</span></a></li>
+<li><a href="#sec-248-case-248-rosa-lim-v-people" class="toc-link level-1" title="CASE 248: Rosa Lim v. People"><span class="toc-link-text">CASE 248: Rosa Lim v. People</span></a></li>
+<li><a href="#sec-249-case-249-people-v-gabres" class="toc-link level-1" title="CASE 249: People v. Gabres"><span class="toc-link-text">CASE 249: People v. Gabres</span></a></li>
+<li><a href="#sec-250-case-250-people-v-lampaza" class="toc-link level-1" title="CASE 250: People v. Lampaza"><span class="toc-link-text">CASE 250: People v. Lampaza</span></a></li>
+<li><a href="#sec-251-case-251-people-v-oyanib" class="toc-link level-1" title="CASE 251: People v. Oyanib"><span class="toc-link-text">CASE 251: People v. Oyanib</span></a></li>
+<li><a href="#sec-252-case-252-people-v-ducosin" class="toc-link level-1" title="CASE 252: People v. Ducosin"><span class="toc-link-text">CASE 252: People v. Ducosin</span></a></li>
+<li><a href="#sec-253-case-253-people-v-formigones" class="toc-link level-1" title="CASE 253: People v. Formigones"><span class="toc-link-text">CASE 253: People v. Formigones</span></a></li>
+<li><a href="#sec-254-case-254-francisco-v-court-of-appeals" class="toc-link level-1" title="CASE 254: Francisco v. Court of Appeals"><span class="toc-link-text">CASE 254: Francisco v. Court of Appeals</span></a></li>
+<li><a href="#sec-255-case-255-yusi-v-morales" class="toc-link level-1" title="CASE 255: Yusi v. Morales"><span class="toc-link-text">CASE 255: Yusi v. Morales</span></a></li>
+<li><a href="#sec-256-case-256-cal-v-court-of-appeals" class="toc-link level-1" title="CASE 256: Cal v. Court of Appeals"><span class="toc-link-text">CASE 256: Cal v. Court of Appeals</span></a></li>
+<li><a href="#sec-257-case-257-llamado-v-court-of-appeals" class="toc-link level-1" title="CASE 257: Llamado v. Court of Appeals"><span class="toc-link-text">CASE 257: Llamado v. Court of Appeals</span></a></li>
+<li><a href="#sec-258-case-258-baclayon-v-mutia" class="toc-link level-1" title="CASE 258: Baclayon v. Mutia"><span class="toc-link-text">CASE 258: Baclayon v. Mutia</span></a></li>
+<li><a href="#sec-259-case-259-bala-v-martinez" class="toc-link level-1" title="CASE 259: Bala v. Martinez"><span class="toc-link-text">CASE 259: Bala v. Martinez</span></a></li>
+<li><a href="#sec-260-case-260-salgado-v-court-of-appeals" class="toc-link level-1" title="CASE 260: Salgado v. Court of Appeals"><span class="toc-link-text">CASE 260: Salgado v. Court of Appeals</span></a></li>
+<li><a href="#sec-261-case-261-people-v-bayotas" class="toc-link level-1" title="CASE 261: People v. Bayotas"><span class="toc-link-text">CASE 261: People v. Bayotas</span></a></li>
+<li><a href="#sec-262-case-262-people-v-dela-cruz" class="toc-link level-1" title="CASE 262: People v. Dela Cruz"><span class="toc-link-text">CASE 262: People v. Dela Cruz</span></a></li>
+<li><a href="#sec-263-case-263-people-v-patriarca" class="toc-link level-1" title="CASE 263: People v. Patriarca"><span class="toc-link-text">CASE 263: People v. Patriarca</span></a></li>
+<li><a href="#sec-264-case-264-people-v-casido" class="toc-link level-1" title="CASE 264: People v. Casido"><span class="toc-link-text">CASE 264: People v. Casido</span></a></li>
+<li><a href="#sec-265-case-265-barrioquinto-v-fernandez" class="toc-link level-1" title="CASE 265: Barrioquinto v. Fernandez"><span class="toc-link-text">CASE 265: Barrioquinto v. Fernandez</span></a></li>
+<li><a href="#sec-266-case-266-flora-v-oximana" class="toc-link level-1" title="CASE 266: Flora v. Oximana"><span class="toc-link-text">CASE 266: Flora v. Oximana</span></a></li>
+<li><a href="#sec-267-case-267-pelobello-v-palatino" class="toc-link level-1" title="CASE 267: Pelobello v. Palatino"><span class="toc-link-text">CASE 267: Pelobello v. Palatino</span></a></li>
+<li><a href="#sec-268-case-268-in-re-antonio-infante" class="toc-link level-1" title="CASE 268: In re: Antonio Infante"><span class="toc-link-text">CASE 268: In re: Antonio Infante</span></a></li>
+<li><a href="#sec-269-case-269-chua-v-court-of-appeals" class="toc-link level-1" title="CASE 269: Chua v. Court of Appeals"><span class="toc-link-text">CASE 269: Chua v. Court of Appeals</span></a></li>
+<li><a href="#sec-270-case-270-carpio-v-doroja" class="toc-link level-1" title="CASE 270: Carpio v. Doroja"><span class="toc-link-text">CASE 270: Carpio v. Doroja</span></a></li>
+<li><a href="#sec-271-case-271-basilio-v-court-of-appeals" class="toc-link level-1" title="CASE 271: Basilio v. Court of Appeals"><span class="toc-link-text">CASE 271: Basilio v. Court of Appeals</span></a></li>
+<li><a href="#sec-272-case-272-philippine-rabbit-v-court-of-appeals" class="toc-link level-1" title="CASE 272: Philippine Rabbit v. Court of Appeals"><span class="toc-link-text">CASE 272: Philippine Rabbit v. Court of Appeals</span></a></li>
+<li><a href="#sec-273-case-273-quinto-v-andres" class="toc-link level-1" title="CASE 273: Quinto v. Andres"><span class="toc-link-text">CASE 273: Quinto v. Andres</span></a></li>
+<li><a href="#sec-274-case-274-heirs-of-raymundo-castro-v-bustos" class="toc-link level-1" title="CASE 274: Heirs of Raymundo Castro v. Bustos"><span class="toc-link-text">CASE 274: Heirs of Raymundo Castro v. Bustos</span></a></li>
+<li><a href="#sec-275-case-275-people-v-bayotas" class="toc-link level-1" title="CASE 275: People v. Bayotas"><span class="toc-link-text">CASE 275: People v. Bayotas</span></a></li>
       </ul>
     </nav>
 
@@ -5892,6 +5931,9 @@ Codal &amp; Treatise Mapping: Fully correlated to Articles 1 to 113 of the Revis
           if (oldRibbon) oldRibbon.remove();
         });
 
+        // Clear existing TOC bookmark badges
+        document.querySelectorAll('#tocList .toc-bm-badges-wrap').forEach(w => w.remove());
+
         for (let slot = 1; slot <= 3; slot++) {
           const bm = bookmarks[slot];
           const metaBoxEl = document.getElementById('slotMeta' + slot);
@@ -5913,6 +5955,25 @@ Codal &amp; Treatise Mapping: Fully correlated to Articles 1 to 113 of the Revis
             const locText = bm.location ? ' • ' + bm.location : '';
             ribbon.innerHTML = `${slotIcon} Bookmark ${slot} • ${bm.topic}${locText}`;
             targetUnit.insertBefore(ribbon, targetUnit.firstChild);
+
+            // Inject TOC badge into matching sidebar link
+            const sec = targetUnit.closest('section.doc-section');
+            if (sec && sec.id) {
+              const tocLink = document.querySelector(`#tocList a[href="#${sec.id}"]`);
+              if (tocLink) {
+                let badgesWrap = tocLink.querySelector('.toc-bm-badges-wrap');
+                if (!badgesWrap) {
+                  badgesWrap = document.createElement('span');
+                  badgesWrap.className = 'toc-bm-badges-wrap';
+                  tocLink.appendChild(badgesWrap);
+                }
+                const badge = document.createElement('span');
+                badge.className = `toc-bm-badge badge-slot-${slot}`;
+                badge.title = `Bookmark ${slot}: ${bm.location || ''}`;
+                badge.textContent = `${slotIcon} ${slot}`;
+                badgesWrap.appendChild(badge);
+              }
+            }
 
             if (metaBoxEl) metaBoxEl.style.display = 'flex';
             if (subjEl) subjEl.textContent = bm.subject || 'Law Subject';

@@ -437,7 +437,10 @@
     }
 
     .toc-link {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
       color: var(--text-secondary);
       text-decoration: none;
       font-family: var(--font-ui);
@@ -446,10 +449,46 @@
       border-radius: 4px;
       margin-bottom: 2px;
       border-left: 2px solid transparent;
+      transition: all 0.15s ease;
+    }
+    .toc-link-text {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      transition: all 0.15s ease;
+      flex: 1;
+    }
+    .toc-bm-badges-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+    .toc-bm-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      font-family: var(--font-ui);
+      padding: 1px 5px;
+      border-radius: 4px;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      white-space: nowrap;
+    }
+    .toc-bm-badge.badge-slot-1 {
+      background: rgba(251, 191, 36, 0.22);
+      color: var(--accent-gold);
+      border: 1px solid rgba(251, 191, 36, 0.5);
+    }
+    .toc-bm-badge.badge-slot-2 {
+      background: rgba(52, 211, 153, 0.22);
+      color: var(--accent-emerald);
+      border: 1px solid rgba(52, 211, 153, 0.5);
+    }
+    .toc-bm-badge.badge-slot-3 {
+      background: rgba(192, 132, 252, 0.22);
+      color: var(--accent-purple);
+      border: 1px solid rgba(192, 132, 252, 0.5);
     }
     .toc-link:hover {
       background-color: var(--bg-tertiary);
@@ -1288,38 +1327,38 @@
       </div>
       <input type="text" class="toc-search-box" id="sidebarSearch" placeholder="Filter topics & cases..." />
       <ul class="toc-list" id="tocList">
-<li><a href="#sec-overview" class="toc-link level-1" title="Statutory Construction (StatCon)">Statutory Construction (StatCon)</a></li>
-<li><a href="#sec-1-1-nature-purpose-and-definition" class="toc-link level-1" title="1. NATURE, PURPOSE, AND DEFINITION">1. NATURE, PURPOSE, AND DEFINITION</a></li>
-<li><a href="#sec-2-2-the-6-step-methodology-for-statutory-construction" class="toc-link level-1" title="2. THE 6-STEP METHODOLOGY FOR STATUTORY CONSTRUCTION">2. THE 6-STEP METHODOLOGY FOR STATUTORY CONSTRUCTION</a></li>
-<li><a href="#sec-3-step-0-the-threshold-rule---the-plain-meaning-rule-verba-leg" class="toc-link level-1" title="STEP 0: The Threshold Rule  -  The Plain Meaning Rule (Verba Legis)">STEP 0: The Threshold Rule  -  The Plain Meaning Rule (Verba Legis)</a></li>
-<li><a href="#sec-4-step-1-examine-the-text-within-its-four-corners-intrinsic-ai" class="toc-link level-1" title="STEP 1: Examine the Text Within Its Four Corners (Intrinsic Aids)">STEP 1: Examine the Text Within Its Four Corners (Intrinsic Aids)</a></li>
-<li><a href="#sec-5-1-statute-read-as-a-whole-a-statute-must-be-construed-as-a-h" class="toc-link level-1" title="1. Statute Read as a Whole: A statute must be construed as a harmonious whole, not in disjointed fragments. Every part must be given effect and reconciled with other provisions (Ut res magis valeat quam pereat  -  that the thing may rather have effect than perish).">1. Statute Read as a Whole: A statute must be construed as a harmonious whole, not in disjointed fragments. Every part must be given effect and reconciled with other provisions (Ut res magis valeat quam pereat  -  that the thing may rather have effect than perish).</a></li>
-<li><a href="#sec-6-2-ordinary-vs-technical-meaning-words-are-presumed-used-in-t" class="toc-link level-1" title="2. Ordinary vs. Technical Meaning: Words are presumed used in their natural, ordinary, and commonly understood meaning, unless defined by statute or having a distinct legal/technical meaning.">2. Ordinary vs. Technical Meaning: Words are presumed used in their natural, ordinary, and commonly understood meaning, unless defined by statute or having a distinct legal/technical meaning.</a></li>
-<li><a href="#sec-7-3-title-of-the-statute-the-title-expresses-the-subject-matte" class="toc-link level-1" title="3. Title of the Statute: The title expresses the subject matter and helps clarify ambiguous phrases, though it cannot control clear enacting language.">3. Title of the Statute: The title expresses the subject matter and helps clarify ambiguous phrases, though it cannot control clear enacting language.</a></li>
-<li><a href="#sec-8-4-preamble-whereas-clauses-the-whereas-clauses-recite-the-re" class="toc-link level-1" title="4. Preamble &amp; Whereas Clauses: The &#x27;Whereas&#x27; clauses recite the reasons, mischief, and necessity for the enactment. It serves as a key to unlock the minds of lawmakers.">4. Preamble &amp; Whereas Clauses: The &#x27;Whereas&#x27; clauses recite the reasons, mischief, and necessity for the enactment. It serves as a key to unlock the minds of lawmakers.</a></li>
-<li><a href="#sec-9-5-legislative-definition-clauses-express-definitions-enacted" class="toc-link level-1" title="5. Legislative Definition Clauses: Express definitions enacted by the Legislature control over dictionary meanings for that specific statute.">5. Legislative Definition Clauses: Express definitions enacted by the Legislature control over dictionary meanings for that specific statute.</a></li>
-<li><a href="#sec-10-6-punctuation-qualifying-clauses-punctuation-marks-commas-se" class="toc-link level-1" title="6. Punctuation &amp; Qualifying Clauses: Punctuation marks (commas, semicolons) are aids of low degree, but qualifying words generally apply only to the words immediately preceding them unless separated by a comma.">6. Punctuation &amp; Qualifying Clauses: Punctuation marks (commas, semicolons) are aids of low degree, but qualifying words generally apply only to the words immediately preceding them unless separated by a comma.</a></li>
-<li><a href="#sec-11-step-2-apply-the-canonical-latin-maxims-and-linguistic-canon" class="toc-link level-1" title="STEP 2: Apply the Canonical Latin Maxims and Linguistic Canons">STEP 2: Apply the Canonical Latin Maxims and Linguistic Canons</a></li>
-<li><a href="#sec-12-step-3-consult-context-outside-the-statute-extrinsic-aids" class="toc-link level-1" title="STEP 3: Consult Context Outside the Statute (Extrinsic Aids)">STEP 3: Consult Context Outside the Statute (Extrinsic Aids)</a></li>
-<li><a href="#sec-13-1-explanatory-notes-statements-of-the-bills-author-detailing" class="toc-link level-1" title="1. Explanatory Notes: Statements of the bill&#x27;s author detailing the problems intended to be solved.">1. Explanatory Notes: Statements of the bill&#x27;s author detailing the problems intended to be solved.</a></li>
-<li><a href="#sec-14-2-legislative-committee-reports-reports-submitted-by-senate" class="toc-link level-1" title="2. Legislative Committee Reports: Reports submitted by Senate and House committees explaining revisions and amendments.">2. Legislative Committee Reports: Reports submitted by Senate and House committees explaining revisions and amendments.</a></li>
-<li><a href="#sec-15-3-congressional-debates-journals-transcripts-of-floor-debate" class="toc-link level-1" title="3. Congressional Debates &amp; Journals: Transcripts of floor debates, sponsor speeches, and Bicameral Conference Committee discussions (Chavez v. JBC).">3. Congressional Debates &amp; Journals: Transcripts of floor debates, sponsor speeches, and Bicameral Conference Committee discussions (Chavez v. JBC).</a></li>
-<li><a href="#sec-16-4-contemporaneous-administrative-construction-executive-issu" class="toc-link level-1" title="4. Contemporaneous Administrative Construction: Executive issuances (IRRs), Secretary of Justice Opinions, and administrative practices. These are accorded high persuasive weight by courts, though they cannot alter statutory terms.">4. Contemporaneous Administrative Construction: Executive issuances (IRRs), Secretary of Justice Opinions, and administrative practices. These are accorded high persuasive weight by courts, though they cannot alter statutory terms.</a></li>
-<li><a href="#sec-17-5-prior-judicial-precedents-decisions-of-the-supreme-court-a" class="toc-link level-1" title="5. Prior Judicial Precedents: Decisions of the Supreme Court applying or construing the statute form part of the law of the land (Article 8, Civil Code; Stare Decisis et non quieta movere).">5. Prior Judicial Precedents: Decisions of the Supreme Court applying or construing the statute form part of the law of the land (Article 8, Civil Code; Stare Decisis et non quieta movere).</a></li>
-<li><a href="#sec-18-6-history-of-the-times-the-historical-context-state-of-socie" class="toc-link level-1" title="6. History of the Times: The historical context, state of society, and specific evil or mischief the statute was enacted to eradicate (The Mischief Rule / Heydon&#x27;s Case).">6. History of the Times: The historical context, state of society, and specific evil or mischief the statute was enacted to eradicate (The Mischief Rule / Heydon&#x27;s Case).</a></li>
-<li><a href="#sec-19-step-4-determine-the-applicable-rule-of-construction-strict" class="toc-link level-1" title="STEP 4: Determine the Applicable Rule of Construction (Strict vs. Liberal)">STEP 4: Determine the Applicable Rule of Construction (Strict vs. Liberal)</a></li>
-<li><a href="#sec-20-step-5-test-and-harmonize-with-higher-and-parallel-laws" class="toc-link level-1" title="STEP 5: Test and Harmonize with Higher and Parallel Laws">STEP 5: Test and Harmonize with Higher and Parallel Laws</a></li>
-<li><a href="#sec-21-1-constitutional-supremacy-the-constitution-is-the-supreme-l" class="toc-link level-1" title="1. Constitutional Supremacy: The Constitution is the supreme law. Every statute is presumed constitutional. If a statute is susceptible of two interpretations - one valid and the other unconstitutional - the court must adopt the interpretation sustaining its constitutionality (Pimentel v. Legal Education Board, G.R. No. 230642).">1. Constitutional Supremacy: The Constitution is the supreme law. Every statute is presumed constitutional. If a statute is susceptible of two interpretations - one valid and the other unconstitutional - the court must adopt the interpretation sustaining its constitutionality (Pimentel v. Legal Education Board, G.R. No. 230642).</a></li>
-<li><a href="#sec-22-2-harmonization-of-parallel-laws-statutes-relating-to-the-sa" class="toc-link level-1" title="2. Harmonization of Parallel Laws: Statutes relating to the same subject matter or having the same purpose must be construed together as parts of a unified legal system (In Pari Materia).">2. Harmonization of Parallel Laws: Statutes relating to the same subject matter or having the same purpose must be construed together as parts of a unified legal system (In Pari Materia).</a></li>
-<li><a href="#sec-23-3-presumption-against-implied-repeal-repeal-by-implication-i" class="toc-link level-1" title="3. Presumption Against Implied Repeal: Repeal by implication is disfavored in Philippine law. There must be an irreconcilable inconsistency and repugnancy between an earlier and later statute before an implied repeal is recognized (Mecano v. COA).">3. Presumption Against Implied Repeal: Repeal by implication is disfavored in Philippine law. There must be an irreconcilable inconsistency and repugnancy between an earlier and later statute before an implied repeal is recognized (Mecano v. COA).</a></li>
-<li><a href="#sec-24-4-presumption-of-prospectivity-statutes-must-be-given-prospe" class="toc-link level-1" title="4. Presumption of Prospectivity: Statutes must be given prospective operation, unless retroactive effect is expressly provided, or the law is procedural, curative, or penal favorable to the accused (Art. 4, Civil Code).">4. Presumption of Prospectivity: Statutes must be given prospective operation, unless retroactive effect is expressly provided, or the law is procedural, curative, or penal favorable to the accused (Art. 4, Civil Code).</a></li>
-<li><a href="#sec-25-step-6-formulate-the-legal-conclusion-synthesis" class="toc-link level-1" title="STEP 6: Formulate the Legal Conclusion &amp; Synthesis">STEP 6: Formulate the Legal Conclusion &amp; Synthesis</a></li>
-<li><a href="#sec-26-1-define-the-ambiguity-identify-the-specific-ambiguous-statu" class="toc-link level-1" title="1. Define the Ambiguity: Identify the specific ambiguous statutory clause, conflicting phrase, or challenged administrative rule.">1. Define the Ambiguity: Identify the specific ambiguous statutory clause, conflicting phrase, or challenged administrative rule.</a></li>
-<li><a href="#sec-27-2-establish-statutory-baseline-quote-the-exact-statutory-pro" class="toc-link level-1" title="2. Establish Statutory Baseline: Quote the exact statutory provision and state why literal application is insufficient or contested.">2. Establish Statutory Baseline: Quote the exact statutory provision and state why literal application is insufficient or contested.</a></li>
-<li><a href="#sec-28-3-invoke-canons-aids-apply-the-governing-latin-maxim-legisla" class="toc-link level-1" title="3. Invoke Canons &amp; Aids: Apply the governing Latin maxim, legislative history finding, or statutory construction standard.">3. Invoke Canons &amp; Aids: Apply the governing Latin maxim, legislative history finding, or statutory construction standard.</a></li>
-<li><a href="#sec-29-4-align-with-constitution-policy-demonstrate-that-the-constr" class="toc-link level-1" title="4. Align with Constitution &amp; Policy: Demonstrate that the construction upholds constitutional boundaries and prevents absurdity.">4. Align with Constitution &amp; Policy: Demonstrate that the construction upholds constitutional boundaries and prevents absurdity.</a></li>
-<li><a href="#sec-30-5-state-holding-ruling-articulate-the-precise-legal-conseque" class="toc-link level-1" title="5. State Holding / Ruling: Articulate the precise legal consequence, obligation, or relief awarded under the interpreted law.">5. State Holding / Ruling: Articulate the precise legal consequence, obligation, or relief awarded under the interpreted law.</a></li>
-<li><a href="#sec-31-3-statutory-construction-master-quick-reference-matrix" class="toc-link level-1" title="3. STATUTORY CONSTRUCTION MASTER QUICK-REFERENCE MATRIX">3. STATUTORY CONSTRUCTION MASTER QUICK-REFERENCE MATRIX</a></li>
+<li><a href="#sec-overview" class="toc-link level-1" title="Statutory Construction (StatCon)"><span class="toc-link-text">Statutory Construction (StatCon)</span></a></li>
+<li><a href="#sec-1-1-nature-purpose-and-definition" class="toc-link level-1" title="1. NATURE, PURPOSE, AND DEFINITION"><span class="toc-link-text">1. NATURE, PURPOSE, AND DEFINITION</span></a></li>
+<li><a href="#sec-2-2-the-6-step-methodology-for-statutory-construction" class="toc-link level-1" title="2. THE 6-STEP METHODOLOGY FOR STATUTORY CONSTRUCTION"><span class="toc-link-text">2. THE 6-STEP METHODOLOGY FOR STATUTORY CONSTRUCTION</span></a></li>
+<li><a href="#sec-3-step-0-the-threshold-rule---the-plain-meaning-rule-verba-leg" class="toc-link level-1" title="STEP 0: The Threshold Rule  -  The Plain Meaning Rule (Verba Legis)"><span class="toc-link-text">STEP 0: The Threshold Rule  -  The Plain Meaning Rule (Verba Legis)</span></a></li>
+<li><a href="#sec-4-step-1-examine-the-text-within-its-four-corners-intrinsic-ai" class="toc-link level-1" title="STEP 1: Examine the Text Within Its Four Corners (Intrinsic Aids)"><span class="toc-link-text">STEP 1: Examine the Text Within Its Four Corners (Intrinsic Aids)</span></a></li>
+<li><a href="#sec-5-1-statute-read-as-a-whole-a-statute-must-be-construed-as-a-h" class="toc-link level-1" title="1. Statute Read as a Whole: A statute must be construed as a harmonious whole, not in disjointed fragments. Every part must be given effect and reconciled with other provisions (Ut res magis valeat quam pereat  -  that the thing may rather have effect than perish)."><span class="toc-link-text">1. Statute Read as a Whole: A statute must be construed as a harmonious whole, not in disjointed fragments. Every part must be given effect and reconciled with other provisions (Ut res magis valeat quam pereat  -  that the thing may rather have effect than perish).</span></a></li>
+<li><a href="#sec-6-2-ordinary-vs-technical-meaning-words-are-presumed-used-in-t" class="toc-link level-1" title="2. Ordinary vs. Technical Meaning: Words are presumed used in their natural, ordinary, and commonly understood meaning, unless defined by statute or having a distinct legal/technical meaning."><span class="toc-link-text">2. Ordinary vs. Technical Meaning: Words are presumed used in their natural, ordinary, and commonly understood meaning, unless defined by statute or having a distinct legal/technical meaning.</span></a></li>
+<li><a href="#sec-7-3-title-of-the-statute-the-title-expresses-the-subject-matte" class="toc-link level-1" title="3. Title of the Statute: The title expresses the subject matter and helps clarify ambiguous phrases, though it cannot control clear enacting language."><span class="toc-link-text">3. Title of the Statute: The title expresses the subject matter and helps clarify ambiguous phrases, though it cannot control clear enacting language.</span></a></li>
+<li><a href="#sec-8-4-preamble-whereas-clauses-the-whereas-clauses-recite-the-re" class="toc-link level-1" title="4. Preamble &amp; Whereas Clauses: The &#x27;Whereas&#x27; clauses recite the reasons, mischief, and necessity for the enactment. It serves as a key to unlock the minds of lawmakers."><span class="toc-link-text">4. Preamble &amp; Whereas Clauses: The &#x27;Whereas&#x27; clauses recite the reasons, mischief, and necessity for the enactment. It serves as a key to unlock the minds of lawmakers.</span></a></li>
+<li><a href="#sec-9-5-legislative-definition-clauses-express-definitions-enacted" class="toc-link level-1" title="5. Legislative Definition Clauses: Express definitions enacted by the Legislature control over dictionary meanings for that specific statute."><span class="toc-link-text">5. Legislative Definition Clauses: Express definitions enacted by the Legislature control over dictionary meanings for that specific statute.</span></a></li>
+<li><a href="#sec-10-6-punctuation-qualifying-clauses-punctuation-marks-commas-se" class="toc-link level-1" title="6. Punctuation &amp; Qualifying Clauses: Punctuation marks (commas, semicolons) are aids of low degree, but qualifying words generally apply only to the words immediately preceding them unless separated by a comma."><span class="toc-link-text">6. Punctuation &amp; Qualifying Clauses: Punctuation marks (commas, semicolons) are aids of low degree, but qualifying words generally apply only to the words immediately preceding them unless separated by a comma.</span></a></li>
+<li><a href="#sec-11-step-2-apply-the-canonical-latin-maxims-and-linguistic-canon" class="toc-link level-1" title="STEP 2: Apply the Canonical Latin Maxims and Linguistic Canons"><span class="toc-link-text">STEP 2: Apply the Canonical Latin Maxims and Linguistic Canons</span></a></li>
+<li><a href="#sec-12-step-3-consult-context-outside-the-statute-extrinsic-aids" class="toc-link level-1" title="STEP 3: Consult Context Outside the Statute (Extrinsic Aids)"><span class="toc-link-text">STEP 3: Consult Context Outside the Statute (Extrinsic Aids)</span></a></li>
+<li><a href="#sec-13-1-explanatory-notes-statements-of-the-bills-author-detailing" class="toc-link level-1" title="1. Explanatory Notes: Statements of the bill&#x27;s author detailing the problems intended to be solved."><span class="toc-link-text">1. Explanatory Notes: Statements of the bill&#x27;s author detailing the problems intended to be solved.</span></a></li>
+<li><a href="#sec-14-2-legislative-committee-reports-reports-submitted-by-senate" class="toc-link level-1" title="2. Legislative Committee Reports: Reports submitted by Senate and House committees explaining revisions and amendments."><span class="toc-link-text">2. Legislative Committee Reports: Reports submitted by Senate and House committees explaining revisions and amendments.</span></a></li>
+<li><a href="#sec-15-3-congressional-debates-journals-transcripts-of-floor-debate" class="toc-link level-1" title="3. Congressional Debates &amp; Journals: Transcripts of floor debates, sponsor speeches, and Bicameral Conference Committee discussions (Chavez v. JBC)."><span class="toc-link-text">3. Congressional Debates &amp; Journals: Transcripts of floor debates, sponsor speeches, and Bicameral Conference Committee discussions (Chavez v. JBC).</span></a></li>
+<li><a href="#sec-16-4-contemporaneous-administrative-construction-executive-issu" class="toc-link level-1" title="4. Contemporaneous Administrative Construction: Executive issuances (IRRs), Secretary of Justice Opinions, and administrative practices. These are accorded high persuasive weight by courts, though they cannot alter statutory terms."><span class="toc-link-text">4. Contemporaneous Administrative Construction: Executive issuances (IRRs), Secretary of Justice Opinions, and administrative practices. These are accorded high persuasive weight by courts, though they cannot alter statutory terms.</span></a></li>
+<li><a href="#sec-17-5-prior-judicial-precedents-decisions-of-the-supreme-court-a" class="toc-link level-1" title="5. Prior Judicial Precedents: Decisions of the Supreme Court applying or construing the statute form part of the law of the land (Article 8, Civil Code; Stare Decisis et non quieta movere)."><span class="toc-link-text">5. Prior Judicial Precedents: Decisions of the Supreme Court applying or construing the statute form part of the law of the land (Article 8, Civil Code; Stare Decisis et non quieta movere).</span></a></li>
+<li><a href="#sec-18-6-history-of-the-times-the-historical-context-state-of-socie" class="toc-link level-1" title="6. History of the Times: The historical context, state of society, and specific evil or mischief the statute was enacted to eradicate (The Mischief Rule / Heydon&#x27;s Case)."><span class="toc-link-text">6. History of the Times: The historical context, state of society, and specific evil or mischief the statute was enacted to eradicate (The Mischief Rule / Heydon&#x27;s Case).</span></a></li>
+<li><a href="#sec-19-step-4-determine-the-applicable-rule-of-construction-strict" class="toc-link level-1" title="STEP 4: Determine the Applicable Rule of Construction (Strict vs. Liberal)"><span class="toc-link-text">STEP 4: Determine the Applicable Rule of Construction (Strict vs. Liberal)</span></a></li>
+<li><a href="#sec-20-step-5-test-and-harmonize-with-higher-and-parallel-laws" class="toc-link level-1" title="STEP 5: Test and Harmonize with Higher and Parallel Laws"><span class="toc-link-text">STEP 5: Test and Harmonize with Higher and Parallel Laws</span></a></li>
+<li><a href="#sec-21-1-constitutional-supremacy-the-constitution-is-the-supreme-l" class="toc-link level-1" title="1. Constitutional Supremacy: The Constitution is the supreme law. Every statute is presumed constitutional. If a statute is susceptible of two interpretations - one valid and the other unconstitutional - the court must adopt the interpretation sustaining its constitutionality (Pimentel v. Legal Education Board, G.R. No. 230642)."><span class="toc-link-text">1. Constitutional Supremacy: The Constitution is the supreme law. Every statute is presumed constitutional. If a statute is susceptible of two interpretations - one valid and the other unconstitutional - the court must adopt the interpretation sustaining its constitutionality (Pimentel v. Legal Education Board, G.R. No. 230642).</span></a></li>
+<li><a href="#sec-22-2-harmonization-of-parallel-laws-statutes-relating-to-the-sa" class="toc-link level-1" title="2. Harmonization of Parallel Laws: Statutes relating to the same subject matter or having the same purpose must be construed together as parts of a unified legal system (In Pari Materia)."><span class="toc-link-text">2. Harmonization of Parallel Laws: Statutes relating to the same subject matter or having the same purpose must be construed together as parts of a unified legal system (In Pari Materia).</span></a></li>
+<li><a href="#sec-23-3-presumption-against-implied-repeal-repeal-by-implication-i" class="toc-link level-1" title="3. Presumption Against Implied Repeal: Repeal by implication is disfavored in Philippine law. There must be an irreconcilable inconsistency and repugnancy between an earlier and later statute before an implied repeal is recognized (Mecano v. COA)."><span class="toc-link-text">3. Presumption Against Implied Repeal: Repeal by implication is disfavored in Philippine law. There must be an irreconcilable inconsistency and repugnancy between an earlier and later statute before an implied repeal is recognized (Mecano v. COA).</span></a></li>
+<li><a href="#sec-24-4-presumption-of-prospectivity-statutes-must-be-given-prospe" class="toc-link level-1" title="4. Presumption of Prospectivity: Statutes must be given prospective operation, unless retroactive effect is expressly provided, or the law is procedural, curative, or penal favorable to the accused (Art. 4, Civil Code)."><span class="toc-link-text">4. Presumption of Prospectivity: Statutes must be given prospective operation, unless retroactive effect is expressly provided, or the law is procedural, curative, or penal favorable to the accused (Art. 4, Civil Code).</span></a></li>
+<li><a href="#sec-25-step-6-formulate-the-legal-conclusion-synthesis" class="toc-link level-1" title="STEP 6: Formulate the Legal Conclusion &amp; Synthesis"><span class="toc-link-text">STEP 6: Formulate the Legal Conclusion &amp; Synthesis</span></a></li>
+<li><a href="#sec-26-1-define-the-ambiguity-identify-the-specific-ambiguous-statu" class="toc-link level-1" title="1. Define the Ambiguity: Identify the specific ambiguous statutory clause, conflicting phrase, or challenged administrative rule."><span class="toc-link-text">1. Define the Ambiguity: Identify the specific ambiguous statutory clause, conflicting phrase, or challenged administrative rule.</span></a></li>
+<li><a href="#sec-27-2-establish-statutory-baseline-quote-the-exact-statutory-pro" class="toc-link level-1" title="2. Establish Statutory Baseline: Quote the exact statutory provision and state why literal application is insufficient or contested."><span class="toc-link-text">2. Establish Statutory Baseline: Quote the exact statutory provision and state why literal application is insufficient or contested.</span></a></li>
+<li><a href="#sec-28-3-invoke-canons-aids-apply-the-governing-latin-maxim-legisla" class="toc-link level-1" title="3. Invoke Canons &amp; Aids: Apply the governing Latin maxim, legislative history finding, or statutory construction standard."><span class="toc-link-text">3. Invoke Canons &amp; Aids: Apply the governing Latin maxim, legislative history finding, or statutory construction standard.</span></a></li>
+<li><a href="#sec-29-4-align-with-constitution-policy-demonstrate-that-the-constr" class="toc-link level-1" title="4. Align with Constitution &amp; Policy: Demonstrate that the construction upholds constitutional boundaries and prevents absurdity."><span class="toc-link-text">4. Align with Constitution &amp; Policy: Demonstrate that the construction upholds constitutional boundaries and prevents absurdity.</span></a></li>
+<li><a href="#sec-30-5-state-holding-ruling-articulate-the-precise-legal-conseque" class="toc-link level-1" title="5. State Holding / Ruling: Articulate the precise legal consequence, obligation, or relief awarded under the interpreted law."><span class="toc-link-text">5. State Holding / Ruling: Articulate the precise legal consequence, obligation, or relief awarded under the interpreted law.</span></a></li>
+<li><a href="#sec-31-3-statutory-construction-master-quick-reference-matrix" class="toc-link level-1" title="3. STATUTORY CONSTRUCTION MASTER QUICK-REFERENCE MATRIX"><span class="toc-link-text">3. STATUTORY CONSTRUCTION MASTER QUICK-REFERENCE MATRIX</span></a></li>
       </ul>
     </nav>
 
@@ -2130,6 +2169,9 @@
           if (oldRibbon) oldRibbon.remove();
         });
 
+        // Clear existing TOC bookmark badges
+        document.querySelectorAll('#tocList .toc-bm-badges-wrap').forEach(w => w.remove());
+
         for (let slot = 1; slot <= 3; slot++) {
           const bm = bookmarks[slot];
           const metaBoxEl = document.getElementById('slotMeta' + slot);
@@ -2151,6 +2193,25 @@
             const locText = bm.location ? ' • ' + bm.location : '';
             ribbon.innerHTML = `${slotIcon} Bookmark ${slot} • ${bm.topic}${locText}`;
             targetUnit.insertBefore(ribbon, targetUnit.firstChild);
+
+            // Inject TOC badge into matching sidebar link
+            const sec = targetUnit.closest('section.doc-section');
+            if (sec && sec.id) {
+              const tocLink = document.querySelector(`#tocList a[href="#${sec.id}"]`);
+              if (tocLink) {
+                let badgesWrap = tocLink.querySelector('.toc-bm-badges-wrap');
+                if (!badgesWrap) {
+                  badgesWrap = document.createElement('span');
+                  badgesWrap.className = 'toc-bm-badges-wrap';
+                  tocLink.appendChild(badgesWrap);
+                }
+                const badge = document.createElement('span');
+                badge.className = `toc-bm-badge badge-slot-${slot}`;
+                badge.title = `Bookmark ${slot}: ${bm.location || ''}`;
+                badge.textContent = `${slotIcon} ${slot}`;
+                badgesWrap.appendChild(badge);
+              }
+            }
 
             if (metaBoxEl) metaBoxEl.style.display = 'flex';
             if (subjEl) subjEl.textContent = bm.subject || 'Law Subject';

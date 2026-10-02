@@ -437,7 +437,10 @@
     }
 
     .toc-link {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
       color: var(--text-secondary);
       text-decoration: none;
       font-family: var(--font-ui);
@@ -446,10 +449,46 @@
       border-radius: 4px;
       margin-bottom: 2px;
       border-left: 2px solid transparent;
+      transition: all 0.15s ease;
+    }
+    .toc-link-text {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      transition: all 0.15s ease;
+      flex: 1;
+    }
+    .toc-bm-badges-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+    .toc-bm-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      font-family: var(--font-ui);
+      padding: 1px 5px;
+      border-radius: 4px;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      white-space: nowrap;
+    }
+    .toc-bm-badge.badge-slot-1 {
+      background: rgba(251, 191, 36, 0.22);
+      color: var(--accent-gold);
+      border: 1px solid rgba(251, 191, 36, 0.5);
+    }
+    .toc-bm-badge.badge-slot-2 {
+      background: rgba(52, 211, 153, 0.22);
+      color: var(--accent-emerald);
+      border: 1px solid rgba(52, 211, 153, 0.5);
+    }
+    .toc-bm-badge.badge-slot-3 {
+      background: rgba(192, 132, 252, 0.22);
+      color: var(--accent-purple);
+      border: 1px solid rgba(192, 132, 252, 0.5);
     }
     .toc-link:hover {
       background-color: var(--bg-tertiary);
@@ -1288,106 +1327,106 @@
       </div>
       <input type="text" class="toc-search-box" id="sidebarSearch" placeholder="Filter topics & cases..." />
       <ul class="toc-list" id="tocList">
-<li><a href="#sec-overview" class="toc-link level-1" title="Statutory Construction Complete Syllabus ALAC Case Digests">Statutory Construction Complete Syllabus ALAC Case Digests</a></li>
-<li><a href="#sec-1-1-caltex-philippines-inc-v-enrico-palomar-postmaster-general" class="toc-link level-1" title="1. CALTEX (PHILIPPINES), INC. V. ENRICO PALOMAR (POSTMASTER GENERAL)">1. CALTEX (PHILIPPINES), INC. V. ENRICO PALOMAR (POSTMASTER GENERAL)</a></li>
-<li><a href="#sec-2-3-alfredo-romualdez-v-sandiganbayan-fifth-division" class="toc-link level-1" title="3. ALFREDO ROMUALDEZ V. SANDIGANBAYAN (FIFTH DIVISION)">3. ALFREDO ROMUALDEZ V. SANDIGANBAYAN (FIFTH DIVISION)</a></li>
-<li><a href="#sec-3-4-lorna-g-pesca-v-zosimo-a-pesca" class="toc-link level-1" title="4. LORNA G. PESCA V. ZOSIMO A. PESCA">4. LORNA G. PESCA V. ZOSIMO A. PESCA</a></li>
-<li><a href="#sec-4-5-people-of-the-philippines-v-mario-mapa-y-mapulong" class="toc-link level-1" title="5. PEOPLE OF THE PHILIPPINES V. MARIO MAPA Y MAPULONG">5. PEOPLE OF THE PHILIPPINES V. MARIO MAPA Y MAPULONG</a></li>
-<li><a href="#sec-5-6-pastor-m-endencia-and-sebastian-t-lopez-v-saturnino-david" class="toc-link level-1" title="6. PASTOR M. ENDENCIA AND SEBASTIAN T. LOPEZ V. SATURNINO DAVID (COLLECTOR OF INTERNAL REVENUE)">6. PASTOR M. ENDENCIA AND SEBASTIAN T. LOPEZ V. SATURNINO DAVID (COLLECTOR OF INTERNAL REVENUE)</a></li>
-<li><a href="#sec-6-7-people-of-the-philippines-v-danilo-corpuz" class="toc-link level-1" title="7. PEOPLE OF THE PHILIPPINES V. DANILO CORPUZ">7. PEOPLE OF THE PHILIPPINES V. DANILO CORPUZ</a></li>
-<li><a href="#sec-7-8-republic-of-the-philippines-v-court-of-appeals-and-roridel" class="toc-link level-1" title="8. REPUBLIC OF THE PHILIPPINES V. COURT OF APPEALS AND RORIDEL OLAVIANO MOLINA">8. REPUBLIC OF THE PHILIPPINES V. COURT OF APPEALS AND RORIDEL OLAVIANO MOLINA</a></li>
-<li><a href="#sec-8-9-public-estates-authority-v-hon-napoleon-r-caoibes-jr-and-i" class="toc-link level-1" title="9. PUBLIC ESTATES AUTHORITY V. HON. NAPOLEON R. CAOIBES, JR. AND IMELDA B. DARVIN">9. PUBLIC ESTATES AUTHORITY V. HON. NAPOLEON R. CAOIBES, JR. AND IMELDA B. DARVIN</a></li>
-<li><a href="#sec-9-10-people-of-the-philippines-v-mario-atop" class="toc-link level-1" title="10. PEOPLE OF THE PHILIPPINES V. MARIO ATOP">10. PEOPLE OF THE PHILIPPINES V. MARIO ATOP</a></li>
-<li><a href="#sec-10-11-people-of-the-philippines-v-macario-avecilla-eastern-medi" class="toc-link level-1" title="11. PEOPLE OF THE PHILIPPINES V. MACARIO AVECILLA / EASTERN MEDITERRANEAN MARITIME LTD. V. SURIO">11. PEOPLE OF THE PHILIPPINES V. MACARIO AVECILLA / EASTERN MEDITERRANEAN MARITIME LTD. V. SURIO</a></li>
-<li><a href="#sec-11-12-tawang-multi-purpose-cooperative-v-la-trinidad-water-dist" class="toc-link level-1" title="12. TAWANG MULTI-PURPOSE COOPERATIVE V. LA TRINIDAD WATER DISTRICT">12. TAWANG MULTI-PURPOSE COOPERATIVE V. LA TRINIDAD WATER DISTRICT</a></li>
-<li><a href="#sec-12-13-nippon-express-philippines-corporation-v-commissioner-of" class="toc-link level-1" title="13. NIPPON EXPRESS (PHILIPPINES) CORPORATION V. COMMISSIONER OF INTERNAL REVENUE">13. NIPPON EXPRESS (PHILIPPINES) CORPORATION V. COMMISSIONER OF INTERNAL REVENUE</a></li>
-<li><a href="#sec-13-14-cynthia-s-bolos-v-danilo-t-bolos" class="toc-link level-1" title="14. CYNTHIA S. BOLOS V. DANILO T. BOLOS">14. CYNTHIA S. BOLOS V. DANILO T. BOLOS</a></li>
-<li><a href="#sec-14-15-bernadette-s-gan-v-hon-antonio-c-reyes-and-frisco-f-reyes" class="toc-link level-1" title="15. BERNADETTE S. GAN V. HON. ANTONIO C. REYES AND FRISCO F. REYES">15. BERNADETTE S. GAN V. HON. ANTONIO C. REYES AND FRISCO F. REYES</a></li>
-<li><a href="#sec-15-16-people-of-the-philippines-v-bernardo-acbangin" class="toc-link level-1" title="16. PEOPLE OF THE PHILIPPINES V. BERNARDO ACBANGIN">16. PEOPLE OF THE PHILIPPINES V. BERNARDO ACBANGIN</a></li>
-<li><a href="#sec-16-17-people-of-the-philippines-v-hon-florentino-m-veneracion-a" class="toc-link level-1" title="17. PEOPLE OF THE PHILIPPINES V. HON. FLORENTINO M. VENERACION AND HENRY LAGARTO">17. PEOPLE OF THE PHILIPPINES V. HON. FLORENTINO M. VENERACION AND HENRY LAGARTO</a></li>
-<li><a href="#sec-17-18-amelia-p-pascual-et-al-v-esperanza-c-pascual-bautista-et" class="toc-link level-1" title="18. AMELIA P. PASCUAL, ET AL. V. ESPERANZA C. PASCUAL-BAUTISTA, ET AL.">18. AMELIA P. PASCUAL, ET AL. V. ESPERANZA C. PASCUAL-BAUTISTA, ET AL.</a></li>
-<li><a href="#sec-18-20-carlos-alonzo-and-casimira-alonzo-v-intermediate-appellat" class="toc-link level-1" title="20. CARLOS ALONZO AND CASIMIRA ALONZO V. INTERMEDIATE APPELLATE COURT AND TEODORA PADUA">20. CARLOS ALONZO AND CASIMIRA ALONZO V. INTERMEDIATE APPELLATE COURT AND TEODORA PADUA</a></li>
-<li><a href="#sec-19-21-juanito-b-victoria-v-commission-on-elections-and-benjamin" class="toc-link level-1" title="21. JUANITO B. VICTORIA V. COMMISSION ON ELECTIONS AND BENJAMIN S. ABALOS">21. JUANITO B. VICTORIA V. COMMISSION ON ELECTIONS AND BENJAMIN S. ABALOS</a></li>
-<li><a href="#sec-20-22-philippine-healthcare-providers-inc-v-commissioner-of-int" class="toc-link level-1" title="22. PHILIPPINE HEALTHCARE PROVIDERS, INC. V. COMMISSIONER OF INTERNAL REVENUE">22. PHILIPPINE HEALTHCARE PROVIDERS, INC. V. COMMISSIONER OF INTERNAL REVENUE</a></li>
-<li><a href="#sec-21-23-socorro-d-ramirez-v-court-of-appeals-and-ester-s-garcia" class="toc-link level-1" title="23. SOCORRO D. RAMIREZ V. COURT OF APPEALS AND ESTER S. GARCIA">23. SOCORRO D. RAMIREZ V. COURT OF APPEALS AND ESTER S. GARCIA</a></li>
-<li><a href="#sec-22-24-ana-torres-v-jose-limjap" class="toc-link level-1" title="24. ANA TORRES V. JOSE LIMJAP">24. ANA TORRES V. JOSE LIMJAP</a></li>
-<li><a href="#sec-23-25-juan-llorin-jr-v-court-of-appeals-and-maximo-malicsi" class="toc-link level-1" title="25. JUAN LLORIN, JR. V. COURT OF APPEALS AND MAXIMO MALICSI">25. JUAN LLORIN, JR. V. COURT OF APPEALS AND MAXIMO MALICSI</a></li>
-<li><a href="#sec-24-26-municipality-of-nueva-era-ilocos-norte-v-municipality-of" class="toc-link level-1" title="26. MUNICIPALITY OF NUEVA ERA, ILOCOS NORTE V. MUNICIPALITY OF MARCOS, ILOCOS NORTE">26. MUNICIPALITY OF NUEVA ERA, ILOCOS NORTE V. MUNICIPALITY OF MARCOS, ILOCOS NORTE</a></li>
-<li><a href="#sec-25-27-club-filipino-inc-and-atty-roberto-f-de-leon-v-benjamin-b" class="toc-link level-1" title="27. CLUB FILIPINO, INC. AND ATTY. ROBERTO F. DE LEON V. BENJAMIN BAUTISTA, ET AL.">27. CLUB FILIPINO, INC. AND ATTY. ROBERTO F. DE LEON V. BENJAMIN BAUTISTA, ET AL.</a></li>
-<li><a href="#sec-26-28-aurelio-p-yu-v-hon-ma-theresa-l-samson-tatad-and-people-o" class="toc-link level-1" title="28. AURELIO P. YU V. HON. MA. THERESA L. SAMSON-TATAD AND PEOPLE OF THE PHILIPPINES">28. AURELIO P. YU V. HON. MA. THERESA L. SAMSON-TATAD AND PEOPLE OF THE PHILIPPINES</a></li>
-<li><a href="#sec-27-29-florencio-eugenio-v-executive-secretary-franklin-m-drilon" class="toc-link level-1" title="29. FLORENCIO EUGENIO V. EXECUTIVE SECRETARY FRANKLIN M. DRILON, HOUSING AND LAND USE REGULATORY BOARD (HLURB), AND PROSPERO PALMIANO">29. FLORENCIO EUGENIO V. EXECUTIVE SECRETARY FRANKLIN M. DRILON, HOUSING AND LAND USE REGULATORY BOARD (HLURB), AND PROSPERO PALMIANO</a></li>
-<li><a href="#sec-28-30-alonzo-v-intermediate-appellate-court-and-tecla-padua" class="toc-link level-1" title="30. ALONZO V. INTERMEDIATE APPELLATE COURT AND TECLA PADUA">30. ALONZO V. INTERMEDIATE APPELLATE COURT AND TECLA PADUA</a></li>
-<li><a href="#sec-29-31-jose-v-melchor-jr-v-commission-on-audit" class="toc-link level-1" title="31. JOSE V. MELCHOR, JR. V. COMMISSION ON AUDIT">31. JOSE V. MELCHOR, JR. V. COMMISSION ON AUDIT</a></li>
-<li><a href="#sec-30-32-people-of-the-philippines-v-patricio-garcia" class="toc-link level-1" title="32. PEOPLE OF THE PHILIPPINES V. PATRICIO GARCIA">32. PEOPLE OF THE PHILIPPINES V. PATRICIO GARCIA</a></li>
-<li><a href="#sec-31-33-people-of-the-philippines-v-the-honorable-sandiganbayan-f" class="toc-link level-1" title="33. PEOPLE OF THE PHILIPPINES V. THE HONORABLE SANDIGANBAYAN (FOURTH DIVISION) AND CEFERINO S. PAREDES, JR.">33. PEOPLE OF THE PHILIPPINES V. THE HONORABLE SANDIGANBAYAN (FOURTH DIVISION) AND CEFERINO S. PAREDES, JR.</a></li>
-<li><a href="#sec-32-34-pelizloy-realty-corporation-v-the-province-of-benguet" class="toc-link level-1" title="34. PELIZLOY REALTY CORPORATION V. THE PROVINCE OF BENGUET">34. PELIZLOY REALTY CORPORATION V. THE PROVINCE OF BENGUET</a></li>
-<li><a href="#sec-33-35-coca-cola-bottlers-phils-inc-ccbpi-v-city-of-manila-and-l" class="toc-link level-1" title="35. COCA-COLA BOTTLERS, PHILS., INC. (CCBPI) V. CITY OF MANILA AND LIBERTY M. GOMEZ">35. COCA-COLA BOTTLERS, PHILS., INC. (CCBPI) V. CITY OF MANILA AND LIBERTY M. GOMEZ</a></li>
-<li><a href="#sec-34-36-jose-g-atienza-jr-v-jose-l-villarosa" class="toc-link level-1" title="36. JOSE G. ATIENZA, JR. V. JOSE L. VILLAROSA">36. JOSE G. ATIENZA, JR. V. JOSE L. VILLAROSA</a></li>
-<li><a href="#sec-35-37-commission-on-human-rights-employees-association-chrea-v" class="toc-link level-1" title="37. COMMISSION ON HUMAN RIGHTS EMPLOYEES&#x27; ASSOCIATION (CHREA) V. COMMISSION ON HUMAN RIGHTS">37. COMMISSION ON HUMAN RIGHTS EMPLOYEES&#x27; ASSOCIATION (CHREA) V. COMMISSION ON HUMAN RIGHTS</a></li>
-<li><a href="#sec-36-38-sterling-selections-corporation-v-laguna-lake-development" class="toc-link level-1" title="38. STERLING SELECTIONS CORPORATION V. LAGUNA LAKE DEVELOPMENT AUTHORITY (LLDA)">38. STERLING SELECTIONS CORPORATION V. LAGUNA LAKE DEVELOPMENT AUTHORITY (LLDA)</a></li>
-<li><a href="#sec-37-39-commission-on-audit-of-the-province-of-cebu-v-province-of" class="toc-link level-1" title="39. COMMISSION ON AUDIT OF THE PROVINCE OF CEBU V. PROVINCE OF CEBU">39. COMMISSION ON AUDIT OF THE PROVINCE OF CEBU V. PROVINCE OF CEBU</a></li>
-<li><a href="#sec-38-40-colgate-palmolive-philippines-inc-v-pedro-m-gimenez" class="toc-link level-1" title="40. COLGATE-PALMOLIVE PHILIPPINES, INC. V. PEDRO M. GIMENEZ">40. COLGATE-PALMOLIVE PHILIPPINES, INC. V. PEDRO M. GIMENEZ</a></li>
-<li><a href="#sec-39-41-roman-catholic-archbishop-of-manila-v-social-security-com" class="toc-link level-1" title="41. ROMAN CATHOLIC ARCHBISHOP OF MANILA V. SOCIAL SECURITY COMMISSION">41. ROMAN CATHOLIC ARCHBISHOP OF MANILA V. SOCIAL SECURITY COMMISSION</a></li>
-<li><a href="#sec-40-42-jose-escribano-v-hon-bernardo-avila-and-city-fiscal-of-co" class="toc-link level-1" title="42. JOSE ESCRIBANO V. HON. BERNARDO AVILA AND CITY FISCAL OF COTABATO">42. JOSE ESCRIBANO V. HON. BERNARDO AVILA AND CITY FISCAL OF COTABATO</a></li>
-<li><a href="#sec-41-43-people-of-the-philippines-v-guillermo-manantan" class="toc-link level-1" title="43. PEOPLE OF THE PHILIPPINES V. GUILLERMO MANANTAN">43. PEOPLE OF THE PHILIPPINES V. GUILLERMO MANANTAN</a></li>
-<li><a href="#sec-42-44-philippine-economic-zone-authority-peza-v-green-asia-cons" class="toc-link level-1" title="44. PHILIPPINE ECONOMIC ZONE AUTHORITY (PEZA) V. GREEN ASIA CONSTRUCTION &amp; DEVELOPMENT CORPORATION">44. PHILIPPINE ECONOMIC ZONE AUTHORITY (PEZA) V. GREEN ASIA CONSTRUCTION &amp; DEVELOPMENT CORPORATION</a></li>
-<li><a href="#sec-43-45-tuna-processing-inc-v-philippine-kingford-inc" class="toc-link level-1" title="45. TUNA PROCESSING, INC. V. PHILIPPINE KINGFORD, INC.">45. TUNA PROCESSING, INC. V. PHILIPPINE KINGFORD, INC.</a></li>
-<li><a href="#sec-44-46-melanio-l-magno-v-commission-on-elections-and-alice-p-bur" class="toc-link level-1" title="46. MELANIO L. MAGNO V. COMMISSION ON ELECTIONS AND ALICE P. BURAGA">46. MELANIO L. MAGNO V. COMMISSION ON ELECTIONS AND ALICE P. BURAGA</a></li>
-<li><a href="#sec-45-47-maria-virginia-v-remo-v-the-honorable-secretary-of-foreig" class="toc-link level-1" title="47. MARIA VIRGINIA V. REMO V. THE HONORABLE SECRETARY OF FOREIGN AFFAIRS">47. MARIA VIRGINIA V. REMO V. THE HONORABLE SECRETARY OF FOREIGN AFFAIRS</a></li>
-<li><a href="#sec-46-48-commissioner-of-internal-revenue-v-philippine-airlines-in" class="toc-link level-1" title="48. COMMISSIONER OF INTERNAL REVENUE V. PHILIPPINE AIRLINES, INC. (PAL)">48. COMMISSIONER OF INTERNAL REVENUE V. PHILIPPINE AIRLINES, INC. (PAL)</a></li>
-<li><a href="#sec-47-49-republic-of-the-philippines-v-del-monte-motors-inc" class="toc-link level-1" title="49. REPUBLIC OF THE PHILIPPINES V. DEL MONTE MOTORS, INC.">49. REPUBLIC OF THE PHILIPPINES V. DEL MONTE MOTORS, INC.</a></li>
-<li><a href="#sec-48-50-people-of-the-philippines-v-mario-francisco-y-martin" class="toc-link level-1" title="50. PEOPLE OF THE PHILIPPINES V. MARIO FRANCISCO Y MARTIN">50. PEOPLE OF THE PHILIPPINES V. MARIO FRANCISCO Y MARTIN</a></li>
-<li><a href="#sec-49-51-philippine-national-bank-pnb-v-office-of-the-president-hl" class="toc-link level-1" title="51. PHILIPPINE NATIONAL BANK (PNB) V. OFFICE OF THE PRESIDENT, HLURB, AND SPOUSES JAIME &amp; ROSITA TAPIO">51. PHILIPPINE NATIONAL BANK (PNB) V. OFFICE OF THE PRESIDENT, HLURB, AND SPOUSES JAIME &amp; ROSITA TAPIO</a></li>
-<li><a href="#sec-50-52-bienvenido-a-ebarle-v-hon-quirico-sucaldito-and-aludio-p" class="toc-link level-1" title="52. BIENVENIDO A. EBARLE V. HON. QUIRICO SUCALDITO AND ALUDIO P. MONTEMAYOR">52. BIENVENIDO A. EBARLE V. HON. QUIRICO SUCALDITO AND ALUDIO P. MONTEMAYOR</a></li>
-<li><a href="#sec-51-53-commissioner-of-customs-v-agapito-relunia" class="toc-link level-1" title="53. COMMISSIONER OF CUSTOMS V. AGAPITO RELUNIA">53. COMMISSIONER OF CUSTOMS V. AGAPITO RELUNIA</a></li>
-<li><a href="#sec-52-54-people-of-the-philippines-v-rosauro-subido" class="toc-link level-1" title="54. PEOPLE OF THE PHILIPPINES V. ROSAURO SUBIDO">54. PEOPLE OF THE PHILIPPINES V. ROSAURO SUBIDO</a></li>
-<li><a href="#sec-53-55-florentino-and-florentino-v-philippine-national-bank" class="toc-link level-1" title="55. FLORENTINO AND FLORENTINO V. PHILIPPINE NATIONAL BANK">55. FLORENTINO AND FLORENTINO V. PHILIPPINE NATIONAL BANK</a></li>
-<li><a href="#sec-54-56-vivencio-mapa-and-candido-mapa-v-hon-joker-arroyo-executi" class="toc-link level-1" title="56. VIVENCIO MAPA AND CANDIDO MAPA V. HON. JOKER ARROYO, EXECUTIVE SECRETARY, AND LABRADOR DEVELOPMENT CORPORATION">56. VIVENCIO MAPA AND CANDIDO MAPA V. HON. JOKER ARROYO, EXECUTIVE SECRETARY, AND LABRADOR DEVELOPMENT CORPORATION</a></li>
-<li><a href="#sec-55-58-people-of-the-philippine-islands-v-maximo-yabut" class="toc-link level-1" title="58. PEOPLE OF THE PHILIPPINE ISLANDS V. MAXIMO YABUT">58. PEOPLE OF THE PHILIPPINE ISLANDS V. MAXIMO YABUT</a></li>
-<li><a href="#sec-56-59-baking-v-director-of-prisons" class="toc-link level-1" title="59. BAKING V. DIRECTOR OF PRISONS">59. BAKING V. DIRECTOR OF PRISONS</a></li>
-<li><a href="#sec-57-60-metropolitan-manila-development-authority-mmda-v-dante-o" class="toc-link level-1" title="60. METROPOLITAN MANILA DEVELOPMENT AUTHORITY (MMDA) V. DANTE O. GARIN">60. METROPOLITAN MANILA DEVELOPMENT AUTHORITY (MMDA) V. DANTE O. GARIN</a></li>
-<li><a href="#sec-58-61-commissioner-of-internal-revenue-v-sm-prime-holdings-inc" class="toc-link level-1" title="61. COMMISSIONER OF INTERNAL REVENUE V. SM PRIME HOLDINGS, INC. AND FIRST ASIA REALTY DEVELOPMENT CORP.">61. COMMISSIONER OF INTERNAL REVENUE V. SM PRIME HOLDINGS, INC. AND FIRST ASIA REALTY DEVELOPMENT CORP.</a></li>
-<li><a href="#sec-59-62-laxamana-v-baltazar" class="toc-link level-1" title="62. LAXAMANA V. BALTAZAR">62. LAXAMANA V. BALTAZAR</a></li>
-<li><a href="#sec-60-63-rustan-ang-v-court-of-appeals-and-irish-sagud" class="toc-link level-1" title="63. RUSTAN ANG V. COURT OF APPEALS AND IRISH SAGUD">63. RUSTAN ANG V. COURT OF APPEALS AND IRISH SAGUD</a></li>
-<li><a href="#sec-61-64-alvarez-v-guingona" class="toc-link level-1" title="64. ALVAREZ V. GUINGONA">64. ALVAREZ V. GUINGONA</a></li>
-<li><a href="#sec-62-65-boie-takeda-chemicals-inc-and-philippine-investment-manag" class="toc-link level-1" title="65. BOIE-TAKEDA CHEMICALS, INC. AND PHILIPPINE INVESTMENT-MANAGEMENT CONSULTANTS (PHINMA) V. HON. DIONISIO DE LA SERNA">65. BOIE-TAKEDA CHEMICALS, INC. AND PHILIPPINE INVESTMENT-MANAGEMENT CONSULTANTS (PHINMA) V. HON. DIONISIO DE LA SERNA</a></li>
-<li><a href="#sec-63-66-national-housing-authority-nha-v-hon-floreliana-castro-re" class="toc-link level-1" title="66. NATIONAL HOUSING AUTHORITY (NHA) V. HON. FLORELIANA CASTRO-REYES AND SPOUSES ARSENIO &amp; AMANDA POSADAS">66. NATIONAL HOUSING AUTHORITY (NHA) V. HON. FLORELIANA CASTRO-REYES AND SPOUSES ARSENIO &amp; AMANDA POSADAS</a></li>
-<li><a href="#sec-64-67-aparri-v-court-of-appeals" class="toc-link level-1" title="67. APARRI V. COURT OF APPEALS">67. APARRI V. COURT OF APPEALS</a></li>
-<li><a href="#sec-65-68-republic-of-the-philippines-v-court-of-appeals-and-roride" class="toc-link level-1" title="68. REPUBLIC OF THE PHILIPPINES V. COURT OF APPEALS AND RORIDEL OLAVIANO MOLINA">68. REPUBLIC OF THE PHILIPPINES V. COURT OF APPEALS AND RORIDEL OLAVIANO MOLINA</a></li>
-<li><a href="#sec-66-69-lawyers-against-monopoly-and-poverty-lamp-v-the-secretary" class="toc-link level-1" title="69. LAWYERS AGAINST MONOPOLY AND POVERTY (LAMP) V. THE SECRETARY OF BUDGET AND MANAGEMENT">69. LAWYERS AGAINST MONOPOLY AND POVERTY (LAMP) V. THE SECRETARY OF BUDGET AND MANAGEMENT</a></li>
-<li><a href="#sec-67-70-pedro-gatchalian-v-commission-on-elections" class="toc-link level-1" title="70. PEDRO GATCHALIAN V. COMMISSION ON ELECTIONS">70. PEDRO GATCHALIAN V. COMMISSION ON ELECTIONS</a></li>
-<li><a href="#sec-68-71-juanito-c-saludaga-v-honorable-sandiganbayan-fourth-divis" class="toc-link level-1" title="71. JUANITO C. SALUDAGA V. HONORABLE SANDIGANBAYAN (FOURTH DIVISION)">71. JUANITO C. SALUDAGA V. HONORABLE SANDIGANBAYAN (FOURTH DIVISION)</a></li>
-<li><a href="#sec-69-72-commissioner-of-internal-revenue-v-julian-ariete" class="toc-link level-1" title="72. COMMISSIONER OF INTERNAL REVENUE V. JULIAN ARIETE">72. COMMISSIONER OF INTERNAL REVENUE V. JULIAN ARIETE</a></li>
-<li><a href="#sec-70-73-office-of-the-ombudsman-v-rolando-andutan-jr" class="toc-link level-1" title="73. OFFICE OF THE OMBUDSMAN V. ROLANDO ANDUTAN, JR.">73. OFFICE OF THE OMBUDSMAN V. ROLANDO ANDUTAN, JR.</a></li>
-<li><a href="#sec-71-74-spouses-roberto-and-thelma-enriquez-v-spouses-victor-and" class="toc-link level-1" title="74. SPOUSES ROBERTO AND THELMA ENRIQUEZ V. SPOUSES VICTOR AND MILAGROS ENRIQUEZ">74. SPOUSES ROBERTO AND THELMA ENRIQUEZ V. SPOUSES VICTOR AND MILAGROS ENRIQUEZ</a></li>
-<li><a href="#sec-72-75-ramon-diokno-v-rehabilitation-finance-corporation-rfc" class="toc-link level-1" title="75. RAMON DIOKNO V. REHABILITATION FINANCE CORPORATION (RFC)">75. RAMON DIOKNO V. REHABILITATION FINANCE CORPORATION (RFC)</a></li>
-<li><a href="#sec-73-76-san-carlos-milling-co-inc-v-commissioner-of-internal-reve" class="toc-link level-1" title="76. SAN CARLOS MILLING CO., INC. V. COMMISSIONER OF INTERNAL REVENUE">76. SAN CARLOS MILLING CO., INC. V. COMMISSIONER OF INTERNAL REVENUE</a></li>
-<li><a href="#sec-74-77-zacarias-berces-sr-v-hon-teofisto-t-guingona-jr-and-mayor" class="toc-link level-1" title="77. ZACARIAS BERCES, SR. V. HON. TEOFISTO T. GUINGONA, JR. AND MAYOR NAOMI CORRAL">77. ZACARIAS BERCES, SR. V. HON. TEOFISTO T. GUINGONA, JR. AND MAYOR NAOMI CORRAL</a></li>
-<li><a href="#sec-75-78-chang-yung-fa-and-co-kim-cham-v-hon-emilio-l-gianzo" class="toc-link level-1" title="78. CHANG YUNG FA AND CO KIM CHAM V. HON. EMILIO L. GIANZO">78. CHANG YUNG FA AND CO KIM CHAM V. HON. EMILIO L. GIANZO</a></li>
-<li><a href="#sec-76-79-victorias-milling-company-inc-v-social-security-commissio" class="toc-link level-1" title="79. VICTORIAS MILLING COMPANY, INC. V. SOCIAL SECURITY COMMISSION">79. VICTORIAS MILLING COMPANY, INC. V. SOCIAL SECURITY COMMISSION</a></li>
-<li><a href="#sec-77-80-commissioner-of-internal-revenue-v-manila-lodge-no-761-bp" class="toc-link level-1" title="80. COMMISSIONER OF INTERNAL REVENUE V. MANILA LODGE NO. 761, B.P.O.E.">80. COMMISSIONER OF INTERNAL REVENUE V. MANILA LODGE NO. 761, B.P.O.E.</a></li>
-<li><a href="#sec-78-81-mustang-lumber-inc-v-court-of-appeals-and-secretary-of-en" class="toc-link level-1" title="81. MUSTANG LUMBER, INC. V. COURT OF APPEALS AND SECRETARY OF ENVIRONMENT AND NATURAL RESOURCES">81. MUSTANG LUMBER, INC. V. COURT OF APPEALS AND SECRETARY OF ENVIRONMENT AND NATURAL RESOURCES</a></li>
-<li><a href="#sec-79-82-cc-commercial-corporation-v-national-waterworks-and-sewer" class="toc-link level-1" title="82. C&amp;C COMMERCIAL CORPORATION V. NATIONAL WATERWORKS AND SEWERAGE AUTHORITY (NAWASA)">82. C&amp;C COMMERCIAL CORPORATION V. NATIONAL WATERWORKS AND SEWERAGE AUTHORITY (NAWASA)</a></li>
-<li><a href="#sec-80-83-rolando-geotina-commissioner-of-customs-v-court-of-tax-ap" class="toc-link level-1" title="83. ROLANDO GEOTINA, COMMISSIONER OF CUSTOMS V. COURT OF TAX APPEALS AND SPOUSES LUIS &amp; FRANCISCA YAP">83. ROLANDO GEOTINA, COMMISSIONER OF CUSTOMS V. COURT OF TAX APPEALS AND SPOUSES LUIS &amp; FRANCISCA YAP</a></li>
-<li><a href="#sec-81-84-san-miguel-corporation-v-municipal-council-of-mandaue-ceb" class="toc-link level-1" title="84. SAN MIGUEL CORPORATION V. MUNICIPAL COUNCIL OF MANDAUE, CEBU">84. SAN MIGUEL CORPORATION V. MUNICIPAL COUNCIL OF MANDAUE, CEBU</a></li>
-<li><a href="#sec-82-85-atty-dominador-malanyaon-v-hon-rafael-silsing-and-mayor-j" class="toc-link level-1" title="85. ATTY. DOMINADOR MALANYAON V. HON. RAFAEL SILSING AND MAYOR JAIME CLAVERIA">85. ATTY. DOMINADOR MALANYAON V. HON. RAFAEL SILSING AND MAYOR JAIME CLAVERIA</a></li>
-<li><a href="#sec-83-86-alexander-a-krivenko-v-the-register-of-deeds-of-the-city" class="toc-link level-1" title="86. ALEXANDER A. KRIVENKO V. THE REGISTER OF DEEDS OF THE CITY OF MANILA">86. ALEXANDER A. KRIVENKO V. THE REGISTER OF DEEDS OF THE CITY OF MANILA</a></li>
-<li><a href="#sec-84-87-adolfo-m-garcia-v-commission-on-elections-and-juanito-c-s" class="toc-link level-1" title="87. ADOLFO M. GARCIA V. COMMISSION ON ELECTIONS AND JUANITO C. SIOSON">87. ADOLFO M. GARCIA V. COMMISSION ON ELECTIONS AND JUANITO C. SIOSON</a></li>
-<li><a href="#sec-85-88-carlos-gelano-and-guillermina-gelano-v-court-of-appeals-a" class="toc-link level-1" title="88. CARLOS GELANO AND GUILLERMINA GELANO V. COURT OF APPEALS AND INSULAR SAWMILL, INC.">88. CARLOS GELANO AND GUILLERMINA GELANO V. COURT OF APPEALS AND INSULAR SAWMILL, INC.</a></li>
-<li><a href="#sec-86-89-people-of-the-philippines-v-mamerto-s-chaves" class="toc-link level-1" title="89. PEOPLE OF THE PHILIPPINES V. MAMERTO S. CHAVES">89. PEOPLE OF THE PHILIPPINES V. MAMERTO S. CHAVES</a></li>
-<li><a href="#sec-87-90-dr-brigida-buenaseda-v-secretary-juan-flavier-and-ombudsm" class="toc-link level-1" title="90. DR. BRIGIDA BUENASEDA V. SECRETARY JUAN FLAVIER AND OMBUDSMAN CONRADO VASQUEZ">90. DR. BRIGIDA BUENASEDA V. SECRETARY JUAN FLAVIER AND OMBUDSMAN CONRADO VASQUEZ</a></li>
-<li><a href="#sec-88-91-mayor-pablo-p-magtajas-v-pryce-properties-corporation-and" class="toc-link level-1" title="91. MAYOR PABLO P. MAGTAJAS V. PRYCE PROPERTIES CORPORATION AND PHILIPPINE AMUSEMENT AND GAMING CORPORATION (PAGCOR)">91. MAYOR PABLO P. MAGTAJAS V. PRYCE PROPERTIES CORPORATION AND PHILIPPINE AMUSEMENT AND GAMING CORPORATION (PAGCOR)</a></li>
-<li><a href="#sec-89-92-jose-pendon-v-felix-daisnes" class="toc-link level-1" title="92. JOSE PENDON V. FELIX DAISNES">92. JOSE PENDON V. FELIX DAISNES</a></li>
-<li><a href="#sec-90-93-juan-grospe-and-juanita-grospe-v-court-of-appeals-and-cor" class="toc-link level-1" title="93. JUAN GROSPE AND JUANITA GROSPE V. COURT OF APPEALS AND CORNELIO ESGUERRA">93. JUAN GROSPE AND JUANITA GROSPE V. COURT OF APPEALS AND CORNELIO ESGUERRA</a></li>
-<li><a href="#sec-91-94-atty-ernesto-b-francisco-jr-v-the-house-of-representative" class="toc-link level-1" title="94. ATTY. ERNESTO B. FRANCISCO, JR. V. THE HOUSE OF REPRESENTATIVES">94. ATTY. ERNESTO B. FRANCISCO, JR. V. THE HOUSE OF REPRESENTATIVES</a></li>
-<li><a href="#sec-92-95-arturo-m-de-castro-v-judicial-and-bar-council-jbc" class="toc-link level-1" title="95. ARTURO M. DE CASTRO V. JUDICIAL AND BAR COUNCIL (JBC)">95. ARTURO M. DE CASTRO V. JUDICIAL AND BAR COUNCIL (JBC)</a></li>
-<li><a href="#sec-93-96-francisco-i-chavez-v-judicial-and-bar-council-jbc-sen-fra" class="toc-link level-1" title="96. FRANCISCO I. CHAVEZ V. JUDICIAL AND BAR COUNCIL (JBC), SEN. FRANCIS JOSEPH G. ESCUDERO, AND REP. NIEL C. TUPAS, JR.">96. FRANCISCO I. CHAVEZ V. JUDICIAL AND BAR COUNCIL (JBC), SEN. FRANCIS JOSEPH G. ESCUDERO, AND REP. NIEL C. TUPAS, JR.</a></li>
-<li><a href="#sec-94-97-ulupinio-sarmiento-iii-and-juanito-arcilla-v-salvador-mis" class="toc-link level-1" title="97. ULUPINIO SARMIENTO III AND JUANITO ARCILLA V. SALVADOR MISON, COMMISSIONER OF CUSTOMS">97. ULUPINIO SARMIENTO III AND JUANITO ARCILLA V. SALVADOR MISON, COMMISSIONER OF CUSTOMS</a></li>
-<li><a href="#sec-95-98-centro-project-manpower-services-corporation-v-vivian-nal" class="toc-link level-1" title="98. CENTRO PROJECT MANPOWER SERVICES CORPORATION V. VIVIAN NALUIS AND COURT OF APPEALS">98. CENTRO PROJECT MANPOWER SERVICES CORPORATION V. VIVIAN NALUIS AND COURT OF APPEALS</a></li>
-<li><a href="#sec-96-99-martin-centeno-v-hon-victoria-villalon-pornillos-and-peop" class="toc-link level-1" title="99. MARTIN CENTENO V. HON. VICTORIA VILLALON-PORNILLOS AND PEOPLE OF THE PHILIPPINES">99. MARTIN CENTENO V. HON. VICTORIA VILLALON-PORNILLOS AND PEOPLE OF THE PHILIPPINES</a></li>
-<li><a href="#sec-97-101-city-of-manila-v-chinese-community-of-manila" class="toc-link level-1" title="101. CITY OF MANILA V. CHINESE COMMUNITY OF MANILA">101. CITY OF MANILA V. CHINESE COMMUNITY OF MANILA</a></li>
-<li><a href="#sec-98-102-government-service-insurance-system-gsis-v-court-of-appe" class="toc-link level-1" title="102. GOVERNMENT SERVICE INSURANCE SYSTEM (GSIS) V. COURT OF APPEALS AND DR. FELONILA ALEGRE">102. GOVERNMENT SERVICE INSURANCE SYSTEM (GSIS) V. COURT OF APPEALS AND DR. FELONILA ALEGRE</a></li>
-<li><a href="#sec-99-103-ma-victoria-g-engle-v-commission-on-elections-comelec-an" class="toc-link level-1" title="103. MA. VICTORIA G. ENGLE V. COMMISSION ON ELECTIONS (COMELEC) AND WINSTON B. VERZOSA">103. MA. VICTORIA G. ENGLE V. COMMISSION ON ELECTIONS (COMELEC) AND WINSTON B. VERZOSA</a></li>
+<li><a href="#sec-overview" class="toc-link level-1" title="Statutory Construction Complete Syllabus ALAC Case Digests"><span class="toc-link-text">Statutory Construction Complete Syllabus ALAC Case Digests</span></a></li>
+<li><a href="#sec-1-1-caltex-philippines-inc-v-enrico-palomar-postmaster-general" class="toc-link level-1" title="1. CALTEX (PHILIPPINES), INC. V. ENRICO PALOMAR (POSTMASTER GENERAL)"><span class="toc-link-text">1. CALTEX (PHILIPPINES), INC. V. ENRICO PALOMAR (POSTMASTER GENERAL)</span></a></li>
+<li><a href="#sec-2-3-alfredo-romualdez-v-sandiganbayan-fifth-division" class="toc-link level-1" title="3. ALFREDO ROMUALDEZ V. SANDIGANBAYAN (FIFTH DIVISION)"><span class="toc-link-text">3. ALFREDO ROMUALDEZ V. SANDIGANBAYAN (FIFTH DIVISION)</span></a></li>
+<li><a href="#sec-3-4-lorna-g-pesca-v-zosimo-a-pesca" class="toc-link level-1" title="4. LORNA G. PESCA V. ZOSIMO A. PESCA"><span class="toc-link-text">4. LORNA G. PESCA V. ZOSIMO A. PESCA</span></a></li>
+<li><a href="#sec-4-5-people-of-the-philippines-v-mario-mapa-y-mapulong" class="toc-link level-1" title="5. PEOPLE OF THE PHILIPPINES V. MARIO MAPA Y MAPULONG"><span class="toc-link-text">5. PEOPLE OF THE PHILIPPINES V. MARIO MAPA Y MAPULONG</span></a></li>
+<li><a href="#sec-5-6-pastor-m-endencia-and-sebastian-t-lopez-v-saturnino-david" class="toc-link level-1" title="6. PASTOR M. ENDENCIA AND SEBASTIAN T. LOPEZ V. SATURNINO DAVID (COLLECTOR OF INTERNAL REVENUE)"><span class="toc-link-text">6. PASTOR M. ENDENCIA AND SEBASTIAN T. LOPEZ V. SATURNINO DAVID (COLLECTOR OF INTERNAL REVENUE)</span></a></li>
+<li><a href="#sec-6-7-people-of-the-philippines-v-danilo-corpuz" class="toc-link level-1" title="7. PEOPLE OF THE PHILIPPINES V. DANILO CORPUZ"><span class="toc-link-text">7. PEOPLE OF THE PHILIPPINES V. DANILO CORPUZ</span></a></li>
+<li><a href="#sec-7-8-republic-of-the-philippines-v-court-of-appeals-and-roridel" class="toc-link level-1" title="8. REPUBLIC OF THE PHILIPPINES V. COURT OF APPEALS AND RORIDEL OLAVIANO MOLINA"><span class="toc-link-text">8. REPUBLIC OF THE PHILIPPINES V. COURT OF APPEALS AND RORIDEL OLAVIANO MOLINA</span></a></li>
+<li><a href="#sec-8-9-public-estates-authority-v-hon-napoleon-r-caoibes-jr-and-i" class="toc-link level-1" title="9. PUBLIC ESTATES AUTHORITY V. HON. NAPOLEON R. CAOIBES, JR. AND IMELDA B. DARVIN"><span class="toc-link-text">9. PUBLIC ESTATES AUTHORITY V. HON. NAPOLEON R. CAOIBES, JR. AND IMELDA B. DARVIN</span></a></li>
+<li><a href="#sec-9-10-people-of-the-philippines-v-mario-atop" class="toc-link level-1" title="10. PEOPLE OF THE PHILIPPINES V. MARIO ATOP"><span class="toc-link-text">10. PEOPLE OF THE PHILIPPINES V. MARIO ATOP</span></a></li>
+<li><a href="#sec-10-11-people-of-the-philippines-v-macario-avecilla-eastern-medi" class="toc-link level-1" title="11. PEOPLE OF THE PHILIPPINES V. MACARIO AVECILLA / EASTERN MEDITERRANEAN MARITIME LTD. V. SURIO"><span class="toc-link-text">11. PEOPLE OF THE PHILIPPINES V. MACARIO AVECILLA / EASTERN MEDITERRANEAN MARITIME LTD. V. SURIO</span></a></li>
+<li><a href="#sec-11-12-tawang-multi-purpose-cooperative-v-la-trinidad-water-dist" class="toc-link level-1" title="12. TAWANG MULTI-PURPOSE COOPERATIVE V. LA TRINIDAD WATER DISTRICT"><span class="toc-link-text">12. TAWANG MULTI-PURPOSE COOPERATIVE V. LA TRINIDAD WATER DISTRICT</span></a></li>
+<li><a href="#sec-12-13-nippon-express-philippines-corporation-v-commissioner-of" class="toc-link level-1" title="13. NIPPON EXPRESS (PHILIPPINES) CORPORATION V. COMMISSIONER OF INTERNAL REVENUE"><span class="toc-link-text">13. NIPPON EXPRESS (PHILIPPINES) CORPORATION V. COMMISSIONER OF INTERNAL REVENUE</span></a></li>
+<li><a href="#sec-13-14-cynthia-s-bolos-v-danilo-t-bolos" class="toc-link level-1" title="14. CYNTHIA S. BOLOS V. DANILO T. BOLOS"><span class="toc-link-text">14. CYNTHIA S. BOLOS V. DANILO T. BOLOS</span></a></li>
+<li><a href="#sec-14-15-bernadette-s-gan-v-hon-antonio-c-reyes-and-frisco-f-reyes" class="toc-link level-1" title="15. BERNADETTE S. GAN V. HON. ANTONIO C. REYES AND FRISCO F. REYES"><span class="toc-link-text">15. BERNADETTE S. GAN V. HON. ANTONIO C. REYES AND FRISCO F. REYES</span></a></li>
+<li><a href="#sec-15-16-people-of-the-philippines-v-bernardo-acbangin" class="toc-link level-1" title="16. PEOPLE OF THE PHILIPPINES V. BERNARDO ACBANGIN"><span class="toc-link-text">16. PEOPLE OF THE PHILIPPINES V. BERNARDO ACBANGIN</span></a></li>
+<li><a href="#sec-16-17-people-of-the-philippines-v-hon-florentino-m-veneracion-a" class="toc-link level-1" title="17. PEOPLE OF THE PHILIPPINES V. HON. FLORENTINO M. VENERACION AND HENRY LAGARTO"><span class="toc-link-text">17. PEOPLE OF THE PHILIPPINES V. HON. FLORENTINO M. VENERACION AND HENRY LAGARTO</span></a></li>
+<li><a href="#sec-17-18-amelia-p-pascual-et-al-v-esperanza-c-pascual-bautista-et" class="toc-link level-1" title="18. AMELIA P. PASCUAL, ET AL. V. ESPERANZA C. PASCUAL-BAUTISTA, ET AL."><span class="toc-link-text">18. AMELIA P. PASCUAL, ET AL. V. ESPERANZA C. PASCUAL-BAUTISTA, ET AL.</span></a></li>
+<li><a href="#sec-18-20-carlos-alonzo-and-casimira-alonzo-v-intermediate-appellat" class="toc-link level-1" title="20. CARLOS ALONZO AND CASIMIRA ALONZO V. INTERMEDIATE APPELLATE COURT AND TEODORA PADUA"><span class="toc-link-text">20. CARLOS ALONZO AND CASIMIRA ALONZO V. INTERMEDIATE APPELLATE COURT AND TEODORA PADUA</span></a></li>
+<li><a href="#sec-19-21-juanito-b-victoria-v-commission-on-elections-and-benjamin" class="toc-link level-1" title="21. JUANITO B. VICTORIA V. COMMISSION ON ELECTIONS AND BENJAMIN S. ABALOS"><span class="toc-link-text">21. JUANITO B. VICTORIA V. COMMISSION ON ELECTIONS AND BENJAMIN S. ABALOS</span></a></li>
+<li><a href="#sec-20-22-philippine-healthcare-providers-inc-v-commissioner-of-int" class="toc-link level-1" title="22. PHILIPPINE HEALTHCARE PROVIDERS, INC. V. COMMISSIONER OF INTERNAL REVENUE"><span class="toc-link-text">22. PHILIPPINE HEALTHCARE PROVIDERS, INC. V. COMMISSIONER OF INTERNAL REVENUE</span></a></li>
+<li><a href="#sec-21-23-socorro-d-ramirez-v-court-of-appeals-and-ester-s-garcia" class="toc-link level-1" title="23. SOCORRO D. RAMIREZ V. COURT OF APPEALS AND ESTER S. GARCIA"><span class="toc-link-text">23. SOCORRO D. RAMIREZ V. COURT OF APPEALS AND ESTER S. GARCIA</span></a></li>
+<li><a href="#sec-22-24-ana-torres-v-jose-limjap" class="toc-link level-1" title="24. ANA TORRES V. JOSE LIMJAP"><span class="toc-link-text">24. ANA TORRES V. JOSE LIMJAP</span></a></li>
+<li><a href="#sec-23-25-juan-llorin-jr-v-court-of-appeals-and-maximo-malicsi" class="toc-link level-1" title="25. JUAN LLORIN, JR. V. COURT OF APPEALS AND MAXIMO MALICSI"><span class="toc-link-text">25. JUAN LLORIN, JR. V. COURT OF APPEALS AND MAXIMO MALICSI</span></a></li>
+<li><a href="#sec-24-26-municipality-of-nueva-era-ilocos-norte-v-municipality-of" class="toc-link level-1" title="26. MUNICIPALITY OF NUEVA ERA, ILOCOS NORTE V. MUNICIPALITY OF MARCOS, ILOCOS NORTE"><span class="toc-link-text">26. MUNICIPALITY OF NUEVA ERA, ILOCOS NORTE V. MUNICIPALITY OF MARCOS, ILOCOS NORTE</span></a></li>
+<li><a href="#sec-25-27-club-filipino-inc-and-atty-roberto-f-de-leon-v-benjamin-b" class="toc-link level-1" title="27. CLUB FILIPINO, INC. AND ATTY. ROBERTO F. DE LEON V. BENJAMIN BAUTISTA, ET AL."><span class="toc-link-text">27. CLUB FILIPINO, INC. AND ATTY. ROBERTO F. DE LEON V. BENJAMIN BAUTISTA, ET AL.</span></a></li>
+<li><a href="#sec-26-28-aurelio-p-yu-v-hon-ma-theresa-l-samson-tatad-and-people-o" class="toc-link level-1" title="28. AURELIO P. YU V. HON. MA. THERESA L. SAMSON-TATAD AND PEOPLE OF THE PHILIPPINES"><span class="toc-link-text">28. AURELIO P. YU V. HON. MA. THERESA L. SAMSON-TATAD AND PEOPLE OF THE PHILIPPINES</span></a></li>
+<li><a href="#sec-27-29-florencio-eugenio-v-executive-secretary-franklin-m-drilon" class="toc-link level-1" title="29. FLORENCIO EUGENIO V. EXECUTIVE SECRETARY FRANKLIN M. DRILON, HOUSING AND LAND USE REGULATORY BOARD (HLURB), AND PROSPERO PALMIANO"><span class="toc-link-text">29. FLORENCIO EUGENIO V. EXECUTIVE SECRETARY FRANKLIN M. DRILON, HOUSING AND LAND USE REGULATORY BOARD (HLURB), AND PROSPERO PALMIANO</span></a></li>
+<li><a href="#sec-28-30-alonzo-v-intermediate-appellate-court-and-tecla-padua" class="toc-link level-1" title="30. ALONZO V. INTERMEDIATE APPELLATE COURT AND TECLA PADUA"><span class="toc-link-text">30. ALONZO V. INTERMEDIATE APPELLATE COURT AND TECLA PADUA</span></a></li>
+<li><a href="#sec-29-31-jose-v-melchor-jr-v-commission-on-audit" class="toc-link level-1" title="31. JOSE V. MELCHOR, JR. V. COMMISSION ON AUDIT"><span class="toc-link-text">31. JOSE V. MELCHOR, JR. V. COMMISSION ON AUDIT</span></a></li>
+<li><a href="#sec-30-32-people-of-the-philippines-v-patricio-garcia" class="toc-link level-1" title="32. PEOPLE OF THE PHILIPPINES V. PATRICIO GARCIA"><span class="toc-link-text">32. PEOPLE OF THE PHILIPPINES V. PATRICIO GARCIA</span></a></li>
+<li><a href="#sec-31-33-people-of-the-philippines-v-the-honorable-sandiganbayan-f" class="toc-link level-1" title="33. PEOPLE OF THE PHILIPPINES V. THE HONORABLE SANDIGANBAYAN (FOURTH DIVISION) AND CEFERINO S. PAREDES, JR."><span class="toc-link-text">33. PEOPLE OF THE PHILIPPINES V. THE HONORABLE SANDIGANBAYAN (FOURTH DIVISION) AND CEFERINO S. PAREDES, JR.</span></a></li>
+<li><a href="#sec-32-34-pelizloy-realty-corporation-v-the-province-of-benguet" class="toc-link level-1" title="34. PELIZLOY REALTY CORPORATION V. THE PROVINCE OF BENGUET"><span class="toc-link-text">34. PELIZLOY REALTY CORPORATION V. THE PROVINCE OF BENGUET</span></a></li>
+<li><a href="#sec-33-35-coca-cola-bottlers-phils-inc-ccbpi-v-city-of-manila-and-l" class="toc-link level-1" title="35. COCA-COLA BOTTLERS, PHILS., INC. (CCBPI) V. CITY OF MANILA AND LIBERTY M. GOMEZ"><span class="toc-link-text">35. COCA-COLA BOTTLERS, PHILS., INC. (CCBPI) V. CITY OF MANILA AND LIBERTY M. GOMEZ</span></a></li>
+<li><a href="#sec-34-36-jose-g-atienza-jr-v-jose-l-villarosa" class="toc-link level-1" title="36. JOSE G. ATIENZA, JR. V. JOSE L. VILLAROSA"><span class="toc-link-text">36. JOSE G. ATIENZA, JR. V. JOSE L. VILLAROSA</span></a></li>
+<li><a href="#sec-35-37-commission-on-human-rights-employees-association-chrea-v" class="toc-link level-1" title="37. COMMISSION ON HUMAN RIGHTS EMPLOYEES&#x27; ASSOCIATION (CHREA) V. COMMISSION ON HUMAN RIGHTS"><span class="toc-link-text">37. COMMISSION ON HUMAN RIGHTS EMPLOYEES&#x27; ASSOCIATION (CHREA) V. COMMISSION ON HUMAN RIGHTS</span></a></li>
+<li><a href="#sec-36-38-sterling-selections-corporation-v-laguna-lake-development" class="toc-link level-1" title="38. STERLING SELECTIONS CORPORATION V. LAGUNA LAKE DEVELOPMENT AUTHORITY (LLDA)"><span class="toc-link-text">38. STERLING SELECTIONS CORPORATION V. LAGUNA LAKE DEVELOPMENT AUTHORITY (LLDA)</span></a></li>
+<li><a href="#sec-37-39-commission-on-audit-of-the-province-of-cebu-v-province-of" class="toc-link level-1" title="39. COMMISSION ON AUDIT OF THE PROVINCE OF CEBU V. PROVINCE OF CEBU"><span class="toc-link-text">39. COMMISSION ON AUDIT OF THE PROVINCE OF CEBU V. PROVINCE OF CEBU</span></a></li>
+<li><a href="#sec-38-40-colgate-palmolive-philippines-inc-v-pedro-m-gimenez" class="toc-link level-1" title="40. COLGATE-PALMOLIVE PHILIPPINES, INC. V. PEDRO M. GIMENEZ"><span class="toc-link-text">40. COLGATE-PALMOLIVE PHILIPPINES, INC. V. PEDRO M. GIMENEZ</span></a></li>
+<li><a href="#sec-39-41-roman-catholic-archbishop-of-manila-v-social-security-com" class="toc-link level-1" title="41. ROMAN CATHOLIC ARCHBISHOP OF MANILA V. SOCIAL SECURITY COMMISSION"><span class="toc-link-text">41. ROMAN CATHOLIC ARCHBISHOP OF MANILA V. SOCIAL SECURITY COMMISSION</span></a></li>
+<li><a href="#sec-40-42-jose-escribano-v-hon-bernardo-avila-and-city-fiscal-of-co" class="toc-link level-1" title="42. JOSE ESCRIBANO V. HON. BERNARDO AVILA AND CITY FISCAL OF COTABATO"><span class="toc-link-text">42. JOSE ESCRIBANO V. HON. BERNARDO AVILA AND CITY FISCAL OF COTABATO</span></a></li>
+<li><a href="#sec-41-43-people-of-the-philippines-v-guillermo-manantan" class="toc-link level-1" title="43. PEOPLE OF THE PHILIPPINES V. GUILLERMO MANANTAN"><span class="toc-link-text">43. PEOPLE OF THE PHILIPPINES V. GUILLERMO MANANTAN</span></a></li>
+<li><a href="#sec-42-44-philippine-economic-zone-authority-peza-v-green-asia-cons" class="toc-link level-1" title="44. PHILIPPINE ECONOMIC ZONE AUTHORITY (PEZA) V. GREEN ASIA CONSTRUCTION &amp; DEVELOPMENT CORPORATION"><span class="toc-link-text">44. PHILIPPINE ECONOMIC ZONE AUTHORITY (PEZA) V. GREEN ASIA CONSTRUCTION &amp; DEVELOPMENT CORPORATION</span></a></li>
+<li><a href="#sec-43-45-tuna-processing-inc-v-philippine-kingford-inc" class="toc-link level-1" title="45. TUNA PROCESSING, INC. V. PHILIPPINE KINGFORD, INC."><span class="toc-link-text">45. TUNA PROCESSING, INC. V. PHILIPPINE KINGFORD, INC.</span></a></li>
+<li><a href="#sec-44-46-melanio-l-magno-v-commission-on-elections-and-alice-p-bur" class="toc-link level-1" title="46. MELANIO L. MAGNO V. COMMISSION ON ELECTIONS AND ALICE P. BURAGA"><span class="toc-link-text">46. MELANIO L. MAGNO V. COMMISSION ON ELECTIONS AND ALICE P. BURAGA</span></a></li>
+<li><a href="#sec-45-47-maria-virginia-v-remo-v-the-honorable-secretary-of-foreig" class="toc-link level-1" title="47. MARIA VIRGINIA V. REMO V. THE HONORABLE SECRETARY OF FOREIGN AFFAIRS"><span class="toc-link-text">47. MARIA VIRGINIA V. REMO V. THE HONORABLE SECRETARY OF FOREIGN AFFAIRS</span></a></li>
+<li><a href="#sec-46-48-commissioner-of-internal-revenue-v-philippine-airlines-in" class="toc-link level-1" title="48. COMMISSIONER OF INTERNAL REVENUE V. PHILIPPINE AIRLINES, INC. (PAL)"><span class="toc-link-text">48. COMMISSIONER OF INTERNAL REVENUE V. PHILIPPINE AIRLINES, INC. (PAL)</span></a></li>
+<li><a href="#sec-47-49-republic-of-the-philippines-v-del-monte-motors-inc" class="toc-link level-1" title="49. REPUBLIC OF THE PHILIPPINES V. DEL MONTE MOTORS, INC."><span class="toc-link-text">49. REPUBLIC OF THE PHILIPPINES V. DEL MONTE MOTORS, INC.</span></a></li>
+<li><a href="#sec-48-50-people-of-the-philippines-v-mario-francisco-y-martin" class="toc-link level-1" title="50. PEOPLE OF THE PHILIPPINES V. MARIO FRANCISCO Y MARTIN"><span class="toc-link-text">50. PEOPLE OF THE PHILIPPINES V. MARIO FRANCISCO Y MARTIN</span></a></li>
+<li><a href="#sec-49-51-philippine-national-bank-pnb-v-office-of-the-president-hl" class="toc-link level-1" title="51. PHILIPPINE NATIONAL BANK (PNB) V. OFFICE OF THE PRESIDENT, HLURB, AND SPOUSES JAIME &amp; ROSITA TAPIO"><span class="toc-link-text">51. PHILIPPINE NATIONAL BANK (PNB) V. OFFICE OF THE PRESIDENT, HLURB, AND SPOUSES JAIME &amp; ROSITA TAPIO</span></a></li>
+<li><a href="#sec-50-52-bienvenido-a-ebarle-v-hon-quirico-sucaldito-and-aludio-p" class="toc-link level-1" title="52. BIENVENIDO A. EBARLE V. HON. QUIRICO SUCALDITO AND ALUDIO P. MONTEMAYOR"><span class="toc-link-text">52. BIENVENIDO A. EBARLE V. HON. QUIRICO SUCALDITO AND ALUDIO P. MONTEMAYOR</span></a></li>
+<li><a href="#sec-51-53-commissioner-of-customs-v-agapito-relunia" class="toc-link level-1" title="53. COMMISSIONER OF CUSTOMS V. AGAPITO RELUNIA"><span class="toc-link-text">53. COMMISSIONER OF CUSTOMS V. AGAPITO RELUNIA</span></a></li>
+<li><a href="#sec-52-54-people-of-the-philippines-v-rosauro-subido" class="toc-link level-1" title="54. PEOPLE OF THE PHILIPPINES V. ROSAURO SUBIDO"><span class="toc-link-text">54. PEOPLE OF THE PHILIPPINES V. ROSAURO SUBIDO</span></a></li>
+<li><a href="#sec-53-55-florentino-and-florentino-v-philippine-national-bank" class="toc-link level-1" title="55. FLORENTINO AND FLORENTINO V. PHILIPPINE NATIONAL BANK"><span class="toc-link-text">55. FLORENTINO AND FLORENTINO V. PHILIPPINE NATIONAL BANK</span></a></li>
+<li><a href="#sec-54-56-vivencio-mapa-and-candido-mapa-v-hon-joker-arroyo-executi" class="toc-link level-1" title="56. VIVENCIO MAPA AND CANDIDO MAPA V. HON. JOKER ARROYO, EXECUTIVE SECRETARY, AND LABRADOR DEVELOPMENT CORPORATION"><span class="toc-link-text">56. VIVENCIO MAPA AND CANDIDO MAPA V. HON. JOKER ARROYO, EXECUTIVE SECRETARY, AND LABRADOR DEVELOPMENT CORPORATION</span></a></li>
+<li><a href="#sec-55-58-people-of-the-philippine-islands-v-maximo-yabut" class="toc-link level-1" title="58. PEOPLE OF THE PHILIPPINE ISLANDS V. MAXIMO YABUT"><span class="toc-link-text">58. PEOPLE OF THE PHILIPPINE ISLANDS V. MAXIMO YABUT</span></a></li>
+<li><a href="#sec-56-59-baking-v-director-of-prisons" class="toc-link level-1" title="59. BAKING V. DIRECTOR OF PRISONS"><span class="toc-link-text">59. BAKING V. DIRECTOR OF PRISONS</span></a></li>
+<li><a href="#sec-57-60-metropolitan-manila-development-authority-mmda-v-dante-o" class="toc-link level-1" title="60. METROPOLITAN MANILA DEVELOPMENT AUTHORITY (MMDA) V. DANTE O. GARIN"><span class="toc-link-text">60. METROPOLITAN MANILA DEVELOPMENT AUTHORITY (MMDA) V. DANTE O. GARIN</span></a></li>
+<li><a href="#sec-58-61-commissioner-of-internal-revenue-v-sm-prime-holdings-inc" class="toc-link level-1" title="61. COMMISSIONER OF INTERNAL REVENUE V. SM PRIME HOLDINGS, INC. AND FIRST ASIA REALTY DEVELOPMENT CORP."><span class="toc-link-text">61. COMMISSIONER OF INTERNAL REVENUE V. SM PRIME HOLDINGS, INC. AND FIRST ASIA REALTY DEVELOPMENT CORP.</span></a></li>
+<li><a href="#sec-59-62-laxamana-v-baltazar" class="toc-link level-1" title="62. LAXAMANA V. BALTAZAR"><span class="toc-link-text">62. LAXAMANA V. BALTAZAR</span></a></li>
+<li><a href="#sec-60-63-rustan-ang-v-court-of-appeals-and-irish-sagud" class="toc-link level-1" title="63. RUSTAN ANG V. COURT OF APPEALS AND IRISH SAGUD"><span class="toc-link-text">63. RUSTAN ANG V. COURT OF APPEALS AND IRISH SAGUD</span></a></li>
+<li><a href="#sec-61-64-alvarez-v-guingona" class="toc-link level-1" title="64. ALVAREZ V. GUINGONA"><span class="toc-link-text">64. ALVAREZ V. GUINGONA</span></a></li>
+<li><a href="#sec-62-65-boie-takeda-chemicals-inc-and-philippine-investment-manag" class="toc-link level-1" title="65. BOIE-TAKEDA CHEMICALS, INC. AND PHILIPPINE INVESTMENT-MANAGEMENT CONSULTANTS (PHINMA) V. HON. DIONISIO DE LA SERNA"><span class="toc-link-text">65. BOIE-TAKEDA CHEMICALS, INC. AND PHILIPPINE INVESTMENT-MANAGEMENT CONSULTANTS (PHINMA) V. HON. DIONISIO DE LA SERNA</span></a></li>
+<li><a href="#sec-63-66-national-housing-authority-nha-v-hon-floreliana-castro-re" class="toc-link level-1" title="66. NATIONAL HOUSING AUTHORITY (NHA) V. HON. FLORELIANA CASTRO-REYES AND SPOUSES ARSENIO &amp; AMANDA POSADAS"><span class="toc-link-text">66. NATIONAL HOUSING AUTHORITY (NHA) V. HON. FLORELIANA CASTRO-REYES AND SPOUSES ARSENIO &amp; AMANDA POSADAS</span></a></li>
+<li><a href="#sec-64-67-aparri-v-court-of-appeals" class="toc-link level-1" title="67. APARRI V. COURT OF APPEALS"><span class="toc-link-text">67. APARRI V. COURT OF APPEALS</span></a></li>
+<li><a href="#sec-65-68-republic-of-the-philippines-v-court-of-appeals-and-roride" class="toc-link level-1" title="68. REPUBLIC OF THE PHILIPPINES V. COURT OF APPEALS AND RORIDEL OLAVIANO MOLINA"><span class="toc-link-text">68. REPUBLIC OF THE PHILIPPINES V. COURT OF APPEALS AND RORIDEL OLAVIANO MOLINA</span></a></li>
+<li><a href="#sec-66-69-lawyers-against-monopoly-and-poverty-lamp-v-the-secretary" class="toc-link level-1" title="69. LAWYERS AGAINST MONOPOLY AND POVERTY (LAMP) V. THE SECRETARY OF BUDGET AND MANAGEMENT"><span class="toc-link-text">69. LAWYERS AGAINST MONOPOLY AND POVERTY (LAMP) V. THE SECRETARY OF BUDGET AND MANAGEMENT</span></a></li>
+<li><a href="#sec-67-70-pedro-gatchalian-v-commission-on-elections" class="toc-link level-1" title="70. PEDRO GATCHALIAN V. COMMISSION ON ELECTIONS"><span class="toc-link-text">70. PEDRO GATCHALIAN V. COMMISSION ON ELECTIONS</span></a></li>
+<li><a href="#sec-68-71-juanito-c-saludaga-v-honorable-sandiganbayan-fourth-divis" class="toc-link level-1" title="71. JUANITO C. SALUDAGA V. HONORABLE SANDIGANBAYAN (FOURTH DIVISION)"><span class="toc-link-text">71. JUANITO C. SALUDAGA V. HONORABLE SANDIGANBAYAN (FOURTH DIVISION)</span></a></li>
+<li><a href="#sec-69-72-commissioner-of-internal-revenue-v-julian-ariete" class="toc-link level-1" title="72. COMMISSIONER OF INTERNAL REVENUE V. JULIAN ARIETE"><span class="toc-link-text">72. COMMISSIONER OF INTERNAL REVENUE V. JULIAN ARIETE</span></a></li>
+<li><a href="#sec-70-73-office-of-the-ombudsman-v-rolando-andutan-jr" class="toc-link level-1" title="73. OFFICE OF THE OMBUDSMAN V. ROLANDO ANDUTAN, JR."><span class="toc-link-text">73. OFFICE OF THE OMBUDSMAN V. ROLANDO ANDUTAN, JR.</span></a></li>
+<li><a href="#sec-71-74-spouses-roberto-and-thelma-enriquez-v-spouses-victor-and" class="toc-link level-1" title="74. SPOUSES ROBERTO AND THELMA ENRIQUEZ V. SPOUSES VICTOR AND MILAGROS ENRIQUEZ"><span class="toc-link-text">74. SPOUSES ROBERTO AND THELMA ENRIQUEZ V. SPOUSES VICTOR AND MILAGROS ENRIQUEZ</span></a></li>
+<li><a href="#sec-72-75-ramon-diokno-v-rehabilitation-finance-corporation-rfc" class="toc-link level-1" title="75. RAMON DIOKNO V. REHABILITATION FINANCE CORPORATION (RFC)"><span class="toc-link-text">75. RAMON DIOKNO V. REHABILITATION FINANCE CORPORATION (RFC)</span></a></li>
+<li><a href="#sec-73-76-san-carlos-milling-co-inc-v-commissioner-of-internal-reve" class="toc-link level-1" title="76. SAN CARLOS MILLING CO., INC. V. COMMISSIONER OF INTERNAL REVENUE"><span class="toc-link-text">76. SAN CARLOS MILLING CO., INC. V. COMMISSIONER OF INTERNAL REVENUE</span></a></li>
+<li><a href="#sec-74-77-zacarias-berces-sr-v-hon-teofisto-t-guingona-jr-and-mayor" class="toc-link level-1" title="77. ZACARIAS BERCES, SR. V. HON. TEOFISTO T. GUINGONA, JR. AND MAYOR NAOMI CORRAL"><span class="toc-link-text">77. ZACARIAS BERCES, SR. V. HON. TEOFISTO T. GUINGONA, JR. AND MAYOR NAOMI CORRAL</span></a></li>
+<li><a href="#sec-75-78-chang-yung-fa-and-co-kim-cham-v-hon-emilio-l-gianzo" class="toc-link level-1" title="78. CHANG YUNG FA AND CO KIM CHAM V. HON. EMILIO L. GIANZO"><span class="toc-link-text">78. CHANG YUNG FA AND CO KIM CHAM V. HON. EMILIO L. GIANZO</span></a></li>
+<li><a href="#sec-76-79-victorias-milling-company-inc-v-social-security-commissio" class="toc-link level-1" title="79. VICTORIAS MILLING COMPANY, INC. V. SOCIAL SECURITY COMMISSION"><span class="toc-link-text">79. VICTORIAS MILLING COMPANY, INC. V. SOCIAL SECURITY COMMISSION</span></a></li>
+<li><a href="#sec-77-80-commissioner-of-internal-revenue-v-manila-lodge-no-761-bp" class="toc-link level-1" title="80. COMMISSIONER OF INTERNAL REVENUE V. MANILA LODGE NO. 761, B.P.O.E."><span class="toc-link-text">80. COMMISSIONER OF INTERNAL REVENUE V. MANILA LODGE NO. 761, B.P.O.E.</span></a></li>
+<li><a href="#sec-78-81-mustang-lumber-inc-v-court-of-appeals-and-secretary-of-en" class="toc-link level-1" title="81. MUSTANG LUMBER, INC. V. COURT OF APPEALS AND SECRETARY OF ENVIRONMENT AND NATURAL RESOURCES"><span class="toc-link-text">81. MUSTANG LUMBER, INC. V. COURT OF APPEALS AND SECRETARY OF ENVIRONMENT AND NATURAL RESOURCES</span></a></li>
+<li><a href="#sec-79-82-cc-commercial-corporation-v-national-waterworks-and-sewer" class="toc-link level-1" title="82. C&amp;C COMMERCIAL CORPORATION V. NATIONAL WATERWORKS AND SEWERAGE AUTHORITY (NAWASA)"><span class="toc-link-text">82. C&amp;C COMMERCIAL CORPORATION V. NATIONAL WATERWORKS AND SEWERAGE AUTHORITY (NAWASA)</span></a></li>
+<li><a href="#sec-80-83-rolando-geotina-commissioner-of-customs-v-court-of-tax-ap" class="toc-link level-1" title="83. ROLANDO GEOTINA, COMMISSIONER OF CUSTOMS V. COURT OF TAX APPEALS AND SPOUSES LUIS &amp; FRANCISCA YAP"><span class="toc-link-text">83. ROLANDO GEOTINA, COMMISSIONER OF CUSTOMS V. COURT OF TAX APPEALS AND SPOUSES LUIS &amp; FRANCISCA YAP</span></a></li>
+<li><a href="#sec-81-84-san-miguel-corporation-v-municipal-council-of-mandaue-ceb" class="toc-link level-1" title="84. SAN MIGUEL CORPORATION V. MUNICIPAL COUNCIL OF MANDAUE, CEBU"><span class="toc-link-text">84. SAN MIGUEL CORPORATION V. MUNICIPAL COUNCIL OF MANDAUE, CEBU</span></a></li>
+<li><a href="#sec-82-85-atty-dominador-malanyaon-v-hon-rafael-silsing-and-mayor-j" class="toc-link level-1" title="85. ATTY. DOMINADOR MALANYAON V. HON. RAFAEL SILSING AND MAYOR JAIME CLAVERIA"><span class="toc-link-text">85. ATTY. DOMINADOR MALANYAON V. HON. RAFAEL SILSING AND MAYOR JAIME CLAVERIA</span></a></li>
+<li><a href="#sec-83-86-alexander-a-krivenko-v-the-register-of-deeds-of-the-city" class="toc-link level-1" title="86. ALEXANDER A. KRIVENKO V. THE REGISTER OF DEEDS OF THE CITY OF MANILA"><span class="toc-link-text">86. ALEXANDER A. KRIVENKO V. THE REGISTER OF DEEDS OF THE CITY OF MANILA</span></a></li>
+<li><a href="#sec-84-87-adolfo-m-garcia-v-commission-on-elections-and-juanito-c-s" class="toc-link level-1" title="87. ADOLFO M. GARCIA V. COMMISSION ON ELECTIONS AND JUANITO C. SIOSON"><span class="toc-link-text">87. ADOLFO M. GARCIA V. COMMISSION ON ELECTIONS AND JUANITO C. SIOSON</span></a></li>
+<li><a href="#sec-85-88-carlos-gelano-and-guillermina-gelano-v-court-of-appeals-a" class="toc-link level-1" title="88. CARLOS GELANO AND GUILLERMINA GELANO V. COURT OF APPEALS AND INSULAR SAWMILL, INC."><span class="toc-link-text">88. CARLOS GELANO AND GUILLERMINA GELANO V. COURT OF APPEALS AND INSULAR SAWMILL, INC.</span></a></li>
+<li><a href="#sec-86-89-people-of-the-philippines-v-mamerto-s-chaves" class="toc-link level-1" title="89. PEOPLE OF THE PHILIPPINES V. MAMERTO S. CHAVES"><span class="toc-link-text">89. PEOPLE OF THE PHILIPPINES V. MAMERTO S. CHAVES</span></a></li>
+<li><a href="#sec-87-90-dr-brigida-buenaseda-v-secretary-juan-flavier-and-ombudsm" class="toc-link level-1" title="90. DR. BRIGIDA BUENASEDA V. SECRETARY JUAN FLAVIER AND OMBUDSMAN CONRADO VASQUEZ"><span class="toc-link-text">90. DR. BRIGIDA BUENASEDA V. SECRETARY JUAN FLAVIER AND OMBUDSMAN CONRADO VASQUEZ</span></a></li>
+<li><a href="#sec-88-91-mayor-pablo-p-magtajas-v-pryce-properties-corporation-and" class="toc-link level-1" title="91. MAYOR PABLO P. MAGTAJAS V. PRYCE PROPERTIES CORPORATION AND PHILIPPINE AMUSEMENT AND GAMING CORPORATION (PAGCOR)"><span class="toc-link-text">91. MAYOR PABLO P. MAGTAJAS V. PRYCE PROPERTIES CORPORATION AND PHILIPPINE AMUSEMENT AND GAMING CORPORATION (PAGCOR)</span></a></li>
+<li><a href="#sec-89-92-jose-pendon-v-felix-daisnes" class="toc-link level-1" title="92. JOSE PENDON V. FELIX DAISNES"><span class="toc-link-text">92. JOSE PENDON V. FELIX DAISNES</span></a></li>
+<li><a href="#sec-90-93-juan-grospe-and-juanita-grospe-v-court-of-appeals-and-cor" class="toc-link level-1" title="93. JUAN GROSPE AND JUANITA GROSPE V. COURT OF APPEALS AND CORNELIO ESGUERRA"><span class="toc-link-text">93. JUAN GROSPE AND JUANITA GROSPE V. COURT OF APPEALS AND CORNELIO ESGUERRA</span></a></li>
+<li><a href="#sec-91-94-atty-ernesto-b-francisco-jr-v-the-house-of-representative" class="toc-link level-1" title="94. ATTY. ERNESTO B. FRANCISCO, JR. V. THE HOUSE OF REPRESENTATIVES"><span class="toc-link-text">94. ATTY. ERNESTO B. FRANCISCO, JR. V. THE HOUSE OF REPRESENTATIVES</span></a></li>
+<li><a href="#sec-92-95-arturo-m-de-castro-v-judicial-and-bar-council-jbc" class="toc-link level-1" title="95. ARTURO M. DE CASTRO V. JUDICIAL AND BAR COUNCIL (JBC)"><span class="toc-link-text">95. ARTURO M. DE CASTRO V. JUDICIAL AND BAR COUNCIL (JBC)</span></a></li>
+<li><a href="#sec-93-96-francisco-i-chavez-v-judicial-and-bar-council-jbc-sen-fra" class="toc-link level-1" title="96. FRANCISCO I. CHAVEZ V. JUDICIAL AND BAR COUNCIL (JBC), SEN. FRANCIS JOSEPH G. ESCUDERO, AND REP. NIEL C. TUPAS, JR."><span class="toc-link-text">96. FRANCISCO I. CHAVEZ V. JUDICIAL AND BAR COUNCIL (JBC), SEN. FRANCIS JOSEPH G. ESCUDERO, AND REP. NIEL C. TUPAS, JR.</span></a></li>
+<li><a href="#sec-94-97-ulupinio-sarmiento-iii-and-juanito-arcilla-v-salvador-mis" class="toc-link level-1" title="97. ULUPINIO SARMIENTO III AND JUANITO ARCILLA V. SALVADOR MISON, COMMISSIONER OF CUSTOMS"><span class="toc-link-text">97. ULUPINIO SARMIENTO III AND JUANITO ARCILLA V. SALVADOR MISON, COMMISSIONER OF CUSTOMS</span></a></li>
+<li><a href="#sec-95-98-centro-project-manpower-services-corporation-v-vivian-nal" class="toc-link level-1" title="98. CENTRO PROJECT MANPOWER SERVICES CORPORATION V. VIVIAN NALUIS AND COURT OF APPEALS"><span class="toc-link-text">98. CENTRO PROJECT MANPOWER SERVICES CORPORATION V. VIVIAN NALUIS AND COURT OF APPEALS</span></a></li>
+<li><a href="#sec-96-99-martin-centeno-v-hon-victoria-villalon-pornillos-and-peop" class="toc-link level-1" title="99. MARTIN CENTENO V. HON. VICTORIA VILLALON-PORNILLOS AND PEOPLE OF THE PHILIPPINES"><span class="toc-link-text">99. MARTIN CENTENO V. HON. VICTORIA VILLALON-PORNILLOS AND PEOPLE OF THE PHILIPPINES</span></a></li>
+<li><a href="#sec-97-101-city-of-manila-v-chinese-community-of-manila" class="toc-link level-1" title="101. CITY OF MANILA V. CHINESE COMMUNITY OF MANILA"><span class="toc-link-text">101. CITY OF MANILA V. CHINESE COMMUNITY OF MANILA</span></a></li>
+<li><a href="#sec-98-102-government-service-insurance-system-gsis-v-court-of-appe" class="toc-link level-1" title="102. GOVERNMENT SERVICE INSURANCE SYSTEM (GSIS) V. COURT OF APPEALS AND DR. FELONILA ALEGRE"><span class="toc-link-text">102. GOVERNMENT SERVICE INSURANCE SYSTEM (GSIS) V. COURT OF APPEALS AND DR. FELONILA ALEGRE</span></a></li>
+<li><a href="#sec-99-103-ma-victoria-g-engle-v-commission-on-elections-comelec-an" class="toc-link level-1" title="103. MA. VICTORIA G. ENGLE V. COMMISSION ON ELECTIONS (COMELEC) AND WINSTON B. VERZOSA"><span class="toc-link-text">103. MA. VICTORIA G. ENGLE V. COMMISSION ON ELECTIONS (COMELEC) AND WINSTON B. VERZOSA</span></a></li>
       </ul>
     </nav>
 
@@ -17836,6 +17875,9 @@ This case is important in Statutory Construction because Election laws are inter
           if (oldRibbon) oldRibbon.remove();
         });
 
+        // Clear existing TOC bookmark badges
+        document.querySelectorAll('#tocList .toc-bm-badges-wrap').forEach(w => w.remove());
+
         for (let slot = 1; slot <= 3; slot++) {
           const bm = bookmarks[slot];
           const metaBoxEl = document.getElementById('slotMeta' + slot);
@@ -17857,6 +17899,25 @@ This case is important in Statutory Construction because Election laws are inter
             const locText = bm.location ? ' • ' + bm.location : '';
             ribbon.innerHTML = `${slotIcon} Bookmark ${slot} • ${bm.topic}${locText}`;
             targetUnit.insertBefore(ribbon, targetUnit.firstChild);
+
+            // Inject TOC badge into matching sidebar link
+            const sec = targetUnit.closest('section.doc-section');
+            if (sec && sec.id) {
+              const tocLink = document.querySelector(`#tocList a[href="#${sec.id}"]`);
+              if (tocLink) {
+                let badgesWrap = tocLink.querySelector('.toc-bm-badges-wrap');
+                if (!badgesWrap) {
+                  badgesWrap = document.createElement('span');
+                  badgesWrap.className = 'toc-bm-badges-wrap';
+                  tocLink.appendChild(badgesWrap);
+                }
+                const badge = document.createElement('span');
+                badge.className = `toc-bm-badge badge-slot-${slot}`;
+                badge.title = `Bookmark ${slot}: ${bm.location || ''}`;
+                badge.textContent = `${slotIcon} ${slot}`;
+                badgesWrap.appendChild(badge);
+              }
+            }
 
             if (metaBoxEl) metaBoxEl.style.display = 'flex';
             if (subjEl) subjEl.textContent = bm.subject || 'Law Subject';

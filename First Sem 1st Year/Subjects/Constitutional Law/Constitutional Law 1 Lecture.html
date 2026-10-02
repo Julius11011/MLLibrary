@@ -437,7 +437,10 @@
     }
 
     .toc-link {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
       color: var(--text-secondary);
       text-decoration: none;
       font-family: var(--font-ui);
@@ -446,10 +449,46 @@
       border-radius: 4px;
       margin-bottom: 2px;
       border-left: 2px solid transparent;
+      transition: all 0.15s ease;
+    }
+    .toc-link-text {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      transition: all 0.15s ease;
+      flex: 1;
+    }
+    .toc-bm-badges-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+    .toc-bm-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      font-family: var(--font-ui);
+      padding: 1px 5px;
+      border-radius: 4px;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      white-space: nowrap;
+    }
+    .toc-bm-badge.badge-slot-1 {
+      background: rgba(251, 191, 36, 0.22);
+      color: var(--accent-gold);
+      border: 1px solid rgba(251, 191, 36, 0.5);
+    }
+    .toc-bm-badge.badge-slot-2 {
+      background: rgba(52, 211, 153, 0.22);
+      color: var(--accent-emerald);
+      border: 1px solid rgba(52, 211, 153, 0.5);
+    }
+    .toc-bm-badge.badge-slot-3 {
+      background: rgba(192, 132, 252, 0.22);
+      color: var(--accent-purple);
+      border: 1px solid rgba(192, 132, 252, 0.5);
     }
     .toc-link:hover {
       background-color: var(--bg-tertiary);
@@ -1288,47 +1327,47 @@
       </div>
       <input type="text" class="toc-search-box" id="sidebarSearch" placeholder="Filter topics & cases..." />
       <ul class="toc-list" id="tocList">
-<li><a href="#sec-overview" class="toc-link level-1" title="Constitutional Law 1 Lecture">Constitutional Law 1 Lecture</a></li>
-<li><a href="#sec-1-1-definition-nature-concept-and-purpose-of-a-constitution" class="toc-link level-1" title="1. Definition, Nature, Concept and Purpose of a Constitution">1. Definition, Nature, Concept and Purpose of a Constitution</a></li>
-<li><a href="#sec-2-2-classification-of-constitutions" class="toc-link level-1" title="2. Classification of Constitutions">2. Classification of Constitutions</a></li>
-<li><a href="#sec-3-3-qualities-of-a-good-written-constitution" class="toc-link level-1" title="3. Qualities of a Good Written Constitution">3. Qualities of a Good Written Constitution</a></li>
-<li><a href="#sec-4-4-essential-parts-of-a-written-constitution" class="toc-link level-1" title="4. Essential Parts of a Written Constitution">4. Essential Parts of a Written Constitution</a></li>
-<li><a href="#sec-5-5-effectivity-of-the-1987-philippine-constitution-art-xviii" class="toc-link level-1" title="5. Effectivity of the 1987 Philippine Constitution (Art. XVIII, Sec. 27)">5. Effectivity of the 1987 Philippine Constitution (Art. XVIII, Sec. 27)</a></li>
-<li><a href="#sec-6-6-amendments-and-revision-art-xvii-secs-1-to-4" class="toc-link level-1" title="6. Amendments and Revision (Art. XVII, Secs. 1 to 4)">6. Amendments and Revision (Art. XVII, Secs. 1 to 4)</a></li>
-<li><a href="#sec-7-1-by-congress-acting-as-a-constituent-assembly-by-a-vote-of" class="toc-link level-1" title="1. By Congress: Acting as a Constituent Assembly by a vote of 3/4 of all its members (understood as 3/4 of Senate and 3/4 of House of Representatives voting separately).">1. By Congress: Acting as a Constituent Assembly by a vote of 3/4 of all its members (understood as 3/4 of Senate and 3/4 of House of Representatives voting separately).</a></li>
-<li><a href="#sec-8-2-by-constitutional-convention-con-con-called-into-existence" class="toc-link level-1" title="2. By Constitutional Convention (Con-Con): Called into existence by 2/3 vote of all members of Congress, or by a majority vote of Congress submitting the question of calling a Con-Con to the people in a plebiscite (Imbong vs. COMELEC, 35 SCRA 28).">2. By Constitutional Convention (Con-Con): Called into existence by 2/3 vote of all members of Congress, or by a majority vote of Congress submitting the question of calling a Con-Con to the people in a plebiscite (Imbong vs. COMELEC, 35 SCRA 28).</a></li>
-<li><a href="#sec-9-3-by-peoples-initiative-direct-petition-of-at-least-12-of-to" class="toc-link level-1" title="3. By People&#x27;s Initiative: Direct petition of at least 12% of total registered voters nationwide, with each legislative district represented by at least 3% of registered voters. Limitation: Cannot be authorized within 5 years following ratification of Constitution, nor more often than once every 5 years thereafter (Defensor-Santiago vs. COMELEC; Lambino vs. COMELEC).">3. By People&#x27;s Initiative: Direct petition of at least 12% of total registered voters nationwide, with each legislative district represented by at least 3% of registered voters. Limitation: Cannot be authorized within 5 years following ratification of Constitution, nor more often than once every 5 years thereafter (Defensor-Santiago vs. COMELEC; Lambino vs. COMELEC).</a></li>
-<li><a href="#sec-10-1-national-territory-art-i-archipelagic-doctrine" class="toc-link level-1" title="1. National Territory (Art. I) &amp; Archipelagic Doctrine">1. National Territory (Art. I) &amp; Archipelagic Doctrine</a></li>
-<li><a href="#sec-11-2-doctrine-of-state-immunity-art-xvi-sec-3" class="toc-link level-1" title="2. Doctrine of State Immunity (Art. XVI, Sec. 3)">2. Doctrine of State Immunity (Art. XVI, Sec. 3)</a></li>
-<li><a href="#sec-12-1-express-consent-general-law-act-no-3083-ca-327-pd-1445---m" class="toc-link level-1" title="1. Express Consent: General Law (Act No. 3083, CA 327, PD 1445 - money claims before COA; UP vs. Dizon) or Special Law (Arts. 2180 &amp; 2189 Civil Code; City of Manila vs. Teotico; Republic vs. Feliciano).">1. Express Consent: General Law (Act No. 3083, CA 327, PD 1445 - money claims before COA; UP vs. Dizon) or Special Law (Arts. 2180 &amp; 2189 Civil Code; City of Manila vs. Teotico; Republic vs. Feliciano).</a></li>
-<li><a href="#sec-13-2-implied-consent-entering-into-commercialproprietary-contra" class="toc-link level-1" title="2. Implied Consent: Entering into commercial/proprietary contracts under the Restrictive Doctrine of State Immunity (USA vs. Ruiz, 136 SCRA 487) or commencing affirmative lawsuits against private individuals (Froilan vs. Pan Oriental Shipping).">2. Implied Consent: Entering into commercial/proprietary contracts under the Restrictive Doctrine of State Immunity (USA vs. Ruiz, 136 SCRA 487) or commencing affirmative lawsuits against private individuals (Froilan vs. Pan Oriental Shipping).</a></li>
-<li><a href="#sec-14-1-comparative-matrix-of-fundamental-powers" class="toc-link level-1" title="1. Comparative Matrix of Fundamental Powers">1. Comparative Matrix of Fundamental Powers</a></li>
-<li><a href="#sec-15-2-police-power-requisites-jurisprudence" class="toc-link level-1" title="2. Police Power: Requisites &amp; Jurisprudence">2. Police Power: Requisites &amp; Jurisprudence</a></li>
-<li><a href="#sec-16-3-eminent-domain-art-iii-sec-9-takings-just-compensation" class="toc-link level-1" title="3. Eminent Domain (Art. III, Sec. 9): Takings &amp; Just Compensation">3. Eminent Domain (Art. III, Sec. 9): Takings &amp; Just Compensation</a></li>
-<li><a href="#sec-17-4-power-of-taxation" class="toc-link level-1" title="4. Power of Taxation">4. Power of Taxation</a></li>
-<li><a href="#sec-18-1-republicanism-separation-of-powers-art-ii-sec-1" class="toc-link level-1" title="1. Republicanism &amp; Separation of Powers (Art. II, Sec. 1)">1. Republicanism &amp; Separation of Powers (Art. II, Sec. 1)</a></li>
-<li><a href="#sec-19-2-state-principles-policies" class="toc-link level-1" title="2. State Principles &amp; Policies">2. State Principles &amp; Policies</a></li>
-<li><a href="#sec-20-3-regalian-doctrine-nationalist-economic-provisions" class="toc-link level-1" title="3. Regalian Doctrine &amp; Nationalist Economic Provisions">3. Regalian Doctrine &amp; Nationalist Economic Provisions</a></li>
-<li><a href="#sec-21-1-structure-composition-of-congress-art-vi-secs-1-6" class="toc-link level-1" title="1. Structure &amp; Composition of Congress (Art. VI, Secs. 1-6)">1. Structure &amp; Composition of Congress (Art. VI, Secs. 1-6)</a></li>
-<li><a href="#sec-22-2-parliamentary-immunities-disqualifications" class="toc-link level-1" title="2. Parliamentary Immunities &amp; Disqualifications">2. Parliamentary Immunities &amp; Disqualifications</a></li>
-<li><a href="#sec-23-3-electoral-tribunals-commission-on-appointments" class="toc-link level-1" title="3. Electoral Tribunals &amp; Commission on Appointments">3. Electoral Tribunals &amp; Commission on Appointments</a></li>
-<li><a href="#sec-24-4-powers-of-congress-inquiries-in-aid-of-legislation" class="toc-link level-1" title="4. Powers of Congress &amp; Inquiries in Aid of Legislation">4. Powers of Congress &amp; Inquiries in Aid of Legislation</a></li>
-<li><a href="#sec-25-5-power-of-impeachment-art-xi-secs-2-3" class="toc-link level-1" title="5. Power of Impeachment (Art. XI, Secs. 2-3)">5. Power of Impeachment (Art. XI, Secs. 2-3)</a></li>
-<li><a href="#sec-26-6-legislative-limitations-presidential-veto-art-vi-secs-24-2" class="toc-link level-1" title="6. Legislative Limitations &amp; Presidential Veto (Art. VI, Secs. 24 &amp; 27)">6. Legislative Limitations &amp; Presidential Veto (Art. VI, Secs. 24 &amp; 27)</a></li>
-<li><a href="#sec-27-1-the-president-succession-art-vii-secs-1-11" class="toc-link level-1" title="1. The President &amp; Succession (Art. VII, Secs. 1-11)">1. The President &amp; Succession (Art. VII, Secs. 1-11)</a></li>
-<li><a href="#sec-28-2-prohibitions-on-the-president-cabinet-art-vii-sec-13" class="toc-link level-1" title="2. Prohibitions on the President &amp; Cabinet (Art. VII, Sec. 13)">2. Prohibitions on the President &amp; Cabinet (Art. VII, Sec. 13)</a></li>
-<li><a href="#sec-29-3-presidential-immunity-from-suit" class="toc-link level-1" title="3. Presidential Immunity from Suit">3. Presidential Immunity from Suit</a></li>
-<li><a href="#sec-30-4-powers-of-the-president" class="toc-link level-1" title="4. Powers of the President">4. Powers of the President</a></li>
-<li><a href="#sec-31-1-calling-out-powers-sole-discretion-of-president-lowest-tie" class="toc-link level-1" title="1. Calling Out Powers: Sole discretion of President; lowest tier (David vs. GMA; Kulayan vs. Tan; IBP vs. Zamora).">1. Calling Out Powers: Sole discretion of President; lowest tier (David vs. GMA; Kulayan vs. Tan; IBP vs. Zamora).</a></li>
-<li><a href="#sec-32-2-suspension-of-writ-of-habeas-corpus-martial-law-requisites" class="toc-link level-1" title="2. Suspension of Writ of Habeas Corpus &amp; Martial Law: Requisites (actual invasion or rebellion, when public safety requires it); maximum 60 days; Open Court Doctrine applies (Olaguer vs. Military Commission); subject to SC judicial review and Congressional revocation (Lagman vs. Executive Secretary; Padilla vs. Congress).">2. Suspension of Writ of Habeas Corpus &amp; Martial Law: Requisites (actual invasion or rebellion, when public safety requires it); maximum 60 days; Open Court Doctrine applies (Olaguer vs. Military Commission); subject to SC judicial review and Congressional revocation (Lagman vs. Executive Secretary; Padilla vs. Congress).</a></li>
-<li><a href="#sec-33-1-judicial-power-art-viii-sec-1-expanded-jurisdiction" class="toc-link level-1" title="1. Judicial Power (Art. VIII, Sec. 1) &amp; Expanded Jurisdiction">1. Judicial Power (Art. VIII, Sec. 1) &amp; Expanded Jurisdiction</a></li>
-<li><a href="#sec-34-2-requisites-for-the-proper-exercise-of-judicial-review" class="toc-link level-1" title="2. Requisites for the Proper Exercise of Judicial Review">2. Requisites for the Proper Exercise of Judicial Review</a></li>
-<li><a href="#sec-35-1-actual-case-or-controversy-existing-conflict-involving-leg" class="toc-link level-1" title="1. Actual Case or Controversy: Existing conflict involving legal relations; not moot, hypothetical, or academic (Save the SC Judicial Independence Movement; ISAAA vs. Greenpeace).">1. Actual Case or Controversy: Existing conflict involving legal relations; not moot, hypothetical, or academic (Save the SC Judicial Independence Movement; ISAAA vs. Greenpeace).</a></li>
-<li><a href="#sec-36-2-proper-party-locus-standi-direct-injury-test-southwing-exc" class="toc-link level-1" title="2. Proper Party (Locus Standi): Direct Injury Test (Southwing). Exceptions: Intergenerational responsibility (Oposa vs. Factoran), Transcendental importance (Ocampo), Legislator&#x27;s suit (Saguisag vs. Ochoa), Steward of Nature / Writ of Kalikasan (West Tower; Segovia; Resident Marine Mammals).">2. Proper Party (Locus Standi): Direct Injury Test (Southwing). Exceptions: Intergenerational responsibility (Oposa vs. Factoran), Transcendental importance (Ocampo), Legislator&#x27;s suit (Saguisag vs. Ochoa), Steward of Nature / Writ of Kalikasan (West Tower; Segovia; Resident Marine Mammals).</a></li>
-<li><a href="#sec-37-3-earliest-opportunity-constitutional-question-must-be-raise" class="toc-link level-1" title="3. Earliest Opportunity: Constitutional question must be raised at the earliest opportunity in pleadings.">3. Earliest Opportunity: Constitutional question must be raised at the earliest opportunity in pleadings.</a></li>
-<li><a href="#sec-38-4-lis-mota-constitutional-necessity-case-cannot-be-resolved" class="toc-link level-1" title="4. Lis Mota / Constitutional Necessity: Case cannot be resolved on any other ground (Lalican vs. Vergara; Doctrine of Purposeful Hesitation - Drilon vs. Lim; Doctrine of Operative Fact - Republic vs. CA).">4. Lis Mota / Constitutional Necessity: Case cannot be resolved on any other ground (Lalican vs. Vergara; Doctrine of Purposeful Hesitation - Drilon vs. Lim; Doctrine of Operative Fact - Republic vs. CA).</a></li>
-<li><a href="#sec-39-3-constitutional-safeguards-of-judicial-independence" class="toc-link level-1" title="3. Constitutional Safeguards of Judicial Independence">3. Constitutional Safeguards of Judicial Independence</a></li>
-<li><a href="#sec-40-4-the-supreme-court-judicial-and-bar-council-art-viii-secs-4" class="toc-link level-1" title="4. The Supreme Court &amp; Judicial and Bar Council (Art. VIII, Secs. 4, 8 &amp; 9)">4. The Supreme Court &amp; Judicial and Bar Council (Art. VIII, Secs. 4, 8 &amp; 9)</a></li>
+<li><a href="#sec-overview" class="toc-link level-1" title="Constitutional Law 1 Lecture"><span class="toc-link-text">Constitutional Law 1 Lecture</span></a></li>
+<li><a href="#sec-1-1-definition-nature-concept-and-purpose-of-a-constitution" class="toc-link level-1" title="1. Definition, Nature, Concept and Purpose of a Constitution"><span class="toc-link-text">1. Definition, Nature, Concept and Purpose of a Constitution</span></a></li>
+<li><a href="#sec-2-2-classification-of-constitutions" class="toc-link level-1" title="2. Classification of Constitutions"><span class="toc-link-text">2. Classification of Constitutions</span></a></li>
+<li><a href="#sec-3-3-qualities-of-a-good-written-constitution" class="toc-link level-1" title="3. Qualities of a Good Written Constitution"><span class="toc-link-text">3. Qualities of a Good Written Constitution</span></a></li>
+<li><a href="#sec-4-4-essential-parts-of-a-written-constitution" class="toc-link level-1" title="4. Essential Parts of a Written Constitution"><span class="toc-link-text">4. Essential Parts of a Written Constitution</span></a></li>
+<li><a href="#sec-5-5-effectivity-of-the-1987-philippine-constitution-art-xviii" class="toc-link level-1" title="5. Effectivity of the 1987 Philippine Constitution (Art. XVIII, Sec. 27)"><span class="toc-link-text">5. Effectivity of the 1987 Philippine Constitution (Art. XVIII, Sec. 27)</span></a></li>
+<li><a href="#sec-6-6-amendments-and-revision-art-xvii-secs-1-to-4" class="toc-link level-1" title="6. Amendments and Revision (Art. XVII, Secs. 1 to 4)"><span class="toc-link-text">6. Amendments and Revision (Art. XVII, Secs. 1 to 4)</span></a></li>
+<li><a href="#sec-7-1-by-congress-acting-as-a-constituent-assembly-by-a-vote-of" class="toc-link level-1" title="1. By Congress: Acting as a Constituent Assembly by a vote of 3/4 of all its members (understood as 3/4 of Senate and 3/4 of House of Representatives voting separately)."><span class="toc-link-text">1. By Congress: Acting as a Constituent Assembly by a vote of 3/4 of all its members (understood as 3/4 of Senate and 3/4 of House of Representatives voting separately).</span></a></li>
+<li><a href="#sec-8-2-by-constitutional-convention-con-con-called-into-existence" class="toc-link level-1" title="2. By Constitutional Convention (Con-Con): Called into existence by 2/3 vote of all members of Congress, or by a majority vote of Congress submitting the question of calling a Con-Con to the people in a plebiscite (Imbong vs. COMELEC, 35 SCRA 28)."><span class="toc-link-text">2. By Constitutional Convention (Con-Con): Called into existence by 2/3 vote of all members of Congress, or by a majority vote of Congress submitting the question of calling a Con-Con to the people in a plebiscite (Imbong vs. COMELEC, 35 SCRA 28).</span></a></li>
+<li><a href="#sec-9-3-by-peoples-initiative-direct-petition-of-at-least-12-of-to" class="toc-link level-1" title="3. By People&#x27;s Initiative: Direct petition of at least 12% of total registered voters nationwide, with each legislative district represented by at least 3% of registered voters. Limitation: Cannot be authorized within 5 years following ratification of Constitution, nor more often than once every 5 years thereafter (Defensor-Santiago vs. COMELEC; Lambino vs. COMELEC)."><span class="toc-link-text">3. By People&#x27;s Initiative: Direct petition of at least 12% of total registered voters nationwide, with each legislative district represented by at least 3% of registered voters. Limitation: Cannot be authorized within 5 years following ratification of Constitution, nor more often than once every 5 years thereafter (Defensor-Santiago vs. COMELEC; Lambino vs. COMELEC).</span></a></li>
+<li><a href="#sec-10-1-national-territory-art-i-archipelagic-doctrine" class="toc-link level-1" title="1. National Territory (Art. I) &amp; Archipelagic Doctrine"><span class="toc-link-text">1. National Territory (Art. I) &amp; Archipelagic Doctrine</span></a></li>
+<li><a href="#sec-11-2-doctrine-of-state-immunity-art-xvi-sec-3" class="toc-link level-1" title="2. Doctrine of State Immunity (Art. XVI, Sec. 3)"><span class="toc-link-text">2. Doctrine of State Immunity (Art. XVI, Sec. 3)</span></a></li>
+<li><a href="#sec-12-1-express-consent-general-law-act-no-3083-ca-327-pd-1445---m" class="toc-link level-1" title="1. Express Consent: General Law (Act No. 3083, CA 327, PD 1445 - money claims before COA; UP vs. Dizon) or Special Law (Arts. 2180 &amp; 2189 Civil Code; City of Manila vs. Teotico; Republic vs. Feliciano)."><span class="toc-link-text">1. Express Consent: General Law (Act No. 3083, CA 327, PD 1445 - money claims before COA; UP vs. Dizon) or Special Law (Arts. 2180 &amp; 2189 Civil Code; City of Manila vs. Teotico; Republic vs. Feliciano).</span></a></li>
+<li><a href="#sec-13-2-implied-consent-entering-into-commercialproprietary-contra" class="toc-link level-1" title="2. Implied Consent: Entering into commercial/proprietary contracts under the Restrictive Doctrine of State Immunity (USA vs. Ruiz, 136 SCRA 487) or commencing affirmative lawsuits against private individuals (Froilan vs. Pan Oriental Shipping)."><span class="toc-link-text">2. Implied Consent: Entering into commercial/proprietary contracts under the Restrictive Doctrine of State Immunity (USA vs. Ruiz, 136 SCRA 487) or commencing affirmative lawsuits against private individuals (Froilan vs. Pan Oriental Shipping).</span></a></li>
+<li><a href="#sec-14-1-comparative-matrix-of-fundamental-powers" class="toc-link level-1" title="1. Comparative Matrix of Fundamental Powers"><span class="toc-link-text">1. Comparative Matrix of Fundamental Powers</span></a></li>
+<li><a href="#sec-15-2-police-power-requisites-jurisprudence" class="toc-link level-1" title="2. Police Power: Requisites &amp; Jurisprudence"><span class="toc-link-text">2. Police Power: Requisites &amp; Jurisprudence</span></a></li>
+<li><a href="#sec-16-3-eminent-domain-art-iii-sec-9-takings-just-compensation" class="toc-link level-1" title="3. Eminent Domain (Art. III, Sec. 9): Takings &amp; Just Compensation"><span class="toc-link-text">3. Eminent Domain (Art. III, Sec. 9): Takings &amp; Just Compensation</span></a></li>
+<li><a href="#sec-17-4-power-of-taxation" class="toc-link level-1" title="4. Power of Taxation"><span class="toc-link-text">4. Power of Taxation</span></a></li>
+<li><a href="#sec-18-1-republicanism-separation-of-powers-art-ii-sec-1" class="toc-link level-1" title="1. Republicanism &amp; Separation of Powers (Art. II, Sec. 1)"><span class="toc-link-text">1. Republicanism &amp; Separation of Powers (Art. II, Sec. 1)</span></a></li>
+<li><a href="#sec-19-2-state-principles-policies" class="toc-link level-1" title="2. State Principles &amp; Policies"><span class="toc-link-text">2. State Principles &amp; Policies</span></a></li>
+<li><a href="#sec-20-3-regalian-doctrine-nationalist-economic-provisions" class="toc-link level-1" title="3. Regalian Doctrine &amp; Nationalist Economic Provisions"><span class="toc-link-text">3. Regalian Doctrine &amp; Nationalist Economic Provisions</span></a></li>
+<li><a href="#sec-21-1-structure-composition-of-congress-art-vi-secs-1-6" class="toc-link level-1" title="1. Structure &amp; Composition of Congress (Art. VI, Secs. 1-6)"><span class="toc-link-text">1. Structure &amp; Composition of Congress (Art. VI, Secs. 1-6)</span></a></li>
+<li><a href="#sec-22-2-parliamentary-immunities-disqualifications" class="toc-link level-1" title="2. Parliamentary Immunities &amp; Disqualifications"><span class="toc-link-text">2. Parliamentary Immunities &amp; Disqualifications</span></a></li>
+<li><a href="#sec-23-3-electoral-tribunals-commission-on-appointments" class="toc-link level-1" title="3. Electoral Tribunals &amp; Commission on Appointments"><span class="toc-link-text">3. Electoral Tribunals &amp; Commission on Appointments</span></a></li>
+<li><a href="#sec-24-4-powers-of-congress-inquiries-in-aid-of-legislation" class="toc-link level-1" title="4. Powers of Congress &amp; Inquiries in Aid of Legislation"><span class="toc-link-text">4. Powers of Congress &amp; Inquiries in Aid of Legislation</span></a></li>
+<li><a href="#sec-25-5-power-of-impeachment-art-xi-secs-2-3" class="toc-link level-1" title="5. Power of Impeachment (Art. XI, Secs. 2-3)"><span class="toc-link-text">5. Power of Impeachment (Art. XI, Secs. 2-3)</span></a></li>
+<li><a href="#sec-26-6-legislative-limitations-presidential-veto-art-vi-secs-24-2" class="toc-link level-1" title="6. Legislative Limitations &amp; Presidential Veto (Art. VI, Secs. 24 &amp; 27)"><span class="toc-link-text">6. Legislative Limitations &amp; Presidential Veto (Art. VI, Secs. 24 &amp; 27)</span></a></li>
+<li><a href="#sec-27-1-the-president-succession-art-vii-secs-1-11" class="toc-link level-1" title="1. The President &amp; Succession (Art. VII, Secs. 1-11)"><span class="toc-link-text">1. The President &amp; Succession (Art. VII, Secs. 1-11)</span></a></li>
+<li><a href="#sec-28-2-prohibitions-on-the-president-cabinet-art-vii-sec-13" class="toc-link level-1" title="2. Prohibitions on the President &amp; Cabinet (Art. VII, Sec. 13)"><span class="toc-link-text">2. Prohibitions on the President &amp; Cabinet (Art. VII, Sec. 13)</span></a></li>
+<li><a href="#sec-29-3-presidential-immunity-from-suit" class="toc-link level-1" title="3. Presidential Immunity from Suit"><span class="toc-link-text">3. Presidential Immunity from Suit</span></a></li>
+<li><a href="#sec-30-4-powers-of-the-president" class="toc-link level-1" title="4. Powers of the President"><span class="toc-link-text">4. Powers of the President</span></a></li>
+<li><a href="#sec-31-1-calling-out-powers-sole-discretion-of-president-lowest-tie" class="toc-link level-1" title="1. Calling Out Powers: Sole discretion of President; lowest tier (David vs. GMA; Kulayan vs. Tan; IBP vs. Zamora)."><span class="toc-link-text">1. Calling Out Powers: Sole discretion of President; lowest tier (David vs. GMA; Kulayan vs. Tan; IBP vs. Zamora).</span></a></li>
+<li><a href="#sec-32-2-suspension-of-writ-of-habeas-corpus-martial-law-requisites" class="toc-link level-1" title="2. Suspension of Writ of Habeas Corpus &amp; Martial Law: Requisites (actual invasion or rebellion, when public safety requires it); maximum 60 days; Open Court Doctrine applies (Olaguer vs. Military Commission); subject to SC judicial review and Congressional revocation (Lagman vs. Executive Secretary; Padilla vs. Congress)."><span class="toc-link-text">2. Suspension of Writ of Habeas Corpus &amp; Martial Law: Requisites (actual invasion or rebellion, when public safety requires it); maximum 60 days; Open Court Doctrine applies (Olaguer vs. Military Commission); subject to SC judicial review and Congressional revocation (Lagman vs. Executive Secretary; Padilla vs. Congress).</span></a></li>
+<li><a href="#sec-33-1-judicial-power-art-viii-sec-1-expanded-jurisdiction" class="toc-link level-1" title="1. Judicial Power (Art. VIII, Sec. 1) &amp; Expanded Jurisdiction"><span class="toc-link-text">1. Judicial Power (Art. VIII, Sec. 1) &amp; Expanded Jurisdiction</span></a></li>
+<li><a href="#sec-34-2-requisites-for-the-proper-exercise-of-judicial-review" class="toc-link level-1" title="2. Requisites for the Proper Exercise of Judicial Review"><span class="toc-link-text">2. Requisites for the Proper Exercise of Judicial Review</span></a></li>
+<li><a href="#sec-35-1-actual-case-or-controversy-existing-conflict-involving-leg" class="toc-link level-1" title="1. Actual Case or Controversy: Existing conflict involving legal relations; not moot, hypothetical, or academic (Save the SC Judicial Independence Movement; ISAAA vs. Greenpeace)."><span class="toc-link-text">1. Actual Case or Controversy: Existing conflict involving legal relations; not moot, hypothetical, or academic (Save the SC Judicial Independence Movement; ISAAA vs. Greenpeace).</span></a></li>
+<li><a href="#sec-36-2-proper-party-locus-standi-direct-injury-test-southwing-exc" class="toc-link level-1" title="2. Proper Party (Locus Standi): Direct Injury Test (Southwing). Exceptions: Intergenerational responsibility (Oposa vs. Factoran), Transcendental importance (Ocampo), Legislator&#x27;s suit (Saguisag vs. Ochoa), Steward of Nature / Writ of Kalikasan (West Tower; Segovia; Resident Marine Mammals)."><span class="toc-link-text">2. Proper Party (Locus Standi): Direct Injury Test (Southwing). Exceptions: Intergenerational responsibility (Oposa vs. Factoran), Transcendental importance (Ocampo), Legislator&#x27;s suit (Saguisag vs. Ochoa), Steward of Nature / Writ of Kalikasan (West Tower; Segovia; Resident Marine Mammals).</span></a></li>
+<li><a href="#sec-37-3-earliest-opportunity-constitutional-question-must-be-raise" class="toc-link level-1" title="3. Earliest Opportunity: Constitutional question must be raised at the earliest opportunity in pleadings."><span class="toc-link-text">3. Earliest Opportunity: Constitutional question must be raised at the earliest opportunity in pleadings.</span></a></li>
+<li><a href="#sec-38-4-lis-mota-constitutional-necessity-case-cannot-be-resolved" class="toc-link level-1" title="4. Lis Mota / Constitutional Necessity: Case cannot be resolved on any other ground (Lalican vs. Vergara; Doctrine of Purposeful Hesitation - Drilon vs. Lim; Doctrine of Operative Fact - Republic vs. CA)."><span class="toc-link-text">4. Lis Mota / Constitutional Necessity: Case cannot be resolved on any other ground (Lalican vs. Vergara; Doctrine of Purposeful Hesitation - Drilon vs. Lim; Doctrine of Operative Fact - Republic vs. CA).</span></a></li>
+<li><a href="#sec-39-3-constitutional-safeguards-of-judicial-independence" class="toc-link level-1" title="3. Constitutional Safeguards of Judicial Independence"><span class="toc-link-text">3. Constitutional Safeguards of Judicial Independence</span></a></li>
+<li><a href="#sec-40-4-the-supreme-court-judicial-and-bar-council-art-viii-secs-4" class="toc-link level-1" title="4. The Supreme Court &amp; Judicial and Bar Council (Art. VIII, Secs. 4, 8 &amp; 9)"><span class="toc-link-text">4. The Supreme Court &amp; Judicial and Bar Council (Art. VIII, Secs. 4, 8 &amp; 9)</span></a></li>
       </ul>
     </nav>
 
@@ -2280,6 +2319,9 @@ Syllabus Integration: Topics I through VII with complete doctrinal analyses, con
           if (oldRibbon) oldRibbon.remove();
         });
 
+        // Clear existing TOC bookmark badges
+        document.querySelectorAll('#tocList .toc-bm-badges-wrap').forEach(w => w.remove());
+
         for (let slot = 1; slot <= 3; slot++) {
           const bm = bookmarks[slot];
           const metaBoxEl = document.getElementById('slotMeta' + slot);
@@ -2301,6 +2343,25 @@ Syllabus Integration: Topics I through VII with complete doctrinal analyses, con
             const locText = bm.location ? ' • ' + bm.location : '';
             ribbon.innerHTML = `${slotIcon} Bookmark ${slot} • ${bm.topic}${locText}`;
             targetUnit.insertBefore(ribbon, targetUnit.firstChild);
+
+            // Inject TOC badge into matching sidebar link
+            const sec = targetUnit.closest('section.doc-section');
+            if (sec && sec.id) {
+              const tocLink = document.querySelector(`#tocList a[href="#${sec.id}"]`);
+              if (tocLink) {
+                let badgesWrap = tocLink.querySelector('.toc-bm-badges-wrap');
+                if (!badgesWrap) {
+                  badgesWrap = document.createElement('span');
+                  badgesWrap.className = 'toc-bm-badges-wrap';
+                  tocLink.appendChild(badgesWrap);
+                }
+                const badge = document.createElement('span');
+                badge.className = `toc-bm-badge badge-slot-${slot}`;
+                badge.title = `Bookmark ${slot}: ${bm.location || ''}`;
+                badge.textContent = `${slotIcon} ${slot}`;
+                badgesWrap.appendChild(badge);
+              }
+            }
 
             if (metaBoxEl) metaBoxEl.style.display = 'flex';
             if (subjEl) subjEl.textContent = bm.subject || 'Law Subject';

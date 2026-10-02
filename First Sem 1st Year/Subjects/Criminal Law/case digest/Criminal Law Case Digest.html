@@ -437,7 +437,10 @@
     }
 
     .toc-link {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
       color: var(--text-secondary);
       text-decoration: none;
       font-family: var(--font-ui);
@@ -446,10 +449,46 @@
       border-radius: 4px;
       margin-bottom: 2px;
       border-left: 2px solid transparent;
+      transition: all 0.15s ease;
+    }
+    .toc-link-text {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      transition: all 0.15s ease;
+      flex: 1;
+    }
+    .toc-bm-badges-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+    .toc-bm-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      font-family: var(--font-ui);
+      padding: 1px 5px;
+      border-radius: 4px;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      white-space: nowrap;
+    }
+    .toc-bm-badge.badge-slot-1 {
+      background: rgba(251, 191, 36, 0.22);
+      color: var(--accent-gold);
+      border: 1px solid rgba(251, 191, 36, 0.5);
+    }
+    .toc-bm-badge.badge-slot-2 {
+      background: rgba(52, 211, 153, 0.22);
+      color: var(--accent-emerald);
+      border: 1px solid rgba(52, 211, 153, 0.5);
+    }
+    .toc-bm-badge.badge-slot-3 {
+      background: rgba(192, 132, 252, 0.22);
+      color: var(--accent-purple);
+      border: 1px solid rgba(192, 132, 252, 0.5);
     }
     .toc-link:hover {
       background-color: var(--bg-tertiary);
@@ -1288,27 +1327,27 @@
       </div>
       <input type="text" class="toc-search-box" id="sidebarSearch" placeholder="Filter topics & cases..." />
       <ul class="toc-list" id="tocList">
-<li><a href="#sec-overview" class="toc-link level-1" title="Criminal Law Case Digest">Criminal Law Case Digest</a></li>
-<li><a href="#sec-1-case-1-people-of-the-philippines-v-custodio-gonzales-sr" class="toc-link level-1" title="CASE 1: People of the Philippines v. Custodio Gonzales, Sr.">CASE 1: People of the Philippines v. Custodio Gonzales, Sr.</a></li>
-<li><a href="#sec-2-case-2-people-of-the-philippines-v-romana-silvestre-and-mart" class="toc-link level-1" title="CASE 2: People of the Philippines v. Romana Silvestre and Martin Atienza">CASE 2: People of the Philippines v. Romana Silvestre and Martin Atienza</a></li>
-<li><a href="#sec-3-case-3-united-states-v-ah-chong" class="toc-link level-1" title="CASE 3: United States v. Ah Chong">CASE 3: United States v. Ah Chong</a></li>
-<li><a href="#sec-4-case-4-people-of-the-philippines-v-antonio-oanis-and-alberto" class="toc-link level-1" title="CASE 4: People of the Philippines v. Antonio Oanis and Alberto Galanta">CASE 4: People of the Philippines v. Antonio Oanis and Alberto Galanta</a></li>
-<li><a href="#sec-5-case-5-aristotel-valenzuela-v-people-of-the-philippines" class="toc-link level-1" title="CASE 5: Aristotel Valenzuela v. People of the Philippines">CASE 5: Aristotel Valenzuela v. People of the Philippines</a></li>
-<li><a href="#sec-6-case-6-people-of-the-philippines-v-marivic-genosa" class="toc-link level-1" title="CASE 6: People of the Philippines v. Marivic Genosa">CASE 6: People of the Philippines v. Marivic Genosa</a></li>
-<li><a href="#sec-7-case-7-people-of-the-philippines-v-bayotas" class="toc-link level-1" title="CASE 7: People of the Philippines v. Bayotas">CASE 7: People of the Philippines v. Bayotas</a></li>
-<li><a href="#sec-8-case-8-people-of-the-philippines-v-simon" class="toc-link level-1" title="CASE 8: People of the Philippines v. Simon">CASE 8: People of the Philippines v. Simon</a></li>
-<li><a href="#sec-9-case-9-enrile-v-salazar" class="toc-link level-1" title="CASE 9: Enrile v. Salazar">CASE 9: Enrile v. Salazar</a></li>
-<li><a href="#sec-10-case-10-ivler-v-hon-maria-rowena-modesto-san-pedro" class="toc-link level-1" title="CASE 10: Ivler v. Hon. Maria Rowena Modesto-San Pedro">CASE 10: Ivler v. Hon. Maria Rowena Modesto-San Pedro</a></li>
-<li><a href="#sec-11-case-11-joseph-ejercito-estrada-v-sandiganbayan" class="toc-link level-1" title="CASE 11: Joseph Ejercito Estrada v. Sandiganbayan">CASE 11: Joseph Ejercito Estrada v. Sandiganbayan</a></li>
-<li><a href="#sec-12-case-12-united-states-v-hn-bull" class="toc-link level-1" title="CASE 12: United States v. H.N. Bull">CASE 12: United States v. H.N. Bull</a></li>
-<li><a href="#sec-13-case-13-people-of-the-philippines-v-lo-lo-and-saraw" class="toc-link level-1" title="CASE 13: People of the Philippines v. Lo-lo and Saraw">CASE 13: People of the Philippines v. Lo-lo and Saraw</a></li>
-<li><a href="#sec-14-case-14-united-states-v-james-l-brobst" class="toc-link level-1" title="CASE 14: United States v. James L. Brobst">CASE 14: United States v. James L. Brobst</a></li>
-<li><a href="#sec-15-case-15-people-of-the-philippines-v-fernando-iligan" class="toc-link level-1" title="CASE 15: People of the Philippines v. Fernando Iligan">CASE 15: People of the Philippines v. Fernando Iligan</a></li>
-<li><a href="#sec-16-case-16-sulpicio-intod-v-court-of-appeals" class="toc-link level-1" title="CASE 16: Sulpicio Intod v. Court of Appeals">CASE 16: Sulpicio Intod v. Court of Appeals</a></li>
-<li><a href="#sec-17-case-17-people-of-the-philippines-v-rodolfo-olarbe" class="toc-link level-1" title="CASE 17: People of the Philippines v. Rodolfo Olarbe">CASE 17: People of the Philippines v. Rodolfo Olarbe</a></li>
-<li><a href="#sec-18-case-18-people-of-the-philippines-v-mamerto-narvaez" class="toc-link level-1" title="CASE 18: People of the Philippines v. Mamerto Narvaez">CASE 18: People of the Philippines v. Mamerto Narvaez</a></li>
-<li><a href="#sec-19-case-19-people-of-the-philippines-v-bonoan" class="toc-link level-1" title="CASE 19: People of the Philippines v. Bonoan">CASE 19: People of the Philippines v. Bonoan</a></li>
-<li><a href="#sec-20-case-20-basilio-v-court-of-appeals" class="toc-link level-1" title="CASE 20: Basilio v. Court of Appeals">CASE 20: Basilio v. Court of Appeals</a></li>
+<li><a href="#sec-overview" class="toc-link level-1" title="Criminal Law Case Digest"><span class="toc-link-text">Criminal Law Case Digest</span></a></li>
+<li><a href="#sec-1-case-1-people-of-the-philippines-v-custodio-gonzales-sr" class="toc-link level-1" title="CASE 1: People of the Philippines v. Custodio Gonzales, Sr."><span class="toc-link-text">CASE 1: People of the Philippines v. Custodio Gonzales, Sr.</span></a></li>
+<li><a href="#sec-2-case-2-people-of-the-philippines-v-romana-silvestre-and-mart" class="toc-link level-1" title="CASE 2: People of the Philippines v. Romana Silvestre and Martin Atienza"><span class="toc-link-text">CASE 2: People of the Philippines v. Romana Silvestre and Martin Atienza</span></a></li>
+<li><a href="#sec-3-case-3-united-states-v-ah-chong" class="toc-link level-1" title="CASE 3: United States v. Ah Chong"><span class="toc-link-text">CASE 3: United States v. Ah Chong</span></a></li>
+<li><a href="#sec-4-case-4-people-of-the-philippines-v-antonio-oanis-and-alberto" class="toc-link level-1" title="CASE 4: People of the Philippines v. Antonio Oanis and Alberto Galanta"><span class="toc-link-text">CASE 4: People of the Philippines v. Antonio Oanis and Alberto Galanta</span></a></li>
+<li><a href="#sec-5-case-5-aristotel-valenzuela-v-people-of-the-philippines" class="toc-link level-1" title="CASE 5: Aristotel Valenzuela v. People of the Philippines"><span class="toc-link-text">CASE 5: Aristotel Valenzuela v. People of the Philippines</span></a></li>
+<li><a href="#sec-6-case-6-people-of-the-philippines-v-marivic-genosa" class="toc-link level-1" title="CASE 6: People of the Philippines v. Marivic Genosa"><span class="toc-link-text">CASE 6: People of the Philippines v. Marivic Genosa</span></a></li>
+<li><a href="#sec-7-case-7-people-of-the-philippines-v-bayotas" class="toc-link level-1" title="CASE 7: People of the Philippines v. Bayotas"><span class="toc-link-text">CASE 7: People of the Philippines v. Bayotas</span></a></li>
+<li><a href="#sec-8-case-8-people-of-the-philippines-v-simon" class="toc-link level-1" title="CASE 8: People of the Philippines v. Simon"><span class="toc-link-text">CASE 8: People of the Philippines v. Simon</span></a></li>
+<li><a href="#sec-9-case-9-enrile-v-salazar" class="toc-link level-1" title="CASE 9: Enrile v. Salazar"><span class="toc-link-text">CASE 9: Enrile v. Salazar</span></a></li>
+<li><a href="#sec-10-case-10-ivler-v-hon-maria-rowena-modesto-san-pedro" class="toc-link level-1" title="CASE 10: Ivler v. Hon. Maria Rowena Modesto-San Pedro"><span class="toc-link-text">CASE 10: Ivler v. Hon. Maria Rowena Modesto-San Pedro</span></a></li>
+<li><a href="#sec-11-case-11-joseph-ejercito-estrada-v-sandiganbayan" class="toc-link level-1" title="CASE 11: Joseph Ejercito Estrada v. Sandiganbayan"><span class="toc-link-text">CASE 11: Joseph Ejercito Estrada v. Sandiganbayan</span></a></li>
+<li><a href="#sec-12-case-12-united-states-v-hn-bull" class="toc-link level-1" title="CASE 12: United States v. H.N. Bull"><span class="toc-link-text">CASE 12: United States v. H.N. Bull</span></a></li>
+<li><a href="#sec-13-case-13-people-of-the-philippines-v-lo-lo-and-saraw" class="toc-link level-1" title="CASE 13: People of the Philippines v. Lo-lo and Saraw"><span class="toc-link-text">CASE 13: People of the Philippines v. Lo-lo and Saraw</span></a></li>
+<li><a href="#sec-14-case-14-united-states-v-james-l-brobst" class="toc-link level-1" title="CASE 14: United States v. James L. Brobst"><span class="toc-link-text">CASE 14: United States v. James L. Brobst</span></a></li>
+<li><a href="#sec-15-case-15-people-of-the-philippines-v-fernando-iligan" class="toc-link level-1" title="CASE 15: People of the Philippines v. Fernando Iligan"><span class="toc-link-text">CASE 15: People of the Philippines v. Fernando Iligan</span></a></li>
+<li><a href="#sec-16-case-16-sulpicio-intod-v-court-of-appeals" class="toc-link level-1" title="CASE 16: Sulpicio Intod v. Court of Appeals"><span class="toc-link-text">CASE 16: Sulpicio Intod v. Court of Appeals</span></a></li>
+<li><a href="#sec-17-case-17-people-of-the-philippines-v-rodolfo-olarbe" class="toc-link level-1" title="CASE 17: People of the Philippines v. Rodolfo Olarbe"><span class="toc-link-text">CASE 17: People of the Philippines v. Rodolfo Olarbe</span></a></li>
+<li><a href="#sec-18-case-18-people-of-the-philippines-v-mamerto-narvaez" class="toc-link level-1" title="CASE 18: People of the Philippines v. Mamerto Narvaez"><span class="toc-link-text">CASE 18: People of the Philippines v. Mamerto Narvaez</span></a></li>
+<li><a href="#sec-19-case-19-people-of-the-philippines-v-bonoan" class="toc-link level-1" title="CASE 19: People of the Philippines v. Bonoan"><span class="toc-link-text">CASE 19: People of the Philippines v. Bonoan</span></a></li>
+<li><a href="#sec-20-case-20-basilio-v-court-of-appeals" class="toc-link level-1" title="CASE 20: Basilio v. Court of Appeals"><span class="toc-link-text">CASE 20: Basilio v. Court of Appeals</span></a></li>
       </ul>
     </nav>
 
@@ -2422,6 +2461,9 @@ Paragraph Format Optimization: All provisions and comparative doctrines are form
           if (oldRibbon) oldRibbon.remove();
         });
 
+        // Clear existing TOC bookmark badges
+        document.querySelectorAll('#tocList .toc-bm-badges-wrap').forEach(w => w.remove());
+
         for (let slot = 1; slot <= 3; slot++) {
           const bm = bookmarks[slot];
           const metaBoxEl = document.getElementById('slotMeta' + slot);
@@ -2443,6 +2485,25 @@ Paragraph Format Optimization: All provisions and comparative doctrines are form
             const locText = bm.location ? ' • ' + bm.location : '';
             ribbon.innerHTML = `${slotIcon} Bookmark ${slot} • ${bm.topic}${locText}`;
             targetUnit.insertBefore(ribbon, targetUnit.firstChild);
+
+            // Inject TOC badge into matching sidebar link
+            const sec = targetUnit.closest('section.doc-section');
+            if (sec && sec.id) {
+              const tocLink = document.querySelector(`#tocList a[href="#${sec.id}"]`);
+              if (tocLink) {
+                let badgesWrap = tocLink.querySelector('.toc-bm-badges-wrap');
+                if (!badgesWrap) {
+                  badgesWrap = document.createElement('span');
+                  badgesWrap.className = 'toc-bm-badges-wrap';
+                  tocLink.appendChild(badgesWrap);
+                }
+                const badge = document.createElement('span');
+                badge.className = `toc-bm-badge badge-slot-${slot}`;
+                badge.title = `Bookmark ${slot}: ${bm.location || ''}`;
+                badge.textContent = `${slotIcon} ${slot}`;
+                badgesWrap.appendChild(badge);
+              }
+            }
 
             if (metaBoxEl) metaBoxEl.style.display = 'flex';
             if (subjEl) subjEl.textContent = bm.subject || 'Law Subject';

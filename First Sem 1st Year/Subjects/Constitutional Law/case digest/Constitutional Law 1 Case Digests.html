@@ -437,7 +437,10 @@
     }
 
     .toc-link {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
       color: var(--text-secondary);
       text-decoration: none;
       font-family: var(--font-ui);
@@ -446,10 +449,46 @@
       border-radius: 4px;
       margin-bottom: 2px;
       border-left: 2px solid transparent;
+      transition: all 0.15s ease;
+    }
+    .toc-link-text {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      transition: all 0.15s ease;
+      flex: 1;
+    }
+    .toc-bm-badges-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+    .toc-bm-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      font-family: var(--font-ui);
+      padding: 1px 5px;
+      border-radius: 4px;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      white-space: nowrap;
+    }
+    .toc-bm-badge.badge-slot-1 {
+      background: rgba(251, 191, 36, 0.22);
+      color: var(--accent-gold);
+      border: 1px solid rgba(251, 191, 36, 0.5);
+    }
+    .toc-bm-badge.badge-slot-2 {
+      background: rgba(52, 211, 153, 0.22);
+      color: var(--accent-emerald);
+      border: 1px solid rgba(52, 211, 153, 0.5);
+    }
+    .toc-bm-badge.badge-slot-3 {
+      background: rgba(192, 132, 252, 0.22);
+      color: var(--accent-purple);
+      border: 1px solid rgba(192, 132, 252, 0.5);
     }
     .toc-link:hover {
       background-color: var(--bg-tertiary);
@@ -1288,156 +1327,156 @@
       </div>
       <input type="text" class="toc-search-box" id="sidebarSearch" placeholder="Filter topics & cases..." />
       <ul class="toc-list" id="tocList">
-<li><a href="#sec-overview" class="toc-link level-1" title="Constitutional Law 1 Case Digests">Constitutional Law 1 Case Digests</a></li>
-<li><a href="#sec-1-case-1-de-leon-vs-esguerra" class="toc-link level-1" title="CASE 1: De Leon vs. Esguerra">CASE 1: De Leon vs. Esguerra</a></li>
-<li><a href="#sec-2-case-2-lambino-vs-commission-on-elections" class="toc-link level-1" title="CASE 2: Lambino vs. Commission on Elections">CASE 2: Lambino vs. Commission on Elections</a></li>
-<li><a href="#sec-3-case-3-imbong-vs-commission-on-elections" class="toc-link level-1" title="CASE 3: Imbong vs. Commission on Elections">CASE 3: Imbong vs. Commission on Elections</a></li>
-<li><a href="#sec-4-case-4-defensor-santiago-vs-commission-on-elections" class="toc-link level-1" title="CASE 4: Defensor-Santiago vs. Commission on Elections">CASE 4: Defensor-Santiago vs. Commission on Elections</a></li>
-<li><a href="#sec-5-case-5-lambino-vs-commission-on-elections-resolution-on-moti" class="toc-link level-1" title="CASE 5: Lambino vs. Commission on Elections (Resolution on Motion for Reconsideration)">CASE 5: Lambino vs. Commission on Elections (Resolution on Motion for Reconsideration)</a></li>
-<li><a href="#sec-6-case-6-gonzales-vs-commission-on-elections" class="toc-link level-1" title="CASE 6: Gonzales vs. Commission on Elections">CASE 6: Gonzales vs. Commission on Elections</a></li>
-<li><a href="#sec-7-case-7-occea-vs-commission-on-elections" class="toc-link level-1" title="CASE 7: Occeña vs. Commission on Elections">CASE 7: Occeña vs. Commission on Elections</a></li>
-<li><a href="#sec-8-case-8-almario-vs-alba" class="toc-link level-1" title="CASE 8: Almario vs. Alba">CASE 8: Almario vs. Alba</a></li>
-<li><a href="#sec-9-case-9-tolentino-vs-commission-on-elections" class="toc-link level-1" title="CASE 9: Tolentino vs. Commission on Elections">CASE 9: Tolentino vs. Commission on Elections</a></li>
-<li><a href="#sec-10-case-10-javellana-vs-the-executive-secretary" class="toc-link level-1" title="CASE 10: Javellana vs. The Executive Secretary">CASE 10: Javellana vs. The Executive Secretary</a></li>
-<li><a href="#sec-11-case-11-the-holy-see-vs-rosario-jr" class="toc-link level-1" title="CASE 11: The Holy See vs. Rosario, Jr.">CASE 11: The Holy See vs. Rosario, Jr.</a></li>
-<li><a href="#sec-12-case-12-liang-huefeng-vs-people" class="toc-link level-1" title="CASE 12: Liang (Huefeng) vs. People">CASE 12: Liang (Huefeng) vs. People</a></li>
-<li><a href="#sec-13-case-13-arigo-vs-swift" class="toc-link level-1" title="CASE 13: Arigo vs. Swift">CASE 13: Arigo vs. Swift</a></li>
-<li><a href="#sec-14-case-14-southeast-asian-fisheries-development-center-seafdec" class="toc-link level-1" title="CASE 14: Southeast Asian Fisheries Development Center (SEAFDEC) vs. NLRC">CASE 14: Southeast Asian Fisheries Development Center (SEAFDEC) vs. NLRC</a></li>
-<li><a href="#sec-15-case-15-callado-vs-international-rice-research-institute-irr" class="toc-link level-1" title="CASE 15: Callado vs. International Rice Research Institute (IRRI)">CASE 15: Callado vs. International Rice Research Institute (IRRI)</a></li>
-<li><a href="#sec-16-case-16-department-of-foreign-affairs-vs-nlrc" class="toc-link level-1" title="CASE 16: Department of Foreign Affairs vs. NLRC">CASE 16: Department of Foreign Affairs vs. NLRC</a></li>
-<li><a href="#sec-17-case-17-fontanilla-vs-maliaman" class="toc-link level-1" title="CASE 17: Fontanilla vs. Maliaman">CASE 17: Fontanilla vs. Maliaman</a></li>
-<li><a href="#sec-18-case-18-farolan-vs-court-of-tax-appeals" class="toc-link level-1" title="CASE 18: Farolan vs. Court of Tax Appeals">CASE 18: Farolan vs. Court of Tax Appeals</a></li>
-<li><a href="#sec-19-case-19-china-national-machinery-equipment-corp-vs-santamari" class="toc-link level-1" title="CASE 19: China National Machinery &amp; Equipment Corp. vs. Santamaria">CASE 19: China National Machinery &amp; Equipment Corp. vs. Santamaria</a></li>
-<li><a href="#sec-20-case-20-civil-aeronautics-administration-vs-court-of-appeals" class="toc-link level-1" title="CASE 20: Civil Aeronautics Administration vs. Court of Appeals">CASE 20: Civil Aeronautics Administration vs. Court of Appeals</a></li>
-<li><a href="#sec-21-case-21-meritt-vs-government-of-the-philippine-islands" class="toc-link level-1" title="CASE 21: Meritt vs. Government of the Philippine Islands">CASE 21: Meritt vs. Government of the Philippine Islands</a></li>
-<li><a href="#sec-22-case-22-republic-vs-feliciano" class="toc-link level-1" title="CASE 22: Republic vs. Feliciano">CASE 22: Republic vs. Feliciano</a></li>
-<li><a href="#sec-23-case-23-university-of-the-philippines-vs-dizon" class="toc-link level-1" title="CASE 23: University of the Philippines vs. Dizon">CASE 23: University of the Philippines vs. Dizon</a></li>
-<li><a href="#sec-24-case-24-city-of-manila-vs-teotico" class="toc-link level-1" title="CASE 24: City of Manila vs. Teotico">CASE 24: City of Manila vs. Teotico</a></li>
-<li><a href="#sec-25-case-25-united-states-of-america-vs-ruiz" class="toc-link level-1" title="CASE 25: United States of America vs. Ruiz">CASE 25: United States of America vs. Ruiz</a></li>
-<li><a href="#sec-26-case-26-froilan-vs-pan-oriental-shipping-company" class="toc-link level-1" title="CASE 26: Froilan vs. Pan Oriental Shipping Company">CASE 26: Froilan vs. Pan Oriental Shipping Company</a></li>
-<li><a href="#sec-27-case-27-municipality-of-san-miguel-vs-fernandez" class="toc-link level-1" title="CASE 27: Municipality of San Miguel vs. Fernandez">CASE 27: Municipality of San Miguel vs. Fernandez</a></li>
-<li><a href="#sec-28-case-28-municipality-of-makati-vs-court-of-appeals" class="toc-link level-1" title="CASE 28: Municipality of Makati vs. Court of Appeals">CASE 28: Municipality of Makati vs. Court of Appeals</a></li>
-<li><a href="#sec-29-case-29-wylie-vs-rarang" class="toc-link level-1" title="CASE 29: Wylie vs. Rarang">CASE 29: Wylie vs. Rarang</a></li>
-<li><a href="#sec-30-case-30-mmda-vs-bel-air-village-association-inc" class="toc-link level-1" title="CASE 30: MMDA vs. Bel-Air Village Association, Inc.">CASE 30: MMDA vs. Bel-Air Village Association, Inc.</a></li>
-<li><a href="#sec-31-case-31-philippine-association-of-service-exporters-inc-pase" class="toc-link level-1" title="CASE 31: Philippine Association of Service Exporters, Inc. (PASEI) vs. Drilon">CASE 31: Philippine Association of Service Exporters, Inc. (PASEI) vs. Drilon</a></li>
-<li><a href="#sec-32-case-32-tio-vs-videogram-regulatory-board" class="toc-link level-1" title="CASE 32: Tio vs. Videogram Regulatory Board">CASE 32: Tio vs. Videogram Regulatory Board</a></li>
-<li><a href="#sec-33-case-33-acebedo-optical-company-inc-vs-court-of-appeals" class="toc-link level-1" title="CASE 33: Acebedo Optical Company, Inc. vs. Court of Appeals">CASE 33: Acebedo Optical Company, Inc. vs. Court of Appeals</a></li>
-<li><a href="#sec-34-case-34-taxicab-operators-of-metro-manila-vs-board-of-transp" class="toc-link level-1" title="CASE 34: Taxicab Operators of Metro Manila vs. Board of Transportation">CASE 34: Taxicab Operators of Metro Manila vs. Board of Transportation</a></li>
-<li><a href="#sec-35-case-35-del-mar-vs-philippine-amusement-and-gaming-corporati" class="toc-link level-1" title="CASE 35: Del Mar vs. Philippine Amusement and Gaming Corporation (PAGCOR)">CASE 35: Del Mar vs. Philippine Amusement and Gaming Corporation (PAGCOR)</a></li>
-<li><a href="#sec-36-case-36-angeles-university-foundation-vs-city-of-angeles" class="toc-link level-1" title="CASE 36: Angeles University Foundation vs. City of Angeles">CASE 36: Angeles University Foundation vs. City of Angeles</a></li>
-<li><a href="#sec-37-case-37-southern-luzon-drug-corporation-vs-dswd" class="toc-link level-1" title="CASE 37: Southern Luzon Drug Corporation vs. DSWD">CASE 37: Southern Luzon Drug Corporation vs. DSWD</a></li>
-<li><a href="#sec-38-case-38-republic-vs-salem-investment-corporation" class="toc-link level-1" title="CASE 38: Republic vs. Salem Investment Corporation">CASE 38: Republic vs. Salem Investment Corporation</a></li>
-<li><a href="#sec-39-case-39-estate-of-salud-jimenez-vs-philippine-export-zone-au" class="toc-link level-1" title="CASE 39: Estate of Salud Jimenez vs. Philippine Export Zone Authority (PEZA)">CASE 39: Estate of Salud Jimenez vs. Philippine Export Zone Authority (PEZA)</a></li>
-<li><a href="#sec-40-case-40-mactan-cebu-international-airport-authority-mciaa-vs" class="toc-link level-1" title="CASE 40: Mactan-Cebu International Airport Authority (MCIAA) vs. Lozada, Jr.">CASE 40: Mactan-Cebu International Airport Authority (MCIAA) vs. Lozada, Jr.</a></li>
-<li><a href="#sec-41-case-41-republic-vs-lim" class="toc-link level-1" title="CASE 41: Republic vs. Lim">CASE 41: Republic vs. Lim</a></li>
-<li><a href="#sec-42-case-42-heirs-of-alberto-suguitan-vs-city-of-mandaluyong" class="toc-link level-1" title="CASE 42: Heirs of Alberto Suguitan vs. City of Mandaluyong">CASE 42: Heirs of Alberto Suguitan vs. City of Mandaluyong</a></li>
-<li><a href="#sec-43-case-43-smi-development-corporation-vs-republic" class="toc-link level-1" title="CASE 43: SMI Development Corporation vs. Republic">CASE 43: SMI Development Corporation vs. Republic</a></li>
-<li><a href="#sec-44-case-44-philippine-press-institute-vs-commission-on-election" class="toc-link level-1" title="CASE 44: Philippine Press Institute vs. Commission on Elections">CASE 44: Philippine Press Institute vs. Commission on Elections</a></li>
-<li><a href="#sec-45-case-45-telebap-inc-vs-commission-on-elections" class="toc-link level-1" title="CASE 45: TELEBAP, Inc. vs. Commission on Elections">CASE 45: TELEBAP, Inc. vs. Commission on Elections</a></li>
-<li><a href="#sec-46-case-46-heirs-of-juancho-ardona-vs-reyes" class="toc-link level-1" title="CASE 46: Heirs of Juancho Ardona vs. Reyes">CASE 46: Heirs of Juancho Ardona vs. Reyes</a></li>
-<li><a href="#sec-47-case-47-office-of-the-solicitor-general-vs-ayala-land-incorp" class="toc-link level-1" title="CASE 47: Office of the Solicitor General vs. Ayala Land Incorporated">CASE 47: Office of the Solicitor General vs. Ayala Land Incorporated</a></li>
-<li><a href="#sec-48-case-48-mosqueda-vs-pilipino-banana-growers-exporters-associ" class="toc-link level-1" title="CASE 48: Mosqueda vs. Pilipino Banana Growers &amp; Exporters Association, Inc.">CASE 48: Mosqueda vs. Pilipino Banana Growers &amp; Exporters Association, Inc.</a></li>
-<li><a href="#sec-49-case-49-secretary-of-the-dpwh-vs-spouses-tecson" class="toc-link level-1" title="CASE 49: Secretary of the DPWH vs. Spouses Tecson">CASE 49: Secretary of the DPWH vs. Spouses Tecson</a></li>
-<li><a href="#sec-50-case-50-national-power-corporation-vs-heirs-of-macabangkit-s" class="toc-link level-1" title="CASE 50: National Power Corporation vs. Heirs of Macabangkit Sangkay">CASE 50: National Power Corporation vs. Heirs of Macabangkit Sangkay</a></li>
-<li><a href="#sec-51-case-51-export-processing-zone-authority-now-peza-vs-pulido" class="toc-link level-1" title="CASE 51: Export Processing Zone Authority (now PEZA) vs. Pulido">CASE 51: Export Processing Zone Authority (now PEZA) vs. Pulido</a></li>
-<li><a href="#sec-52-case-52-republic-vs-judge-mupas-and-piatco" class="toc-link level-1" title="CASE 52: Republic vs. Judge Mupas and PIATCO">CASE 52: Republic vs. Judge Mupas and PIATCO</a></li>
-<li><a href="#sec-53-case-53-land-bank-of-the-philippines-vs-dalauta" class="toc-link level-1" title="CASE 53: Land Bank of the Philippines vs. Dalauta">CASE 53: Land Bank of the Philippines vs. Dalauta</a></li>
-<li><a href="#sec-54-case-54-alfonso-vs-land-bank-of-the-philippines-and-dar" class="toc-link level-1" title="CASE 54: Alfonso vs. Land Bank of the Philippines and DAR">CASE 54: Alfonso vs. Land Bank of the Philippines and DAR</a></li>
-<li><a href="#sec-55-case-55-mmda-vs-concerned-residents-of-manila-bay" class="toc-link level-1" title="CASE 55: MMDA vs. Concerned Residents of Manila Bay">CASE 55: MMDA vs. Concerned Residents of Manila Bay</a></li>
-<li><a href="#sec-56-case-56-belgica-vs-ochoa-jr-the-pdaf-case" class="toc-link level-1" title="CASE 56: Belgica vs. Ochoa, Jr. (The PDAF Case)">CASE 56: Belgica vs. Ochoa, Jr. (The PDAF Case)</a></li>
-<li><a href="#sec-57-case-57-gonzales-iii-vs-office-of-the-president" class="toc-link level-1" title="CASE 57: Gonzales III vs. Office of the President">CASE 57: Gonzales III vs. Office of the President</a></li>
-<li><a href="#sec-58-case-58-garcia-vs-executive-secretary" class="toc-link level-1" title="CASE 58: Garcia vs. Executive Secretary">CASE 58: Garcia vs. Executive Secretary</a></li>
-<li><a href="#sec-59-case-59-oposa-vs-factoran-jr" class="toc-link level-1" title="CASE 59: Oposa vs. Factoran, Jr.">CASE 59: Oposa vs. Factoran, Jr.</a></li>
-<li><a href="#sec-60-case-60-cadet-1cl-cudia-vs-superintendent-of-the-pma" class="toc-link level-1" title="CASE 60: Cadet 1CL Cudia vs. Superintendent of the PMA">CASE 60: Cadet 1CL Cudia vs. Superintendent of the PMA</a></li>
-<li><a href="#sec-61-case-61-presidential-ad-hoc-fact-finding-committee-on-behest" class="toc-link level-1" title="CASE 61: Presidential Ad Hoc Fact-Finding Committee on Behest Loans vs. Desierto">CASE 61: Presidential Ad Hoc Fact-Finding Committee on Behest Loans vs. Desierto</a></li>
-<li><a href="#sec-62-case-62-isagani-cruz-vs-secretary-of-environment-and-natural" class="toc-link level-1" title="CASE 62: Isagani Cruz vs. Secretary of Environment and Natural Resources">CASE 62: Isagani Cruz vs. Secretary of Environment and Natural Resources</a></li>
-<li><a href="#sec-63-case-63-resident-marine-mammals-of-tanon-strait-vs-secretary" class="toc-link level-1" title="CASE 63: Resident Marine Mammals of Tanon Strait vs. Secretary Angelo Reyes">CASE 63: Resident Marine Mammals of Tanon Strait vs. Secretary Angelo Reyes</a></li>
-<li><a href="#sec-64-case-64-roy-iii-vs-chairperson-herbosa" class="toc-link level-1" title="CASE 64: Roy III vs. Chairperson Herbosa">CASE 64: Roy III vs. Chairperson Herbosa</a></li>
-<li><a href="#sec-65-case-65-philippine-national-oil-company-pnoc-vs-keppel-phili" class="toc-link level-1" title="CASE 65: Philippine National Oil Company (PNOC) vs. Keppel Philippines Holdings, Inc.">CASE 65: Philippine National Oil Company (PNOC) vs. Keppel Philippines Holdings, Inc.</a></li>
-<li><a href="#sec-66-case-66-lagman-vs-executive-secretary-mindanao-martial-law-c" class="toc-link level-1" title="CASE 66: Lagman vs. Executive Secretary (Mindanao Martial Law Case)">CASE 66: Lagman vs. Executive Secretary (Mindanao Martial Law Case)</a></li>
-<li><a href="#sec-67-case-67-trillanes-iv-vs-hon-oscar-pimentel-sr" class="toc-link level-1" title="CASE 67: Trillanes IV vs. Hon. Oscar Pimentel, Sr.">CASE 67: Trillanes IV vs. Hon. Oscar Pimentel, Sr.</a></li>
-<li><a href="#sec-68-case-68-aquino-iii-vs-commission-on-elections" class="toc-link level-1" title="CASE 68: Aquino III vs. Commission on Elections">CASE 68: Aquino III vs. Commission on Elections</a></li>
-<li><a href="#sec-69-case-69-bagabuyo-vs-commission-on-elections" class="toc-link level-1" title="CASE 69: Bagabuyo vs. Commission on Elections">CASE 69: Bagabuyo vs. Commission on Elections</a></li>
-<li><a href="#sec-70-case-70-sema-vs-commission-on-elections" class="toc-link level-1" title="CASE 70: Sema vs. Commission on Elections">CASE 70: Sema vs. Commission on Elections</a></li>
-<li><a href="#sec-71-case-71-people-vs-jalosjos" class="toc-link level-1" title="CASE 71: People vs. Jalosjos">CASE 71: People vs. Jalosjos</a></li>
-<li><a href="#sec-72-case-72-osmena-vs-pendatun" class="toc-link level-1" title="CASE 72: Osmena vs. Pendatun">CASE 72: Osmena vs. Pendatun</a></li>
-<li><a href="#sec-73-case-73-pobre-vs-senator-miriam-defensor-santiago" class="toc-link level-1" title="CASE 73: Pobre vs. Senator Miriam Defensor-Santiago">CASE 73: Pobre vs. Senator Miriam Defensor-Santiago</a></li>
-<li><a href="#sec-74-case-74-liban-vs-gordon" class="toc-link level-1" title="CASE 74: Liban vs. Gordon">CASE 74: Liban vs. Gordon</a></li>
-<li><a href="#sec-75-case-75-baguilat-jr-vs-speaker-alvarez" class="toc-link level-1" title="CASE 75: Baguilat, Jr. vs. Speaker Alvarez">CASE 75: Baguilat, Jr. vs. Speaker Alvarez</a></li>
-<li><a href="#sec-76-case-76-pimentel-jr-vs-house-of-representatives-electoral-tr" class="toc-link level-1" title="CASE 76: Pimentel, Jr. vs. House of Representatives Electoral Tribunal (HRET)">CASE 76: Pimentel, Jr. vs. House of Representatives Electoral Tribunal (HRET)</a></li>
-<li><a href="#sec-77-case-77-vilando-vs-house-of-representatives-electoral-tribun" class="toc-link level-1" title="CASE 77: Vilando vs. House of Representatives Electoral Tribunal (HRET)">CASE 77: Vilando vs. House of Representatives Electoral Tribunal (HRET)</a></li>
-<li><a href="#sec-78-case-78-reyes-vs-commission-on-elections" class="toc-link level-1" title="CASE 78: Reyes vs. Commission on Elections">CASE 78: Reyes vs. Commission on Elections</a></li>
-<li><a href="#sec-79-case-79-velasco-vs-speaker-belmonte-jr" class="toc-link level-1" title="CASE 79: Velasco vs. Speaker Belmonte, Jr.">CASE 79: Velasco vs. Speaker Belmonte, Jr.</a></li>
-<li><a href="#sec-80-case-80-abayon-vs-commission-on-elections" class="toc-link level-1" title="CASE 80: Abayon vs. Commission on Elections">CASE 80: Abayon vs. Commission on Elections</a></li>
-<li><a href="#sec-81-case-81-abakada-guro-party-list-vs-purisima" class="toc-link level-1" title="CASE 81: ABAKADA Guro Party List vs. Purisima">CASE 81: ABAKADA Guro Party List vs. Purisima</a></li>
-<li><a href="#sec-82-case-82-garcilliano-vs-house-of-representatives-committees" class="toc-link level-1" title="CASE 82: Garcilliano vs. House of Representatives Committees">CASE 82: Garcilliano vs. House of Representatives Committees</a></li>
-<li><a href="#sec-83-case-83-senate-of-the-philippines-vs-ermita" class="toc-link level-1" title="CASE 83: Senate of the Philippines vs. Ermita">CASE 83: Senate of the Philippines vs. Ermita</a></li>
-<li><a href="#sec-84-case-84-neri-vs-senate-committee-on-accountability-of-public" class="toc-link level-1" title="CASE 84: Neri vs. Senate Committee on Accountability of Public Officers and Investigations">CASE 84: Neri vs. Senate Committee on Accountability of Public Officers and Investigations</a></li>
-<li><a href="#sec-85-case-85-akbayan-citizens-action-party-vs-thomas-aquino" class="toc-link level-1" title="CASE 85: AKBAYAN Citizens Action Party vs. Thomas Aquino">CASE 85: AKBAYAN Citizens Action Party vs. Thomas Aquino</a></li>
-<li><a href="#sec-86-case-86-gudani-vs-senga" class="toc-link level-1" title="CASE 86: Gudani vs. Senga">CASE 86: Gudani vs. Senga</a></li>
-<li><a href="#sec-87-case-87-arnault-vs-nazareno" class="toc-link level-1" title="CASE 87: Arnault vs. Nazareno">CASE 87: Arnault vs. Nazareno</a></li>
-<li><a href="#sec-88-case-88-negros-oriental-electric-cooperative-noreco-vs-sangg" class="toc-link level-1" title="CASE 88: Negros Oriental Electric Cooperative (NORECO) vs. Sangguniang Panlungsod of Dumaguete">CASE 88: Negros Oriental Electric Cooperative (NORECO) vs. Sangguniang Panlungsod of Dumaguete</a></li>
-<li><a href="#sec-89-case-89-david-vs-macapagal-arroyo" class="toc-link level-1" title="CASE 89: David vs. Macapagal-Arroyo">CASE 89: David vs. Macapagal-Arroyo</a></li>
-<li><a href="#sec-90-case-90-lecaroz-vs-sandiganbayan" class="toc-link level-1" title="CASE 90: Lecaroz vs. Sandiganbayan">CASE 90: Lecaroz vs. Sandiganbayan</a></li>
-<li><a href="#sec-91-case-91-re-em-no-03-010-comelec-order" class="toc-link level-1" title="CASE 91: RE: EM No. 03-010 (COMELEC Order)">CASE 91: RE: EM No. 03-010 (COMELEC Order)</a></li>
-<li><a href="#sec-92-case-92-republic-vs-sereno" class="toc-link level-1" title="CASE 92: Republic vs. Sereno">CASE 92: Republic vs. Sereno</a></li>
-<li><a href="#sec-93-case-93-estrada-vs-desierto" class="toc-link level-1" title="CASE 93: Estrada vs. Desierto">CASE 93: Estrada vs. Desierto</a></li>
-<li><a href="#sec-94-case-94-civil-liberties-union-vs-executive-secretary" class="toc-link level-1" title="CASE 94: Civil Liberties Union vs. Executive Secretary">CASE 94: Civil Liberties Union vs. Executive Secretary</a></li>
-<li><a href="#sec-95-case-95-clarificatory-resolution-in-clu-anti-graft-league-vs" class="toc-link level-1" title="CASE 95: Clarificatory Resolution in CLU &amp; Anti-Graft League vs. Juico">CASE 95: Clarificatory Resolution in CLU &amp; Anti-Graft League vs. Juico</a></li>
-<li><a href="#sec-96-case-96-public-interest-center-inc-vs-elma" class="toc-link level-1" title="CASE 96: Public Interest Center Inc. vs. Elma">CASE 96: Public Interest Center Inc. vs. Elma</a></li>
-<li><a href="#sec-97-case-97-soliven-vs-makasiar-beltran-vs-makasiar" class="toc-link level-1" title="CASE 97: Soliven vs. Makasiar / Beltran vs. Makasiar">CASE 97: Soliven vs. Makasiar / Beltran vs. Makasiar</a></li>
-<li><a href="#sec-98-case-98-marcos-vs-manglapus" class="toc-link level-1" title="CASE 98: Marcos vs. Manglapus">CASE 98: Marcos vs. Manglapus</a></li>
-<li><a href="#sec-99-case-99-ocampo-vs-rear-admiral-enriquez" class="toc-link level-1" title="CASE 99: Ocampo vs. Rear Admiral Enriquez">CASE 99: Ocampo vs. Rear Admiral Enriquez</a></li>
-<li><a href="#sec-100-case-100-power-sector-assets-and-liabilities-management-corp" class="toc-link level-1" title="CASE 100: Power Sector Assets and Liabilities Management Corp. (PSALM) vs. Commissioner of Internal Revenue">CASE 100: Power Sector Assets and Liabilities Management Corp. (PSALM) vs. Commissioner of Internal Revenue</a></li>
-<li><a href="#sec-101-case-101-ganzon-vs-court-of-appeals" class="toc-link level-1" title="CASE 101: Ganzon vs. Court of Appeals">CASE 101: Ganzon vs. Court of Appeals</a></li>
-<li><a href="#sec-102-case-102-lacson-vs-romero" class="toc-link level-1" title="CASE 102: Lacson vs. Romero">CASE 102: Lacson vs. Romero</a></li>
-<li><a href="#sec-103-case-103-aguinaldo-vs-president-benigno-aquino-iii" class="toc-link level-1" title="CASE 103: Aguinaldo vs. President Benigno Aquino III">CASE 103: Aguinaldo vs. President Benigno Aquino III</a></li>
-<li><a href="#sec-104-case-104-in-re-appointment-of-valenzuela-and-vallarta" class="toc-link level-1" title="CASE 104: In Re: Appointment of Valenzuela and Vallarta">CASE 104: In Re: Appointment of Valenzuela and Vallarta</a></li>
-<li><a href="#sec-105-case-105-atty-velicaria-garafil-vs-office-of-the-president" class="toc-link level-1" title="CASE 105: Atty. Velicaria-Garafil vs. Office of the President">CASE 105: Atty. Velicaria-Garafil vs. Office of the President</a></li>
-<li><a href="#sec-106-case-106-de-castro-vs-judicial-and-bar-council-jbc" class="toc-link level-1" title="CASE 106: De Castro vs. Judicial and Bar Council (JBC)">CASE 106: De Castro vs. Judicial and Bar Council (JBC)</a></li>
-<li><a href="#sec-107-case-107-de-rama-vs-court-of-appeals" class="toc-link level-1" title="CASE 107: De Rama vs. Court of Appeals">CASE 107: De Rama vs. Court of Appeals</a></li>
-<li><a href="#sec-108-case-108-funa-vs-chairman-commission-on-audit" class="toc-link level-1" title="CASE 108: Funa vs. Chairman, Commission on Audit">CASE 108: Funa vs. Chairman, Commission on Audit</a></li>
-<li><a href="#sec-109-case-109-kulayan-vs-tan" class="toc-link level-1" title="CASE 109: Kulayan vs. Tan">CASE 109: Kulayan vs. Tan</a></li>
-<li><a href="#sec-110-case-110-integrated-bar-of-the-philippines-vs-zamora" class="toc-link level-1" title="CASE 110: Integrated Bar of the Philippines vs. Zamora">CASE 110: Integrated Bar of the Philippines vs. Zamora</a></li>
-<li><a href="#sec-111-case-111-padilla-vs-congress-of-the-philippines" class="toc-link level-1" title="CASE 111: Padilla vs. Congress of the Philippines">CASE 111: Padilla vs. Congress of the Philippines</a></li>
-<li><a href="#sec-112-case-112-olaguer-vs-military-commission-no-34" class="toc-link level-1" title="CASE 112: Olaguer vs. Military Commission No. 34">CASE 112: Olaguer vs. Military Commission No. 34</a></li>
-<li><a href="#sec-113-case-113-macapagal-arroyo-vs-people" class="toc-link level-1" title="CASE 113: Macapagal-Arroyo vs. People">CASE 113: Macapagal-Arroyo vs. People</a></li>
-<li><a href="#sec-114-case-114-monsanto-vs-factoran-jr" class="toc-link level-1" title="CASE 114: Monsanto vs. Factoran, Jr.">CASE 114: Monsanto vs. Factoran, Jr.</a></li>
-<li><a href="#sec-115-case-115-garcia-vs-chairman-commission-on-audit" class="toc-link level-1" title="CASE 115: Garcia vs. Chairman, Commission on Audit">CASE 115: Garcia vs. Chairman, Commission on Audit</a></li>
-<li><a href="#sec-116-case-116-in-re-wilfredo-sumulong-torres" class="toc-link level-1" title="CASE 116: In Re: Wilfredo Sumulong Torres">CASE 116: In Re: Wilfredo Sumulong Torres</a></li>
-<li><a href="#sec-117-case-117-philippine-constitution-association-philconsa-vs-en" class="toc-link level-1" title="CASE 117: Philippine Constitution Association (PHILCONSA) vs. Enriquez">CASE 117: Philippine Constitution Association (PHILCONSA) vs. Enriquez</a></li>
-<li><a href="#sec-118-case-118-araullo-vs-aquino-iii-the-dap-case" class="toc-link level-1" title="CASE 118: Araullo vs. Aquino III (The DAP Case)">CASE 118: Araullo vs. Aquino III (The DAP Case)</a></li>
-<li><a href="#sec-119-case-119-garcia-vs-drilon" class="toc-link level-1" title="CASE 119: Garcia vs. Drilon">CASE 119: Garcia vs. Drilon</a></li>
-<li><a href="#sec-120-case-120-vinuya-vs-executive-secretary" class="toc-link level-1" title="CASE 120: Vinuya vs. Executive Secretary">CASE 120: Vinuya vs. Executive Secretary</a></li>
-<li><a href="#sec-121-case-121-save-the-sc-judicial-independence-movement-vs-aboli" class="toc-link level-1" title="CASE 121: Save the SC Judicial Independence Movement vs. Abolition of JDF">CASE 121: Save the SC Judicial Independence Movement vs. Abolition of JDF</a></li>
-<li><a href="#sec-122-case-122-international-service-for-the-acquisition-of-agri-b" class="toc-link level-1" title="CASE 122: International Service for the Acquisition of Agri-Biotech Applications, Inc. (ISAAA) vs. Greenpeace Southeast Asia">CASE 122: International Service for the Acquisition of Agri-Biotech Applications, Inc. (ISAAA) vs. Greenpeace Southeast Asia</a></li>
-<li><a href="#sec-123-case-123-southwing-heavy-industries-inc-vs-executive-secreta" class="toc-link level-1" title="CASE 123: Southwing Heavy Industries, Inc. vs. Executive Secretary">CASE 123: Southwing Heavy Industries, Inc. vs. Executive Secretary</a></li>
-<li><a href="#sec-124-case-124-saguisag-vs-executive-secretary-ochoa" class="toc-link level-1" title="CASE 124: Saguisag vs. Executive Secretary Ochoa">CASE 124: Saguisag vs. Executive Secretary Ochoa</a></li>
-<li><a href="#sec-125-case-125-west-tower-condominium-corp-vs-first-philippine-ind" class="toc-link level-1" title="CASE 125: West Tower Condominium Corp. vs. First Philippine Industrial Corp. (FPIC)">CASE 125: West Tower Condominium Corp. vs. First Philippine Industrial Corp. (FPIC)</a></li>
-<li><a href="#sec-126-case-126-segovia-vs-the-climate-change-commission" class="toc-link level-1" title="CASE 126: Segovia vs. The Climate Change Commission">CASE 126: Segovia vs. The Climate Change Commission</a></li>
-<li><a href="#sec-127-case-127-southern-hemisphere-engagement-network-inc-vs-anti" class="toc-link level-1" title="CASE 127: Southern Hemisphere Engagement Network, Inc. vs. Anti-Terrorism Council">CASE 127: Southern Hemisphere Engagement Network, Inc. vs. Anti-Terrorism Council</a></li>
-<li><a href="#sec-128-case-128-disini-jr-vs-secretary-of-justice" class="toc-link level-1" title="CASE 128: Disini, Jr. vs. Secretary of Justice">CASE 128: Disini, Jr. vs. Secretary of Justice</a></li>
-<li><a href="#sec-129-case-129-imbong-vs-ochoa-jr-the-rh-law-case" class="toc-link level-1" title="CASE 129: Imbong vs. Ochoa, Jr. (The RH Law Case)">CASE 129: Imbong vs. Ochoa, Jr. (The RH Law Case)</a></li>
-<li><a href="#sec-130-case-130-samahan-ng-mga-progresibong-kabataan-spark-vs-quezo" class="toc-link level-1" title="CASE 130: Samahan ng mga Progresibong Kabataan (SPARK) vs. Quezon City">CASE 130: Samahan ng mga Progresibong Kabataan (SPARK) vs. Quezon City</a></li>
-<li><a href="#sec-131-case-131-lalican-vs-vergara" class="toc-link level-1" title="CASE 131: Lalican vs. Vergara">CASE 131: Lalican vs. Vergara</a></li>
-<li><a href="#sec-132-case-132-drilon-vs-lim" class="toc-link level-1" title="CASE 132: Drilon vs. Lim">CASE 132: Drilon vs. Lim</a></li>
-<li><a href="#sec-133-case-133-republic-vs-court-of-appeals" class="toc-link level-1" title="CASE 133: Republic vs. Court of Appeals">CASE 133: Republic vs. Court of Appeals</a></li>
-<li><a href="#sec-134-case-134-re-coa-opinion-on-appraised-value-of-retired-justic" class="toc-link level-1" title="CASE 134: Re: COA Opinion on Appraised Value of Retired Justices&#x27; Properties">CASE 134: Re: COA Opinion on Appraised Value of Retired Justices&#x27; Properties</a></li>
-<li><a href="#sec-135-case-135-in-re-first-indorsement-from-hon-raul-m-gonzalez" class="toc-link level-1" title="CASE 135: In Re First Indorsement from Hon. Raul M. Gonzalez">CASE 135: In Re First Indorsement from Hon. Raul M. Gonzalez</a></li>
-<li><a href="#sec-136-case-136-maceda-vs-vasquez" class="toc-link level-1" title="CASE 136: Maceda vs. Vasquez">CASE 136: Maceda vs. Vasquez</a></li>
-<li><a href="#sec-137-case-137-de-vera-vs-pelayo" class="toc-link level-1" title="CASE 137: De Vera vs. Pelayo">CASE 137: De Vera vs. Pelayo</a></li>
-<li><a href="#sec-138-case-138-ampong-vs-civil-service-commission" class="toc-link level-1" title="CASE 138: Ampong vs. Civil Service Commission">CASE 138: Ampong vs. Civil Service Commission</a></li>
-<li><a href="#sec-139-case-139-carpio-morales-vs-court-of-appeals-jejomar-erwin-s" class="toc-link level-1" title="CASE 139: Carpio-Morales vs. Court of Appeals &amp; Jejomar Erwin S. Binay, Jr.">CASE 139: Carpio-Morales vs. Court of Appeals &amp; Jejomar Erwin S. Binay, Jr.</a></li>
-<li><a href="#sec-140-case-140-estipona-jr-vs-lobrigo" class="toc-link level-1" title="CASE 140: Estipona, Jr. vs. Lobrigo">CASE 140: Estipona, Jr. vs. Lobrigo</a></li>
-<li><a href="#sec-141-case-141-mamiscal-vs-clerk-of-court-abdullah" class="toc-link level-1" title="CASE 141: Mamiscal vs. Clerk of Court Abdullah">CASE 141: Mamiscal vs. Clerk of Court Abdullah</a></li>
-<li><a href="#sec-142-case-142-sm-land-inc-vs-bases-conversion-and-development-aut" class="toc-link level-1" title="CASE 142: SM Land, Inc. vs. Bases Conversion and Development Authority (BCDA)">CASE 142: SM Land, Inc. vs. Bases Conversion and Development Authority (BCDA)</a></li>
-<li><a href="#sec-143-case-143-sesbreno-vs-court-of-appeals" class="toc-link level-1" title="CASE 143: Sesbreno vs. Court of Appeals">CASE 143: Sesbreno vs. Court of Appeals</a></li>
-<li><a href="#sec-144-case-144-re-problem-of-delays-in-cases-before-sandiganbayan" class="toc-link level-1" title="CASE 144: Re: Problem of Delays in Cases Before Sandiganbayan">CASE 144: Re: Problem of Delays in Cases Before Sandiganbayan</a></li>
-<li><a href="#sec-145-case-145-re-report-on-judicial-audit-in-rtc-br-56-mandaue" class="toc-link level-1" title="CASE 145: Re: Report on Judicial Audit in RTC Br. 56 Mandaue">CASE 145: Re: Report on Judicial Audit in RTC Br. 56 Mandaue</a></li>
-<li><a href="#sec-146-case-146-chavez-vs-judicial-and-bar-council-jbc" class="toc-link level-1" title="CASE 146: Chavez vs. Judicial and Bar Council (JBC)">CASE 146: Chavez vs. Judicial and Bar Council (JBC)</a></li>
-<li><a href="#sec-147-case-147-jardeleza-vs-chief-justice-maria-lourdes-p-a-sereno" class="toc-link level-1" title="CASE 147: Jardeleza vs. Chief Justice Maria Lourdes P. A. Sereno">CASE 147: Jardeleza vs. Chief Justice Maria Lourdes P. A. Sereno</a></li>
-<li><a href="#sec-148-case-148-umali-vs-judicial-and-bar-council-jbc" class="toc-link level-1" title="CASE 148: Umali vs. Judicial and Bar Council (JBC)">CASE 148: Umali vs. Judicial and Bar Council (JBC)</a></li>
-<li><a href="#sec-149-case-149-judge-villanueva-vs-judicial-and-bar-council-jbc" class="toc-link level-1" title="CASE 149: Judge Villanueva vs. Judicial and Bar Council (JBC)">CASE 149: Judge Villanueva vs. Judicial and Bar Council (JBC)</a></li>
+<li><a href="#sec-overview" class="toc-link level-1" title="Constitutional Law 1 Case Digests"><span class="toc-link-text">Constitutional Law 1 Case Digests</span></a></li>
+<li><a href="#sec-1-case-1-de-leon-vs-esguerra" class="toc-link level-1" title="CASE 1: De Leon vs. Esguerra"><span class="toc-link-text">CASE 1: De Leon vs. Esguerra</span></a></li>
+<li><a href="#sec-2-case-2-lambino-vs-commission-on-elections" class="toc-link level-1" title="CASE 2: Lambino vs. Commission on Elections"><span class="toc-link-text">CASE 2: Lambino vs. Commission on Elections</span></a></li>
+<li><a href="#sec-3-case-3-imbong-vs-commission-on-elections" class="toc-link level-1" title="CASE 3: Imbong vs. Commission on Elections"><span class="toc-link-text">CASE 3: Imbong vs. Commission on Elections</span></a></li>
+<li><a href="#sec-4-case-4-defensor-santiago-vs-commission-on-elections" class="toc-link level-1" title="CASE 4: Defensor-Santiago vs. Commission on Elections"><span class="toc-link-text">CASE 4: Defensor-Santiago vs. Commission on Elections</span></a></li>
+<li><a href="#sec-5-case-5-lambino-vs-commission-on-elections-resolution-on-moti" class="toc-link level-1" title="CASE 5: Lambino vs. Commission on Elections (Resolution on Motion for Reconsideration)"><span class="toc-link-text">CASE 5: Lambino vs. Commission on Elections (Resolution on Motion for Reconsideration)</span></a></li>
+<li><a href="#sec-6-case-6-gonzales-vs-commission-on-elections" class="toc-link level-1" title="CASE 6: Gonzales vs. Commission on Elections"><span class="toc-link-text">CASE 6: Gonzales vs. Commission on Elections</span></a></li>
+<li><a href="#sec-7-case-7-occea-vs-commission-on-elections" class="toc-link level-1" title="CASE 7: Occeña vs. Commission on Elections"><span class="toc-link-text">CASE 7: Occeña vs. Commission on Elections</span></a></li>
+<li><a href="#sec-8-case-8-almario-vs-alba" class="toc-link level-1" title="CASE 8: Almario vs. Alba"><span class="toc-link-text">CASE 8: Almario vs. Alba</span></a></li>
+<li><a href="#sec-9-case-9-tolentino-vs-commission-on-elections" class="toc-link level-1" title="CASE 9: Tolentino vs. Commission on Elections"><span class="toc-link-text">CASE 9: Tolentino vs. Commission on Elections</span></a></li>
+<li><a href="#sec-10-case-10-javellana-vs-the-executive-secretary" class="toc-link level-1" title="CASE 10: Javellana vs. The Executive Secretary"><span class="toc-link-text">CASE 10: Javellana vs. The Executive Secretary</span></a></li>
+<li><a href="#sec-11-case-11-the-holy-see-vs-rosario-jr" class="toc-link level-1" title="CASE 11: The Holy See vs. Rosario, Jr."><span class="toc-link-text">CASE 11: The Holy See vs. Rosario, Jr.</span></a></li>
+<li><a href="#sec-12-case-12-liang-huefeng-vs-people" class="toc-link level-1" title="CASE 12: Liang (Huefeng) vs. People"><span class="toc-link-text">CASE 12: Liang (Huefeng) vs. People</span></a></li>
+<li><a href="#sec-13-case-13-arigo-vs-swift" class="toc-link level-1" title="CASE 13: Arigo vs. Swift"><span class="toc-link-text">CASE 13: Arigo vs. Swift</span></a></li>
+<li><a href="#sec-14-case-14-southeast-asian-fisheries-development-center-seafdec" class="toc-link level-1" title="CASE 14: Southeast Asian Fisheries Development Center (SEAFDEC) vs. NLRC"><span class="toc-link-text">CASE 14: Southeast Asian Fisheries Development Center (SEAFDEC) vs. NLRC</span></a></li>
+<li><a href="#sec-15-case-15-callado-vs-international-rice-research-institute-irr" class="toc-link level-1" title="CASE 15: Callado vs. International Rice Research Institute (IRRI)"><span class="toc-link-text">CASE 15: Callado vs. International Rice Research Institute (IRRI)</span></a></li>
+<li><a href="#sec-16-case-16-department-of-foreign-affairs-vs-nlrc" class="toc-link level-1" title="CASE 16: Department of Foreign Affairs vs. NLRC"><span class="toc-link-text">CASE 16: Department of Foreign Affairs vs. NLRC</span></a></li>
+<li><a href="#sec-17-case-17-fontanilla-vs-maliaman" class="toc-link level-1" title="CASE 17: Fontanilla vs. Maliaman"><span class="toc-link-text">CASE 17: Fontanilla vs. Maliaman</span></a></li>
+<li><a href="#sec-18-case-18-farolan-vs-court-of-tax-appeals" class="toc-link level-1" title="CASE 18: Farolan vs. Court of Tax Appeals"><span class="toc-link-text">CASE 18: Farolan vs. Court of Tax Appeals</span></a></li>
+<li><a href="#sec-19-case-19-china-national-machinery-equipment-corp-vs-santamari" class="toc-link level-1" title="CASE 19: China National Machinery &amp; Equipment Corp. vs. Santamaria"><span class="toc-link-text">CASE 19: China National Machinery &amp; Equipment Corp. vs. Santamaria</span></a></li>
+<li><a href="#sec-20-case-20-civil-aeronautics-administration-vs-court-of-appeals" class="toc-link level-1" title="CASE 20: Civil Aeronautics Administration vs. Court of Appeals"><span class="toc-link-text">CASE 20: Civil Aeronautics Administration vs. Court of Appeals</span></a></li>
+<li><a href="#sec-21-case-21-meritt-vs-government-of-the-philippine-islands" class="toc-link level-1" title="CASE 21: Meritt vs. Government of the Philippine Islands"><span class="toc-link-text">CASE 21: Meritt vs. Government of the Philippine Islands</span></a></li>
+<li><a href="#sec-22-case-22-republic-vs-feliciano" class="toc-link level-1" title="CASE 22: Republic vs. Feliciano"><span class="toc-link-text">CASE 22: Republic vs. Feliciano</span></a></li>
+<li><a href="#sec-23-case-23-university-of-the-philippines-vs-dizon" class="toc-link level-1" title="CASE 23: University of the Philippines vs. Dizon"><span class="toc-link-text">CASE 23: University of the Philippines vs. Dizon</span></a></li>
+<li><a href="#sec-24-case-24-city-of-manila-vs-teotico" class="toc-link level-1" title="CASE 24: City of Manila vs. Teotico"><span class="toc-link-text">CASE 24: City of Manila vs. Teotico</span></a></li>
+<li><a href="#sec-25-case-25-united-states-of-america-vs-ruiz" class="toc-link level-1" title="CASE 25: United States of America vs. Ruiz"><span class="toc-link-text">CASE 25: United States of America vs. Ruiz</span></a></li>
+<li><a href="#sec-26-case-26-froilan-vs-pan-oriental-shipping-company" class="toc-link level-1" title="CASE 26: Froilan vs. Pan Oriental Shipping Company"><span class="toc-link-text">CASE 26: Froilan vs. Pan Oriental Shipping Company</span></a></li>
+<li><a href="#sec-27-case-27-municipality-of-san-miguel-vs-fernandez" class="toc-link level-1" title="CASE 27: Municipality of San Miguel vs. Fernandez"><span class="toc-link-text">CASE 27: Municipality of San Miguel vs. Fernandez</span></a></li>
+<li><a href="#sec-28-case-28-municipality-of-makati-vs-court-of-appeals" class="toc-link level-1" title="CASE 28: Municipality of Makati vs. Court of Appeals"><span class="toc-link-text">CASE 28: Municipality of Makati vs. Court of Appeals</span></a></li>
+<li><a href="#sec-29-case-29-wylie-vs-rarang" class="toc-link level-1" title="CASE 29: Wylie vs. Rarang"><span class="toc-link-text">CASE 29: Wylie vs. Rarang</span></a></li>
+<li><a href="#sec-30-case-30-mmda-vs-bel-air-village-association-inc" class="toc-link level-1" title="CASE 30: MMDA vs. Bel-Air Village Association, Inc."><span class="toc-link-text">CASE 30: MMDA vs. Bel-Air Village Association, Inc.</span></a></li>
+<li><a href="#sec-31-case-31-philippine-association-of-service-exporters-inc-pase" class="toc-link level-1" title="CASE 31: Philippine Association of Service Exporters, Inc. (PASEI) vs. Drilon"><span class="toc-link-text">CASE 31: Philippine Association of Service Exporters, Inc. (PASEI) vs. Drilon</span></a></li>
+<li><a href="#sec-32-case-32-tio-vs-videogram-regulatory-board" class="toc-link level-1" title="CASE 32: Tio vs. Videogram Regulatory Board"><span class="toc-link-text">CASE 32: Tio vs. Videogram Regulatory Board</span></a></li>
+<li><a href="#sec-33-case-33-acebedo-optical-company-inc-vs-court-of-appeals" class="toc-link level-1" title="CASE 33: Acebedo Optical Company, Inc. vs. Court of Appeals"><span class="toc-link-text">CASE 33: Acebedo Optical Company, Inc. vs. Court of Appeals</span></a></li>
+<li><a href="#sec-34-case-34-taxicab-operators-of-metro-manila-vs-board-of-transp" class="toc-link level-1" title="CASE 34: Taxicab Operators of Metro Manila vs. Board of Transportation"><span class="toc-link-text">CASE 34: Taxicab Operators of Metro Manila vs. Board of Transportation</span></a></li>
+<li><a href="#sec-35-case-35-del-mar-vs-philippine-amusement-and-gaming-corporati" class="toc-link level-1" title="CASE 35: Del Mar vs. Philippine Amusement and Gaming Corporation (PAGCOR)"><span class="toc-link-text">CASE 35: Del Mar vs. Philippine Amusement and Gaming Corporation (PAGCOR)</span></a></li>
+<li><a href="#sec-36-case-36-angeles-university-foundation-vs-city-of-angeles" class="toc-link level-1" title="CASE 36: Angeles University Foundation vs. City of Angeles"><span class="toc-link-text">CASE 36: Angeles University Foundation vs. City of Angeles</span></a></li>
+<li><a href="#sec-37-case-37-southern-luzon-drug-corporation-vs-dswd" class="toc-link level-1" title="CASE 37: Southern Luzon Drug Corporation vs. DSWD"><span class="toc-link-text">CASE 37: Southern Luzon Drug Corporation vs. DSWD</span></a></li>
+<li><a href="#sec-38-case-38-republic-vs-salem-investment-corporation" class="toc-link level-1" title="CASE 38: Republic vs. Salem Investment Corporation"><span class="toc-link-text">CASE 38: Republic vs. Salem Investment Corporation</span></a></li>
+<li><a href="#sec-39-case-39-estate-of-salud-jimenez-vs-philippine-export-zone-au" class="toc-link level-1" title="CASE 39: Estate of Salud Jimenez vs. Philippine Export Zone Authority (PEZA)"><span class="toc-link-text">CASE 39: Estate of Salud Jimenez vs. Philippine Export Zone Authority (PEZA)</span></a></li>
+<li><a href="#sec-40-case-40-mactan-cebu-international-airport-authority-mciaa-vs" class="toc-link level-1" title="CASE 40: Mactan-Cebu International Airport Authority (MCIAA) vs. Lozada, Jr."><span class="toc-link-text">CASE 40: Mactan-Cebu International Airport Authority (MCIAA) vs. Lozada, Jr.</span></a></li>
+<li><a href="#sec-41-case-41-republic-vs-lim" class="toc-link level-1" title="CASE 41: Republic vs. Lim"><span class="toc-link-text">CASE 41: Republic vs. Lim</span></a></li>
+<li><a href="#sec-42-case-42-heirs-of-alberto-suguitan-vs-city-of-mandaluyong" class="toc-link level-1" title="CASE 42: Heirs of Alberto Suguitan vs. City of Mandaluyong"><span class="toc-link-text">CASE 42: Heirs of Alberto Suguitan vs. City of Mandaluyong</span></a></li>
+<li><a href="#sec-43-case-43-smi-development-corporation-vs-republic" class="toc-link level-1" title="CASE 43: SMI Development Corporation vs. Republic"><span class="toc-link-text">CASE 43: SMI Development Corporation vs. Republic</span></a></li>
+<li><a href="#sec-44-case-44-philippine-press-institute-vs-commission-on-election" class="toc-link level-1" title="CASE 44: Philippine Press Institute vs. Commission on Elections"><span class="toc-link-text">CASE 44: Philippine Press Institute vs. Commission on Elections</span></a></li>
+<li><a href="#sec-45-case-45-telebap-inc-vs-commission-on-elections" class="toc-link level-1" title="CASE 45: TELEBAP, Inc. vs. Commission on Elections"><span class="toc-link-text">CASE 45: TELEBAP, Inc. vs. Commission on Elections</span></a></li>
+<li><a href="#sec-46-case-46-heirs-of-juancho-ardona-vs-reyes" class="toc-link level-1" title="CASE 46: Heirs of Juancho Ardona vs. Reyes"><span class="toc-link-text">CASE 46: Heirs of Juancho Ardona vs. Reyes</span></a></li>
+<li><a href="#sec-47-case-47-office-of-the-solicitor-general-vs-ayala-land-incorp" class="toc-link level-1" title="CASE 47: Office of the Solicitor General vs. Ayala Land Incorporated"><span class="toc-link-text">CASE 47: Office of the Solicitor General vs. Ayala Land Incorporated</span></a></li>
+<li><a href="#sec-48-case-48-mosqueda-vs-pilipino-banana-growers-exporters-associ" class="toc-link level-1" title="CASE 48: Mosqueda vs. Pilipino Banana Growers &amp; Exporters Association, Inc."><span class="toc-link-text">CASE 48: Mosqueda vs. Pilipino Banana Growers &amp; Exporters Association, Inc.</span></a></li>
+<li><a href="#sec-49-case-49-secretary-of-the-dpwh-vs-spouses-tecson" class="toc-link level-1" title="CASE 49: Secretary of the DPWH vs. Spouses Tecson"><span class="toc-link-text">CASE 49: Secretary of the DPWH vs. Spouses Tecson</span></a></li>
+<li><a href="#sec-50-case-50-national-power-corporation-vs-heirs-of-macabangkit-s" class="toc-link level-1" title="CASE 50: National Power Corporation vs. Heirs of Macabangkit Sangkay"><span class="toc-link-text">CASE 50: National Power Corporation vs. Heirs of Macabangkit Sangkay</span></a></li>
+<li><a href="#sec-51-case-51-export-processing-zone-authority-now-peza-vs-pulido" class="toc-link level-1" title="CASE 51: Export Processing Zone Authority (now PEZA) vs. Pulido"><span class="toc-link-text">CASE 51: Export Processing Zone Authority (now PEZA) vs. Pulido</span></a></li>
+<li><a href="#sec-52-case-52-republic-vs-judge-mupas-and-piatco" class="toc-link level-1" title="CASE 52: Republic vs. Judge Mupas and PIATCO"><span class="toc-link-text">CASE 52: Republic vs. Judge Mupas and PIATCO</span></a></li>
+<li><a href="#sec-53-case-53-land-bank-of-the-philippines-vs-dalauta" class="toc-link level-1" title="CASE 53: Land Bank of the Philippines vs. Dalauta"><span class="toc-link-text">CASE 53: Land Bank of the Philippines vs. Dalauta</span></a></li>
+<li><a href="#sec-54-case-54-alfonso-vs-land-bank-of-the-philippines-and-dar" class="toc-link level-1" title="CASE 54: Alfonso vs. Land Bank of the Philippines and DAR"><span class="toc-link-text">CASE 54: Alfonso vs. Land Bank of the Philippines and DAR</span></a></li>
+<li><a href="#sec-55-case-55-mmda-vs-concerned-residents-of-manila-bay" class="toc-link level-1" title="CASE 55: MMDA vs. Concerned Residents of Manila Bay"><span class="toc-link-text">CASE 55: MMDA vs. Concerned Residents of Manila Bay</span></a></li>
+<li><a href="#sec-56-case-56-belgica-vs-ochoa-jr-the-pdaf-case" class="toc-link level-1" title="CASE 56: Belgica vs. Ochoa, Jr. (The PDAF Case)"><span class="toc-link-text">CASE 56: Belgica vs. Ochoa, Jr. (The PDAF Case)</span></a></li>
+<li><a href="#sec-57-case-57-gonzales-iii-vs-office-of-the-president" class="toc-link level-1" title="CASE 57: Gonzales III vs. Office of the President"><span class="toc-link-text">CASE 57: Gonzales III vs. Office of the President</span></a></li>
+<li><a href="#sec-58-case-58-garcia-vs-executive-secretary" class="toc-link level-1" title="CASE 58: Garcia vs. Executive Secretary"><span class="toc-link-text">CASE 58: Garcia vs. Executive Secretary</span></a></li>
+<li><a href="#sec-59-case-59-oposa-vs-factoran-jr" class="toc-link level-1" title="CASE 59: Oposa vs. Factoran, Jr."><span class="toc-link-text">CASE 59: Oposa vs. Factoran, Jr.</span></a></li>
+<li><a href="#sec-60-case-60-cadet-1cl-cudia-vs-superintendent-of-the-pma" class="toc-link level-1" title="CASE 60: Cadet 1CL Cudia vs. Superintendent of the PMA"><span class="toc-link-text">CASE 60: Cadet 1CL Cudia vs. Superintendent of the PMA</span></a></li>
+<li><a href="#sec-61-case-61-presidential-ad-hoc-fact-finding-committee-on-behest" class="toc-link level-1" title="CASE 61: Presidential Ad Hoc Fact-Finding Committee on Behest Loans vs. Desierto"><span class="toc-link-text">CASE 61: Presidential Ad Hoc Fact-Finding Committee on Behest Loans vs. Desierto</span></a></li>
+<li><a href="#sec-62-case-62-isagani-cruz-vs-secretary-of-environment-and-natural" class="toc-link level-1" title="CASE 62: Isagani Cruz vs. Secretary of Environment and Natural Resources"><span class="toc-link-text">CASE 62: Isagani Cruz vs. Secretary of Environment and Natural Resources</span></a></li>
+<li><a href="#sec-63-case-63-resident-marine-mammals-of-tanon-strait-vs-secretary" class="toc-link level-1" title="CASE 63: Resident Marine Mammals of Tanon Strait vs. Secretary Angelo Reyes"><span class="toc-link-text">CASE 63: Resident Marine Mammals of Tanon Strait vs. Secretary Angelo Reyes</span></a></li>
+<li><a href="#sec-64-case-64-roy-iii-vs-chairperson-herbosa" class="toc-link level-1" title="CASE 64: Roy III vs. Chairperson Herbosa"><span class="toc-link-text">CASE 64: Roy III vs. Chairperson Herbosa</span></a></li>
+<li><a href="#sec-65-case-65-philippine-national-oil-company-pnoc-vs-keppel-phili" class="toc-link level-1" title="CASE 65: Philippine National Oil Company (PNOC) vs. Keppel Philippines Holdings, Inc."><span class="toc-link-text">CASE 65: Philippine National Oil Company (PNOC) vs. Keppel Philippines Holdings, Inc.</span></a></li>
+<li><a href="#sec-66-case-66-lagman-vs-executive-secretary-mindanao-martial-law-c" class="toc-link level-1" title="CASE 66: Lagman vs. Executive Secretary (Mindanao Martial Law Case)"><span class="toc-link-text">CASE 66: Lagman vs. Executive Secretary (Mindanao Martial Law Case)</span></a></li>
+<li><a href="#sec-67-case-67-trillanes-iv-vs-hon-oscar-pimentel-sr" class="toc-link level-1" title="CASE 67: Trillanes IV vs. Hon. Oscar Pimentel, Sr."><span class="toc-link-text">CASE 67: Trillanes IV vs. Hon. Oscar Pimentel, Sr.</span></a></li>
+<li><a href="#sec-68-case-68-aquino-iii-vs-commission-on-elections" class="toc-link level-1" title="CASE 68: Aquino III vs. Commission on Elections"><span class="toc-link-text">CASE 68: Aquino III vs. Commission on Elections</span></a></li>
+<li><a href="#sec-69-case-69-bagabuyo-vs-commission-on-elections" class="toc-link level-1" title="CASE 69: Bagabuyo vs. Commission on Elections"><span class="toc-link-text">CASE 69: Bagabuyo vs. Commission on Elections</span></a></li>
+<li><a href="#sec-70-case-70-sema-vs-commission-on-elections" class="toc-link level-1" title="CASE 70: Sema vs. Commission on Elections"><span class="toc-link-text">CASE 70: Sema vs. Commission on Elections</span></a></li>
+<li><a href="#sec-71-case-71-people-vs-jalosjos" class="toc-link level-1" title="CASE 71: People vs. Jalosjos"><span class="toc-link-text">CASE 71: People vs. Jalosjos</span></a></li>
+<li><a href="#sec-72-case-72-osmena-vs-pendatun" class="toc-link level-1" title="CASE 72: Osmena vs. Pendatun"><span class="toc-link-text">CASE 72: Osmena vs. Pendatun</span></a></li>
+<li><a href="#sec-73-case-73-pobre-vs-senator-miriam-defensor-santiago" class="toc-link level-1" title="CASE 73: Pobre vs. Senator Miriam Defensor-Santiago"><span class="toc-link-text">CASE 73: Pobre vs. Senator Miriam Defensor-Santiago</span></a></li>
+<li><a href="#sec-74-case-74-liban-vs-gordon" class="toc-link level-1" title="CASE 74: Liban vs. Gordon"><span class="toc-link-text">CASE 74: Liban vs. Gordon</span></a></li>
+<li><a href="#sec-75-case-75-baguilat-jr-vs-speaker-alvarez" class="toc-link level-1" title="CASE 75: Baguilat, Jr. vs. Speaker Alvarez"><span class="toc-link-text">CASE 75: Baguilat, Jr. vs. Speaker Alvarez</span></a></li>
+<li><a href="#sec-76-case-76-pimentel-jr-vs-house-of-representatives-electoral-tr" class="toc-link level-1" title="CASE 76: Pimentel, Jr. vs. House of Representatives Electoral Tribunal (HRET)"><span class="toc-link-text">CASE 76: Pimentel, Jr. vs. House of Representatives Electoral Tribunal (HRET)</span></a></li>
+<li><a href="#sec-77-case-77-vilando-vs-house-of-representatives-electoral-tribun" class="toc-link level-1" title="CASE 77: Vilando vs. House of Representatives Electoral Tribunal (HRET)"><span class="toc-link-text">CASE 77: Vilando vs. House of Representatives Electoral Tribunal (HRET)</span></a></li>
+<li><a href="#sec-78-case-78-reyes-vs-commission-on-elections" class="toc-link level-1" title="CASE 78: Reyes vs. Commission on Elections"><span class="toc-link-text">CASE 78: Reyes vs. Commission on Elections</span></a></li>
+<li><a href="#sec-79-case-79-velasco-vs-speaker-belmonte-jr" class="toc-link level-1" title="CASE 79: Velasco vs. Speaker Belmonte, Jr."><span class="toc-link-text">CASE 79: Velasco vs. Speaker Belmonte, Jr.</span></a></li>
+<li><a href="#sec-80-case-80-abayon-vs-commission-on-elections" class="toc-link level-1" title="CASE 80: Abayon vs. Commission on Elections"><span class="toc-link-text">CASE 80: Abayon vs. Commission on Elections</span></a></li>
+<li><a href="#sec-81-case-81-abakada-guro-party-list-vs-purisima" class="toc-link level-1" title="CASE 81: ABAKADA Guro Party List vs. Purisima"><span class="toc-link-text">CASE 81: ABAKADA Guro Party List vs. Purisima</span></a></li>
+<li><a href="#sec-82-case-82-garcilliano-vs-house-of-representatives-committees" class="toc-link level-1" title="CASE 82: Garcilliano vs. House of Representatives Committees"><span class="toc-link-text">CASE 82: Garcilliano vs. House of Representatives Committees</span></a></li>
+<li><a href="#sec-83-case-83-senate-of-the-philippines-vs-ermita" class="toc-link level-1" title="CASE 83: Senate of the Philippines vs. Ermita"><span class="toc-link-text">CASE 83: Senate of the Philippines vs. Ermita</span></a></li>
+<li><a href="#sec-84-case-84-neri-vs-senate-committee-on-accountability-of-public" class="toc-link level-1" title="CASE 84: Neri vs. Senate Committee on Accountability of Public Officers and Investigations"><span class="toc-link-text">CASE 84: Neri vs. Senate Committee on Accountability of Public Officers and Investigations</span></a></li>
+<li><a href="#sec-85-case-85-akbayan-citizens-action-party-vs-thomas-aquino" class="toc-link level-1" title="CASE 85: AKBAYAN Citizens Action Party vs. Thomas Aquino"><span class="toc-link-text">CASE 85: AKBAYAN Citizens Action Party vs. Thomas Aquino</span></a></li>
+<li><a href="#sec-86-case-86-gudani-vs-senga" class="toc-link level-1" title="CASE 86: Gudani vs. Senga"><span class="toc-link-text">CASE 86: Gudani vs. Senga</span></a></li>
+<li><a href="#sec-87-case-87-arnault-vs-nazareno" class="toc-link level-1" title="CASE 87: Arnault vs. Nazareno"><span class="toc-link-text">CASE 87: Arnault vs. Nazareno</span></a></li>
+<li><a href="#sec-88-case-88-negros-oriental-electric-cooperative-noreco-vs-sangg" class="toc-link level-1" title="CASE 88: Negros Oriental Electric Cooperative (NORECO) vs. Sangguniang Panlungsod of Dumaguete"><span class="toc-link-text">CASE 88: Negros Oriental Electric Cooperative (NORECO) vs. Sangguniang Panlungsod of Dumaguete</span></a></li>
+<li><a href="#sec-89-case-89-david-vs-macapagal-arroyo" class="toc-link level-1" title="CASE 89: David vs. Macapagal-Arroyo"><span class="toc-link-text">CASE 89: David vs. Macapagal-Arroyo</span></a></li>
+<li><a href="#sec-90-case-90-lecaroz-vs-sandiganbayan" class="toc-link level-1" title="CASE 90: Lecaroz vs. Sandiganbayan"><span class="toc-link-text">CASE 90: Lecaroz vs. Sandiganbayan</span></a></li>
+<li><a href="#sec-91-case-91-re-em-no-03-010-comelec-order" class="toc-link level-1" title="CASE 91: RE: EM No. 03-010 (COMELEC Order)"><span class="toc-link-text">CASE 91: RE: EM No. 03-010 (COMELEC Order)</span></a></li>
+<li><a href="#sec-92-case-92-republic-vs-sereno" class="toc-link level-1" title="CASE 92: Republic vs. Sereno"><span class="toc-link-text">CASE 92: Republic vs. Sereno</span></a></li>
+<li><a href="#sec-93-case-93-estrada-vs-desierto" class="toc-link level-1" title="CASE 93: Estrada vs. Desierto"><span class="toc-link-text">CASE 93: Estrada vs. Desierto</span></a></li>
+<li><a href="#sec-94-case-94-civil-liberties-union-vs-executive-secretary" class="toc-link level-1" title="CASE 94: Civil Liberties Union vs. Executive Secretary"><span class="toc-link-text">CASE 94: Civil Liberties Union vs. Executive Secretary</span></a></li>
+<li><a href="#sec-95-case-95-clarificatory-resolution-in-clu-anti-graft-league-vs" class="toc-link level-1" title="CASE 95: Clarificatory Resolution in CLU &amp; Anti-Graft League vs. Juico"><span class="toc-link-text">CASE 95: Clarificatory Resolution in CLU &amp; Anti-Graft League vs. Juico</span></a></li>
+<li><a href="#sec-96-case-96-public-interest-center-inc-vs-elma" class="toc-link level-1" title="CASE 96: Public Interest Center Inc. vs. Elma"><span class="toc-link-text">CASE 96: Public Interest Center Inc. vs. Elma</span></a></li>
+<li><a href="#sec-97-case-97-soliven-vs-makasiar-beltran-vs-makasiar" class="toc-link level-1" title="CASE 97: Soliven vs. Makasiar / Beltran vs. Makasiar"><span class="toc-link-text">CASE 97: Soliven vs. Makasiar / Beltran vs. Makasiar</span></a></li>
+<li><a href="#sec-98-case-98-marcos-vs-manglapus" class="toc-link level-1" title="CASE 98: Marcos vs. Manglapus"><span class="toc-link-text">CASE 98: Marcos vs. Manglapus</span></a></li>
+<li><a href="#sec-99-case-99-ocampo-vs-rear-admiral-enriquez" class="toc-link level-1" title="CASE 99: Ocampo vs. Rear Admiral Enriquez"><span class="toc-link-text">CASE 99: Ocampo vs. Rear Admiral Enriquez</span></a></li>
+<li><a href="#sec-100-case-100-power-sector-assets-and-liabilities-management-corp" class="toc-link level-1" title="CASE 100: Power Sector Assets and Liabilities Management Corp. (PSALM) vs. Commissioner of Internal Revenue"><span class="toc-link-text">CASE 100: Power Sector Assets and Liabilities Management Corp. (PSALM) vs. Commissioner of Internal Revenue</span></a></li>
+<li><a href="#sec-101-case-101-ganzon-vs-court-of-appeals" class="toc-link level-1" title="CASE 101: Ganzon vs. Court of Appeals"><span class="toc-link-text">CASE 101: Ganzon vs. Court of Appeals</span></a></li>
+<li><a href="#sec-102-case-102-lacson-vs-romero" class="toc-link level-1" title="CASE 102: Lacson vs. Romero"><span class="toc-link-text">CASE 102: Lacson vs. Romero</span></a></li>
+<li><a href="#sec-103-case-103-aguinaldo-vs-president-benigno-aquino-iii" class="toc-link level-1" title="CASE 103: Aguinaldo vs. President Benigno Aquino III"><span class="toc-link-text">CASE 103: Aguinaldo vs. President Benigno Aquino III</span></a></li>
+<li><a href="#sec-104-case-104-in-re-appointment-of-valenzuela-and-vallarta" class="toc-link level-1" title="CASE 104: In Re: Appointment of Valenzuela and Vallarta"><span class="toc-link-text">CASE 104: In Re: Appointment of Valenzuela and Vallarta</span></a></li>
+<li><a href="#sec-105-case-105-atty-velicaria-garafil-vs-office-of-the-president" class="toc-link level-1" title="CASE 105: Atty. Velicaria-Garafil vs. Office of the President"><span class="toc-link-text">CASE 105: Atty. Velicaria-Garafil vs. Office of the President</span></a></li>
+<li><a href="#sec-106-case-106-de-castro-vs-judicial-and-bar-council-jbc" class="toc-link level-1" title="CASE 106: De Castro vs. Judicial and Bar Council (JBC)"><span class="toc-link-text">CASE 106: De Castro vs. Judicial and Bar Council (JBC)</span></a></li>
+<li><a href="#sec-107-case-107-de-rama-vs-court-of-appeals" class="toc-link level-1" title="CASE 107: De Rama vs. Court of Appeals"><span class="toc-link-text">CASE 107: De Rama vs. Court of Appeals</span></a></li>
+<li><a href="#sec-108-case-108-funa-vs-chairman-commission-on-audit" class="toc-link level-1" title="CASE 108: Funa vs. Chairman, Commission on Audit"><span class="toc-link-text">CASE 108: Funa vs. Chairman, Commission on Audit</span></a></li>
+<li><a href="#sec-109-case-109-kulayan-vs-tan" class="toc-link level-1" title="CASE 109: Kulayan vs. Tan"><span class="toc-link-text">CASE 109: Kulayan vs. Tan</span></a></li>
+<li><a href="#sec-110-case-110-integrated-bar-of-the-philippines-vs-zamora" class="toc-link level-1" title="CASE 110: Integrated Bar of the Philippines vs. Zamora"><span class="toc-link-text">CASE 110: Integrated Bar of the Philippines vs. Zamora</span></a></li>
+<li><a href="#sec-111-case-111-padilla-vs-congress-of-the-philippines" class="toc-link level-1" title="CASE 111: Padilla vs. Congress of the Philippines"><span class="toc-link-text">CASE 111: Padilla vs. Congress of the Philippines</span></a></li>
+<li><a href="#sec-112-case-112-olaguer-vs-military-commission-no-34" class="toc-link level-1" title="CASE 112: Olaguer vs. Military Commission No. 34"><span class="toc-link-text">CASE 112: Olaguer vs. Military Commission No. 34</span></a></li>
+<li><a href="#sec-113-case-113-macapagal-arroyo-vs-people" class="toc-link level-1" title="CASE 113: Macapagal-Arroyo vs. People"><span class="toc-link-text">CASE 113: Macapagal-Arroyo vs. People</span></a></li>
+<li><a href="#sec-114-case-114-monsanto-vs-factoran-jr" class="toc-link level-1" title="CASE 114: Monsanto vs. Factoran, Jr."><span class="toc-link-text">CASE 114: Monsanto vs. Factoran, Jr.</span></a></li>
+<li><a href="#sec-115-case-115-garcia-vs-chairman-commission-on-audit" class="toc-link level-1" title="CASE 115: Garcia vs. Chairman, Commission on Audit"><span class="toc-link-text">CASE 115: Garcia vs. Chairman, Commission on Audit</span></a></li>
+<li><a href="#sec-116-case-116-in-re-wilfredo-sumulong-torres" class="toc-link level-1" title="CASE 116: In Re: Wilfredo Sumulong Torres"><span class="toc-link-text">CASE 116: In Re: Wilfredo Sumulong Torres</span></a></li>
+<li><a href="#sec-117-case-117-philippine-constitution-association-philconsa-vs-en" class="toc-link level-1" title="CASE 117: Philippine Constitution Association (PHILCONSA) vs. Enriquez"><span class="toc-link-text">CASE 117: Philippine Constitution Association (PHILCONSA) vs. Enriquez</span></a></li>
+<li><a href="#sec-118-case-118-araullo-vs-aquino-iii-the-dap-case" class="toc-link level-1" title="CASE 118: Araullo vs. Aquino III (The DAP Case)"><span class="toc-link-text">CASE 118: Araullo vs. Aquino III (The DAP Case)</span></a></li>
+<li><a href="#sec-119-case-119-garcia-vs-drilon" class="toc-link level-1" title="CASE 119: Garcia vs. Drilon"><span class="toc-link-text">CASE 119: Garcia vs. Drilon</span></a></li>
+<li><a href="#sec-120-case-120-vinuya-vs-executive-secretary" class="toc-link level-1" title="CASE 120: Vinuya vs. Executive Secretary"><span class="toc-link-text">CASE 120: Vinuya vs. Executive Secretary</span></a></li>
+<li><a href="#sec-121-case-121-save-the-sc-judicial-independence-movement-vs-aboli" class="toc-link level-1" title="CASE 121: Save the SC Judicial Independence Movement vs. Abolition of JDF"><span class="toc-link-text">CASE 121: Save the SC Judicial Independence Movement vs. Abolition of JDF</span></a></li>
+<li><a href="#sec-122-case-122-international-service-for-the-acquisition-of-agri-b" class="toc-link level-1" title="CASE 122: International Service for the Acquisition of Agri-Biotech Applications, Inc. (ISAAA) vs. Greenpeace Southeast Asia"><span class="toc-link-text">CASE 122: International Service for the Acquisition of Agri-Biotech Applications, Inc. (ISAAA) vs. Greenpeace Southeast Asia</span></a></li>
+<li><a href="#sec-123-case-123-southwing-heavy-industries-inc-vs-executive-secreta" class="toc-link level-1" title="CASE 123: Southwing Heavy Industries, Inc. vs. Executive Secretary"><span class="toc-link-text">CASE 123: Southwing Heavy Industries, Inc. vs. Executive Secretary</span></a></li>
+<li><a href="#sec-124-case-124-saguisag-vs-executive-secretary-ochoa" class="toc-link level-1" title="CASE 124: Saguisag vs. Executive Secretary Ochoa"><span class="toc-link-text">CASE 124: Saguisag vs. Executive Secretary Ochoa</span></a></li>
+<li><a href="#sec-125-case-125-west-tower-condominium-corp-vs-first-philippine-ind" class="toc-link level-1" title="CASE 125: West Tower Condominium Corp. vs. First Philippine Industrial Corp. (FPIC)"><span class="toc-link-text">CASE 125: West Tower Condominium Corp. vs. First Philippine Industrial Corp. (FPIC)</span></a></li>
+<li><a href="#sec-126-case-126-segovia-vs-the-climate-change-commission" class="toc-link level-1" title="CASE 126: Segovia vs. The Climate Change Commission"><span class="toc-link-text">CASE 126: Segovia vs. The Climate Change Commission</span></a></li>
+<li><a href="#sec-127-case-127-southern-hemisphere-engagement-network-inc-vs-anti" class="toc-link level-1" title="CASE 127: Southern Hemisphere Engagement Network, Inc. vs. Anti-Terrorism Council"><span class="toc-link-text">CASE 127: Southern Hemisphere Engagement Network, Inc. vs. Anti-Terrorism Council</span></a></li>
+<li><a href="#sec-128-case-128-disini-jr-vs-secretary-of-justice" class="toc-link level-1" title="CASE 128: Disini, Jr. vs. Secretary of Justice"><span class="toc-link-text">CASE 128: Disini, Jr. vs. Secretary of Justice</span></a></li>
+<li><a href="#sec-129-case-129-imbong-vs-ochoa-jr-the-rh-law-case" class="toc-link level-1" title="CASE 129: Imbong vs. Ochoa, Jr. (The RH Law Case)"><span class="toc-link-text">CASE 129: Imbong vs. Ochoa, Jr. (The RH Law Case)</span></a></li>
+<li><a href="#sec-130-case-130-samahan-ng-mga-progresibong-kabataan-spark-vs-quezo" class="toc-link level-1" title="CASE 130: Samahan ng mga Progresibong Kabataan (SPARK) vs. Quezon City"><span class="toc-link-text">CASE 130: Samahan ng mga Progresibong Kabataan (SPARK) vs. Quezon City</span></a></li>
+<li><a href="#sec-131-case-131-lalican-vs-vergara" class="toc-link level-1" title="CASE 131: Lalican vs. Vergara"><span class="toc-link-text">CASE 131: Lalican vs. Vergara</span></a></li>
+<li><a href="#sec-132-case-132-drilon-vs-lim" class="toc-link level-1" title="CASE 132: Drilon vs. Lim"><span class="toc-link-text">CASE 132: Drilon vs. Lim</span></a></li>
+<li><a href="#sec-133-case-133-republic-vs-court-of-appeals" class="toc-link level-1" title="CASE 133: Republic vs. Court of Appeals"><span class="toc-link-text">CASE 133: Republic vs. Court of Appeals</span></a></li>
+<li><a href="#sec-134-case-134-re-coa-opinion-on-appraised-value-of-retired-justic" class="toc-link level-1" title="CASE 134: Re: COA Opinion on Appraised Value of Retired Justices&#x27; Properties"><span class="toc-link-text">CASE 134: Re: COA Opinion on Appraised Value of Retired Justices&#x27; Properties</span></a></li>
+<li><a href="#sec-135-case-135-in-re-first-indorsement-from-hon-raul-m-gonzalez" class="toc-link level-1" title="CASE 135: In Re First Indorsement from Hon. Raul M. Gonzalez"><span class="toc-link-text">CASE 135: In Re First Indorsement from Hon. Raul M. Gonzalez</span></a></li>
+<li><a href="#sec-136-case-136-maceda-vs-vasquez" class="toc-link level-1" title="CASE 136: Maceda vs. Vasquez"><span class="toc-link-text">CASE 136: Maceda vs. Vasquez</span></a></li>
+<li><a href="#sec-137-case-137-de-vera-vs-pelayo" class="toc-link level-1" title="CASE 137: De Vera vs. Pelayo"><span class="toc-link-text">CASE 137: De Vera vs. Pelayo</span></a></li>
+<li><a href="#sec-138-case-138-ampong-vs-civil-service-commission" class="toc-link level-1" title="CASE 138: Ampong vs. Civil Service Commission"><span class="toc-link-text">CASE 138: Ampong vs. Civil Service Commission</span></a></li>
+<li><a href="#sec-139-case-139-carpio-morales-vs-court-of-appeals-jejomar-erwin-s" class="toc-link level-1" title="CASE 139: Carpio-Morales vs. Court of Appeals &amp; Jejomar Erwin S. Binay, Jr."><span class="toc-link-text">CASE 139: Carpio-Morales vs. Court of Appeals &amp; Jejomar Erwin S. Binay, Jr.</span></a></li>
+<li><a href="#sec-140-case-140-estipona-jr-vs-lobrigo" class="toc-link level-1" title="CASE 140: Estipona, Jr. vs. Lobrigo"><span class="toc-link-text">CASE 140: Estipona, Jr. vs. Lobrigo</span></a></li>
+<li><a href="#sec-141-case-141-mamiscal-vs-clerk-of-court-abdullah" class="toc-link level-1" title="CASE 141: Mamiscal vs. Clerk of Court Abdullah"><span class="toc-link-text">CASE 141: Mamiscal vs. Clerk of Court Abdullah</span></a></li>
+<li><a href="#sec-142-case-142-sm-land-inc-vs-bases-conversion-and-development-aut" class="toc-link level-1" title="CASE 142: SM Land, Inc. vs. Bases Conversion and Development Authority (BCDA)"><span class="toc-link-text">CASE 142: SM Land, Inc. vs. Bases Conversion and Development Authority (BCDA)</span></a></li>
+<li><a href="#sec-143-case-143-sesbreno-vs-court-of-appeals" class="toc-link level-1" title="CASE 143: Sesbreno vs. Court of Appeals"><span class="toc-link-text">CASE 143: Sesbreno vs. Court of Appeals</span></a></li>
+<li><a href="#sec-144-case-144-re-problem-of-delays-in-cases-before-sandiganbayan" class="toc-link level-1" title="CASE 144: Re: Problem of Delays in Cases Before Sandiganbayan"><span class="toc-link-text">CASE 144: Re: Problem of Delays in Cases Before Sandiganbayan</span></a></li>
+<li><a href="#sec-145-case-145-re-report-on-judicial-audit-in-rtc-br-56-mandaue" class="toc-link level-1" title="CASE 145: Re: Report on Judicial Audit in RTC Br. 56 Mandaue"><span class="toc-link-text">CASE 145: Re: Report on Judicial Audit in RTC Br. 56 Mandaue</span></a></li>
+<li><a href="#sec-146-case-146-chavez-vs-judicial-and-bar-council-jbc" class="toc-link level-1" title="CASE 146: Chavez vs. Judicial and Bar Council (JBC)"><span class="toc-link-text">CASE 146: Chavez vs. Judicial and Bar Council (JBC)</span></a></li>
+<li><a href="#sec-147-case-147-jardeleza-vs-chief-justice-maria-lourdes-p-a-sereno" class="toc-link level-1" title="CASE 147: Jardeleza vs. Chief Justice Maria Lourdes P. A. Sereno"><span class="toc-link-text">CASE 147: Jardeleza vs. Chief Justice Maria Lourdes P. A. Sereno</span></a></li>
+<li><a href="#sec-148-case-148-umali-vs-judicial-and-bar-council-jbc" class="toc-link level-1" title="CASE 148: Umali vs. Judicial and Bar Council (JBC)"><span class="toc-link-text">CASE 148: Umali vs. Judicial and Bar Council (JBC)</span></a></li>
+<li><a href="#sec-149-case-149-judge-villanueva-vs-judicial-and-bar-council-jbc" class="toc-link level-1" title="CASE 149: Judge Villanueva vs. Judicial and Bar Council (JBC)"><span class="toc-link-text">CASE 149: Judge Villanueva vs. Judicial and Bar Council (JBC)</span></a></li>
       </ul>
     </nav>
 
@@ -4883,6 +4922,9 @@ Here, shifting from presidential bicameralism to parliamentary unicameralism pro
           if (oldRibbon) oldRibbon.remove();
         });
 
+        // Clear existing TOC bookmark badges
+        document.querySelectorAll('#tocList .toc-bm-badges-wrap').forEach(w => w.remove());
+
         for (let slot = 1; slot <= 3; slot++) {
           const bm = bookmarks[slot];
           const metaBoxEl = document.getElementById('slotMeta' + slot);
@@ -4904,6 +4946,25 @@ Here, shifting from presidential bicameralism to parliamentary unicameralism pro
             const locText = bm.location ? ' • ' + bm.location : '';
             ribbon.innerHTML = `${slotIcon} Bookmark ${slot} • ${bm.topic}${locText}`;
             targetUnit.insertBefore(ribbon, targetUnit.firstChild);
+
+            // Inject TOC badge into matching sidebar link
+            const sec = targetUnit.closest('section.doc-section');
+            if (sec && sec.id) {
+              const tocLink = document.querySelector(`#tocList a[href="#${sec.id}"]`);
+              if (tocLink) {
+                let badgesWrap = tocLink.querySelector('.toc-bm-badges-wrap');
+                if (!badgesWrap) {
+                  badgesWrap = document.createElement('span');
+                  badgesWrap.className = 'toc-bm-badges-wrap';
+                  tocLink.appendChild(badgesWrap);
+                }
+                const badge = document.createElement('span');
+                badge.className = `toc-bm-badge badge-slot-${slot}`;
+                badge.title = `Bookmark ${slot}: ${bm.location || ''}`;
+                badge.textContent = `${slotIcon} ${slot}`;
+                badgesWrap.appendChild(badge);
+              }
+            }
 
             if (metaBoxEl) metaBoxEl.style.display = 'flex';
             if (subjEl) subjEl.textContent = bm.subject || 'Law Subject';

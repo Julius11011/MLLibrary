@@ -437,7 +437,10 @@
     }
 
     .toc-link {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
       color: var(--text-secondary);
       text-decoration: none;
       font-family: var(--font-ui);
@@ -446,10 +449,46 @@
       border-radius: 4px;
       margin-bottom: 2px;
       border-left: 2px solid transparent;
+      transition: all 0.15s ease;
+    }
+    .toc-link-text {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      transition: all 0.15s ease;
+      flex: 1;
+    }
+    .toc-bm-badges-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+    .toc-bm-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      font-family: var(--font-ui);
+      padding: 1px 5px;
+      border-radius: 4px;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      white-space: nowrap;
+    }
+    .toc-bm-badge.badge-slot-1 {
+      background: rgba(251, 191, 36, 0.22);
+      color: var(--accent-gold);
+      border: 1px solid rgba(251, 191, 36, 0.5);
+    }
+    .toc-bm-badge.badge-slot-2 {
+      background: rgba(52, 211, 153, 0.22);
+      color: var(--accent-emerald);
+      border: 1px solid rgba(52, 211, 153, 0.5);
+    }
+    .toc-bm-badge.badge-slot-3 {
+      background: rgba(192, 132, 252, 0.22);
+      color: var(--accent-purple);
+      border: 1px solid rgba(192, 132, 252, 0.5);
     }
     .toc-link:hover {
       background-color: var(--bg-tertiary);
@@ -1288,71 +1327,71 @@
       </div>
       <input type="text" class="toc-search-box" id="sidebarSearch" placeholder="Filter topics & cases..." />
       <ul class="toc-list" id="tocList">
-<li><a href="#sec-overview" class="toc-link level-1" title="BLJE Case Digest">BLJE Case Digest</a></li>
-<li><a href="#sec-1-case-13-re-lorenzo-larry-gadon" class="toc-link level-1" title="CASE 13: Re: Lorenzo &quot;Larry&quot; Gadon">CASE 13: Re: Lorenzo &quot;Larry&quot; Gadon</a></li>
-<li><a href="#sec-2-case-14-ventura-v-atty-samson" class="toc-link level-1" title="CASE 14: Ventura v. Atty. Samson">CASE 14: Ventura v. Atty. Samson</a></li>
-<li><a href="#sec-3-case-15-guevarra-v-atty-eala" class="toc-link level-1" title="CASE 15: Guevarra v. Atty. Eala">CASE 15: Guevarra v. Atty. Eala</a></li>
-<li><a href="#sec-4-case-16-magayanes-v-vasquez" class="toc-link level-1" title="CASE 16: Magayanes v. Vasquez">CASE 16: Magayanes v. Vasquez</a></li>
-<li><a href="#sec-5-case-17-linsangan-v-atty-nicomedes-tolentino" class="toc-link level-1" title="CASE 17: Linsangan v. Atty. Nicomedes Tolentino">CASE 17: Linsangan v. Atty. Nicomedes Tolentino</a></li>
-<li><a href="#sec-6-case-18-philippine-lawyers-association-v-agrava" class="toc-link level-1" title="CASE 18: Philippine Lawyers Association v. Agrava">CASE 18: Philippine Lawyers Association v. Agrava</a></li>
-<li><a href="#sec-7-case-19-cayetano-v-monsod" class="toc-link level-1" title="CASE 19: Cayetano v. Monsod">CASE 19: Cayetano v. Monsod</a></li>
-<li><a href="#sec-8-case-20-manalang-v-atty-cristina-benosa-buendia" class="toc-link level-1" title="CASE 20: Manalang v. Atty. Cristina Benosa Buendia">CASE 20: Manalang v. Atty. Cristina Benosa Buendia</a></li>
-<li><a href="#sec-9-case-21-david-v-atty-diosdado-m-rongcal-et-al" class="toc-link level-1" title="CASE 21: David v. Atty. Diosdado M. Rongcal, et al.">CASE 21: David v. Atty. Diosdado M. Rongcal, et al.</a></li>
-<li><a href="#sec-10-case-22-genato-v-atty-eligio-p-mallari" class="toc-link level-1" title="CASE 22: Genato v. Atty. Eligio P. Mallari">CASE 22: Genato v. Atty. Eligio P. Mallari</a></li>
-<li><a href="#sec-11-case-23-atty-honesto-ancheta-cabarroguis-v-atty-danilo-a-bas" class="toc-link level-1" title="CASE 23: Atty. Honesto Ancheta Cabarroguis v. Atty. Danilo A. Basa">CASE 23: Atty. Honesto Ancheta Cabarroguis v. Atty. Danilo A. Basa</a></li>
-<li><a href="#sec-12-case-24-query-of-atty-karen-m-silverio-buffe" class="toc-link level-1" title="CASE 24: Query of Atty. Karen M. Silverio-Buffe">CASE 24: Query of Atty. Karen M. Silverio-Buffe</a></li>
-<li><a href="#sec-13-case-25-gabucan-v-atty-florencio-a-narido-jr" class="toc-link level-1" title="CASE 25: Gabucan v. Atty. Florencio A. Narido, Jr.">CASE 25: Gabucan v. Atty. Florencio A. Narido, Jr.</a></li>
-<li><a href="#sec-14-case-26-sison-v-atty-lourdes-philina-b-dumlao" class="toc-link level-1" title="CASE 26: Sison v. Atty. Lourdes Philina B. Dumlao">CASE 26: Sison v. Atty. Lourdes Philina B. Dumlao</a></li>
-<li><a href="#sec-15-case-27-land-bank-of-the-philippines-v-pamintuan" class="toc-link level-1" title="CASE 27: Land Bank of the Philippines v. Pamintuan">CASE 27: Land Bank of the Philippines v. Pamintuan</a></li>
-<li><a href="#sec-16-case-28-mahunot-v-atty-lord-m-marapao" class="toc-link level-1" title="CASE 28: Mahunot v. Atty. Lord M. Marapao">CASE 28: Mahunot v. Atty. Lord M. Marapao</a></li>
-<li><a href="#sec-17-case-29-tiongson-v-atty-michael-flores" class="toc-link level-1" title="CASE 29: Tiongson v. Atty. Michael Flores">CASE 29: Tiongson v. Atty. Michael Flores</a></li>
-<li><a href="#sec-18-case-30-palma-v-maduramente" class="toc-link level-1" title="CASE 30: Palma v. Maduramente">CASE 30: Palma v. Maduramente</a></li>
-<li><a href="#sec-19-case-31-buenavista-properties-inc-v-deloria" class="toc-link level-1" title="CASE 31: Buenavista Properties, Inc. v. Deloria">CASE 31: Buenavista Properties, Inc. v. Deloria</a></li>
-<li><a href="#sec-20-case-32-legaspi-v-gonzales" class="toc-link level-1" title="CASE 32: Legaspi v. Gonzales">CASE 32: Legaspi v. Gonzales</a></li>
-<li><a href="#sec-21-case-33-atty-ulep-v-legal-clinic-inc" class="toc-link level-1" title="CASE 33: Atty. Ulep v. Legal Clinic, Inc.">CASE 33: Atty. Ulep v. Legal Clinic, Inc.</a></li>
-<li><a href="#sec-22-case-34-khan-jr-v-simbillo" class="toc-link level-1" title="CASE 34: Khan, Jr. v. Simbillo">CASE 34: Khan, Jr. v. Simbillo</a></li>
-<li><a href="#sec-23-case-35-linsangan-v-atty-nicomedes-tolentino-re-affirmed" class="toc-link level-1" title="CASE 35: Linsangan v. Atty. Nicomedes Tolentino (Re-Affirmed)">CASE 35: Linsangan v. Atty. Nicomedes Tolentino (Re-Affirmed)</a></li>
-<li><a href="#sec-24-case-36-villatuya-v-tabalingcos" class="toc-link level-1" title="CASE 36: Villatuya v. Tabalingcos">CASE 36: Villatuya v. Tabalingcos</a></li>
-<li><a href="#sec-25-case-37-palencia-v-linsangan-et-al" class="toc-link level-1" title="CASE 37: Palencia v. Linsangan, et al.">CASE 37: Palencia v. Linsangan, et al.</a></li>
-<li><a href="#sec-26-case-38-zamora-v-gallanosa" class="toc-link level-1" title="CASE 38: Zamora v. Gallanosa">CASE 38: Zamora v. Gallanosa</a></li>
-<li><a href="#sec-27-case-39-rebarter-v-villa" class="toc-link level-1" title="CASE 39: Rebarter v. Villa">CASE 39: Rebarter v. Villa</a></li>
-<li><a href="#sec-28-case-40-office-of-the-court-administrator-v-judge-ruiz" class="toc-link level-1" title="CASE 40: Office of the Court Administrator v. Judge Ruiz">CASE 40: Office of the Court Administrator v. Judge Ruiz</a></li>
-<li><a href="#sec-29-case-41-so-v-lee" class="toc-link level-1" title="CASE 41: So v. Lee">CASE 41: So v. Lee</a></li>
-<li><a href="#sec-30-case-42-roque-v-intermediate-appellate-court" class="toc-link level-1" title="CASE 42: Roque v. Intermediate Appellate Court">CASE 42: Roque v. Intermediate Appellate Court</a></li>
-<li><a href="#sec-31-case-43-atty-pedro-aguirre-v-atty-crispin-reyes" class="toc-link level-1" title="CASE 43: Atty. Pedro Aguirre v. Atty. Crispin Reyes">CASE 43: Atty. Pedro Aguirre v. Atty. Crispin Reyes</a></li>
-<li><a href="#sec-32-case-44-mabini-v-raga" class="toc-link level-1" title="CASE 44: Mabini v. Raga">CASE 44: Mabini v. Raga</a></li>
-<li><a href="#sec-33-case-45-re-show-cause-order-in-calida-v-sereno-quo-warranto" class="toc-link level-1" title="CASE 45: Re: Show Cause Order in Calida v. Sereno (Quo Warranto Ethics Case)">CASE 45: Re: Show Cause Order in Calida v. Sereno (Quo Warranto Ethics Case)</a></li>
-<li><a href="#sec-34-case-46-abs-cbn-corporation-et-al-v-andal-ampatuan-jr" class="toc-link level-1" title="CASE 46: ABS-CBN Corporation, et al. v. Andal Ampatuan, Jr.">CASE 46: ABS-CBN Corporation, et al. v. Andal Ampatuan, Jr.</a></li>
-<li><a href="#sec-35-case-47-bruselas-jr-v-mallari" class="toc-link level-1" title="CASE 47: Bruselas, Jr. v. Mallari">CASE 47: Bruselas, Jr. v. Mallari</a></li>
-<li><a href="#sec-36-case-48-domingo-et-al-v-badoy-partosa" class="toc-link level-1" title="CASE 48: Domingo, et al. v. Badoy-Partosa">CASE 48: Domingo, et al. v. Badoy-Partosa</a></li>
-<li><a href="#sec-37-case-49-ariel-aga-muhlach-v-executive-judge-ma-angela-acompa" class="toc-link level-1" title="CASE 49: Ariel &quot;Aga&quot; Muhlach v. Executive Judge Ma. Angela Acompanado-Arroyo">CASE 49: Ariel &quot;Aga&quot; Muhlach v. Executive Judge Ma. Angela Acompanado-Arroyo</a></li>
-<li><a href="#sec-38-case-50-bellosillo-v-the-board-of-governors-of-the-ibp" class="toc-link level-1" title="CASE 50: Bellosillo v. The Board of Governors of the IBP">CASE 50: Bellosillo v. The Board of Governors of the IBP</a></li>
-<li><a href="#sec-39-case-51-heirs-of-sotto-v-palicte" class="toc-link level-1" title="CASE 51: Heirs of Sotto v. Palicte">CASE 51: Heirs of Sotto v. Palicte</a></li>
-<li><a href="#sec-40-case-52-crisostomo-et-al-v-nazareno" class="toc-link level-1" title="CASE 52: Crisostomo, et al. v. Nazareno">CASE 52: Crisostomo, et al. v. Nazareno</a></li>
-<li><a href="#sec-41-case-53-kimteng-et-al-v-atty-young-et-al" class="toc-link level-1" title="CASE 53: Kimteng, et al. v. Atty. Young, et al.">CASE 53: Kimteng, et al. v. Atty. Young, et al.</a></li>
-<li><a href="#sec-42-case-54-dural-v-atty-carlo-bong-carag" class="toc-link level-1" title="CASE 54: Dural v. Atty. Carlo &quot;Bong&quot; Carag">CASE 54: Dural v. Atty. Carlo &quot;Bong&quot; Carag</a></li>
-<li><a href="#sec-43-case-55-ziga-v-judge-ramon-areola" class="toc-link level-1" title="CASE 55: Ziga v. Judge Ramon Areola">CASE 55: Ziga v. Judge Ramon Areola</a></li>
-<li><a href="#sec-44-case-56-rosca-v-delmendo" class="toc-link level-1" title="CASE 56: Rosca v. Delmendo">CASE 56: Rosca v. Delmendo</a></li>
-<li><a href="#sec-45-case-57-maderada-v-judge-mediodea" class="toc-link level-1" title="CASE 57: Maderada v. Judge Mediodea">CASE 57: Maderada v. Judge Mediodea</a></li>
-<li><a href="#sec-46-case-58-catu-v-atty-rellosa" class="toc-link level-1" title="CASE 58: Catu v. Atty. Rellosa">CASE 58: Catu v. Atty. Rellosa</a></li>
-<li><a href="#sec-47-case-59-judge-suzanne-d-cobarrubias-nabaza-v-atty-lavandero" class="toc-link level-1" title="CASE 59: Judge Suzanne D. Cobarrubias-Nabaza v. Atty. Lavandero">CASE 59: Judge Suzanne D. Cobarrubias-Nabaza v. Atty. Lavandero</a></li>
-<li><a href="#sec-48-case-60-trovela-v-robles" class="toc-link level-1" title="CASE 60: Trovela v. Robles">CASE 60: Trovela v. Robles</a></li>
-<li><a href="#sec-49-case-61-query-of-atty-karen-m-silverio-buffe-en-banc-resolut" class="toc-link level-1" title="CASE 61: Query of Atty. Karen M. Silverio-Buffe (En Banc Resolution)">CASE 61: Query of Atty. Karen M. Silverio-Buffe (En Banc Resolution)</a></li>
-<li><a href="#sec-50-case-62-penalties-under-ra-no-3019-and-ra-6713-section-32" class="toc-link level-1" title="CASE 62: Penalties Under R.A. No. 3019 and R.A. 6713, Section 32">CASE 62: Penalties Under R.A. No. 3019 and R.A. 6713, Section 32</a></li>
-<li><a href="#sec-51-case-63-pimentel-v-legal-education-board" class="toc-link level-1" title="CASE 63: Pimentel v. Legal Education Board">CASE 63: Pimentel v. Legal Education Board</a></li>
-<li><a href="#sec-52-case-64-re-anonymous-complaint-against-atty-cresencio-p-co-u" class="toc-link level-1" title="CASE 64: Re: Anonymous Complaint Against Atty. Cresencio P. Co Untian, Jr.">CASE 64: Re: Anonymous Complaint Against Atty. Cresencio P. Co Untian, Jr.</a></li>
-<li><a href="#sec-53-case-65-re-statement-of-the-up-law-faculty-on-allegations-of" class="toc-link level-1" title="CASE 65: Re: Statement of the UP Law Faculty on Allegations of Plagiarism (Vinuya Decision)">CASE 65: Re: Statement of the UP Law Faculty on Allegations of Plagiarism (Vinuya Decision)</a></li>
-<li><a href="#sec-54-case-66-sevilla-v-atty-marcelo-c-millo" class="toc-link level-1" title="CASE 66: Sevilla v. Atty. Marcelo C. Millo">CASE 66: Sevilla v. Atty. Marcelo C. Millo</a></li>
-<li><a href="#sec-55-case-67-viesca-v-gilinsky" class="toc-link level-1" title="CASE 67: Viesca v. Gilinsky">CASE 67: Viesca v. Gilinsky</a></li>
-<li><a href="#sec-56-case-68-re-disturbing-social-media-posts-of-lawyers-law-prof" class="toc-link level-1" title="CASE 68: Re: Disturbing Social Media Posts of Lawyers / Law Professors">CASE 68: Re: Disturbing Social Media Posts of Lawyers / Law Professors</a></li>
-<li><a href="#sec-57-case-69-in-re-atty-lorenzo-g-gadons-viral-video-against-rais" class="toc-link level-1" title="CASE 69: In Re: Atty. Lorenzo G. Gadon&#x27;s Viral Video Against Raissa Robles">CASE 69: In Re: Atty. Lorenzo G. Gadon&#x27;s Viral Video Against Raissa Robles</a></li>
-<li><a href="#sec-58-case-70-abs-cbn-corporation-et-al-v-andal-ampatuan-jr-re-aff" class="toc-link level-1" title="CASE 70: ABS-CBN Corporation, et al. v. Andal Ampatuan, Jr. (Re-Affirmed)">CASE 70: ABS-CBN Corporation, et al. v. Andal Ampatuan, Jr. (Re-Affirmed)</a></li>
-<li><a href="#sec-59-case-71-serrano-v-cruz-angeles-et-al" class="toc-link level-1" title="CASE 71: Serrano v. Cruz-Angeles, et al.">CASE 71: Serrano v. Cruz-Angeles, et al.</a></li>
-<li><a href="#sec-60-case-72-request-of-the-public-attorneys-office-to-delete-sec" class="toc-link level-1" title="CASE 72: Request of the Public Attorney&#x27;s Office to Delete Section 22, Canon III of the CPRA">CASE 72: Request of the Public Attorney&#x27;s Office to Delete Section 22, Canon III of the CPRA</a></li>
-<li><a href="#sec-61-case-73-inocente-v-st-vincent-foundation-for-children-and-ag" class="toc-link level-1" title="CASE 73: Inocente v. St. Vincent Foundation for Children and Aging, Inc.">CASE 73: Inocente v. St. Vincent Foundation for Children and Aging, Inc.</a></li>
-<li><a href="#sec-62-case-74-floreswinda-v-juni-v-atty-mario-t-juni" class="toc-link level-1" title="CASE 74: Floreswinda V. Juni v. Atty. Mario T. Juni">CASE 74: Floreswinda V. Juni v. Atty. Mario T. Juni</a></li>
-<li><a href="#sec-63-case-75-hosoya-v-contado" class="toc-link level-1" title="CASE 75: Hosoya v. Contado">CASE 75: Hosoya v. Contado</a></li>
-<li><a href="#sec-64-case-76-venzon-v-peleo-iii" class="toc-link level-1" title="CASE 76: Venzon v. Peleo III">CASE 76: Venzon v. Peleo III</a></li>
+<li><a href="#sec-overview" class="toc-link level-1" title="BLJE Case Digest"><span class="toc-link-text">BLJE Case Digest</span></a></li>
+<li><a href="#sec-1-case-13-re-lorenzo-larry-gadon" class="toc-link level-1" title="CASE 13: Re: Lorenzo &quot;Larry&quot; Gadon"><span class="toc-link-text">CASE 13: Re: Lorenzo &quot;Larry&quot; Gadon</span></a></li>
+<li><a href="#sec-2-case-14-ventura-v-atty-samson" class="toc-link level-1" title="CASE 14: Ventura v. Atty. Samson"><span class="toc-link-text">CASE 14: Ventura v. Atty. Samson</span></a></li>
+<li><a href="#sec-3-case-15-guevarra-v-atty-eala" class="toc-link level-1" title="CASE 15: Guevarra v. Atty. Eala"><span class="toc-link-text">CASE 15: Guevarra v. Atty. Eala</span></a></li>
+<li><a href="#sec-4-case-16-magayanes-v-vasquez" class="toc-link level-1" title="CASE 16: Magayanes v. Vasquez"><span class="toc-link-text">CASE 16: Magayanes v. Vasquez</span></a></li>
+<li><a href="#sec-5-case-17-linsangan-v-atty-nicomedes-tolentino" class="toc-link level-1" title="CASE 17: Linsangan v. Atty. Nicomedes Tolentino"><span class="toc-link-text">CASE 17: Linsangan v. Atty. Nicomedes Tolentino</span></a></li>
+<li><a href="#sec-6-case-18-philippine-lawyers-association-v-agrava" class="toc-link level-1" title="CASE 18: Philippine Lawyers Association v. Agrava"><span class="toc-link-text">CASE 18: Philippine Lawyers Association v. Agrava</span></a></li>
+<li><a href="#sec-7-case-19-cayetano-v-monsod" class="toc-link level-1" title="CASE 19: Cayetano v. Monsod"><span class="toc-link-text">CASE 19: Cayetano v. Monsod</span></a></li>
+<li><a href="#sec-8-case-20-manalang-v-atty-cristina-benosa-buendia" class="toc-link level-1" title="CASE 20: Manalang v. Atty. Cristina Benosa Buendia"><span class="toc-link-text">CASE 20: Manalang v. Atty. Cristina Benosa Buendia</span></a></li>
+<li><a href="#sec-9-case-21-david-v-atty-diosdado-m-rongcal-et-al" class="toc-link level-1" title="CASE 21: David v. Atty. Diosdado M. Rongcal, et al."><span class="toc-link-text">CASE 21: David v. Atty. Diosdado M. Rongcal, et al.</span></a></li>
+<li><a href="#sec-10-case-22-genato-v-atty-eligio-p-mallari" class="toc-link level-1" title="CASE 22: Genato v. Atty. Eligio P. Mallari"><span class="toc-link-text">CASE 22: Genato v. Atty. Eligio P. Mallari</span></a></li>
+<li><a href="#sec-11-case-23-atty-honesto-ancheta-cabarroguis-v-atty-danilo-a-bas" class="toc-link level-1" title="CASE 23: Atty. Honesto Ancheta Cabarroguis v. Atty. Danilo A. Basa"><span class="toc-link-text">CASE 23: Atty. Honesto Ancheta Cabarroguis v. Atty. Danilo A. Basa</span></a></li>
+<li><a href="#sec-12-case-24-query-of-atty-karen-m-silverio-buffe" class="toc-link level-1" title="CASE 24: Query of Atty. Karen M. Silverio-Buffe"><span class="toc-link-text">CASE 24: Query of Atty. Karen M. Silverio-Buffe</span></a></li>
+<li><a href="#sec-13-case-25-gabucan-v-atty-florencio-a-narido-jr" class="toc-link level-1" title="CASE 25: Gabucan v. Atty. Florencio A. Narido, Jr."><span class="toc-link-text">CASE 25: Gabucan v. Atty. Florencio A. Narido, Jr.</span></a></li>
+<li><a href="#sec-14-case-26-sison-v-atty-lourdes-philina-b-dumlao" class="toc-link level-1" title="CASE 26: Sison v. Atty. Lourdes Philina B. Dumlao"><span class="toc-link-text">CASE 26: Sison v. Atty. Lourdes Philina B. Dumlao</span></a></li>
+<li><a href="#sec-15-case-27-land-bank-of-the-philippines-v-pamintuan" class="toc-link level-1" title="CASE 27: Land Bank of the Philippines v. Pamintuan"><span class="toc-link-text">CASE 27: Land Bank of the Philippines v. Pamintuan</span></a></li>
+<li><a href="#sec-16-case-28-mahunot-v-atty-lord-m-marapao" class="toc-link level-1" title="CASE 28: Mahunot v. Atty. Lord M. Marapao"><span class="toc-link-text">CASE 28: Mahunot v. Atty. Lord M. Marapao</span></a></li>
+<li><a href="#sec-17-case-29-tiongson-v-atty-michael-flores" class="toc-link level-1" title="CASE 29: Tiongson v. Atty. Michael Flores"><span class="toc-link-text">CASE 29: Tiongson v. Atty. Michael Flores</span></a></li>
+<li><a href="#sec-18-case-30-palma-v-maduramente" class="toc-link level-1" title="CASE 30: Palma v. Maduramente"><span class="toc-link-text">CASE 30: Palma v. Maduramente</span></a></li>
+<li><a href="#sec-19-case-31-buenavista-properties-inc-v-deloria" class="toc-link level-1" title="CASE 31: Buenavista Properties, Inc. v. Deloria"><span class="toc-link-text">CASE 31: Buenavista Properties, Inc. v. Deloria</span></a></li>
+<li><a href="#sec-20-case-32-legaspi-v-gonzales" class="toc-link level-1" title="CASE 32: Legaspi v. Gonzales"><span class="toc-link-text">CASE 32: Legaspi v. Gonzales</span></a></li>
+<li><a href="#sec-21-case-33-atty-ulep-v-legal-clinic-inc" class="toc-link level-1" title="CASE 33: Atty. Ulep v. Legal Clinic, Inc."><span class="toc-link-text">CASE 33: Atty. Ulep v. Legal Clinic, Inc.</span></a></li>
+<li><a href="#sec-22-case-34-khan-jr-v-simbillo" class="toc-link level-1" title="CASE 34: Khan, Jr. v. Simbillo"><span class="toc-link-text">CASE 34: Khan, Jr. v. Simbillo</span></a></li>
+<li><a href="#sec-23-case-35-linsangan-v-atty-nicomedes-tolentino-re-affirmed" class="toc-link level-1" title="CASE 35: Linsangan v. Atty. Nicomedes Tolentino (Re-Affirmed)"><span class="toc-link-text">CASE 35: Linsangan v. Atty. Nicomedes Tolentino (Re-Affirmed)</span></a></li>
+<li><a href="#sec-24-case-36-villatuya-v-tabalingcos" class="toc-link level-1" title="CASE 36: Villatuya v. Tabalingcos"><span class="toc-link-text">CASE 36: Villatuya v. Tabalingcos</span></a></li>
+<li><a href="#sec-25-case-37-palencia-v-linsangan-et-al" class="toc-link level-1" title="CASE 37: Palencia v. Linsangan, et al."><span class="toc-link-text">CASE 37: Palencia v. Linsangan, et al.</span></a></li>
+<li><a href="#sec-26-case-38-zamora-v-gallanosa" class="toc-link level-1" title="CASE 38: Zamora v. Gallanosa"><span class="toc-link-text">CASE 38: Zamora v. Gallanosa</span></a></li>
+<li><a href="#sec-27-case-39-rebarter-v-villa" class="toc-link level-1" title="CASE 39: Rebarter v. Villa"><span class="toc-link-text">CASE 39: Rebarter v. Villa</span></a></li>
+<li><a href="#sec-28-case-40-office-of-the-court-administrator-v-judge-ruiz" class="toc-link level-1" title="CASE 40: Office of the Court Administrator v. Judge Ruiz"><span class="toc-link-text">CASE 40: Office of the Court Administrator v. Judge Ruiz</span></a></li>
+<li><a href="#sec-29-case-41-so-v-lee" class="toc-link level-1" title="CASE 41: So v. Lee"><span class="toc-link-text">CASE 41: So v. Lee</span></a></li>
+<li><a href="#sec-30-case-42-roque-v-intermediate-appellate-court" class="toc-link level-1" title="CASE 42: Roque v. Intermediate Appellate Court"><span class="toc-link-text">CASE 42: Roque v. Intermediate Appellate Court</span></a></li>
+<li><a href="#sec-31-case-43-atty-pedro-aguirre-v-atty-crispin-reyes" class="toc-link level-1" title="CASE 43: Atty. Pedro Aguirre v. Atty. Crispin Reyes"><span class="toc-link-text">CASE 43: Atty. Pedro Aguirre v. Atty. Crispin Reyes</span></a></li>
+<li><a href="#sec-32-case-44-mabini-v-raga" class="toc-link level-1" title="CASE 44: Mabini v. Raga"><span class="toc-link-text">CASE 44: Mabini v. Raga</span></a></li>
+<li><a href="#sec-33-case-45-re-show-cause-order-in-calida-v-sereno-quo-warranto" class="toc-link level-1" title="CASE 45: Re: Show Cause Order in Calida v. Sereno (Quo Warranto Ethics Case)"><span class="toc-link-text">CASE 45: Re: Show Cause Order in Calida v. Sereno (Quo Warranto Ethics Case)</span></a></li>
+<li><a href="#sec-34-case-46-abs-cbn-corporation-et-al-v-andal-ampatuan-jr" class="toc-link level-1" title="CASE 46: ABS-CBN Corporation, et al. v. Andal Ampatuan, Jr."><span class="toc-link-text">CASE 46: ABS-CBN Corporation, et al. v. Andal Ampatuan, Jr.</span></a></li>
+<li><a href="#sec-35-case-47-bruselas-jr-v-mallari" class="toc-link level-1" title="CASE 47: Bruselas, Jr. v. Mallari"><span class="toc-link-text">CASE 47: Bruselas, Jr. v. Mallari</span></a></li>
+<li><a href="#sec-36-case-48-domingo-et-al-v-badoy-partosa" class="toc-link level-1" title="CASE 48: Domingo, et al. v. Badoy-Partosa"><span class="toc-link-text">CASE 48: Domingo, et al. v. Badoy-Partosa</span></a></li>
+<li><a href="#sec-37-case-49-ariel-aga-muhlach-v-executive-judge-ma-angela-acompa" class="toc-link level-1" title="CASE 49: Ariel &quot;Aga&quot; Muhlach v. Executive Judge Ma. Angela Acompanado-Arroyo"><span class="toc-link-text">CASE 49: Ariel &quot;Aga&quot; Muhlach v. Executive Judge Ma. Angela Acompanado-Arroyo</span></a></li>
+<li><a href="#sec-38-case-50-bellosillo-v-the-board-of-governors-of-the-ibp" class="toc-link level-1" title="CASE 50: Bellosillo v. The Board of Governors of the IBP"><span class="toc-link-text">CASE 50: Bellosillo v. The Board of Governors of the IBP</span></a></li>
+<li><a href="#sec-39-case-51-heirs-of-sotto-v-palicte" class="toc-link level-1" title="CASE 51: Heirs of Sotto v. Palicte"><span class="toc-link-text">CASE 51: Heirs of Sotto v. Palicte</span></a></li>
+<li><a href="#sec-40-case-52-crisostomo-et-al-v-nazareno" class="toc-link level-1" title="CASE 52: Crisostomo, et al. v. Nazareno"><span class="toc-link-text">CASE 52: Crisostomo, et al. v. Nazareno</span></a></li>
+<li><a href="#sec-41-case-53-kimteng-et-al-v-atty-young-et-al" class="toc-link level-1" title="CASE 53: Kimteng, et al. v. Atty. Young, et al."><span class="toc-link-text">CASE 53: Kimteng, et al. v. Atty. Young, et al.</span></a></li>
+<li><a href="#sec-42-case-54-dural-v-atty-carlo-bong-carag" class="toc-link level-1" title="CASE 54: Dural v. Atty. Carlo &quot;Bong&quot; Carag"><span class="toc-link-text">CASE 54: Dural v. Atty. Carlo &quot;Bong&quot; Carag</span></a></li>
+<li><a href="#sec-43-case-55-ziga-v-judge-ramon-areola" class="toc-link level-1" title="CASE 55: Ziga v. Judge Ramon Areola"><span class="toc-link-text">CASE 55: Ziga v. Judge Ramon Areola</span></a></li>
+<li><a href="#sec-44-case-56-rosca-v-delmendo" class="toc-link level-1" title="CASE 56: Rosca v. Delmendo"><span class="toc-link-text">CASE 56: Rosca v. Delmendo</span></a></li>
+<li><a href="#sec-45-case-57-maderada-v-judge-mediodea" class="toc-link level-1" title="CASE 57: Maderada v. Judge Mediodea"><span class="toc-link-text">CASE 57: Maderada v. Judge Mediodea</span></a></li>
+<li><a href="#sec-46-case-58-catu-v-atty-rellosa" class="toc-link level-1" title="CASE 58: Catu v. Atty. Rellosa"><span class="toc-link-text">CASE 58: Catu v. Atty. Rellosa</span></a></li>
+<li><a href="#sec-47-case-59-judge-suzanne-d-cobarrubias-nabaza-v-atty-lavandero" class="toc-link level-1" title="CASE 59: Judge Suzanne D. Cobarrubias-Nabaza v. Atty. Lavandero"><span class="toc-link-text">CASE 59: Judge Suzanne D. Cobarrubias-Nabaza v. Atty. Lavandero</span></a></li>
+<li><a href="#sec-48-case-60-trovela-v-robles" class="toc-link level-1" title="CASE 60: Trovela v. Robles"><span class="toc-link-text">CASE 60: Trovela v. Robles</span></a></li>
+<li><a href="#sec-49-case-61-query-of-atty-karen-m-silverio-buffe-en-banc-resolut" class="toc-link level-1" title="CASE 61: Query of Atty. Karen M. Silverio-Buffe (En Banc Resolution)"><span class="toc-link-text">CASE 61: Query of Atty. Karen M. Silverio-Buffe (En Banc Resolution)</span></a></li>
+<li><a href="#sec-50-case-62-penalties-under-ra-no-3019-and-ra-6713-section-32" class="toc-link level-1" title="CASE 62: Penalties Under R.A. No. 3019 and R.A. 6713, Section 32"><span class="toc-link-text">CASE 62: Penalties Under R.A. No. 3019 and R.A. 6713, Section 32</span></a></li>
+<li><a href="#sec-51-case-63-pimentel-v-legal-education-board" class="toc-link level-1" title="CASE 63: Pimentel v. Legal Education Board"><span class="toc-link-text">CASE 63: Pimentel v. Legal Education Board</span></a></li>
+<li><a href="#sec-52-case-64-re-anonymous-complaint-against-atty-cresencio-p-co-u" class="toc-link level-1" title="CASE 64: Re: Anonymous Complaint Against Atty. Cresencio P. Co Untian, Jr."><span class="toc-link-text">CASE 64: Re: Anonymous Complaint Against Atty. Cresencio P. Co Untian, Jr.</span></a></li>
+<li><a href="#sec-53-case-65-re-statement-of-the-up-law-faculty-on-allegations-of" class="toc-link level-1" title="CASE 65: Re: Statement of the UP Law Faculty on Allegations of Plagiarism (Vinuya Decision)"><span class="toc-link-text">CASE 65: Re: Statement of the UP Law Faculty on Allegations of Plagiarism (Vinuya Decision)</span></a></li>
+<li><a href="#sec-54-case-66-sevilla-v-atty-marcelo-c-millo" class="toc-link level-1" title="CASE 66: Sevilla v. Atty. Marcelo C. Millo"><span class="toc-link-text">CASE 66: Sevilla v. Atty. Marcelo C. Millo</span></a></li>
+<li><a href="#sec-55-case-67-viesca-v-gilinsky" class="toc-link level-1" title="CASE 67: Viesca v. Gilinsky"><span class="toc-link-text">CASE 67: Viesca v. Gilinsky</span></a></li>
+<li><a href="#sec-56-case-68-re-disturbing-social-media-posts-of-lawyers-law-prof" class="toc-link level-1" title="CASE 68: Re: Disturbing Social Media Posts of Lawyers / Law Professors"><span class="toc-link-text">CASE 68: Re: Disturbing Social Media Posts of Lawyers / Law Professors</span></a></li>
+<li><a href="#sec-57-case-69-in-re-atty-lorenzo-g-gadons-viral-video-against-rais" class="toc-link level-1" title="CASE 69: In Re: Atty. Lorenzo G. Gadon&#x27;s Viral Video Against Raissa Robles"><span class="toc-link-text">CASE 69: In Re: Atty. Lorenzo G. Gadon&#x27;s Viral Video Against Raissa Robles</span></a></li>
+<li><a href="#sec-58-case-70-abs-cbn-corporation-et-al-v-andal-ampatuan-jr-re-aff" class="toc-link level-1" title="CASE 70: ABS-CBN Corporation, et al. v. Andal Ampatuan, Jr. (Re-Affirmed)"><span class="toc-link-text">CASE 70: ABS-CBN Corporation, et al. v. Andal Ampatuan, Jr. (Re-Affirmed)</span></a></li>
+<li><a href="#sec-59-case-71-serrano-v-cruz-angeles-et-al" class="toc-link level-1" title="CASE 71: Serrano v. Cruz-Angeles, et al."><span class="toc-link-text">CASE 71: Serrano v. Cruz-Angeles, et al.</span></a></li>
+<li><a href="#sec-60-case-72-request-of-the-public-attorneys-office-to-delete-sec" class="toc-link level-1" title="CASE 72: Request of the Public Attorney&#x27;s Office to Delete Section 22, Canon III of the CPRA"><span class="toc-link-text">CASE 72: Request of the Public Attorney&#x27;s Office to Delete Section 22, Canon III of the CPRA</span></a></li>
+<li><a href="#sec-61-case-73-inocente-v-st-vincent-foundation-for-children-and-ag" class="toc-link level-1" title="CASE 73: Inocente v. St. Vincent Foundation for Children and Aging, Inc."><span class="toc-link-text">CASE 73: Inocente v. St. Vincent Foundation for Children and Aging, Inc.</span></a></li>
+<li><a href="#sec-62-case-74-floreswinda-v-juni-v-atty-mario-t-juni" class="toc-link level-1" title="CASE 74: Floreswinda V. Juni v. Atty. Mario T. Juni"><span class="toc-link-text">CASE 74: Floreswinda V. Juni v. Atty. Mario T. Juni</span></a></li>
+<li><a href="#sec-63-case-75-hosoya-v-contado" class="toc-link level-1" title="CASE 75: Hosoya v. Contado"><span class="toc-link-text">CASE 75: Hosoya v. Contado</span></a></li>
+<li><a href="#sec-64-case-76-venzon-v-peleo-iii" class="toc-link level-1" title="CASE 76: Venzon v. Peleo III"><span class="toc-link-text">CASE 76: Venzon v. Peleo III</span></a></li>
       </ul>
     </nav>
 
@@ -3110,6 +3149,9 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
           if (oldRibbon) oldRibbon.remove();
         });
 
+        // Clear existing TOC bookmark badges
+        document.querySelectorAll('#tocList .toc-bm-badges-wrap').forEach(w => w.remove());
+
         for (let slot = 1; slot <= 3; slot++) {
           const bm = bookmarks[slot];
           const metaBoxEl = document.getElementById('slotMeta' + slot);
@@ -3131,6 +3173,25 @@ Comprehensive Law School Case Digest Compendium with CPRA Canon Syntheses &amp; 
             const locText = bm.location ? ' • ' + bm.location : '';
             ribbon.innerHTML = `${slotIcon} Bookmark ${slot} • ${bm.topic}${locText}`;
             targetUnit.insertBefore(ribbon, targetUnit.firstChild);
+
+            // Inject TOC badge into matching sidebar link
+            const sec = targetUnit.closest('section.doc-section');
+            if (sec && sec.id) {
+              const tocLink = document.querySelector(`#tocList a[href="#${sec.id}"]`);
+              if (tocLink) {
+                let badgesWrap = tocLink.querySelector('.toc-bm-badges-wrap');
+                if (!badgesWrap) {
+                  badgesWrap = document.createElement('span');
+                  badgesWrap.className = 'toc-bm-badges-wrap';
+                  tocLink.appendChild(badgesWrap);
+                }
+                const badge = document.createElement('span');
+                badge.className = `toc-bm-badge badge-slot-${slot}`;
+                badge.title = `Bookmark ${slot}: ${bm.location || ''}`;
+                badge.textContent = `${slotIcon} ${slot}`;
+                badgesWrap.appendChild(badge);
+              }
+            }
 
             if (metaBoxEl) metaBoxEl.style.display = 'flex';
             if (subjEl) subjEl.textContent = bm.subject || 'Law Subject';
