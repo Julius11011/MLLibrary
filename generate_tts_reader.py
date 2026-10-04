@@ -72,12 +72,12 @@ def slugify(text):
 
 # Regex patterns for high-precision legal document structure
 CASE_HEADING_RE = re.compile(
-    r'^(CASE\s+\d+[:\.]?.*|^\d+\.\s+[A-Z0-9\s\.,\(\)\'\-&]+?\s+V[\.S]?\s+.*)',
+    r'^(⚖\s*.*|CASE\s+\d+[:\.]?.*|^\d+\.\s+[A-Z0-9\s\.,\(\)\'\-&]+?\s+V[\.S]?\s+.*)',
     re.IGNORECASE
 )
 
 MAIN_TOPIC_RE = re.compile(
-    r'^(PART\s+[I|V|X\d]+[:\.]?.*|Canon\s+[I|V|X\d]+[:\.]?.*|CHAPTER\s+[I|V|X\d]+[:\.]?.*|\b[I|V|X]+\.\s+[A-Z\s\(\)&,\-\/:]{3,}|STEP\s+\d+[:\.]?.*|\d+\.\s+[A-Z\s\(\)&,\-\/:]{4,}|EXECUTIVE CASE DISTRIBUTION MATRIX)',
+    r'^(PART\s+[I|V|X\d]+[:\.]?.*|MODULE\s+[A-Z\d]+[:\.]?.*|Canon\s+[I|V|X\d]+[:\.]?.*|CHAPTER\s+[I|V|X\d]+[:\.]?.*|\b[I|V|X]+\.\s+[A-Z\s\(\)&,\-\/:]{3,}|STEP\s+\d+[:\.]?.*|\d+\.\s+[A-Z\s\(\)&,\-\/:]{4,}|EXECUTIVE CASE DISTRIBUTION MATRIX)',
     re.IGNORECASE
 )
 
@@ -955,10 +955,11 @@ READER_HTML_TEMPLATE = r'''<!DOCTYPE html>
       background: var(--bg-secondary);
       border: 1px solid var(--border-color);
       border-left: 4px solid var(--accent-emerald);
-      border-radius: 10px;
+      border-radius: 12px;
       padding: 1.25rem 1.5rem;
       margin-bottom: 2.5rem;
       box-shadow: var(--shadow-md);
+      backdrop-filter: blur(8px);
     }
     .audio-player-header {
       display: flex;
@@ -966,6 +967,13 @@ READER_HTML_TEMPLATE = r'''<!DOCTYPE html>
       justify-content: space-between;
       margin-bottom: 0.85rem;
       font-family: var(--font-ui);
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .audio-badge-group {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
     }
     .audio-badge {
       font-size: 0.8rem;
@@ -973,6 +981,15 @@ READER_HTML_TEMPLATE = r'''<!DOCTYPE html>
       color: var(--accent-emerald);
       text-transform: uppercase;
       letter-spacing: 0.06em;
+    }
+    .audio-status-pill {
+      font-size: 0.7rem;
+      font-weight: 600;
+      background: rgba(52, 211, 153, 0.15);
+      color: #6ee7b7;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      border: 1px solid rgba(52, 211, 153, 0.3);
     }
     .audio-filename {
       font-size: 0.78rem;
@@ -983,6 +1000,68 @@ READER_HTML_TEMPLATE = r'''<!DOCTYPE html>
       width: 100%;
       outline: none;
       border-radius: 30px;
+    }
+    .audio-controls-extra {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(148, 163, 184, 0.1);
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    .audio-speed-chips {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .speed-btn {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .speed-btn:hover {
+      background: rgba(52, 211, 153, 0.2);
+      border-color: var(--accent-emerald);
+      color: #a7f3d0;
+    }
+    .speed-btn.active {
+      background: var(--accent-emerald);
+      color: #0b1120;
+      border-color: var(--accent-emerald);
+      font-weight: 700;
+    }
+    .audio-quick-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .audio-action-btn {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .audio-action-btn:hover {
+      background: rgba(56, 189, 248, 0.2);
+      border-color: var(--accent-blue);
+      color: var(--text-primary);
     }
 
     /* Document Sections & Continuous Body Elements */
@@ -2499,6 +2578,52 @@ __SECTIONS_HTML__
         }
       });
     })();
+
+    // -------------------------------------------------------------
+    // STUDIO AUDIO PLAYER CONTROLS
+    // -------------------------------------------------------------
+    function setStudioAudioSpeed(rate, btn) {
+      const audio = document.getElementById('studioAudioEl');
+      if (audio) {
+        audio.playbackRate = rate;
+        document.querySelectorAll('.speed-btn').forEach(b => b.classList.remove('active'));
+        if (btn) btn.classList.add('active');
+      }
+    }
+
+    function seekStudioAudio(offset) {
+      const audio = document.getElementById('studioAudioEl');
+      if (audio) {
+        audio.currentTime = Math.max(0, Math.min(audio.duration || 999999, audio.currentTime + offset));
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const audio = document.getElementById('studioAudioEl');
+      const statusEl = document.getElementById('studioAudioStatus');
+      if (audio && statusEl) {
+        audio.addEventListener('play', () => {
+          statusEl.textContent = 'Playing';
+          statusEl.style.color = '#34d399';
+          statusEl.style.borderColor = 'rgba(52, 211, 153, 0.4)';
+        });
+        audio.addEventListener('pause', () => {
+          statusEl.textContent = 'Paused';
+          statusEl.style.color = '#fbbf24';
+          statusEl.style.borderColor = 'rgba(251, 191, 36, 0.4)';
+        });
+        audio.addEventListener('ended', () => {
+          statusEl.textContent = 'Completed';
+          statusEl.style.color = '#94a3b8';
+        });
+        audio.addEventListener('canplay', () => {
+          if (statusEl.textContent !== 'Playing' && statusEl.textContent !== 'Paused') {
+            statusEl.textContent = 'Ready';
+            statusEl.style.color = '#38bdf8';
+          }
+        });
+      }
+    });
   </script>
 </body>
 </html>'''
@@ -2532,7 +2657,7 @@ def generate_reader_html(doc_title, subject_tag, sections, mp3_filename=None):
         sec_html_list.append(f'<section id="{s_id}" class="doc-section">\n{units_html}\n</section>')
     sections_html = "\n<hr class=\"section-divider\" />\n".join(sec_html_list)
 
-    # Audio player snippet with Multi-Release Cloud Stream URL & Local Fallback
+    # Audio player snippet with Local Path First & Multi-Release Cloud Stream URL Fallbacks
     mp3_player_html = ""
     if mp3_filename:
         encoded_mp3 = urllib.parse.quote(mp3_filename)
@@ -2558,6 +2683,12 @@ def generate_reader_html(doc_title, subject_tag, sections, mp3_filename=None):
         source_elements = []
         seen_urls = set()
         
+        # 1. Local / direct companion relative source FIRST
+        source_elements.append(f'            <source src="{html.escape(mp3_filename)}" type="audio/mpeg">')
+        if encoded_mp3 != mp3_filename:
+            source_elements.append(f'            <source src="{encoded_mp3}" type="audio/mpeg">')
+
+        # 2. Cloud release CDN fallbacks
         for tag in tags:
             for cname in candidate_names:
                 url_cname = urllib.parse.quote(cname) if not cname.startswith("%") and any(c in cname for c in " &()[]") else cname
@@ -2566,19 +2697,36 @@ def generate_reader_html(doc_title, subject_tag, sections, mp3_filename=None):
                     seen_urls.add(url)
                     source_elements.append(f'            <source src="{url}" type="audio/mpeg">')
                     
-        source_elements.append(f'            <source src="{html.escape(mp3_filename)}" type="audio/mpeg">')
         sources_str = "\n".join(source_elements)
         
         mp3_player_html = f"""
         <div class="studio-audio-player">
           <div class="audio-player-header">
-            <span class="audio-badge">Studio Voice Podcast (Cloud Stream)</span>
+            <div class="audio-badge-group">
+              <span class="audio-badge">🎙️ Studio Voice Podcast</span>
+              <span class="audio-status-pill" id="studioAudioStatus">Ready</span>
+            </div>
             <span class="audio-filename">{html.escape(mp3_filename)}</span>
           </div>
-          <audio controls preload="metadata" class="native-audio-element">
+          <audio id="studioAudioEl" controls preload="metadata" class="native-audio-element">
 {sources_str}
             Your browser does not support the audio element.
           </audio>
+          <div class="audio-controls-extra">
+            <div class="audio-speed-chips">
+              <span style="font-size: 0.75rem; color: var(--text-muted); margin-right: 0.25rem;">Speed:</span>
+              <button type="button" class="speed-btn active" onclick="setStudioAudioSpeed(1.0, this)">1x</button>
+              <button type="button" class="speed-btn" onclick="setStudioAudioSpeed(1.25, this)">1.25x</button>
+              <button type="button" class="speed-btn" onclick="setStudioAudioSpeed(1.5, this)">1.5x</button>
+              <button type="button" class="speed-btn" onclick="setStudioAudioSpeed(1.75, this)">1.75x</button>
+              <button type="button" class="speed-btn" onclick="setStudioAudioSpeed(2.0, this)">2x</button>
+            </div>
+            <div class="audio-quick-actions">
+              <button type="button" class="audio-action-btn" onclick="seekStudioAudio(-15)" title="Rewind 15 seconds">⏪ -15s</button>
+              <button type="button" class="audio-action-btn" onclick="seekStudioAudio(15)" title="Forward 15 seconds">⏩ +15s</button>
+              <a href="{html.escape(mp3_filename)}" download class="audio-action-btn" title="Download High-Fidelity MP3 Audio">⬇️ Download MP3</a>
+            </div>
+          </div>
         </div>
         """
 
@@ -2798,7 +2946,7 @@ def generate_study_hub_index(root_dir):
             format_pills.append('<span class="fmt-pill fmt-html" title="Interactive Full-Text Reader with Web Speech Synthesis">📖 HTML Reader</span>')
             if has_mp3:
                 size_mb = mp3_file.stat().st_size / (1024 * 1024)
-                format_pills.append(f'<span class="fmt-pill fmt-mp3" title="Studio Neural Voice MP3 Podcast ({size_mb:.1f} MB)">🎙️ MP3 Podcast</span>')
+                format_pills.append(f'<span class="fmt-pill fmt-mp3 fmt-clickable" onclick="playHubAudio(\'{mp3_rel}\', \'{html.escape(doc_name)}\', \'{html.escape(group_name)}\', \'{rel_str}\')" title="Click to stream Studio MP3 Podcast ({size_mb:.1f} MB)">🎙️ MP3 Podcast ({size_mb:.1f} MB)</span>')
             if has_pdf:
                 format_pills.append('<span class="fmt-pill fmt-pdf" title="Adobe PDF Format">📄 PDF</span>')
             if has_docx:
@@ -2807,7 +2955,8 @@ def generate_study_hub_index(root_dir):
             # Quick resource links
             resource_actions = []
             if has_mp3:
-                resource_actions.append(f'<a href="{mp3_rel}" class="btn-sub btn-sub-audio" download title="Download Studio MP3 Podcast">🎧 Podcast</a>')
+                resource_actions.append(f'<button type="button" class="btn-sub btn-sub-play" onclick="playHubAudio(\'{mp3_rel}\', \'{html.escape(doc_name)}\', \'{html.escape(group_name)}\', \'{rel_str}\')" title="Listen to Studio MP3 Podcast">▶️ Play Audio</button>')
+                resource_actions.append(f'<a href="{mp3_rel}" class="btn-sub btn-sub-audio" download title="Download Studio MP3 Podcast">⬇️ MP3</a>')
             if has_pdf:
                 resource_actions.append(f'<a href="{pdf_rel}" class="btn-sub btn-sub-pdf" target="_blank" title="View PDF Document">📄 PDF</a>')
             if has_docx:
@@ -3244,6 +3393,20 @@ def generate_study_hub_index(root_dir):
       border-color: var(--accent-blue);
       color: var(--text-primary);
     }}
+    .btn-sub-play {{
+      background: rgba(52, 211, 153, 0.18);
+      border-color: var(--accent-emerald);
+      color: #a7f3d0;
+      font-weight: 700;
+      cursor: pointer;
+    }}
+    .btn-sub-play:hover {{
+      background: var(--accent-emerald);
+      color: #0b1120;
+      border-color: var(--accent-emerald);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(52, 211, 153, 0.3);
+    }}
     .btn-sub-audio:hover {{
       background: rgba(52, 211, 153, 0.2);
       border-color: var(--accent-emerald);
@@ -3258,6 +3421,214 @@ def generate_study_hub_index(root_dir):
       background: rgba(168, 85, 247, 0.2);
       border-color: #c084fc;
       color: #f3e8ff;
+    }}
+    .fmt-clickable {{
+      cursor: pointer;
+      border: 1px solid rgba(52, 211, 153, 0.4);
+      transition: all 0.15s ease;
+    }}
+    .fmt-clickable:hover {{
+      background: rgba(52, 211, 153, 0.25);
+      transform: translateY(-1px);
+    }}
+
+    /* Floating Studio Audio Dock */
+    .hub-audio-dock {{
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(11, 17, 32, 0.96);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(56, 189, 248, 0.35);
+      box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.65);
+      z-index: 9999;
+      transform: translateY(115%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      padding: 0.85rem 1.5rem;
+    }}
+    .hub-audio-dock.active {{
+      transform: translateY(0);
+    }}
+    .dock-inner {{
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }}
+    .dock-track-info {{
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      min-width: 220px;
+      flex: 1 1 240px;
+    }}
+    .dock-track-icon {{
+      font-size: 1.75rem;
+      background: rgba(52, 211, 153, 0.15);
+      border: 1px solid rgba(52, 211, 153, 0.3);
+      padding: 0.4rem;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }}
+    .dock-track-title {{
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 260px;
+    }}
+    .dock-track-sub {{
+      font-size: 0.75rem;
+      color: var(--accent-emerald);
+      font-weight: 600;
+    }}
+    .dock-player-center {{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+      flex: 2 1 360px;
+      max-width: 520px;
+    }}
+    .dock-controls {{
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }}
+    .dock-btn {{
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.35rem 0.65rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }}
+    .dock-btn:hover {{
+      background: rgba(56, 189, 248, 0.2);
+      border-color: var(--accent-blue);
+      color: var(--text-primary);
+    }}
+    .dock-play-btn {{
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-emerald), #059669);
+      color: #0b1120;
+      border: none;
+      font-size: 1.05rem;
+      font-weight: 900;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(52, 211, 153, 0.4);
+      transition: all 0.15s ease;
+    }}
+    .dock-play-btn:hover {{
+      transform: scale(1.08);
+      filter: brightness(1.15);
+      box-shadow: 0 6px 20px rgba(52, 211, 153, 0.6);
+    }}
+    .dock-progress-wrap {{
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      width: 100%;
+    }}
+    .dock-time {{
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-family: monospace;
+      min-width: 36px;
+    }}
+    .dock-seek-bar {{
+      flex: 1;
+      height: 5px;
+      border-radius: 3px;
+      accent-color: var(--accent-emerald);
+      cursor: pointer;
+    }}
+    .dock-actions {{
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex: 1 1 240px;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }}
+    .dock-speed-chips {{
+      display: flex;
+      gap: 0.2rem;
+    }}
+    .dock-speed-btn {{
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 2px 6px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }}
+    .dock-speed-btn:hover {{
+      border-color: var(--accent-emerald);
+      color: #a7f3d0;
+    }}
+    .dock-speed-btn.active {{
+      background: var(--accent-emerald);
+      color: #0b1120;
+      border-color: var(--accent-emerald);
+      font-weight: 700;
+    }}
+    .dock-action-btn {{
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.35rem 0.65rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }}
+    .dock-action-btn:hover {{
+      background: rgba(56, 189, 248, 0.2);
+      border-color: var(--accent-blue);
+      color: var(--text-primary);
+    }}
+    .dock-close-btn {{
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #fca5a5;
+      font-size: 0.9rem;
+      font-weight: 700;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+    }}
+    .dock-close-btn:hover {{
+      background: #ef4444;
+      color: #fff;
     }}
 
     footer {{
@@ -3276,6 +3647,9 @@ def generate_study_hub_index(root_dir):
       .hub-grid {{ grid-template-columns: 1fr; }}
       .hub-filters {{ justify-content: center; }}
       .results-count {{ width: 100%; text-align: center; margin-top: 0.5rem; }}
+      .dock-inner {{ flex-direction: column; gap: 0.75rem; }}
+      .dock-player-center {{ width: 100%; }}
+      .dock-actions {{ width: 100%; justify-content: center; }}
     }}
   </style>
 </head>
@@ -3297,15 +3671,15 @@ def generate_study_hub_index(root_dir):
         <div class="stat-val">{total_modules}</div>
         <div class="stat-label">Digital Modules</div>
       </div>
-      <div class="stat-card">
+      <div class="stat-card stat-podcasts-card" id="statPodcastsCard" title="Click to filter modules with Studio MP3 Audio" style="cursor: pointer;">
         <div class="stat-val">{total_audio_count}</div>
-        <div class="stat-label">Studio Podcasts</div>
+        <div class="stat-label">🎙️ Studio Podcasts</div>
       </div>
       <div class="stat-card">
         <div class="stat-val">{total_digest_count}</div>
         <div class="stat-label">ALAC Case Digests</div>
       </div>
-      <div class="stat-card stat-bookmarks-card" id="statBookmarksCard" title="Click to view all saved bookmarks across all subjects">
+      <div class="stat-card stat-bookmarks-card" id="statBookmarksCard" title="Click to view all saved bookmarks across all subjects" style="cursor: pointer;">
         <div class="stat-val" id="totalBookmarksCount">0</div>
         <div class="stat-label">🔖 Saved Bookmarks</div>
       </div>
@@ -3324,7 +3698,7 @@ def generate_study_hub_index(root_dir):
         <span class="filter-chip" data-filter="Constitutional Law">🏛️ Constitutional Law</span>
         <span class="filter-chip" data-filter="Criminal Law">🛡️ Criminal Law</span>
         <span class="filter-chip" data-filter="Statutory Construction">📜 Statutory Construction</span>
-        <span class="filter-chip" data-filter="audio-only">🎙️ MP3 Podcasts</span>
+        <span class="filter-chip" data-filter="audio-only" id="filterAudioChip">🎙️ MP3 Podcasts</span>
         <span class="filter-chip" data-filter="digest-only">⚖️ Case Digests</span>
         <span class="results-count" id="resultsCount">Showing all {total_modules} modules</span>
       </div>
@@ -3355,16 +3729,117 @@ def generate_study_hub_index(root_dir):
       {''.join(groups_html)}
     </main>
 
-    <footer>
-      <div>Manila Law College (MLC) • Academic Year 2026–2027 • Juris Doctor First Semester</div>
-      <div style="margin-top: 0.4rem; font-size: 0.8rem; color: var(--text-muted);">
-        Interactive Speech Synthesis &amp; Studio Audio Engine • Pure Paragraph Editions
+    <!-- Master Floating Audio Player Dock -->
+    <div id="hubAudioDock" class="hub-audio-dock">
+      <div class="dock-inner">
+        <div class="dock-track-info">
+          <span class="dock-track-icon">🎧</span>
+          <div class="dock-track-text">
+            <div class="dock-track-title" id="dockTrackTitle">Select a Studio Podcast</div>
+            <div class="dock-track-sub" id="dockTrackSub">High-Fidelity Legal Studio Podcast</div>
+          </div>
+        </div>
+        
+        <div class="dock-player-center">
+          <div class="dock-controls">
+            <button type="button" class="dock-btn" onclick="seekDockAudio(-15)" title="Rewind 15 seconds">⏪ -15s</button>
+            <button type="button" class="dock-play-btn" id="dockPlayBtn" onclick="toggleDockPlay()" title="Play / Pause">▶</button>
+            <button type="button" class="dock-btn" onclick="seekDockAudio(15)" title="Forward 15 seconds">+15s ⏩</button>
+          </div>
+          <div class="dock-progress-wrap">
+            <span class="dock-time" id="dockCurrentTime">0:00</span>
+            <input type="range" id="dockSeekSlider" min="0" max="100" value="0" step="0.1" class="dock-seek-bar">
+            <span class="dock-time" id="dockDuration">0:00</span>
+          </div>
+        </div>
+
+        <div class="dock-actions">
+          <div class="dock-speed-chips">
+            <button type="button" class="dock-speed-btn active" onclick="setDockAudioSpeed(1.0, this)">1x</button>
+            <button type="button" class="dock-speed-btn" onclick="setDockAudioSpeed(1.25, this)">1.25x</button>
+            <button type="button" class="dock-speed-btn" onclick="setDockAudioSpeed(1.5, this)">1.5x</button>
+            <button type="button" class="dock-speed-btn" onclick="setDockAudioSpeed(2.0, this)">2x</button>
+          </div>
+          <a id="dockDownloadBtn" href="#" download class="dock-action-btn" title="Download Studio MP3">⬇️ MP3</a>
+          <a id="dockReaderBtn" href="#" class="dock-action-btn" title="Open Full Interactive Reader">📖 Reader</a>
+          <button type="button" class="dock-close-btn" onclick="closeHubAudioDock()" title="Close Player Dock">✕</button>
+        </div>
       </div>
-    </footer>
-  </div>
+      <audio id="dockAudioEl" preload="metadata"></audio>
+    </div>
 
   <script>
     const DOC_LOOKUP = {doc_lookup_json};
+
+    // -------------------------------------------------------------
+    // HUB AUDIO DOCK ENGINE
+    // -------------------------------------------------------------
+    function formatTime(secs) {{
+      if (!secs || isNaN(secs)) return '0:00';
+      const m = Math.floor(secs / 60);
+      const s = Math.floor(secs % 60);
+      return `${{m}}:${{s < 10 ? '0' : ''}}${{s}}`;
+    }}
+
+    window.playHubAudio = function(src, title, subject, readerUrl) {{
+      const dock = document.getElementById('hubAudioDock');
+      const dockAudio = document.getElementById('dockAudioEl');
+      const dockTrackTitle = document.getElementById('dockTrackTitle');
+      const dockTrackSub = document.getElementById('dockTrackSub');
+      const dockPlayBtn = document.getElementById('dockPlayBtn');
+      const dockDownloadBtn = document.getElementById('dockDownloadBtn');
+      const dockReaderBtn = document.getElementById('dockReaderBtn');
+
+      if (!dockAudio || !dock) return;
+      dockAudio.src = src;
+      if (dockTrackTitle) dockTrackTitle.textContent = title;
+      if (dockTrackSub) dockTrackSub.textContent = (subject || 'Law Subject') + ' • Studio Podcast';
+      if (dockDownloadBtn) dockDownloadBtn.href = src;
+      if (dockReaderBtn) dockReaderBtn.href = readerUrl || '#';
+      dock.classList.add('active');
+      dockAudio.play().then(() => {{
+        if (dockPlayBtn) dockPlayBtn.textContent = '⏸';
+      }}).catch(e => {{
+        console.log('Autoplay or stream load notice:', e);
+        if (dockPlayBtn) dockPlayBtn.textContent = '▶';
+      }});
+    }};
+
+    window.toggleDockPlay = function() {{
+      const dockAudio = document.getElementById('dockAudioEl');
+      const dockPlayBtn = document.getElementById('dockPlayBtn');
+      if (!dockAudio) return;
+      if (dockAudio.paused) {{
+        dockAudio.play();
+        if (dockPlayBtn) dockPlayBtn.textContent = '⏸';
+      }} else {{
+        dockAudio.pause();
+        if (dockPlayBtn) dockPlayBtn.textContent = '▶';
+      }}
+    }};
+
+    window.seekDockAudio = function(offset) {{
+      const dockAudio = document.getElementById('dockAudioEl');
+      if (dockAudio) {{
+        dockAudio.currentTime = Math.max(0, Math.min(dockAudio.duration || 999999, dockAudio.currentTime + offset));
+      }}
+    }};
+
+    window.setDockAudioSpeed = function(rate, btn) {{
+      const dockAudio = document.getElementById('dockAudioEl');
+      if (dockAudio) {{
+        dockAudio.playbackRate = rate;
+        document.querySelectorAll('.dock-speed-btn').forEach(b => b.classList.remove('active'));
+        if (btn) btn.classList.add('active');
+      }}
+    }};
+
+    window.closeHubAudioDock = function() {{
+      const dock = document.getElementById('hubAudioDock');
+      const dockAudio = document.getElementById('dockAudioEl');
+      if (dockAudio) dockAudio.pause();
+      if (dock) dock.classList.remove('active');
+    }};
 
     document.addEventListener('DOMContentLoaded', () => {{
       const searchInput = document.getElementById('hubSearch');
@@ -3379,7 +3854,34 @@ def generate_study_hub_index(root_dir):
       const hubBookmarksGrid = document.getElementById('hubBookmarksGrid');
       const hubBookmarksSection = document.getElementById('hubBookmarksSection');
       const statBookmarksCard = document.getElementById('statBookmarksCard');
+      const statPodcastsCard = document.getElementById('statPodcastsCard');
       const clearAllBookmarksBtn = document.getElementById('clearAllBookmarksBtn');
+
+      const dockAudio = document.getElementById('dockAudioEl');
+      const dockPlayBtn = document.getElementById('dockPlayBtn');
+      const dockCurrentTime = document.getElementById('dockCurrentTime');
+      const dockDuration = document.getElementById('dockDuration');
+      const dockSeekSlider = document.getElementById('dockSeekSlider');
+
+      if (dockAudio) {{
+        dockAudio.addEventListener('timeupdate', () => {{
+          if (dockCurrentTime) dockCurrentTime.textContent = formatTime(dockAudio.currentTime);
+          if (dockAudio.duration) {{
+            if (dockDuration) dockDuration.textContent = formatTime(dockAudio.duration);
+            if (dockSeekSlider) dockSeekSlider.value = (dockAudio.currentTime / dockAudio.duration) * 100;
+          }}
+        }});
+        dockAudio.addEventListener('ended', () => {{
+          if (dockPlayBtn) dockPlayBtn.textContent = '▶';
+        }});
+        if (dockSeekSlider) {{
+          dockSeekSlider.addEventListener('input', (e) => {{
+            if (dockAudio.duration) {{
+              dockAudio.currentTime = (parseFloat(e.target.value) / 100) * dockAudio.duration;
+            }}
+          }});
+        }}
+      }}
 
       let currentFilter = 'all';
       let currentQuery = '';
@@ -3624,6 +4126,16 @@ def generate_study_hub_index(root_dir):
           if (hubBookmarksSection) {{
             hubBookmarksSection.scrollIntoView({{ behavior: 'smooth', block: 'start' }});
           }}
+        }});
+      }}
+
+      if (statPodcastsCard) {{
+        statPodcastsCard.addEventListener('click', () => {{
+          filterChips.forEach(c => c.classList.remove('active'));
+          const audioChip = document.getElementById('filterAudioChip');
+          if (audioChip) audioChip.classList.add('active');
+          currentFilter = 'audio-only';
+          filterCards();
         }});
       }}
 

@@ -600,10 +600,11 @@
       background: var(--bg-secondary);
       border: 1px solid var(--border-color);
       border-left: 4px solid var(--accent-emerald);
-      border-radius: 10px;
+      border-radius: 12px;
       padding: 1.25rem 1.5rem;
       margin-bottom: 2.5rem;
       box-shadow: var(--shadow-md);
+      backdrop-filter: blur(8px);
     }
     .audio-player-header {
       display: flex;
@@ -611,6 +612,13 @@
       justify-content: space-between;
       margin-bottom: 0.85rem;
       font-family: var(--font-ui);
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .audio-badge-group {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
     }
     .audio-badge {
       font-size: 0.8rem;
@@ -618,6 +626,15 @@
       color: var(--accent-emerald);
       text-transform: uppercase;
       letter-spacing: 0.06em;
+    }
+    .audio-status-pill {
+      font-size: 0.7rem;
+      font-weight: 600;
+      background: rgba(52, 211, 153, 0.15);
+      color: #6ee7b7;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      border: 1px solid rgba(52, 211, 153, 0.3);
     }
     .audio-filename {
       font-size: 0.78rem;
@@ -628,6 +645,68 @@
       width: 100%;
       outline: none;
       border-radius: 30px;
+    }
+    .audio-controls-extra {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(148, 163, 184, 0.1);
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    .audio-speed-chips {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .speed-btn {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .speed-btn:hover {
+      background: rgba(52, 211, 153, 0.2);
+      border-color: var(--accent-emerald);
+      color: #a7f3d0;
+    }
+    .speed-btn.active {
+      background: var(--accent-emerald);
+      color: #0b1120;
+      border-color: var(--accent-emerald);
+      font-weight: 700;
+    }
+    .audio-quick-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .audio-action-btn {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .audio-action-btn:hover {
+      background: rgba(56, 189, 248, 0.2);
+      border-color: var(--accent-blue);
+      color: var(--text-primary);
     }
 
     /* Document Sections & Continuous Body Elements */
@@ -3074,16 +3153,34 @@
       
         <div class="studio-audio-player">
           <div class="audio-player-header">
-            <span class="audio-badge">Studio Voice Podcast (Cloud Stream)</span>
+            <div class="audio-badge-group">
+              <span class="audio-badge">🎙️ Studio Voice Podcast</span>
+              <span class="audio-status-pill" id="studioAudioStatus">Ready</span>
+            </div>
             <span class="audio-filename">Statutory_Construction_Week_7_Cases.mp3</span>
           </div>
-          <audio controls preload="metadata" class="native-audio-element">
+          <audio id="studioAudioEl" controls preload="metadata" class="native-audio-element">
+            <source src="Statutory_Construction_Week_7_Cases.mp3" type="audio/mpeg">
             <source src="https://github.com/Julius11011/MLLibrary/releases/download/audio-v0/Statutory_Construction_Week_7_Cases.mp3" type="audio/mpeg">
             <source src="https://github.com/Julius11011/MLLibrary/releases/download/audio-v1/Statutory_Construction_Week_7_Cases.mp3" type="audio/mpeg">
             <source src="https://github.com/Julius11011/MLLibrary/releases/download/audio-v2/Statutory_Construction_Week_7_Cases.mp3" type="audio/mpeg">
-            <source src="Statutory_Construction_Week_7_Cases.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
           </audio>
+          <div class="audio-controls-extra">
+            <div class="audio-speed-chips">
+              <span style="font-size: 0.75rem; color: var(--text-muted); margin-right: 0.25rem;">Speed:</span>
+              <button type="button" class="speed-btn active" onclick="setStudioAudioSpeed(1.0, this)">1x</button>
+              <button type="button" class="speed-btn" onclick="setStudioAudioSpeed(1.25, this)">1.25x</button>
+              <button type="button" class="speed-btn" onclick="setStudioAudioSpeed(1.5, this)">1.5x</button>
+              <button type="button" class="speed-btn" onclick="setStudioAudioSpeed(1.75, this)">1.75x</button>
+              <button type="button" class="speed-btn" onclick="setStudioAudioSpeed(2.0, this)">2x</button>
+            </div>
+            <div class="audio-quick-actions">
+              <button type="button" class="audio-action-btn" onclick="seekStudioAudio(-15)" title="Rewind 15 seconds">⏪ -15s</button>
+              <button type="button" class="audio-action-btn" onclick="seekStudioAudio(15)" title="Forward 15 seconds">⏩ +15s</button>
+              <a href="Statutory_Construction_Week_7_Cases.mp3" download class="audio-action-btn" title="Download High-Fidelity MP3 Audio">⬇️ Download MP3</a>
+            </div>
+          </div>
         </div>
         
 
@@ -22711,6 +22808,52 @@ This case is important in Statutory Construction because Election laws are inter
         }
       });
     })();
+
+    // -------------------------------------------------------------
+    // STUDIO AUDIO PLAYER CONTROLS
+    // -------------------------------------------------------------
+    function setStudioAudioSpeed(rate, btn) {
+      const audio = document.getElementById('studioAudioEl');
+      if (audio) {
+        audio.playbackRate = rate;
+        document.querySelectorAll('.speed-btn').forEach(b => b.classList.remove('active'));
+        if (btn) btn.classList.add('active');
+      }
+    }
+
+    function seekStudioAudio(offset) {
+      const audio = document.getElementById('studioAudioEl');
+      if (audio) {
+        audio.currentTime = Math.max(0, Math.min(audio.duration || 999999, audio.currentTime + offset));
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const audio = document.getElementById('studioAudioEl');
+      const statusEl = document.getElementById('studioAudioStatus');
+      if (audio && statusEl) {
+        audio.addEventListener('play', () => {
+          statusEl.textContent = 'Playing';
+          statusEl.style.color = '#34d399';
+          statusEl.style.borderColor = 'rgba(52, 211, 153, 0.4)';
+        });
+        audio.addEventListener('pause', () => {
+          statusEl.textContent = 'Paused';
+          statusEl.style.color = '#fbbf24';
+          statusEl.style.borderColor = 'rgba(251, 191, 36, 0.4)';
+        });
+        audio.addEventListener('ended', () => {
+          statusEl.textContent = 'Completed';
+          statusEl.style.color = '#94a3b8';
+        });
+        audio.addEventListener('canplay', () => {
+          if (statusEl.textContent !== 'Playing' && statusEl.textContent !== 'Paused') {
+            statusEl.textContent = 'Ready';
+            statusEl.style.color = '#38bdf8';
+          }
+        });
+      }
+    });
   </script>
 </body>
 </html>

@@ -391,6 +391,20 @@
       border-color: var(--accent-blue);
       color: var(--text-primary);
     }
+    .btn-sub-play {
+      background: rgba(52, 211, 153, 0.18);
+      border-color: var(--accent-emerald);
+      color: #a7f3d0;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .btn-sub-play:hover {
+      background: var(--accent-emerald);
+      color: #0b1120;
+      border-color: var(--accent-emerald);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(52, 211, 153, 0.3);
+    }
     .btn-sub-audio:hover {
       background: rgba(52, 211, 153, 0.2);
       border-color: var(--accent-emerald);
@@ -405,6 +419,214 @@
       background: rgba(168, 85, 247, 0.2);
       border-color: #c084fc;
       color: #f3e8ff;
+    }
+    .fmt-clickable {
+      cursor: pointer;
+      border: 1px solid rgba(52, 211, 153, 0.4);
+      transition: all 0.15s ease;
+    }
+    .fmt-clickable:hover {
+      background: rgba(52, 211, 153, 0.25);
+      transform: translateY(-1px);
+    }
+
+    /* Floating Studio Audio Dock */
+    .hub-audio-dock {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(11, 17, 32, 0.96);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(56, 189, 248, 0.35);
+      box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.65);
+      z-index: 9999;
+      transform: translateY(115%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      padding: 0.85rem 1.5rem;
+    }
+    .hub-audio-dock.active {
+      transform: translateY(0);
+    }
+    .dock-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .dock-track-info {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      min-width: 220px;
+      flex: 1 1 240px;
+    }
+    .dock-track-icon {
+      font-size: 1.75rem;
+      background: rgba(52, 211, 153, 0.15);
+      border: 1px solid rgba(52, 211, 153, 0.3);
+      padding: 0.4rem;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .dock-track-title {
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 260px;
+    }
+    .dock-track-sub {
+      font-size: 0.75rem;
+      color: var(--accent-emerald);
+      font-weight: 600;
+    }
+    .dock-player-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+      flex: 2 1 360px;
+      max-width: 520px;
+    }
+    .dock-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .dock-btn {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.35rem 0.65rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .dock-btn:hover {
+      background: rgba(56, 189, 248, 0.2);
+      border-color: var(--accent-blue);
+      color: var(--text-primary);
+    }
+    .dock-play-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-emerald), #059669);
+      color: #0b1120;
+      border: none;
+      font-size: 1.05rem;
+      font-weight: 900;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(52, 211, 153, 0.4);
+      transition: all 0.15s ease;
+    }
+    .dock-play-btn:hover {
+      transform: scale(1.08);
+      filter: brightness(1.15);
+      box-shadow: 0 6px 20px rgba(52, 211, 153, 0.6);
+    }
+    .dock-progress-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      width: 100%;
+    }
+    .dock-time {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-family: monospace;
+      min-width: 36px;
+    }
+    .dock-seek-bar {
+      flex: 1;
+      height: 5px;
+      border-radius: 3px;
+      accent-color: var(--accent-emerald);
+      cursor: pointer;
+    }
+    .dock-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex: 1 1 240px;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+    .dock-speed-chips {
+      display: flex;
+      gap: 0.2rem;
+    }
+    .dock-speed-btn {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 2px 6px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .dock-speed-btn:hover {
+      border-color: var(--accent-emerald);
+      color: #a7f3d0;
+    }
+    .dock-speed-btn.active {
+      background: var(--accent-emerald);
+      color: #0b1120;
+      border-color: var(--accent-emerald);
+      font-weight: 700;
+    }
+    .dock-action-btn {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.35rem 0.65rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .dock-action-btn:hover {
+      background: rgba(56, 189, 248, 0.2);
+      border-color: var(--accent-blue);
+      color: var(--text-primary);
+    }
+    .dock-close-btn {
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #fca5a5;
+      font-size: 0.9rem;
+      font-weight: 700;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+    }
+    .dock-close-btn:hover {
+      background: #ef4444;
+      color: #fff;
     }
 
     footer {
@@ -423,6 +645,9 @@
       .hub-grid { grid-template-columns: 1fr; }
       .hub-filters { justify-content: center; }
       .results-count { width: 100%; text-align: center; margin-top: 0.5rem; }
+      .dock-inner { flex-direction: column; gap: 0.75rem; }
+      .dock-player-center { width: 100%; }
+      .dock-actions { width: 100%; justify-content: center; }
     }
   </style>
 </head>
@@ -441,18 +666,18 @@
         <div class="stat-label">Core JD Subjects</div>
       </div>
       <div class="stat-card">
-        <div class="stat-val">16</div>
+        <div class="stat-val">18</div>
         <div class="stat-label">Digital Modules</div>
       </div>
-      <div class="stat-card">
+      <div class="stat-card stat-podcasts-card" id="statPodcastsCard" title="Click to filter modules with Studio MP3 Audio" style="cursor: pointer;">
         <div class="stat-val">13</div>
-        <div class="stat-label">Studio Podcasts</div>
+        <div class="stat-label">🎙️ Studio Podcasts</div>
       </div>
       <div class="stat-card">
-        <div class="stat-val">9</div>
+        <div class="stat-val">10</div>
         <div class="stat-label">ALAC Case Digests</div>
       </div>
-      <div class="stat-card stat-bookmarks-card" id="statBookmarksCard" title="Click to view all saved bookmarks across all subjects">
+      <div class="stat-card stat-bookmarks-card" id="statBookmarksCard" title="Click to view all saved bookmarks across all subjects" style="cursor: pointer;">
         <div class="stat-val" id="totalBookmarksCount">0</div>
         <div class="stat-label">🔖 Saved Bookmarks</div>
       </div>
@@ -471,9 +696,9 @@
         <span class="filter-chip" data-filter="Constitutional Law">🏛️ Constitutional Law</span>
         <span class="filter-chip" data-filter="Criminal Law">🛡️ Criminal Law</span>
         <span class="filter-chip" data-filter="Statutory Construction">📜 Statutory Construction</span>
-        <span class="filter-chip" data-filter="audio-only">🎙️ MP3 Podcasts</span>
+        <span class="filter-chip" data-filter="audio-only" id="filterAudioChip">🎙️ MP3 Podcasts</span>
         <span class="filter-chip" data-filter="digest-only">⚖️ Case Digests</span>
-        <span class="results-count" id="resultsCount">Showing all 16 modules</span>
+        <span class="results-count" id="resultsCount">Showing all 18 modules</span>
       </div>
     </div>
 
@@ -509,7 +734,7 @@
                   <p class="hub-group-desc">Code of Professional Responsibility and Accountability (CPRA, A.M. No. 22-09-01-SC), Canons of Ethics, &amp; Landmark Precedents</p>
                 </div>
               </div>
-              <span class="hub-group-count">3 Modules</span>
+              <span class="hub-group-count">6 Modules</span>
             </div>
             <div class="hub-grid">
               
@@ -517,14 +742,14 @@
                 <div class="hub-card-header">
                   <span class="badge-type badge-canon">📜 CPRA Canons</span>
                   <div class="fmt-pills-row">
-                    <span class="fmt-pill fmt-html" title="Interactive Full-Text Reader with Web Speech Synthesis">📖 HTML Reader</span><span class="fmt-pill fmt-mp3" title="Studio Neural Voice MP3 Podcast (5.2 MB)">🎙️ MP3 Podcast</span><span class="fmt-pill fmt-pdf" title="Adobe PDF Format">📄 PDF</span><span class="fmt-pill fmt-docx" title="Microsoft Word DOCX">📝 DOCX</span>
+                    <span class="fmt-pill fmt-html" title="Interactive Full-Text Reader with Web Speech Synthesis">📖 HTML Reader</span><span class="fmt-pill fmt-mp3 fmt-clickable" onclick="playHubAudio('First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons & definition.mp3', 'Canons &amp; definition', 'Basic Legal and Judiciary Ethics', 'First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons & definition.html')" title="Click to stream Studio MP3 Podcast (5.2 MB)">🎙️ MP3 Podcast (5.2 MB)</span><span class="fmt-pill fmt-pdf" title="Adobe PDF Format">📄 PDF</span><span class="fmt-pill fmt-docx" title="Microsoft Word DOCX">📝 DOCX</span>
                   </div>
                 </div>
                 <h3 class="hub-card-title"><a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons & definition.html">Canons &amp; definition</a></h3>
                 <div class="hub-card-footer">
                   <a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons & definition.html" class="btn-open">📖 Open Interactive Reader →</a>
                   <div class="hub-sub-actions">
-                    <a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons & definition.mp3" class="btn-sub btn-sub-audio" download title="Download Studio MP3 Podcast">🎧 Podcast</a><a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons & definition.pdf" class="btn-sub btn-sub-pdf" target="_blank" title="View PDF Document">📄 PDF</a><a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons & definition.docx" class="btn-sub btn-sub-docx" download title="Download Word DOCX Document">📝 DOCX</a>
+                    <button type="button" class="btn-sub btn-sub-play" onclick="playHubAudio('First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons & definition.mp3', 'Canons &amp; definition', 'Basic Legal and Judiciary Ethics', 'First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons & definition.html')" title="Listen to Studio MP3 Podcast">▶️ Play Audio</button><a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons & definition.mp3" class="btn-sub btn-sub-audio" download title="Download Studio MP3 Podcast">⬇️ MP3</a><a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons & definition.pdf" class="btn-sub btn-sub-pdf" target="_blank" title="View PDF Document">📄 PDF</a><a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons & definition.docx" class="btn-sub btn-sub-docx" download title="Download Word DOCX Document">📝 DOCX</a>
                   </div>
                 </div>
               </div>
@@ -533,14 +758,62 @@
                 <div class="hub-card-header">
                   <span class="badge-type badge-canon">📜 CPRA Canons</span>
                   <div class="fmt-pills-row">
-                    <span class="fmt-pill fmt-html" title="Interactive Full-Text Reader with Web Speech Synthesis">📖 HTML Reader</span><span class="fmt-pill fmt-mp3" title="Studio Neural Voice MP3 Podcast (26.0 MB)">🎙️ MP3 Podcast</span><span class="fmt-pill fmt-pdf" title="Adobe PDF Format">📄 PDF</span><span class="fmt-pill fmt-docx" title="Microsoft Word DOCX">📝 DOCX</span>
+                    <span class="fmt-pill fmt-html" title="Interactive Full-Text Reader with Web Speech Synthesis">📖 HTML Reader</span><span class="fmt-pill fmt-mp3 fmt-clickable" onclick="playHubAudio('First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons & its Section(   A.M.-NO.-25-04-04-SC ).mp3', 'Canons &amp; its Section(   A.M.-NO.-25-04-04-SC )', 'Basic Legal and Judiciary Ethics', 'First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons & its Section(   A.M.-NO.-25-04-04-SC ).html')" title="Click to stream Studio MP3 Podcast (26.0 MB)">🎙️ MP3 Podcast (26.0 MB)</span><span class="fmt-pill fmt-pdf" title="Adobe PDF Format">📄 PDF</span><span class="fmt-pill fmt-docx" title="Microsoft Word DOCX">📝 DOCX</span>
                   </div>
                 </div>
                 <h3 class="hub-card-title"><a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons & its Section(   A.M.-NO.-25-04-04-SC ).html">Canons &amp; its Section(   A.M.-NO.-25-04-04-SC )</a></h3>
                 <div class="hub-card-footer">
                   <a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons & its Section(   A.M.-NO.-25-04-04-SC ).html" class="btn-open">📖 Open Interactive Reader →</a>
                   <div class="hub-sub-actions">
-                    <a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons & its Section(   A.M.-NO.-25-04-04-SC ).mp3" class="btn-sub btn-sub-audio" download title="Download Studio MP3 Podcast">🎧 Podcast</a><a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons & its Section(   A.M.-NO.-25-04-04-SC ).pdf" class="btn-sub btn-sub-pdf" target="_blank" title="View PDF Document">📄 PDF</a><a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons & its Section(   A.M.-NO.-25-04-04-SC ).docx" class="btn-sub btn-sub-docx" download title="Download Word DOCX Document">📝 DOCX</a>
+                    <button type="button" class="btn-sub btn-sub-play" onclick="playHubAudio('First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons & its Section(   A.M.-NO.-25-04-04-SC ).mp3', 'Canons &amp; its Section(   A.M.-NO.-25-04-04-SC )', 'Basic Legal and Judiciary Ethics', 'First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons & its Section(   A.M.-NO.-25-04-04-SC ).html')" title="Listen to Studio MP3 Podcast">▶️ Play Audio</button><a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons & its Section(   A.M.-NO.-25-04-04-SC ).mp3" class="btn-sub btn-sub-audio" download title="Download Studio MP3 Podcast">⬇️ MP3</a><a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons & its Section(   A.M.-NO.-25-04-04-SC ).pdf" class="btn-sub btn-sub-pdf" target="_blank" title="View PDF Document">📄 PDF</a><a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons & its Section(   A.M.-NO.-25-04-04-SC ).docx" class="btn-sub btn-sub-docx" download title="Download Word DOCX Document">📝 DOCX</a>
+                  </div>
+                </div>
+              </div>
+            
+              <div class="hub-card" data-subject="Basic Legal and Judiciary Ethics" data-title="blje landmark jurisprudence and case digests" data-has-audio="false" data-is-digest="true">
+                <div class="hub-card-header">
+                  <span class="badge-type badge-digest">⚖️ Case Digest</span>
+                  <div class="fmt-pills-row">
+                    <span class="fmt-pill fmt-html" title="Interactive Full-Text Reader with Web Speech Synthesis">📖 HTML Reader</span><span class="fmt-pill fmt-pdf" title="Adobe PDF Format">📄 PDF</span><span class="fmt-pill fmt-docx" title="Microsoft Word DOCX">📝 DOCX</span>
+                  </div>
+                </div>
+                <h3 class="hub-card-title"><a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons and jurisprudence/BLJE_Landmark_Jurisprudence_and_Case_Digests.html">BLJE Landmark Jurisprudence and Case Digests</a></h3>
+                <div class="hub-card-footer">
+                  <a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons and jurisprudence/BLJE_Landmark_Jurisprudence_and_Case_Digests.html" class="btn-open">📖 Open Interactive Reader →</a>
+                  <div class="hub-sub-actions">
+                    <a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons and jurisprudence/BLJE_Landmark_Jurisprudence_and_Case_Digests.pdf" class="btn-sub btn-sub-pdf" target="_blank" title="View PDF Document">📄 PDF</a><a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons and jurisprudence/BLJE_Landmark_Jurisprudence_and_Case_Digests.docx" class="btn-sub btn-sub-docx" download title="Download Word DOCX Document">📝 DOCX</a>
+                  </div>
+                </div>
+              </div>
+            
+              <div class="hub-card" data-subject="Basic Legal and Judiciary Ethics" data-title="cpra canons and jurisprudence comprehensive study guide" data-has-audio="false" data-is-digest="false">
+                <div class="hub-card-header">
+                  <span class="badge-type badge-canon">📜 CPRA Canons</span>
+                  <div class="fmt-pills-row">
+                    <span class="fmt-pill fmt-html" title="Interactive Full-Text Reader with Web Speech Synthesis">📖 HTML Reader</span><span class="fmt-pill fmt-pdf" title="Adobe PDF Format">📄 PDF</span><span class="fmt-pill fmt-docx" title="Microsoft Word DOCX">📝 DOCX</span>
+                  </div>
+                </div>
+                <h3 class="hub-card-title"><a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons and jurisprudence/CPRA_Canons_and_Jurisprudence_Comprehensive_Study_Guide.html">CPRA Canons and Jurisprudence Comprehensive Study Guide</a></h3>
+                <div class="hub-card-footer">
+                  <a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons and jurisprudence/CPRA_Canons_and_Jurisprudence_Comprehensive_Study_Guide.html" class="btn-open">📖 Open Interactive Reader →</a>
+                  <div class="hub-sub-actions">
+                    <a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons and jurisprudence/CPRA_Canons_and_Jurisprudence_Comprehensive_Study_Guide.pdf" class="btn-sub btn-sub-pdf" target="_blank" title="View PDF Document">📄 PDF</a><a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons and jurisprudence/CPRA_Canons_and_Jurisprudence_Comprehensive_Study_Guide.docx" class="btn-sub btn-sub-docx" download title="Download Word DOCX Document">📝 DOCX</a>
+                  </div>
+                </div>
+              </div>
+            
+              <div class="hub-card" data-subject="Basic Legal and Judiciary Ethics" data-title="cpra canons and sections comprehensive codal" data-has-audio="false" data-is-digest="false">
+                <div class="hub-card-header">
+                  <span class="badge-type badge-canon">📜 CPRA Canons</span>
+                  <div class="fmt-pills-row">
+                    <span class="fmt-pill fmt-html" title="Interactive Full-Text Reader with Web Speech Synthesis">📖 HTML Reader</span><span class="fmt-pill fmt-pdf" title="Adobe PDF Format">📄 PDF</span><span class="fmt-pill fmt-docx" title="Microsoft Word DOCX">📝 DOCX</span>
+                  </div>
+                </div>
+                <h3 class="hub-card-title"><a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons and jurisprudence/CPRA_Canons_and_Sections_Comprehensive_Codal.html">CPRA Canons and Sections Comprehensive Codal</a></h3>
+                <div class="hub-card-footer">
+                  <a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons and jurisprudence/CPRA_Canons_and_Sections_Comprehensive_Codal.html" class="btn-open">📖 Open Interactive Reader →</a>
+                  <div class="hub-sub-actions">
+                    <a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons and jurisprudence/CPRA_Canons_and_Sections_Comprehensive_Codal.pdf" class="btn-sub btn-sub-pdf" target="_blank" title="View PDF Document">📄 PDF</a><a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons and jurisprudence/CPRA_Canons_and_Sections_Comprehensive_Codal.docx" class="btn-sub btn-sub-docx" download title="Download Word DOCX Document">📝 DOCX</a>
                   </div>
                 </div>
               </div>
@@ -549,14 +822,14 @@
                 <div class="hub-card-header">
                   <span class="badge-type badge-digest">⚖️ Case Digest</span>
                   <div class="fmt-pills-row">
-                    <span class="fmt-pill fmt-html" title="Interactive Full-Text Reader with Web Speech Synthesis">📖 HTML Reader</span><span class="fmt-pill fmt-mp3" title="Studio Neural Voice MP3 Podcast (69.9 MB)">🎙️ MP3 Podcast</span><span class="fmt-pill fmt-pdf" title="Adobe PDF Format">📄 PDF</span><span class="fmt-pill fmt-docx" title="Microsoft Word DOCX">📝 DOCX</span>
+                    <span class="fmt-pill fmt-html" title="Interactive Full-Text Reader with Web Speech Synthesis">📖 HTML Reader</span><span class="fmt-pill fmt-mp3 fmt-clickable" onclick="playHubAudio('First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/case digest/BLJE Case Digest.mp3', 'BLJE Case Digest', 'Basic Legal and Judiciary Ethics', 'First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/case digest/BLJE Case Digest.html')" title="Click to stream Studio MP3 Podcast (69.9 MB)">🎙️ MP3 Podcast (69.9 MB)</span><span class="fmt-pill fmt-pdf" title="Adobe PDF Format">📄 PDF</span><span class="fmt-pill fmt-docx" title="Microsoft Word DOCX">📝 DOCX</span>
                   </div>
                 </div>
                 <h3 class="hub-card-title"><a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/case digest/BLJE Case Digest.html">BLJE Case Digest</a></h3>
                 <div class="hub-card-footer">
                   <a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/case digest/BLJE Case Digest.html" class="btn-open">📖 Open Interactive Reader →</a>
                   <div class="hub-sub-actions">
-                    <a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/case digest/BLJE Case Digest.mp3" class="btn-sub btn-sub-audio" download title="Download Studio MP3 Podcast">🎧 Podcast</a><a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/case digest/BLJE Case Digest.pdf" class="btn-sub btn-sub-pdf" target="_blank" title="View PDF Document">📄 PDF</a><a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/case digest/BLJE Case Digest.docx" class="btn-sub btn-sub-docx" download title="Download Word DOCX Document">📝 DOCX</a>
+                    <button type="button" class="btn-sub btn-sub-play" onclick="playHubAudio('First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/case digest/BLJE Case Digest.mp3', 'BLJE Case Digest', 'Basic Legal and Judiciary Ethics', 'First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/case digest/BLJE Case Digest.html')" title="Listen to Studio MP3 Podcast">▶️ Play Audio</button><a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/case digest/BLJE Case Digest.mp3" class="btn-sub btn-sub-audio" download title="Download Studio MP3 Podcast">⬇️ MP3</a><a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/case digest/BLJE Case Digest.pdf" class="btn-sub btn-sub-pdf" target="_blank" title="View PDF Document">📄 PDF</a><a href="First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/case digest/BLJE Case Digest.docx" class="btn-sub btn-sub-docx" download title="Download Word DOCX Document">📝 DOCX</a>
                   </div>
                 </div>
               </div>
@@ -581,14 +854,14 @@
                 <div class="hub-card-header">
                   <span class="badge-type badge-digest">⚖️ Case Digest</span>
                   <div class="fmt-pills-row">
-                    <span class="fmt-pill fmt-html" title="Interactive Full-Text Reader with Web Speech Synthesis">📖 HTML Reader</span><span class="fmt-pill fmt-mp3" title="Studio Neural Voice MP3 Podcast (21.5 MB)">🎙️ MP3 Podcast</span><span class="fmt-pill fmt-pdf" title="Adobe PDF Format">📄 PDF</span><span class="fmt-pill fmt-docx" title="Microsoft Word DOCX">📝 DOCX</span>
+                    <span class="fmt-pill fmt-html" title="Interactive Full-Text Reader with Web Speech Synthesis">📖 HTML Reader</span><span class="fmt-pill fmt-mp3 fmt-clickable" onclick="playHubAudio('First Sem 1st Year/Subjects/Constitutional Law/Constitutional Law 1 Case Digest Titles.mp3', 'Constitutional Law 1 Case Digest Titles', 'Constitutional Law', 'First Sem 1st Year/Subjects/Constitutional Law/Constitutional Law 1 Case Digest Titles.html')" title="Click to stream Studio MP3 Podcast (21.5 MB)">🎙️ MP3 Podcast (21.5 MB)</span><span class="fmt-pill fmt-pdf" title="Adobe PDF Format">📄 PDF</span><span class="fmt-pill fmt-docx" title="Microsoft Word DOCX">📝 DOCX</span>
                   </div>
                 </div>
                 <h3 class="hub-card-title"><a href="First Sem 1st Year/Subjects/Constitutional Law/Constitutional Law 1 Case Digest Titles.html">Constitutional Law 1 Case Digest Titles</a></h3>
                 <div class="hub-card-footer">
                   <a href="First Sem 1st Year/Subjects/Constitutional Law/Constitutional Law 1 Case Digest Titles.html" class="btn-open">📖 Open Interactive Reader →</a>
                   <div class="hub-sub-actions">
-                    <a href="First Sem 1st Year/Subjects/Constitutional Law/Constitutional Law 1 Case Digest Titles.mp3" class="btn-sub btn-sub-audio" download title="Download Studio MP3 Podcast">🎧 Podcast</a><a href="First Sem 1st Year/Subjects/Constitutional Law/Constitutional Law 1 Case Digest Titles.pdf" class="btn-sub btn-sub-pdf" target="_blank" title="View PDF Document">📄 PDF</a><a href="First Sem 1st Year/Subjects/Constitutional Law/Constitutional Law 1 Case Digest Titles.docx" class="btn-sub btn-sub-docx" download title="Download Word DOCX Document">📝 DOCX</a>
+                    <button type="button" class="btn-sub btn-sub-play" onclick="playHubAudio('First Sem 1st Year/Subjects/Constitutional Law/Constitutional Law 1 Case Digest Titles.mp3', 'Constitutional Law 1 Case Digest Titles', 'Constitutional Law', 'First Sem 1st Year/Subjects/Constitutional Law/Constitutional Law 1 Case Digest Titles.html')" title="Listen to Studio MP3 Podcast">▶️ Play Audio</button><a href="First Sem 1st Year/Subjects/Constitutional Law/Constitutional Law 1 Case Digest Titles.mp3" class="btn-sub btn-sub-audio" download title="Download Studio MP3 Podcast">⬇️ MP3</a><a href="First Sem 1st Year/Subjects/Constitutional Law/Constitutional Law 1 Case Digest Titles.pdf" class="btn-sub btn-sub-pdf" target="_blank" title="View PDF Document">📄 PDF</a><a href="First Sem 1st Year/Subjects/Constitutional Law/Constitutional Law 1 Case Digest Titles.docx" class="btn-sub btn-sub-docx" download title="Download Word DOCX Document">📝 DOCX</a>
                   </div>
                 </div>
               </div>
@@ -597,14 +870,14 @@
                 <div class="hub-card-header">
                   <span class="badge-type badge-lecture">📖 Comprehensive Lecture</span>
                   <div class="fmt-pills-row">
-                    <span class="fmt-pill fmt-html" title="Interactive Full-Text Reader with Web Speech Synthesis">📖 HTML Reader</span><span class="fmt-pill fmt-mp3" title="Studio Neural Voice MP3 Podcast (11.6 MB)">🎙️ MP3 Podcast</span><span class="fmt-pill fmt-pdf" title="Adobe PDF Format">📄 PDF</span><span class="fmt-pill fmt-docx" title="Microsoft Word DOCX">📝 DOCX</span>
+                    <span class="fmt-pill fmt-html" title="Interactive Full-Text Reader with Web Speech Synthesis">📖 HTML Reader</span><span class="fmt-pill fmt-mp3 fmt-clickable" onclick="playHubAudio('First Sem 1st Year/Subjects/Constitutional Law/Constitutional Law 1 Lecture.mp3', 'Constitutional Law 1 Lecture', 'Constitutional Law', 'First Sem 1st Year/Subjects/Constitutional Law/Constitutional Law 1 Lecture.html')" title="Click to stream Studio MP3 Podcast (11.6 MB)">🎙️ MP3 Podcast (11.6 MB)</span><span class="fmt-pill fmt-pdf" title="Adobe PDF Format">📄 PDF</span><span class="fmt-pill fmt-docx" title="Microsoft Word DOCX">📝 DOCX</span>
                   </div>
                 </div>
                 <h3 class="hub-card-title"><a href="First Sem 1st Year/Subjects/Constitutional Law/Constitutional Law 1 Lecture.html">Constitutional Law 1 Lecture</a></h3>
                 <div class="hub-card-footer">
                   <a href="First Sem 1st Year/Subjects/Constitutional Law/Constitutional Law 1 Lecture.html" class="btn-open">📖 Open Interactive Reader →</a>
                   <div class="hub-sub-actions">
-                    <a href="First Sem 1st Year/Subjects/Constitutional Law/Constitutional Law 1 Lecture.mp3" class="btn-sub btn-sub-audio" download title="Download Studio MP3 Podcast">🎧 Podcast</a><a href="First Sem 1st Year/Subjects/Constitutional Law/Constitutional Law 1 Lecture.pdf" class="btn-sub btn-sub-pdf" target="_blank" title="View PDF Document">📄 PDF</a><a href="First Sem 1st Year/Subjects/Constitutional Law/Constitutional Law 1 Lecture.docx" class="btn-sub btn-sub-docx" download title="Download Word DOCX Document">📝 DOCX</a>
+                    <button type="button" class="btn-sub btn-sub-play" onclick="playHubAudio('First Sem 1st Year/Subjects/Constitutional Law/Constitutional Law 1 Lecture.mp3', 'Constitutional Law 1 Lecture', 'Constitutional Law', 'First Sem 1st Year/Subjects/Constitutional Law/Constitutional Law 1 Lecture.html')" title="Listen to Studio MP3 Podcast">▶️ Play Audio</button><a href="First Sem 1st Year/Subjects/Constitutional Law/Constitutional Law 1 Lecture.mp3" class="btn-sub btn-sub-audio" download title="Download Studio MP3 Podcast">⬇️ MP3</a><a href="First Sem 1st Year/Subjects/Constitutional Law/Constitutional Law 1 Lecture.pdf" class="btn-sub btn-sub-pdf" target="_blank" title="View PDF Document">📄 PDF</a><a href="First Sem 1st Year/Subjects/Constitutional Law/Constitutional Law 1 Lecture.docx" class="btn-sub btn-sub-docx" download title="Download Word DOCX Document">📝 DOCX</a>
                   </div>
                 </div>
               </div>
@@ -637,7 +910,7 @@
                   <p class="hub-group-desc">Revised Penal Code (Act No. 3815) Book I (Articles 1–113), Felonies, Criminal Liability, Modifying Circumstances, &amp; Supreme Court Doctrines</p>
                 </div>
               </div>
-              <span class="hub-group-count">6 Modules</span>
+              <span class="hub-group-count">5 Modules</span>
             </div>
             <div class="hub-grid">
               
@@ -645,46 +918,30 @@
                 <div class="hub-card-header">
                   <span class="badge-type badge-outline">📋 Course Outline</span>
                   <div class="fmt-pills-row">
-                    <span class="fmt-pill fmt-html" title="Interactive Full-Text Reader with Web Speech Synthesis">📖 HTML Reader</span><span class="fmt-pill fmt-mp3" title="Studio Neural Voice MP3 Podcast (29.5 MB)">🎙️ MP3 Podcast</span><span class="fmt-pill fmt-pdf" title="Adobe PDF Format">📄 PDF</span><span class="fmt-pill fmt-docx" title="Microsoft Word DOCX">📝 DOCX</span>
+                    <span class="fmt-pill fmt-html" title="Interactive Full-Text Reader with Web Speech Synthesis">📖 HTML Reader</span><span class="fmt-pill fmt-mp3 fmt-clickable" onclick="playHubAudio('First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 - Course Outline and Complete Topics.mp3', 'Criminal Law 1 - Course Outline and Complete Topics', 'Criminal Law', 'First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 - Course Outline and Complete Topics.html')" title="Click to stream Studio MP3 Podcast (29.5 MB)">🎙️ MP3 Podcast (29.5 MB)</span><span class="fmt-pill fmt-pdf" title="Adobe PDF Format">📄 PDF</span><span class="fmt-pill fmt-docx" title="Microsoft Word DOCX">📝 DOCX</span>
                   </div>
                 </div>
                 <h3 class="hub-card-title"><a href="First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 - Course Outline and Complete Topics.html">Criminal Law 1 - Course Outline and Complete Topics</a></h3>
                 <div class="hub-card-footer">
                   <a href="First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 - Course Outline and Complete Topics.html" class="btn-open">📖 Open Interactive Reader →</a>
                   <div class="hub-sub-actions">
-                    <a href="First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 - Course Outline and Complete Topics.mp3" class="btn-sub btn-sub-audio" download title="Download Studio MP3 Podcast">🎧 Podcast</a><a href="First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 - Course Outline and Complete Topics.pdf" class="btn-sub btn-sub-pdf" target="_blank" title="View PDF Document">📄 PDF</a><a href="First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 - Course Outline and Complete Topics.docx" class="btn-sub btn-sub-docx" download title="Download Word DOCX Document">📝 DOCX</a>
+                    <button type="button" class="btn-sub btn-sub-play" onclick="playHubAudio('First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 - Course Outline and Complete Topics.mp3', 'Criminal Law 1 - Course Outline and Complete Topics', 'Criminal Law', 'First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 - Course Outline and Complete Topics.html')" title="Listen to Studio MP3 Podcast">▶️ Play Audio</button><a href="First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 - Course Outline and Complete Topics.mp3" class="btn-sub btn-sub-audio" download title="Download Studio MP3 Podcast">⬇️ MP3</a><a href="First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 - Course Outline and Complete Topics.pdf" class="btn-sub btn-sub-pdf" target="_blank" title="View PDF Document">📄 PDF</a><a href="First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 - Course Outline and Complete Topics.docx" class="btn-sub btn-sub-docx" download title="Download Word DOCX Document">📝 DOCX</a>
                   </div>
                 </div>
               </div>
             
-              <div class="hub-card" data-subject="Criminal Law" data-title="criminal law 1 complete 275 cases" data-has-audio="false" data-is-digest="true">
+              <div class="hub-card" data-subject="Criminal Law" data-title="criminal law 1 complete 275 cases" data-has-audio="true" data-is-digest="true">
                 <div class="hub-card-header">
                   <span class="badge-type badge-cases">🏛️ Landmark Cases</span>
                   <div class="fmt-pills-row">
-                    <span class="fmt-pill fmt-html" title="Interactive Full-Text Reader with Web Speech Synthesis">📖 HTML Reader</span><span class="fmt-pill fmt-docx" title="Microsoft Word DOCX">📝 DOCX</span>
+                    <span class="fmt-pill fmt-html" title="Interactive Full-Text Reader with Web Speech Synthesis">📖 HTML Reader</span><span class="fmt-pill fmt-mp3 fmt-clickable" onclick="playHubAudio('First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 Complete 275 Cases.mp3', 'Criminal Law 1 Complete 275 Cases', 'Criminal Law', 'First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 Complete 275 Cases.html')" title="Click to stream Studio MP3 Podcast (270.7 MB)">🎙️ MP3 Podcast (270.7 MB)</span><span class="fmt-pill fmt-pdf" title="Adobe PDF Format">📄 PDF</span><span class="fmt-pill fmt-docx" title="Microsoft Word DOCX">📝 DOCX</span>
                   </div>
                 </div>
                 <h3 class="hub-card-title"><a href="First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 Complete 275 Cases.html">Criminal Law 1 Complete 275 Cases</a></h3>
                 <div class="hub-card-footer">
                   <a href="First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 Complete 275 Cases.html" class="btn-open">📖 Open Interactive Reader →</a>
                   <div class="hub-sub-actions">
-                    <a href="First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 Complete 275 Cases.docx" class="btn-sub btn-sub-docx" download title="Download Word DOCX Document">📝 DOCX</a>
-                  </div>
-                </div>
-              </div>
-            
-              <div class="hub-card" data-subject="Criminal Law" data-title="criminal law 1 lecture" data-has-audio="true" data-is-digest="false">
-                <div class="hub-card-header">
-                  <span class="badge-type badge-lecture">📖 Comprehensive Lecture</span>
-                  <div class="fmt-pills-row">
-                    <span class="fmt-pill fmt-html" title="Interactive Full-Text Reader with Web Speech Synthesis">📖 HTML Reader</span><span class="fmt-pill fmt-mp3" title="Studio Neural Voice MP3 Podcast (29.5 MB)">🎙️ MP3 Podcast</span><span class="fmt-pill fmt-pdf" title="Adobe PDF Format">📄 PDF</span><span class="fmt-pill fmt-docx" title="Microsoft Word DOCX">📝 DOCX</span>
-                  </div>
-                </div>
-                <h3 class="hub-card-title"><a href="First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 Lecture.html">Criminal Law 1 Lecture</a></h3>
-                <div class="hub-card-footer">
-                  <a href="First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 Lecture.html" class="btn-open">📖 Open Interactive Reader →</a>
-                  <div class="hub-sub-actions">
-                    <a href="First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 Lecture.mp3" class="btn-sub btn-sub-audio" download title="Download Studio MP3 Podcast">🎧 Podcast</a><a href="First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 Lecture.pdf" class="btn-sub btn-sub-pdf" target="_blank" title="View PDF Document">📄 PDF</a><a href="First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 Lecture.docx" class="btn-sub btn-sub-docx" download title="Download Word DOCX Document">📝 DOCX</a>
+                    <button type="button" class="btn-sub btn-sub-play" onclick="playHubAudio('First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 Complete 275 Cases.mp3', 'Criminal Law 1 Complete 275 Cases', 'Criminal Law', 'First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 Complete 275 Cases.html')" title="Listen to Studio MP3 Podcast">▶️ Play Audio</button><a href="First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 Complete 275 Cases.mp3" class="btn-sub btn-sub-audio" download title="Download Studio MP3 Podcast">⬇️ MP3</a><a href="First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 Complete 275 Cases.pdf" class="btn-sub btn-sub-pdf" target="_blank" title="View PDF Document">📄 PDF</a><a href="First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 Complete 275 Cases.docx" class="btn-sub btn-sub-docx" download title="Download Word DOCX Document">📝 DOCX</a>
                   </div>
                 </div>
               </div>
@@ -693,14 +950,14 @@
                 <div class="hub-card-header">
                   <span class="badge-type badge-digest">⚖️ Case Digest</span>
                   <div class="fmt-pills-row">
-                    <span class="fmt-pill fmt-html" title="Interactive Full-Text Reader with Web Speech Synthesis">📖 HTML Reader</span><span class="fmt-pill fmt-mp3" title="Studio Neural Voice MP3 Podcast (265.9 MB)">🎙️ MP3 Podcast</span><span class="fmt-pill fmt-pdf" title="Adobe PDF Format">📄 PDF</span><span class="fmt-pill fmt-docx" title="Microsoft Word DOCX">📝 DOCX</span>
+                    <span class="fmt-pill fmt-html" title="Interactive Full-Text Reader with Web Speech Synthesis">📖 HTML Reader</span><span class="fmt-pill fmt-mp3 fmt-clickable" onclick="playHubAudio('First Sem 1st Year/Subjects/Criminal Law/Criminal_Law_1_Complete_275_Landmark_ALAC_Case_Digests.mp3', 'Criminal Law 1 Complete 275 Landmark ALAC Case Digests', 'Criminal Law', 'First Sem 1st Year/Subjects/Criminal Law/Criminal_Law_1_Complete_275_Landmark_ALAC_Case_Digests.html')" title="Click to stream Studio MP3 Podcast (270.7 MB)">🎙️ MP3 Podcast (270.7 MB)</span><span class="fmt-pill fmt-pdf" title="Adobe PDF Format">📄 PDF</span><span class="fmt-pill fmt-docx" title="Microsoft Word DOCX">📝 DOCX</span>
                   </div>
                 </div>
                 <h3 class="hub-card-title"><a href="First Sem 1st Year/Subjects/Criminal Law/Criminal_Law_1_Complete_275_Landmark_ALAC_Case_Digests.html">Criminal Law 1 Complete 275 Landmark ALAC Case Digests</a></h3>
                 <div class="hub-card-footer">
                   <a href="First Sem 1st Year/Subjects/Criminal Law/Criminal_Law_1_Complete_275_Landmark_ALAC_Case_Digests.html" class="btn-open">📖 Open Interactive Reader →</a>
                   <div class="hub-sub-actions">
-                    <a href="First Sem 1st Year/Subjects/Criminal Law/Criminal_Law_1_Complete_275_Landmark_ALAC_Case_Digests.mp3" class="btn-sub btn-sub-audio" download title="Download Studio MP3 Podcast">🎧 Podcast</a><a href="First Sem 1st Year/Subjects/Criminal Law/Criminal_Law_1_Complete_275_Landmark_ALAC_Case_Digests.pdf" class="btn-sub btn-sub-pdf" target="_blank" title="View PDF Document">📄 PDF</a><a href="First Sem 1st Year/Subjects/Criminal Law/Criminal_Law_1_Complete_275_Landmark_ALAC_Case_Digests.docx" class="btn-sub btn-sub-docx" download title="Download Word DOCX Document">📝 DOCX</a>
+                    <button type="button" class="btn-sub btn-sub-play" onclick="playHubAudio('First Sem 1st Year/Subjects/Criminal Law/Criminal_Law_1_Complete_275_Landmark_ALAC_Case_Digests.mp3', 'Criminal Law 1 Complete 275 Landmark ALAC Case Digests', 'Criminal Law', 'First Sem 1st Year/Subjects/Criminal Law/Criminal_Law_1_Complete_275_Landmark_ALAC_Case_Digests.html')" title="Listen to Studio MP3 Podcast">▶️ Play Audio</button><a href="First Sem 1st Year/Subjects/Criminal Law/Criminal_Law_1_Complete_275_Landmark_ALAC_Case_Digests.mp3" class="btn-sub btn-sub-audio" download title="Download Studio MP3 Podcast">⬇️ MP3</a><a href="First Sem 1st Year/Subjects/Criminal Law/Criminal_Law_1_Complete_275_Landmark_ALAC_Case_Digests.pdf" class="btn-sub btn-sub-pdf" target="_blank" title="View PDF Document">📄 PDF</a><a href="First Sem 1st Year/Subjects/Criminal Law/Criminal_Law_1_Complete_275_Landmark_ALAC_Case_Digests.docx" class="btn-sub btn-sub-docx" download title="Download Word DOCX Document">📝 DOCX</a>
                   </div>
                 </div>
               </div>
@@ -709,14 +966,14 @@
                 <div class="hub-card-header">
                   <span class="badge-type badge-module">📚 Study Module</span>
                   <div class="fmt-pills-row">
-                    <span class="fmt-pill fmt-html" title="Interactive Full-Text Reader with Web Speech Synthesis">📖 HTML Reader</span><span class="fmt-pill fmt-mp3" title="Studio Neural Voice MP3 Podcast (37.9 MB)">🎙️ MP3 Podcast</span><span class="fmt-pill fmt-pdf" title="Adobe PDF Format">📄 PDF</span><span class="fmt-pill fmt-docx" title="Microsoft Word DOCX">📝 DOCX</span>
+                    <span class="fmt-pill fmt-html" title="Interactive Full-Text Reader with Web Speech Synthesis">📖 HTML Reader</span><span class="fmt-pill fmt-mp3 fmt-clickable" onclick="playHubAudio('First Sem 1st Year/Subjects/Criminal Law/Philippine_Criminal_Law_Book_One_Treatise.mp3', 'Philippine Criminal Law Book One Treatise', 'Criminal Law', 'First Sem 1st Year/Subjects/Criminal Law/Philippine_Criminal_Law_Book_One_Treatise.html')" title="Click to stream Studio MP3 Podcast (37.9 MB)">🎙️ MP3 Podcast (37.9 MB)</span><span class="fmt-pill fmt-pdf" title="Adobe PDF Format">📄 PDF</span><span class="fmt-pill fmt-docx" title="Microsoft Word DOCX">📝 DOCX</span>
                   </div>
                 </div>
                 <h3 class="hub-card-title"><a href="First Sem 1st Year/Subjects/Criminal Law/Philippine_Criminal_Law_Book_One_Treatise.html">Philippine Criminal Law Book One Treatise</a></h3>
                 <div class="hub-card-footer">
                   <a href="First Sem 1st Year/Subjects/Criminal Law/Philippine_Criminal_Law_Book_One_Treatise.html" class="btn-open">📖 Open Interactive Reader →</a>
                   <div class="hub-sub-actions">
-                    <a href="First Sem 1st Year/Subjects/Criminal Law/Philippine_Criminal_Law_Book_One_Treatise.mp3" class="btn-sub btn-sub-audio" download title="Download Studio MP3 Podcast">🎧 Podcast</a><a href="First Sem 1st Year/Subjects/Criminal Law/Philippine_Criminal_Law_Book_One_Treatise.pdf" class="btn-sub btn-sub-pdf" target="_blank" title="View PDF Document">📄 PDF</a><a href="First Sem 1st Year/Subjects/Criminal Law/Philippine_Criminal_Law_Book_One_Treatise.docx" class="btn-sub btn-sub-docx" download title="Download Word DOCX Document">📝 DOCX</a>
+                    <button type="button" class="btn-sub btn-sub-play" onclick="playHubAudio('First Sem 1st Year/Subjects/Criminal Law/Philippine_Criminal_Law_Book_One_Treatise.mp3', 'Philippine Criminal Law Book One Treatise', 'Criminal Law', 'First Sem 1st Year/Subjects/Criminal Law/Philippine_Criminal_Law_Book_One_Treatise.html')" title="Listen to Studio MP3 Podcast">▶️ Play Audio</button><a href="First Sem 1st Year/Subjects/Criminal Law/Philippine_Criminal_Law_Book_One_Treatise.mp3" class="btn-sub btn-sub-audio" download title="Download Studio MP3 Podcast">⬇️ MP3</a><a href="First Sem 1st Year/Subjects/Criminal Law/Philippine_Criminal_Law_Book_One_Treatise.pdf" class="btn-sub btn-sub-pdf" target="_blank" title="View PDF Document">📄 PDF</a><a href="First Sem 1st Year/Subjects/Criminal Law/Philippine_Criminal_Law_Book_One_Treatise.docx" class="btn-sub btn-sub-docx" download title="Download Word DOCX Document">📝 DOCX</a>
                   </div>
                 </div>
               </div>
@@ -725,14 +982,14 @@
                 <div class="hub-card-header">
                   <span class="badge-type badge-digest">⚖️ Case Digest</span>
                   <div class="fmt-pills-row">
-                    <span class="fmt-pill fmt-html" title="Interactive Full-Text Reader with Web Speech Synthesis">📖 HTML Reader</span><span class="fmt-pill fmt-mp3" title="Studio Neural Voice MP3 Podcast (28.6 MB)">🎙️ MP3 Podcast</span><span class="fmt-pill fmt-pdf" title="Adobe PDF Format">📄 PDF</span><span class="fmt-pill fmt-docx" title="Microsoft Word DOCX">📝 DOCX</span>
+                    <span class="fmt-pill fmt-html" title="Interactive Full-Text Reader with Web Speech Synthesis">📖 HTML Reader</span><span class="fmt-pill fmt-mp3 fmt-clickable" onclick="playHubAudio('First Sem 1st Year/Subjects/Criminal Law/case digest/Criminal Law Case Digest.mp3', 'Criminal Law Case Digest', 'Criminal Law', 'First Sem 1st Year/Subjects/Criminal Law/case digest/Criminal Law Case Digest.html')" title="Click to stream Studio MP3 Podcast (28.6 MB)">🎙️ MP3 Podcast (28.6 MB)</span><span class="fmt-pill fmt-pdf" title="Adobe PDF Format">📄 PDF</span><span class="fmt-pill fmt-docx" title="Microsoft Word DOCX">📝 DOCX</span>
                   </div>
                 </div>
                 <h3 class="hub-card-title"><a href="First Sem 1st Year/Subjects/Criminal Law/case digest/Criminal Law Case Digest.html">Criminal Law Case Digest</a></h3>
                 <div class="hub-card-footer">
                   <a href="First Sem 1st Year/Subjects/Criminal Law/case digest/Criminal Law Case Digest.html" class="btn-open">📖 Open Interactive Reader →</a>
                   <div class="hub-sub-actions">
-                    <a href="First Sem 1st Year/Subjects/Criminal Law/case digest/Criminal Law Case Digest.mp3" class="btn-sub btn-sub-audio" download title="Download Studio MP3 Podcast">🎧 Podcast</a><a href="First Sem 1st Year/Subjects/Criminal Law/case digest/Criminal Law Case Digest.pdf" class="btn-sub btn-sub-pdf" target="_blank" title="View PDF Document">📄 PDF</a><a href="First Sem 1st Year/Subjects/Criminal Law/case digest/Criminal Law Case Digest.docx" class="btn-sub btn-sub-docx" download title="Download Word DOCX Document">📝 DOCX</a>
+                    <button type="button" class="btn-sub btn-sub-play" onclick="playHubAudio('First Sem 1st Year/Subjects/Criminal Law/case digest/Criminal Law Case Digest.mp3', 'Criminal Law Case Digest', 'Criminal Law', 'First Sem 1st Year/Subjects/Criminal Law/case digest/Criminal Law Case Digest.html')" title="Listen to Studio MP3 Podcast">▶️ Play Audio</button><a href="First Sem 1st Year/Subjects/Criminal Law/case digest/Criminal Law Case Digest.mp3" class="btn-sub btn-sub-audio" download title="Download Studio MP3 Podcast">⬇️ MP3</a><a href="First Sem 1st Year/Subjects/Criminal Law/case digest/Criminal Law Case Digest.pdf" class="btn-sub btn-sub-pdf" target="_blank" title="View PDF Document">📄 PDF</a><a href="First Sem 1st Year/Subjects/Criminal Law/case digest/Criminal Law Case Digest.docx" class="btn-sub btn-sub-docx" download title="Download Word DOCX Document">📝 DOCX</a>
                   </div>
                 </div>
               </div>
@@ -757,14 +1014,14 @@
                 <div class="hub-card-header">
                   <span class="badge-type badge-module">📚 Study Module</span>
                   <div class="fmt-pills-row">
-                    <span class="fmt-pill fmt-html" title="Interactive Full-Text Reader with Web Speech Synthesis">📖 HTML Reader</span><span class="fmt-pill fmt-mp3" title="Studio Neural Voice MP3 Podcast (2.9 MB)">🎙️ MP3 Podcast</span><span class="fmt-pill fmt-pdf" title="Adobe PDF Format">📄 PDF</span><span class="fmt-pill fmt-docx" title="Microsoft Word DOCX">📝 DOCX</span>
+                    <span class="fmt-pill fmt-html" title="Interactive Full-Text Reader with Web Speech Synthesis">📖 HTML Reader</span><span class="fmt-pill fmt-mp3 fmt-clickable" onclick="playHubAudio('First Sem 1st Year/Subjects/Statutory Construction/Statutory Construction (StatCon).mp3', 'Statutory Construction (StatCon)', 'Statutory Construction', 'First Sem 1st Year/Subjects/Statutory Construction/Statutory Construction (StatCon).html')" title="Click to stream Studio MP3 Podcast (2.9 MB)">🎙️ MP3 Podcast (2.9 MB)</span><span class="fmt-pill fmt-pdf" title="Adobe PDF Format">📄 PDF</span><span class="fmt-pill fmt-docx" title="Microsoft Word DOCX">📝 DOCX</span>
                   </div>
                 </div>
                 <h3 class="hub-card-title"><a href="First Sem 1st Year/Subjects/Statutory Construction/Statutory Construction (StatCon).html">Statutory Construction (StatCon)</a></h3>
                 <div class="hub-card-footer">
                   <a href="First Sem 1st Year/Subjects/Statutory Construction/Statutory Construction (StatCon).html" class="btn-open">📖 Open Interactive Reader →</a>
                   <div class="hub-sub-actions">
-                    <a href="First Sem 1st Year/Subjects/Statutory Construction/Statutory Construction (StatCon).mp3" class="btn-sub btn-sub-audio" download title="Download Studio MP3 Podcast">🎧 Podcast</a><a href="First Sem 1st Year/Subjects/Statutory Construction/Statutory Construction (StatCon).pdf" class="btn-sub btn-sub-pdf" target="_blank" title="View PDF Document">📄 PDF</a><a href="First Sem 1st Year/Subjects/Statutory Construction/Statutory Construction (StatCon).docx" class="btn-sub btn-sub-docx" download title="Download Word DOCX Document">📝 DOCX</a>
+                    <button type="button" class="btn-sub btn-sub-play" onclick="playHubAudio('First Sem 1st Year/Subjects/Statutory Construction/Statutory Construction (StatCon).mp3', 'Statutory Construction (StatCon)', 'Statutory Construction', 'First Sem 1st Year/Subjects/Statutory Construction/Statutory Construction (StatCon).html')" title="Listen to Studio MP3 Podcast">▶️ Play Audio</button><a href="First Sem 1st Year/Subjects/Statutory Construction/Statutory Construction (StatCon).mp3" class="btn-sub btn-sub-audio" download title="Download Studio MP3 Podcast">⬇️ MP3</a><a href="First Sem 1st Year/Subjects/Statutory Construction/Statutory Construction (StatCon).pdf" class="btn-sub btn-sub-pdf" target="_blank" title="View PDF Document">📄 PDF</a><a href="First Sem 1st Year/Subjects/Statutory Construction/Statutory Construction (StatCon).docx" class="btn-sub btn-sub-docx" download title="Download Word DOCX Document">📝 DOCX</a>
                   </div>
                 </div>
               </div>
@@ -789,14 +1046,14 @@
                 <div class="hub-card-header">
                   <span class="badge-type badge-digest">⚖️ Case Digest</span>
                   <div class="fmt-pills-row">
-                    <span class="fmt-pill fmt-html" title="Interactive Full-Text Reader with Web Speech Synthesis">📖 HTML Reader</span><span class="fmt-pill fmt-mp3" title="Studio Neural Voice MP3 Podcast (131.2 MB)">🎙️ MP3 Podcast</span><span class="fmt-pill fmt-pdf" title="Adobe PDF Format">📄 PDF</span><span class="fmt-pill fmt-docx" title="Microsoft Word DOCX">📝 DOCX</span>
+                    <span class="fmt-pill fmt-html" title="Interactive Full-Text Reader with Web Speech Synthesis">📖 HTML Reader</span><span class="fmt-pill fmt-mp3 fmt-clickable" onclick="playHubAudio('First Sem 1st Year/Subjects/Statutory Construction/case digest/Statutory_Construction_Complete_Syllabus_ALAC_Case_Digests.mp3', 'Statutory Construction Complete Syllabus ALAC Case Digests', 'Statutory Construction', 'First Sem 1st Year/Subjects/Statutory Construction/case digest/Statutory_Construction_Complete_Syllabus_ALAC_Case_Digests.html')" title="Click to stream Studio MP3 Podcast (131.2 MB)">🎙️ MP3 Podcast (131.2 MB)</span><span class="fmt-pill fmt-pdf" title="Adobe PDF Format">📄 PDF</span><span class="fmt-pill fmt-docx" title="Microsoft Word DOCX">📝 DOCX</span>
                   </div>
                 </div>
                 <h3 class="hub-card-title"><a href="First Sem 1st Year/Subjects/Statutory Construction/case digest/Statutory_Construction_Complete_Syllabus_ALAC_Case_Digests.html">Statutory Construction Complete Syllabus ALAC Case Digests</a></h3>
                 <div class="hub-card-footer">
                   <a href="First Sem 1st Year/Subjects/Statutory Construction/case digest/Statutory_Construction_Complete_Syllabus_ALAC_Case_Digests.html" class="btn-open">📖 Open Interactive Reader →</a>
                   <div class="hub-sub-actions">
-                    <a href="First Sem 1st Year/Subjects/Statutory Construction/case digest/Statutory_Construction_Complete_Syllabus_ALAC_Case_Digests.mp3" class="btn-sub btn-sub-audio" download title="Download Studio MP3 Podcast">🎧 Podcast</a><a href="First Sem 1st Year/Subjects/Statutory Construction/case digest/Statutory_Construction_Complete_Syllabus_ALAC_Case_Digests.pdf" class="btn-sub btn-sub-pdf" target="_blank" title="View PDF Document">📄 PDF</a><a href="First Sem 1st Year/Subjects/Statutory Construction/case digest/Statutory_Construction_Complete_Syllabus_ALAC_Case_Digests.docx" class="btn-sub btn-sub-docx" download title="Download Word DOCX Document">📝 DOCX</a>
+                    <button type="button" class="btn-sub btn-sub-play" onclick="playHubAudio('First Sem 1st Year/Subjects/Statutory Construction/case digest/Statutory_Construction_Complete_Syllabus_ALAC_Case_Digests.mp3', 'Statutory Construction Complete Syllabus ALAC Case Digests', 'Statutory Construction', 'First Sem 1st Year/Subjects/Statutory Construction/case digest/Statutory_Construction_Complete_Syllabus_ALAC_Case_Digests.html')" title="Listen to Studio MP3 Podcast">▶️ Play Audio</button><a href="First Sem 1st Year/Subjects/Statutory Construction/case digest/Statutory_Construction_Complete_Syllabus_ALAC_Case_Digests.mp3" class="btn-sub btn-sub-audio" download title="Download Studio MP3 Podcast">⬇️ MP3</a><a href="First Sem 1st Year/Subjects/Statutory Construction/case digest/Statutory_Construction_Complete_Syllabus_ALAC_Case_Digests.pdf" class="btn-sub btn-sub-pdf" target="_blank" title="View PDF Document">📄 PDF</a><a href="First Sem 1st Year/Subjects/Statutory Construction/case digest/Statutory_Construction_Complete_Syllabus_ALAC_Case_Digests.docx" class="btn-sub btn-sub-docx" download title="Download Word DOCX Document">📝 DOCX</a>
                   </div>
                 </div>
               </div>
@@ -805,14 +1062,14 @@
                 <div class="hub-card-header">
                   <span class="badge-type badge-cases">🏛️ Landmark Cases</span>
                   <div class="fmt-pills-row">
-                    <span class="fmt-pill fmt-html" title="Interactive Full-Text Reader with Web Speech Synthesis">📖 HTML Reader</span><span class="fmt-pill fmt-mp3" title="Studio Neural Voice MP3 Podcast (120.7 MB)">🎙️ MP3 Podcast</span><span class="fmt-pill fmt-pdf" title="Adobe PDF Format">📄 PDF</span><span class="fmt-pill fmt-docx" title="Microsoft Word DOCX">📝 DOCX</span>
+                    <span class="fmt-pill fmt-html" title="Interactive Full-Text Reader with Web Speech Synthesis">📖 HTML Reader</span><span class="fmt-pill fmt-mp3 fmt-clickable" onclick="playHubAudio('First Sem 1st Year/Subjects/Statutory Construction/week 7/Statutory_Construction_Week_7_Cases.mp3', 'Statutory Construction Week 7 Cases', 'Statutory Construction', 'First Sem 1st Year/Subjects/Statutory Construction/week 7/Statutory_Construction_Week_7_Cases.html')" title="Click to stream Studio MP3 Podcast (120.7 MB)">🎙️ MP3 Podcast (120.7 MB)</span><span class="fmt-pill fmt-pdf" title="Adobe PDF Format">📄 PDF</span><span class="fmt-pill fmt-docx" title="Microsoft Word DOCX">📝 DOCX</span>
                   </div>
                 </div>
                 <h3 class="hub-card-title"><a href="First Sem 1st Year/Subjects/Statutory Construction/week 7/Statutory_Construction_Week_7_Cases.html">Statutory Construction Week 7 Cases</a></h3>
                 <div class="hub-card-footer">
                   <a href="First Sem 1st Year/Subjects/Statutory Construction/week 7/Statutory_Construction_Week_7_Cases.html" class="btn-open">📖 Open Interactive Reader →</a>
                   <div class="hub-sub-actions">
-                    <a href="First Sem 1st Year/Subjects/Statutory Construction/week 7/Statutory_Construction_Week_7_Cases.mp3" class="btn-sub btn-sub-audio" download title="Download Studio MP3 Podcast">🎧 Podcast</a><a href="First Sem 1st Year/Subjects/Statutory Construction/week 7/Statutory_Construction_Week_7_Cases.pdf" class="btn-sub btn-sub-pdf" target="_blank" title="View PDF Document">📄 PDF</a><a href="First Sem 1st Year/Subjects/Statutory Construction/week 7/Statutory_Construction_Week_7_Cases.docx" class="btn-sub btn-sub-docx" download title="Download Word DOCX Document">📝 DOCX</a>
+                    <button type="button" class="btn-sub btn-sub-play" onclick="playHubAudio('First Sem 1st Year/Subjects/Statutory Construction/week 7/Statutory_Construction_Week_7_Cases.mp3', 'Statutory Construction Week 7 Cases', 'Statutory Construction', 'First Sem 1st Year/Subjects/Statutory Construction/week 7/Statutory_Construction_Week_7_Cases.html')" title="Listen to Studio MP3 Podcast">▶️ Play Audio</button><a href="First Sem 1st Year/Subjects/Statutory Construction/week 7/Statutory_Construction_Week_7_Cases.mp3" class="btn-sub btn-sub-audio" download title="Download Studio MP3 Podcast">⬇️ MP3</a><a href="First Sem 1st Year/Subjects/Statutory Construction/week 7/Statutory_Construction_Week_7_Cases.pdf" class="btn-sub btn-sub-pdf" target="_blank" title="View PDF Document">📄 PDF</a><a href="First Sem 1st Year/Subjects/Statutory Construction/week 7/Statutory_Construction_Week_7_Cases.docx" class="btn-sub btn-sub-docx" download title="Download Word DOCX Document">📝 DOCX</a>
                   </div>
                 </div>
               </div>
@@ -822,16 +1079,117 @@
         
     </main>
 
-    <footer>
-      <div>Manila Law College (MLC) • Academic Year 2026–2027 • Juris Doctor First Semester</div>
-      <div style="margin-top: 0.4rem; font-size: 0.8rem; color: var(--text-muted);">
-        Interactive Speech Synthesis &amp; Studio Audio Engine • Pure Paragraph Editions
+    <!-- Master Floating Audio Player Dock -->
+    <div id="hubAudioDock" class="hub-audio-dock">
+      <div class="dock-inner">
+        <div class="dock-track-info">
+          <span class="dock-track-icon">🎧</span>
+          <div class="dock-track-text">
+            <div class="dock-track-title" id="dockTrackTitle">Select a Studio Podcast</div>
+            <div class="dock-track-sub" id="dockTrackSub">High-Fidelity Legal Studio Podcast</div>
+          </div>
+        </div>
+        
+        <div class="dock-player-center">
+          <div class="dock-controls">
+            <button type="button" class="dock-btn" onclick="seekDockAudio(-15)" title="Rewind 15 seconds">⏪ -15s</button>
+            <button type="button" class="dock-play-btn" id="dockPlayBtn" onclick="toggleDockPlay()" title="Play / Pause">▶</button>
+            <button type="button" class="dock-btn" onclick="seekDockAudio(15)" title="Forward 15 seconds">+15s ⏩</button>
+          </div>
+          <div class="dock-progress-wrap">
+            <span class="dock-time" id="dockCurrentTime">0:00</span>
+            <input type="range" id="dockSeekSlider" min="0" max="100" value="0" step="0.1" class="dock-seek-bar">
+            <span class="dock-time" id="dockDuration">0:00</span>
+          </div>
+        </div>
+
+        <div class="dock-actions">
+          <div class="dock-speed-chips">
+            <button type="button" class="dock-speed-btn active" onclick="setDockAudioSpeed(1.0, this)">1x</button>
+            <button type="button" class="dock-speed-btn" onclick="setDockAudioSpeed(1.25, this)">1.25x</button>
+            <button type="button" class="dock-speed-btn" onclick="setDockAudioSpeed(1.5, this)">1.5x</button>
+            <button type="button" class="dock-speed-btn" onclick="setDockAudioSpeed(2.0, this)">2x</button>
+          </div>
+          <a id="dockDownloadBtn" href="#" download class="dock-action-btn" title="Download Studio MP3">⬇️ MP3</a>
+          <a id="dockReaderBtn" href="#" class="dock-action-btn" title="Open Full Interactive Reader">📖 Reader</a>
+          <button type="button" class="dock-close-btn" onclick="closeHubAudioDock()" title="Close Player Dock">✕</button>
+        </div>
       </div>
-    </footer>
-  </div>
+      <audio id="dockAudioEl" preload="metadata"></audio>
+    </div>
 
   <script>
-    const DOC_LOOKUP = {"Canons & definition.html": "First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons & definition.html", "Canons & its Section(   A.M.-NO.-25-04-04-SC ).html": "First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons & its Section(   A.M.-NO.-25-04-04-SC ).html", "BLJE Case Digest.html": "First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/case digest/BLJE Case Digest.html", "Constitutional Law 1 Case Digest Titles.html": "First Sem 1st Year/Subjects/Constitutional Law/Constitutional Law 1 Case Digest Titles.html", "Constitutional Law 1 Lecture.html": "First Sem 1st Year/Subjects/Constitutional Law/Constitutional Law 1 Lecture.html", "Constitutional Law 1 Case Digests.html": "First Sem 1st Year/Subjects/Constitutional Law/case digest/Constitutional Law 1 Case Digests.html", "Criminal Law 1 - Course Outline and Complete Topics.html": "First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 - Course Outline and Complete Topics.html", "Criminal Law 1 Complete 275 Cases.html": "First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 Complete 275 Cases.html", "Criminal Law 1 Lecture.html": "First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 Lecture.html", "Criminal_Law_1_Complete_275_Landmark_ALAC_Case_Digests.html": "First Sem 1st Year/Subjects/Criminal Law/Criminal_Law_1_Complete_275_Landmark_ALAC_Case_Digests.html", "Philippine_Criminal_Law_Book_One_Treatise.html": "First Sem 1st Year/Subjects/Criminal Law/Philippine_Criminal_Law_Book_One_Treatise.html", "Criminal Law Case Digest.html": "First Sem 1st Year/Subjects/Criminal Law/case digest/Criminal Law Case Digest.html", "Statutory Construction (StatCon).html": "First Sem 1st Year/Subjects/Statutory Construction/Statutory Construction (StatCon).html", "Statutory Construction Case Digest.html": "First Sem 1st Year/Subjects/Statutory Construction/case digest/Statutory Construction Case Digest.html", "Statutory_Construction_Complete_Syllabus_ALAC_Case_Digests.html": "First Sem 1st Year/Subjects/Statutory Construction/case digest/Statutory_Construction_Complete_Syllabus_ALAC_Case_Digests.html", "Statutory_Construction_Week_7_Cases.html": "First Sem 1st Year/Subjects/Statutory Construction/week 7/Statutory_Construction_Week_7_Cases.html"};
+    const DOC_LOOKUP = {"Canons & definition.html": "First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons & definition.html", "Canons & its Section(   A.M.-NO.-25-04-04-SC ).html": "First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons & its Section(   A.M.-NO.-25-04-04-SC ).html", "BLJE_Landmark_Jurisprudence_and_Case_Digests.html": "First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons and jurisprudence/BLJE_Landmark_Jurisprudence_and_Case_Digests.html", "CPRA_Canons_and_Jurisprudence_Comprehensive_Study_Guide.html": "First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons and jurisprudence/CPRA_Canons_and_Jurisprudence_Comprehensive_Study_Guide.html", "CPRA_Canons_and_Sections_Comprehensive_Codal.html": "First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/Canons and jurisprudence/CPRA_Canons_and_Sections_Comprehensive_Codal.html", "BLJE Case Digest.html": "First Sem 1st Year/Subjects/Basic Legal and Judiciary Ethics/case digest/BLJE Case Digest.html", "Constitutional Law 1 Case Digest Titles.html": "First Sem 1st Year/Subjects/Constitutional Law/Constitutional Law 1 Case Digest Titles.html", "Constitutional Law 1 Lecture.html": "First Sem 1st Year/Subjects/Constitutional Law/Constitutional Law 1 Lecture.html", "Constitutional Law 1 Case Digests.html": "First Sem 1st Year/Subjects/Constitutional Law/case digest/Constitutional Law 1 Case Digests.html", "Criminal Law 1 - Course Outline and Complete Topics.html": "First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 - Course Outline and Complete Topics.html", "Criminal Law 1 Complete 275 Cases.html": "First Sem 1st Year/Subjects/Criminal Law/Criminal Law 1 Complete 275 Cases.html", "Criminal_Law_1_Complete_275_Landmark_ALAC_Case_Digests.html": "First Sem 1st Year/Subjects/Criminal Law/Criminal_Law_1_Complete_275_Landmark_ALAC_Case_Digests.html", "Philippine_Criminal_Law_Book_One_Treatise.html": "First Sem 1st Year/Subjects/Criminal Law/Philippine_Criminal_Law_Book_One_Treatise.html", "Criminal Law Case Digest.html": "First Sem 1st Year/Subjects/Criminal Law/case digest/Criminal Law Case Digest.html", "Statutory Construction (StatCon).html": "First Sem 1st Year/Subjects/Statutory Construction/Statutory Construction (StatCon).html", "Statutory Construction Case Digest.html": "First Sem 1st Year/Subjects/Statutory Construction/case digest/Statutory Construction Case Digest.html", "Statutory_Construction_Complete_Syllabus_ALAC_Case_Digests.html": "First Sem 1st Year/Subjects/Statutory Construction/case digest/Statutory_Construction_Complete_Syllabus_ALAC_Case_Digests.html", "Statutory_Construction_Week_7_Cases.html": "First Sem 1st Year/Subjects/Statutory Construction/week 7/Statutory_Construction_Week_7_Cases.html"};
+
+    // -------------------------------------------------------------
+    // HUB AUDIO DOCK ENGINE
+    // -------------------------------------------------------------
+    function formatTime(secs) {
+      if (!secs || isNaN(secs)) return '0:00';
+      const m = Math.floor(secs / 60);
+      const s = Math.floor(secs % 60);
+      return `${m}:${s < 10 ? '0' : ''}${s}`;
+    }
+
+    window.playHubAudio = function(src, title, subject, readerUrl) {
+      const dock = document.getElementById('hubAudioDock');
+      const dockAudio = document.getElementById('dockAudioEl');
+      const dockTrackTitle = document.getElementById('dockTrackTitle');
+      const dockTrackSub = document.getElementById('dockTrackSub');
+      const dockPlayBtn = document.getElementById('dockPlayBtn');
+      const dockDownloadBtn = document.getElementById('dockDownloadBtn');
+      const dockReaderBtn = document.getElementById('dockReaderBtn');
+
+      if (!dockAudio || !dock) return;
+      dockAudio.src = src;
+      if (dockTrackTitle) dockTrackTitle.textContent = title;
+      if (dockTrackSub) dockTrackSub.textContent = (subject || 'Law Subject') + ' • Studio Podcast';
+      if (dockDownloadBtn) dockDownloadBtn.href = src;
+      if (dockReaderBtn) dockReaderBtn.href = readerUrl || '#';
+      dock.classList.add('active');
+      dockAudio.play().then(() => {
+        if (dockPlayBtn) dockPlayBtn.textContent = '⏸';
+      }).catch(e => {
+        console.log('Autoplay or stream load notice:', e);
+        if (dockPlayBtn) dockPlayBtn.textContent = '▶';
+      });
+    };
+
+    window.toggleDockPlay = function() {
+      const dockAudio = document.getElementById('dockAudioEl');
+      const dockPlayBtn = document.getElementById('dockPlayBtn');
+      if (!dockAudio) return;
+      if (dockAudio.paused) {
+        dockAudio.play();
+        if (dockPlayBtn) dockPlayBtn.textContent = '⏸';
+      } else {
+        dockAudio.pause();
+        if (dockPlayBtn) dockPlayBtn.textContent = '▶';
+      }
+    };
+
+    window.seekDockAudio = function(offset) {
+      const dockAudio = document.getElementById('dockAudioEl');
+      if (dockAudio) {
+        dockAudio.currentTime = Math.max(0, Math.min(dockAudio.duration || 999999, dockAudio.currentTime + offset));
+      }
+    };
+
+    window.setDockAudioSpeed = function(rate, btn) {
+      const dockAudio = document.getElementById('dockAudioEl');
+      if (dockAudio) {
+        dockAudio.playbackRate = rate;
+        document.querySelectorAll('.dock-speed-btn').forEach(b => b.classList.remove('active'));
+        if (btn) btn.classList.add('active');
+      }
+    };
+
+    window.closeHubAudioDock = function() {
+      const dock = document.getElementById('hubAudioDock');
+      const dockAudio = document.getElementById('dockAudioEl');
+      if (dockAudio) dockAudio.pause();
+      if (dock) dock.classList.remove('active');
+    };
 
     document.addEventListener('DOMContentLoaded', () => {
       const searchInput = document.getElementById('hubSearch');
@@ -846,7 +1204,34 @@
       const hubBookmarksGrid = document.getElementById('hubBookmarksGrid');
       const hubBookmarksSection = document.getElementById('hubBookmarksSection');
       const statBookmarksCard = document.getElementById('statBookmarksCard');
+      const statPodcastsCard = document.getElementById('statPodcastsCard');
       const clearAllBookmarksBtn = document.getElementById('clearAllBookmarksBtn');
+
+      const dockAudio = document.getElementById('dockAudioEl');
+      const dockPlayBtn = document.getElementById('dockPlayBtn');
+      const dockCurrentTime = document.getElementById('dockCurrentTime');
+      const dockDuration = document.getElementById('dockDuration');
+      const dockSeekSlider = document.getElementById('dockSeekSlider');
+
+      if (dockAudio) {
+        dockAudio.addEventListener('timeupdate', () => {
+          if (dockCurrentTime) dockCurrentTime.textContent = formatTime(dockAudio.currentTime);
+          if (dockAudio.duration) {
+            if (dockDuration) dockDuration.textContent = formatTime(dockAudio.duration);
+            if (dockSeekSlider) dockSeekSlider.value = (dockAudio.currentTime / dockAudio.duration) * 100;
+          }
+        });
+        dockAudio.addEventListener('ended', () => {
+          if (dockPlayBtn) dockPlayBtn.textContent = '▶';
+        });
+        if (dockSeekSlider) {
+          dockSeekSlider.addEventListener('input', (e) => {
+            if (dockAudio.duration) {
+              dockAudio.currentTime = (parseFloat(e.target.value) / 100) * dockAudio.duration;
+            }
+          });
+        }
+      }
 
       let currentFilter = 'all';
       let currentQuery = '';
@@ -1091,6 +1476,16 @@
           if (hubBookmarksSection) {
             hubBookmarksSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
+        });
+      }
+
+      if (statPodcastsCard) {
+        statPodcastsCard.addEventListener('click', () => {
+          filterChips.forEach(c => c.classList.remove('active'));
+          const audioChip = document.getElementById('filterAudioChip');
+          if (audioChip) audioChip.classList.add('active');
+          currentFilter = 'audio-only';
+          filterCards();
         });
       }
 
