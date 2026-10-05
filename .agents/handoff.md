@@ -82,9 +82,26 @@ Implemented major UX/UI enhancements across the MLLibrary reader engine and rege
 
 ---
 
+### D. Revised Penal Code & Proposed Criminal Code Compendium Suite (`RPC/`)
+Generated complete multi-format suite and studio neural voice MP3 audio for the Revised Penal Code & Proposed Criminal Code Compendium:
+1. **Master Documents**:
+   - `Philippine_Revised_Penal_Code_and_Proposed_New_Criminal_Code_Compendium.docx` & `.pdf`
+   - `New_RPC_Public_Publish_and_Codal_Compendium.docx` & `.pdf`
+2. **Interactive HTML Web Readers**:
+   - `Philippine_Revised_Penal_Code_and_Proposed_New_Criminal_Code_Compendium.html`
+   - `New_RPC_Public_Publish_and_Codal_Compendium.html`
+   - Integrated with 3-slot bookmarks, Table of Contents badges, and instant paragraph TTS.
+3. **Studio Neural Voice Audio Podcast (`.mp3`)**:
+   - Synthesized with Edge TTS (`en-US-JennyNeural`, -3% rate, 10.2 MB, 3,014 words) covering Executive Status Report, Two-Book Structure, Comparative Matrix, Book 1 & Book 2 Codal synthesis, and RA 10951 schedules.
+   - Enforced strict Rule 4 Roman numeral spoken pronunciation and phonetic legal citation normalization.
+
+---
+
 ## 2. Core Repository Files & Generators
 
-- **Generator Script:** [`MLC\generate_tts_reader.py`](file:///C:/Users/JR/Downloads/14All-All41/MLC/generate_tts_reader.py)
+- **Master TTS Reader Generator:** [`MLC\generate_tts_reader.py`](file:///C:/Users/JR/Downloads/14All-All41/MLC/generate_tts_reader.py)
+- **RPC MP3 Audio Generator:** [`MLC\generate_rpc_mp3.py`](file:///C:/Users/JR/Downloads/14All-All41/MLC/generate_rpc_mp3.py)
+- **RPC Compendium Builder:** [`MLC\build_new_rpc_compendium.py`](file:///C:/Users/JR/Downloads/14All-All41/MLC/build_new_rpc_compendium.py)
 - **Master Study Hub:** [`MLC\MLC_Study_Hub.html`](file:///C:/Users/JR/Downloads/14All-All41/MLC/MLC_Study_Hub.html) / [`MLC\index.html`](file:///C:/Users/JR/Downloads/14All-All41/MLC/index.html)
 - **Permissions Guide:** [`ANTIGRAVITY_AUTORUN_PERMISSIONS_AND_SAFETY_GUIDE.md`](file:///C:/Users/JR/Downloads/14All-All41/ANTIGRAVITY_AUTORUN_PERMISSIONS_AND_SAFETY_GUIDE.md)
 - **Rules & Guardrails:** [`AGENTS.md`](file:///C:/Users/JR/Downloads/14All-All41/AGENTS.md) and [`GEMINI.md`](file:///C:/Users/JR/Downloads/14All-All41/GEMINI.md)

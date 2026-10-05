@@ -1,0 +1,2480 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Philippine Revised Penal Code and Proposed New Criminal Code Compendium | MLC Law Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0b1120;
+      --bg-secondary: #131d31;
+      --bg-tertiary: #1e293b;
+      --border-color: rgba(148, 163, 184, 0.14);
+      --border-focus: #fbbf24;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --accent-gold: #fbbf24;
+      --accent-gold-dark: #d97706;
+      --accent-blue: #38bdf8;
+      --accent-emerald: #34d399;
+      --accent-crimson: #f87171;
+      --accent-purple: #c084fc;
+      --highlight-bg: rgba(251, 191, 36, 0.22);
+      --highlight-border: #fbbf24;
+      --card-bg: rgba(19, 29, 49, 0.7);
+      --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Merriweather', Georgia, serif;
+      --font-heading: 'Cinzel', serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --sidebar-width: 320px;
+      --header-height: 60px;
+      --toolbar-height: 52px;
+      --sticky-top-total: calc(var(--header-height) + var(--toolbar-height));
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    }
+
+    [data-theme="sepia"] {
+      --bg-primary: #fbf7ee;
+      --bg-secondary: #f4ecd8;
+      --bg-tertiary: #e9dfc4;
+      --border-color: rgba(120, 97, 65, 0.18);
+      --border-focus: #b45309;
+      --text-primary: #2d241e;
+      --text-secondary: #4a3e35;
+      --text-muted: #786c60;
+      --accent-gold: #b45309;
+      --accent-gold-dark: #92400e;
+      --accent-blue: #0284c7;
+      --accent-emerald: #059669;
+      --accent-crimson: #dc2626;
+      --accent-purple: #7c3aed;
+      --highlight-bg: rgba(217, 119, 6, 0.2);
+      --highlight-border: #b45309;
+      --card-bg: rgba(244, 236, 216, 0.85);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8fafc;
+      --bg-tertiary: #f1f5f9;
+      --border-color: #e2e8f0;
+      --border-focus: #d97706;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --accent-gold: #d97706;
+      --accent-gold-dark: #b45309;
+      --accent-blue: #0284c7;
+      --accent-emerald: #059669;
+      --accent-crimson: #dc2626;
+      --accent-purple: #7c3aed;
+      --highlight-bg: rgba(254, 240, 138, 0.5);
+      --highlight-border: #eab308;
+      --card-bg: rgba(248, 250, 252, 0.9);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.8;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    /* Scroll Progress Bar */
+    #readingProgressBar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue));
+      width: 0%;
+      z-index: 1000;
+      transition: width 0.1s ease;
+    }
+
+    /* Floating Selection Reader Trigger */
+    #floatingTtsTrigger {
+      position: absolute;
+      display: none;
+      z-index: 999;
+      background: var(--accent-gold);
+      color: #0b1120;
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+      cursor: pointer;
+      border: none;
+      transform: translate(-50%, -100%);
+      transition: transform 0.15s ease, background-color 0.15s ease;
+    }
+    #floatingTtsTrigger:hover {
+      background: var(--accent-gold-dark);
+      color: #ffffff;
+      transform: translate(-50%, -105%) scale(1.05);
+    }
+
+    /* Header & Navigation Bar - STICKY TOP */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-color);
+      height: var(--header-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn-icon {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .btn-icon:hover {
+      background-color: var(--bg-tertiary);
+      border-color: var(--border-focus);
+      color: var(--accent-gold);
+    }
+
+    .brand-title {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--accent-gold);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 340px;
+    }
+
+    .subject-pill {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--accent-blue);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .select-control {
+      background-color: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      padding: 6px 10px;
+      border-radius: 6px;
+      outline: none;
+      cursor: pointer;
+    }
+    .select-control:focus {
+      border-color: var(--border-focus);
+    }
+
+    /* TTS Audio Control Bar - STICKY UNDER HEADER */
+    .tts-toolbar {
+      position: sticky;
+      top: var(--header-height);
+      z-index: 95;
+      background-color: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.55rem 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      font-family: var(--font-ui);
+      font-size: 0.88rem;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .tts-controls-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-tts {
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+      border: none;
+      color: #0b1120;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 7px 16px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      transition: transform 0.1s ease, filter 0.15s ease;
+    }
+    .btn-tts:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+    }
+    .btn-tts:active {
+      transform: translateY(1px);
+    }
+
+    .btn-tts-secondary {
+      background-color: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 7px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: all 0.15s ease;
+    }
+    .btn-tts-secondary:hover {
+      border-color: var(--border-focus);
+      color: var(--accent-gold);
+    }
+
+    .btn-tts-stop {
+      border-color: rgba(248, 113, 113, 0.35);
+      color: var(--accent-crimson);
+    }
+    .btn-tts-stop:hover {
+      background-color: rgba(248, 113, 113, 0.15);
+      border-color: var(--accent-crimson);
+      color: #ffffff;
+    }
+
+    .tts-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: var(--bg-tertiary);
+      padding: 4px 10px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      transition: all 0.2s ease;
+    }
+    .tts-status-badge.speaking {
+      color: var(--accent-emerald);
+      border-color: var(--accent-emerald);
+      background: rgba(52, 211, 153, 0.1);
+    }
+    .tts-status-badge.paused {
+      color: var(--accent-gold);
+      border-color: var(--accent-gold);
+      background: rgba(251, 191, 36, 0.1);
+    }
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background-color: currentColor;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .speaking .pulse-dot {
+      animation: pulse 1.2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(0.9); opacity: 0.6; }
+      50% { transform: scale(1.3); opacity: 1; }
+      100% { transform: scale(0.9); opacity: 0.6; }
+    }
+
+    /* Main Content Layout */
+    .app-layout {
+      display: flex;
+      flex: 1;
+      position: relative;
+      width: 100%;
+    }
+
+    /* Table of Contents Sidebar */
+    .sidebar-toc {
+      width: var(--sidebar-width);
+      background-color: var(--bg-secondary);
+      border-right: 1px solid var(--border-color);
+      position: sticky;
+      top: var(--sticky-top-total);
+      height: calc(100vh - var(--sticky-top-total));
+      overflow-y: auto;
+      padding: 1.25rem 1rem;
+      flex-shrink: 0;
+      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  padding 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  opacity 0.2s ease;
+      z-index: 80;
+    }
+
+    /* Sidebar Minimized / Collapsed state */
+    body.sidebar-collapsed .sidebar-toc,
+    .sidebar-toc.minimized {
+      width: 0 !important;
+      min-width: 0 !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      border-right: none !important;
+      opacity: 0 !important;
+      overflow: hidden !important;
+      pointer-events: none !important;
+      transform: translateX(-15px);
+    }
+
+    .toc-header-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.85rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .toc-heading {
+      font-family: var(--font-ui);
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent-gold);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-toc-minimize {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      cursor: pointer;
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.05rem;
+      line-height: 1;
+      transition: all 0.15s ease;
+    }
+    .btn-toc-minimize:hover {
+      background: var(--accent-gold);
+      color: #0b1120;
+      border-color: var(--accent-gold);
+    }
+
+    .toc-search-box {
+      width: 100%;
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      padding: 8px 12px;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      outline: none;
+    }
+    .toc-search-box:focus {
+      border-color: var(--border-focus);
+    }
+
+    .toc-list {
+      list-style: none;
+    }
+
+    .toc-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      padding: 6px 10px 6px 12px;
+      border-radius: 4px;
+      margin-bottom: 2px;
+      border-left: 2px solid transparent;
+      transition: all 0.15s ease;
+    }
+    .toc-link-text {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex: 1;
+    }
+    .toc-bm-badges-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+    .toc-bm-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      font-family: var(--font-ui);
+      padding: 1px 5px;
+      border-radius: 4px;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      white-space: nowrap;
+    }
+    .toc-bm-badge.badge-slot-1 {
+      background: rgba(251, 191, 36, 0.22);
+      color: var(--accent-gold);
+      border: 1px solid rgba(251, 191, 36, 0.5);
+    }
+    .toc-bm-badge.badge-slot-2 {
+      background: rgba(52, 211, 153, 0.22);
+      color: var(--accent-emerald);
+      border: 1px solid rgba(52, 211, 153, 0.5);
+    }
+    .toc-bm-badge.badge-slot-3 {
+      background: rgba(192, 132, 252, 0.22);
+      color: var(--accent-purple);
+      border: 1px solid rgba(192, 132, 252, 0.5);
+    }
+    .toc-link:hover {
+      background-color: var(--bg-tertiary);
+      color: var(--accent-gold);
+      border-left-color: var(--accent-gold);
+    }
+    .toc-link.active {
+      background-color: var(--bg-tertiary);
+      color: var(--accent-gold);
+      border-left-color: var(--accent-gold);
+      font-weight: 600;
+    }
+    .toc-link.level-2 {
+      padding-left: 22px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Floating / Fixed Restore Sidebar Tab when Minimized */
+    #restoreSidebarBtn {
+      position: fixed;
+      left: 1rem;
+      top: calc(var(--sticky-top-total) + 14px);
+      z-index: 90;
+      background: var(--bg-secondary);
+      border: 1px solid var(--accent-gold);
+      color: var(--accent-gold);
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 7px 14px;
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    body.sidebar-collapsed #restoreSidebarBtn {
+      display: flex;
+    }
+    #restoreSidebarBtn:hover {
+      background: var(--accent-gold);
+      color: #0b1120;
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 8px 24px rgba(251, 191, 36, 0.35);
+    }
+
+    /* Header toggle button active status */
+    body.sidebar-collapsed #toggleSidebarBtn {
+      background-color: var(--bg-tertiary);
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+    }
+
+    /* Main Reading Article Container - Adapts width smoothly */
+    .reader-main {
+      flex: 1;
+      width: 100%;
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 6rem;
+      transition: max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Responsive Expanded Width when Sidebar is Minimized */
+    body.sidebar-collapsed .reader-main {
+      max-width: 1200px;
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+
+    @media (min-width: 1600px) {
+      .reader-main {
+        max-width: 1020px;
+      }
+      body.sidebar-collapsed .reader-main {
+        max-width: 1400px;
+      }
+    }
+
+    .doc-meta-banner {
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .doc-headline {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--accent-gold);
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.02em;
+    }
+    .doc-stats {
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    /* Studio Native MP3 Audio Player */
+    .studio-audio-player {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-emerald);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-md);
+      backdrop-filter: blur(8px);
+    }
+    .audio-player-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.85rem;
+      font-family: var(--font-ui);
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .audio-badge-group {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .audio-badge {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent-emerald);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .audio-status-pill {
+      font-size: 0.7rem;
+      font-weight: 600;
+      background: rgba(52, 211, 153, 0.15);
+      color: #6ee7b7;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      border: 1px solid rgba(52, 211, 153, 0.3);
+    }
+    .audio-filename {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+    .native-audio-element {
+      width: 100%;
+      outline: none;
+      border-radius: 30px;
+    }
+    .audio-controls-extra {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(148, 163, 184, 0.1);
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    .audio-speed-chips {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .speed-btn {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .speed-btn:hover {
+      background: rgba(52, 211, 153, 0.2);
+      border-color: var(--accent-emerald);
+      color: #a7f3d0;
+    }
+    .speed-btn.active {
+      background: var(--accent-emerald);
+      color: #0b1120;
+      border-color: var(--accent-emerald);
+      font-weight: 700;
+    }
+    .audio-quick-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .audio-action-btn {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .audio-action-btn:hover {
+      background: rgba(56, 189, 248, 0.2);
+      border-color: var(--accent-blue);
+      color: var(--text-primary);
+    }
+
+    /* Document Sections & Continuous Body Elements */
+    .doc-section {
+      margin-bottom: 3rem;
+      scroll-margin-top: calc(var(--sticky-top-total) + 20px);
+    }
+    .section-divider {
+      border: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+      margin: 3rem 0;
+    }
+
+    /* Case Header Card */
+    .case-header-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-left: 5px solid var(--accent-gold);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .case-number-pill {
+      display: inline-block;
+      background: var(--accent-gold);
+      color: #0b1120;
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+    .case-header-title {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.35;
+    }
+
+    .topic-header-card {
+      background: var(--bg-secondary);
+      border-left: 4px solid var(--accent-blue);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .topic-header-title {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent-blue);
+    }
+
+    .subtopic-header-card {
+      margin: 1.5rem 0 1rem;
+    }
+    .subtopic-header-title {
+      font-family: var(--font-ui);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+    }
+
+    /* Case Citation Banner */
+    .case-citation-banner {
+      background-color: var(--bg-tertiary);
+      border: 1px dashed var(--border-color);
+      border-radius: 8px;
+      padding: 0.75rem 1.25rem;
+      margin-bottom: 1.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .citation-label {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      background: rgba(251, 191, 36, 0.12);
+      border: 1px solid rgba(251, 191, 36, 0.25);
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+
+    /* Subheadings within Case (Facts, Issue, Ruling) */
+    .case-subheading {
+      font-family: var(--font-ui);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 1.75rem 0 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.4rem;
+    }
+    .subheading-accent {
+      color: var(--accent-gold);
+      font-size: 1.2rem;
+    }
+
+    /* Continuous Flowing Paragraphs */
+    .case-paragraph {
+      margin-bottom: 1.25rem;
+      text-align: justify;
+      text-justify: inter-word;
+      line-height: 1.85;
+      padding: 4px 6px;
+      border-radius: 6px;
+      transition: background-color 0.15s ease;
+    }
+
+    /* ALAC & Reasoning Paragraph Badges */
+    .alac-paragraph {
+      background: rgba(255, 255, 255, 0.02);
+      border-left: 3px solid var(--border-color);
+      padding: 0.6rem 0.85rem;
+      margin-bottom: 1.25rem;
+    }
+    .alac-badge {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-right: 0.5rem;
+      vertical-align: baseline;
+    }
+    .badge-ans { background: rgba(56, 189, 248, 0.2); color: var(--accent-blue); border: 1px solid var(--accent-blue); }
+    .badge-law { background: rgba(192, 132, 252, 0.2); color: var(--accent-purple); border: 1px solid var(--accent-purple); }
+    .badge-app { background: rgba(251, 191, 36, 0.2); color: var(--accent-gold); border: 1px solid var(--accent-gold); }
+    .badge-con { background: rgba(52, 211, 153, 0.2); color: var(--accent-emerald); border: 1px solid var(--accent-emerald); }
+    .badge-syn { background: rgba(248, 113, 113, 0.2); color: var(--accent-crimson); border: 1px solid var(--accent-crimson); }
+    .badge-gen { background: rgba(148, 163, 184, 0.2); color: var(--text-secondary); border: 1px solid var(--border-color); }
+
+    /* Bullet Points */
+    .bullet-point {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .bullet-dot {
+      color: var(--accent-gold);
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+    .bullet-content {
+      flex: 1;
+      text-align: justify;
+    }
+
+    /* Tables */
+    .table-responsive {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+    }
+    .reader-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      font-family: var(--font-ui);
+    }
+    .reader-table th, .reader-table td {
+      padding: 10px 14px;
+      border: 1px solid var(--border-color);
+      text-align: left;
+    }
+    .reader-table th {
+      background-color: var(--bg-secondary);
+      font-weight: 700;
+      color: var(--accent-gold);
+    }
+    .reader-table tr:nth-child(even) {
+      background-color: rgba(255, 255, 255, 0.02);
+    }
+
+    /* Active TTS Highlight */
+    .read-unit.is-speaking {
+      background-color: var(--highlight-bg) !important;
+      border-left: 3px solid var(--highlight-border) !important;
+      border-radius: 4px;
+      box-shadow: 0 0 15px rgba(251, 191, 36, 0.15);
+    }
+
+    /* Responsive adjustments for Tablets and Mobile */
+    @media (max-width: 900px) {
+      :root {
+        --header-height: 56px;
+        --toolbar-height: auto;
+      }
+      .tts-toolbar {
+        top: var(--header-height);
+        padding: 0.5rem 1rem;
+        gap: 0.6rem;
+      }
+      .tts-controls-group {
+        flex-wrap: wrap;
+      }
+      .sidebar-toc {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        width: 300px;
+        max-width: 85vw;
+        z-index: 1000;
+        transform: translateX(-100%);
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        background-color: var(--bg-secondary);
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        padding: 1.25rem 1rem !important;
+      }
+      .sidebar-toc.open {
+        transform: translateX(0) !important;
+      }
+      body.sidebar-collapsed .sidebar-toc {
+        transform: translateX(-100%) !important;
+      }
+      #restoreSidebarBtn {
+        display: none !important;
+      }
+      .reader-main {
+        padding: 1.5rem 1rem 5rem !important;
+        max-width: 100% !important;
+      }
+      body.sidebar-collapsed .reader-main {
+        padding: 1.5rem 1rem 5rem !important;
+        max-width: 100% !important;
+      }
+      #sidebarOverlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.65);
+        backdrop-filter: blur(4px);
+        z-index: 999;
+        display: none;
+      }
+      #sidebarOverlay.active {
+        display: block;
+      }
+    }
+
+    /* ------------------------------------------------------------- */
+    /* 3 SPECIAL BOOKMARKING SYSTEM                                  */
+    /* ============================================================= */
+    .bookmark-nav-wrapper {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+    .bookmark-count-badge {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      background: var(--accent-crimson);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 800;
+      min-width: 17px;
+      height: 17px;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 4px;
+      border: 2px solid var(--bg-secondary);
+      box-shadow: 0 0 6px rgba(248, 113, 113, 0.6);
+      pointer-events: none;
+    }
+
+    /* Bookmarks Dropdown Popover */
+    .bookmarks-dropdown {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      width: 380px;
+      max-width: 92vw;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 1.1rem;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
+      z-index: 200;
+      display: none;
+      flex-direction: column;
+      gap: 0.85rem;
+      backdrop-filter: blur(16px);
+      animation: bookmarkFadeIn 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .bookmarks-dropdown.open {
+      display: flex;
+    }
+    @keyframes bookmarkFadeIn {
+      from { opacity: 0; transform: translateY(-8px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .bookmarks-dropdown-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .bookmarks-title {
+      font-family: var(--font-heading);
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+      letter-spacing: 0.03em;
+    }
+    .bookmarks-sub {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-family: var(--font-ui);
+    }
+
+    .bookmarks-slots-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .bookmark-slot-card {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 0.75rem 0.85rem;
+      transition: all 0.2s ease;
+    }
+    .bookmark-slot-card.slot-1 { border-left: 4px solid var(--accent-gold); }
+    .bookmark-slot-card.slot-2 { border-left: 4px solid var(--accent-emerald); }
+    .bookmark-slot-card.slot-3 { border-left: 4px solid var(--accent-purple); }
+
+    .slot-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.45rem;
+    }
+    .slot-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      font-family: var(--font-ui);
+      letter-spacing: 0.04em;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+    .badge-slot-1 { color: var(--accent-gold); background: rgba(251, 191, 36, 0.12); border: 1px solid rgba(251, 191, 36, 0.25); }
+    .badge-slot-2 { color: var(--accent-emerald); background: rgba(52, 211, 153, 0.12); border: 1px solid rgba(52, 211, 153, 0.25); }
+    .badge-slot-3 { color: var(--accent-purple); background: rgba(192, 132, 252, 0.12); border: 1px solid rgba(192, 132, 252, 0.25); }
+
+    .btn-slot-clear {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 0.8rem;
+      padding: 2px 5px;
+      border-radius: 4px;
+      line-height: 1;
+      transition: all 0.15s ease;
+    }
+    .btn-slot-clear:hover {
+      color: var(--accent-crimson);
+      background: rgba(248, 113, 113, 0.15);
+    }
+
+    .slot-meta-box {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      margin-bottom: 0.45rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 1px dashed var(--border-color);
+      font-size: 0.74rem;
+      font-family: var(--font-ui);
+    }
+    .slot-meta-row {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      line-height: 1.35;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .slot-meta-label {
+      font-weight: 700;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+    .slot-meta-val {
+      color: var(--text-secondary);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .slot-meta-val.val-subject { color: var(--accent-blue); font-weight: 600; }
+    .slot-meta-val.val-topic { color: var(--accent-gold-light); font-weight: 600; }
+    .slot-meta-val.val-location { color: var(--accent-emerald); font-weight: 500; }
+
+    .slot-content {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+      margin-bottom: 0.5rem;
+      font-family: var(--font-body);
+      max-height: 48px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 4px 6px;
+      border-radius: 4px;
+      border-left: 2px solid rgba(148, 163, 184, 0.3);
+    }
+    .slot-content.empty {
+      font-style: italic;
+      color: var(--text-muted);
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      background: transparent;
+      border-left: none;
+      padding: 0;
+    }
+
+    .slot-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.5rem;
+    }
+    .btn-slot-jump {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .btn-slot-jump:hover {
+      background: var(--accent-gold);
+      color: #0b1120;
+      border-color: var(--accent-gold);
+    }
+
+    /* In-Paragraph Bookmark Hover Toolbar */
+    .read-unit {
+      position: relative;
+    }
+    .unit-bookmark-tools {
+      position: absolute;
+      right: 8px;
+      top: 4px;
+      display: none;
+      align-items: center;
+      gap: 4px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 2px 6px;
+      box-shadow: var(--shadow-md);
+      z-index: 10;
+      backdrop-filter: blur(6px);
+      opacity: 0.95;
+    }
+    .read-unit:hover .unit-bookmark-tools {
+      display: flex;
+    }
+    .btn-unit-bm {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 0.75rem;
+      font-weight: 700;
+      font-family: var(--font-ui);
+      line-height: 1;
+      padding: 3px 5px;
+      border-radius: 4px;
+      transition: transform 0.15s ease, filter 0.15s ease;
+      color: var(--text-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+    }
+    .btn-unit-bm:hover {
+      transform: scale(1.15);
+      filter: drop-shadow(0 0 4px var(--accent-gold));
+    }
+
+    /* Bookmark Indicators on Paragraphs */
+    .read-unit.bookmarked-slot-1 {
+      border-left: 4px solid var(--accent-gold) !important;
+      background: rgba(251, 191, 36, 0.08) !important;
+    }
+    .read-unit.bookmarked-slot-2 {
+      border-left: 4px solid var(--accent-emerald) !important;
+      background: rgba(52, 211, 153, 0.08) !important;
+    }
+    .read-unit.bookmarked-slot-3 {
+      border-left: 4px solid var(--accent-purple) !important;
+      background: rgba(192, 132, 252, 0.08) !important;
+    }
+
+    .bookmark-ribbon {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 4px;
+      margin-bottom: 7px;
+      letter-spacing: 0.03em;
+    }
+    .ribbon-slot-1 { background: rgba(251, 191, 36, 0.18); color: var(--accent-gold); border: 1px solid var(--accent-gold); }
+    .ribbon-slot-2 { background: rgba(52, 211, 153, 0.18); color: var(--accent-emerald); border: 1px solid var(--accent-emerald); }
+    .ribbon-slot-3 { background: rgba(192, 132, 252, 0.18); color: var(--accent-purple); border: 1px solid var(--accent-purple); }
+    /* Target Jump Flash Animation */
+    @keyframes bookmarkTargetFlash {
+      0% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.7); }
+      50% { box-shadow: 0 0 25px 5px rgba(251, 191, 36, 0.5); }
+      100% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0); }
+    }
+    .bookmark-flash-target {
+      animation: bookmarkTargetFlash 1.6s ease-out;
+    }
+  </style>
+</head>
+<body>
+  <div id="readingProgressBar"></div>
+  <button id="floatingTtsTrigger" title="Read Selected Text">Read Selection</button>
+  <button id="restoreSidebarBtn" title="Show Table of Contents (Ctrl+B)">☰ Table of Contents</button>
+  <div id="sidebarOverlay"></div>
+
+  <header>
+    <div class="header-left">
+      <a href="https://mllibrary.juliusrayn-balitbit.workers.dev/" class="btn-icon" id="mainMenuBtn" title="Return to Main Menu (Study Hub)">☰</a>
+      <div>
+        <h1 class="brand-title">Philippine Revised Penal Code and Proposed New Criminal Code Compendium</h1>
+        <span class="subject-pill">RPC</span>
+      </div>
+    </div>
+    <div class="header-actions">
+      <div class="bookmark-nav-wrapper">
+        <button class="btn-icon" id="bookmarksMenuBtn" title="Saved Bookmarks (Key: B)">
+          🔖
+          <span class="bookmark-count-badge" id="bookmarkCountBadge" style="display:none;">0</span>
+        </button>
+        <div class="bookmarks-dropdown" id="bookmarksDropdown">
+          <div class="bookmarks-dropdown-header">
+            <div class="bookmarks-title">🔖 Study Bookmarks</div>
+            <span class="bookmarks-sub">3 Quick Slots</span>
+          </div>
+          <div class="bookmarks-slots-container">
+            <!-- Bookmark 1 -->
+            <div class="bookmark-slot-card slot-1" id="slotCard1">
+              <div class="slot-card-header">
+                <span class="slot-badge badge-slot-1">🔖 Bookmark 1</span>
+                <button class="btn-slot-clear" data-slot="1" title="Clear Bookmark 1">✕</button>
+              </div>
+              <div class="slot-meta-box" id="slotMeta1" style="display:none;">
+                <div class="slot-meta-row"><span class="slot-meta-label">📚 Subject:</span> <span class="slot-meta-val val-subject" id="slotSubject1"></span></div>
+                <div class="slot-meta-row"><span class="slot-meta-label">📌 Topic:</span> <span class="slot-meta-val val-topic" id="slotTopic1"></span></div>
+                <div class="slot-meta-row"><span class="slot-meta-label">📍 Location:</span> <span class="slot-meta-val val-location" id="slotLocation1"></span></div>
+              </div>
+              <div class="slot-content empty" id="slotContent1">No bookmark set. Click 🔖 1 on any paragraph.</div>
+              <div class="slot-actions" id="slotActions1" style="display:none;">
+                <button class="btn-slot-jump" data-slot="1">Jump to Bookmark →</button>
+              </div>
+            </div>
+            <!-- Bookmark 2 -->
+            <div class="bookmark-slot-card slot-2" id="slotCard2">
+              <div class="slot-card-header">
+                <span class="slot-badge badge-slot-2">⭐ Bookmark 2</span>
+                <button class="btn-slot-clear" data-slot="2" title="Clear Bookmark 2">✕</button>
+              </div>
+              <div class="slot-meta-box" id="slotMeta2" style="display:none;">
+                <div class="slot-meta-row"><span class="slot-meta-label">📚 Subject:</span> <span class="slot-meta-val val-subject" id="slotSubject2"></span></div>
+                <div class="slot-meta-row"><span class="slot-meta-label">📌 Topic:</span> <span class="slot-meta-val val-topic" id="slotTopic2"></span></div>
+                <div class="slot-meta-row"><span class="slot-meta-label">📍 Location:</span> <span class="slot-meta-val val-location" id="slotLocation2"></span></div>
+              </div>
+              <div class="slot-content empty" id="slotContent2">No bookmark set. Click ⭐ 2 on any paragraph.</div>
+              <div class="slot-actions" id="slotActions2" style="display:none;">
+                <button class="btn-slot-jump" data-slot="2">Jump to Bookmark →</button>
+              </div>
+            </div>
+            <!-- Bookmark 3 -->
+            <div class="bookmark-slot-card slot-3" id="slotCard3">
+              <div class="slot-card-header">
+                <span class="slot-badge badge-slot-3">📌 Bookmark 3</span>
+                <button class="btn-slot-clear" data-slot="3" title="Clear Bookmark 3">✕</button>
+              </div>
+              <div class="slot-meta-box" id="slotMeta3" style="display:none;">
+                <div class="slot-meta-row"><span class="slot-meta-label">📚 Subject:</span> <span class="slot-meta-val val-subject" id="slotSubject3"></span></div>
+                <div class="slot-meta-row"><span class="slot-meta-label">📌 Topic:</span> <span class="slot-meta-val val-topic" id="slotTopic3"></span></div>
+                <div class="slot-meta-row"><span class="slot-meta-label">📍 Location:</span> <span class="slot-meta-val val-location" id="slotLocation3"></span></div>
+              </div>
+              <div class="slot-content empty" id="slotContent3">No bookmark set. Click 📌 3 on any paragraph.</div>
+              <div class="slot-actions" id="slotActions3" style="display:none;">
+                <button class="btn-slot-jump" data-slot="3">Jump to Bookmark →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="btn-icon" id="fontDecBtn" title="Decrease Font Size">A-</button>
+      <button class="btn-icon" id="fontIncBtn" title="Increase Font Size">A+</button>
+      <select class="select-control" id="themeSelect" title="Select Theme">
+        <option value="dark">Dark</option>
+        <option value="sepia">Sepia</option>
+        <option value="light">Light</option>
+      </select>
+    </div>
+  </header>
+
+  <div class="tts-toolbar">
+    <div class="tts-controls-group">
+      <button class="btn-tts" id="playPauseBtn">
+        <span id="playIcon">▶</span>
+        <span id="pauseIcon" style="display:none;">❚❚</span>
+        <span id="playBtnText">Read Aloud</span>
+      </button>
+      <button class="btn-tts-secondary" id="prevBtn" title="Previous Paragraph (Key: P)">Previous</button>
+      <button class="btn-tts-secondary" id="nextBtn" title="Next Paragraph (Key: N)">Next</button>
+      <button class="btn-tts-secondary btn-tts-stop" id="stopBtn" title="Stop Reading Aloud (Key: Esc)">⏹ Stop</button>
+    </div>
+
+    <div class="tts-controls-group">
+      <label for="voiceSelect" style="font-size:0.8rem; color:var(--text-muted);">Voice:</label>
+      <select class="select-control" id="voiceSelect" style="max-width: 220px;">
+        <option value="default">Auto Best Voice</option>
+      </select>
+
+      <label for="speedSelect" style="font-size:0.8rem; color:var(--text-muted);">Speed:</label>
+      <select class="select-control" id="speedSelect">
+        <option value="0.8">0.8x</option>
+        <option value="0.9" selected>0.9x (Natural)</option>
+        <option value="1.0">1.0x (Standard)</option>
+        <option value="1.1">1.1x</option>
+        <option value="1.2">1.2x</option>
+      </select>
+
+      <div class="tts-status-badge" id="ttsStatusBadge">
+        <span class="pulse-dot"></span>
+        <span id="statusText">Ready</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="app-layout">
+    <nav class="sidebar-toc" id="sidebarNav">
+      <div class="toc-header-bar">
+        <div class="toc-heading">
+          <span>Table of Contents</span>
+        </div>
+        <button class="btn-toc-minimize" id="minimizeSidebarBtn" title="Minimize / Toggle Sidebar (Ctrl+B)">☰</button>
+      </div>
+      <input type="text" class="toc-search-box" id="sidebarSearch" placeholder="Filter topics & cases..." />
+      <ul class="toc-list" id="tocList">
+<li><a href="#sec-overview" class="toc-link level-1" title="Philippine Revised Penal Code and Proposed New Criminal Code Compendium"><span class="toc-link-text">Philippine Revised Penal Code and Proposed New Criminal Code Compendium</span></a></li>
+<li><a href="#sec-1-1-executive-legal-overview-status-report" class="toc-link level-1" title="1. EXECUTIVE LEGAL OVERVIEW &amp; STATUS REPORT"><span class="toc-link-text">1. EXECUTIVE LEGAL OVERVIEW &amp; STATUS REPORT</span></a></li>
+<li><a href="#sec-2-2-part-i-the-proposed-criminal-code-of-the-philippines-new-r" class="toc-link level-1" title="2. PART I: THE PROPOSED CRIMINAL CODE OF THE PHILIPPINES (&quot;NEW RPC&quot;)"><span class="toc-link-text">2. PART I: THE PROPOSED CRIMINAL CODE OF THE PHILIPPINES (&quot;NEW RPC&quot;)</span></a></li>
+<li><a href="#sec-3-1-archaic-terminology-the-1932-rpc-is-a-translation-of-the-1" class="toc-link level-1" title="1. Archaic Terminology: The 1932 RPC is a translation of the 1870 Spanish Código Penal, utilizing antiquated concepts and complex Spanish penalty nomenclatures (such as arresto mayor, prision correccional, prision mayor, reclusion temporal, reclusion perpetua, and destierro) that are unfamiliar to the general public."><span class="toc-link-text">1. Archaic Terminology: The 1932 RPC is a translation of the 1870 Spanish Código Penal, utilizing antiquated concepts and complex Spanish penalty nomenclatures (such as arresto mayor, prision correccional, prision mayor, reclusion temporal, reclusion perpetua, and destierro) that are unfamiliar to the general public.</span></a></li>
+<li><a href="#sec-4-2-statutory-proliferation-inconsistency-thousands-of-separat" class="toc-link level-1" title="2. Statutory Proliferation &amp; Inconsistency: Thousands of separate special penal laws (SPLs) have been enacted over nine decades, creating conflicting rules on graduation of penalties, mitigating/aggravating circumstances, intent vs. strict liability, and subsidiary liability."><span class="toc-link-text">2. Statutory Proliferation &amp; Inconsistency: Thousands of separate special penal laws (SPLs) have been enacted over nine decades, creating conflicting rules on graduation of penalties, mitigating/aggravating circumstances, intent vs. strict liability, and subsidiary liability.</span></a></li>
+<li><a href="#sec-5-3-modern-offense-gaps-the-original-rpc-lacked-systematic-fra" class="toc-link level-1" title="3. Modern Offense Gaps: The original RPC lacked systematic frameworks for transnational crimes, digital/cyber offenses, environmental destruction, financial fraud, money laundering, and crimes committed by corporations and juridical entities."><span class="toc-link-text">3. Modern Offense Gaps: The original RPC lacked systematic frameworks for transnational crimes, digital/cyber offenses, environmental destruction, financial fraud, money laundering, and crimes committed by corporations and juridical entities.</span></a></li>
+<li><a href="#sec-6-a-title-i-crimes-against-persons-life-bodily-integrity-liber" class="toc-link level-2" title="a. Title I: Crimes Against Persons (Life, Bodily Integrity, Liberty, Security, Sexual Integrity)"><span class="toc-link-text">a. Title I: Crimes Against Persons (Life, Bodily Integrity, Liberty, Security, Sexual Integrity)</span></a></li>
+<li><a href="#sec-7-b-title-ii-crimes-against-property-and-economic-order-theft" class="toc-link level-2" title="b. Title II: Crimes Against Property and Economic Order (Theft, Fraud, Corporate Crimes, Cyber Offenses, Plunder)"><span class="toc-link-text">b. Title II: Crimes Against Property and Economic Order (Theft, Fraud, Corporate Crimes, Cyber Offenses, Plunder)</span></a></li>
+<li><a href="#sec-8-c-title-iii-crimes-against-the-state-public-order-and-admini" class="toc-link level-2" title="c. Title III: Crimes Against the State, Public Order, and Administration of Justice (Treason, Rebellion, Corruption, Perjury, Obstruction)"><span class="toc-link-text">c. Title III: Crimes Against the State, Public Order, and Administration of Justice (Treason, Rebellion, Corruption, Perjury, Obstruction)</span></a></li>
+<li><a href="#sec-9-3-part-ii-complete-consolidated-revised-penal-code-act-no-38" class="toc-link level-1" title="3. PART II: COMPLETE CONSOLIDATED REVISED PENAL CODE (ACT NO. 3815 AS AMENDED)"><span class="toc-link-text">3. PART II: COMPLETE CONSOLIDATED REVISED PENAL CODE (ACT NO. 3815 AS AMENDED)</span></a></li>
+<li><a href="#sec-10-preliminary-title-article-2-territoriality-extraterritorial" class="toc-link level-1" title="⚖️ Preliminary Title &amp; Article 2: Territoriality &amp; Extraterritoriality
+The RPC applies within the Philippine archipelago, including its atmosphere, interior waters, and maritime zone. Article 2 extends jurisdiction extraterritorially: (1) Offenses on Philippine ship or airship; (2) Forging or counterfeiting Philippine coins, currency, or obligations; (3) Introducing forged securities into the country; (4) Offenses committed by public officers in the exercise of their functions; (5) Crimes against national security and law of nations (treason, espionage, piracy)."><span class="toc-link-text">⚖️ Preliminary Title &amp; Article 2: Territoriality &amp; Extraterritoriality
+The RPC applies within the Philippine archipelago, including its atmosphere, interior waters, and maritime zone. Article 2 extends jurisdiction extraterritorially: (1) Offenses on Philippine ship or airship; (2) Forging or counterfeiting Philippine coins, currency, or obligations; (3) Introducing forged securities into the country; (4) Offenses committed by public officers in the exercise of their functions; (5) Crimes against national security and law of nations (treason, espionage, piracy).</span></a></li>
+<li><a href="#sec-11-article-3-felonies-committed-by-deceit-dolo-and-fault-culpa" class="toc-link level-1" title="⚖️ Article 3: Felonies Committed by Deceit (Dolo) and Fault (Culpa)
+Felonies are acts and omissions punishable by law. Committed either by dolo (malice/deceit with freedom, intelligence, and intent) or culpa (imprudence, negligence, lack of foresight, or lack of skill). Mistake of fact (Ignorantia facti excusat) negates criminal intent provided the act would have been lawful had the facts been as the accused believed them to be (US v. Ah Chong)."><span class="toc-link-text">⚖️ Article 3: Felonies Committed by Deceit (Dolo) and Fault (Culpa)
+Felonies are acts and omissions punishable by law. Committed either by dolo (malice/deceit with freedom, intelligence, and intent) or culpa (imprudence, negligence, lack of foresight, or lack of skill). Mistake of fact (Ignorantia facti excusat) negates criminal intent provided the act would have been lawful had the facts been as the accused believed them to be (US v. Ah Chong).</span></a></li>
+<li><a href="#sec-12-articles-4-6-extent-of-criminal-liability-stages-of-executi" class="toc-link level-1" title="⚖️ Articles 4-6: Extent of Criminal Liability &amp; Stages of Execution
+Criminal liability is incurred by any person committing a felony, although the wrongful act done be different from that which he intended (Aberratio Ictus - mistake in blow, Error in Personae - mistake in identity, Praeter Intentionem - injurious result greater than intended). Impossible Crimes (Art. 4, par. 2) occur when an act would be an offense against persons or property were it not for inherent impossibility of accomplishment or employment of inadequate or ineffectual means.
+Stages: (1) Consummated: All elements necessary for execution and accomplishment are present; (2) Frustrated: Offender performs all acts of execution which should produce the felony as a consequence but reason independent of his will prevents it; (3) Attempted: Offender commences commission directly by overt acts but does not perform all acts of execution by reason of some cause other than his spontaneous desistance."><span class="toc-link-text">⚖️ Articles 4-6: Extent of Criminal Liability &amp; Stages of Execution
+Criminal liability is incurred by any person committing a felony, although the wrongful act done be different from that which he intended (Aberratio Ictus - mistake in blow, Error in Personae - mistake in identity, Praeter Intentionem - injurious result greater than intended). Impossible Crimes (Art. 4, par. 2) occur when an act would be an offense against persons or property were it not for inherent impossibility of accomplishment or employment of inadequate or ineffectual means.
+Stages: (1) Consummated: All elements necessary for execution and accomplishment are present; (2) Frustrated: Offender performs all acts of execution which should produce the felony as a consequence but reason independent of his will prevents it; (3) Attempted: Offender commences commission directly by overt acts but does not perform all acts of execution by reason of some cause other than his spontaneous desistance.</span></a></li>
+<li><a href="#sec-13-articles-11-12-justifying-and-exempting-circumstances-justi" class="toc-link level-1" title="⚖️ Articles 11-12: Justifying and Exempting Circumstances
+Justifying Circumstances (Art. 11 - No Crime, No Criminal, No Civil Liability except Art. 11, par. 4): (1) Self-defense (Unlawful aggression, reasonable necessity of means employed, lack of sufficient provocation); (2) Defense of relatives; (3) Defense of strangers; (4) State of necessity (Avoidance of greater evil or injury); (5) Fulfillment of duty or lawful exercise of right; (6) Obedience to an order issued by a superior for a lawful purpose.
+Exempting Circumstances (Art. 12 - There is a Crime, but No Criminal; Civil Liability remains): (1) Imbecility or insanity; (2) Minority (under RA 9344 as amended by RA 10630: 15 and below exempt; above 15 but below 18 exempt unless acted with discernment); (3) Accident without fault or intention; (4) Irresistible force; (5) Uncontrollable fear of equal or greater injury; (6) Insuperable cause."><span class="toc-link-text">⚖️ Articles 11-12: Justifying and Exempting Circumstances
+Justifying Circumstances (Art. 11 - No Crime, No Criminal, No Civil Liability except Art. 11, par. 4): (1) Self-defense (Unlawful aggression, reasonable necessity of means employed, lack of sufficient provocation); (2) Defense of relatives; (3) Defense of strangers; (4) State of necessity (Avoidance of greater evil or injury); (5) Fulfillment of duty or lawful exercise of right; (6) Obedience to an order issued by a superior for a lawful purpose.
+Exempting Circumstances (Art. 12 - There is a Crime, but No Criminal; Civil Liability remains): (1) Imbecility or insanity; (2) Minority (under RA 9344 as amended by RA 10630: 15 and below exempt; above 15 but below 18 exempt unless acted with discernment); (3) Accident without fault or intention; (4) Irresistible force; (5) Uncontrollable fear of equal or greater injury; (6) Insuperable cause.</span></a></li>
+<li><a href="#sec-14-articles-13-15-mitigating-aggravating-and-alternative-circu" class="toc-link level-1" title="⚖️ Articles 13-15: Mitigating, Aggravating, and Alternative Circumstances
+Mitigating (Art. 13): Incomplete justifying/exempting, under 18 or over 70, praeter intentionem, sufficient provocation, immediate vindication of grave offense, passion or obfuscation, voluntary surrender, plea of guilty before presentation of prosecution evidence, physical defect, illness, and analogous circumstances.
+Aggravating (Art. 14): 21 circumstances including taking advantage of public position, contempt of public authorities, dwelling, abuse of confidence, nighttime, band, recidivism, habituality, reiteracion, reward, fire/poison, evident premeditation, craft/disguise, superior strength, treachery (alevosia), ignominy, unlawful entry, breaking walls, aid of minors/motor vehicles, and cruelty.
+Alternative (Art. 15): Relationship, Intoxication (mitigating if not habitual or intentional; aggravating if habitual or intentional), and Degree of Instruction/Education."><span class="toc-link-text">⚖️ Articles 13-15: Mitigating, Aggravating, and Alternative Circumstances
+Mitigating (Art. 13): Incomplete justifying/exempting, under 18 or over 70, praeter intentionem, sufficient provocation, immediate vindication of grave offense, passion or obfuscation, voluntary surrender, plea of guilty before presentation of prosecution evidence, physical defect, illness, and analogous circumstances.
+Aggravating (Art. 14): 21 circumstances including taking advantage of public position, contempt of public authorities, dwelling, abuse of confidence, nighttime, band, recidivism, habituality, reiteracion, reward, fire/poison, evident premeditation, craft/disguise, superior strength, treachery (alevosia), ignominy, unlawful entry, breaking walls, aid of minors/motor vehicles, and cruelty.
+Alternative (Art. 15): Relationship, Intoxication (mitigating if not habitual or intentional; aggravating if habitual or intentional), and Degree of Instruction/Education.</span></a></li>
+<li><a href="#sec-15-articles-21-88-modernized-penalty-framework-preventive-impr" class="toc-link level-1" title="⚖️ Articles 21-88: Modernized Penalty Framework &amp; Preventive Imprisonment
+Scale of Principal Penalties: Reclusion Perpetua (20 years and 1 day to 40 years), Reclusion Temporal (12 years and 1 day to 20 years), Prision Mayor (6 years and 1 day to 12 years), Prision Correccional (6 months and 1 day to 6 years), Arresto Mayor (1 month and 1 day to 6 months), Arresto Menor (1 day to 30 days). Destierro is a principal penalty banishing the convict from entering designated radius (25 to 250 km).
+Preventive Imprisonment (Art. 29 as amended by RA 10592): Credited in full (4/5 if accused did not sign agreement to abide by disciplinary rules) against sentence."><span class="toc-link-text">⚖️ Articles 21-88: Modernized Penalty Framework &amp; Preventive Imprisonment
+Scale of Principal Penalties: Reclusion Perpetua (20 years and 1 day to 40 years), Reclusion Temporal (12 years and 1 day to 20 years), Prision Mayor (6 years and 1 day to 12 years), Prision Correccional (6 months and 1 day to 6 years), Arresto Mayor (1 month and 1 day to 6 months), Arresto Menor (1 day to 30 days). Destierro is a principal penalty banishing the convict from entering designated radius (25 to 250 km).
+Preventive Imprisonment (Art. 29 as amended by RA 10592): Credited in full (4/5 if accused did not sign agreement to abide by disciplinary rules) against sentence.</span></a></li>
+<li><a href="#sec-16-4-part-iii-landmark-amending-statutes-ra-10951-fine-adjustme" class="toc-link level-1" title="4. PART III: LANDMARK AMENDING STATUTES &amp; RA 10951 FINE ADJUSTMENT SCHEDULE"><span class="toc-link-text">4. PART III: LANDMARK AMENDING STATUTES &amp; RA 10951 FINE ADJUSTMENT SCHEDULE</span></a></li>
+<li><a href="#sec-17-5-part-iv-legislative-roadmap-juris-doctor-study-guide" class="toc-link level-1" title="5. PART IV: LEGISLATIVE ROADMAP &amp; JURIS DOCTOR STUDY GUIDE"><span class="toc-link-text">5. PART IV: LEGISLATIVE ROADMAP &amp; JURIS DOCTOR STUDY GUIDE</span></a></li>
+<li><a href="#sec-18-1-for-court-practice-bar-exams-master-the-current-provisions" class="toc-link level-1" title="1. For Court Practice &amp; Bar Exams: Master the current provisions of Act No. 3815 as amended by RA 10951, RA 11594, RA 11648, and RA 10592, along with landmark Supreme Court jurisprudence."><span class="toc-link-text">1. For Court Practice &amp; Bar Exams: Master the current provisions of Act No. 3815 as amended by RA 10951, RA 11594, RA 11648, and RA 10592, along with landmark Supreme Court jurisprudence.</span></a></li>
+<li><a href="#sec-19-2-for-policy-legislative-tracking-follow-the-congressional-c" class="toc-link level-1" title="2. For Policy &amp; Legislative Tracking: Follow the congressional committee reports in the House Committee on Revision of Laws (Subcommittee on Penal Laws) and the Senate Committee on Justice and Human Rights."><span class="toc-link-text">2. For Policy &amp; Legislative Tracking: Follow the congressional committee reports in the House Committee on Revision of Laws (Subcommittee on Penal Laws) and the Senate Committee on Justice and Human Rights.</span></a></li>
+<li><a href="#sec-20-3-official-verification-always-verify-current-codal-texts-vi" class="toc-link level-1" title="3. Official Verification: Always verify current codal texts via the Official Gazette (officialgazette.gov.ph), Supreme Court E-Library (elibrary.judiciary.gov.ph), and Department of Justice (doj.gov.ph)."><span class="toc-link-text">3. Official Verification: Always verify current codal texts via the Official Gazette (officialgazette.gov.ph), Supreme Court E-Library (elibrary.judiciary.gov.ph), and Department of Justice (doj.gov.ph).</span></a></li>
+      </ul>
+    </nav>
+
+    <main class="reader-main" id="mainArticle">
+      <div class="doc-meta-banner">
+        <h1 class="doc-headline">Philippine Revised Penal Code and Proposed New Criminal Code Compendium</h1>
+        <div class="doc-stats">
+          <span>21 Sections</span>
+          <span>~22 min read</span>
+          <span>Manila Law College</span>
+        </div>
+      </div>
+
+      
+
+      <div id="contentWrapper">
+<section id="sec-overview" class="doc-section">
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>THE PHILIPPINE REVISED PENAL CODE
+&amp; PROPOSED CRIMINAL CODE OF THE PHILIPPINES</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><em>Comprehensive Public Codal, Modern Legislative Reforms Compendium, Comparative Matrix (Old RPC vs. New Criminal Code), and Landmark Amending Statutes (RA 10951, RA 11594, RA 11648, RA 10592, RA 10175)</em></p>
+<div class="table-responsive read-unit" data-unit-type="table"><table class="reader-table"><tr><th>🏛️ GOVERNING STATUTE
+Act No. 3815 (as amended)
+RA 10951 &amp; Recent Laws</th><th>⚖️ REFORM INITIATIVE
+DOJ Criminal Code Committee
+&amp; UP Law Center Public Draft</th><th>📚 JURIS DOCTOR STUDY
+Manila Law College (MLC)
+Criminal Law 1 &amp; 2 Compendium</th></tr></table></div>
+</section>
+<hr class="section-divider" />
+<section id="sec-1-1-executive-legal-overview-status-report" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title"><strong>1. EXECUTIVE LEGAL OVERVIEW &amp; STATUS REPORT</strong></h2></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">As of 2026, criminal jurisprudence in the Philippines operates under a dual framework of active statutory governance and comprehensive codification reform:</p>
+<div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>The Enacted Law in Force: </strong>The Revised Penal Code (Act No. 3815), which took effect on January 1, 1932, remains the governing primary criminal statute of the Republic of the Philippines. It is continuously modernized through major amending acts, notably Republic Act No. 10951 (adjusting penalty thresholds and fines to 21st-century values), Republic Act No. 11594 (increasing perjury penalties), Republic Act No. 11648 (raising the age of sexual consent to 16 years), Republic Act No. 10592 (expanding Good Conduct Time Allowances), and special penal laws covering cybercrime, dangerous drugs, and human trafficking.</div></div>
+<div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content"><strong>The Proposed &#x27;New RPC&#x27; (Criminal Code of the Philippines): </strong>To address nearly a century of statutory fragmentation - where over 400 special penal laws exist alongside the 1932 Code - the Department of Justice (DOJ) Criminal Code Committee (CCC), in official partnership with the University of the Philippines (UP) Law Center, drafted and publicly submitted the proposed &#x27;Criminal Code of the Philippines&#x27;. Active legislative bills (House Bills No. 4374, 5446, 7132, 7206) are under active deliberation in the House of Representatives Subcommittee on Penal Laws (Committee on Revision of Laws).</div></div>
+<div class="table-responsive read-unit" data-unit-type="table"><table class="reader-table"><tr><th>📌 EXECUTIVE DOCTRINE: ENACTED LAW VS. PROPOSED CODE
+
+Current Status: Act No. 3815 (as amended) is the binding penal statute applied in all Philippine courts and tested in the Philippine Bar Examinations.
+Draft Status: The &#x27;New RPC&#x27; / Proposed Criminal Code represents the future legislative direction aimed at consolidating, simplifying, and standardizing all criminal offenses into plain English, eliminating archaic Spanish terms, introducing corporate criminal liability, and instituting modern restorative sentencing.</th></tr></table></div>
+</section>
+<hr class="section-divider" />
+<section id="sec-2-2-part-i-the-proposed-criminal-code-of-the-philippines-new-r" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title"><strong>2. PART I: THE PROPOSED CRIMINAL CODE OF THE PHILIPPINES (&quot;NEW RPC&quot;)</strong></h2></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">2.1 Mandate and Background of the Reform</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">The Criminal Code Committee (CCC) was originally constituted by the Department of Justice to draft a simple, modern, organic, and truly Filipino Criminal Code. The project arose from critical deficiencies in the 1932 RPC:</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-3-1-archaic-terminology-the-1932-rpc-is-a-translation-of-the-1" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title">1. Archaic Terminology: The 1932 RPC is a translation of the 1870 Spanish Código Penal, utilizing antiquated concepts and complex Spanish penalty nomenclatures (such as arresto mayor, prision correccional, prision mayor, reclusion temporal, reclusion perpetua, and destierro) that are unfamiliar to the general public.</h2></div>
+</section>
+<hr class="section-divider" />
+<section id="sec-4-2-statutory-proliferation-inconsistency-thousands-of-separat" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title">2. Statutory Proliferation &amp; Inconsistency: Thousands of separate special penal laws (SPLs) have been enacted over nine decades, creating conflicting rules on graduation of penalties, mitigating/aggravating circumstances, intent vs. strict liability, and subsidiary liability.</h2></div>
+</section>
+<hr class="section-divider" />
+<section id="sec-5-3-modern-offense-gaps-the-original-rpc-lacked-systematic-fra" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title">3. Modern Offense Gaps: The original RPC lacked systematic frameworks for transnational crimes, digital/cyber offenses, environmental destruction, financial fraud, money laundering, and crimes committed by corporations and juridical entities.</h2></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">2.2 Two-Book Master Structure of the Proposed Code</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">The Proposed Criminal Code simplifies the traditional penal architecture into two streamlined books:</p>
+<div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">Book One (General Principles of Criminal Law): Enunciates foundational constitutional and human rights principles, territorial and extraterritorial scope, corporate/juridical criminal liability, intent (dolo) vs. negligence (culpa), justified conduct, standardized modifying circumstances, and a rationalized 5-tier penalty system.</div></div>
+<div class="bullet-point read-unit" data-unit-type="bullet"><span class="bullet-dot">•</span><div class="bullet-content">Book Two (Crimes and Penalties): Reclassifies all offenses - both codal and special laws - into three logical and distinct divisions:</div></div>
+</section>
+<hr class="section-divider" />
+<section id="sec-6-a-title-i-crimes-against-persons-life-bodily-integrity-liber" class="doc-section">
+<div class="subtopic-header-card read-unit" data-unit-type="subtopic-header"><h3 class="subtopic-header-title">a. Title I: Crimes Against Persons (Life, Bodily Integrity, Liberty, Security, Sexual Integrity)</h3></div>
+</section>
+<hr class="section-divider" />
+<section id="sec-7-b-title-ii-crimes-against-property-and-economic-order-theft" class="doc-section">
+<div class="subtopic-header-card read-unit" data-unit-type="subtopic-header"><h3 class="subtopic-header-title">b. Title II: Crimes Against Property and Economic Order (Theft, Fraud, Corporate Crimes, Cyber Offenses, Plunder)</h3></div>
+</section>
+<hr class="section-divider" />
+<section id="sec-8-c-title-iii-crimes-against-the-state-public-order-and-admini" class="doc-section">
+<div class="subtopic-header-card read-unit" data-unit-type="subtopic-header"><h3 class="subtopic-header-title">c. Title III: Crimes Against the State, Public Order, and Administration of Justice (Treason, Rebellion, Corruption, Perjury, Obstruction)</h3></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">2.3 Comparative Matrix: Current RPC (Act 3815) vs. Proposed Criminal Code</p>
+<div class="table-responsive read-unit" data-unit-type="table"><table class="reader-table"><tr><th>Feature / Aspect</th><th>Current Revised Penal Code (Act 3815 as amended)</th><th>Proposed Criminal Code of the Philippines (&#x27;New RPC&#x27;)</th></tr><tr><td>Language &amp; Form</td><td>Archaic Spanish translations; complex Latin &amp; Spanish terminology.</td><td>Modern, clear, accessible Plain English and Filipino.</td></tr><tr><td>Penalty Structure</td><td>6 principal imprisonment scales (Arresto Menor to Reclusion Perpetua) + Destierro.</td><td>5 Numbered Penalty Levels/Categories (Level 1 to Level 5) with standardized ranges.</td></tr><tr><td>Corporate Liability</td><td>Individual liability only; corporate officers held personally liable.</td><td>Express criminal liability for juridical persons and corporations, with direct corporate fines and sanctions.</td></tr><tr><td>Special Penal Laws</td><td>Hundreds of uncodified, separate statutory enactments.</td><td>Total consolidation of special penal laws into Book Two of the unified Code.</td></tr><tr><td>Sentencing &amp; Penology</td><td>Heavy reliance on institutional incarceration; classical retributive theory.</td><td>Balanced restorative justice, mandatory community service, and rehabilitative sentencing alternatives.</td></tr><tr><td>Age of Sexual Consent</td><td>Originally 12, raised to 16 via RA 11648 (2022).</td><td>Harmonized at 16 years old with modern online exploitation provisions (OSAEC / RA 11930).</td></tr></table></div>
+</section>
+<hr class="section-divider" />
+<section id="sec-9-3-part-ii-complete-consolidated-revised-penal-code-act-no-38" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title"><strong>3. PART II: COMPLETE CONSOLIDATED REVISED PENAL CODE (ACT NO. 3815 AS AMENDED)</strong></h2></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">3.1 Book One: General Principles Affecting Criminal Liability (Articles 1-113)</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-10-preliminary-title-article-2-territoriality-extraterritorial" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><h2 class="case-header-title">⚖️ Preliminary Title &amp; Article 2: Territoriality &amp; Extraterritoriality
+The RPC applies within the Philippine archipelago, including its atmosphere, interior waters, and maritime zone. Article 2 extends jurisdiction extraterritorially: (1) Offenses on Philippine ship or airship; (2) Forging or counterfeiting Philippine coins, currency, or obligations; (3) Introducing forged securities into the country; (4) Offenses committed by public officers in the exercise of their functions; (5) Crimes against national security and law of nations (treason, espionage, piracy).</h2></div>
+</section>
+<hr class="section-divider" />
+<section id="sec-11-article-3-felonies-committed-by-deceit-dolo-and-fault-culpa" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><h2 class="case-header-title">⚖️ Article 3: Felonies Committed by Deceit (Dolo) and Fault (Culpa)
+Felonies are acts and omissions punishable by law. Committed either by dolo (malice/deceit with freedom, intelligence, and intent) or culpa (imprudence, negligence, lack of foresight, or lack of skill). Mistake of fact (Ignorantia facti excusat) negates criminal intent provided the act would have been lawful had the facts been as the accused believed them to be (US v. Ah Chong).</h2></div>
+</section>
+<hr class="section-divider" />
+<section id="sec-12-articles-4-6-extent-of-criminal-liability-stages-of-executi" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><h2 class="case-header-title">⚖️ Articles 4-6: Extent of Criminal Liability &amp; Stages of Execution
+Criminal liability is incurred by any person committing a felony, although the wrongful act done be different from that which he intended (Aberratio Ictus - mistake in blow, Error in Personae - mistake in identity, Praeter Intentionem - injurious result greater than intended). Impossible Crimes (Art. 4, par. 2) occur when an act would be an offense against persons or property were it not for inherent impossibility of accomplishment or employment of inadequate or ineffectual means.
+Stages: (1) Consummated: All elements necessary for execution and accomplishment are present; (2) Frustrated: Offender performs all acts of execution which should produce the felony as a consequence but reason independent of his will prevents it; (3) Attempted: Offender commences commission directly by overt acts but does not perform all acts of execution by reason of some cause other than his spontaneous desistance.</h2></div>
+</section>
+<hr class="section-divider" />
+<section id="sec-13-articles-11-12-justifying-and-exempting-circumstances-justi" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><h2 class="case-header-title">⚖️ Articles 11-12: Justifying and Exempting Circumstances
+Justifying Circumstances (Art. 11 - No Crime, No Criminal, No Civil Liability except Art. 11, par. 4): (1) Self-defense (Unlawful aggression, reasonable necessity of means employed, lack of sufficient provocation); (2) Defense of relatives; (3) Defense of strangers; (4) State of necessity (Avoidance of greater evil or injury); (5) Fulfillment of duty or lawful exercise of right; (6) Obedience to an order issued by a superior for a lawful purpose.
+Exempting Circumstances (Art. 12 - There is a Crime, but No Criminal; Civil Liability remains): (1) Imbecility or insanity; (2) Minority (under RA 9344 as amended by RA 10630: 15 and below exempt; above 15 but below 18 exempt unless acted with discernment); (3) Accident without fault or intention; (4) Irresistible force; (5) Uncontrollable fear of equal or greater injury; (6) Insuperable cause.</h2></div>
+</section>
+<hr class="section-divider" />
+<section id="sec-14-articles-13-15-mitigating-aggravating-and-alternative-circu" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><h2 class="case-header-title">⚖️ Articles 13-15: Mitigating, Aggravating, and Alternative Circumstances
+Mitigating (Art. 13): Incomplete justifying/exempting, under 18 or over 70, praeter intentionem, sufficient provocation, immediate vindication of grave offense, passion or obfuscation, voluntary surrender, plea of guilty before presentation of prosecution evidence, physical defect, illness, and analogous circumstances.
+Aggravating (Art. 14): 21 circumstances including taking advantage of public position, contempt of public authorities, dwelling, abuse of confidence, nighttime, band, recidivism, habituality, reiteracion, reward, fire/poison, evident premeditation, craft/disguise, superior strength, treachery (alevosia), ignominy, unlawful entry, breaking walls, aid of minors/motor vehicles, and cruelty.
+Alternative (Art. 15): Relationship, Intoxication (mitigating if not habitual or intentional; aggravating if habitual or intentional), and Degree of Instruction/Education.</h2></div>
+</section>
+<hr class="section-divider" />
+<section id="sec-15-articles-21-88-modernized-penalty-framework-preventive-impr" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><h2 class="case-header-title">⚖️ Articles 21-88: Modernized Penalty Framework &amp; Preventive Imprisonment
+Scale of Principal Penalties: Reclusion Perpetua (20 years and 1 day to 40 years), Reclusion Temporal (12 years and 1 day to 20 years), Prision Mayor (6 years and 1 day to 12 years), Prision Correccional (6 months and 1 day to 6 years), Arresto Mayor (1 month and 1 day to 6 months), Arresto Menor (1 day to 30 days). Destierro is a principal penalty banishing the convict from entering designated radius (25 to 250 km).
+Preventive Imprisonment (Art. 29 as amended by RA 10592): Credited in full (4/5 if accused did not sign agreement to abide by disciplinary rules) against sentence.</h2></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">3.2 Book Two: Specific Crimes and Penalties (Articles 114-367)</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>📖 Title 1: Crimes Against National Security &amp; Law of Nations (Arts. 114-123)
+</strong>Treason (levying war or adhering to enemies giving aid and comfort; Two-Witness Rule on the same overt act), Espionage (Art. 117), Piracy (Art. 122) and Qualified Piracy (Art. 123 - seizing vessel by boarding/firing, abandonment of victims, murder, homicide, physical injuries, or rape).</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>📖 Title 2: Crimes Against the Fundamental Laws of the State (Arts. 124-133)
+</strong>Arbitrary Detention (Art. 124 - detention of person without legal ground by public officer), Delay in Delivery of Detained Persons to Judicial Authorities (Art. 125 as amended: 12 hours for light penalties, 18 hours for correctional, 36 hours for afflictive/capital), Violation of Domicile (Art. 128), Malicious Search Warrants (Art. 129), Interruption of Religious Worship (Art. 132), and Offending Religious Feelings (Art. 133).</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>📖 Title 3: Crimes Against Public Order (Arts. 134-160)
+</strong>Rebellion / Insurrection (Art. 134 - rising publicly and taking arms against government to remove territory/armed forces from allegiance), Coup d&#x27;État (Art. 134-A - swift attack accompanied by violence/intimidation directed against military/police installations to seize state power), Sedition (Art. 139), Direct Assault (Art. 148 - attack/force/intimidation against person in authority or their agent engaged in official duties), Resistance and Serious Disobedience (Art. 151), Tumults and Public Disorders (Arts. 153-156).</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>📖 Title 4: Crimes Against Public Interest (Arts. 161-189)
+</strong>Counterfeiting Great Seal, Coins, and Notes (Arts. 161-168), Falsification of Legislative, Public, Official, and Commercial Documents (Arts. 170-172), Perjury (Art. 183 as amended by RA 11594 - now penalized with Prision Mayor in its minimum to medium periods, or maximum if committed by public officer with perpetual disqualification), Frauds and Monopolies (Arts. 185-189).</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>📖 Title 7: Crimes Committed by Public Officers (Arts. 203-245)
+</strong>Direct Bribery (Art. 210 - accepting gift in connection with performing an act constituting a crime, unjust act, or refraining from official duty), Indirect Bribery (Art. 211), Qualified Bribery (Art. 211-A), Malversation of Public Funds or Property (Art. 217 as amended by RA 10951 - tiered brackets from below P40,000 up to exceeding P8.8 million punishable by Reclusion Temporal to Reclusion Perpetua), Technical Malversation (Art. 220), Failure to Render Accounts (Art. 218), Usurpation of Powers (Art. 239), and Unlawful Appointments (Art. 244).</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>📖 Title 8: Crimes Against Persons (Arts. 246-266-D)
+</strong>Parricide (Art. 246 - killing father, mother, child whether legitimate or illegitimate, or legitimate other ascendants/descendants/spouse), Murder (Art. 248 - killing with treachery, price/reward, inundation/poison, evident premeditation, cruelty, or out of superior strength), Homicide (Art. 249), Infanticide (Art. 255 - killing child less than 72 hours old), Abortion (Arts. 256-259), Physical Injuries (Arts. 262-266), Rape (Arts. 266-A to 266-D as amended by RA 11648 - raising statutory rape threshold to below 16 years of age).</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>📖 Title 9: Crimes Against Personal Liberty and Security (Arts. 267-292)
+</strong>Kidnapping and Serious Illegal Detention (Art. 267 - detaining person for more than 3 days, simulating public authority, inflicting serious physical injuries, or victim is minor/female/public officer; mandatory Reclusion Perpetua to Death if for ransom), Slight Illegal Detention (Art. 268), Unlawful Arrest (Art. 269), Grave Threats (Art. 282), Light Threats (Art. 283), Grave Coercion (Art. 286).</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>📖 Title 10: Crimes Against Property (Arts. 293-332)
+</strong>Robbery (Arts. 293-305 - taking personal property belonging to another with intent to gain by means of violence against or intimidation of persons, or using force upon things), Brigandage (Art. 306), Theft (Arts. 308-309 as amended by RA 10951 - taking personal property with animus lucrandi without violence or intimidation), Qualified Theft (Art. 310 - theft by domestic servant, with grave abuse of confidence, coconuts, mail, or motor vehicle, penalized two degrees higher), Estafa / Swindling (Arts. 315-316 as amended by RA 10951 - unfaithfulness, abuse of confidence, deceit, fraudulent checks), Arson (Arts. 320-326 superseded by PD 1613), Malicious Mischief (Arts. 327-331).</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>📖 Title 11: Crimes Against Chastity (Arts. 333-346)
+</strong>Adultery (Art. 333 - married woman having carnal relations with man not husband), Concubinage (Art. 334 - husband keeping mistress in conjugal dwelling, sexual intercourse under scandalous circumstances, or cohabiting elsewhere), Qualified Seduction (Art. 337 as amended by RA 11648), Simple Seduction (Art. 338), Acts of Lasciviousness (Art. 336).</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>📖 Title 13 &amp; 14: Crimes Against Honor &amp; Quasi-Offenses (Arts. 353-365)
+</strong>Libel (Art. 353 - public and malicious imputation of a crime, vice, or defect tending to cause dishonor, discredit, or contempt; Cyber Libel under Sec. 4(c)(4) of RA 10175 with penalty one degree higher), Slander (Oral Defamation - Art. 358), Slander by Deed (Art. 359), Incriminating Innocent Person (Art. 363), Intriguing Against Honor (Art. 364).
+Quasi-Offenses (Art. 365 - Reckless Imprudence and Simple Negligence causing criminal results).</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-16-4-part-iii-landmark-amending-statutes-ra-10951-fine-adjustme" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title"><strong>4. PART III: LANDMARK AMENDING STATUTES &amp; RA 10951 FINE ADJUSTMENT SCHEDULE</strong></h2></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">Republic Act No. 10951 (enacted August 29, 2017) fundamentally transformed the Revised Penal Code by updating obsolete monetary values, property thresholds, and fine scales to align with current economic conditions. In accordance with the Supreme Court doctrine in Hernan v. Sandiganbayan (G.R. No. 217874) and Article 22 of the RPC, RA 10951 applies retroactively to all convicts and pending cases whenever favorable to the accused.</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">4.1 Master Comparative Schedule of Key RPC Articles Adjusted by RA 10951</p>
+<div class="table-responsive read-unit" data-unit-type="table"><table class="reader-table"><tr><th>RPC Art.</th><th>Offense / Description</th><th>Original 1932 Values / Fines</th><th>Modern RA 10951 Values / Fines</th></tr><tr><td>Art. 148</td><td>Direct Assault upon Authorities</td><td>Fine not exceeding P1,000</td><td>Fine not exceeding P200,000 (serious) or P100,000 (simple)</td></tr><tr><td>Art. 183</td><td>Perjury / False Testimony</td><td>Fine not exceeding P1,000 (Arresto Mayor to Prision Correccional min)</td><td>Amended further by RA 11594: Prision Mayor (6 yrs 1 day to 10 yrs) &amp; fine up to P1,000,000</td></tr><tr><td>Art. 217</td><td>Malversation of Public Funds</td><td>P200 to P22,000 threshold tiers</td><td>Tier 1: Up to P40,000
+Tier 2: &gt;P40k to P1.2M
+Tier 3: &gt;P1.2M to P2.4M
+Tier 4: &gt;P2.4M to P4.4M
+Tier 5: &gt;P4.4M to P8.8M
+Tier 6: Exceeding P8.8M (Reclusion Perpetua)</td></tr><tr><td>Art. 309</td><td>Penalties for Simple Theft</td><td>P50 to P22,000 threshold tiers</td><td>Tier 1: &gt;P2.2M (Prision Mayor max to Reclusion Temporal min)
+Tier 2: &gt;P1.2M to P2.2M
+Tier 3: &gt;P600k to P1.2M
+Tier 4: &gt;P20k to P600k
+Tier 5: &gt;P5k to P20k
+Tier 6: &gt;P500 to P5k
+Tier 7: Not exceeding P500</td></tr><tr><td>Art. 315</td><td>Swindling / Estafa</td><td>P200 to P22,000 threshold tiers</td><td>Tier 1: &gt;P4.4M (Prision Correccional max to Prision Mayor min + 1 yr per P1M, max 20 yrs)
+Tier 2: &gt;P2.4M to P4.4M
+Tier 3: &gt;P1.2M to P2.4M
+Tier 4: &gt;P40k to P1.2M
+Tier 5: Not exceeding P40,000</td></tr><tr><td>Art. 355</td><td>Libel by Means of Writing</td><td>Fine of P200 to P3,000</td><td>Fine of P40,000 to P1,200,000 (plus cyber libel degree escalation under RA 10175)</td></tr><tr><td>Art. 365</td><td>Reckless Imprudence / Negligence</td><td>Fine of P200 to P1,000</td><td>Fine of P20,000 to P200,000 (if act constitutes grave/less grave felony)</td></tr></table></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">4.2 Summary of Special Amending Laws</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>📌 Republic Act No. 11648 (2022) - Raising Age of Sexual Consent: </strong>Amended Articles 266-A, 337, and 338 of the RPC and special laws by raising the statutory age of sexual consent from 12 years to under 16 years. Sexual intercourse with a person under 16 is statutory rape punishable by Reclusion Perpetua, with a close-in-age exception (Romeo and Juliet clause) under defined statutory conditions.</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>📌 Republic Act No. 11594 (2021) - Strengthening Anti-Perjury Law: </strong>Amended Articles 183 and 184 of the RPC, substantially elevating the penalty for perjury from Arresto Mayor/Prision Correccional to Prision Mayor in its minimum to medium periods (6 years and 1 day to 10 years), and imposing perpetual absolute disqualification if committed by a public officer.</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>📌 Republic Act No. 10592 (2013) - Good Conduct Time Allowance (GCTA): </strong>Amended Articles 29, 94, 97, 98, and 99 of the RPC. Expanded time deductions for good behavior during preventive detention and final sentence. The Supreme Court in Inmates of New Bilibid Prison v. De Lima (G.R. No. 212719, 2019) ruled that RA 10592 applies retroactively to all prisoners without exception.</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>📌 Republic Act No. 10175 (2012) - Cybercrime Prevention Act: </strong>Section 4(c)(4) criminalizes Cyber Libel by computer systems. Section 6 provides that penalties for crimes defined and penalized by the Revised Penal Code shall be one degree higher if committed by, through, and with the use of information and communications technologies (ICT).</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-17-5-part-iv-legislative-roadmap-juris-doctor-study-guide" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title"><strong>5. PART IV: LEGISLATIVE ROADMAP &amp; JURIS DOCTOR STUDY GUIDE</strong></h2></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">For law students, legal practitioners, and Bar examinees, understanding the transition from the Revised Penal Code (Act 3815 as amended) to the Proposed Criminal Code of the Philippines is crucial:</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-18-1-for-court-practice-bar-exams-master-the-current-provisions" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title">1. For Court Practice &amp; Bar Exams: Master the current provisions of Act No. 3815 as amended by RA 10951, RA 11594, RA 11648, and RA 10592, along with landmark Supreme Court jurisprudence.</h2></div>
+</section>
+<hr class="section-divider" />
+<section id="sec-19-2-for-policy-legislative-tracking-follow-the-congressional-c" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title">2. For Policy &amp; Legislative Tracking: Follow the congressional committee reports in the House Committee on Revision of Laws (Subcommittee on Penal Laws) and the Senate Committee on Justice and Human Rights.</h2></div>
+</section>
+<hr class="section-divider" />
+<section id="sec-20-3-official-verification-always-verify-current-codal-texts-vi" class="doc-section">
+<div class="topic-header-card read-unit" data-unit-type="topic-header"><h2 class="topic-header-title">3. Official Verification: Always verify current codal texts via the Official Gazette (officialgazette.gov.ph), Supreme Court E-Library (elibrary.judiciary.gov.ph), and Department of Justice (doj.gov.ph).</h2></div>
+</section>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    (function() {
+      const synth = window.speechSynthesis;
+      let voices = [];
+      const readUnits = Array.from(document.querySelectorAll('.read-unit'));
+      const playPauseBtn = document.getElementById('playPauseBtn');
+      const playIcon = document.getElementById('playIcon');
+      const pauseIcon = document.getElementById('pauseIcon');
+      const playBtnText = document.getElementById('playBtnText');
+      const stopBtn = document.getElementById('stopBtn');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const voiceSelect = document.getElementById('voiceSelect');
+      const speedSelect = document.getElementById('speedSelect');
+      const statusBadge = document.getElementById('ttsStatusBadge');
+      const progressBar = document.getElementById('readingProgressBar');
+      const minimizeSidebarBtn = document.getElementById('minimizeSidebarBtn');
+      const restoreSidebarBtn = document.getElementById('restoreSidebarBtn');
+      const sidebarOverlay = document.getElementById('sidebarOverlay');
+      const sidebarNav = document.getElementById('sidebarNav');
+      const sidebarSearch = document.getElementById('sidebarSearch');
+      const tocList = document.getElementById('tocList');
+      const themeSelect = document.getElementById('themeSelect');
+      const fontIncBtn = document.getElementById('fontIncBtn');
+      const fontDecBtn = document.getElementById('fontDecBtn');
+
+      let currentUnitIndex = -1;
+      let isPaused = false;
+      let isSpeaking = false;
+
+      // 1. Sidebar Minimize / Maximize & Responsive Adaptations
+      function isMobile() {
+        return window.innerWidth <= 900;
+      }
+
+      function toggleSidebar(forceState) {
+        if (isMobile()) {
+          const isOpen = (forceState !== undefined) ? forceState : !sidebarNav.classList.contains('open');
+          sidebarNav.classList.toggle('open', isOpen);
+          if (sidebarOverlay) {
+            sidebarOverlay.classList.toggle('active', isOpen);
+          }
+        } else {
+          // Desktop toggle minimize / maximize
+          const isCurrentlyCollapsed = document.body.classList.contains('sidebar-collapsed');
+          const shouldCollapse = (forceState !== undefined) ? forceState : !isCurrentlyCollapsed;
+          document.body.classList.toggle('sidebar-collapsed', shouldCollapse);
+          sidebarNav.classList.toggle('minimized', shouldCollapse);
+          try {
+            localStorage.setItem('mlc_sidebar_collapsed', shouldCollapse ? 'true' : 'false');
+          } catch (e) {}
+        }
+      }
+
+      // Restore saved sidebar state
+      try {
+        const savedCollapsed = localStorage.getItem('mlc_sidebar_collapsed');
+        if (!isMobile() && savedCollapsed === 'true') {
+          toggleSidebar(true);
+        }
+      } catch (e) {}
+
+      if (minimizeSidebarBtn) {
+        minimizeSidebarBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          toggleSidebar();
+        });
+      }
+      if (restoreSidebarBtn) {
+        restoreSidebarBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          toggleSidebar(false);
+        });
+      }
+      if (sidebarOverlay) {
+        sidebarOverlay.addEventListener('click', () => {
+          sidebarNav.classList.remove('open');
+          sidebarOverlay.classList.remove('active');
+        });
+      }
+
+      // Auto close mobile drawer when a TOC link is clicked
+      if (tocList) {
+        tocList.querySelectorAll('.toc-link').forEach(link => {
+          link.addEventListener('click', () => {
+            if (isMobile()) {
+              sidebarNav.classList.remove('open');
+              if (sidebarOverlay) sidebarOverlay.classList.remove('active');
+            }
+          });
+        });
+      }
+
+      // Instant live filter
+      if (sidebarSearch && tocList) {
+        sidebarSearch.addEventListener('input', (e) => {
+          const q = e.target.value.toLowerCase();
+          const items = tocList.querySelectorAll('li');
+          items.forEach(li => {
+            const txt = li.textContent.toLowerCase();
+            li.style.display = txt.includes(q) ? '' : 'none';
+          });
+        });
+      }
+
+      // 2. Theme & Font Scaling
+      if (themeSelect) {
+        themeSelect.addEventListener('change', (e) => {
+          document.documentElement.setAttribute('data-theme', e.target.value);
+          try { localStorage.setItem('mlc_theme', e.target.value); } catch(err) {}
+        });
+        try {
+          const savedTheme = localStorage.getItem('mlc_theme');
+          if (savedTheme) {
+            themeSelect.value = savedTheme;
+            document.documentElement.setAttribute('data-theme', savedTheme);
+          }
+        } catch(err) {}
+      }
+
+      let currentFontSize = 17;
+      if (fontIncBtn) {
+        fontIncBtn.addEventListener('click', () => {
+          if (currentFontSize < 24) {
+            currentFontSize += 1;
+            document.documentElement.style.fontSize = currentFontSize + 'px';
+          }
+        });
+      }
+      if (fontDecBtn) {
+        fontDecBtn.addEventListener('click', () => {
+          if (currentFontSize > 13) {
+            currentFontSize -= 1;
+            document.documentElement.style.fontSize = currentFontSize + 'px';
+          }
+        });
+      }
+
+      // 3. Scroll Progress & Active TOC Link Sync
+      window.addEventListener('scroll', () => {
+        const sTop = window.scrollY;
+        const dHeight = document.documentElement.scrollHeight - window.innerHeight;
+        if (dHeight > 0 && progressBar) {
+          progressBar.style.width = ((sTop / dHeight) * 100) + '%';
+        }
+
+        // Sync TOC Active Link
+        const sections = document.querySelectorAll('section.doc-section');
+        let currentActive = null;
+        sections.forEach(sec => {
+          const rect = sec.getBoundingClientRect();
+          if (rect.top <= 160 && rect.bottom >= 160) {
+            currentActive = sec.id;
+          }
+        });
+        if (currentActive) {
+          document.querySelectorAll('.toc-link').forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + currentActive);
+          });
+        }
+      });
+
+      // 4. Voice Population with High-Quality Natural Neural Prioritization
+      function populateVoices() {
+        if (!synth || !voiceSelect) return;
+        voices = synth.getVoices();
+        voiceSelect.innerHTML = '<option value="default">Auto Best Voice</option>';
+
+        const scored = voices.map((v, i) => {
+          let score = 0;
+          const name = v.name.toLowerCase();
+          const lang = v.lang.toLowerCase();
+
+          if (lang.startsWith('en')) score += 50;
+          if (lang.includes('ph') || lang.includes('fil')) score += 30;
+          if (lang.includes('us')) score += 20;
+          if (lang.includes('gb') || lang.includes('uk')) score += 15;
+          if (name.includes('natural')) score += 40;
+          if (name.includes('neural')) score += 40;
+          if (name.includes('online')) score += 25;
+          if (name.includes('multilingual')) score += 20;
+          if (name.includes('guy') || name.includes('aria') || name.includes('jenny') || name.includes('andrew')) score += 15;
+          if (v.default) score += 5;
+
+          return { voice: v, index: i, score: score };
+        });
+
+        scored.sort((a, b) => b.score - a.score);
+
+        scored.forEach(item => {
+          const opt = document.createElement('option');
+          opt.value = item.index;
+          opt.textContent = item.voice.name + ' (' + item.voice.lang + ')';
+          voiceSelect.appendChild(opt);
+        });
+      }
+
+      populateVoices();
+      if (speechSynthesis && speechSynthesis.onvoiceschanged !== undefined) {
+        speechSynthesis.onvoiceschanged = populateVoices;
+      }
+
+      // 5. Roman Numeral & Phonetics Normalization
+      function romanToInt(s) {
+        if (!s) return null;
+        s = s.toUpperCase().trim();
+        if (!/^[IVXLCDM]+$/.test(s)) return null;
+        const map = { 'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000 };
+        let total = 0;
+        let i = 0;
+        while (i < s.length) {
+          if (i + 1 < s.length && map[s[i]] < map[s[i+1]]) {
+            total += map[s[i+1]] - map[s[i]];
+            i += 2;
+          } else if (map[s[i]]) {
+            total += map[s[i]];
+            i += 1;
+          } else {
+            return null;
+          }
+        }
+        return total;
+      }
+
+      const ORDINALS = {
+        'I': 'the first', 'II': 'the second', 'III': 'the third', 'IV': 'the fourth', 'V': 'the fifth',
+        'VI': 'the sixth', 'VII': 'the seventh', 'VIII': 'the eighth', 'IX': 'the ninth', 'X': 'the tenth'
+      };
+
+      function cleanSmartReading(txt) {
+        if (!txt) return '';
+
+        // A. Strip all emojis and decorative symbols completely
+        txt = Array.from(txt).filter(c => {
+          const cp = c.codePointAt(0);
+          return cp < 0x2000 || (cp > 0x2BFF && cp < 0x1F000);
+        }).join('');
+        txt = txt.replace(/[•§]/g, ' ');
+
+        // B. Smart Number-Word Deduplication
+        const numWordPattern = /\b(zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|twenty-five|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand|million)\s*\(\s*\d+\s*\)/gi;
+        txt = txt.replace(numWordPattern, '$1');
+        txt = txt.replace(/\b\d+\s*\(\s*([a-zA-Z\-]+)\s*\)/g, '$1');
+
+        // C. Smart Tag / Bracket Deduplication
+        txt = txt.replace(/\[\s*[A-Z]\s*[\-–—]?\s*(?:ANSWER|LEGAL\s+BASIS|APPLICATION|ANALYSIS|CONCLUSION)?\s*\]\s*/gi, '');
+        txt = txt.replace(/\[\s*([^\]]+)\s*\]\s*[:\-–—]?\s*([\s\S]*)/g, function(match, tag, rest) {
+          tag = tag.trim();
+          if (rest.toLowerCase().startsWith(tag.toLowerCase())) {
+            return rest;
+          }
+          return tag + ': ' + rest;
+        });
+
+        txt = txt.replace(/\b([A-Za-z]{3,})\b\s+\1\b/gi, '$1');
+        txt = txt.replace(/:\s*:/g, ':');
+        txt = txt.replace(/\s+/g, ' ').trim();
+        return txt;
+      }
+
+      function expandRomanAndPhonetics(txt) {
+        if (!txt) return '';
+        txt = cleanSmartReading(txt);
+
+        const replacements = [
+          [/\bA\.C\.\s*(?:No\.?\s*)?([A-Za-z0-9\-]+)/gi, 'Administrative Case Number $1'],
+          [/\bA\.M\.\s*(?:No\.?\s*)?([A-Za-z0-9\-]+)/gi, 'Administrative Matter Number $1'],
+          [/\bG\.R\.\s*Nos\.?\s*([A-Za-z0-9\-,\s]+)/gi, 'JEE-AR Numbers $1'],
+          [/\bG\.R\.\s*(?:No\.?\s*)?([A-Za-z0-9\-]+)/gi, 'JEE-AR Number $1'],
+          [/\bG\.R\.\b/gi, 'JEE-AR'],
+          [/\bP\.D\.\s*(?:No\.?\s*)?(\d+)/gi, 'Presidential Decree Number $1'],
+          [/\bPD\s*(\d+)/gi, 'Presidential Decree $1'],
+          [/\bP\.D\.\b/gi, 'Presidential Decree'],
+          [/\bR\.A\.\s*(?:No\.?\s*)?(\d+)/gi, 'Republic Act Number $1'],
+          [/\bRA\s*(\d+)/gi, 'Republic Act $1'],
+          [/\bR\.A\.\b/gi, 'Republic Act'],
+          [/\bPhil\.\s*(\d+)/gi, 'Philippine Reports volume $1'],
+          [/\bPhil\.\b/gi, 'Phil'],
+          [/\bSCRA\b/g, 'SKRA'],
+          [/\bCPRA\b/g, 'SIP-ruh'],
+          [/\bCJCA\b/g, 'SEE-JAY-SEE-AY'],
+          [/\bCPR\b/g, 'Code of Professional Responsibility'],
+          [/\bCCCP\b/g, 'Code of Conduct for Court Personnel'],
+          [/\bJIO\b/g, 'Judicial Integrity Office'],
+          [/\bOCA\b/g, 'Office of the Court Administrator'],
+          [/\bDPA\b/g, 'DEE-PEE-AY'],
+          [/\bITA\b/g, 'EYE-tuh'],
+          [/\bOSAEC\b/g, 'OH-sak'],
+          [/\bAFASA\b/g, 'ah-FAH-suh'],
+          [/\bCPA\b/g, 'Cybercrime Prevention Act'],
+          [/\bREED\b/g, 'REED'],
+          [/\bDICT\b/g, 'DIK-tee'],
+          [/\bCICC\b/g, 'SIK-see'],
+          [/\bRPC\b/g, 'Revised Penal Code'],
+          [/\bIn\s+re\b/gi, 'in Ree'],
+          [/\bet\s+al\./gi, 'et AHL,'],
+          [/\bet\s+al\b/gi, 'et AHL,'],
+          [/\bi\.e\./gi, 'that is,'],
+          [/\be\.g\./gi, 'for example,'],
+          [/\bArt\.\s*(\d+)/gi, 'Article $1'],
+          [/\bArts\.\s*([\d,\s\-]+)/gi, 'Articles $1'],
+          [/\bSec\.\s*(\d+)/gi, 'Section $1'],
+          [/\bSecs\.\s*([\d,\s\-]+)/gi, 'Sections $1'],
+          [/\bPar\.\s*(\d+)/gi, 'Paragraph $1'],
+          [/\s+v(?:s)?\.\s+/gi, ' versus ']
+        ];
+
+        replacements.forEach(([pattern, rep]) => {
+          txt = txt.replace(pattern, rep);
+        });
+
+        txt = txt.replace(/(^|\n|\.\s+|;\s+)([IVXLCDM]+)\.\s+/gi, function(match, prefix, roman) {
+          const val = romanToInt(roman);
+          return val ? prefix + 'Topic ' + val + ': ' : match;
+        });
+
+        txt = txt.replace(/\b([A-Z][a-z]+)\s+([IVXLCDM]{1,4})\b/g, function(match, name, roman) {
+          if (/^(?:Canon|Part|Chapter|Article|Title|Book|Section|Sec|Art|Vol|Volume|Rule|Topic|Case|No|Nos)$/i.test(name)) {
+            return match;
+          }
+          const upperR = roman.toUpperCase();
+          return ORDINALS[upperR] ? name + ' ' + ORDINALS[upperR] : match;
+        });
+
+        txt = txt.replace(/\b(Canon|Part|Chapter|Article|Title|Book|Section|Sec|Art|Vol|Volume|Rule)\s+([IVXLCDM]+)\b/gi, function(match, prefix, roman) {
+          const val = romanToInt(roman);
+          return val ? prefix + ' ' + val : match;
+        });
+
+        txt = txt.replace(/\(([ivxlcdm]+)\)/gi, function(match, roman) {
+          const val = romanToInt(roman);
+          return val ? 'sub-item ' + val + ', ' : match;
+        });
+
+        txt = txt.replace(/:\s*/g, ': ... ');
+        txt = txt.replace(/;\s*/g, ';, ');
+        txt = txt.replace(/\s*—\s*/g, ' — ... ');
+
+        return txt.trim();
+      }
+
+      function prepareSpeechText(unitEl) {
+        let text = unitEl.innerText || unitEl.textContent || '';
+        return expandRomanAndPhonetics(text);
+      }
+
+      function setSpeakingState(speaking, paused = false) {
+        isSpeaking = speaking;
+        isPaused = paused;
+        if (speaking && !paused) {
+          if (playIcon) playIcon.style.display = 'none';
+          if (pauseIcon) pauseIcon.style.display = 'inline';
+          if (playBtnText) playBtnText.textContent = 'Pause';
+          if (statusBadge) {
+            statusBadge.innerHTML = '<span class="pulse-dot"></span><span>Speaking...</span>';
+            statusBadge.className = 'tts-status-badge speaking';
+          }
+        } else if (paused) {
+          if (playIcon) playIcon.style.display = 'inline';
+          if (pauseIcon) pauseIcon.style.display = 'none';
+          if (playBtnText) playBtnText.textContent = 'Resume';
+          if (statusBadge) {
+            statusBadge.innerHTML = '<span class="pulse-dot"></span><span>Paused</span>';
+            statusBadge.className = 'tts-status-badge paused';
+          }
+        } else {
+          if (playIcon) playIcon.style.display = 'inline';
+          if (pauseIcon) pauseIcon.style.display = 'none';
+          if (playBtnText) playBtnText.textContent = 'Read Aloud';
+          if (statusBadge) {
+            statusBadge.innerHTML = '<span class="pulse-dot"></span><span>Ready</span>';
+            statusBadge.className = 'tts-status-badge';
+          }
+          clearHighlights();
+        }
+      }
+
+      function clearHighlights() {
+        readUnits.forEach(u => u.classList.remove('is-speaking'));
+      }
+
+      function highlightUnit(idx) {
+        clearHighlights();
+        if (idx >= 0 && idx < readUnits.length) {
+          const unit = readUnits[idx];
+          unit.classList.add('is-speaking');
+          unit.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+
+      function speakUnit(idx) {
+        if (!synth || idx < 0 || idx >= readUnits.length) {
+          setSpeakingState(false);
+          return;
+        }
+
+        synth.cancel();
+        currentUnitIndex = idx;
+        const unit = readUnits[idx];
+        highlightUnit(idx);
+
+        const speechText = prepareSpeechText(unit);
+        const utterance = new SpeechSynthesisUtterance(speechText);
+        utterance.rate = (speedSelect ? parseFloat(speedSelect.value) : 0.9) || 0.9;
+        utterance.pitch = 1.0;
+
+        const selVoiceIdx = voiceSelect ? voiceSelect.value : 'default';
+        if (selVoiceIdx !== 'default' && voices[selVoiceIdx]) {
+          utterance.voice = voices[selVoiceIdx];
+        } else if (voices.length > 0) {
+          utterance.voice = voices[0];
+        }
+
+        utterance.onstart = () => {
+          setSpeakingState(true, false);
+        };
+
+        utterance.onend = () => {
+          if (isSpeaking && !isPaused) {
+            if (idx + 1 < readUnits.length) {
+              speakUnit(idx + 1);
+            } else {
+              setSpeakingState(false);
+            }
+          }
+        };
+
+        utterance.onerror = (e) => {
+          if (e.error !== 'interrupted' && e.error !== 'canceled') {
+            console.warn('TTS error:', e);
+          }
+        };
+
+        synth.speak(utterance);
+      }
+
+      if (playPauseBtn) {
+        playPauseBtn.addEventListener('click', () => {
+          if (!synth) return;
+          if (isSpeaking && !isPaused) {
+            synth.pause();
+            setSpeakingState(true, true);
+          } else if (isPaused) {
+            synth.resume();
+            setSpeakingState(true, false);
+          } else {
+            speakUnit(currentUnitIndex >= 0 ? currentUnitIndex : 0);
+          }
+        });
+      }
+
+      if (stopBtn) {
+        stopBtn.addEventListener('click', () => {
+          if (!synth) return;
+          synth.cancel();
+          setSpeakingState(false);
+          currentUnitIndex = -1;
+          clearHighlights();
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          const target = Math.min(readUnits.length - 1, (currentUnitIndex >= 0 ? currentUnitIndex : 0) + 1);
+          speakUnit(target);
+        });
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          const target = Math.max(0, (currentUnitIndex >= 0 ? currentUnitIndex : 0) - 1);
+          speakUnit(target);
+        });
+      }
+
+      // Click on any paragraph to start speaking from that exact unit
+      const contentWrap = document.getElementById('contentWrapper');
+      if (contentWrap) {
+        contentWrap.addEventListener('click', (e) => {
+          const unit = e.target.closest('.read-unit');
+          if (unit) {
+            const idx = readUnits.indexOf(unit);
+            if (idx !== -1) {
+              speakUnit(idx);
+            }
+          }
+        });
+      }
+
+      // Floating Selection Reader
+      const floatBtn = document.getElementById('floatingTtsTrigger');
+      if (floatBtn) {
+        document.addEventListener('mouseup', (e) => {
+          if (e.target.closest('#floatingTtsTrigger') || e.target.closest('.tts-toolbar') || e.target.closest('header')) return;
+          const sel = window.getSelection().toString().trim();
+          if (sel.length > 2) {
+            const rect = window.getSelection().getRangeAt(0).getBoundingClientRect();
+            floatBtn.style.top = (window.scrollY + rect.top - 44) + 'px';
+            floatBtn.style.left = (window.scrollX + rect.left + (rect.width / 2)) + 'px';
+            floatBtn.style.display = 'block';
+          } else {
+            floatBtn.style.display = 'none';
+          }
+        });
+
+        floatBtn.addEventListener('click', () => {
+          const sel = window.getSelection().toString().trim();
+          if (sel && synth) {
+            synth.cancel();
+            const utterance = new SpeechSynthesisUtterance(expandRomanAndPhonetics(sel));
+            utterance.rate = (speedSelect ? parseFloat(speedSelect.value) : 0.9) || 0.9;
+            const selVoiceIdx = voiceSelect ? voiceSelect.value : 'default';
+            if (selVoiceIdx !== 'default' && voices[selVoiceIdx]) {
+              utterance.voice = voices[selVoiceIdx];
+            }
+            synth.speak(utterance);
+            floatBtn.style.display = 'none';
+          }
+        });
+      }
+
+      // Keyboard Shortcuts
+      document.addEventListener('keydown', (e) => {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA') return;
+        if ((e.ctrlKey && (e.key === 'b' || e.key === 'B')) || (e.altKey && (e.key === 't' || e.key === 'T'))) {
+          e.preventDefault();
+          toggleSidebar();
+        } else if (e.code === 'Space') {
+          e.preventDefault();
+          if (playPauseBtn) playPauseBtn.click();
+        } else if (e.key === 'Escape') {
+          if (stopBtn) stopBtn.click();
+        } else if (e.key === 'n' || e.key === 'N') {
+          if (nextBtn) nextBtn.click();
+        } else if (e.key === 'p' || e.key === 'P') {
+          if (prevBtn) prevBtn.click();
+        }
+      });
+
+      // -------------------------------------------------------------
+      // 3 SPECIAL BOOKMARKING SYSTEM LOGIC
+      // -------------------------------------------------------------
+      const storageKey = 'mlc_bm_' + (window.location.pathname.split('/').pop() || 'doc');
+      let bookmarks = { 1: null, 2: null, 3: null };
+
+      try {
+        const savedBm = localStorage.getItem(storageKey);
+        if (savedBm) {
+          bookmarks = Object.assign({ 1: null, 2: null, 3: null }, JSON.parse(savedBm));
+        }
+      } catch (e) {}
+
+      const bookmarksMenuBtn = document.getElementById('bookmarksMenuBtn');
+      const bookmarksDropdown = document.getElementById('bookmarksDropdown');
+      const bookmarkCountBadge = document.getElementById('bookmarkCountBadge');
+
+      function getBookmarkMetadata(unitIdx) {
+        if (unitIdx < 0 || unitIdx >= readUnits.length) return null;
+        const unit = readUnits[unitIdx];
+
+        // 1. Subject
+        const subjectEl = document.querySelector('.subject-pill') || document.querySelector('.brand-title');
+        let subjectName = subjectEl ? subjectEl.textContent.trim() : 'Law Subject';
+        if (!subjectName || subjectName === 'undefined') subjectName = document.title.split(' - ')[0] || 'Law Subject';
+
+        // 2. Topic
+        const sec = unit.closest('section.doc-section');
+        let topicName = 'General Topic';
+        if (sec) {
+          const h = sec.querySelector('.case-header-title') ||
+                    sec.querySelector('.topic-header-title') ||
+                    sec.querySelector('.subtopic-header-title') ||
+                    sec.querySelector('.canon-title') ||
+                    sec.querySelector('h2') ||
+                    sec.querySelector('h3');
+          if (h) topicName = h.innerText.trim();
+        }
+
+        // 3. Location
+        let locationName = '';
+        if (unit.classList.contains('topic-header-card') || unit.tagName === 'H1' || unit.tagName === 'H2' || unit.tagName === 'H3') {
+          locationName = 'Topic Header';
+        } else if (unit.closest('.case-facts-box') || unit.classList.contains('case-facts-box')) {
+          locationName = 'Facts Section';
+        } else if (unit.closest('.case-ruling-box') || unit.classList.contains('case-ruling-box') || unit.closest('.alac-ruling-box')) {
+          locationName = 'Ruling / Holding';
+        } else if (unit.closest('.case-issue-box') || unit.classList.contains('case-issue-box')) {
+          locationName = 'Legal Issue';
+        } else if (unit.closest('.doctrine-box') || unit.classList.contains('doctrine-box')) {
+          locationName = 'Doctrine Summary';
+        } else {
+          if (sec) {
+            const secUnits = Array.from(sec.querySelectorAll('.read-unit'));
+            const uIdxInSec = secUnits.indexOf(unit);
+            locationName = uIdxInSec >= 0 ? 'Paragraph ' + (uIdxInSec + 1) : 'Paragraph ' + (unitIdx + 1);
+          } else {
+            locationName = 'Paragraph ' + (unitIdx + 1);
+          }
+        }
+
+        // 4. Snippet
+        let rawText = unit.innerText || unit.textContent || '';
+        rawText = rawText.replace(/^[🔖⭐📌][^\n]*\n?/, '').trim();
+        const snippet = rawText.substring(0, 110) + (rawText.length > 110 ? '...' : '');
+
+        return {
+          unitIndex: unitIdx,
+          subject: subjectName,
+          topic: topicName,
+          location: locationName,
+          snippet: snippet,
+          timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+        };
+      }
+
+      function updateBookmarkUI() {
+        let activeCount = 0;
+
+        // Clear existing ribbons
+        readUnits.forEach(u => {
+          u.classList.remove('bookmarked-slot-1', 'bookmarked-slot-2', 'bookmarked-slot-3');
+          const oldRibbon = u.querySelector('.bookmark-ribbon');
+          if (oldRibbon) oldRibbon.remove();
+        });
+
+        // Clear existing TOC bookmark badges
+        document.querySelectorAll('#tocList .toc-bm-badges-wrap').forEach(w => w.remove());
+
+        for (let slot = 1; slot <= 3; slot++) {
+          const bm = bookmarks[slot];
+          const metaBoxEl = document.getElementById('slotMeta' + slot);
+          const subjEl = document.getElementById('slotSubject' + slot);
+          const topicEl = document.getElementById('slotTopic' + slot);
+          const locEl = document.getElementById('slotLocation' + slot);
+          const contentEl = document.getElementById('slotContent' + slot);
+          const actionsEl = document.getElementById('slotActions' + slot);
+
+          if (bm && bm.unitIndex >= 0 && bm.unitIndex < readUnits.length) {
+            activeCount++;
+            const targetUnit = readUnits[bm.unitIndex];
+            targetUnit.classList.add('bookmarked-slot-' + slot);
+
+            // Add ribbon
+            const ribbon = document.createElement('div');
+            ribbon.className = 'bookmark-ribbon ribbon-slot-' + slot;
+            const slotIcon = slot === 1 ? '🔖' : slot === 2 ? '⭐' : '📌';
+            const locText = bm.location ? ' • ' + bm.location : '';
+            ribbon.innerHTML = `${slotIcon} Bookmark ${slot} • ${bm.topic}${locText}`;
+            targetUnit.insertBefore(ribbon, targetUnit.firstChild);
+
+            // Inject TOC badge into matching sidebar link
+            const sec = targetUnit.closest('section.doc-section');
+            if (sec && sec.id) {
+              const tocLink = document.querySelector(`#tocList a[href="#${sec.id}"]`);
+              if (tocLink) {
+                let badgesWrap = tocLink.querySelector('.toc-bm-badges-wrap');
+                if (!badgesWrap) {
+                  badgesWrap = document.createElement('span');
+                  badgesWrap.className = 'toc-bm-badges-wrap';
+                  tocLink.appendChild(badgesWrap);
+                }
+                const badge = document.createElement('span');
+                badge.className = `toc-bm-badge badge-slot-${slot}`;
+                badge.title = `Bookmark ${slot}: ${bm.location || ''}`;
+                badge.textContent = `${slotIcon} ${slot}`;
+                badgesWrap.appendChild(badge);
+              }
+            }
+
+            if (metaBoxEl) metaBoxEl.style.display = 'flex';
+            if (subjEl) subjEl.textContent = bm.subject || 'Law Subject';
+            if (topicEl) topicEl.textContent = bm.topic || 'Topic';
+            if (locEl) locEl.textContent = bm.location || 'Paragraph';
+
+            if (contentEl) {
+              contentEl.textContent = bm.snippet || 'Bookmarked text';
+              contentEl.classList.remove('empty');
+            }
+            if (actionsEl) actionsEl.style.display = 'flex';
+          } else {
+            if (metaBoxEl) metaBoxEl.style.display = 'none';
+            if (contentEl) {
+              const iconChar = slot === 1 ? '🔖 1' : slot === 2 ? '⭐ 2' : '📌 3';
+              contentEl.textContent = 'No bookmark set. Click ' + iconChar + ' on any paragraph.';
+              contentEl.classList.add('empty');
+            }
+            if (actionsEl) actionsEl.style.display = 'none';
+          }
+        }
+
+        if (bookmarkCountBadge) {
+          if (activeCount > 0) {
+            bookmarkCountBadge.textContent = activeCount;
+            bookmarkCountBadge.style.display = 'flex';
+          } else {
+            bookmarkCountBadge.style.display = 'none';
+          }
+        }
+      }
+
+      function saveBookmarks() {
+        try {
+          localStorage.setItem(storageKey, JSON.stringify(bookmarks));
+        } catch (e) {}
+        updateBookmarkUI();
+      }
+
+      function toggleBookmark(slot, unitIdx) {
+        if (unitIdx < 0 || unitIdx >= readUnits.length) return;
+        const currentBm = bookmarks[slot];
+        if (currentBm && currentBm.unitIndex === unitIdx) {
+          bookmarks[slot] = null;
+        } else {
+          bookmarks[slot] = getBookmarkMetadata(unitIdx);
+        }
+        saveBookmarks();
+      }
+
+      function jumpToBookmark(slot) {
+        const bm = bookmarks[slot];
+        if (bm && bm.unitIndex >= 0 && bm.unitIndex < readUnits.length) {
+          const targetUnit = readUnits[bm.unitIndex];
+          if (bookmarksDropdown) bookmarksDropdown.classList.remove('open');
+          targetUnit.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          targetUnit.classList.remove('bookmark-flash-target');
+          void targetUnit.offsetWidth;
+          targetUnit.classList.add('bookmark-flash-target');
+        }
+      }
+
+      // Inject hover buttons to each unit
+      readUnits.forEach((unit, idx) => {
+        const tools = document.createElement('div');
+        tools.className = 'unit-bookmark-tools';
+        tools.innerHTML = '<button class="btn-unit-bm bm-1" data-slot="1" title="Set Bookmark 1">🔖 1</button>' +
+                          '<button class="btn-unit-bm bm-2" data-slot="2" title="Set Bookmark 2">⭐ 2</button>' +
+                          '<button class="btn-unit-bm bm-3" data-slot="3" title="Set Bookmark 3">📌 3</button>';
+        
+        tools.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const btn = e.target.closest('.btn-unit-bm');
+          if (btn) {
+            const slot = parseInt(btn.getAttribute('data-slot'), 10);
+            toggleBookmark(slot, idx);
+          }
+        });
+
+        unit.appendChild(tools);
+      });
+
+      // Toggle dropdown in navbar
+      if (bookmarksMenuBtn && bookmarksDropdown) {
+        bookmarksMenuBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          bookmarksDropdown.classList.toggle('open');
+        });
+
+        document.addEventListener('click', (e) => {
+          if (!e.target.closest('.bookmark-nav-wrapper')) {
+            bookmarksDropdown.classList.remove('open');
+          }
+        });
+      }
+
+      // Handle Slot Jump & Clear buttons
+      if (bookmarksDropdown) {
+        bookmarksDropdown.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const jumpBtn = e.target.closest('.btn-slot-jump');
+          if (jumpBtn) {
+            const slot = parseInt(jumpBtn.getAttribute('data-slot'), 10);
+            jumpToBookmark(slot);
+            return;
+          }
+          const clearBtn = e.target.closest('.btn-slot-clear');
+          if (clearBtn) {
+            const slot = parseInt(clearBtn.getAttribute('data-slot'), 10);
+            bookmarks[slot] = null;
+            saveBookmarks();
+            return;
+          }
+        });
+      }
+
+      updateBookmarkUI();      // Keyboard shortcut: 'b' to toggle bookmarks
+      document.addEventListener('keydown', (e) => {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA') return;
+        if (e.key === 'b' || e.key === 'B') {
+          if (!e.ctrlKey && !e.metaKey) {
+            e.preventDefault();
+            if (bookmarksDropdown) bookmarksDropdown.classList.toggle('open');
+          }
+        }
+      });
+    })();
+
+    // -------------------------------------------------------------
+    // STUDIO AUDIO PLAYER CONTROLS
+    // -------------------------------------------------------------
+    function setStudioAudioSpeed(rate, btn) {
+      const audio = document.getElementById('studioAudioEl');
+      if (audio) {
+        audio.playbackRate = rate;
+        document.querySelectorAll('.speed-btn').forEach(b => b.classList.remove('active'));
+        if (btn) btn.classList.add('active');
+      }
+    }
+
+    function seekStudioAudio(offset) {
+      const audio = document.getElementById('studioAudioEl');
+      if (audio) {
+        audio.currentTime = Math.max(0, Math.min(audio.duration || 999999, audio.currentTime + offset));
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const audio = document.getElementById('studioAudioEl');
+      const statusEl = document.getElementById('studioAudioStatus');
+      if (audio && statusEl) {
+        audio.addEventListener('play', () => {
+          statusEl.textContent = 'Playing';
+          statusEl.style.color = '#34d399';
+          statusEl.style.borderColor = 'rgba(52, 211, 153, 0.4)';
+        });
+        audio.addEventListener('pause', () => {
+          statusEl.textContent = 'Paused';
+          statusEl.style.color = '#fbbf24';
+          statusEl.style.borderColor = 'rgba(251, 191, 36, 0.4)';
+        });
+        audio.addEventListener('ended', () => {
+          statusEl.textContent = 'Completed';
+          statusEl.style.color = '#94a3b8';
+        });
+        audio.addEventListener('canplay', () => {
+          if (statusEl.textContent !== 'Playing' && statusEl.textContent !== 'Paused') {
+            statusEl.textContent = 'Ready';
+            statusEl.style.color = '#38bdf8';
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
