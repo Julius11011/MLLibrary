@@ -83,17 +83,18 @@ Implemented major UX/UI enhancements across the MLLibrary reader engine and rege
 ---
 
 ### D. Revised Penal Code & Proposed Criminal Code Compendium Suite (`First Sem 1st Year\Subjects\RPC\`)
-Integrated the Revised Penal Code & Proposed Criminal Code Compendium suite directly into the core tracked subject curriculum (`First Sem 1st Year\Subjects\RPC\`):
+Integrated the Revised Penal Code & Proposed Criminal Code Compendium suite directly into the core tracked subject curriculum (`First Sem 1st Year\Subjects\RPC\`) with luxury typography:
 1. **Master Documents**:
    - `Philippine_Revised_Penal_Code_and_Proposed_New_Criminal_Code_Compendium.docx` & `.pdf`
    - `New_RPC_Public_Publish_and_Codal_Compendium.docx` & `.pdf`
 2. **Interactive HTML Web Readers**:
    - `Philippine_Revised_Penal_Code_and_Proposed_New_Criminal_Code_Compendium.html`
    - `New_RPC_Public_Publish_and_Codal_Compendium.html`
-   - Integrated with 3-slot numbered bookmarks (`[🔖 1]`, `[⭐ 2]`, `[📌 3]`), real-time Table of Contents badges, instant paragraph TTS, and embedded Studio Voice MP3 Podcast players with speed controls and 15s skip.
-3. **Master Study Hub Integration (`index.html` & `MLC_Study_Hub.html`)**:
-   - Added `Revised Penal Code (RPC)` as a recognized 5th Core JD Subject with dedicated ⚔️ icon, `RPC-CODAL` badge, and `⚔️ Revised Penal Code (RPC)` filter chip.
-   - Live MP3 streaming and player dock integration for both RPC modules.
+   - Integrated with 3-slot numbered bookmarks, real-time Table of Contents badges, instant paragraph TTS, and embedded Studio Voice MP3 Podcast players with speed controls and 15s skip.
+3. **Master Study Hub & Premium Luxury Aesthetic (`index.html` & `MLC_Study_Hub.html`)**:
+   - Replaced raw emojis across the entire UI with clean, high-end typographic monograms (`RPC`, `CRIM-1`, `CONSTI`, `BLJE`, `STATCON`), uppercase subject tags, and glassmorphic amber-gold card styling for RPC.
+   - Clean luxury type badges (`Codal Compendium`, `ALAC Case Digest`, `Course Outline`, `Comprehensive Lecture`, `CPRA Canons`, `Landmark Cases`, `Study Module`).
+   - Refined filter chips and search bar with minimalist SVG vectors.
 4. **Studio Neural Voice Audio Podcast (`.mp3`)**:
    - Synthesized with Edge TTS (`en-US-JennyNeural`, -3% rate, 10.2 MB, 3,014 words) covering Executive Status Report, Two-Book Structure, Comparative Matrix, Book 1 & Book 2 Codal synthesis, and RA 10951 schedules.
    - Enforced strict Rule 4 Roman numeral spoken pronunciation and phonetic legal citation normalization.

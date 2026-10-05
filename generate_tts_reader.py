@@ -62,7 +62,9 @@ def clean_text(text):
     text = text.replace("’", "'").replace("‘", "'")
     text = text.replace("“", '"').replace("”", '"')
     text = text.replace("–", "-").replace("—", " - ")
-    return text
+    # Clean emojis from text
+    text = re.sub(r'[\U00010000-\U0010ffff\u2600-\u27bf\ufe00-\ufe0f]', '', text)
+    return text.strip()
 
 def slugify(text):
     text = text.lower()
@@ -72,7 +74,7 @@ def slugify(text):
 
 # Regex patterns for high-precision legal document structure
 CASE_HEADING_RE = re.compile(
-    r'^(⚖\s*.*|CASE\s+\d+[:\.]?.*|^\d+\.\s+[A-Z0-9\s\.,\(\)\'\-&]+?\s+V[\.S]?\s+.*)',
+    r'^(CASE\s+\d+[:\.]?.*|^\d+\.\s+[A-Z0-9\s\.,\(\)\'\-&]+?\s+V[\.S]?\s+.*)',
     re.IGNORECASE
 )
 
@@ -2842,43 +2844,43 @@ def generate_study_hub_index(root_dir):
 
     subject_info = {
         "Basic Legal and Judiciary Ethics": {
-            "icon": "⚖️",
-            "tag": "BLJE",
+            "monogram": "BLJE",
+            "tag": "ETHICS & CANONS",
             "desc": "Code of Professional Responsibility and Accountability (CPRA, A.M. No. 22-09-01-SC), Canons of Ethics, & Landmark Precedents",
             "accent": "#c084fc",
             "badge_class": "badge-ethics"
         },
         "Constitutional Law": {
-            "icon": "🏛️",
-            "tag": "CONSTI-1",
+            "monogram": "CONSTI",
+            "tag": "PHILIPPINE CONSTITUTION",
             "desc": "The 1987 Philippine Constitution, State Immunity Doctrine, Separation of Powers, Judicial Review, & Landmark ALAC Digests",
             "accent": "#38bdf8",
             "badge_class": "badge-consti"
         },
         "Criminal Law": {
-            "icon": "🛡️",
-            "tag": "CRIM-1",
+            "monogram": "CRIM-1",
+            "tag": "CRIMINAL JURISPRUDENCE",
             "desc": "Revised Penal Code (Act No. 3815) Book I (Articles 1–113), Felonies, Criminal Liability, Modifying Circumstances, & Supreme Court Doctrines",
             "accent": "#f87171",
             "badge_class": "badge-crim"
         },
         "Revised Penal Code (RPC)": {
-            "icon": "⚔️",
-            "tag": "RPC-CODAL",
+            "monogram": "RPC",
+            "tag": "CODAL & PROPOSED CODE",
             "desc": "Philippine Revised Penal Code (Act No. 3815), Proposed New Criminal Code, RA 10951 Penalty Schedules, & Comparative Codal Matrix",
             "accent": "#f59e0b",
             "badge_class": "badge-rpc"
         },
         "Statutory Construction": {
-            "icon": "📜",
-            "tag": "STATCON",
+            "monogram": "STATCON",
+            "tag": "LEGAL INTERPRETATION",
             "desc": "Canons of Statutory Interpretation, Latin Maxims, Legislative Intent, Extrinsic/Intrinsic Aids, & Case Law Analysis",
             "accent": "#34d399",
             "badge_class": "badge-statcon"
         },
         "Other Subjects": {
-            "icon": "📚",
-            "tag": "GENERAL",
+            "monogram": "GENERAL",
+            "tag": "JD MODULES",
             "desc": "Supplementary Legal Compilations and Juris Doctor Course Modules",
             "accent": "#fbbf24",
             "badge_class": "badge-other"
@@ -2941,45 +2943,45 @@ def generate_study_hub_index(root_dir):
             if has_mp3:
                 total_audio_count += 1
             
-            # Type categorization
+            # Type categorization - Clean luxury typography without raw emojis
             d_lower = doc_name.lower()
             if 'compendium' in d_lower or 'codal' in d_lower or 'rpc' in d_lower:
-                type_badge = '<span class="badge-type badge-rpc">⚔️ Codal Compendium</span>'
+                type_badge = '<span class="badge-type badge-rpc">Codal Compendium</span>'
             elif 'digest' in d_lower:
-                type_badge = '<span class="badge-type badge-digest">⚖️ Case Digest</span>'
+                type_badge = '<span class="badge-type badge-digest">ALAC Case Digest</span>'
                 total_digest_count += 1
             elif 'outline' in d_lower:
-                type_badge = '<span class="badge-type badge-outline">📋 Course Outline</span>'
+                type_badge = '<span class="badge-type badge-outline">Course Outline</span>'
             elif 'lecture' in d_lower:
-                type_badge = '<span class="badge-type badge-lecture">📖 Comprehensive Lecture</span>'
+                type_badge = '<span class="badge-type badge-lecture">Comprehensive Lecture</span>'
             elif 'canon' in d_lower:
-                type_badge = '<span class="badge-type badge-canon">📜 CPRA Canons</span>'
+                type_badge = '<span class="badge-type badge-canon">CPRA Canons</span>'
             elif 'case' in d_lower or 'landmark' in d_lower:
-                type_badge = '<span class="badge-type badge-cases">🏛️ Landmark Cases</span>'
+                type_badge = '<span class="badge-type badge-cases">Landmark Cases</span>'
                 total_digest_count += 1
             else:
-                type_badge = '<span class="badge-type badge-module">📚 Study Module</span>'
+                type_badge = '<span class="badge-type badge-module">Study Module</span>'
             
-            # Format availability pills
+            # Format availability pills - Clean luxury styling
             format_pills = []
-            format_pills.append('<span class="fmt-pill fmt-html" title="Interactive Full-Text Reader with Web Speech Synthesis">📖 HTML Reader</span>')
+            format_pills.append('<span class="fmt-pill fmt-html" title="Interactive Full-Text Reader with Web Speech Synthesis">HTML Reader</span>')
             if has_mp3:
                 size_mb = mp3_file.stat().st_size / (1024 * 1024)
-                format_pills.append(f'<span class="fmt-pill fmt-mp3 fmt-clickable" onclick="playHubAudio(\'{mp3_rel}\', \'{html.escape(doc_name)}\', \'{html.escape(group_name)}\', \'{rel_str}\')" title="Click to stream Studio MP3 Podcast ({size_mb:.1f} MB)">🎙️ MP3 Podcast ({size_mb:.1f} MB)</span>')
+                format_pills.append(f'<span class="fmt-pill fmt-mp3 fmt-clickable" onclick="playHubAudio(\'{mp3_rel}\', \'{html.escape(doc_name)}\', \'{html.escape(group_name)}\', \'{rel_str}\')" title="Click to stream Studio MP3 Podcast ({size_mb:.1f} MB)">Studio Audio ({size_mb:.1f} MB)</span>')
             if has_pdf:
-                format_pills.append('<span class="fmt-pill fmt-pdf" title="Adobe PDF Format">📄 PDF</span>')
+                format_pills.append('<span class="fmt-pill fmt-pdf" title="Adobe PDF Format">PDF</span>')
             if has_docx:
-                format_pills.append('<span class="fmt-pill fmt-docx" title="Microsoft Word DOCX">📝 DOCX</span>')
+                format_pills.append('<span class="fmt-pill fmt-docx" title="Microsoft Word DOCX">DOCX</span>')
 
             # Quick resource links
             resource_actions = []
             if has_mp3:
-                resource_actions.append(f'<button type="button" class="btn-sub btn-sub-play" onclick="playHubAudio(\'{mp3_rel}\', \'{html.escape(doc_name)}\', \'{html.escape(group_name)}\', \'{rel_str}\')" title="Listen to Studio MP3 Podcast">▶️ Play Audio</button>')
-                resource_actions.append(f'<a href="{mp3_rel}" class="btn-sub btn-sub-audio" download title="Download Studio MP3 Podcast">⬇️ MP3</a>')
+                resource_actions.append(f'<button type="button" class="btn-sub btn-sub-play" onclick="playHubAudio(\'{mp3_rel}\', \'{html.escape(doc_name)}\', \'{html.escape(group_name)}\', \'{rel_str}\')" title="Listen to Studio MP3 Podcast">Play Audio</button>')
+                resource_actions.append(f'<a href="{mp3_rel}" class="btn-sub btn-sub-audio" download title="Download Studio MP3 Podcast">MP3</a>')
             if has_pdf:
-                resource_actions.append(f'<a href="{pdf_rel}" class="btn-sub btn-sub-pdf" target="_blank" title="View PDF Document">📄 PDF</a>')
+                resource_actions.append(f'<a href="{pdf_rel}" class="btn-sub btn-sub-pdf" target="_blank" title="View PDF Document">PDF</a>')
             if has_docx:
-                resource_actions.append(f'<a href="{docx_rel}" class="btn-sub btn-sub-docx" download title="Download Word DOCX Document">📝 DOCX</a>')
+                resource_actions.append(f'<a href="{docx_rel}" class="btn-sub btn-sub-docx" download title="Download Word DOCX Document">DOCX</a>')
 
             cards_html.append(f"""
               <div class="hub-card" data-subject="{html.escape(group_name)}" data-title="{html.escape(doc_name.lower())}" data-has-audio="{str(has_mp3).lower()}" data-is-digest="{str('digest' in d_lower or 'case' in d_lower).lower()}">
@@ -2991,7 +2993,7 @@ def generate_study_hub_index(root_dir):
                 </div>
                 <h3 class="hub-card-title"><a href="{rel_str}">{html.escape(doc_name)}</a></h3>
                 <div class="hub-card-footer">
-                  <a href="{rel_str}" class="btn-open">📖 Open Interactive Reader →</a>
+                  <a href="{rel_str}" class="btn-open">Open Interactive Reader <span class="btn-arrow">&rarr;</span></a>
                   <div class="hub-sub-actions">
                     {''.join(resource_actions)}
                   </div>
@@ -3003,8 +3005,9 @@ def generate_study_hub_index(root_dir):
           <section class="hub-group" data-subject-group="{html.escape(group_name)}">
             <div class="hub-group-header">
               <div class="hub-group-title-wrap">
-                <span class="hub-group-icon">{info['icon']}</span>
+                <div class="hub-group-crest {info['badge_class']}">{info['monogram']}</div>
                 <div>
+                  <div class="hub-group-tag">{info['tag']}</div>
                   <h2 class="hub-group-title">{html.escape(group_name)}</h2>
                   <p class="hub-group-desc">{html.escape(info['desc'])}</p>
                 </div>
@@ -3241,15 +3244,57 @@ def generate_study_hub_index(root_dir):
     .hub-group-title-wrap {{
       display: flex;
       align-items: flex-start;
-      gap: 0.85rem;
+      gap: 1rem;
     }}
-    .hub-group-icon {{
-      font-size: 1.75rem;
-      line-height: 1;
-      padding: 0.4rem;
-      background: rgba(30, 41, 59, 0.6);
-      border-radius: 10px;
+    .hub-group-crest {{
+      font-family: var(--font-heading);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      padding: 0.5rem 0.75rem;
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
+      border-radius: 8px;
       border: 1px solid var(--border-color);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 58px;
+      text-align: center;
+    }}
+    .hub-group-crest.badge-rpc {{
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(15, 23, 42, 0.9));
+      border-color: rgba(245, 158, 11, 0.45);
+      color: #fbbf24;
+      box-shadow: 0 4px 16px rgba(245, 158, 11, 0.15);
+    }}
+    .hub-group-crest.badge-ethics {{
+      background: linear-gradient(135deg, rgba(192, 132, 252, 0.15), rgba(15, 23, 42, 0.9));
+      border-color: rgba(192, 132, 252, 0.45);
+      color: #c084fc;
+    }}
+    .hub-group-crest.badge-consti {{
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(15, 23, 42, 0.9));
+      border-color: rgba(56, 189, 248, 0.45);
+      color: #38bdf8;
+    }}
+    .hub-group-crest.badge-crim {{
+      background: linear-gradient(135deg, rgba(248, 113, 113, 0.15), rgba(15, 23, 42, 0.9));
+      border-color: rgba(248, 113, 113, 0.45);
+      color: #f87171;
+    }}
+    .hub-group-crest.badge-statcon {{
+      background: linear-gradient(135deg, rgba(52, 211, 153, 0.15), rgba(15, 23, 42, 0.9));
+      border-color: rgba(52, 211, 153, 0.45);
+      color: #34d399;
+    }}
+    .hub-group-tag {{
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent-gold);
+      margin-bottom: 0.25rem;
     }}
     .hub-group-title {{
       font-family: var(--font-heading);
@@ -3262,9 +3307,9 @@ def generate_study_hub_index(root_dir):
     .hub-group-desc {{
       color: var(--text-muted);
       font-size: 0.85rem;
-      margin-top: 0.3rem;
+      margin-top: 0.35rem;
       max-width: 750px;
-      line-height: 1.45;
+      line-height: 1.5;
     }}
     .hub-group-count {{
       background: rgba(56, 189, 248, 0.12);
@@ -3301,6 +3346,14 @@ def generate_study_hub_index(root_dir):
       border-color: var(--border-hover);
       box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.15);
     }}
+    .hub-card[data-subject="Revised Penal Code (RPC)"] {{
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      background: linear-gradient(145deg, rgba(20, 29, 47, 0.85), rgba(12, 18, 32, 0.95));
+    }}
+    .hub-card[data-subject="Revised Penal Code (RPC)"]:hover {{
+      border-color: rgba(245, 158, 11, 0.6);
+      box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.6), 0 0 24px rgba(245, 158, 11, 0.2);
+    }}
     .hub-card.hidden {{
       display: none !important;
     }}
@@ -3329,7 +3382,7 @@ def generate_study_hub_index(root_dir):
     .badge-lecture {{ background: rgba(251, 191, 36, 0.15); color: var(--accent-gold); border: 1px solid rgba(251, 191, 36, 0.3); }}
     .badge-canon {{ background: rgba(52, 211, 153, 0.15); color: var(--accent-emerald); border: 1px solid rgba(52, 211, 153, 0.3); }}
     .badge-cases {{ background: rgba(251, 113, 133, 0.15); color: var(--accent-rose); border: 1px solid rgba(251, 113, 133, 0.3); }}
-    .badge-rpc {{ background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.35); }}
+    .badge-rpc {{ background: linear-gradient(135deg, rgba(245, 158, 11, 0.18), rgba(217, 119, 6, 0.08)); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); letter-spacing: 0.06em; }}
     .badge-module {{ background: rgba(148, 163, 184, 0.15); color: var(--text-secondary); border: 1px solid rgba(148, 163, 184, 0.3); }}
     .badge-slot-1 {{ background: rgba(251, 191, 36, 0.15); color: var(--accent-gold); border: 1px solid rgba(251, 191, 36, 0.35); }}
     .badge-slot-2 {{ background: rgba(52, 211, 153, 0.15); color: var(--accent-emerald); border: 1px solid rgba(52, 211, 153, 0.35); }}
@@ -3676,7 +3729,7 @@ def generate_study_hub_index(root_dir):
 <body>
   <div class="hub-container">
     <header class="hub-header">
-      <div class="hub-badge">🏛️ Manila Law College • Juris Doctor Program</div>
+      <div class="hub-badge">Manila Law College &bull; Juris Doctor Program</div>
       <h1 class="hub-title">MLC Law Library &amp; Audio Hub</h1>
       <p class="hub-subtitle">Interactive Full-Text Legal Readers with Natural Voice Synthesis, ALAC Reasoning Precedents, and High-Fidelity Studio Podcasts</p>
     </header>
@@ -3693,7 +3746,7 @@ def generate_study_hub_index(root_dir):
       </div>
       <div class="stat-card stat-podcasts-card" id="statPodcastsCard" title="Click to filter modules with Studio MP3 Audio" style="cursor: pointer;">
         <div class="stat-val">{total_audio_count}</div>
-        <div class="stat-label">🎙️ Studio Podcasts</div>
+        <div class="stat-label">Studio Podcasts</div>
       </div>
       <div class="stat-card">
         <div class="stat-val">{total_digest_count}</div>
@@ -3701,26 +3754,28 @@ def generate_study_hub_index(root_dir):
       </div>
       <div class="stat-card stat-bookmarks-card" id="statBookmarksCard" title="Click to view all saved bookmarks across all subjects" style="cursor: pointer;">
         <div class="stat-val" id="totalBookmarksCount">0</div>
-        <div class="stat-label">🔖 Saved Bookmarks</div>
+        <div class="stat-label">Saved Bookmarks</div>
       </div>
     </div>
 
     <!-- Search and Filter Suite -->
     <div class="hub-controls">
       <div class="search-input-wrap">
-        <span class="search-icon">🔍</span>
-        <input type="text" id="hubSearch" class="hub-search-input" placeholder="Search case digests, topics, lecture titles, articles, or doctrines...">
+        <span class="search-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.7;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </span>
+        <input type="text" id="hubSearch" class="hub-search-input" placeholder="Search case digests, topics, codal provisions, articles, or doctrines...">
       </div>
       <div class="hub-filters">
         <span class="filter-chip active" data-filter="all">All Subjects</span>
-        <span class="filter-chip chip-bookmarks" data-filter="bookmarks-only" id="filterBookmarksChip">🔖 My Bookmarks (<span id="chipBookmarksCount">0</span>)</span>
-        <span class="filter-chip" data-filter="Basic Legal and Judiciary Ethics">⚖️ Legal Ethics</span>
-        <span class="filter-chip" data-filter="Constitutional Law">🏛️ Constitutional Law</span>
-        <span class="filter-chip" data-filter="Criminal Law">🛡️ Criminal Law</span>
-        <span class="filter-chip" data-filter="Revised Penal Code (RPC)">⚔️ Revised Penal Code (RPC)</span>
-        <span class="filter-chip" data-filter="Statutory Construction">📜 Statutory Construction</span>
-        <span class="filter-chip" data-filter="audio-only" id="filterAudioChip">🎙️ MP3 Podcasts</span>
-        <span class="filter-chip" data-filter="digest-only">⚖️ Case Digests</span>
+        <span class="filter-chip chip-bookmarks" data-filter="bookmarks-only" id="filterBookmarksChip">My Bookmarks (<span id="chipBookmarksCount">0</span>)</span>
+        <span class="filter-chip" data-filter="Basic Legal and Judiciary Ethics">Legal Ethics (BLJE)</span>
+        <span class="filter-chip" data-filter="Constitutional Law">Constitutional Law</span>
+        <span class="filter-chip" data-filter="Criminal Law">Criminal Law 1</span>
+        <span class="filter-chip" data-filter="Revised Penal Code (RPC)">Revised Penal Code (RPC)</span>
+        <span class="filter-chip" data-filter="Statutory Construction">Statutory Construction</span>
+        <span class="filter-chip" data-filter="audio-only" id="filterAudioChip">Studio Podcasts</span>
+        <span class="filter-chip" data-filter="digest-only">Case Digests</span>
         <span class="results-count" id="resultsCount">Showing all {total_modules} modules</span>
       </div>
     </div>
@@ -3729,15 +3784,16 @@ def generate_study_hub_index(root_dir):
     <section class="hub-group" id="hubBookmarksSection" data-subject-group="bookmarks-only">
       <div class="hub-group-header">
         <div class="hub-group-title-wrap">
-          <span class="hub-group-icon">🔖</span>
+          <div class="hub-group-crest badge-slot-1">BM</div>
           <div>
+            <div class="hub-group-tag">PERSONAL STUDY RECORD</div>
             <h2 class="hub-group-title">My Saved Study Bookmarks</h2>
             <p class="hub-group-desc">Live index of all marked paragraphs, doctrines, and review points across all your legal subjects</p>
           </div>
         </div>
         <div style="display: flex; align-items: center; gap: 0.75rem;">
           <span class="hub-group-count" id="hubBookmarksCountBadge">0 Bookmarks</span>
-          <button id="clearAllBookmarksBtn" class="btn-sub" style="color: var(--accent-rose); border-color: rgba(251, 113, 133, 0.3); display: none; cursor: pointer;">✕ Clear All</button>
+          <button id="clearAllBookmarksBtn" class="btn-sub" style="color: var(--accent-rose); border-color: rgba(251, 113, 133, 0.3); display: none; cursor: pointer;">Clear All</button>
         </div>
       </div>
       <div class="hub-grid" id="hubBookmarksGrid">
