@@ -2760,6 +2760,8 @@ def convert_file_to_html_reader(input_file_path, output_html_path=None, overwrit
     subject_tag = path.parent.name
     if subject_tag.lower() == "case digest":
         subject_tag = f"{path.parent.parent.name} • Case Digest"
+    elif subject_tag.upper() == "RPC":
+        subject_tag = "Revised Penal Code • RPC"
 
     # Audio file pairing
     mp3_file = path.with_suffix('.mp3')
@@ -2829,11 +2831,12 @@ def generate_study_hub_index(root_dir):
     
     html_files = list(subjects_dir.rglob("*.html")) if subjects_dir.exists() else []
 
-    # Map each subject group cleanly with explicit support for Constitutional Law & Criminal Law
+    # Map each subject group cleanly with explicit support for Constitutional Law, Criminal Law, & RPC
     by_subject = {
         "Basic Legal and Judiciary Ethics": [],
         "Constitutional Law": [],
         "Criminal Law": [],
+        "Revised Penal Code (RPC)": [],
         "Statutory Construction": []
     }
 
@@ -2858,6 +2861,13 @@ def generate_study_hub_index(root_dir):
             "desc": "Revised Penal Code (Act No. 3815) Book I (Articles 1–113), Felonies, Criminal Liability, Modifying Circumstances, & Supreme Court Doctrines",
             "accent": "#f87171",
             "badge_class": "badge-crim"
+        },
+        "Revised Penal Code (RPC)": {
+            "icon": "⚔️",
+            "tag": "RPC-CODAL",
+            "desc": "Philippine Revised Penal Code (Act No. 3815), Proposed New Criminal Code, RA 10951 Penalty Schedules, & Comparative Codal Matrix",
+            "accent": "#f59e0b",
+            "badge_class": "badge-rpc"
         },
         "Statutory Construction": {
             "icon": "📜",
@@ -2887,10 +2897,17 @@ def generate_study_hub_index(root_dir):
         
         # Categorize
         cat = "Other Subjects"
-        for sname in by_subject.keys():
-            if sname.lower() in str(rel).lower():
-                cat = sname
-                break
+        norm_rel = rel_str.lower()
+        if "basic legal and judiciary ethics" in norm_rel or "/blje" in norm_rel:
+            cat = "Basic Legal and Judiciary Ethics"
+        elif "constitutional law" in norm_rel or "/csl" in norm_rel:
+            cat = "Constitutional Law"
+        elif "/rpc/" in norm_rel or "subjects/rpc" in norm_rel or norm_rel.startswith("rpc/"):
+            cat = "Revised Penal Code (RPC)"
+        elif "criminal law" in norm_rel:
+            cat = "Criminal Law"
+        elif "statutory construction" in norm_rel:
+            cat = "Statutory Construction"
         
         if cat not in by_subject:
             by_subject[cat] = []
@@ -2926,7 +2943,9 @@ def generate_study_hub_index(root_dir):
             
             # Type categorization
             d_lower = doc_name.lower()
-            if 'digest' in d_lower:
+            if 'compendium' in d_lower or 'codal' in d_lower or 'rpc' in d_lower:
+                type_badge = '<span class="badge-type badge-rpc">⚔️ Codal Compendium</span>'
+            elif 'digest' in d_lower:
                 type_badge = '<span class="badge-type badge-digest">⚖️ Case Digest</span>'
                 total_digest_count += 1
             elif 'outline' in d_lower:
@@ -3310,6 +3329,7 @@ def generate_study_hub_index(root_dir):
     .badge-lecture {{ background: rgba(251, 191, 36, 0.15); color: var(--accent-gold); border: 1px solid rgba(251, 191, 36, 0.3); }}
     .badge-canon {{ background: rgba(52, 211, 153, 0.15); color: var(--accent-emerald); border: 1px solid rgba(52, 211, 153, 0.3); }}
     .badge-cases {{ background: rgba(251, 113, 133, 0.15); color: var(--accent-rose); border: 1px solid rgba(251, 113, 133, 0.3); }}
+    .badge-rpc {{ background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.35); }}
     .badge-module {{ background: rgba(148, 163, 184, 0.15); color: var(--text-secondary); border: 1px solid rgba(148, 163, 184, 0.3); }}
     .badge-slot-1 {{ background: rgba(251, 191, 36, 0.15); color: var(--accent-gold); border: 1px solid rgba(251, 191, 36, 0.35); }}
     .badge-slot-2 {{ background: rgba(52, 211, 153, 0.15); color: var(--accent-emerald); border: 1px solid rgba(52, 211, 153, 0.35); }}
@@ -3697,6 +3717,7 @@ def generate_study_hub_index(root_dir):
         <span class="filter-chip" data-filter="Basic Legal and Judiciary Ethics">⚖️ Legal Ethics</span>
         <span class="filter-chip" data-filter="Constitutional Law">🏛️ Constitutional Law</span>
         <span class="filter-chip" data-filter="Criminal Law">🛡️ Criminal Law</span>
+        <span class="filter-chip" data-filter="Revised Penal Code (RPC)">⚔️ Revised Penal Code (RPC)</span>
         <span class="filter-chip" data-filter="Statutory Construction">📜 Statutory Construction</span>
         <span class="filter-chip" data-filter="audio-only" id="filterAudioChip">🎙️ MP3 Podcasts</span>
         <span class="filter-chip" data-filter="digest-only">⚖️ Case Digests</span>

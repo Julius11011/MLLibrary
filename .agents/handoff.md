@@ -82,16 +82,19 @@ Implemented major UX/UI enhancements across the MLLibrary reader engine and rege
 
 ---
 
-### D. Revised Penal Code & Proposed Criminal Code Compendium Suite (`RPC/`)
-Generated complete multi-format suite and studio neural voice MP3 audio for the Revised Penal Code & Proposed Criminal Code Compendium:
+### D. Revised Penal Code & Proposed Criminal Code Compendium Suite (`First Sem 1st Year\Subjects\RPC\`)
+Integrated the Revised Penal Code & Proposed Criminal Code Compendium suite directly into the core tracked subject curriculum (`First Sem 1st Year\Subjects\RPC\`):
 1. **Master Documents**:
    - `Philippine_Revised_Penal_Code_and_Proposed_New_Criminal_Code_Compendium.docx` & `.pdf`
    - `New_RPC_Public_Publish_and_Codal_Compendium.docx` & `.pdf`
 2. **Interactive HTML Web Readers**:
    - `Philippine_Revised_Penal_Code_and_Proposed_New_Criminal_Code_Compendium.html`
    - `New_RPC_Public_Publish_and_Codal_Compendium.html`
-   - Integrated with 3-slot bookmarks, Table of Contents badges, and instant paragraph TTS.
-3. **Studio Neural Voice Audio Podcast (`.mp3`)**:
+   - Integrated with 3-slot numbered bookmarks (`[🔖 1]`, `[⭐ 2]`, `[📌 3]`), real-time Table of Contents badges, instant paragraph TTS, and embedded Studio Voice MP3 Podcast players with speed controls and 15s skip.
+3. **Master Study Hub Integration (`index.html` & `MLC_Study_Hub.html`)**:
+   - Added `Revised Penal Code (RPC)` as a recognized 5th Core JD Subject with dedicated ⚔️ icon, `RPC-CODAL` badge, and `⚔️ Revised Penal Code (RPC)` filter chip.
+   - Live MP3 streaming and player dock integration for both RPC modules.
+4. **Studio Neural Voice Audio Podcast (`.mp3`)**:
    - Synthesized with Edge TTS (`en-US-JennyNeural`, -3% rate, 10.2 MB, 3,014 words) covering Executive Status Report, Two-Book Structure, Comparative Matrix, Book 1 & Book 2 Codal synthesis, and RA 10951 schedules.
    - Enforced strict Rule 4 Roman numeral spoken pronunciation and phonetic legal citation normalization.
 
@@ -111,6 +114,7 @@ Generated complete multi-format suite and studio neural voice MP3 audio for the 
 ## 3. Law Library Deliverables & Hub Status
 
 All core subjects in **First Year, First Semester (Juris Doctor Program, Manila Law College)** remain fully compiled and synchronized:
+- **Revised Penal Code & Compendium (Codal & Proposed Code):** [`First Sem 1st Year\Subjects\RPC\`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/RPC/)
 - **Criminal Law (Book I, Articles 1–113 & 275 Landmark Cases):** [`First Sem 1st Year\Subjects\Criminal Law\`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Criminal%20Law/)
 - **Constitutional Law 1 (1987 Constitution & 149 Landmark Cases):** [`First Sem 1st Year\Subjects\Constitutional Law\`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Constitutional%20Law/)
 - **Statutory Construction (103 Syllabus Cases):** [`First Sem 1st Year\Subjects\Statutory Construction\`](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Subjects/Statutory%20Construction/)

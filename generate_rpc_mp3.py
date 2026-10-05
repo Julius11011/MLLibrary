@@ -251,7 +251,9 @@ async def synthesize_audio(text, output_mp3_path, voice="en-US-JennyNeural", rat
     return out_obj
 
 async def main():
-    rpc_dir = Path(r"C:\Users\JR\Downloads\14All-All41\MLC\RPC")
+    rpc_dir = Path(r"C:\Users\JR\Downloads\14All-All41\MLC\First Sem 1st Year\Subjects\RPC")
+    if not rpc_dir.exists():
+        rpc_dir = Path(r"C:\Users\JR\Downloads\14All-All41\MLC\RPC")
     
     file1_docx = rpc_dir / "Philippine_Revised_Penal_Code_and_Proposed_New_Criminal_Code_Compendium.docx"
     file1_mp3 = rpc_dir / "Philippine_Revised_Penal_Code_and_Proposed_New_Criminal_Code_Compendium.mp3"
