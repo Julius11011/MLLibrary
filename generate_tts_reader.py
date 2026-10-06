@@ -74,7 +74,7 @@ def slugify(text):
 
 # Regex patterns for high-precision legal document structure
 CASE_HEADING_RE = re.compile(
-    r'^(CASE\s+\d+[:\.]?.*|^\d+\.\s+[A-Z0-9\s\.,\(\)\'\-&]+?\s+V[\.S]?\s+.*)',
+    r'^(?:\[?CASE\s+\d+\]?[:\.]?.*|^\d+\.\s+[A-Z0-9\s\.,\(\)\'\-&]+?\s+V[\.S]?\s+.*)',
     re.IGNORECASE
 )
 
@@ -210,10 +210,10 @@ def parse_docx_file(file_path, doc_title=""):
             
             case_badge = ""
             case_name = raw_text
-            c_split = re.match(r'^(CASE\s+\d+)[:\.]?\s*(.*)$', raw_text, re.IGNORECASE)
+            c_split = re.match(r'^(?:\[?(CASE\s+\d+)\]?[:\.]?\s*)(.*)$', raw_text, re.IGNORECASE)
             if c_split:
                 case_badge = c_split.group(1).upper()
-                case_name = c_split.group(2) or case_badge
+                case_name = c_split.group(2).strip() or case_badge
 
             current_sec = {
                 "id": sec_id,
@@ -2900,9 +2900,9 @@ def generate_study_hub_index(root_dir):
         # Categorize
         cat = "Other Subjects"
         norm_rel = rel_str.lower()
-        if "basic legal and judiciary ethics" in norm_rel or "/blje" in norm_rel:
+        if "basic legal and judiciary ethics" in norm_rel or "/blje" in norm_rel or "blje" in norm_rel:
             cat = "Basic Legal and Judiciary Ethics"
-        elif "constitutional law" in norm_rel or "/csl" in norm_rel:
+        elif "constitutional law" in norm_rel or "/csl" in norm_rel or "conslaw" in norm_rel or "consti" in norm_rel:
             cat = "Constitutional Law"
         elif "/rpc/" in norm_rel or "subjects/rpc" in norm_rel or norm_rel.startswith("rpc/"):
             cat = "Revised Penal Code (RPC)"
@@ -2945,7 +2945,10 @@ def generate_study_hub_index(root_dir):
             
             # Type categorization - Clean luxury typography without raw emojis
             d_lower = doc_name.lower()
-            if 'compendium' in d_lower or 'codal' in d_lower or 'rpc' in d_lower:
+            if 'reviewer' in d_lower:
+                type_badge = '<span class="badge-type badge-rpc">ALAC Exam Reviewer</span>'
+                total_digest_count += 1
+            elif 'compendium' in d_lower or 'codal' in d_lower or 'rpc' in d_lower:
                 type_badge = '<span class="badge-type badge-rpc">Codal Compendium</span>'
             elif 'digest' in d_lower:
                 type_badge = '<span class="badge-type badge-digest">ALAC Case Digest</span>'

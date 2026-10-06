@@ -1,0 +1,2654 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Constitutional Law 1 Master Case Digest Reviewer | MLC Law Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0b1120;
+      --bg-secondary: #131d31;
+      --bg-tertiary: #1e293b;
+      --border-color: rgba(148, 163, 184, 0.14);
+      --border-focus: #fbbf24;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --accent-gold: #fbbf24;
+      --accent-gold-dark: #d97706;
+      --accent-blue: #38bdf8;
+      --accent-emerald: #34d399;
+      --accent-crimson: #f87171;
+      --accent-purple: #c084fc;
+      --highlight-bg: rgba(251, 191, 36, 0.22);
+      --highlight-border: #fbbf24;
+      --card-bg: rgba(19, 29, 49, 0.7);
+      --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Merriweather', Georgia, serif;
+      --font-heading: 'Cinzel', serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --sidebar-width: 320px;
+      --header-height: 60px;
+      --toolbar-height: 52px;
+      --sticky-top-total: calc(var(--header-height) + var(--toolbar-height));
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    }
+
+    [data-theme="sepia"] {
+      --bg-primary: #fbf7ee;
+      --bg-secondary: #f4ecd8;
+      --bg-tertiary: #e9dfc4;
+      --border-color: rgba(120, 97, 65, 0.18);
+      --border-focus: #b45309;
+      --text-primary: #2d241e;
+      --text-secondary: #4a3e35;
+      --text-muted: #786c60;
+      --accent-gold: #b45309;
+      --accent-gold-dark: #92400e;
+      --accent-blue: #0284c7;
+      --accent-emerald: #059669;
+      --accent-crimson: #dc2626;
+      --accent-purple: #7c3aed;
+      --highlight-bg: rgba(217, 119, 6, 0.2);
+      --highlight-border: #b45309;
+      --card-bg: rgba(244, 236, 216, 0.85);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8fafc;
+      --bg-tertiary: #f1f5f9;
+      --border-color: #e2e8f0;
+      --border-focus: #d97706;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --accent-gold: #d97706;
+      --accent-gold-dark: #b45309;
+      --accent-blue: #0284c7;
+      --accent-emerald: #059669;
+      --accent-crimson: #dc2626;
+      --accent-purple: #7c3aed;
+      --highlight-bg: rgba(254, 240, 138, 0.5);
+      --highlight-border: #eab308;
+      --card-bg: rgba(248, 250, 252, 0.9);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.8;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    /* Scroll Progress Bar */
+    #readingProgressBar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue));
+      width: 0%;
+      z-index: 1000;
+      transition: width 0.1s ease;
+    }
+
+    /* Floating Selection Reader Trigger */
+    #floatingTtsTrigger {
+      position: absolute;
+      display: none;
+      z-index: 999;
+      background: var(--accent-gold);
+      color: #0b1120;
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+      cursor: pointer;
+      border: none;
+      transform: translate(-50%, -100%);
+      transition: transform 0.15s ease, background-color 0.15s ease;
+    }
+    #floatingTtsTrigger:hover {
+      background: var(--accent-gold-dark);
+      color: #ffffff;
+      transform: translate(-50%, -105%) scale(1.05);
+    }
+
+    /* Header & Navigation Bar - STICKY TOP */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-color);
+      height: var(--header-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn-icon {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .btn-icon:hover {
+      background-color: var(--bg-tertiary);
+      border-color: var(--border-focus);
+      color: var(--accent-gold);
+    }
+
+    .brand-title {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--accent-gold);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 340px;
+    }
+
+    .subject-pill {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--accent-blue);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .select-control {
+      background-color: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      padding: 6px 10px;
+      border-radius: 6px;
+      outline: none;
+      cursor: pointer;
+    }
+    .select-control:focus {
+      border-color: var(--border-focus);
+    }
+
+    /* TTS Audio Control Bar - STICKY UNDER HEADER */
+    .tts-toolbar {
+      position: sticky;
+      top: var(--header-height);
+      z-index: 95;
+      background-color: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.55rem 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      font-family: var(--font-ui);
+      font-size: 0.88rem;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .tts-controls-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-tts {
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+      border: none;
+      color: #0b1120;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 7px 16px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      transition: transform 0.1s ease, filter 0.15s ease;
+    }
+    .btn-tts:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+    }
+    .btn-tts:active {
+      transform: translateY(1px);
+    }
+
+    .btn-tts-secondary {
+      background-color: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 7px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: all 0.15s ease;
+    }
+    .btn-tts-secondary:hover {
+      border-color: var(--border-focus);
+      color: var(--accent-gold);
+    }
+
+    .btn-tts-stop {
+      border-color: rgba(248, 113, 113, 0.35);
+      color: var(--accent-crimson);
+    }
+    .btn-tts-stop:hover {
+      background-color: rgba(248, 113, 113, 0.15);
+      border-color: var(--accent-crimson);
+      color: #ffffff;
+    }
+
+    .tts-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: var(--bg-tertiary);
+      padding: 4px 10px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      transition: all 0.2s ease;
+    }
+    .tts-status-badge.speaking {
+      color: var(--accent-emerald);
+      border-color: var(--accent-emerald);
+      background: rgba(52, 211, 153, 0.1);
+    }
+    .tts-status-badge.paused {
+      color: var(--accent-gold);
+      border-color: var(--accent-gold);
+      background: rgba(251, 191, 36, 0.1);
+    }
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background-color: currentColor;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .speaking .pulse-dot {
+      animation: pulse 1.2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(0.9); opacity: 0.6; }
+      50% { transform: scale(1.3); opacity: 1; }
+      100% { transform: scale(0.9); opacity: 0.6; }
+    }
+
+    /* Main Content Layout */
+    .app-layout {
+      display: flex;
+      flex: 1;
+      position: relative;
+      width: 100%;
+    }
+
+    /* Table of Contents Sidebar */
+    .sidebar-toc {
+      width: var(--sidebar-width);
+      background-color: var(--bg-secondary);
+      border-right: 1px solid var(--border-color);
+      position: sticky;
+      top: var(--sticky-top-total);
+      height: calc(100vh - var(--sticky-top-total));
+      overflow-y: auto;
+      padding: 1.25rem 1rem;
+      flex-shrink: 0;
+      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  padding 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  opacity 0.2s ease;
+      z-index: 80;
+    }
+
+    /* Sidebar Minimized / Collapsed state */
+    body.sidebar-collapsed .sidebar-toc,
+    .sidebar-toc.minimized {
+      width: 0 !important;
+      min-width: 0 !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      border-right: none !important;
+      opacity: 0 !important;
+      overflow: hidden !important;
+      pointer-events: none !important;
+      transform: translateX(-15px);
+    }
+
+    .toc-header-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.85rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .toc-heading {
+      font-family: var(--font-ui);
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent-gold);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-toc-minimize {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      cursor: pointer;
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.05rem;
+      line-height: 1;
+      transition: all 0.15s ease;
+    }
+    .btn-toc-minimize:hover {
+      background: var(--accent-gold);
+      color: #0b1120;
+      border-color: var(--accent-gold);
+    }
+
+    .toc-search-box {
+      width: 100%;
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      padding: 8px 12px;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      outline: none;
+    }
+    .toc-search-box:focus {
+      border-color: var(--border-focus);
+    }
+
+    .toc-list {
+      list-style: none;
+    }
+
+    .toc-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      padding: 6px 10px 6px 12px;
+      border-radius: 4px;
+      margin-bottom: 2px;
+      border-left: 2px solid transparent;
+      transition: all 0.15s ease;
+    }
+    .toc-link-text {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex: 1;
+    }
+    .toc-bm-badges-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+    .toc-bm-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      font-family: var(--font-ui);
+      padding: 1px 5px;
+      border-radius: 4px;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      white-space: nowrap;
+    }
+    .toc-bm-badge.badge-slot-1 {
+      background: rgba(251, 191, 36, 0.22);
+      color: var(--accent-gold);
+      border: 1px solid rgba(251, 191, 36, 0.5);
+    }
+    .toc-bm-badge.badge-slot-2 {
+      background: rgba(52, 211, 153, 0.22);
+      color: var(--accent-emerald);
+      border: 1px solid rgba(52, 211, 153, 0.5);
+    }
+    .toc-bm-badge.badge-slot-3 {
+      background: rgba(192, 132, 252, 0.22);
+      color: var(--accent-purple);
+      border: 1px solid rgba(192, 132, 252, 0.5);
+    }
+    .toc-link:hover {
+      background-color: var(--bg-tertiary);
+      color: var(--accent-gold);
+      border-left-color: var(--accent-gold);
+    }
+    .toc-link.active {
+      background-color: var(--bg-tertiary);
+      color: var(--accent-gold);
+      border-left-color: var(--accent-gold);
+      font-weight: 600;
+    }
+    .toc-link.level-2 {
+      padding-left: 22px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Floating / Fixed Restore Sidebar Tab when Minimized */
+    #restoreSidebarBtn {
+      position: fixed;
+      left: 1rem;
+      top: calc(var(--sticky-top-total) + 14px);
+      z-index: 90;
+      background: var(--bg-secondary);
+      border: 1px solid var(--accent-gold);
+      color: var(--accent-gold);
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 7px 14px;
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    body.sidebar-collapsed #restoreSidebarBtn {
+      display: flex;
+    }
+    #restoreSidebarBtn:hover {
+      background: var(--accent-gold);
+      color: #0b1120;
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 8px 24px rgba(251, 191, 36, 0.35);
+    }
+
+    /* Header toggle button active status */
+    body.sidebar-collapsed #toggleSidebarBtn {
+      background-color: var(--bg-tertiary);
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+    }
+
+    /* Main Reading Article Container - Adapts width smoothly */
+    .reader-main {
+      flex: 1;
+      width: 100%;
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 6rem;
+      transition: max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Responsive Expanded Width when Sidebar is Minimized */
+    body.sidebar-collapsed .reader-main {
+      max-width: 1200px;
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+
+    @media (min-width: 1600px) {
+      .reader-main {
+        max-width: 1020px;
+      }
+      body.sidebar-collapsed .reader-main {
+        max-width: 1400px;
+      }
+    }
+
+    .doc-meta-banner {
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .doc-headline {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--accent-gold);
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.02em;
+    }
+    .doc-stats {
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    /* Studio Native MP3 Audio Player */
+    .studio-audio-player {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-emerald);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-md);
+      backdrop-filter: blur(8px);
+    }
+    .audio-player-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.85rem;
+      font-family: var(--font-ui);
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .audio-badge-group {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .audio-badge {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent-emerald);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .audio-status-pill {
+      font-size: 0.7rem;
+      font-weight: 600;
+      background: rgba(52, 211, 153, 0.15);
+      color: #6ee7b7;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      border: 1px solid rgba(52, 211, 153, 0.3);
+    }
+    .audio-filename {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+    .native-audio-element {
+      width: 100%;
+      outline: none;
+      border-radius: 30px;
+    }
+    .audio-controls-extra {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(148, 163, 184, 0.1);
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    .audio-speed-chips {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .speed-btn {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .speed-btn:hover {
+      background: rgba(52, 211, 153, 0.2);
+      border-color: var(--accent-emerald);
+      color: #a7f3d0;
+    }
+    .speed-btn.active {
+      background: var(--accent-emerald);
+      color: #0b1120;
+      border-color: var(--accent-emerald);
+      font-weight: 700;
+    }
+    .audio-quick-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .audio-action-btn {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .audio-action-btn:hover {
+      background: rgba(56, 189, 248, 0.2);
+      border-color: var(--accent-blue);
+      color: var(--text-primary);
+    }
+
+    /* Document Sections & Continuous Body Elements */
+    .doc-section {
+      margin-bottom: 3rem;
+      scroll-margin-top: calc(var(--sticky-top-total) + 20px);
+    }
+    .section-divider {
+      border: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+      margin: 3rem 0;
+    }
+
+    /* Case Header Card */
+    .case-header-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-left: 5px solid var(--accent-gold);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .case-number-pill {
+      display: inline-block;
+      background: var(--accent-gold);
+      color: #0b1120;
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+    .case-header-title {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.35;
+    }
+
+    .topic-header-card {
+      background: var(--bg-secondary);
+      border-left: 4px solid var(--accent-blue);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .topic-header-title {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent-blue);
+    }
+
+    .subtopic-header-card {
+      margin: 1.5rem 0 1rem;
+    }
+    .subtopic-header-title {
+      font-family: var(--font-ui);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+    }
+
+    /* Case Citation Banner */
+    .case-citation-banner {
+      background-color: var(--bg-tertiary);
+      border: 1px dashed var(--border-color);
+      border-radius: 8px;
+      padding: 0.75rem 1.25rem;
+      margin-bottom: 1.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .citation-label {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      background: rgba(251, 191, 36, 0.12);
+      border: 1px solid rgba(251, 191, 36, 0.25);
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+
+    /* Subheadings within Case (Facts, Issue, Ruling) */
+    .case-subheading {
+      font-family: var(--font-ui);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 1.75rem 0 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.4rem;
+    }
+    .subheading-accent {
+      color: var(--accent-gold);
+      font-size: 1.2rem;
+    }
+
+    /* Continuous Flowing Paragraphs */
+    .case-paragraph {
+      margin-bottom: 1.25rem;
+      text-align: justify;
+      text-justify: inter-word;
+      line-height: 1.85;
+      padding: 4px 6px;
+      border-radius: 6px;
+      transition: background-color 0.15s ease;
+    }
+
+    /* ALAC & Reasoning Paragraph Badges */
+    .alac-paragraph {
+      background: rgba(255, 255, 255, 0.02);
+      border-left: 3px solid var(--border-color);
+      padding: 0.6rem 0.85rem;
+      margin-bottom: 1.25rem;
+    }
+    .alac-badge {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-right: 0.5rem;
+      vertical-align: baseline;
+    }
+    .badge-ans { background: rgba(56, 189, 248, 0.2); color: var(--accent-blue); border: 1px solid var(--accent-blue); }
+    .badge-law { background: rgba(192, 132, 252, 0.2); color: var(--accent-purple); border: 1px solid var(--accent-purple); }
+    .badge-app { background: rgba(251, 191, 36, 0.2); color: var(--accent-gold); border: 1px solid var(--accent-gold); }
+    .badge-con { background: rgba(52, 211, 153, 0.2); color: var(--accent-emerald); border: 1px solid var(--accent-emerald); }
+    .badge-syn { background: rgba(248, 113, 113, 0.2); color: var(--accent-crimson); border: 1px solid var(--accent-crimson); }
+    .badge-gen { background: rgba(148, 163, 184, 0.2); color: var(--text-secondary); border: 1px solid var(--border-color); }
+
+    /* Bullet Points */
+    .bullet-point {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .bullet-dot {
+      color: var(--accent-gold);
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+    .bullet-content {
+      flex: 1;
+      text-align: justify;
+    }
+
+    /* Tables */
+    .table-responsive {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+    }
+    .reader-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      font-family: var(--font-ui);
+    }
+    .reader-table th, .reader-table td {
+      padding: 10px 14px;
+      border: 1px solid var(--border-color);
+      text-align: left;
+    }
+    .reader-table th {
+      background-color: var(--bg-secondary);
+      font-weight: 700;
+      color: var(--accent-gold);
+    }
+    .reader-table tr:nth-child(even) {
+      background-color: rgba(255, 255, 255, 0.02);
+    }
+
+    /* Active TTS Highlight */
+    .read-unit.is-speaking {
+      background-color: var(--highlight-bg) !important;
+      border-left: 3px solid var(--highlight-border) !important;
+      border-radius: 4px;
+      box-shadow: 0 0 15px rgba(251, 191, 36, 0.15);
+    }
+
+    /* Responsive adjustments for Tablets and Mobile */
+    @media (max-width: 900px) {
+      :root {
+        --header-height: 56px;
+        --toolbar-height: auto;
+      }
+      .tts-toolbar {
+        top: var(--header-height);
+        padding: 0.5rem 1rem;
+        gap: 0.6rem;
+      }
+      .tts-controls-group {
+        flex-wrap: wrap;
+      }
+      .sidebar-toc {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        width: 300px;
+        max-width: 85vw;
+        z-index: 1000;
+        transform: translateX(-100%);
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        background-color: var(--bg-secondary);
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        padding: 1.25rem 1rem !important;
+      }
+      .sidebar-toc.open {
+        transform: translateX(0) !important;
+      }
+      body.sidebar-collapsed .sidebar-toc {
+        transform: translateX(-100%) !important;
+      }
+      #restoreSidebarBtn {
+        display: none !important;
+      }
+      .reader-main {
+        padding: 1.5rem 1rem 5rem !important;
+        max-width: 100% !important;
+      }
+      body.sidebar-collapsed .reader-main {
+        padding: 1.5rem 1rem 5rem !important;
+        max-width: 100% !important;
+      }
+      #sidebarOverlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.65);
+        backdrop-filter: blur(4px);
+        z-index: 999;
+        display: none;
+      }
+      #sidebarOverlay.active {
+        display: block;
+      }
+    }
+
+    /* ------------------------------------------------------------- */
+    /* 3 SPECIAL BOOKMARKING SYSTEM                                  */
+    /* ============================================================= */
+    .bookmark-nav-wrapper {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+    .bookmark-count-badge {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      background: var(--accent-crimson);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 800;
+      min-width: 17px;
+      height: 17px;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 4px;
+      border: 2px solid var(--bg-secondary);
+      box-shadow: 0 0 6px rgba(248, 113, 113, 0.6);
+      pointer-events: none;
+    }
+
+    /* Bookmarks Dropdown Popover */
+    .bookmarks-dropdown {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      width: 380px;
+      max-width: 92vw;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 1.1rem;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
+      z-index: 200;
+      display: none;
+      flex-direction: column;
+      gap: 0.85rem;
+      backdrop-filter: blur(16px);
+      animation: bookmarkFadeIn 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .bookmarks-dropdown.open {
+      display: flex;
+    }
+    @keyframes bookmarkFadeIn {
+      from { opacity: 0; transform: translateY(-8px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .bookmarks-dropdown-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .bookmarks-title {
+      font-family: var(--font-heading);
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+      letter-spacing: 0.03em;
+    }
+    .bookmarks-sub {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-family: var(--font-ui);
+    }
+
+    .bookmarks-slots-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .bookmark-slot-card {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 0.75rem 0.85rem;
+      transition: all 0.2s ease;
+    }
+    .bookmark-slot-card.slot-1 { border-left: 4px solid var(--accent-gold); }
+    .bookmark-slot-card.slot-2 { border-left: 4px solid var(--accent-emerald); }
+    .bookmark-slot-card.slot-3 { border-left: 4px solid var(--accent-purple); }
+
+    .slot-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.45rem;
+    }
+    .slot-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      font-family: var(--font-ui);
+      letter-spacing: 0.04em;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+    .badge-slot-1 { color: var(--accent-gold); background: rgba(251, 191, 36, 0.12); border: 1px solid rgba(251, 191, 36, 0.25); }
+    .badge-slot-2 { color: var(--accent-emerald); background: rgba(52, 211, 153, 0.12); border: 1px solid rgba(52, 211, 153, 0.25); }
+    .badge-slot-3 { color: var(--accent-purple); background: rgba(192, 132, 252, 0.12); border: 1px solid rgba(192, 132, 252, 0.25); }
+
+    .btn-slot-clear {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 0.8rem;
+      padding: 2px 5px;
+      border-radius: 4px;
+      line-height: 1;
+      transition: all 0.15s ease;
+    }
+    .btn-slot-clear:hover {
+      color: var(--accent-crimson);
+      background: rgba(248, 113, 113, 0.15);
+    }
+
+    .slot-meta-box {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      margin-bottom: 0.45rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 1px dashed var(--border-color);
+      font-size: 0.74rem;
+      font-family: var(--font-ui);
+    }
+    .slot-meta-row {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      line-height: 1.35;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .slot-meta-label {
+      font-weight: 700;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+    .slot-meta-val {
+      color: var(--text-secondary);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .slot-meta-val.val-subject { color: var(--accent-blue); font-weight: 600; }
+    .slot-meta-val.val-topic { color: var(--accent-gold-light); font-weight: 600; }
+    .slot-meta-val.val-location { color: var(--accent-emerald); font-weight: 500; }
+
+    .slot-content {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+      margin-bottom: 0.5rem;
+      font-family: var(--font-body);
+      max-height: 48px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 4px 6px;
+      border-radius: 4px;
+      border-left: 2px solid rgba(148, 163, 184, 0.3);
+    }
+    .slot-content.empty {
+      font-style: italic;
+      color: var(--text-muted);
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      background: transparent;
+      border-left: none;
+      padding: 0;
+    }
+
+    .slot-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.5rem;
+    }
+    .btn-slot-jump {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .btn-slot-jump:hover {
+      background: var(--accent-gold);
+      color: #0b1120;
+      border-color: var(--accent-gold);
+    }
+
+    /* In-Paragraph Bookmark Hover Toolbar */
+    .read-unit {
+      position: relative;
+    }
+    .unit-bookmark-tools {
+      position: absolute;
+      right: 8px;
+      top: 4px;
+      display: none;
+      align-items: center;
+      gap: 4px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 2px 6px;
+      box-shadow: var(--shadow-md);
+      z-index: 10;
+      backdrop-filter: blur(6px);
+      opacity: 0.95;
+    }
+    .read-unit:hover .unit-bookmark-tools {
+      display: flex;
+    }
+    .btn-unit-bm {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 0.75rem;
+      font-weight: 700;
+      font-family: var(--font-ui);
+      line-height: 1;
+      padding: 3px 5px;
+      border-radius: 4px;
+      transition: transform 0.15s ease, filter 0.15s ease;
+      color: var(--text-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+    }
+    .btn-unit-bm:hover {
+      transform: scale(1.15);
+      filter: drop-shadow(0 0 4px var(--accent-gold));
+    }
+
+    /* Bookmark Indicators on Paragraphs */
+    .read-unit.bookmarked-slot-1 {
+      border-left: 4px solid var(--accent-gold) !important;
+      background: rgba(251, 191, 36, 0.08) !important;
+    }
+    .read-unit.bookmarked-slot-2 {
+      border-left: 4px solid var(--accent-emerald) !important;
+      background: rgba(52, 211, 153, 0.08) !important;
+    }
+    .read-unit.bookmarked-slot-3 {
+      border-left: 4px solid var(--accent-purple) !important;
+      background: rgba(192, 132, 252, 0.08) !important;
+    }
+
+    .bookmark-ribbon {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 4px;
+      margin-bottom: 7px;
+      letter-spacing: 0.03em;
+    }
+    .ribbon-slot-1 { background: rgba(251, 191, 36, 0.18); color: var(--accent-gold); border: 1px solid var(--accent-gold); }
+    .ribbon-slot-2 { background: rgba(52, 211, 153, 0.18); color: var(--accent-emerald); border: 1px solid var(--accent-emerald); }
+    .ribbon-slot-3 { background: rgba(192, 132, 252, 0.18); color: var(--accent-purple); border: 1px solid var(--accent-purple); }
+    /* Target Jump Flash Animation */
+    @keyframes bookmarkTargetFlash {
+      0% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.7); }
+      50% { box-shadow: 0 0 25px 5px rgba(251, 191, 36, 0.5); }
+      100% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0); }
+    }
+    .bookmark-flash-target {
+      animation: bookmarkTargetFlash 1.6s ease-out;
+    }
+  </style>
+</head>
+<body>
+  <div id="readingProgressBar"></div>
+  <button id="floatingTtsTrigger" title="Read Selected Text">Read Selection</button>
+  <button id="restoreSidebarBtn" title="Show Table of Contents (Ctrl+B)">☰ Table of Contents</button>
+  <div id="sidebarOverlay"></div>
+
+  <header>
+    <div class="header-left">
+      <a href="https://mllibrary.juliusrayn-balitbit.workers.dev/" class="btn-icon" id="mainMenuBtn" title="Return to Main Menu (Study Hub)">☰</a>
+      <div>
+        <h1 class="brand-title">Constitutional Law 1 Master Case Digest Reviewer</h1>
+        <span class="subject-pill">Reviewer</span>
+      </div>
+    </div>
+    <div class="header-actions">
+      <div class="bookmark-nav-wrapper">
+        <button class="btn-icon" id="bookmarksMenuBtn" title="Saved Bookmarks (Key: B)">
+          🔖
+          <span class="bookmark-count-badge" id="bookmarkCountBadge" style="display:none;">0</span>
+        </button>
+        <div class="bookmarks-dropdown" id="bookmarksDropdown">
+          <div class="bookmarks-dropdown-header">
+            <div class="bookmarks-title">🔖 Study Bookmarks</div>
+            <span class="bookmarks-sub">3 Quick Slots</span>
+          </div>
+          <div class="bookmarks-slots-container">
+            <!-- Bookmark 1 -->
+            <div class="bookmark-slot-card slot-1" id="slotCard1">
+              <div class="slot-card-header">
+                <span class="slot-badge badge-slot-1">🔖 Bookmark 1</span>
+                <button class="btn-slot-clear" data-slot="1" title="Clear Bookmark 1">✕</button>
+              </div>
+              <div class="slot-meta-box" id="slotMeta1" style="display:none;">
+                <div class="slot-meta-row"><span class="slot-meta-label">📚 Subject:</span> <span class="slot-meta-val val-subject" id="slotSubject1"></span></div>
+                <div class="slot-meta-row"><span class="slot-meta-label">📌 Topic:</span> <span class="slot-meta-val val-topic" id="slotTopic1"></span></div>
+                <div class="slot-meta-row"><span class="slot-meta-label">📍 Location:</span> <span class="slot-meta-val val-location" id="slotLocation1"></span></div>
+              </div>
+              <div class="slot-content empty" id="slotContent1">No bookmark set. Click 🔖 1 on any paragraph.</div>
+              <div class="slot-actions" id="slotActions1" style="display:none;">
+                <button class="btn-slot-jump" data-slot="1">Jump to Bookmark →</button>
+              </div>
+            </div>
+            <!-- Bookmark 2 -->
+            <div class="bookmark-slot-card slot-2" id="slotCard2">
+              <div class="slot-card-header">
+                <span class="slot-badge badge-slot-2">⭐ Bookmark 2</span>
+                <button class="btn-slot-clear" data-slot="2" title="Clear Bookmark 2">✕</button>
+              </div>
+              <div class="slot-meta-box" id="slotMeta2" style="display:none;">
+                <div class="slot-meta-row"><span class="slot-meta-label">📚 Subject:</span> <span class="slot-meta-val val-subject" id="slotSubject2"></span></div>
+                <div class="slot-meta-row"><span class="slot-meta-label">📌 Topic:</span> <span class="slot-meta-val val-topic" id="slotTopic2"></span></div>
+                <div class="slot-meta-row"><span class="slot-meta-label">📍 Location:</span> <span class="slot-meta-val val-location" id="slotLocation2"></span></div>
+              </div>
+              <div class="slot-content empty" id="slotContent2">No bookmark set. Click ⭐ 2 on any paragraph.</div>
+              <div class="slot-actions" id="slotActions2" style="display:none;">
+                <button class="btn-slot-jump" data-slot="2">Jump to Bookmark →</button>
+              </div>
+            </div>
+            <!-- Bookmark 3 -->
+            <div class="bookmark-slot-card slot-3" id="slotCard3">
+              <div class="slot-card-header">
+                <span class="slot-badge badge-slot-3">📌 Bookmark 3</span>
+                <button class="btn-slot-clear" data-slot="3" title="Clear Bookmark 3">✕</button>
+              </div>
+              <div class="slot-meta-box" id="slotMeta3" style="display:none;">
+                <div class="slot-meta-row"><span class="slot-meta-label">📚 Subject:</span> <span class="slot-meta-val val-subject" id="slotSubject3"></span></div>
+                <div class="slot-meta-row"><span class="slot-meta-label">📌 Topic:</span> <span class="slot-meta-val val-topic" id="slotTopic3"></span></div>
+                <div class="slot-meta-row"><span class="slot-meta-label">📍 Location:</span> <span class="slot-meta-val val-location" id="slotLocation3"></span></div>
+              </div>
+              <div class="slot-content empty" id="slotContent3">No bookmark set. Click 📌 3 on any paragraph.</div>
+              <div class="slot-actions" id="slotActions3" style="display:none;">
+                <button class="btn-slot-jump" data-slot="3">Jump to Bookmark →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="btn-icon" id="fontDecBtn" title="Decrease Font Size">A-</button>
+      <button class="btn-icon" id="fontIncBtn" title="Increase Font Size">A+</button>
+      <select class="select-control" id="themeSelect" title="Select Theme">
+        <option value="dark">Dark</option>
+        <option value="sepia">Sepia</option>
+        <option value="light">Light</option>
+      </select>
+    </div>
+  </header>
+
+  <div class="tts-toolbar">
+    <div class="tts-controls-group">
+      <button class="btn-tts" id="playPauseBtn">
+        <span id="playIcon">▶</span>
+        <span id="pauseIcon" style="display:none;">❚❚</span>
+        <span id="playBtnText">Read Aloud</span>
+      </button>
+      <button class="btn-tts-secondary" id="prevBtn" title="Previous Paragraph (Key: P)">Previous</button>
+      <button class="btn-tts-secondary" id="nextBtn" title="Next Paragraph (Key: N)">Next</button>
+      <button class="btn-tts-secondary btn-tts-stop" id="stopBtn" title="Stop Reading Aloud (Key: Esc)">⏹ Stop</button>
+    </div>
+
+    <div class="tts-controls-group">
+      <label for="voiceSelect" style="font-size:0.8rem; color:var(--text-muted);">Voice:</label>
+      <select class="select-control" id="voiceSelect" style="max-width: 220px;">
+        <option value="default">Auto Best Voice</option>
+      </select>
+
+      <label for="speedSelect" style="font-size:0.8rem; color:var(--text-muted);">Speed:</label>
+      <select class="select-control" id="speedSelect">
+        <option value="0.8">0.8x</option>
+        <option value="0.9" selected>0.9x (Natural)</option>
+        <option value="1.0">1.0x (Standard)</option>
+        <option value="1.1">1.1x</option>
+        <option value="1.2">1.2x</option>
+      </select>
+
+      <div class="tts-status-badge" id="ttsStatusBadge">
+        <span class="pulse-dot"></span>
+        <span id="statusText">Ready</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="app-layout">
+    <nav class="sidebar-toc" id="sidebarNav">
+      <div class="toc-header-bar">
+        <div class="toc-heading">
+          <span>Table of Contents</span>
+        </div>
+        <button class="btn-toc-minimize" id="minimizeSidebarBtn" title="Minimize / Toggle Sidebar (Ctrl+B)">☰</button>
+      </div>
+      <input type="text" class="toc-search-box" id="sidebarSearch" placeholder="Filter topics & cases..." />
+      <ul class="toc-list" id="tocList">
+<li><a href="#sec-overview" class="toc-link level-1" title="Constitutional Law 1 Master Case Digest Reviewer"><span class="toc-link-text">Constitutional Law 1 Master Case Digest Reviewer</span></a></li>
+<li><a href="#sec-1-case-1-angara-v-electoral-commission" class="toc-link level-1" title="[CASE 1]  Angara v. Electoral Commission"><span class="toc-link-text">[CASE 1]  Angara v. Electoral Commission</span></a></li>
+<li><a href="#sec-2-case-2-belgica-v-ochoa-the-landmark-pdaf-pork-barrel-case" class="toc-link level-1" title="[CASE 2]  Belgica v. Ochoa (The Landmark PDAF / Pork Barrel Case)"><span class="toc-link-text">[CASE 2]  Belgica v. Ochoa (The Landmark PDAF / Pork Barrel Case)</span></a></li>
+<li><a href="#sec-3-case-3-araullo-v-aquino-iii-the-landmark-dap-case" class="toc-link level-1" title="[CASE 3]  Araullo v. Aquino III (The Landmark DAP Case)"><span class="toc-link-text">[CASE 3]  Araullo v. Aquino III (The Landmark DAP Case)</span></a></li>
+<li><a href="#sec-4-case-4-david-v-arroyo" class="toc-link level-1" title="[CASE 4]  David v. Arroyo"><span class="toc-link-text">[CASE 4]  David v. Arroyo</span></a></li>
+<li><a href="#sec-5-case-5-marcos-v-manglapus" class="toc-link level-1" title="[CASE 5]  Marcos v. Manglapus"><span class="toc-link-text">[CASE 5]  Marcos v. Manglapus</span></a></li>
+<li><a href="#sec-6-case-6-lagman-v-medialdea-the-mindanao-martial-law-case" class="toc-link level-1" title="[CASE 6]  Lagman v. Medialdea (The Mindanao Martial Law Case)"><span class="toc-link-text">[CASE 6]  Lagman v. Medialdea (The Mindanao Martial Law Case)</span></a></li>
+<li><a href="#sec-7-case-7-senate-v-ermita-the-landmark-eo-464-case" class="toc-link level-1" title="[CASE 7]  Senate v. Ermita (The Landmark E.O. 464 Case)"><span class="toc-link-text">[CASE 7]  Senate v. Ermita (The Landmark E.O. 464 Case)</span></a></li>
+<li><a href="#sec-8-case-8-neri-v-senate-committee-on-accountability" class="toc-link level-1" title="[CASE 8]  Neri v. Senate Committee on Accountability"><span class="toc-link-text">[CASE 8]  Neri v. Senate Committee on Accountability</span></a></li>
+<li><a href="#sec-9-case-9-chavez-v-judicial-and-bar-council-jbc" class="toc-link level-1" title="[CASE 9]  Chavez v. Judicial and Bar Council (JBC)"><span class="toc-link-text">[CASE 9]  Chavez v. Judicial and Bar Council (JBC)</span></a></li>
+<li><a href="#sec-10-case-10-de-castro-v-judicial-and-bar-council-jbc" class="toc-link level-1" title="[CASE 10]  De Castro v. Judicial and Bar Council (JBC)"><span class="toc-link-text">[CASE 10]  De Castro v. Judicial and Bar Council (JBC)</span></a></li>
+<li><a href="#sec-11-case-11-magallona-v-ermita" class="toc-link level-1" title="[CASE 11]  Magallona v. Ermita"><span class="toc-link-text">[CASE 11]  Magallona v. Ermita</span></a></li>
+<li><a href="#sec-12-case-12-biraogo-v-the-philippine-truth-commission-of-2010" class="toc-link level-1" title="[CASE 12]  Biraogo v. The Philippine Truth Commission of 2010"><span class="toc-link-text">[CASE 12]  Biraogo v. The Philippine Truth Commission of 2010</span></a></li>
+      </ul>
+    </nav>
+
+    <main class="reader-main" id="mainArticle">
+      <div class="doc-meta-banner">
+        <h1 class="doc-headline">Constitutional Law 1 Master Case Digest Reviewer</h1>
+        <div class="doc-stats">
+          <span>13 Sections</span>
+          <span>~70 min read</span>
+          <span>Manila Law College</span>
+        </div>
+      </div>
+
+      
+        <div class="studio-audio-player">
+          <div class="audio-player-header">
+            <div class="audio-badge-group">
+              <span class="audio-badge">🎙️ Studio Voice Podcast</span>
+              <span class="audio-status-pill" id="studioAudioStatus">Ready</span>
+            </div>
+            <span class="audio-filename">Constitutional_Law_1_Master_Case_Digest_Reviewer.mp3</span>
+          </div>
+          <audio id="studioAudioEl" controls preload="metadata" class="native-audio-element">
+            <source src="Constitutional_Law_1_Master_Case_Digest_Reviewer.mp3" type="audio/mpeg">
+            <source src="https://github.com/Julius11011/MLLibrary/releases/download/audio-v0/Constitutional_Law_1_Master_Case_Digest_Reviewer.mp3" type="audio/mpeg">
+            <source src="https://github.com/Julius11011/MLLibrary/releases/download/audio-v1/Constitutional_Law_1_Master_Case_Digest_Reviewer.mp3" type="audio/mpeg">
+            <source src="https://github.com/Julius11011/MLLibrary/releases/download/audio-v2/Constitutional_Law_1_Master_Case_Digest_Reviewer.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+          <div class="audio-controls-extra">
+            <div class="audio-speed-chips">
+              <span style="font-size: 0.75rem; color: var(--text-muted); margin-right: 0.25rem;">Speed:</span>
+              <button type="button" class="speed-btn active" onclick="setStudioAudioSpeed(1.0, this)">1x</button>
+              <button type="button" class="speed-btn" onclick="setStudioAudioSpeed(1.25, this)">1.25x</button>
+              <button type="button" class="speed-btn" onclick="setStudioAudioSpeed(1.5, this)">1.5x</button>
+              <button type="button" class="speed-btn" onclick="setStudioAudioSpeed(1.75, this)">1.75x</button>
+              <button type="button" class="speed-btn" onclick="setStudioAudioSpeed(2.0, this)">2x</button>
+            </div>
+            <div class="audio-quick-actions">
+              <button type="button" class="audio-action-btn" onclick="seekStudioAudio(-15)" title="Rewind 15 seconds">⏪ -15s</button>
+              <button type="button" class="audio-action-btn" onclick="seekStudioAudio(15)" title="Forward 15 seconds">⏩ +15s</button>
+              <a href="Constitutional_Law_1_Master_Case_Digest_Reviewer.mp3" download class="audio-action-btn" title="Download High-Fidelity MP3 Audio">⬇️ Download MP3</a>
+            </div>
+          </div>
+        </div>
+        
+
+      <div id="contentWrapper">
+<section id="sec-overview" class="doc-section">
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>MANILA LAW COLLEGE  •  JURIS DOCTOR PROGRAM</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>CONSTITUTIONAL LAW 1</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><em>Master Landmark Case Digest Reviewer &amp; Bar Exam Compendium
+Structure of Government, Judicial Review, Separation of Powers, Executive &amp; Legislative Powers, and National Territory</em></p>
+<div class="table-responsive read-unit" data-unit-type="table"><table class="reader-table"><tr><th>CONSTITUTIONAL REVIEWER FRAMEWORK &amp; METHODOLOGY NOTE
+
+• Structured Six-Part Constitutional Digest Format: Facts, Constitutional Issue, Complainant&#x27;s / Petitioner&#x27;s Arguments, Respondent&#x27;s / Dependant&#x27;s Defenses, ALAC Ruling (Answer, Legal Basis, Application, Conclusion), and Doctrinal Takeaway.
+• Full Curriculum Scope: Judicial Review (Angara), Pork Barrel / PDAF (Belgica), DAP (Araullo), Emergency Powers (David v. Arroyo), Residual Executive Powers (Marcos v. Manglapus), Martial Law (Lagman), Legislative Inquiries (Senate v. Ermita), Executive Privilege (Neri), JBC Composition (Chavez), Midnight Appointments (De Castro), Baselines &amp; UNCLOS (Magallona), and Equal Protection (Biraogo).
+• Tailored for Manila Law College Juris Doctor Academic Examinations and Philippine Bar Exam Review.</th></tr></table></div>
+</section>
+<hr class="section-divider" />
+<section id="sec-1-case-1-angara-v-electoral-commission" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 1</span><h2 class="case-header-title">Angara v. Electoral Commission</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>CITATION:</strong><em>G.R. No. L-45081, July 15, 1936 | 63 Phil. 139 (En Banc, Ponente: Laurel, J.)  |  Topic: Judicial Review, Separation of Powers &amp; Checks and Balances</em></span></div>
+<h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">Jose A. Angara and Pedro Ynsua were opposing candidates for the National Assembly in Tayabas. On December 3, 1935, the National Assembly passed Resolution No. 8 confirming the elections of members against whom no protest had been filed prior to that date. Ynsua filed his election protest before the Electoral Commission on December 9, 1935, which was within the deadline fixed by the Electoral Commission&#x27;s own procedural rules (December 16, 1935). Angara filed a motion to dismiss before the Electoral Commission, arguing that the National Assembly&#x27;s resolution had barred the protest. When the Electoral Commission denied his motion and assumed jurisdiction, Angara filed a Petition for Prohibition before the Supreme Court, contending that the Supreme Court had no power to review acts of an independent constitutional body and that the Electoral Commission was subordinate to the National Assembly.</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE CONSTITUTIONAL ISSUE:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><em>Whether the Supreme Court has the constitutional jurisdiction and power of Judicial Review to delimit the constitutional boundaries between the National Assembly and the Electoral Commission, and whether the Electoral Commission has sole and exclusive constitutional jurisdiction over election contests of assembly members.</em></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>III. COMPLAINANT&#x27;S / PETITIONER&#x27;S ARGUMENTS:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">Angara (Petitioner) argued that the National Assembly, as the supreme legislative body of the land, possessed inherent power to confirm the qualifications of its members and cut off election protests via Resolution No. 8. He further claimed that the Electoral Commission was merely an auxiliary subordinate committee whose authority was circumscribed by legislative will, and that the Supreme Court could not intervene without violating the separation of powers.</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>IV. RESPONDENT&#x27;S (&quot;DEPENDANT&#x27;S&quot;) DEFENSES / ARGUMENTS:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">Pedro Ynsua and the Electoral Commission (Respondents) argued that the 1935 Constitution explicitly created the Electoral Commission as an independent constitutional organ designated as the &#x27;sole judge&#x27; of all contests relating to the election, returns, and qualifications of members. They maintained that the National Assembly possessed no power to curtail this constitutional grant by fixing premature protest deadlines, and that the Supreme Court possessed the ultimate duty to interpret the constitutional boundaries.</p>
+<h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>V. THE COURT&#x27;S RULING (ALAC METHOD):</strong></h3>
+<div class="table-responsive read-unit" data-unit-type="table"><table class="reader-table"><tr><th>[A] ANSWER</th><th>YES. The Supreme Court has the power of Judicial Review, and the Electoral Commission possesses exclusive constitutional jurisdiction.</th></tr><tr><td>[L] LEGAL BASIS</td><td>1935 Constitution, Article VI, Section 4 (Counterpart to 1987 Constitution, Art. VI, Sec. 17 &amp; Art. VIII, Sec. 1); Landmark Laurel Doctrine on Judicial Review.</td></tr><tr><td>[A] APPLICATION / ANALYSIS</td><td>Justice Jose P. Laurel delivered the quintessential treatise on Philippine constitutional law: (1) The Constitution is the supreme written organic law. In cases of conflict between the Constitution and acts of any department, the Constitution must prevail. (2) The power of Judicial Review is not an assertion of judicial supremacy over coordinate branches, but the fulfillment of the solemn duty of the Judiciary to allocate constitutional boundaries and uphold the supremacy of the Constitution. (3) The creation of the Electoral Commission as the &#x27;sole judge&#x27; was deliberately intended to insulate election contests from partisan legislative majorities. Consequently, the National Assembly could not preempt or restrict the Commission&#x27;s jurisdiction.</td></tr><tr><td>[C] CONCLUSION / RULING</td><td>The Petition for Prohibition was DISMISSED. The Electoral Commission was declared to possess exclusive, independent jurisdiction to try the election protest.</td></tr></table></div>
+<div class="table-responsive read-unit" data-unit-type="table"><table class="reader-table"><tr><th>VI. DOCTRINAL TAKEAWAY: ANGARA V. ELECTORAL COMMISSION
+
+The Supreme Court is the ultimate arbiter of constitutional boundaries. Judicial Review is the constitutional duty to check that coordinate branches act within their allocated spheres without asserting judicial supremacy.</th></tr></table></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">―――――――――――――――――――――――――――――――――――――――――――――</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-2-case-2-belgica-v-ochoa-the-landmark-pdaf-pork-barrel-case" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 2</span><h2 class="case-header-title">Belgica v. Ochoa (The Landmark PDAF / Pork Barrel Case)</h2></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>CITATION:</strong><em>G.R. No. 208566, November 19, 2013 | 710 SCRA 1 (En Banc, Ponente: Perlas-Bernabe, J.)  |  Topic: Legislative Encroachment, Non-Delegation Doctrine &amp; Public Accountability in Budget Execution</em></p>
+<h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">Following the National Bureau of Investigation (NBI) exposés regarding the multi-billion-peso Priority Development Assistance Fund (PDAF) scam orchestrated by Janet Lim-Napoles, whistleblowers revealed that lawmakers received 40% to 60% kickbacks by allocating their PDAF allocations to bogus non-governmental organizations (NGOs). Under the General Appropriations Acts (GAA), lawmakers received lump-sum discretionary funds (PHP 200 Million per Senator, PHP 70 Million per Representative) and possessed post-enactment authority to identify projects, endorse beneficiaries, and approve fund releases. Several citizens, led by Greco Belgica, filed petitions for certiorari and prohibition challenging the constitutionality of the entire &#x27;Pork Barrel System&#x27; (both Congressional PDAF and the Presidential Social Fund / Malampaya discretionary funds).</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE CONSTITUTIONAL ISSUE:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><em>Whether the Congressional &#x27;Pork Barrel System&#x27; (PDAF) and its post-enactment identification mechanisms violate the constitutional principles of Separation of Powers, Non-Delegability of Legislative Power, and Public Accountability.</em></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>III. COMPLAINANT&#x27;S / PETITIONER&#x27;S ARGUMENTS:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">Greco Belgica et al. (Petitioners) argued that: (1) PDAF violates the Separation of Powers by granting legislators post-enactment executive participation in budget execution; (2) It violates the Non-Delegability of Legislative Power by allowing individual lawmakers to unilaterally exercise appropriation powers without collective congressional action; (3) It subverts the President&#x27;s item-veto power under Article VI, Section 27(2); and (4) It violates local autonomy by allowing national legislators to dictate local infrastructure projects.</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>IV. RESPONDENT&#x27;S (&quot;DEPENDANT&#x27;S&quot;) DEFENSES / ARGUMENTS:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">Executive Secretary Paquito Ochoa and Congressional leaders (Respondents) argued that: (1) The case presents a non-justiciable political question concerning congressional budget wisdom; (2) The power of appropriation belongs exclusively to Congress, and post-enactment identification is merely recommendatory; (3) PDAF promotes countryside development by allowing legislators to address specific constituent needs; and (4) The remedy for corruption lies in prosecution of individuals, not facial invalidation of the statutory budget system.</p>
+<h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>V. THE COURT&#x27;S RULING (ALAC METHOD):</strong></h3>
+<div class="table-responsive read-unit" data-unit-type="table"><table class="reader-table"><tr><th>[A] ANSWER</th><th>YES. The Congressional Pork Barrel System (PDAF) and post-enactment legislative identification are UNCONSTITUTIONAL.</th></tr><tr><td>[L] LEGAL BASIS</td><td>1987 Constitution, Article VI, Sections 1, 24, 27(2), 29(1); Article VII, Sections 1, 17 (Separation of Powers &amp; Item-Veto); Non-Delegation Doctrine.</td></tr><tr><td>[A] APPLICATION / ANALYSIS</td><td>The Supreme Court En Banc held: (1) **Separation of Powers:** Legislative power begins and ends with the enactment of the law. Once the General Appropriations Act is passed, legislative authority over the budget terminates, and budget execution belongs exclusively to the Executive. Giving individual legislators post-enactment participation in project identification or fund release constitutes unconstitutional legislative encroachment. (2) **Non-Delegation Doctrine:** The power of appropriation is collective. Allowing individual legislators to designate projects unilaterally violates the principle that delegated legislative power cannot be sub-delegated. (3) **Impairment of Item-Veto:** Lump-sum discretionary appropriations prevent the President from exercising the constitutional power to veto distinct items of appropriation.</td></tr><tr><td>[C] CONCLUSION / RULING</td><td>The Supreme Court declared the Congressional Pork Barrel System (PDAF) and all provisions authorizing post-enactment legislator participation UNCONSTITUTIONAL and permanently enjoined their implementation.</td></tr></table></div>
+<div class="table-responsive read-unit" data-unit-type="table"><table class="reader-table"><tr><th>VI. DOCTRINAL TAKEAWAY: BELGICA V. OCHOA (THE LANDMARK PDAF / PORK BARREL CASE)
+
+Legislative power ends upon the enactment of the budget. Any post-enactment measure allowing individual legislators to identify projects, intervene in fund releases, or participate in budget execution violates the Separation of Powers and the Non-Delegation Doctrine.</th></tr></table></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">―――――――――――――――――――――――――――――――――――――――――――――</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-3-case-3-araullo-v-aquino-iii-the-landmark-dap-case" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 3</span><h2 class="case-header-title">Araullo v. Aquino III (The Landmark DAP Case)</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>CITATION:</strong><em>G.R. No. 209287, July 1, 2014 | 728 SCRA 1 (En Banc, Ponente: Bersamin, J.)  |  Topic: Executive Power, Budget Execution, Savings &amp; Cross-Border Transfers</em></span></div>
+<h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">Following controversies regarding government spending, the Department of Budget and Management (DBM) under Secretary Florencio Abad revealed the implementation of the &#x27;Disbursement Acceleration Program&#x27; (DAP). Under DAP, the Executive declared funds from slow-moving or unreleased line items in the General Appropriations Act as &#x27;savings&#x27; midway through the fiscal year, pooled them into a central DAP fund, and transferred them to fund other high-priority projects, including allocations to projects outside the Executive branch (such as augmentations to the Commission on Elections and funding for projects proposed by individual Senators). Maria Carolina Araullo and various civil society groups filed petitions assailing the constitutionality of DAP.</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE CONSTITUTIONAL ISSUE:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><em>Whether the Executive&#x27;s practice under the Disbursement Acceleration Program (DAP) of withdrawing unobligated allotments before year-end, declaring them as &#x27;savings,&#x27; and transferring them cross-border to augment non-existent budget items violates the Constitution.</em></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>III. COMPLAINANT&#x27;S / PETITIONER&#x27;S ARGUMENTS:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">Araullo et al. (Petitioners) argued that: (1) DAP violated Article VI, Section 29(1) (No money shall be paid out of the Treasury except in pursuance of an appropriation made by law); (2) Unobligated allotments cannot be declared &#x27;savings&#x27; before the end of the fiscal year or before the project is completed/abandoned; (3) Cross-border transfers from the Executive to the Legislative or Constitutional Commissions violate Article VI, Section 25(5); and (4) DAP created unappropriated executive slush funds bypassing congressional purse power.</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>IV. RESPONDENT&#x27;S (&quot;DEPENDANT&#x27;S&quot;) DEFENSES / ARGUMENTS:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">President Benigno Aquino III and DBM Secretary Abad (Respondents) argued that: (1) DAP was a legitimate executive policy tool designed to stimulate national economic growth and fast-track public spending; (2) The President has broad constitutional authority to manage the budget and optimize funds under Book VI of the Administrative Code (E.O. 292); (3) The funds were genuine savings generated from administrative efficiencies and applied only to authorized public programs.</p>
+<h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>V. THE COURT&#x27;S RULING (ALAC METHOD):</strong></h3>
+<div class="table-responsive read-unit" data-unit-type="table"><table class="reader-table"><tr><th>[A] ANSWER</th><th>YES. The core mechanisms of the DAP and cross-border fund transfers are UNCONSTITUTIONAL.</th></tr><tr><td>[L] LEGAL BASIS</td><td>1987 Constitution, Article VI, Section 25(5) (Constitutional Requirements for Augmentation of Savings) &amp; Section 29(1); Doctrine of Operative Fact.</td></tr><tr><td>[A] APPLICATION / ANALYSIS</td><td>The Supreme Court En Banc held that under Article VI, Section 25(5), the transfer of funds is subject to strict constitutional conditions: (1) **No Savings Mid-Stream:** Savings can only be declared after the final discontinuance or completion of the work, or when the fiscal year has ended and surplus funds remain. Slow-moving projects cannot be declared savings midway through the year. (2) **No Cross-Border Transfers:** The power to augment is strictly confined *within* the respective department (e.g., President within the Executive, Chief Justice within the Judiciary, Senate President within the Senate). Cross-border transfers of savings from the Executive to other branches violate the Separation of Powers. (3) **Requirement of an Existing Item:** Savings can only be used to augment an *existing item* in the appropriations law, not to fund brand new projects created by the Executive.</td></tr><tr><td>[C] CONCLUSION / RULING</td><td>The Supreme Court declared the DAP practices of withdrawing unobligated funds as savings, cross-border transfers, and funding non-existent items UNCONSTITUTIONAL, while applying the Doctrine of Operative Fact to protect completed infrastructure and innocent implementers.</td></tr></table></div>
+<div class="table-responsive read-unit" data-unit-type="table"><table class="reader-table"><tr><th>VI. DOCTRINAL TAKEAWAY: ARAULLO V. AQUINO III (THE LANDMARK DAP CASE)
+
+Under Article VI, Section 25(5), fund transfers are valid only if: (a) genuine savings exist after project completion or abandonment; (b) the transfer is strictly intra-departmental (no cross-border transfers); and (c) the transfer augments an existing line item in the GAA.</th></tr></table></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">―――――――――――――――――――――――――――――――――――――――――――――</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-4-case-4-david-v-arroyo" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 4</span><h2 class="case-header-title">David v. Arroyo</h2></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>CITATION:</strong><em>G.R. No. 171396, May 3, 2006 | 489 SCRA 160 (En Banc, Ponente: Sandoval-Gutierrez, J.)  |  Topic: Presidential Emergency Powers, Calling-Out Power, Martial Law Parameters &amp; Freedom of the Press</em></p>
+<h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">On February 24, 2006, amidst intelligence reports of a planned coup d&#x27;état by military rebels, political opposition groups, and communist insurgents, President Gloria Macapagal-Arroyo issued Presidential Proclamation No. 1017 (PP 1017) declaring a &#x27;State of National Emergency&#x27; and General Order No. 5 (GO 5) directing the Armed Forces and Police to suppress acts of terrorism and lawless violence. Pursuant to PP 1017, police authorities conducted warrantless arrests of opposition leaders (including Prof. Randy David and Rep. Crispin Beltran), raided the offices of the Daily Tribune newspaper, seized printing equipment, and imposed prior restraints and media censorship. Multiple petitions were filed challenging the constitutionality of PP 1017 and its executive implementation.</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE CONSTITUTIONAL ISSUE:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><em>Whether Presidential Proclamation No. 1017 and its implementing enforcement acts (warrantless arrests, newspaper raids, and takeover of private media) exceed the President&#x27;s constitutional Commander-in-Chief powers under Article VII, Section 18.</em></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>III. COMPLAINANT&#x27;S / PETITIONER&#x27;S ARGUMENTS:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">Prof. Randy David, Daily Tribune, and civil libertarians (Petitioners) argued that: (1) PP 1017 was a masked, unconstitutional declaration of Martial Law without observing constitutional safeguards; (2) The President has no inherent emergency legislative power to issue decrees or take over privately owned utilities/media; (3) Raiding newspapers, arresting protesters without warrants, and imposing prior restraints violate the Bill of Rights (Art. III, Secs. 1, 2, 4).</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>IV. RESPONDENT&#x27;S (&quot;DEPENDANT&#x27;S&quot;) DEFENSES / ARGUMENTS:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">Executive Secretary Eduardo Ermita (Respondents) argued that: (1) The President was exercising the constitutional &#x27;calling-out power&#x27; under Article VII, Section 18 to suppress lawless violence; (2) The declaration of a state of emergency was a non-justiciable political question based on sensitive military intelligence; (3) The warrantless arrests and media audits were valid preventive measures to maintain national security against imminent rebellion.</p>
+<h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>V. THE COURT&#x27;S RULING (ALAC METHOD):</strong></h3>
+<div class="table-responsive read-unit" data-unit-type="table"><table class="reader-table"><tr><th>[A] ANSWER</th><th>PARTLY VALID, PARTLY UNCONSTITUTIONAL. PP 1017 is valid as a Calling-Out of the military, but all warrantless arrests and media raids are UNCONSTITUTIONAL.</th></tr><tr><td>[L] LEGAL BASIS</td><td>1987 Constitution, Article VII, Section 18 (Commander-in-Chief Powers); Article VI, Section 23(2) (Emergency Powers Delegation); Article III, Sections 1, 2, 4 (Bill of Rights); Article XII, Section 17.</td></tr><tr><td>[A] APPLICATION / ANALYSIS</td><td>The Supreme Court synthesized the hierarchy of the President&#x27;s Commander-in-Chief powers: (1) **Calling-Out Power:** The President may validly declare a state of emergency and call out the Armed Forces to suppress lawless violence. PP 1017 is VALID insofar as it serves as a military call-out. (2) **No Inherent Emergency Legislative Power:** The President cannot issue decrees, promulgate new criminal laws, or usurp legislative functions without prior statutory delegation from Congress under Article VI, Section 23(2). (3) **No Power to Take Over Media / Public Utilities Without Statutory Delegation:** Under Article XII, Section 17, only Congress may authorize the temporary takeover of businesses affected with public interest. (4) **Bill of Rights Remains Fully Operational:** A state of emergency does not suspend the Constitution. Warrantless arrests of peaceful rallyists, dispersals without permit violations, and raiding newspaper offices violate freedom of speech, assembly, and due process.</td></tr><tr><td>[C] CONCLUSION / RULING</td><td>PP 1017 was declared CONSTITUTIONAL as a calling-out of the military, but UNCONSTITUTIONAL insofar as it authorized decrees, warrantless arrests, media takeovers, and prior restraints.</td></tr></table></div>
+<div class="table-responsive read-unit" data-unit-type="table"><table class="reader-table"><tr><th>VI. DOCTRINAL TAKEAWAY: DAVID V. ARROYO
+
+The President&#x27;s calling-out power does not suspend the Constitution, grant legislative decree-making powers, or permit warrantless arrests and media takeovers without express statutory authorization from Congress.</th></tr></table></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">―――――――――――――――――――――――――――――――――――――――――――――</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-5-case-5-marcos-v-manglapus" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 5</span><h2 class="case-header-title">Marcos v. Manglapus</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>CITATION:</strong><em>G.R. No. 88211, September 15, 1989 | 177 SCRA 668 (En Banc, Ponente: Cortes, J.)  |  Topic: Residual Executive Powers, Inherent Sovereign Powers &amp; National Security</em></span></div>
+<h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">Following the 1986 EDSA People Power Revolution, former President Ferdinand E. Marcos and his family fled into exile in Hawaii. In 1989, as Marcos lay critically ill, the Marcos family formally petitioned the Philippine government to allow their return to the Philippines. President Corazon C. Aquino, acting through Secretary of Foreign Affairs Raul Manglapus, barred their return, citing intelligence reports that the return of the Marcoses would destabilize the fragile democratic transition, trigger violent military rebellions, and threaten national security and economic recovery. The Marcos family filed a Petition for Mandamus and Prohibition, arguing that the refusal violated their constitutional right to return to their country, liberty of abode, and due process.</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE CONSTITUTIONAL ISSUE:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><em>Whether the President has the constitutional power under executive residual and inherent powers to bar the return of a former dictator and his family on grounds of national security and public safety.</em></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>III. COMPLAINANT&#x27;S / PETITIONER&#x27;S ARGUMENTS:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">Ferdinand Marcos et al. (Petitioners) argued that: (1) The right to return to one&#x27;s homeland is a fundamental, natural, and constitutional right under the Universal Declaration of Human Rights and the International Covenant on Civil and Political Rights; (2) Article III, Section 6 provides that the right to travel shall not be impaired except in the interest of national security, public safety, or public health *as may be provided by law*, and there was no statute passed by Congress barring their return; (3) The President cannot act outside express statutory and constitutional grants.</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>IV. RESPONDENT&#x27;S (&quot;DEPENDANT&#x27;S&quot;) DEFENSES / ARGUMENTS:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">President Aquino and Secretary Manglapus (Respondents) argued that: (1) The Executive Power vested in the President by Article VII, Section 1 is not a mere enumeration of specific duties, but an inherent, residual grant of sovereign power to protect the peace, tranquility, and survival of the State; (2) The nation had just survived multiple coup attempts, and military assessments confirmed that Marcos&#x27;s return would be a catalyst for destabilization and civil strife; (3) The President&#x27;s primary constitutional duty is to preserve and defend the Republic.</p>
+<h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>V. THE COURT&#x27;S RULING (ALAC METHOD):</strong></h3>
+<div class="table-responsive read-unit" data-unit-type="table"><table class="reader-table"><tr><th>[A] ANSWER</th><th>YES. The President possesses inherent and residual executive powers to bar the return of citizens to protect national security.</th></tr><tr><td>[L] LEGAL BASIS</td><td>1987 Constitution, Article VII, Section 1 (General Grant of Executive Power); Preamble (Peñace, Equality, Rule of Law); Inherent State Police Power.</td></tr><tr><td>[A] APPLICATION / ANALYSIS</td><td>The Supreme Court En Banc held: (1) **Executive Power is More than Specific Enumeration:** Executive power is vested in the President by Article VII, Section 1. It is not confined to the specific powers enumerated in the Constitution, but includes the residual and inherent powers necessary to execute the laws, preserve peace, and protect the State from existential threats. (2) **Balancing of Rights:** Individual civil liberties (such as the right to return) must be balanced against the overarching survival, peace, and safety of the nation. The factual record demonstrated that the military and democratic institutions were severely threatened by ongoing destabilization efforts. (3) **No Grave Abuse of Discretion:** The President acted reasonably based on documented national security assessments without committing grave abuse of discretion.</td></tr><tr><td>[C] CONCLUSION / RULING</td><td>The Petition for Mandamus and Prohibition was DISMISSED. The President&#x27;s refusal to allow the return of the Marcos family was UPHELD.</td></tr></table></div>
+<div class="table-responsive read-unit" data-unit-type="table"><table class="reader-table"><tr><th>VI. DOCTRINAL TAKEAWAY: MARCOS V. MANGLAPUS
+
+Executive power under Article VII, Section 1 is a broad grant encompassing inherent and residual powers to safeguard national security, public safety, and the survival of the Republic, which may justify restricting the return of citizens in extreme emergencies.</th></tr></table></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">―――――――――――――――――――――――――――――――――――――――――――――</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-6-case-6-lagman-v-medialdea-the-mindanao-martial-law-case" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 6</span><h2 class="case-header-title">Lagman v. Medialdea (The Mindanao Martial Law Case)</h2></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>CITATION:</strong><em>G.R. No. 231658, July 4, 2017 | 829 SCRA 1 (En Banc, Ponente: Del Castillo, J.)  |  Topic: Martial Law, Suspension of the Privilege of the Writ of Habeas Corpus &amp; Judicial Review of Factual Basis</em></p>
+<h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">On May 23, 2017, armed fighters belonging to the Maute Group and Abu Sayyaf, who had pledged allegiance to the Islamic State of Iraq and Syria (ISIS), launched a coordinated violent assault on Marawi City, burning public buildings, taking hostages, killing civilians, and flying ISIS flags. In response, President Rodrigo Duterte issued Proclamation No. 216 declaring a State of Martial Law and suspending the privilege of the writ of habeas corpus in the entire Mindanao group of islands for a period of sixty (60) days. Representative Edcel Lagman and other petitioners filed petitions under Article VII, Section 18 assailing the factual basis of the proclamation, arguing that there was no actual rebellion outside Marawi City and that martial law could not cover the entire Mindanao island.</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE CONSTITUTIONAL ISSUE:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><em>Whether there was sufficient factual basis for the proclamation of martial law and the suspension of the privilege of the writ of habeas corpus in the entire Mindanao region under Article VII, Section 18 of the Constitution.</em></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>III. COMPLAINANT&#x27;S / PETITIONER&#x27;S ARGUMENTS:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">Rep. Lagman et al. (Petitioners) argued that: (1) The violence was confined to Marawi City and did not constitute actual rebellion throughout the entire island of Mindanao; (2) The President relied on inaccurate, unverified, and exaggerated military intelligence; (3) The proclamation of martial law across the entire Mindanao region was excessive and lacked sufficient factual basis under Section 18.</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>IV. RESPONDENT&#x27;S (&quot;DEPENDANT&#x27;S&quot;) DEFENSES / ARGUMENTS:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">Executive Secretary Salvador Medialdea and the Armed Forces of the Philippines (Respondents) argued that: (1) The Maute and Abu Sayyaf networks operated across multiple provinces in Mindanao, possessing transit corridors, arms caches, and sleeper cells; (2) The standard of judicial review under Article VII, Section 18 is not proof beyond reasonable doubt or correctness, but whether the President had &#x27;sufficient factual basis&#x27; based on executive and military intelligence; (3) Martial law was indispensable to contain spillover violence and neutralize the ISIS-inspired regional uprising.</p>
+<h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>V. THE COURT&#x27;S RULING (ALAC METHOD):</strong></h3>
+<div class="table-responsive read-unit" data-unit-type="table"><table class="reader-table"><tr><th>[A] ANSWER</th><th>YES. There was SUFFICIENT FACTUAL BASIS for the declaration of martial law across the entire Mindanao region.</th></tr><tr><td>[L] LEGAL BASIS</td><td>1987 Constitution, Article VII, Section 18, paragraph 3 (Supreme Court Review of Sufficiency of Factual Basis); Article VII, Section 18 (Rebellion / Invasion Requirement).</td></tr><tr><td>[A] APPLICATION / ANALYSIS</td><td>The Supreme Court En Banc established landmark doctrines on the review of Martial Law: (1) **Standard of Judicial Review:** Under Article VII, Section 18, paragraph 3, the Court&#x27;s inquiry is confined strictly to determining whether the President had *sufficient factual basis* for the proclamation. The Court does not substitute its judgment for that of the Commander-in-Chief. (2) **Elements of Rebellion Satisfied:** The record demonstrated: (a) actual armed uprising, and (b) the intent to deprive the Chief Executive of his power or separate part of the territory (establishment of an ISIS caliphate). (3) **Territorial Scope:** The President is not required to declare martial law only city-by-city. Military intelligence established that the armed rebel network was regionally interconnected throughout Mindanao, justifying a region-wide security umbrella.</td></tr><tr><td>[C] CONCLUSION / RULING</td><td>The Petitions were DISMISSED. Proclamation No. 216 declaring Martial Law and suspending the writ in the entire Mindanao region was declared CONSTITUTIONAL.</td></tr></table></div>
+<div class="table-responsive read-unit" data-unit-type="table"><table class="reader-table"><tr><th>VI. DOCTRINAL TAKEAWAY: LAGMAN V. MEDIALDEA (THE MINDANAO MARTIAL LAW CASE)
+
+Under Article VII, Section 18, the Supreme Court reviews only the *sufficiency of the factual basis* of Martial Law, not its absolute correctness. The President has discretion to determine the territorial scope based on interconnected operational intelligence of rebellion.</th></tr></table></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">―――――――――――――――――――――――――――――――――――――――――――――</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-7-case-7-senate-v-ermita-the-landmark-eo-464-case" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 7</span><h2 class="case-header-title">Senate v. Ermita (The Landmark E.O. 464 Case)</h2></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>CITATION:</strong><em>G.R. No. 169777, April 20, 2006 | 488 SCRA 1 (En Banc, Ponente: Carpio-Morales, J.)  |  Topic: Legislative Inquiries in Aid of Legislation vs. Question Hour &amp; Executive Privilege</em></p>
+<h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">The Senate and its committees scheduled public hearings on several controversial government transactions, including the North Rail Project, the Venable LLP lobbying contract, and the &#x27;Hello Garci&#x27; electoral wiretaps. In response, President Gloria Macapagal-Arroyo issued Executive Order No. 464 (E.O. 464), which prohibited all heads of executive departments, generals of the Armed Forces, senior police officers, and presidential advisers from appearing before congressional inquiries without prior express consent and clearance from the President. Officials summoned by the Senate invoked E.O. 464 and refused to attend. The Senate filed a petition for certiorari and prohibition assailing E.O. 464 as a grave obstruction of legislative oversight.</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE CONSTITUTIONAL ISSUE:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><em>Whether Executive Order No. 464 violates the constitutional power of Congress to conduct legislative inquiries in aid of legislation under Article VI, Section 21 of the 1987 Constitution.</em></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>III. COMPLAINANT&#x27;S / PETITIONER&#x27;S ARGUMENTS:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">The Senate of the Philippines (Petitioners) argued that: (1) The power of legislative inquiry under Article VI, Section 21 is co-extensive with the power to legislate and is an essential instrument of public accountability; (2) E.O. 464 created a blanket, non-transparent wall of executive immunity that crippled the constitutional oversight functions of Congress; (3) Executive privilege cannot be claimed implicitly, broadly, or generically by subordinate cabinet members without stating specific grounds.</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>IV. RESPONDENT&#x27;S (&quot;DEPENDANT&#x27;S&quot;) DEFENSES / ARGUMENTS:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">Executive Secretary Eduardo Ermita (Respondents) argued that: (1) The President has direct control and supervision over all executive officials under Article VII, Section 17; (2) E.O. 464 was a valid mechanism to prevent harassment, political grandstanding, and disclosure of sensitive state secrets and executive communications; (3) Under Article VI, Section 22 (Question Hour), cabinet appearance requires presidential consent.</p>
+<h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>V. THE COURT&#x27;S RULING (ALAC METHOD):</strong></h3>
+<div class="table-responsive read-unit" data-unit-type="table"><table class="reader-table"><tr><th>[A] ANSWER</th><th>PARTLY UNCONSTITUTIONAL. E.O. 464 is UNCONSTITUTIONAL insofar as it imposes a blanket ban on legislative inquiries under Section 21.</th></tr><tr><td>[L] LEGAL BASIS</td><td>1987 Constitution, Article VI, Section 21 (In Aid of Legislation - Mandatory Appearance) vs. Article VI, Section 22 (Question Hour - Discretionary); Article III, Section 7 (Right to Information).</td></tr><tr><td>[A] APPLICATION / ANALYSIS</td><td>The Supreme Court En Banc delineated the crucial difference between Section 21 and Section 22: (1) **Section 21 (Inquiry in Aid of Legislation):** The power of legislative inquiry is MANDATORY. Congress has the coercive power to compel the attendance and testimony of any person, including executive officials. A witness cannot refuse to appear based on a blanket presidential order. (2) **Section 22 (Question Hour):** The Question Hour pertains to oversight on how laws are administered; appearance of department heads is subject to the request of Congress and consent of the President. (3) **Rules on Executive Privilege:** Executive privilege is an exception, not the rule. It must be formally invoked by the President (or Executive Secretary upon specific instruction), and must state the specific grounds (e.g., military secrets, diplomatic negotiations, presidential discussions). Blanket, generic invocations are void.</td></tr><tr><td>[C] CONCLUSION / RULING</td><td>E.O. 464 Section 1 (consent for Question Hour) was UPHELD, but Sections 2(b) and 3 (blanket ban on appearance in Section 21 legislative inquiries) were declared UNCONSTITUTIONAL and VOID.</td></tr></table></div>
+<div class="table-responsive read-unit" data-unit-type="table"><table class="reader-table"><tr><th>VI. DOCTRINAL TAKEAWAY: SENATE V. ERMITA (THE LANDMARK E.O. 464 CASE)
+
+Inquiries in aid of legislation under Article VI, Section 21 are mandatory. Executive officials must appear when summoned. Executive privilege cannot be invoked generically via a blanket order; it must be claimed specifically with particularized legal justifications.</th></tr></table></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">―――――――――――――――――――――――――――――――――――――――――――――</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-8-case-8-neri-v-senate-committee-on-accountability" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 8</span><h2 class="case-header-title">Neri v. Senate Committee on Accountability</h2></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>CITATION:</strong><em>G.R. No. 180643, March 25, 2008 | 549 SCRA 77 (En Banc, Ponente: De Castro, J.)  |  Topic: Executive Privilege, Presidential Communications Privilege &amp; Legislative Contempt</em></p>
+<h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">During the Senate Blue Ribbon Committee investigation into the multi-million dollar national broadband network contract awarded to Zhong Xing Telecommunication Equipment (NBN-ZTE Project), National Economic and Development Authority (NEDA) Director General Romulo Neri testified for eleven hours. Neri disclosed that Commission on Elections Chairman Benjamin Abalos offered him a bribe of PHP 200 Million to approve the project and that he reported the bribe to President Gloria Macapagal-Arroyo. However, when asked by Senators about what President Arroyo told him afterwards, whether she dictated the project approval, and whether she instructed him to prioritize ZTE, Neri refused to answer, invoking &#x27;Executive Privilege&#x27; upon instructions of Executive Secretary Ermita. The Senate cited Neri in contempt and ordered his arrest. Neri filed a Petition for Certiorari.</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE CONSTITUTIONAL ISSUE:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><em>Whether the questions asked of Director General Neri regarding his private conversations with the President are covered by Presidential Communications Privilege, and whether the Senate&#x27;s contempt and arrest order was valid.</em></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>III. COMPLAINANT&#x27;S / PETITIONER&#x27;S ARGUMENTS:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">The Senate Committees (Respondents) argued that: (1) The communications were essential to expose corruption in a multi-million dollar public procurement contract and draft remedial procurement laws; (2) Executive privilege cannot be used as a shield to conceal criminal acts, bribery, or malfeasance in office; (3) Neri&#x27;s refusal to answer thwarted the constitutional power of legislative inquiry under Section 21.</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>IV. RESPONDENT&#x27;S (&quot;DEPENDANT&#x27;S&quot;) DEFENSES / ARGUMENTS:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">Romulo Neri (Petitioner) argued that: (1) The conversations were quintessentially protected by the Presidential Communications Privilege; (2) The questions related to candid, confidential discussions between the President and a Cabinet member concerning diplomatic relations with China and national economic policy; (3) The Senate failed to demonstrate that the information was unavailable elsewhere or indispensable to legislation.</p>
+<h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>V. THE COURT&#x27;S RULING (ALAC METHOD):</strong></h3>
+<div class="table-responsive read-unit" data-unit-type="table"><table class="reader-table"><tr><th>[A] ANSWER</th><th>YES. The communications are covered by Presidential Communications Privilege. The Senate contempt order was VOID.</th></tr><tr><td>[L] LEGAL BASIS</td><td>1987 Constitution, Article VI, Section 21; Article VII, Section 1; Almonte v. Vasquez (244 SCRA 286); Senate v. Ermita (488 SCRA 1); US v. Nixon (418 US 683).</td></tr><tr><td>[A] APPLICATION / ANALYSIS</td><td>The Supreme Court En Banc laid down the **Three-Part Test for Presidential Communications Privilege**: (1) **Quintessential Presidential Power:** The communication must relate to a quintessential and non-delegable presidential power (diplomatic negotiations, national policy, foreign loans). (2) **Direct Staff / Adviser:** The communication must be authored or solicited and received by a close presidential adviser (NEDA Director General). (3) **No Compelling Need Shown:** The privilege is presumptive. The party seeking disclosure (the Senate) failed to show a compelling, vital need for the specific answers that could not be satisfied through other evidentiary sources. The Court held that candid presidential consultations must be protected to ensure uninhibited advice in executive decision-making.</td></tr><tr><td>[C] CONCLUSION / RULING</td><td>The Petition for Certiorari was GRANTED. The questions were declared covered by Executive Privilege, and the Senate&#x27;s Contempt and Arrest Order against Neri was declared NULL and VOID.</td></tr></table></div>
+<div class="table-responsive read-unit" data-unit-type="table"><table class="reader-table"><tr><th>VI. DOCTRINAL TAKEAWAY: NERI V. SENATE COMMITTEE ON ACCOUNTABILITY
+
+Presidential Communications Privilege protects candid, confidential consultations between the President and key advisers concerning presidential decision-making, unless the legislature demonstrates a compelling, overriding necessity for the exact information.</th></tr></table></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">―――――――――――――――――――――――――――――――――――――――――――――</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-9-case-9-chavez-v-judicial-and-bar-council-jbc" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 9</span><h2 class="case-header-title">Chavez v. Judicial and Bar Council (JBC)</h2></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>CITATION:</strong><em>G.R. No. 202242, July 17, 2012 | 676 SCRA 579 (En Banc, Ponente: Mendoza, J.)  |  Topic: Composition of the Judicial and Bar Council &amp; Constitutional Interpretation of &#x27;A Representative of the Congress&#x27;</em></p>
+<h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">Article VIII, Section 8(1) of the 1987 Constitution creates the Judicial and Bar Council (JBC) composed of seven (7) members, including &#x27;a representative of the Congress.&#x27; Since the 1987 Constitution established a bicameral legislature (Senate and House of Representatives), Congress adopted a practice of sending two (2) representatives to the JBC - one from the Senate and one from the House of Representatives - each possessing one full vote, effectively giving Congress two votes and increasing the JBC membership to eight (8). Former Solicitor General Francisco Chavez filed a petition for prohibition challenging the constitutionality of the bicameral dual representation in the JBC.</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE CONSTITUTIONAL ISSUE:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><em>Whether the practice of having two (2) representatives from Congress (one Senator and one Congressman) with one full vote each in the Judicial and Bar Council violates the constitutional prescription of &#x27;a representative of the Congress&#x27; under Article VIII, Section 8(1).</em></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>III. COMPLAINANT&#x27;S / PETITIONER&#x27;S ARGUMENTS:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">Francisco Chavez (Petitioner) argued that: (1) The Constitution uses the singular term &#x27;a representative of the Congress&#x27; - meaning only one person can represent Congress in the 7-member JBC; (2) Allowing two representatives disrupts the 7-member constitutional equilibrium designed to prevent deadlocks and partisan control; (3) Congress cannot expand its constitutional representation through unwritten custom or internal agreements.</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>IV. RESPONDENT&#x27;S (&quot;DEPENDANT&#x27;S&quot;) DEFENSES / ARGUMENTS:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">The JBC and Senate/House Representatives (Respondents) argued that: (1) The 1987 Constitution established a bicameral Congress; the Senate and House are distinct institutions with different constituencies, and neither can adequately represent the other; (2) The framers of the Constitution originally conceived a unicameral legislature and inadvertently failed to adjust the text when bicameralism was restored; (3) A half-vote arrangement was previously adopted as an equitable compromise.</p>
+<h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>V. THE COURT&#x27;S RULING (ALAC METHOD):</strong></h3>
+<div class="table-responsive read-unit" data-unit-type="table"><table class="reader-table"><tr><th>[A] ANSWER</th><th>YES. Congress is entitled to only ONE (1) representative and ONE (1) vote in the Judicial and Bar Council.</th></tr><tr><td>[L] LEGAL BASIS</td><td>1987 Constitution, Article VIII, Section 8(1); Verba Legis (Plain Meaning Rule); Framers&#x27; Intent on 7-Member Council.</td></tr><tr><td>[A] APPLICATION / ANALYSIS</td><td>The Supreme Court En Banc held: (1) **Verba Legis:** The text of Article VIII, Section 8(1) is clear and unambiguous: &#x27;a representative of the Congress.&#x27; &#x27;A&#x27; means singular. (2) **Constitutional Balance:** The JBC was intentionally designed with an odd number of seven (7) members to prevent voting deadlocks and ensure balanced representation between ex-officio and regular members. Increasing congressional membership to two distorts this constitutional balance. (3) **Bicameral Agreement Required:** The Senate and House must agree on how to designate their single representative (such as alternating representation), but they cannot claim two seats or two votes.</td></tr><tr><td>[C] CONCLUSION / RULING</td><td>The Supreme Court declared the practice of having two representatives from Congress in the JBC UNCONSTITUTIONAL. Congress is entitled to only ONE (1) representative with ONE (1) vote in the JBC.</td></tr></table></div>
+<div class="table-responsive read-unit" data-unit-type="table"><table class="reader-table"><tr><th>VI. DOCTRINAL TAKEAWAY: CHAVEZ V. JUDICIAL AND BAR COUNCIL (JBC)
+
+Under Article VIII, Section 8(1), Congress is entitled to only ONE (1) seat and ONE (1) vote in the Judicial and Bar Council. The Senate and House cannot both hold full independent seats on the Council.</th></tr></table></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">―――――――――――――――――――――――――――――――――――――――――――――</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-10-case-10-de-castro-v-judicial-and-bar-council-jbc" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 10</span><h2 class="case-header-title">De Castro v. Judicial and Bar Council (JBC)</h2></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>CITATION:</strong><em>G.R. No. 191002, March 17, 2010 | 615 SCRA 666 (En Banc, Ponente: Bersamin, J.)  |  Topic: Midnight Appointments Ban vs. Mandatory 90-Day Judicial Vacancy Filling for the Supreme Court</em></p>
+<h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">Chief Justice Reynato S. Puno was scheduled to reach the mandatory retirement age of 70 on May 17, 2010 - just seven (7) days after the May 10, 2010 Presidential Elections. Article VII, Section 15 of the Constitution prohibits the President from making appointments two months immediately before the next presidential elections and up to the end of his term (the &#x27;Midnight Appointments Ban&#x27;). However, Article VIII, Section 4(1) mandates that any vacancy in the Supreme Court *shall be filled within ninety (90) days from the occurrence thereof.* The JBC suspended the submission of a shortlist of nominees to incumbent President Gloria Macapagal-Arroyo, assuming the midnight appointment ban applied. Several petitions for mandamus were filed compelling the JBC to submit the list of nominees to President Arroyo.</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE CONSTITUTIONAL ISSUE:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><em>Whether the general ban on midnight appointments under Article VII, Section 15 applies to appointments to the Supreme Court under Article VIII, Section 4(1).</em></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>III. COMPLAINANT&#x27;S / PETITIONER&#x27;S ARGUMENTS:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">Arturo De Castro et al. (Petitioners) argued that: (1) Article VIII, Section 4(1) is an independent, mandatory constitutional command requiring the President to fill vacancies in the Supreme Court within 90 days; (2) The Supreme Court cannot be left leaderless, and Article VII, Section 15 applies only to executive department appointments; (3) Historical intent and structural placement demonstrate that judicial appointments are excluded from the midnight appointment prohibition.</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>IV. RESPONDENT&#x27;S (&quot;DEPENDANT&#x27;S&quot;) DEFENSES / ARGUMENTS:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">The JBC and Oppositors (Respondents) argued that: (1) Article VII, Section 15 contains no exception for Supreme Court appointments, using the categorical words &#x27;two months immediately before...&#x27;; (2) The purpose of the ban is to prevent an outgoing President from stacking the courts with political partisans to buy insurance against future prosecution; (3) An Acting Chief Justice (the most senior Associate Justice) could temporarily lead the Court until the incoming President takes office.</p>
+<h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>V. THE COURT&#x27;S RULING (ALAC METHOD):</strong></h3>
+<div class="table-responsive read-unit" data-unit-type="table"><table class="reader-table"><tr><th>[A] ANSWER</th><th>NO. The midnight appointments ban under Article VII, Section 15 DOES NOT APPLY to appointments to the Supreme Court.</th></tr><tr><td>[L] LEGAL BASIS</td><td>1987 Constitution, Article VIII, Section 4(1) (Mandatory 90-day Appointment Period for SC Vacancies); Article VII, Section 15 (General Executive Appointment Ban); Constitutional Construction (Location and Hierarchy of Provisions).</td></tr><tr><td>[A] APPLICATION / ANALYSIS</td><td>The Supreme Court En Banc held: (1) **Structural Placement:** Section 15 of Article VII is located in the Article governing the Executive Department, whereas Article VIII, Section 4(1) is located in the Article governing the Judicial Department. Had the framers intended the Section 15 ban to apply to the Supreme Court, they would have explicitly included it in Article VIII. (2) **Mandatory 90-Day Directive:** Article VIII, Section 4(1) uses the mandatory word *&#x27;shall be filled within ninety days&#x27;*. The Court cannot tolerate an institutional vacuum in the highest judicial body of the Republic. (3) **Historical Intent:** The records of the 1986 Constitutional Commission reveal that the midnight appointment ban was designed to prevent executive vote-buying and partisan appointments in the civil bureaucracy, not to immobilize the Judiciary.</td></tr><tr><td>[C] CONCLUSION / RULING</td><td>The Supreme Court ruled that the prohibition under Article VII, Section 15 does not apply to vacancies in the Supreme Court. The JBC was ORDERED to resume proceedings and submit the shortlist to the President.</td></tr></table></div>
+<div class="table-responsive read-unit" data-unit-type="table"><table class="reader-table"><tr><th>VI. DOCTRINAL TAKEAWAY: DE CASTRO V. JUDICIAL AND BAR COUNCIL (JBC)
+
+The constitutional ban on midnight appointments (Art. VII, Sec. 15) does not apply to appointments to the Supreme Court. The President is constitutionally mandated under Article VIII, Section 4(1) to fill vacancies in the Supreme Court within 90 days.</th></tr></table></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">―――――――――――――――――――――――――――――――――――――――――――――</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-11-case-11-magallona-v-ermita" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 11</span><h2 class="case-header-title">Magallona v. Ermita</h2></div>
+<div class="case-citation-banner read-unit" data-unit-type="citation"><span class="citation-label">CITATION</span> <span class="citation-text"><strong>CITATION:</strong><em>G.R. No. 187167, July 16, 2011 | 653 SCRA 195 (En Banc, Ponente: Carpio, J.)  |  Topic: National Territory, Archipelagic Doctrine, UNCLOS &amp; Baselines Law</em></span></div>
+<h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">In March 2009, Congress enacted Republic Act No. 9522 (RA 9522), amending the Philippine Baselines Law (RA 3046) to comply with the 1982 United Nations Convention on the Law of the Sea (UNCLOS III). RA 9522 adjusted the country&#x27;s archipelagic baselines and classified the Kalayaan Island Group (KIG) and Scarborough Shoal (Bajo de Masinloc) as &#x27;Regime of Islands&#x27; generating their own maritime zones, rather than drawing straight baselines enclosing them within the main archipelago. Legal scholars and law professors led by Prof. Merlin Magallona filed a petition for certiorari and prohibition, asserting that RA 9522 unconstitutionally reduced Philippine national territory, dismantled the historic archipelagic doctrine, and abandoned sovereignty over KIG and Scarborough Shoal.</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE CONSTITUTIONAL ISSUE:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><em>Whether Republic Act No. 9522 (Philippine Archipelagic Baselines Law) violates Article I of the 1987 Constitution on National Territory.</em></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>III. COMPLAINANT&#x27;S / PETITIONER&#x27;S ARGUMENTS:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">Prof. Merlin Magallona et al. (Petitioners) argued that: (1) RA 9522 unconstitutionally shrunk the Philippine national territory by excising the Kalayaan Island Group and Scarborough Shoal from the main archipelagic baseline; (2) Classifying KIG and Scarborough Shoal under a &#x27;Regime of Islands&#x27; weakened the country&#x27;s sovereignty and historic title under the Treaty of Paris; (3) UNCLOS III baseline requirements cannot supersede the constitutional definition of national territory under Article I.</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>IV. RESPONDENT&#x27;S (&quot;DEPENDANT&#x27;S&quot;) DEFENSES / ARGUMENTS:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">Executive Secretary Eduardo Ermita et al. (Respondents) argued that: (1) RA 9522 is a statutory delineation of maritime zones, not a cession of territory; (2) Categorizing KIG and Scarborough Shoal as a &#x27;Regime of Islands&#x27; under Article 121 of UNCLOS preserves Philippine sovereignty and gives the country expansive Exclusive Economic Zones (EEZ); (3) Compliance with UNCLOS is vital to gain international recognition for the Philippines&#x27; maritime boundaries and 200-nautical-mile EEZ.</p>
+<h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>V. THE COURT&#x27;S RULING (ALAC METHOD):</strong></h3>
+<div class="table-responsive read-unit" data-unit-type="table"><table class="reader-table"><tr><th>[A] ANSWER</th><th>NO. RA 9522 is FULLY CONSTITUTIONAL and does not reduce or surrender Philippine national territory.</th></tr><tr><td>[L] LEGAL BASIS</td><td>1987 Constitution, Article I (National Territory); Republic Act No. 9522; 1982 UNCLOS III (Articles 46-54 Archipelagic States, Article 121 Regime of Islands).</td></tr><tr><td>[A] APPLICATION / ANALYSIS</td><td>Justice Antonio T. Carpio delivered the unanimous En Banc ruling: (1) **Baselines are Not Boundaries of Territory:** Baselines do not alter national territory; they are technical lines drawn along the coast from which the breadth of the territorial sea, contiguous zone, exclusive economic zone, and continental shelf are measured. (2) **Preservation of Sovereignty:** Classifying KIG and Scarborough Shoal as a &#x27;Regime of Islands&#x27; complies with the geographic limits of UNCLOS (which prohibits drawing excessively long baseline lines across open oceans) while legally preserving full Philippine sovereignty and territorial title. (3) **Expansion of Maritime Wealth:** RA 9522 actually resulted in a massive net gain of 145,216 square nautical miles of maritime space and exclusive economic zones for the Philippines.</td></tr><tr><td>[C] CONCLUSION / RULING</td><td>The Petition for Certiorari and Prohibition was DISMISSED. Republic Act No. 9522 was declared fully VALID and CONSTITUTIONAL.</td></tr></table></div>
+<div class="table-responsive read-unit" data-unit-type="table"><table class="reader-table"><tr><th>VI. DOCTRINAL TAKEAWAY: MAGALLONA V. ERMITA
+
+Statutory baselines under RA 9522 are maritime measurement baselines under UNCLOS, not territorial borders. Classifying outlying features as a &#x27;Regime of Islands&#x27; preserves Philippine sovereignty while securing international recognition of our maritime zones.</th></tr></table></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">―――――――――――――――――――――――――――――――――――――――――――――</p>
+</section>
+<hr class="section-divider" />
+<section id="sec-12-case-12-biraogo-v-the-philippine-truth-commission-of-2010" class="doc-section">
+<div class="case-header-card read-unit" data-unit-type="case-header"><span class="case-number-pill">CASE 12</span><h2 class="case-header-title">Biraogo v. The Philippine Truth Commission of 2010</h2></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>CITATION:</strong><em>G.R. No. 192931, December 7, 2010 | 637 SCRA 78 (En Banc, Ponente: Mendoza, J.)  |  Topic: Executive Power to Create Ad Hoc Fact-Finding Bodies vs. Equal Protection Clause</em></p>
+<h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>I. FACTS OF THE CASE:</strong></h3>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">Upon assuming office in 2010, President Benigno Aquino III issued Executive Order No. 1 (E.O. 1) creating the &#x27;Philippine Truth Commission of 2010&#x27; (PTC). The Truth Commission was tasked to investigate reported cases of large-scale graft and corruption committed *solely during the previous administration of President Gloria Macapagal-Arroyo*, and to recommend the prosecution of perpetrators. Louis &#x27;Barok&#x27; Biraogo and several members of the House of Representatives filed petitions assailing E.O. 1, arguing that the President had no power to create a public office without an act of Congress and that isolating the Arroyo administration violated the Equal Protection Clause.</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>II. STATEMENT OF THE CONSTITUTIONAL ISSUE:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><em>Whether Executive Order No. 1 creating the Philippine Truth Commission violates the Equal Protection Clause of the Constitution by singling out only the administration of former President Gloria Macapagal-Arroyo for investigation.</em></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>III. COMPLAINANT&#x27;S / PETITIONER&#x27;S ARGUMENTS:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">Louis Biraogo and Lawmakers (Petitioners) argued that: (1) E.O. 1 created a new public office with investigative powers, which requires an act of Congress; (2) E.O. 1 violated the Equal Protection Clause (Article III, Section 1) because it singled out the Arroyo administration while completely ignoring graft and corruption in previous and future administrations; (3) The classification was based on political vendetta and did not rest on substantial distinctions.</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>IV. RESPONDENT&#x27;S (&quot;DEPENDANT&#x27;S&quot;) DEFENSES / ARGUMENTS:</strong></p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">The Executive Secretary and Truth Commission Members (Respondents) argued that: (1) The President has inherent power under Article VII, Section 17 (Faithful Execution Clause) and Section 31 of the Administrative Code to create ad hoc fact-finding bodies; (2) The Arroyo administration was characterized by widespread public reports of corruption that urgently required investigation; (3) The Truth Commission was merely an investigatory body with no adjudicatory or judicial powers.</p>
+<h3 class="case-subheading read-unit" data-unit-type="subheading"><span class="subheading-accent">§</span> <strong>V. THE COURT&#x27;S RULING (ALAC METHOD):</strong></h3>
+<div class="table-responsive read-unit" data-unit-type="table"><table class="reader-table"><tr><th>[A] ANSWER</th><th>YES. Executive Order No. 1 is UNCONSTITUTIONAL for violating the Equal Protection Clause.</th></tr><tr><td>[L] LEGAL BASIS</td><td>1987 Constitution, Article III, Section 1 (Equal Protection Clause); Reasonable Classification Doctrine; Article VII, Section 17.</td></tr><tr><td>[A] APPLICATION / ANALYSIS</td><td>The Supreme Court En Banc held: (1) **Power to Create Ad Hoc Bodies:** The President has the executive authority under the Faithful Execution Clause to create ad hoc fact-finding committees to assist in policy making and investigation without usurping congressional power. (2) **Violation of Equal Protection:** However, the classification must satisfy the **Four Requisites of a Valid Classification**: (a) it must rest on substantial distinctions; (b) it must be germane to the purpose of the law; (c) it must not be limited to existing conditions only; and (d) it must apply equally to all members of the same class. (3) **Arbitrary Singling Out:** E.O. 1 explicitly limited the investigation solely to the Arroyo administration. Corruption is not unique to one administration. Singling out one past administration while exempting all others is an arbitrary, selective, and discriminatory classification that violates the Equal Protection Clause.</td></tr><tr><td>[C] CONCLUSION / RULING</td><td>The Supreme Court declared Executive Order No. 1 UNCONSTITUTIONAL and VOID for being in patent violation of the Equal Protection Clause.</td></tr></table></div>
+<div class="table-responsive read-unit" data-unit-type="table"><table class="reader-table"><tr><th>VI. DOCTRINAL TAKEAWAY: BIRAOGO V. THE PHILIPPINE TRUTH COMMISSION OF 2010
+
+Executive investigative bodies must conform to the Equal Protection Clause. A presidential order creating an ad hoc fact-finding body that arbitrarily singles out a specific past administration for investigation without substantial distinction is unconstitutional.</th></tr></table></div>
+<p class="read-unit case-paragraph" data-unit-type="paragraph">―――――――――――――――――――――――――――――――――――――――――――――</p>
+<p class="read-unit case-paragraph" data-unit-type="paragraph"><strong>MASTER COMPARATIVE MATRIX: CONSTITUTIONAL LAW 1 LANDMARK CASES</strong></p>
+<div class="table-responsive read-unit" data-unit-type="table"><table class="reader-table"><tr><th>Case &amp; Citation</th><th>Constitutional Topic</th><th>Complainant vs. Defense</th><th>ALAC Ruling &amp; Dispositive Action</th></tr><tr><td>Angara v. Electoral Commission
+(G.R. No. L-45081, July 15, 1936)</td><td>Judicial Review, Separation of Powers &amp; Checks and Balances
+
+Anchor:
+1987 Constitution, Article VIII, Section 1 (Judicial Power) ...</td><td>PET: Angara (Petitioner) argued that the National Assembly, as the supreme legislative body of the l...
+
+RESP: Pedro Ynsua and the Electoral Commission (Respondents) argued that the 1935 Constitution explic...</td><td>YES. The Supreme Court has the power of Judicial Review, and the Electoral Commission possesses exclusive constitutional jurisdiction.
+
+The Petition for Prohibition was DISMISSED. The Electoral Commission was declared to possess exclusive, independent jurisdiction to try the election protest.</td></tr><tr><td>Belgica v. Ochoa (The Landmark PDAF / Pork Barrel Case)
+(G.R. No. 208566, November 19, 2013)</td><td>Legislative Encroachment, Non-Delegation Doctrine &amp; Public Accountability in Budget Execution
+
+Anchor:
+1987 Constitution, Article VI, Sections 24, 29(1); Article V...</td><td>PET: Greco Belgica et al. (Petitioners) argued that: (1) PDAF violates the Separation of Powers by g...
+
+RESP: Executive Secretary Paquito Ochoa and Congressional leaders (Respondents) argued that: (1) The ...</td><td>YES. The Congressional Pork Barrel System (PDAF) and post-enactment legislative identification are UNCONSTITUTIONAL.
+
+The Supreme Court declared the Congressional Pork Barrel System (PDAF) and all provisions authorizing post-enactment legislator participation UNCONSTITUTIONAL and permanently enjoined their implementation.</td></tr><tr><td>Araullo v. Aquino III (The Landmark DAP Case)
+(G.R. No. 209287, July 1, 2014)</td><td>Executive Power, Budget Execution, Savings &amp; Cross-Border Transfers
+
+Anchor:
+1987 Constitution, Article VI, Section 29(1); Article VI, Se...</td><td>PET: Araullo et al. (Petitioners) argued that: (1) DAP violated Article VI, Section 29(1) (No money ...
+
+RESP: President Benigno Aquino III and DBM Secretary Abad (Respondents) argued that: (1) DAP was a le...</td><td>YES. The core mechanisms of the DAP and cross-border fund transfers are UNCONSTITUTIONAL.
+
+The Supreme Court declared the DAP practices of withdrawing unobligated funds as savings, cross-border transfers, and funding non-existent items UNCONSTITUTIONAL, while applying the Doctrine of Operative Fact to protect completed infrastructure and innocent implementers.</td></tr><tr><td>David v. Arroyo
+(G.R. No. 171396, May 3, 2006)</td><td>Presidential Emergency Powers, Calling-Out Power, Martial Law Parameters &amp; Freedom of the Press
+
+Anchor:
+1987 Constitution, Article VII, Section 18 (Commander-in-Chi...</td><td>PET: Prof. Randy David, Daily Tribune, and civil libertarians (Petitioners) argued that: (1) PP 1017...
+
+RESP: Executive Secretary Eduardo Ermita (Respondents) argued that: (1) The President was exercising ...</td><td>PARTLY VALID, PARTLY UNCONSTITUTIONAL. PP 1017 is valid as a Calling-Out of the military, but all warrantless arrests and media raids are UNCONSTITUTIONAL.
+
+PP 1017 was declared CONSTITUTIONAL as a calling-out of the military, but UNCONSTITUTIONAL insofar as it authorized decrees, warrantless arrests, media takeovers, and prior restraints.</td></tr><tr><td>Marcos v. Manglapus
+(G.R. No. 88211, September 15, 1989)</td><td>Residual Executive Powers, Inherent Sovereign Powers &amp; National Security
+
+Anchor:
+1987 Constitution, Article VII, Section 1 (Executive Power);...</td><td>PET: Ferdinand Marcos et al. (Petitioners) argued that: (1) The right to return to one&#x27;s homeland is...
+
+RESP: President Aquino and Secretary Manglapus (Respondents) argued that: (1) The Executive Power ves...</td><td>YES. The President possesses inherent and residual executive powers to bar the return of citizens to protect national security.
+
+The Petition for Mandamus and Prohibition was DISMISSED. The President&#x27;s refusal to allow the return of the Marcos family was UPHELD.</td></tr><tr><td>Lagman v. Medialdea (The Mindanao Martial Law Case)
+(G.R. No. 231658, July 4, 2017)</td><td>Martial Law, Suspension of the Privilege of the Writ of Habeas Corpus &amp; Judicial Review of Factual Basis
+
+Anchor:
+1987 Constitution, Article VII, Section 18 (Martial Law Para...</td><td>PET: Rep. Lagman et al. (Petitioners) argued that: (1) The violence was confined to Marawi City and ...
+
+RESP: Executive Secretary Salvador Medialdea and the Armed Forces of the Philippines (Respondents) ar...</td><td>YES. There was SUFFICIENT FACTUAL BASIS for the declaration of martial law across the entire Mindanao region.
+
+The Petitions were DISMISSED. Proclamation No. 216 declaring Martial Law and suspending the writ in the entire Mindanao region was declared CONSTITUTIONAL.</td></tr><tr><td>Senate v. Ermita (The Landmark E.O. 464 Case)
+(G.R. No. 169777, April 20, 2006)</td><td>Legislative Inquiries in Aid of Legislation vs. Question Hour &amp; Executive Privilege
+
+Anchor:
+1987 Constitution, Article VI, Section 21 (Inquiries in Aid ...</td><td>PET: The Senate of the Philippines (Petitioners) argued that: (1) The power of legislative inquiry u...
+
+RESP: Executive Secretary Eduardo Ermita (Respondents) argued that: (1) The President has direct cont...</td><td>PARTLY UNCONSTITUTIONAL. E.O. 464 is UNCONSTITUTIONAL insofar as it imposes a blanket ban on legislative inquiries under Section 21.
+
+E.O. 464 Section 1 (consent for Question Hour) was UPHELD, but Sections 2(b) and 3 (blanket ban on appearance in Section 21 legislative inquiries) were declared UNCONSTITUTIONAL and VOID.</td></tr><tr><td>Neri v. Senate Committee on Accountability
+(G.R. No. 180643, March 25, 2008)</td><td>Executive Privilege, Presidential Communications Privilege &amp; Legislative Contempt
+
+Anchor:
+1987 Constitution, Article VI, Section 21; Article VII, Sect...</td><td>PET: The Senate Committees (Respondents) argued that: (1) The communications were essential to expos...
+
+RESP: Romulo Neri (Petitioner) argued that: (1) The conversations were quintessentially protected by ...</td><td>YES. The communications are covered by Presidential Communications Privilege. The Senate contempt order was VOID.
+
+The Petition for Certiorari was GRANTED. The questions were declared covered by Executive Privilege, and the Senate&#x27;s Contempt and Arrest Order against Neri was declared NULL and VOID.</td></tr><tr><td>Chavez v. Judicial and Bar Council (JBC)
+(G.R. No. 202242, July 17, 2012)</td><td>Composition of the Judicial and Bar Council &amp; Constitutional Interpretation of &#x27;A Representative of the Congress&#x27;
+
+Anchor:
+1987 Constitution, Article VIII, Section 8(1) (Composition o...</td><td>PET: Francisco Chavez (Petitioner) argued that: (1) The Constitution uses the singular term &#x27;a repre...
+
+RESP: The JBC and Senate/House Representatives (Respondents) argued that: (1) The 1987 Constitution e...</td><td>YES. Congress is entitled to only ONE (1) representative and ONE (1) vote in the Judicial and Bar Council.
+
+The Supreme Court declared the practice of having two representatives from Congress in the JBC UNCONSTITUTIONAL. Congress is entitled to only ONE (1) representative with ONE (1) vote in the JBC.</td></tr><tr><td>De Castro v. Judicial and Bar Council (JBC)
+(G.R. No. 191002, March 17, 2010)</td><td>Midnight Appointments Ban vs. Mandatory 90-Day Judicial Vacancy Filling for the Supreme Court
+
+Anchor:
+1987 Constitution, Article VII, Section 15 (Midnight Appoint...</td><td>PET: Arturo De Castro et al. (Petitioners) argued that: (1) Article VIII, Section 4(1) is an indepen...
+
+RESP: The JBC and Oppositors (Respondents) argued that: (1) Article VII, Section 15 contains no excep...</td><td>NO. The midnight appointments ban under Article VII, Section 15 DOES NOT APPLY to appointments to the Supreme Court.
+
+The Supreme Court ruled that the prohibition under Article VII, Section 15 does not apply to vacancies in the Supreme Court. The JBC was ORDERED to resume proceedings and submit the shortlist to the President.</td></tr><tr><td>Magallona v. Ermita
+(G.R. No. 187167, July 16, 2011)</td><td>National Territory, Archipelagic Doctrine, UNCLOS &amp; Baselines Law
+
+Anchor:
+1987 Constitution, Article I (National Territory); Republic ...</td><td>PET: Prof. Merlin Magallona et al. (Petitioners) argued that: (1) RA 9522 unconstitutionally shrunk ...
+
+RESP: Executive Secretary Eduardo Ermita et al. (Respondents) argued that: (1) RA 9522 is a statutory...</td><td>NO. RA 9522 is FULLY CONSTITUTIONAL and does not reduce or surrender Philippine national territory.
+
+The Petition for Certiorari and Prohibition was DISMISSED. Republic Act No. 9522 was declared fully VALID and CONSTITUTIONAL.</td></tr><tr><td>Biraogo v. The Philippine Truth Commission of 2010
+(G.R. No. 192931, December 7, 2010)</td><td>Executive Power to Create Ad Hoc Fact-Finding Bodies vs. Equal Protection Clause
+
+Anchor:
+1987 Constitution, Article III, Section 1 (Equal Protection ...</td><td>PET: Louis Biraogo and Lawmakers (Petitioners) argued that: (1) E.O. 1 created a new public office w...
+
+RESP: The Executive Secretary and Truth Commission Members (Respondents) argued that: (1) The Preside...</td><td>YES. Executive Order No. 1 is UNCONSTITUTIONAL for violating the Equal Protection Clause.
+
+The Supreme Court declared Executive Order No. 1 UNCONSTITUTIONAL and VOID for being in patent violation of the Equal Protection Clause.</td></tr></table></div>
+</section>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    (function() {
+      const synth = window.speechSynthesis;
+      let voices = [];
+      const readUnits = Array.from(document.querySelectorAll('.read-unit'));
+      const playPauseBtn = document.getElementById('playPauseBtn');
+      const playIcon = document.getElementById('playIcon');
+      const pauseIcon = document.getElementById('pauseIcon');
+      const playBtnText = document.getElementById('playBtnText');
+      const stopBtn = document.getElementById('stopBtn');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const voiceSelect = document.getElementById('voiceSelect');
+      const speedSelect = document.getElementById('speedSelect');
+      const statusBadge = document.getElementById('ttsStatusBadge');
+      const progressBar = document.getElementById('readingProgressBar');
+      const minimizeSidebarBtn = document.getElementById('minimizeSidebarBtn');
+      const restoreSidebarBtn = document.getElementById('restoreSidebarBtn');
+      const sidebarOverlay = document.getElementById('sidebarOverlay');
+      const sidebarNav = document.getElementById('sidebarNav');
+      const sidebarSearch = document.getElementById('sidebarSearch');
+      const tocList = document.getElementById('tocList');
+      const themeSelect = document.getElementById('themeSelect');
+      const fontIncBtn = document.getElementById('fontIncBtn');
+      const fontDecBtn = document.getElementById('fontDecBtn');
+
+      let currentUnitIndex = -1;
+      let isPaused = false;
+      let isSpeaking = false;
+
+      // 1. Sidebar Minimize / Maximize & Responsive Adaptations
+      function isMobile() {
+        return window.innerWidth <= 900;
+      }
+
+      function toggleSidebar(forceState) {
+        if (isMobile()) {
+          const isOpen = (forceState !== undefined) ? forceState : !sidebarNav.classList.contains('open');
+          sidebarNav.classList.toggle('open', isOpen);
+          if (sidebarOverlay) {
+            sidebarOverlay.classList.toggle('active', isOpen);
+          }
+        } else {
+          // Desktop toggle minimize / maximize
+          const isCurrentlyCollapsed = document.body.classList.contains('sidebar-collapsed');
+          const shouldCollapse = (forceState !== undefined) ? forceState : !isCurrentlyCollapsed;
+          document.body.classList.toggle('sidebar-collapsed', shouldCollapse);
+          sidebarNav.classList.toggle('minimized', shouldCollapse);
+          try {
+            localStorage.setItem('mlc_sidebar_collapsed', shouldCollapse ? 'true' : 'false');
+          } catch (e) {}
+        }
+      }
+
+      // Restore saved sidebar state
+      try {
+        const savedCollapsed = localStorage.getItem('mlc_sidebar_collapsed');
+        if (!isMobile() && savedCollapsed === 'true') {
+          toggleSidebar(true);
+        }
+      } catch (e) {}
+
+      if (minimizeSidebarBtn) {
+        minimizeSidebarBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          toggleSidebar();
+        });
+      }
+      if (restoreSidebarBtn) {
+        restoreSidebarBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          toggleSidebar(false);
+        });
+      }
+      if (sidebarOverlay) {
+        sidebarOverlay.addEventListener('click', () => {
+          sidebarNav.classList.remove('open');
+          sidebarOverlay.classList.remove('active');
+        });
+      }
+
+      // Auto close mobile drawer when a TOC link is clicked
+      if (tocList) {
+        tocList.querySelectorAll('.toc-link').forEach(link => {
+          link.addEventListener('click', () => {
+            if (isMobile()) {
+              sidebarNav.classList.remove('open');
+              if (sidebarOverlay) sidebarOverlay.classList.remove('active');
+            }
+          });
+        });
+      }
+
+      // Instant live filter
+      if (sidebarSearch && tocList) {
+        sidebarSearch.addEventListener('input', (e) => {
+          const q = e.target.value.toLowerCase();
+          const items = tocList.querySelectorAll('li');
+          items.forEach(li => {
+            const txt = li.textContent.toLowerCase();
+            li.style.display = txt.includes(q) ? '' : 'none';
+          });
+        });
+      }
+
+      // 2. Theme & Font Scaling
+      if (themeSelect) {
+        themeSelect.addEventListener('change', (e) => {
+          document.documentElement.setAttribute('data-theme', e.target.value);
+          try { localStorage.setItem('mlc_theme', e.target.value); } catch(err) {}
+        });
+        try {
+          const savedTheme = localStorage.getItem('mlc_theme');
+          if (savedTheme) {
+            themeSelect.value = savedTheme;
+            document.documentElement.setAttribute('data-theme', savedTheme);
+          }
+        } catch(err) {}
+      }
+
+      let currentFontSize = 17;
+      if (fontIncBtn) {
+        fontIncBtn.addEventListener('click', () => {
+          if (currentFontSize < 24) {
+            currentFontSize += 1;
+            document.documentElement.style.fontSize = currentFontSize + 'px';
+          }
+        });
+      }
+      if (fontDecBtn) {
+        fontDecBtn.addEventListener('click', () => {
+          if (currentFontSize > 13) {
+            currentFontSize -= 1;
+            document.documentElement.style.fontSize = currentFontSize + 'px';
+          }
+        });
+      }
+
+      // 3. Scroll Progress & Active TOC Link Sync
+      window.addEventListener('scroll', () => {
+        const sTop = window.scrollY;
+        const dHeight = document.documentElement.scrollHeight - window.innerHeight;
+        if (dHeight > 0 && progressBar) {
+          progressBar.style.width = ((sTop / dHeight) * 100) + '%';
+        }
+
+        // Sync TOC Active Link
+        const sections = document.querySelectorAll('section.doc-section');
+        let currentActive = null;
+        sections.forEach(sec => {
+          const rect = sec.getBoundingClientRect();
+          if (rect.top <= 160 && rect.bottom >= 160) {
+            currentActive = sec.id;
+          }
+        });
+        if (currentActive) {
+          document.querySelectorAll('.toc-link').forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + currentActive);
+          });
+        }
+      });
+
+      // 4. Voice Population with High-Quality Natural Neural Prioritization
+      function populateVoices() {
+        if (!synth || !voiceSelect) return;
+        voices = synth.getVoices();
+        voiceSelect.innerHTML = '<option value="default">Auto Best Voice</option>';
+
+        const scored = voices.map((v, i) => {
+          let score = 0;
+          const name = v.name.toLowerCase();
+          const lang = v.lang.toLowerCase();
+
+          if (lang.startsWith('en')) score += 50;
+          if (lang.includes('ph') || lang.includes('fil')) score += 30;
+          if (lang.includes('us')) score += 20;
+          if (lang.includes('gb') || lang.includes('uk')) score += 15;
+          if (name.includes('natural')) score += 40;
+          if (name.includes('neural')) score += 40;
+          if (name.includes('online')) score += 25;
+          if (name.includes('multilingual')) score += 20;
+          if (name.includes('guy') || name.includes('aria') || name.includes('jenny') || name.includes('andrew')) score += 15;
+          if (v.default) score += 5;
+
+          return { voice: v, index: i, score: score };
+        });
+
+        scored.sort((a, b) => b.score - a.score);
+
+        scored.forEach(item => {
+          const opt = document.createElement('option');
+          opt.value = item.index;
+          opt.textContent = item.voice.name + ' (' + item.voice.lang + ')';
+          voiceSelect.appendChild(opt);
+        });
+      }
+
+      populateVoices();
+      if (speechSynthesis && speechSynthesis.onvoiceschanged !== undefined) {
+        speechSynthesis.onvoiceschanged = populateVoices;
+      }
+
+      // 5. Roman Numeral & Phonetics Normalization
+      function romanToInt(s) {
+        if (!s) return null;
+        s = s.toUpperCase().trim();
+        if (!/^[IVXLCDM]+$/.test(s)) return null;
+        const map = { 'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000 };
+        let total = 0;
+        let i = 0;
+        while (i < s.length) {
+          if (i + 1 < s.length && map[s[i]] < map[s[i+1]]) {
+            total += map[s[i+1]] - map[s[i]];
+            i += 2;
+          } else if (map[s[i]]) {
+            total += map[s[i]];
+            i += 1;
+          } else {
+            return null;
+          }
+        }
+        return total;
+      }
+
+      const ORDINALS = {
+        'I': 'the first', 'II': 'the second', 'III': 'the third', 'IV': 'the fourth', 'V': 'the fifth',
+        'VI': 'the sixth', 'VII': 'the seventh', 'VIII': 'the eighth', 'IX': 'the ninth', 'X': 'the tenth'
+      };
+
+      function cleanSmartReading(txt) {
+        if (!txt) return '';
+
+        // A. Strip all emojis and decorative symbols completely
+        txt = Array.from(txt).filter(c => {
+          const cp = c.codePointAt(0);
+          return cp < 0x2000 || (cp > 0x2BFF && cp < 0x1F000);
+        }).join('');
+        txt = txt.replace(/[•§]/g, ' ');
+
+        // B. Smart Number-Word Deduplication
+        const numWordPattern = /\b(zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|twenty-five|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand|million)\s*\(\s*\d+\s*\)/gi;
+        txt = txt.replace(numWordPattern, '$1');
+        txt = txt.replace(/\b\d+\s*\(\s*([a-zA-Z\-]+)\s*\)/g, '$1');
+
+        // C. Smart Tag / Bracket Deduplication
+        txt = txt.replace(/\[\s*[A-Z]\s*[\-–—]?\s*(?:ANSWER|LEGAL\s+BASIS|APPLICATION|ANALYSIS|CONCLUSION)?\s*\]\s*/gi, '');
+        txt = txt.replace(/\[\s*([^\]]+)\s*\]\s*[:\-–—]?\s*([\s\S]*)/g, function(match, tag, rest) {
+          tag = tag.trim();
+          if (rest.toLowerCase().startsWith(tag.toLowerCase())) {
+            return rest;
+          }
+          return tag + ': ' + rest;
+        });
+
+        txt = txt.replace(/\b([A-Za-z]{3,})\b\s+\1\b/gi, '$1');
+        txt = txt.replace(/:\s*:/g, ':');
+        txt = txt.replace(/\s+/g, ' ').trim();
+        return txt;
+      }
+
+      function expandRomanAndPhonetics(txt) {
+        if (!txt) return '';
+        txt = cleanSmartReading(txt);
+
+        const replacements = [
+          [/\bA\.C\.\s*(?:No\.?\s*)?([A-Za-z0-9\-]+)/gi, 'Administrative Case Number $1'],
+          [/\bA\.M\.\s*(?:No\.?\s*)?([A-Za-z0-9\-]+)/gi, 'Administrative Matter Number $1'],
+          [/\bG\.R\.\s*Nos\.?\s*([A-Za-z0-9\-,\s]+)/gi, 'JEE-AR Numbers $1'],
+          [/\bG\.R\.\s*(?:No\.?\s*)?([A-Za-z0-9\-]+)/gi, 'JEE-AR Number $1'],
+          [/\bG\.R\.\b/gi, 'JEE-AR'],
+          [/\bP\.D\.\s*(?:No\.?\s*)?(\d+)/gi, 'Presidential Decree Number $1'],
+          [/\bPD\s*(\d+)/gi, 'Presidential Decree $1'],
+          [/\bP\.D\.\b/gi, 'Presidential Decree'],
+          [/\bR\.A\.\s*(?:No\.?\s*)?(\d+)/gi, 'Republic Act Number $1'],
+          [/\bRA\s*(\d+)/gi, 'Republic Act $1'],
+          [/\bR\.A\.\b/gi, 'Republic Act'],
+          [/\bPhil\.\s*(\d+)/gi, 'Philippine Reports volume $1'],
+          [/\bPhil\.\b/gi, 'Phil'],
+          [/\bSCRA\b/g, 'SKRA'],
+          [/\bCPRA\b/g, 'SIP-ruh'],
+          [/\bCJCA\b/g, 'SEE-JAY-SEE-AY'],
+          [/\bCPR\b/g, 'Code of Professional Responsibility'],
+          [/\bCCCP\b/g, 'Code of Conduct for Court Personnel'],
+          [/\bJIO\b/g, 'Judicial Integrity Office'],
+          [/\bOCA\b/g, 'Office of the Court Administrator'],
+          [/\bDPA\b/g, 'DEE-PEE-AY'],
+          [/\bITA\b/g, 'EYE-tuh'],
+          [/\bOSAEC\b/g, 'OH-sak'],
+          [/\bAFASA\b/g, 'ah-FAH-suh'],
+          [/\bCPA\b/g, 'Cybercrime Prevention Act'],
+          [/\bREED\b/g, 'REED'],
+          [/\bDICT\b/g, 'DIK-tee'],
+          [/\bCICC\b/g, 'SIK-see'],
+          [/\bRPC\b/g, 'Revised Penal Code'],
+          [/\bIn\s+re\b/gi, 'in Ree'],
+          [/\bet\s+al\./gi, 'et AHL,'],
+          [/\bet\s+al\b/gi, 'et AHL,'],
+          [/\bi\.e\./gi, 'that is,'],
+          [/\be\.g\./gi, 'for example,'],
+          [/\bArt\.\s*(\d+)/gi, 'Article $1'],
+          [/\bArts\.\s*([\d,\s\-]+)/gi, 'Articles $1'],
+          [/\bSec\.\s*(\d+)/gi, 'Section $1'],
+          [/\bSecs\.\s*([\d,\s\-]+)/gi, 'Sections $1'],
+          [/\bPar\.\s*(\d+)/gi, 'Paragraph $1'],
+          [/\s+v(?:s)?\.\s+/gi, ' versus ']
+        ];
+
+        replacements.forEach(([pattern, rep]) => {
+          txt = txt.replace(pattern, rep);
+        });
+
+        txt = txt.replace(/(^|\n|\.\s+|;\s+)([IVXLCDM]+)\.\s+/gi, function(match, prefix, roman) {
+          const val = romanToInt(roman);
+          return val ? prefix + 'Topic ' + val + ': ' : match;
+        });
+
+        txt = txt.replace(/\b([A-Z][a-z]+)\s+([IVXLCDM]{1,4})\b/g, function(match, name, roman) {
+          if (/^(?:Canon|Part|Chapter|Article|Title|Book|Section|Sec|Art|Vol|Volume|Rule|Topic|Case|No|Nos)$/i.test(name)) {
+            return match;
+          }
+          const upperR = roman.toUpperCase();
+          return ORDINALS[upperR] ? name + ' ' + ORDINALS[upperR] : match;
+        });
+
+        txt = txt.replace(/\b(Canon|Part|Chapter|Article|Title|Book|Section|Sec|Art|Vol|Volume|Rule)\s+([IVXLCDM]+)\b/gi, function(match, prefix, roman) {
+          const val = romanToInt(roman);
+          return val ? prefix + ' ' + val : match;
+        });
+
+        txt = txt.replace(/\(([ivxlcdm]+)\)/gi, function(match, roman) {
+          const val = romanToInt(roman);
+          return val ? 'sub-item ' + val + ', ' : match;
+        });
+
+        txt = txt.replace(/:\s*/g, ': ... ');
+        txt = txt.replace(/;\s*/g, ';, ');
+        txt = txt.replace(/\s*—\s*/g, ' — ... ');
+
+        return txt.trim();
+      }
+
+      function prepareSpeechText(unitEl) {
+        let text = unitEl.innerText || unitEl.textContent || '';
+        return expandRomanAndPhonetics(text);
+      }
+
+      function setSpeakingState(speaking, paused = false) {
+        isSpeaking = speaking;
+        isPaused = paused;
+        if (speaking && !paused) {
+          if (playIcon) playIcon.style.display = 'none';
+          if (pauseIcon) pauseIcon.style.display = 'inline';
+          if (playBtnText) playBtnText.textContent = 'Pause';
+          if (statusBadge) {
+            statusBadge.innerHTML = '<span class="pulse-dot"></span><span>Speaking...</span>';
+            statusBadge.className = 'tts-status-badge speaking';
+          }
+        } else if (paused) {
+          if (playIcon) playIcon.style.display = 'inline';
+          if (pauseIcon) pauseIcon.style.display = 'none';
+          if (playBtnText) playBtnText.textContent = 'Resume';
+          if (statusBadge) {
+            statusBadge.innerHTML = '<span class="pulse-dot"></span><span>Paused</span>';
+            statusBadge.className = 'tts-status-badge paused';
+          }
+        } else {
+          if (playIcon) playIcon.style.display = 'inline';
+          if (pauseIcon) pauseIcon.style.display = 'none';
+          if (playBtnText) playBtnText.textContent = 'Read Aloud';
+          if (statusBadge) {
+            statusBadge.innerHTML = '<span class="pulse-dot"></span><span>Ready</span>';
+            statusBadge.className = 'tts-status-badge';
+          }
+          clearHighlights();
+        }
+      }
+
+      function clearHighlights() {
+        readUnits.forEach(u => u.classList.remove('is-speaking'));
+      }
+
+      function highlightUnit(idx) {
+        clearHighlights();
+        if (idx >= 0 && idx < readUnits.length) {
+          const unit = readUnits[idx];
+          unit.classList.add('is-speaking');
+          unit.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+
+      function speakUnit(idx) {
+        if (!synth || idx < 0 || idx >= readUnits.length) {
+          setSpeakingState(false);
+          return;
+        }
+
+        synth.cancel();
+        currentUnitIndex = idx;
+        const unit = readUnits[idx];
+        highlightUnit(idx);
+
+        const speechText = prepareSpeechText(unit);
+        const utterance = new SpeechSynthesisUtterance(speechText);
+        utterance.rate = (speedSelect ? parseFloat(speedSelect.value) : 0.9) || 0.9;
+        utterance.pitch = 1.0;
+
+        const selVoiceIdx = voiceSelect ? voiceSelect.value : 'default';
+        if (selVoiceIdx !== 'default' && voices[selVoiceIdx]) {
+          utterance.voice = voices[selVoiceIdx];
+        } else if (voices.length > 0) {
+          utterance.voice = voices[0];
+        }
+
+        utterance.onstart = () => {
+          setSpeakingState(true, false);
+        };
+
+        utterance.onend = () => {
+          if (isSpeaking && !isPaused) {
+            if (idx + 1 < readUnits.length) {
+              speakUnit(idx + 1);
+            } else {
+              setSpeakingState(false);
+            }
+          }
+        };
+
+        utterance.onerror = (e) => {
+          if (e.error !== 'interrupted' && e.error !== 'canceled') {
+            console.warn('TTS error:', e);
+          }
+        };
+
+        synth.speak(utterance);
+      }
+
+      if (playPauseBtn) {
+        playPauseBtn.addEventListener('click', () => {
+          if (!synth) return;
+          if (isSpeaking && !isPaused) {
+            synth.pause();
+            setSpeakingState(true, true);
+          } else if (isPaused) {
+            synth.resume();
+            setSpeakingState(true, false);
+          } else {
+            speakUnit(currentUnitIndex >= 0 ? currentUnitIndex : 0);
+          }
+        });
+      }
+
+      if (stopBtn) {
+        stopBtn.addEventListener('click', () => {
+          if (!synth) return;
+          synth.cancel();
+          setSpeakingState(false);
+          currentUnitIndex = -1;
+          clearHighlights();
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          const target = Math.min(readUnits.length - 1, (currentUnitIndex >= 0 ? currentUnitIndex : 0) + 1);
+          speakUnit(target);
+        });
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          const target = Math.max(0, (currentUnitIndex >= 0 ? currentUnitIndex : 0) - 1);
+          speakUnit(target);
+        });
+      }
+
+      // Click on any paragraph to start speaking from that exact unit
+      const contentWrap = document.getElementById('contentWrapper');
+      if (contentWrap) {
+        contentWrap.addEventListener('click', (e) => {
+          const unit = e.target.closest('.read-unit');
+          if (unit) {
+            const idx = readUnits.indexOf(unit);
+            if (idx !== -1) {
+              speakUnit(idx);
+            }
+          }
+        });
+      }
+
+      // Floating Selection Reader
+      const floatBtn = document.getElementById('floatingTtsTrigger');
+      if (floatBtn) {
+        document.addEventListener('mouseup', (e) => {
+          if (e.target.closest('#floatingTtsTrigger') || e.target.closest('.tts-toolbar') || e.target.closest('header')) return;
+          const sel = window.getSelection().toString().trim();
+          if (sel.length > 2) {
+            const rect = window.getSelection().getRangeAt(0).getBoundingClientRect();
+            floatBtn.style.top = (window.scrollY + rect.top - 44) + 'px';
+            floatBtn.style.left = (window.scrollX + rect.left + (rect.width / 2)) + 'px';
+            floatBtn.style.display = 'block';
+          } else {
+            floatBtn.style.display = 'none';
+          }
+        });
+
+        floatBtn.addEventListener('click', () => {
+          const sel = window.getSelection().toString().trim();
+          if (sel && synth) {
+            synth.cancel();
+            const utterance = new SpeechSynthesisUtterance(expandRomanAndPhonetics(sel));
+            utterance.rate = (speedSelect ? parseFloat(speedSelect.value) : 0.9) || 0.9;
+            const selVoiceIdx = voiceSelect ? voiceSelect.value : 'default';
+            if (selVoiceIdx !== 'default' && voices[selVoiceIdx]) {
+              utterance.voice = voices[selVoiceIdx];
+            }
+            synth.speak(utterance);
+            floatBtn.style.display = 'none';
+          }
+        });
+      }
+
+      // Keyboard Shortcuts
+      document.addEventListener('keydown', (e) => {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA') return;
+        if ((e.ctrlKey && (e.key === 'b' || e.key === 'B')) || (e.altKey && (e.key === 't' || e.key === 'T'))) {
+          e.preventDefault();
+          toggleSidebar();
+        } else if (e.code === 'Space') {
+          e.preventDefault();
+          if (playPauseBtn) playPauseBtn.click();
+        } else if (e.key === 'Escape') {
+          if (stopBtn) stopBtn.click();
+        } else if (e.key === 'n' || e.key === 'N') {
+          if (nextBtn) nextBtn.click();
+        } else if (e.key === 'p' || e.key === 'P') {
+          if (prevBtn) prevBtn.click();
+        }
+      });
+
+      // -------------------------------------------------------------
+      // 3 SPECIAL BOOKMARKING SYSTEM LOGIC
+      // -------------------------------------------------------------
+      const storageKey = 'mlc_bm_' + (window.location.pathname.split('/').pop() || 'doc');
+      let bookmarks = { 1: null, 2: null, 3: null };
+
+      try {
+        const savedBm = localStorage.getItem(storageKey);
+        if (savedBm) {
+          bookmarks = Object.assign({ 1: null, 2: null, 3: null }, JSON.parse(savedBm));
+        }
+      } catch (e) {}
+
+      const bookmarksMenuBtn = document.getElementById('bookmarksMenuBtn');
+      const bookmarksDropdown = document.getElementById('bookmarksDropdown');
+      const bookmarkCountBadge = document.getElementById('bookmarkCountBadge');
+
+      function getBookmarkMetadata(unitIdx) {
+        if (unitIdx < 0 || unitIdx >= readUnits.length) return null;
+        const unit = readUnits[unitIdx];
+
+        // 1. Subject
+        const subjectEl = document.querySelector('.subject-pill') || document.querySelector('.brand-title');
+        let subjectName = subjectEl ? subjectEl.textContent.trim() : 'Law Subject';
+        if (!subjectName || subjectName === 'undefined') subjectName = document.title.split(' - ')[0] || 'Law Subject';
+
+        // 2. Topic
+        const sec = unit.closest('section.doc-section');
+        let topicName = 'General Topic';
+        if (sec) {
+          const h = sec.querySelector('.case-header-title') ||
+                    sec.querySelector('.topic-header-title') ||
+                    sec.querySelector('.subtopic-header-title') ||
+                    sec.querySelector('.canon-title') ||
+                    sec.querySelector('h2') ||
+                    sec.querySelector('h3');
+          if (h) topicName = h.innerText.trim();
+        }
+
+        // 3. Location
+        let locationName = '';
+        if (unit.classList.contains('topic-header-card') || unit.tagName === 'H1' || unit.tagName === 'H2' || unit.tagName === 'H3') {
+          locationName = 'Topic Header';
+        } else if (unit.closest('.case-facts-box') || unit.classList.contains('case-facts-box')) {
+          locationName = 'Facts Section';
+        } else if (unit.closest('.case-ruling-box') || unit.classList.contains('case-ruling-box') || unit.closest('.alac-ruling-box')) {
+          locationName = 'Ruling / Holding';
+        } else if (unit.closest('.case-issue-box') || unit.classList.contains('case-issue-box')) {
+          locationName = 'Legal Issue';
+        } else if (unit.closest('.doctrine-box') || unit.classList.contains('doctrine-box')) {
+          locationName = 'Doctrine Summary';
+        } else {
+          if (sec) {
+            const secUnits = Array.from(sec.querySelectorAll('.read-unit'));
+            const uIdxInSec = secUnits.indexOf(unit);
+            locationName = uIdxInSec >= 0 ? 'Paragraph ' + (uIdxInSec + 1) : 'Paragraph ' + (unitIdx + 1);
+          } else {
+            locationName = 'Paragraph ' + (unitIdx + 1);
+          }
+        }
+
+        // 4. Snippet
+        let rawText = unit.innerText || unit.textContent || '';
+        rawText = rawText.replace(/^[🔖⭐📌][^\n]*\n?/, '').trim();
+        const snippet = rawText.substring(0, 110) + (rawText.length > 110 ? '...' : '');
+
+        return {
+          unitIndex: unitIdx,
+          subject: subjectName,
+          topic: topicName,
+          location: locationName,
+          snippet: snippet,
+          timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+        };
+      }
+
+      function updateBookmarkUI() {
+        let activeCount = 0;
+
+        // Clear existing ribbons
+        readUnits.forEach(u => {
+          u.classList.remove('bookmarked-slot-1', 'bookmarked-slot-2', 'bookmarked-slot-3');
+          const oldRibbon = u.querySelector('.bookmark-ribbon');
+          if (oldRibbon) oldRibbon.remove();
+        });
+
+        // Clear existing TOC bookmark badges
+        document.querySelectorAll('#tocList .toc-bm-badges-wrap').forEach(w => w.remove());
+
+        for (let slot = 1; slot <= 3; slot++) {
+          const bm = bookmarks[slot];
+          const metaBoxEl = document.getElementById('slotMeta' + slot);
+          const subjEl = document.getElementById('slotSubject' + slot);
+          const topicEl = document.getElementById('slotTopic' + slot);
+          const locEl = document.getElementById('slotLocation' + slot);
+          const contentEl = document.getElementById('slotContent' + slot);
+          const actionsEl = document.getElementById('slotActions' + slot);
+
+          if (bm && bm.unitIndex >= 0 && bm.unitIndex < readUnits.length) {
+            activeCount++;
+            const targetUnit = readUnits[bm.unitIndex];
+            targetUnit.classList.add('bookmarked-slot-' + slot);
+
+            // Add ribbon
+            const ribbon = document.createElement('div');
+            ribbon.className = 'bookmark-ribbon ribbon-slot-' + slot;
+            const slotIcon = slot === 1 ? '🔖' : slot === 2 ? '⭐' : '📌';
+            const locText = bm.location ? ' • ' + bm.location : '';
+            ribbon.innerHTML = `${slotIcon} Bookmark ${slot} • ${bm.topic}${locText}`;
+            targetUnit.insertBefore(ribbon, targetUnit.firstChild);
+
+            // Inject TOC badge into matching sidebar link
+            const sec = targetUnit.closest('section.doc-section');
+            if (sec && sec.id) {
+              const tocLink = document.querySelector(`#tocList a[href="#${sec.id}"]`);
+              if (tocLink) {
+                let badgesWrap = tocLink.querySelector('.toc-bm-badges-wrap');
+                if (!badgesWrap) {
+                  badgesWrap = document.createElement('span');
+                  badgesWrap.className = 'toc-bm-badges-wrap';
+                  tocLink.appendChild(badgesWrap);
+                }
+                const badge = document.createElement('span');
+                badge.className = `toc-bm-badge badge-slot-${slot}`;
+                badge.title = `Bookmark ${slot}: ${bm.location || ''}`;
+                badge.textContent = `${slotIcon} ${slot}`;
+                badgesWrap.appendChild(badge);
+              }
+            }
+
+            if (metaBoxEl) metaBoxEl.style.display = 'flex';
+            if (subjEl) subjEl.textContent = bm.subject || 'Law Subject';
+            if (topicEl) topicEl.textContent = bm.topic || 'Topic';
+            if (locEl) locEl.textContent = bm.location || 'Paragraph';
+
+            if (contentEl) {
+              contentEl.textContent = bm.snippet || 'Bookmarked text';
+              contentEl.classList.remove('empty');
+            }
+            if (actionsEl) actionsEl.style.display = 'flex';
+          } else {
+            if (metaBoxEl) metaBoxEl.style.display = 'none';
+            if (contentEl) {
+              const iconChar = slot === 1 ? '🔖 1' : slot === 2 ? '⭐ 2' : '📌 3';
+              contentEl.textContent = 'No bookmark set. Click ' + iconChar + ' on any paragraph.';
+              contentEl.classList.add('empty');
+            }
+            if (actionsEl) actionsEl.style.display = 'none';
+          }
+        }
+
+        if (bookmarkCountBadge) {
+          if (activeCount > 0) {
+            bookmarkCountBadge.textContent = activeCount;
+            bookmarkCountBadge.style.display = 'flex';
+          } else {
+            bookmarkCountBadge.style.display = 'none';
+          }
+        }
+      }
+
+      function saveBookmarks() {
+        try {
+          localStorage.setItem(storageKey, JSON.stringify(bookmarks));
+        } catch (e) {}
+        updateBookmarkUI();
+      }
+
+      function toggleBookmark(slot, unitIdx) {
+        if (unitIdx < 0 || unitIdx >= readUnits.length) return;
+        const currentBm = bookmarks[slot];
+        if (currentBm && currentBm.unitIndex === unitIdx) {
+          bookmarks[slot] = null;
+        } else {
+          bookmarks[slot] = getBookmarkMetadata(unitIdx);
+        }
+        saveBookmarks();
+      }
+
+      function jumpToBookmark(slot) {
+        const bm = bookmarks[slot];
+        if (bm && bm.unitIndex >= 0 && bm.unitIndex < readUnits.length) {
+          const targetUnit = readUnits[bm.unitIndex];
+          if (bookmarksDropdown) bookmarksDropdown.classList.remove('open');
+          targetUnit.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          targetUnit.classList.remove('bookmark-flash-target');
+          void targetUnit.offsetWidth;
+          targetUnit.classList.add('bookmark-flash-target');
+        }
+      }
+
+      // Inject hover buttons to each unit
+      readUnits.forEach((unit, idx) => {
+        const tools = document.createElement('div');
+        tools.className = 'unit-bookmark-tools';
+        tools.innerHTML = '<button class="btn-unit-bm bm-1" data-slot="1" title="Set Bookmark 1">🔖 1</button>' +
+                          '<button class="btn-unit-bm bm-2" data-slot="2" title="Set Bookmark 2">⭐ 2</button>' +
+                          '<button class="btn-unit-bm bm-3" data-slot="3" title="Set Bookmark 3">📌 3</button>';
+        
+        tools.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const btn = e.target.closest('.btn-unit-bm');
+          if (btn) {
+            const slot = parseInt(btn.getAttribute('data-slot'), 10);
+            toggleBookmark(slot, idx);
+          }
+        });
+
+        unit.appendChild(tools);
+      });
+
+      // Toggle dropdown in navbar
+      if (bookmarksMenuBtn && bookmarksDropdown) {
+        bookmarksMenuBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          bookmarksDropdown.classList.toggle('open');
+        });
+
+        document.addEventListener('click', (e) => {
+          if (!e.target.closest('.bookmark-nav-wrapper')) {
+            bookmarksDropdown.classList.remove('open');
+          }
+        });
+      }
+
+      // Handle Slot Jump & Clear buttons
+      if (bookmarksDropdown) {
+        bookmarksDropdown.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const jumpBtn = e.target.closest('.btn-slot-jump');
+          if (jumpBtn) {
+            const slot = parseInt(jumpBtn.getAttribute('data-slot'), 10);
+            jumpToBookmark(slot);
+            return;
+          }
+          const clearBtn = e.target.closest('.btn-slot-clear');
+          if (clearBtn) {
+            const slot = parseInt(clearBtn.getAttribute('data-slot'), 10);
+            bookmarks[slot] = null;
+            saveBookmarks();
+            return;
+          }
+        });
+      }
+
+      updateBookmarkUI();      // Keyboard shortcut: 'b' to toggle bookmarks
+      document.addEventListener('keydown', (e) => {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA') return;
+        if (e.key === 'b' || e.key === 'B') {
+          if (!e.ctrlKey && !e.metaKey) {
+            e.preventDefault();
+            if (bookmarksDropdown) bookmarksDropdown.classList.toggle('open');
+          }
+        }
+      });
+    })();
+
+    // -------------------------------------------------------------
+    // STUDIO AUDIO PLAYER CONTROLS
+    // -------------------------------------------------------------
+    function setStudioAudioSpeed(rate, btn) {
+      const audio = document.getElementById('studioAudioEl');
+      if (audio) {
+        audio.playbackRate = rate;
+        document.querySelectorAll('.speed-btn').forEach(b => b.classList.remove('active'));
+        if (btn) btn.classList.add('active');
+      }
+    }
+
+    function seekStudioAudio(offset) {
+      const audio = document.getElementById('studioAudioEl');
+      if (audio) {
+        audio.currentTime = Math.max(0, Math.min(audio.duration || 999999, audio.currentTime + offset));
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const audio = document.getElementById('studioAudioEl');
+      const statusEl = document.getElementById('studioAudioStatus');
+      if (audio && statusEl) {
+        audio.addEventListener('play', () => {
+          statusEl.textContent = 'Playing';
+          statusEl.style.color = '#34d399';
+          statusEl.style.borderColor = 'rgba(52, 211, 153, 0.4)';
+        });
+        audio.addEventListener('pause', () => {
+          statusEl.textContent = 'Paused';
+          statusEl.style.color = '#fbbf24';
+          statusEl.style.borderColor = 'rgba(251, 191, 36, 0.4)';
+        });
+        audio.addEventListener('ended', () => {
+          statusEl.textContent = 'Completed';
+          statusEl.style.color = '#94a3b8';
+        });
+        audio.addEventListener('canplay', () => {
+          if (statusEl.textContent !== 'Playing' && statusEl.textContent !== 'Paused') {
+            statusEl.textContent = 'Ready';
+            statusEl.style.color = '#38bdf8';
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
