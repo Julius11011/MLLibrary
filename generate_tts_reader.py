@@ -874,15 +874,18 @@ READER_HTML_TEMPLATE = r'''<!DOCTYPE html>
       border: 1px solid var(--accent-gold);
       color: var(--accent-gold);
       font-family: var(--font-ui);
-      font-size: 0.82rem;
+      font-size: 1.15rem;
       font-weight: 700;
-      padding: 7px 14px;
-      border-radius: 20px;
+      width: 36px;
+      height: 36px;
+      padding: 0;
+      border-radius: 8px;
       box-shadow: var(--shadow-lg);
       cursor: pointer;
       display: none;
       align-items: center;
-      gap: 8px;
+      justify-content: center;
+      line-height: 1;
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
     body.sidebar-collapsed #restoreSidebarBtn {
@@ -891,7 +894,7 @@ READER_HTML_TEMPLATE = r'''<!DOCTYPE html>
     #restoreSidebarBtn:hover {
       background: var(--accent-gold);
       color: #0b1120;
-      transform: translateY(-2px) scale(1.03);
+      transform: translateY(-2px) scale(1.08);
       box-shadow: 0 8px 24px rgba(251, 191, 36, 0.35);
     }
 
@@ -1255,38 +1258,40 @@ READER_HTML_TEMPLATE = r'''<!DOCTYPE html>
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 0.75rem;
+      gap: 0.65rem;
       margin-bottom: 0.85rem;
+      font-family: var(--font-ui);
     }
-
-    .drawer-title-group {
+    .drawer-header .audio-badge-group {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.6rem;
+      flex-wrap: wrap;
     }
-    .drawer-icon { font-size: 1.1rem; }
-    .drawer-title {
-      font-family: var(--font-heading);
-      font-size: 0.92rem;
-      font-weight: 700;
-      color: var(--accent-gold);
-      letter-spacing: 0.04em;
-    }
-    .drawer-count {
-      font-size: 0.72rem;
+    .drawer-header .drawer-count {
+      background: rgba(251, 191, 36, 0.15) !important;
+      color: var(--accent-gold) !important;
+      border: 1px solid rgba(251, 191, 36, 0.3) !important;
+      font-size: 0.7rem;
       font-weight: 600;
-      background: rgba(251, 191, 36, 0.15);
-      color: var(--accent-gold);
-      padding: 2px 7px;
+      padding: 2px 8px;
       border-radius: 9999px;
-      border: 1px solid rgba(251, 191, 36, 0.3);
     }
 
     .drawer-search-box {
       position: relative;
       display: flex;
       align-items: center;
-      min-width: 240px;
+      min-width: 180px;
+      max-width: 320px;
+      flex: 1 1 200px;
+    }
+    @media (max-width: 640px) {
+      .drawer-search-box {
+        max-width: 100%;
+        width: 100%;
+        flex: 1 1 100%;
+      }
     }
     .drawer-search-box .search-ico {
       position: absolute;
@@ -2060,7 +2065,7 @@ READER_HTML_TEMPLATE = r'''<!DOCTYPE html>
 <body>
   <div id="readingProgressBar"></div>
   <button id="floatingTtsTrigger" title="Read Selected Text">Read Selection</button>
-  <button id="restoreSidebarBtn" title="Show Table of Contents (Ctrl+B)">☰ Table of Contents</button>
+  <button id="restoreSidebarBtn" title="Show Table of Contents (Ctrl+B)">☰</button>
   <div id="sidebarOverlay"></div>
 
   <header>

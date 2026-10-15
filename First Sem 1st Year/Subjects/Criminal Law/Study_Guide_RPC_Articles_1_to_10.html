@@ -946,7 +946,7 @@
       background: rgba(15, 23, 42, 0.6);
       border: 1px solid rgba(148, 163, 184, 0.18);
       border-radius: 12px;
-      padding: 1.1rem 1.25rem;
+      padding: 1.25rem 1.5rem;
     }
 
     .drawer-header {
@@ -954,38 +954,39 @@
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 0.75rem;
+      gap: 0.65rem;
       margin-bottom: 0.85rem;
+      font-family: var(--font-ui);
     }
-
-    .drawer-title-group {
+    .drawer-header .audio-badge-group {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.6rem;
+      flex-wrap: wrap;
     }
-    .drawer-icon { font-size: 1.1rem; }
-    .drawer-title {
-      font-family: var(--font-heading);
-      font-size: 0.92rem;
-      font-weight: 700;
-      color: var(--accent-gold);
-      letter-spacing: 0.04em;
-    }
-    .drawer-count {
-      font-size: 0.72rem;
+    .drawer-header .drawer-count {
+      background: rgba(251, 191, 36, 0.15) !important;
+      color: var(--accent-gold) !important;
+      border: 1px solid rgba(251, 191, 36, 0.3) !important;
+      font-size: 0.7rem;
       font-weight: 600;
-      background: rgba(251, 191, 36, 0.15);
-      color: var(--accent-gold);
-      padding: 2px 7px;
+      padding: 2px 8px;
       border-radius: 9999px;
-      border: 1px solid rgba(251, 191, 36, 0.3);
     }
-
     .drawer-search-box {
       position: relative;
       display: flex;
       align-items: center;
-      min-width: 240px;
+      min-width: 180px;
+      max-width: 320px;
+      flex: 1 1 200px;
+    }
+    @media (max-width: 640px) {
+      .drawer-search-box {
+        max-width: 100%;
+        width: 100%;
+        flex: 1 1 100%;
+      }
     }
     .drawer-search-box .search-ico {
       position: absolute;
@@ -1366,18 +1367,17 @@
 </div>
 <!-- Article Markers Navigator Drawer -->
 <div class="article-markers-drawer" id="articleMarkersDrawer">
-<div class="drawer-header">
-<div class="drawer-title-group">
-<span class="drawer-icon">⚖️</span>
-<span class="drawer-title">RPC Articles 1 to 10 Audio Markers (Click to Skip &amp; Play)</span>
-<span class="drawer-count">10 Articles</span>
-</div>
-<div class="drawer-search-box">
-<span class="search-ico">🔍</span>
-<input autocomplete="off" id="articleMarkerSearch" oninput="filterArticleMarkers(this.value)" placeholder="Filter Article (e.g. 4, dolo, territoriality)..." type="text"/>
-<button class="clear-search-btn" id="clearArticleSearch" onclick="clearSearchFilter()" style="display:none;" type="button">✕</button>
-</div>
-</div>
+<div class="drawer-header audio-player-header">
+              <div class="audio-badge-group">
+                <span class="audio-badge" style="color: var(--accent-gold);">RPC Articles 1 to 10 Audio Markers (Click to Skip &amp; Play)</span>
+                <span class="audio-status-pill drawer-count" id="articleMarkerCount">10 Articles</span>
+              </div>
+              <div class="drawer-search-box">
+                <span class="search-ico">🔍</span>
+                <input type="text" id="articleMarkerSearch" placeholder="Filter Article (e.g. 4, dolo, territoriality)..." oninput="filterArticleMarkers(this.value)" autocomplete="off" />
+                <button type="button" class="clear-search-btn" id="clearArticleSearch" onclick="clearSearchFilter()" style="display:none;">✕</button>
+              </div>
+            </div>
 <!-- Scrollable Article Chips Grid -->
 <div class="article-chips-grid" id="articleChipsGrid">
 <button class="article-marker-chip" data-sec="sec-4-article-1-time-when-act-takes-effect" data-time="416.9" onclick="skipToArticle(416.9, 'Art. 1 — Time When Act Takes Effect &amp; Generality', 'sec-4-article-1-time-when-act-takes-effect')" title="Art. 1: Time When Act Takes Effect &amp; Generality (06:56)" type="button">
