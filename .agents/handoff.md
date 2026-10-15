@@ -4,7 +4,7 @@
 **Master Workspace:** `C:\Users\JR\Downloads\14All-All41` (and `C:\Users\JR\Downloads\14All-All41\MLC`)  
 **GitHub Repository:** [https://github.com/Julius11011/MLLibrary](https://github.com/Julius11011/MLLibrary)  
 **Cloudflare Deployment:** [https://mllibrary.juliusrayn-balitbit.workers.dev](https://mllibrary.juliusrayn-balitbit.workers.dev)  
-**Latest Git Commit:** `5dc7748` (Clean working tree, synchronized with `origin/main`)  
+**Latest Git Commit:** `620bdc2` (Clean working tree, synchronized with `origin/main`)  
 **Active Guardrails Files:** [`AGENTS.md`](file:///C:/Users/JR/Downloads/14All-All41/AGENTS.md) | [`GEMINI.md`](file:///C:/Users/JR/Downloads/14All-All41/GEMINI.md) | [`ANTIGRAVITY_AUTORUN_PERMISSIONS_AND_SAFETY_GUIDE.md`](file:///C:/Users/JR/Downloads/14All-All41/ANTIGRAVITY_AUTORUN_PERMISSIONS_AND_SAFETY_GUIDE.md)
 
 ---
@@ -112,6 +112,24 @@ Compiled and deployed the Master Case Digest Reviewer suite with full 6-part ALA
 3. **Multi-Format Integration & Cloud Deployment**:
    - Integrated into the MLLibrary interactive web reader with direct word/paragraph clicking and floating audio dock.
    - Pushed to GitHub `origin/main` (`305e8be`) and deployed to Cloudflare Workers (`https://mllibrary.juliusrayn-balitbit.workers.dev`).
+
+---
+
+### F. Article Markers Audio Drawer & Streamlined TOC Button UI
+Refined the Table of Contents restore button and Article Markers Navigator Drawer across the Criminal Law suite:
+1. **Streamlined TOC Restore Button (`#restoreSidebarBtn`)**:
+   - Updated button to display solely the minimalist icon `"☰"` when minimized, removing `" Table of Contents"`.
+   - Transformed into a clean, compact 36x36px icon button (`border-radius: 8px; justify-content: center; font-size: 1.15rem; line-height: 1; border: 1px solid var(--accent-gold);`).
+2. **Responsive Article Markers Drawer Header (`.article-markers-drawer`)**:
+   - Completely removed the `"⚖️"` scale emoji.
+   - Replaced heavy serif title with `.audio-badge-group` styling:
+     - Badge title: `<span class="audio-badge" style="color: var(--accent-gold);">RPC Book 1 Article Markers (Click to Skip & Play)</span>` (`0.8rem`, `font-weight: 700`, uppercase tracking).
+     - Status count pill: `<span class="audio-status-pill drawer-count" id="articleMarkerCount">27 Articles</span>` (`0.7rem`, `font-weight: 600`, gold pill).
+   - Exact typographic and size parity with `.studio-audio-player`'s `.audio-player-header` (`🎙️ Studio Voice Podcast` + `Ready` status pill).
+   - Configured `.drawer-search-box` to be fully responsive (`min-width: 180px; max-width: 320px; flex: 1 1 200px`), gracefully expanding to 100% width on mobile viewports (`<= 640px`).
+3. **Synchronization & Deployment**:
+   - Pushed commit `620bdc2` to GitHub `origin/main`.
+   - Deployed live to Cloudflare Workers (`Version ID: 6333a1e0-5dde-411a-9181-728be84d7024`).
 
 ---
 
