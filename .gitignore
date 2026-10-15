@@ -55,4 +55,9 @@ generate_new_canons_mp3.py
 generate_1987_constitutional_law_docs.py
 generate_case_digest_titles_paragraph_format.py
 convert_*.py
+inject_*.py
+inspect_*.py
+generate_canon3_*.py
+all_sections_timing.json
+curated_article_markers.json
 

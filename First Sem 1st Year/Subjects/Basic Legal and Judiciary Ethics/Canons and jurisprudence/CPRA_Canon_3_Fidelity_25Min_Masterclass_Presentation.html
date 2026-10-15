@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canon III (Fidelity) Responsive Presentation Deck | 16pt Readable Canva Deck</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-canvas: #090e17;
+      --slide-bg: #0b1120;
+      --card-bg: rgba(22, 33, 56, 0.85);
+      --card-accent-bg: rgba(16, 26, 46, 0.95);
+      --border-color: rgba(148, 163, 184, 0.2);
+      --accent-gold: #fbbf24;
+      --accent-blue: #38bdf8;
+      --accent-emerald: #34d399;
+      --text-white: #f8fafc;
+      --text-slate: #e2e8f0;
+      --text-muted: #94a3b8;
+      --font-heading: 'Cinzel', serif;
+      --font-body: 'Inter', sans-serif;
+      --font-quote: 'Merriweather', serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-white);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* Top Nav */
+    header {
+      height: 60px;
+      background: rgba(15, 23, 42, 0.95);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      backdrop-filter: blur(12px);
+      z-index: 50;
+    }
+
+    .brand {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .btn-tool {
+      background: #1e293b;
+      border: 1px solid var(--border-color);
+      color: var(--text-white);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .btn-tool:hover {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+    }
+
+    /* Responsive Presentation Stage */
+    .stage {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .slide-viewport {
+      width: 100%;
+      max-width: 1200px;
+      aspect-ratio: 16 / 9;
+      background: var(--slide-bg);
+      border: 1px solid var(--border-color);
+      border-top: 4px solid var(--accent-gold);
+      border-radius: 12px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+      display: flex;
+      flex-direction: column;
+      padding: 2.2rem 2.8rem;
+      position: relative;
+      overflow: hidden;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.99); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .slide-tag {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 0.3rem;
+    }
+
+    .slide-title {
+      font-family: var(--font-heading);
+      font-size: 1.85rem;
+      color: var(--text-white);
+      margin-bottom: 1.1rem;
+      line-height: 1.25;
+    }
+
+    .slide-content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      flex: 1;
+      min-height: 0;
+    }
+
+    /* Containers */
+    .card-pane {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      overflow-y: auto;
+    }
+
+    .card-pane-accent {
+      background: var(--card-accent-bg);
+      border-left: 5px solid var(--accent-blue);
+    }
+
+    .pane-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.9rem;
+      color: var(--accent-blue);
+    }
+    .pane-title-green {
+      color: var(--accent-emerald);
+    }
+
+    /* 16pt Responsive Readable Font */
+    .point-item {
+      margin-bottom: 0.85rem;
+      font-size: 1rem;       /* Enhanced 16px / 16pt scale */
+      line-height: 1.45;
+      color: var(--text-slate);
+    }
+    .point-item strong {
+      color: var(--accent-gold);
+      font-weight: 700;
+    }
+
+    .case-item {
+      margin-bottom: 1rem;
+      font-size: 1rem;       /* Enhanced 16px / 16pt scale */
+      line-height: 1.45;
+      color: var(--text-white);
+    }
+    .case-item strong {
+      color: var(--accent-blue);
+      font-weight: 700;
+    }
+
+    .slide-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.8rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid rgba(148, 163, 184, 0.15);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Controls */
+    .controls-bar {
+      height: 64px;
+      background: #0f172a;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+    }
+
+    .nav-btns {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn-nav {
+      background: #1e293b;
+      border: 1px solid var(--border-color);
+      color: var(--text-white);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-weight: 700;
+      transition: all 0.15s ease;
+    }
+    .btn-nav:hover {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+      transform: scale(1.05);
+    }
+
+    .slide-counter {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--accent-gold);
+    }
+
+    .thumbs-container {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      max-width: 680px;
+      padding: 4px;
+    }
+    .thumb-btn {
+      background: #1e293b;
+      border: 1px solid var(--border-color);
+      color: var(--text-slate);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.78rem;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+    .thumb-btn.active {
+      border-color: var(--accent-gold);
+      background: rgba(251, 191, 36, 0.18);
+      color: var(--accent-gold);
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <span>🏛️</span>
+      <span>MLC CANVA-GRADE RESPONSIVE PRESENTATION DECK (16PT)</span>
+    </div>
+    <div class="nav-actions">
+      <a href="CPRA_Canon_3_Fidelity_25Min_Masterclass_Presentation.pptx" download class="btn-tool">
+        📥 Download PPTX (16pt)
+      </a>
+      <a href="CPRA_Canon_3_Fidelity_25Min_Masterclass_Presentation.pdf" download class="btn-tool">
+        📄 Download PDF Slides
+      </a>
+      <button class="btn-tool" id="fullscreenBtn">⛶ Fullscreen</button>
+    </div>
+  </header>
+
+  <div class="stage" id="stageArea">
+    <div class="slide-viewport" id="slideViewport">
+      <!-- Injected by JavaScript -->
+    </div>
+  </div>
+
+  <div class="controls-bar">
+    <div class="nav-btns">
+      <button class="btn-nav" id="prevBtn" title="Previous Slide (Key: Left Arrow)">◀</button>
+      <span class="slide-counter" id="slideCounter">Slide 1 / 15</span>
+      <button class="btn-nav" id="nextBtn" title="Next Slide (Key: Right Arrow)">▶</button>
+    </div>
+
+    <div class="thumbs-container" id="thumbsContainer"></div>
+  </div>
+
+  <script>
+    const slides = [{"type": "cover", "tag": "SUPREME COURT OF THE PHILIPPINES • A.M. NO. 22-09-01-SC", "title": "CANON III (CANON 3): FIDELITY", "subtitle": "Complete 56 Sections & Landmark Precedents Masterclass", "details": ["• Governing Code: Code of Professional Responsibility and Accountability (CPRA)", "• Core Pillars: Undivided Loyalty, Fiduciary Sanctity, Anti-Commingling & Ethical Stewardship", "• 16 Landmark Supreme Court Precedents & 10 Core Thematic Modules", "• Manila Law College (MLC) Law Library • Bar Reviewer Suite"]}, {"type": "content", "tag": "MODULE 1 • TIMELINE: 00:00 – 02:15", "title": "Foundations of Legal Practice: Sections 1 to 5", "points": [("§ 1 Practice of Law:", "Rendition of legal services and judgment; requires Philippine Bar membership."), ("§ 2 Tripartite Duty:", "Lawyer serves concurrently as citizen, court officer, and zealous advocate."), ("§ 3 & 5 Fiduciary Bond:", "Attaches the moment advice is sought; unauthorized appearance is strictly barred."), ("§ 4 Authority to Bind:", "No authority to settle or waive client rights without express written authority.")], "case_title": "LANDMARK CASES: CAYETANO (1991) & BURBE (2002)", "case_text": [("Cayetano v. Monsod (1991):", "Practice of law extends far beyond litigation to corporate counsel, research, teaching, and administrative work."), ("Burbe v. Magulta (2002):", "The fiduciary bond attaches the exact moment advice is sought. Lack of formal contract or unpaid fees does not negate duty.")]}, {"type": "content", "tag": "MODULE 2 • TIMELINE: 02:15 – 04:20", "title": "Fiduciary Core, Settlement & Client Fraud: Sections 6 to 9", "points": [("§ 6 Fiduciary Duty:", "Demands utmost candor, fair dealing, and undivided fidelity to the client."), ("§ 7 No Self-Dealing:", "Strict ban on using client secrets to secure personal financial windfalls."), ("§ 8 Duty to Settle:", "Affirmative obligation to encourage fair settlement rather than instigating lawsuits."), ("§ 9 Client Fraud:", "Must demand client correct fraud; mandatory withdrawal if client refuses.")], "case_title": "LANDMARK CASES: SAMSON (2013) & PITCHER (2013)", "case_text": [("Samson v. Era (2013):", "Confidential inside information obtained from a client cannot be used to take an adverse commercial position."), ("Pitcher v. Gagate (2013):", "Lawyers are ministers of peace. Pursuing vexatious suits instead of conciliation violates fiduciary duty to justice.")]}, {"type": "content", "tag": "MODULE 3 • TIMELINE: 04:20 – 06:30", "title": "Law Firm Hierarchy & Supervised Associates: Sections 10 to 12", "points": [("§ 10 Subordinate Staff:", "Firms and partners strictly liable for errors of paralegals and staff."), ("§ 11 Supervisory Partners:", "Partners co-liable if they direct, ratify, or fail to stop associate breaches."), ("§ 12 Junior Associates:", "Every lawyer retains personal, independent responsibility under the Oath."), ("Superior Orders Abolished:", "Cannot invoke senior partner orders to justify filing false pleadings.")], "case_title": "ETHICAL DOCTRINE: CRUZ V. MINA (2007) & ASSOCIATE AGENCY", "case_text": [("Cruz v. Mina (2007):", "Every lawyer admitted to the Bar exercises independent moral agency. An associate cannot surrender ethics to protect a salary."), ("No Scapegoating:", "Senior partners cannot deflect liability onto paralegals or fresh graduates for unverified or deceitful court submissions.")]}, {"type": "content", "tag": "MODULE 4 • TIMELINE: 06:30 – 08:45", "title": "Serving Two Masters: Conflict of Interest: Sections 13 to 15, 17 to 20", "points": [("§ 13-14 Current Clients:", "Bar on opposing active clients without written consent, even in unrelated suits."), ("§ 17-18 Former Clients:", "Confidentiality never expires; cannot oppose former clients in related cases."), ("§ 19 Corporate Entity:", "In derivative suits, counsel represents the corporation, not board looters."), ("§ 15 & 20 Screening Walls:", "Mandatory ethical walls for lateral hires and legal aid volunteers.")], "case_title": "LANDMARK CASES: QUIAMBAO (2005) & HORNILLA (2003)", "case_text": [("Quiambao v. Bamba (2005):", "Corporate counsel cannot represent an adverse party against the company president; loyalty is indivisible."), ("Hornilla v. Saldivar (2003):", "In derivative suits, counsel represents the corporate entity and cannot defend directors accused of looting the treasury."), ("Anglo v. Valencia (2016):", "Prior client secrets cannot be weaponized in subsequent adverse representations.")]}, {"type": "content", "tag": "MODULE 5 • TIMELINE: 08:45 – 11:00", "title": "Romance Ban & Litigation Tactics: Sections 16, 21 to 24", "points": [("§ 16 No Romance Rule:", "Strict ban on dating or sexual relations with clients during active engagement."), ("§ 21 Zero Gifts to Courts:", "Absolute ban on giving gifts, donations, or food to judges or court staff."), ("§ 22 No Undue Advantage:", "Cannot exploit unrepresented parties" lack of legal training."), ("§ 23-24 Fair Dealing:", "Forum shopping penalized; cannot negotiate with represented parties directly.")], "case_title": "LANDMARK CASES: EALA (2007) & SOTTO (1989)", "case_text": [("Eala v. Villarosa (2007):", "Disbarment for romantic affair with a client, exploiting the fiduciary power balance and bringing severe dishonor to the Bar."), ("Heirs of Sotto v. Palicte (1989):", "Repeatedly filing identical complaints across courts constitutes contempt and gross abuse of judicial process."), ("Camacho v. Pangilinan (2001):", "Bypassing opposing counsel to settle directly warrants disciplinary suspension.")]}, {"type": "content", "tag": "MODULE 6 • TIMELINE: 11:00 – 13:10", "title": "Firm Names & The Revolving Door: Sections 25 to 31", "points": [("§ 25 Solo Practitioners:", "Must maintain contingency arrangements for emergency case coverage."), ("§ 26 Deceased Partners:", "Allowed on firm names provided status is clearly indicated on stationery."), ("§ 27 Public Office:", "Partner entering government must withdraw and drop name from firm."), ("§ 29 Revolving Door:", "Former public lawyers cannot handle matters intervened in while in office.")], "case_title": "LANDMARK CASES: SYCIP (1979), PCGG (2005) & SUAREZ (1940)", "case_text": [("In Re: SyCip (1979):", "Classic firm name debate; modern CPRA permits retaining deceased partners with transparent letterhead notice."), ("PCGG v. Sandiganbayan (2005):", "Government service is not a springboard to gather state secrets and monetize them in private practice."), ("Suarez v. Platon (1940):", "Prosecutor"s primary duty is truth and justice, not accumulating convictions.")]}, {"type": "content", "tag": "MODULE 7 • TIMELINE: 13:10 – 15:15", "title": "Client Secrets & Limited Legal Services: Sections 32 to 38", "points": [("§ 32 Secret Consultations:", "Fact of consultation is privileged even if case is declined and unpaid."), ("§ 33-34 Paralegal Bounds:", "Paralegals cannot give legal advice, set fees, or sign court pleadings."), ("§ 35-36 Limited Services:", "Authorizes unbundled short-term representation for specific incidents."), ("§ 37-38 Full Privilege:", "Full attorney-client privilege applies; clean exit upon task completion.")], "case_title": "LANDMARK DOCTRINE: REGALA V. SANDIGANBAYAN (1996)", "case_text": [("Regala v. Sandiganbayan (1996):", "Client identity and consultations are protected under the sacred shield of attorney-client privilege."), ("Non-Delegable Functions:", "Delegating legal analysis or signature of pleadings to paralegals constitutes aiding in the unauthorized practice of law.")]}, {"type": "content", "tag": "MODULE 8 • TIMELINE: 15:15 – 16:50", "title": "Clinical Student Practice: Sections 39 to 40", "points": [("Rule 138-A (CLEP):", "Senior law students certified to represent indigent clients under supervision."), ("§ 39 Student Liability:", "Student practitioners bound directly by every canon and liability of the CPRA."), ("Bar Exam Sanctions:", "Ethical violations by student practitioners can bar admission to the Bar."), ("§ 40 Director Liability:", "Clinic directors and supervising lawyers carry direct professional liability.")], "case_title": "REGULATORY ANCHOR: RULE 138-A & CLINICAL GOVERNANCE", "case_text": [("Student Accountability:", "Clinical certification is an extraordinary privilege, not an ethical shield. Students must maintain absolute candor and decorum."), ("Active Supervision Mandate:", "Supervising attorneys must actively review all pleadings and guide students directly in all court proceedings.")]}, {"type": "content", "tag": "MODULE 9 • TIMELINE: 16:50 – 18:55", "title": "Legal Fees, Referrals & Attorney"s Liens: Sections 41 to 48", "points": [("§ 41 Fair & Reasonable Fees:", "9-factor test; quantum meruit applies without written contract."), ("§ 42-43 No Fixer Fees:", "Referral cuts require consent; ban on sharing fees with non-lawyers."), ("§ 44 Third-Party Payers:", "Payer cannot dictate tactics or compromise client independence."), ("§ 47 Notice of Lien:", "Enforce liens via simple notice without delaying the main trial.")], "case_title": "LANDMARK CASES: MASMUD (2009) & PALACIOS (2018)", "case_text": [("Masmud v. NLRC (2009):", "Fee recovery grounded on quantum meruit based on actual skill, labor, and benefit rendered to the client."), ("Palacios v. Amora (2018):", "Attorney"s liens must follow procedural notices and cannot be used to extort excessive fees or disrupt court dockets.")]}, {"type": "content", "tag": "MODULE 10A • TIMELINE: 18:55 – 20:10", "title": "Client Trust Funds & Financial Bans: Sections 49 to 52", "points": [("§ 49-50 Anti-Commingling:", "Client funds are sacred trust; must be kept strictly separate from firm accounts."), ("Zero Tolerance on Estafa:", "Misappropriating funds or failing to account results in instant disbarment."), ("§ 51 Litigated Property:", "Codifies Art. 1491: cannot purchase client rights/property in active suit."), ("§ 52 Lending & Borrowing:", "Bar on borrowing from or loan-sharking active clients during representation.")], "case_title": "LANDMARK CASES: FOSTER (2014) & HERNANDEZ (2005)", "case_text": [("Foster v. Agtang (2014):", "Pocketing filing fees and commingling trust funds warrants instant disbarment and estafa criminal charges."), ("Hernandez v. Go (2005):", "Purchasing client property involved in pending litigation violates Article 1491, resulting in disbarment."), ("Frias v. Lozada (2006):", "Borrowing money from a client exploits the fiduciary relationship and warrants suspension.")]}, {"type": "content", "tag": "MODULE 10B • TIMELINE: 20:10 – 21:18", "title": "Termination of Engagement & File Turnover: Sections 53 to 56", "points": [("§ 54 Client Discharge:", "Client holds absolute prerogative to discharge counsel at will with or without cause."), ("§ 53 Lawyer Withdrawal:", "Lawyer withdrawal requires good cause upon formal written notice to court."), ("§ 55 Death of Parties:", "Death ends personal bond, but does not terminate law firm retainer."), ("§ 56 No Hostage Files:", "Immediate turnover of all documents, evidence, and unexpended funds.")], "case_title": "LANDMARK CASES: MONTANO (2001) & RAMIREZ (1967)", "case_text": [("Montano v. IBP (2001):", "Counsel cannot abandon a client; withdrawal requires justifiable cause and leave of court."), ("Ramirez v. Ner (1967):", "Original client records and case files cannot be held hostage as leverage for fee collection. Turnover must be immediate.")]}, {"type": "matrix", "tag": "RAPID BAR EXAM REVIEW", "title": "Master Statutory Codex: Sections 1 to 56 Summary", "col1": ["§ 1-5: Practice of Law & Fiduciary Bond Inception", "§ 6-9: Fiduciary Candor, Settlement & Reporting Fraud", "§ 10-12: Supervisory Partner Liability & No Superior Orders", "§ 13-15: Conflict of Interest & Lateral Hire Screening", "§ 16: Strict "No Romance" Rule with Clients", "§ 17-20: Former Clients, Corporate Entity & Legal Aid", "§ 21-24: Zero Gifts, Forum Shopping & Anti-Poaching"], "col2": ["§ 25-27: Solo Practitioners & Firm Names with Deceased Partners", "§ 28-31: Government Service Revolving Door & Prosecutors", "§ 32-34: Consultation Secrecy & Non-Delegable Paralegal Tasks", "§ 35-38: Limited Legal Services Framework & Clean Exit", "§ 39-40: Law Student Practice (Rule 138-A) & Director Liability", "§ 41-48: Fair Fees (Quantum Meruit), No Kickbacks & Notice of Lien", "§ 49-56: Separate Trust Funds, Article 1491 Ban & No Hostage Files"]}, {"type": "conclusion", "tag": "ETHICAL SYNTHESIS & MANIFESTO", "title": "Fidelity: The Core Covenant of the Philippine Bar", "quote": "Fidelity is not a commercial service; it is the sacred covenant that justifies the public trust in the administration of justice.", "takeaways": ["1. Undivided Allegiance: Represent the client with zeal, but strictly within the bounds of law and truth.", "2. Permanent Secrecy: Client confidences survive the conclusion of the case and the death of parties.", "3. Sacred Stewardship: Client funds are held in trust; commingling or self-dealing brings swift disbarment.", "4. Independent Moral Agency: Every member of the Bar answers personally to the Lawyer"s Oath and the Supreme Court."]}];
+    let currentSlide = 0;
+
+    const viewport = document.getElementById('slideViewport');
+    const counter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const thumbsContainer = document.getElementById('thumbsContainer');
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
+
+    function renderThumbs() {
+      thumbsContainer.innerHTML = '';
+      slides.forEach((s, idx) => {
+        const btn = document.createElement('button');
+        btn.className = `thumb-btn ${idx === currentSlide ? 'active' : ''}`;
+        btn.textContent = `Slide ${idx + 1}`;
+        btn.onclick = () => goToSlide(idx);
+        thumbsContainer.appendChild(btn);
+      });
+    }
+
+    function renderSlide(idx) {
+      const data = slides[idx];
+      let html = `<div class="slide-tag">${data.tag}</div><h1 class="slide-title">${data.title}</h1>`;
+
+      if (data.type === 'cover') {
+        html += `
+          <div style="font-size:1.3rem; color:var(--accent-blue); margin-bottom:1.5rem; font-weight:600;">${data.subtitle}</div>
+          <div class="card-pane" style="flex:1; justify-content:center; gap:1rem;">
+            ${data.details.map(d => `<div style="font-size:1.05rem; color:var(--text-slate); line-height:1.55;">${d}</div>`).join('')}
+          </div>
+        `;
+      } else if (data.type === 'content') {
+        html += `
+          <div class="slide-content-grid">
+            <div class="card-pane">
+              <div class="pane-title">STATUTORY RULES & MANDATES</div>
+              ${data.points.map(p => `
+                <div class="point-item"><strong>${p[0]}</strong> ${p[1]}</div>
+              `).join('')}
+            </div>
+            <div class="card-pane card-pane-accent">
+              <div class="pane-title pane-title-green">${data.case_title}</div>
+              ${data.case_text.map(c => `
+                <div class="case-item"><strong>• ${c[0]}</strong> ${c[1]}</div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      } else if (data.type === 'matrix') {
+        html += `
+          <div class="slide-content-grid">
+            <div class="card-pane">
+              <div class="pane-title">PART I: SECTIONS 1 TO 24</div>
+              ${data.col1.map(c => `<div class="point-item" style="font-size:1.05rem;">• ${c}</div>`).join('')}
+            </div>
+            <div class="card-pane">
+              <div class="pane-title">PART II: SECTIONS 25 TO 56</div>
+              ${data.col2.map(c => `<div class="point-item" style="font-size:1.05rem;">• ${c}</div>`).join('')}
+            </div>
+          </div>
+        `;
+      } else if (data.type === 'conclusion') {
+        html += `
+          <div style="background:rgba(251,191,36,0.12); border-left:4px solid var(--accent-gold); padding:1.2rem; margin-bottom:1.2rem; border-radius:6px; font-family:var(--font-quote); font-style:italic; font-size:1.15rem; color:var(--accent-gold);">
+            "${data.quote}"
+          </div>
+          <div class="card-pane" style="flex:1;">
+            <div class="pane-title">CORE TAKEAWAYS FOR LEGAL PRACTICE</div>
+            ${data.takeaways.map(t => `<div class="point-item" style="font-size:1.05rem; margin-bottom:0.9rem;">${t}</div>`).join('')}
+          </div>
+        `;
+      }
+
+      html += `
+        <div class="slide-footer">
+          <span>MLC Law Library • Canon III (Fidelity) Masterclass</span>
+          <span>Slide ${idx + 1} of ${slides.length}</span>
+        </div>
+      `;
+
+      viewport.innerHTML = html;
+      counter.textContent = `Slide ${idx + 1} / ${slides.length}`;
+      renderThumbs();
+    }
+
+    function goToSlide(idx) {
+      if (idx >= 0 && idx < slides.length) {
+        currentSlide = idx;
+        renderSlide(currentSlide);
+      }
+    }
+
+    prevBtn.onclick = () => goToSlide(currentSlide - 1);
+    nextBtn.onclick = () => goToSlide(currentSlide + 1);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') goToSlide(currentSlide - 1);
+      if (e.key === 'ArrowRight' || e.key === ' ') goToSlide(currentSlide + 1);
+      if (e.key === 'f' || e.key === 'F') toggleFullscreen();
+    });
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+      } else {
+        if (document.exitFullscreen) document.exitFullscreen();
+      }
+    }
+    fullscreenBtn.onclick = toggleFullscreen;
+
+    renderSlide(0);
+  </script>
+</body>
+</html>

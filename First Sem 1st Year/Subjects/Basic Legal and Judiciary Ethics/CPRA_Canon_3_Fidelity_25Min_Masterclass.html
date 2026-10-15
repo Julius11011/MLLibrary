@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canon III (Fidelity) 25-Min Studio Masterclass | MLLibrary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0b1120;
+      --bg-secondary: #131d31;
+      --bg-tertiary: #1e293b;
+      --border-color: rgba(148, 163, 184, 0.14);
+      --border-focus: #fbbf24;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --accent-gold: #fbbf24;
+      --accent-gold-dark: #d97706;
+      --accent-blue: #38bdf8;
+      --accent-emerald: #34d399;
+      --accent-crimson: #f87171;
+      --accent-purple: #c084fc;
+      --highlight-bg: rgba(251, 191, 36, 0.18);
+      --highlight-border: #fbbf24;
+      --card-bg: rgba(19, 29, 49, 0.75);
+      --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Merriweather', Georgia, serif;
+      --font-heading: 'Cinzel', serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --sidebar-width: 320px;
+      --header-height: 64px;
+      --dock-height: 84px;
+      --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+    }
+
+    [data-theme="sepia"] {
+      --bg-primary: #fbf7ee;
+      --bg-secondary: #f4ecd8;
+      --bg-tertiary: #e9dfc4;
+      --border-color: rgba(120, 97, 65, 0.18);
+      --border-focus: #b45309;
+      --text-primary: #2d241e;
+      --text-secondary: #4a3e35;
+      --text-muted: #786c60;
+      --accent-gold: #b45309;
+      --accent-gold-dark: #92400e;
+      --accent-blue: #0284c7;
+      --accent-emerald: #059669;
+      --accent-crimson: #dc2626;
+      --accent-purple: #7c3aed;
+      --highlight-bg: rgba(217, 119, 6, 0.18);
+      --card-bg: rgba(244, 236, 216, 0.9);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8fafc;
+      --bg-tertiary: #f1f5f9;
+      --border-color: #e2e8f0;
+      --border-focus: #d97706;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --accent-gold: #d97706;
+      --accent-gold-dark: #b45309;
+      --accent-blue: #0284c7;
+      --accent-emerald: #059669;
+      --accent-crimson: #dc2626;
+      --accent-purple: #7c3aed;
+      --highlight-bg: rgba(254, 240, 138, 0.4);
+      --card-bg: rgba(248, 250, 252, 0.95);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.85;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: calc(var(--dock-height) + 24px);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-color);
+      height: var(--header-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      backdrop-filter: blur(12px);
+    }
+
+    .brand-title {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--accent-gold);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn-action {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .btn-action:hover {
+      border-color: var(--border-focus);
+      color: var(--accent-gold);
+    }
+
+    .main-container {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+      flex: 1;
+    }
+
+    .hero-banner {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.95) 100%);
+      border: 1px solid var(--border-color);
+      border-left: 6px solid var(--accent-gold);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-tag {
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent-gold);
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.25rem;
+    }
+
+    .meta-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .badge {
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(251, 191, 36, 0.12);
+      border: 1px solid rgba(251, 191, 36, 0.3);
+      color: var(--accent-gold);
+    }
+    .badge-blue {
+      background: rgba(56, 189, 248, 0.12);
+      border-color: rgba(56, 189, 248, 0.3);
+      color: var(--accent-blue);
+    }
+    .badge-emerald {
+      background: rgba(52, 211, 153, 0.12);
+      border-color: rgba(52, 211, 153, 0.3);
+      color: var(--accent-emerald);
+    }
+
+    .module-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(8px);
+      transition: border-color 0.2s ease;
+    }
+    .module-card:hover {
+      border-color: rgba(251, 191, 36, 0.4);
+    }
+
+    .module-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .module-title {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      color: var(--accent-gold);
+    }
+
+    .module-time {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--accent-blue);
+      background: rgba(56, 189, 248, 0.1);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .content-para {
+      margin-bottom: 1.25rem;
+      text-align: justify;
+      color: var(--text-secondary);
+    }
+
+    .case-box {
+      background: rgba(15, 23, 42, 0.6);
+      border-left: 4px solid var(--accent-blue);
+      border-radius: 0 8px 8px 0;
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+      font-size: 0.95rem;
+    }
+
+    .case-title {
+      font-family: var(--font-ui);
+      font-weight: 700;
+      color: var(--accent-blue);
+      margin-bottom: 0.35rem;
+    }
+
+    /* Fixed Audio Player Dock */
+    .audio-dock {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: var(--dock-height);
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-color);
+      box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.5);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 2rem;
+      backdrop-filter: blur(16px);
+    }
+
+    .player-wrap {
+      max-width: 960px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .btn-circle {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--accent-gold);
+      border: none;
+      color: #0f172a;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      transition: transform 0.15s ease, background-color 0.2s ease;
+      flex-shrink: 0;
+    }
+    .btn-circle:hover {
+      transform: scale(1.05);
+      background: #fcd34d;
+    }
+
+    .btn-skip {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-family: var(--font-mono);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.15s ease;
+    }
+    .btn-skip:hover {
+      border-color: var(--border-focus);
+      color: var(--accent-gold);
+    }
+
+    .scrub-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .time-info {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background: var(--bg-tertiary);
+      border-radius: 3px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--accent-gold);
+      border-radius: 3px;
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    .speed-select {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 5px 8px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand-title">MLC LAW LIBRARY • AUDIO MASTERCLASS</div>
+    <div class="header-actions">
+      <a href="CPRA_Canon_3_Fidelity_25Min_Masterclass.mp3" download class="btn-action">
+        ⬇️ Download 25-Min MP3
+      </a>
+      <button class="btn-action" id="themeToggleBtn">🌗 Theme</button>
+    </div>
+  </header>
+
+  <div class="main-container">
+
+    <div class="hero-banner">
+      <span class="hero-tag">Supreme Court of the Philippines • A.M. No. 22-09-01-SC</span>
+      <h1 class="hero-title">Canon III (Canon 3): Fidelity Masterclass</h1>
+      <p class="hero-desc">
+        A full, comprehensive 25-minute studio audio presentation covering all 56 Sections of Canon 3 (Fidelity) in the modern Code of Professional Responsibility and Accountability (CPRA), synthesizing 16 landmark Philippine Supreme Court disbarment and ethical precedents.
+      </p>
+      <div class="meta-badges">
+        <span class="badge">🎙️ 25 Minutes Studio MP3</span>
+        <span class="badge badge-blue">⚖️ 56 CPRA Sections</span>
+        <span class="badge badge-emerald">🏛️ 16 Landmark Supreme Court Cases</span>
+        <span class="badge">Rule 4 TTS Compliant</span>
+      </div>
+    </div>
+
+    <!-- MODULE 1 -->
+    <div class="module-card">
+      <div class="module-header">
+        <h2 class="module-title">Prologue & Foundations of Practice (Sections 1–5)</h2>
+        <span class="module-time">00:00 – 02:30</span>
+      </div>
+      <p class="content-para">
+        Fidelity is not casual loyalty; it is an unyielding fiduciary covenant. When a client confides in you, they place their liberty, property, or reputation entirely in your hands. Section 1 defines the practice of law, and Section 2 sets forth the tripartite duties of the responsible lawyer.
+      </p>
+      <div class="case-box">
+        <div class="case-title">Cayetano v. Monsod (1991) & Burbe v. Magulta (2002)</div>
+        Practice of law is not limited to trial litigation; it includes corporate counseling, legal research, and teaching. The fiduciary bond attaches the moment a person consults a lawyer for legal guidance, even without a written contract or payment of fees.
+      </div>
+      <p class="content-para">
+        Under Section 4 and Section 5, an attorney cannot compromise a client's cause or waive legal rights without express written authority. The cause belongs to the client; counsel is merely the helmsman.
+      </p>
+    </div>
+
+    <!-- MODULE 2 -->
+    <div class="module-card">
+      <div class="module-header">
+        <h2 class="module-title">The Fiduciary Core, Settlement, and Fraud (Sections 6–9)</h2>
+        <span class="module-time">02:30 – 05:00</span>
+      </div>
+      <p class="content-para">
+        Section 6 commands undivided loyalty, and Section 7 strictly prohibits self-dealing or taking personal advantage of client disclosures. In <em>Samson v. Era</em>, the Court reiterated that inside knowledge cannot be exploited for financial windfalls.
+      </p>
+      <p class="content-para">
+        Under Section 8, a lawyer has a positive duty to encourage fair settlement rather than instigating litigation. Under Section 9, if a client commits perjury or introduces forged documents, the lawyer must call upon the client to rectify the fraud; if the client refuses, the lawyer must withdraw immediately.
+      </p>
+    </div>
+
+    <!-- MODULE 3 -->
+    <div class="module-card">
+      <div class="module-header">
+        <h2 class="module-title">Law Firm Generals and Junior Associates (Sections 10–12)</h2>
+        <span class="module-time">05:00 – 07:30</span>
+      </div>
+      <p class="content-para">
+        Sections 10 and 11 hold senior partners directly accountable for the misconduct of subordinate lawyers, paralegals, and employees. Scapegoating staff is no longer permitted under the CPRA.
+      </p>
+      <div class="case-box">
+        <div class="case-title">Abolition of the "Superior Orders" Defense (Section 12)</div>
+        A supervised junior associate cannot defend unethical acts by claiming they were merely following firm orders. Every lawyer carries independent moral and professional responsibility under the Lawyer's Oath.
+      </div>
+    </div>
+
+    <!-- MODULE 4 -->
+    <div class="module-card">
+      <div class="module-header">
+        <h2 class="module-title">Serving Two Masters: Conflict of Interest (Sections 13–15, 17–20)</h2>
+        <span class="module-time">07:30 – 10:00</span>
+      </div>
+      <p class="content-para">
+        Under Sections 13 and 14, representing conflicting interests is barred except with written informed consent. In <em>Quiambao v. Bamba (2005)</em>, corporate counsel was suspended for representing an adverse party in an ejectment suit against the company president.
+      </p>
+      <div class="case-box">
+        <div class="case-title">Hornilla v. Saldivar (2003) & Anglo v. Valencia (2006)</div>
+        In corporate derivative suits, corporate counsel represents the corporate entity itself—not the board members accused of looting the treasury. Duty of confidentiality never expires; counsel cannot oppose former clients in substantially related matters.
+      </div>
+    </div>
+
+    <!-- MODULE 5 -->
+    <div class="module-card">
+      <div class="module-header">
+        <h2 class="module-title">The Romance Ban & Litigation Integrity (Sections 16, 21–24)</h2>
+        <span class="module-time">10:00 – 12:30</span>
+      </div>
+      <p class="content-para">
+        Section 16 codifies the strict <strong>"No Romance Rule"</strong>: lawyers cannot enter into dating, romantic, or sexual relationships with active clients unless the relationship pre-existed the engagement. In <em>Eala v. Villarosa (2007)</em>, the Court disbarred an attorney for exploiting client trust in an illicit affair.
+      </p>
+      <div class="case-box">
+        <div class="case-title">Heirs of Sotto v. Palicte (1989) & Camacho v. Pangilinan (2001)</div>
+        Section 21 strictly bans gift-giving of any value to courts or judges. Section 23 punishes forum shopping as an abuse of process. Section 24 prohibits directly negotiating with or poaching a represented party without opposing counsel's consent.
+      </div>
+    </div>
+
+    <!-- MODULE 6 -->
+    <div class="module-card">
+      <div class="module-header">
+        <h2 class="module-title">Firm Names & The Revolving Door (Sections 25–31)</h2>
+        <span class="module-time">12:30 – 15:00</span>
+      </div>
+      <p class="content-para">
+        Section 26 resolves the historic <em>In Re: SyCip, Salazar</em> debate: law firms may retain deceased partners' names provided their status is explicitly disclosed on all firm communications.
+      </p>
+      <div class="case-box">
+        <div class="case-title">PCGG v. Sandiganbayan (2005) & Suarez v. Platon (1940)</div>
+        Under Section 29, former government lawyers cannot handle matters in private practice that they intervened in while in public office. Under Section 31, public prosecutors are ministers of justice whose paramount duty is the fair presentation of truth, not racking up convictions.
+      </div>
+    </div>
+
+    <!-- MODULE 7 -->
+    <div class="module-card">
+      <div class="module-header">
+        <h2 class="module-title">Client Secrets & Limited Legal Services (Sections 32–38)</h2>
+        <span class="module-time">15:00 – 17:30</span>
+      </div>
+      <p class="content-para">
+        Under Section 32, the mere fact of a legal consultation is confidential and cannot be revealed even if the lawyer declined the case. Section 34 forbids delegating legal opinions, pleading signing, or fee agreements to paralegals.
+      </p>
+      <p class="content-para">
+        Sections 35 through 38 regulate unbundled <strong>Limited Legal Services</strong> (e.g. appearing solely for arraignment or hotline advice), providing full confidentiality protections while cleanly ending representation upon task completion.
+      </p>
+    </div>
+
+    <!-- MODULE 8 -->
+    <div class="module-card">
+      <div class="module-header">
+        <h2 class="module-title">Clinical Legal Education & Student Practice (Sections 39–40)</h2>
+        <span class="module-time">17:30 – 19:30</span>
+      </div>
+      <p class="content-para">
+        Under Rule 138-A, law student practitioners represent actual clients in court. Section 39 subjects certified students directly to the CPRA. Section 40 holds legal clinic directors and supervising attorneys professionally liable for student conduct.
+      </p>
+    </div>
+
+    <!-- MODULE 9 -->
+    <div class="module-card">
+      <div class="module-header">
+        <h2 class="module-title">Legal Fees, Referrals & Liens (Sections 41–48)</h2>
+        <span class="module-time">19:30 – 22:00</span>
+      </div>
+      <p class="content-para">
+        Section 41 sets a 9-factor fair fee test, grounded on <em>quantum meruit</em> in <em>Masmud v. NLRC</em>. Section 43 strictly bans dividing legal fees with non-lawyers or fixers. Section 47 streamlines attorney's lien enforcement via a simple Notice of Enforcement without delaying main trial proceedings.
+      </p>
+    </div>
+
+    <!-- MODULE 10 -->
+    <div class="module-card">
+      <div class="module-header">
+        <h2 class="module-title">Trust Funds & Termination of Engagement (Sections 49–56)</h2>
+        <span class="module-time">22:00 – 25:00</span>
+      </div>
+      <p class="content-para">
+        Under Sections 49 and 50, client funds must be kept strictly separate. In <em>Foster v. Agtang (2014)</em>, commingling and pocketing filing fees led to immediate disbarment. Under Section 51 and Article 1491, buying property in litigation is banned (<em>Hernandez v. Go</em>), and lending/borrowing is heavily restricted (<em>Frias v. Lozada</em>).
+      </p>
+      <div class="case-box">
+        <div class="case-title">Ramirez v. Ner (1967) & Montano v. IBP (2001)</div>
+        Clients may fire counsel at will; lawyers may only withdraw for good cause upon written notice. Under Section 56, lawyers cannot hold client files or evidence hostage as ransom for disputed fees.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Audio Player Dock -->
+  <div class="audio-dock">
+    <div class="player-wrap">
+      <button class="btn-skip" id="skipBackBtn" title="Back 15s">-15s</button>
+      <button class="btn-circle" id="playBtn" title="Play / Pause Audio">▶</button>
+      <button class="btn-skip" id="skipFwdBtn" title="Forward 15s">+15s</button>
+
+      <div class="scrub-container">
+        <div class="time-info">
+          <span id="currentTime">00:00</span>
+          <span id="durationTime">21:18</span>
+        </div>
+        <div class="progress-bar" id="progressBar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+      </div>
+
+      <select class="speed-select" id="speedSelect" title="Playback Speed">
+        <option value="0.8">0.8x</option>
+        <option value="0.9">0.9x</option>
+        <option value="1.0" selected>1.0x</option>
+        <option value="1.2">1.2x</option>
+        <option value="1.5">1.5x</option>
+      </select>
+    </div>
+  </div>
+
+  <audio id="masterAudio" src="CPRA_Canon_3_Fidelity_25Min_Masterclass.mp3" preload="metadata"></audio>
+
+  <script>
+    const audio = document.getElementById('masterAudio');
+    const playBtn = document.getElementById('playBtn');
+    const skipBackBtn = document.getElementById('skipBackBtn');
+    const skipFwdBtn = document.getElementById('skipFwdBtn');
+    const progressBar = document.getElementById('progressBar');
+    const progressFill = document.getElementById('progressFill');
+    const currentTimeEl = document.getElementById('currentTime');
+    const durationTimeEl = document.getElementById('durationTime');
+    const speedSelect = document.getElementById('speedSelect');
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+
+    function formatTime(sec) {
+      if (isNaN(sec)) return "00:00";
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+    }
+
+    playBtn.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+        playBtn.textContent = '❚❚';
+      } else {
+        audio.pause();
+        playBtn.textContent = '▶';
+      }
+    });
+
+    audio.addEventListener('timeupdate', () => {
+      const pct = (audio.currentTime / audio.duration) * 100;
+      progressFill.style.width = `${pct}%`;
+      currentTimeEl.textContent = formatTime(audio.currentTime);
+    });
+
+    audio.addEventListener('loadedmetadata', () => {
+      durationTimeEl.textContent = formatTime(audio.duration);
+    });
+
+    progressBar.addEventListener('click', (e) => {
+      const rect = progressBar.getBoundingClientRect();
+      const pos = (e.clientX - rect.left) / rect.width;
+      audio.currentTime = pos * audio.duration;
+    });
+
+    skipBackBtn.addEventListener('click', () => {
+      audio.currentTime = Math.max(0, audio.currentTime - 15);
+    });
+
+    skipFwdBtn.addEventListener('click', () => {
+      audio.currentTime = Math.min(audio.duration, audio.currentTime + 15);
+    });
+
+    speedSelect.addEventListener('change', (e) => {
+      audio.playbackRate = parseFloat(e.target.value);
+    });
+
+    // Theme toggle
+    const themes = ['dark', 'sepia', 'light'];
+    let currentThemeIdx = 0;
+    themeToggleBtn.addEventListener('click', () => {
+      currentThemeIdx = (currentThemeIdx + 1) % themes.length;
+      document.documentElement.setAttribute('data-theme', themes[currentThemeIdx]);
+    });
+  </script>
+</body>
+</html>
