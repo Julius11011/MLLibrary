@@ -60,4 +60,5 @@ inspect_*.py
 generate_canon3_*.py
 all_sections_timing.json
 curated_article_markers.json
-
+export_*.py
+cases_audio_metadata.json

@@ -1,6 +1,6 @@
 # Antigravity Handoff Summary
 
-**Date:** October 15, 2026  
+**Date:** October 22, 2026  
 **Master Workspace:** `C:\Users\JR\Downloads\14All-All41` (and `C:\Users\JR\Downloads\14All-All41\MLC`)  
 **GitHub Repository:** [https://github.com/Julius11011/MLLibrary](https://github.com/Julius11011/MLLibrary)  
 **Cloudflare Deployment:** [https://mllibrary.juliusrayn-balitbit.workers.dev](https://mllibrary.juliusrayn-balitbit.workers.dev)  
@@ -130,6 +130,22 @@ Refined the Table of Contents restore button and Article Markers Navigator Drawe
 3. **Synchronization & Deployment**:
    - Pushed commit `620bdc2` to GitHub `origin/main`.
    - Deployed live to Cloudflare Workers (`Version ID: 6333a1e0-5dde-411a-9181-728be84d7024`).
+
+### G. Criminal Law 1 Complete 275 Landmark Cases Audio Navigation & PDF Skip-to-Play Hyperlinks
+Integrated complete audio skip-to-play navigation across both PDF documents and interactive HTML web readers for all 275 Landmark Cases in Criminal Law 1 (Book I, Articles 1–113 RPC):
+1. **Interactive Case Markers Drawer & Timeline (`.article-markers-drawer`)**:
+   - Pinned beneath the studio audio podcast toolbar with all 275 cases mapped into 7 Syllabus Parts.
+   - Live search input (`#caseMarkerSearch`), 7 quick category filter chips (`Part I: Principles (1–39)` to `Part VII: Civil Liability (268–275)`), and 275 individual case chips with timestamps (`00:00` to `168:58`).
+   - Clicking `▶ Play` on any chip immediately seeks the 2h 48m master MP3 audio, plays audio, smooth-scrolls to the case section in the document, and triggers a golden pulse focus halo (`audio-highlight-flash`).
+   - `⏮ Prev Case` and `Next Case ⏭` audio toolbar quick buttons for sequential case listening.
+   - Inline `[▶ Audio mm:ss]` buttons embedded in each case card header.
+2. **Adobe / PDF Document Outline & Clickable Hyperlinks**:
+   - Configured full 2-level hierarchical Document Outline (Bookmarks / TOC) in `Criminal_Law_1_Complete_275_Landmark_ALAC_Case_Digests.pdf` (282 total entries).
+   - Embedded 275 clickable URI hyperlinks over case headers in the PDF, directing straight to the exact case timestamp in the cloud/local web reader with auto-play parameters (`?case=X&t=Y&play=1`).
+3. **Synchronization & Deployment**:
+   - Master metadata cataloged in `cases_audio_metadata.json` and [Criminal_Law_1_Complete_275_Cases_Audio_Article_Treatise_Index.md](file:///C:/Users/JR/Downloads/14All-All41/MLC/First%20Sem%201st%20Year/Criminal%20Law/Criminal_Law_1_Complete_275_Cases_Audio_Article_Treatise_Index.md).
+   - Committed and pushed to GitHub `origin/main`.
+   - Deployed live to Cloudflare Workers (`https://mllibrary.juliusrayn-balitbit.workers.dev`).
 
 ---
 
